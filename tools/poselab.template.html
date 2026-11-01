@@ -214,7 +214,6 @@ const STARTERS = /*__POSES__*/;
   // ---------- render
   function draw() {
     const colors = { body: state.body, cloth: state.cloth };
-    if (state.body === '#141210') colors.eye = '#e0541a';
     if (state.body === '#f3f1ec') colors.mouth = '#141210';
     const p = state.pose;
     const big = renderFigure(SPECIES, p, { x: 0, y: 0, scale: 1, facing: state.facing, colors });

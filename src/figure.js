@@ -19,7 +19,6 @@ const KNEE = -1;  // shin rotates toward -θ when the knee flexes
 export const DEFAULT_COLORS = {
   body: '#5a2a12',
   cloth: '#e0541a',
-  eye: '#1a0d05',
   mouth: '#f4efe6',
 };
 
@@ -303,9 +302,26 @@ export function buildShapes(species, pose) {
 
 // Render a figure as an SVG <g>. Ground point at (x, y) in px; `scale` is
 // px per head-unit; facing 1 (right) or -1 (left).
+// Relative luminance (WCAG) of a #rgb / #rrggbb colour, 0..1.
+function luminance(hex) {
+  let h = hex.replace('#', '');
+  if (h.length === 3) h = h.split('').map((c) => c + c).join('');
+  const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+  const [r, g, b] = [0, 2, 4].map((i) => lin(parseInt(h.slice(i, i + 2), 16)));
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+// Eyes (and ear curls) are always pure white or black, whichever has
+// more contrast with the body colour.
+export function eyeColor(body) {
+  const L = luminance(body);
+  return (1.05) / (L + 0.05) >= (L + 0.05) / 0.05 ? '#ffffff' : '#000000';
+}
+
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
+  colors.eye = eyeColor(colors.body);
   const { shapes, bbox: bb } = buildShapes(species, pose);
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
