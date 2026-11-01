@@ -33,8 +33,8 @@ export function normalizePose(p = {}) {
   return {
     name: p.name || 'untitled',
     view: p.view === 'front' ? 'front' : 'side',
-    headView: p.headView || (p.view === 'front' ? 'front' : 'side'),
-    mouth: p.mouth === 'closed' ? 'closed' : 'open',
+    headView: (p.headView || p.view) === 'front' ? 'front' : 'side',
+    mouth: [1, 2, 3].includes(p.mouth) ? p.mouth : 2,
     airborne: !!p.airborne,
     lift: num(p.lift, 0),
     spine: {
@@ -224,6 +224,10 @@ function loinclothShape(sk) {
 
 // Head shapes in head-local coords (x forward, y down, centred), then
 // rotated and translated. Returns [{pts, role, stroke?}].
+// Mouth openings, levels 1-3 (never closed): [half width, arch height,
+// shape exponent]. Exponent < 1 squares the arch off, > 1 makes it peaked.
+const MOUTHS = { 1: [0.2, 0.09, 1], 2: [0.19, 0.21, 1.25], 3: [0.26, 0.33, 0.6] };
+
 function headShapes(S, sk) {
   const s = S.head.size, hw = s / 2;
   const view = sk.pose.headView;
@@ -231,48 +235,44 @@ function headShapes(S, sk) {
   // Tapered rounded square: top narrower than bottom.
   const taper = S.head.taper ?? 1; // top width / bottom width
   const wAt = (y) => taper + (1 - taper) * ((y + hw) / s); // x-scale at height y
+  const edge = (y) => hw * wAt(y); // half width of the head at height y
   const square = roundRectPts(hw, hw, S.head.radius).map(([x, y]) => [x * wAt(y), y]);
-  if (view === 'front') {
-    const ex = hw * (taper + (1 - taper) * ((-0.02 + hw) / s)) + 0.02;
-    local.push({ role: 'body', pts: circlePts([-ex, -0.02], 0.15, 14) });
-    local.push({ role: 'body', pts: circlePts([ex, -0.02], 0.15, 14) });
-  }
-  local.push({ role: 'body', pts: square });
-  // features
-  const eye = (c) => local.push({ role: 'eye', pts: circlePts(c, 0.075, 12) });
-  if (view === 'front') { eye([-0.19, -0.1]); eye([0.19, -0.1]); }
-  else if (view === '3q') eye([0.17, -0.14]);
-  else eye([0.15, -0.2]);
 
-  if (view !== 'front') {
-    // ear: a C-curl opening toward the face
-    const cx = view === 'side' ? -0.16 : -0.22;
-    const arc = [];
-    for (let i = 0; i <= 14; i++) {
-      const a = (70 + (i / 14) * 220) * Math.PI / 180;
-      // bottom half hangs longer than the top half
-      const sy = Math.sin(a);
-      arc.push([cx + Math.cos(a) * 0.1, -0.03 + sy * (sy > 0 ? 0.22 : 0.1)]);
-    }
-    local.push({ role: 'ear', pts: arc, open: true });
-  }
-
-  if (sk.pose.mouth === 'open') {
-    // Flat bottom, round arched top (half-ellipse), kept inside the face:
-    // [centre x, bottom y, half width, arch height]
-    const [cx, yb, a, b] =
-      view === 'front' ? [0, 0.36, 0.19, 0.24]
-      : view === '3q' ? [0.16, 0.36, 0.17, 0.22]
-      : [0.26, 0.36, 0.17, 0.22];
-    const m = [];
+  // Ears: solid loops outside the head (same colour, no outline), the lower
+  // half hanging longer than the upper. Front: both sides. Side: the back.
+  const ear = (dirX) => {
+    const y0 = -0.06, rx = 0.17, top = 0.13, bot = 0.21, inset = 0.05;
+    const pts = [];
     for (let i = 0; i <= 16; i++) {
-      const t = Math.PI * (i / 16);
-      m.push([cx + a * Math.cos(t), yb - b * Math.sin(t)]);
+      const a = -Math.PI / 2 + Math.PI * (i / 16); // top -> outward -> bottom
+      const sy = Math.sin(a);
+      const y = y0 + sy * (sy < 0 ? top : bot);
+      pts.push([dirX * (edge(y) - inset + Math.cos(a) * (rx + inset)), y]);
     }
-    local.push({ role: 'mouth', pts: m });
+    return pts;
+  };
+  if (view === 'front') { local.push({ role: 'body', pts: ear(-1) }, { role: 'body', pts: ear(1) }); }
+  else local.push({ role: 'body', pts: ear(-1) });
+  local.push({ role: 'body', pts: square, head: true });
+
+  // Eyes
+  const eye = (c) => local.push({ role: 'eye', pts: circlePts(c, 0.075, 12) });
+  if (view === 'front') { eye([-0.19, -0.12]); eye([0.19, -0.12]); }
+  else eye([0.14, -0.16]);
+
+  // Mouth: flat bottom, arched top. In side view the arch is centred near
+  // the front edge so the opening runs out to the face's edge.
+  const [a, b, p] = MOUTHS[sk.pose.mouth];
+  const yb = 0.37;
+  const cx = view === 'front' ? 0 : edge(yb) - 0.12;
+  const m = [];
+  for (let i = 0; i <= 20; i++) {
+    const t = Math.PI * (i / 20);
+    const c = Math.cos(t), sn = Math.sin(t);
+    m.push([cx + a * Math.sign(c) * Math.pow(Math.abs(c), p), yb - b * Math.pow(sn, p)]);
   }
-  // Mark head parts so the renderer can clip the mouth to the face.
-  for (const sh of local) if (sh.role === 'body') sh.head = true;
+  local.push({ role: 'mouth', pts: m });
+
   return local.map((sh) => ({ ...sh, pts: sh.pts.map((q) => add(sk.H, rot(q, sk.headRot))) }));
 }
 

@@ -333,8 +333,8 @@ const STARTERS = /*__POSES__*/;
   seg('view', [['Side', 'side'], ['Front', 'front']], () => state.pose.view, (v) => {
     state.pose.view = v; state.pose.headView = v === 'front' ? 'front' : 'side';
   });
-  seg('headView', [['Front', 'front'], ['¾', '3q'], ['Side', 'side']], () => state.pose.headView, (v) => { state.pose.headView = v; });
-  seg('mouth', [['Open', 'open'], ['Closed', 'closed']], () => state.pose.mouth, (v) => { state.pose.mouth = v; });
+  seg('headView', [['Front', 'front'], ['Side', 'side']], () => state.pose.headView, (v) => { state.pose.headView = v; });
+  seg('mouth', [['Slit', 1], ['Arch', 2], ['Wide', 3]], () => state.pose.mouth, (v) => { state.pose.mouth = v; });
   seg('facing', [['→', 1], ['←', -1]], () => state.facing, (v) => { state.facing = v; });
   swatches('ground', GROUNDS, 'ground');
   swatches('bodyc', BODIES, 'body');

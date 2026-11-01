@@ -1,11 +1,11 @@
 {
-  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle + lifts the toes. Front view: near = picture-right, far = picture-left (mirrored).",
+  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle + lifts the toes. headView: front | side. mouth: 1 (slit), 2 (arch), 3 (wide shout). Front view: near = picture-right, far = picture-left (mirrored).",
   "poses": [
     {
       "name": "stand",
       "view": "side",
       "headView": "side",
-      "mouth": "closed",
+      "mouth": 1,
       "spine": {
         "lean": 8,
         "chest": 4,
@@ -74,7 +74,8 @@
       "tail": {
         "lift": 35,
         "curl": 90
-      }
+      },
+      "mouth": 3
     },
     {
       "name": "run-b",
@@ -113,7 +114,8 @@
         "curl": 90
       },
       "airborne": true,
-      "lift": 0.35
+      "lift": 0.35,
+      "mouth": 3
     },
     {
       "name": "leap",
@@ -152,7 +154,8 @@
       "tail": {
         "lift": 10,
         "curl": 90
-      }
+      },
+      "mouth": 3
     },
     {
       "name": "tumble",
@@ -191,12 +194,13 @@
       "tail": {
         "lift": -20,
         "curl": 60
-      }
+      },
+      "mouth": 2
     },
     {
       "name": "point",
       "view": "side",
-      "headView": "3q",
+      "headView": "side",
       "spine": {
         "lean": 6,
         "chest": -4,
@@ -228,7 +232,8 @@
       "tail": {
         "lift": 25,
         "curl": 140
-      }
+      },
+      "mouth": 2
     },
     {
       "name": "throw",
@@ -265,7 +270,8 @@
       "tail": {
         "lift": 30,
         "curl": 160
-      }
+      },
+      "mouth": 3
     },
     {
       "name": "crouch-fight",
@@ -302,7 +308,8 @@
       "tail": {
         "lift": -60,
         "curl": 200
-      }
+      },
+      "mouth": 3
     },
     {
       "name": "flex",
@@ -339,7 +346,8 @@
       "tail": {
         "lift": -60,
         "curl": 200
-      }
+      },
+      "mouth": 2
     }
   ]
 }
