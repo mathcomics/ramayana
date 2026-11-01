@@ -164,7 +164,7 @@ pre {
       <button class="btn ghost" id="saveAsBtn" type="button">Save as new</button>
       <button class="btn ghost" id="copyBtn" type="button">Copy JSON</button>
     </div>
-    <p class="hint">Save keeps your changes under the pose’s own name, so editing a starter pose replaces it. Poses you’ve changed are marked “edited” in the list. They’re kept with this page, so Claude can read them and add them to the repo.</p>
+    <p class="hint">Save keeps your changes under the pose’s own name, so editing a starter pose replaces it. They’re kept with this page, so Claude can read them and add them to the repo.</p>
     <pre id="json" aria-label="Pose JSON"></pre>
   </section>
 </div>
@@ -322,7 +322,7 @@ const STARTERS = /*__POSES__*/;
     const sel = $('preset');
     const cur = state.pose?.name;
     sel.innerHTML = allPoses().map(({ pose, edited }) =>
-      `<option value="${pose.name.replace(/"/g, '&quot;')}">${pose.name}${edited ? ' · edited' : ''}</option>`).join('');
+      `<option value="${pose.name.replace(/"/g, '&quot;')}">${pose.name}</option>`).join('');
     if (cur) sel.value = cur;
   }
   $('preset').addEventListener('change', (e) => {
@@ -371,6 +371,12 @@ const STARTERS = /*__POSES__*/;
     db.collection('poses').onSnapshot((snap) => {
       if (!snap.metadata?.fromCache) clearTimeout(timer);
       state.saved = snap.docs.map((d) => d.data()).filter((d) => d && d.pose).map((d) => d.pose);
+      // Show the saved version of the pose on screen, unless it has
+      // unsaved changes the viewer would lose.
+      if (!state.dirty) {
+        const hit = allPoses().find((x) => x.pose.name === state.pose.name);
+        if (hit) load(hit.pose);
+      }
       fillPresets();
     }, (e) => {
       clearTimeout(timer);
