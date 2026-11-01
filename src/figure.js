@@ -228,11 +228,16 @@ function headShapes(S, sk) {
   const s = S.head.size, hw = s / 2;
   const view = sk.pose.headView;
   const local = [];
+  // Tapered rounded square: top narrower than bottom.
+  const taper = S.head.taper ?? 1; // top width / bottom width
+  const wAt = (y) => taper + (1 - taper) * ((y + hw) / s); // x-scale at height y
+  const square = roundRectPts(hw, hw, S.head.radius).map(([x, y]) => [x * wAt(y), y]);
   if (view === 'front') {
-    local.push({ role: 'body', pts: circlePts([-hw - 0.02, -0.02], 0.15, 14) });
-    local.push({ role: 'body', pts: circlePts([hw + 0.02, -0.02], 0.15, 14) });
+    const ex = hw * (taper + (1 - taper) * ((-0.02 + hw) / s)) + 0.02;
+    local.push({ role: 'body', pts: circlePts([-ex, -0.02], 0.15, 14) });
+    local.push({ role: 'body', pts: circlePts([ex, -0.02], 0.15, 14) });
   }
-  local.push({ role: 'body', pts: roundRectPts(hw, hw, S.head.radius) });
+  local.push({ role: 'body', pts: square });
   // features
   const eye = (c) => local.push({ role: 'eye', pts: circlePts(c, 0.075, 12) });
   if (view === 'front') { eye([-0.19, -0.1]); eye([0.19, -0.1]); }
@@ -245,7 +250,9 @@ function headShapes(S, sk) {
     const arc = [];
     for (let i = 0; i <= 14; i++) {
       const a = (70 + (i / 14) * 220) * Math.PI / 180;
-      arc.push([cx + Math.cos(a) * 0.1, 0.0 + Math.sin(a) * 0.12]);
+      // bottom half hangs longer than the top half
+      const sy = Math.sin(a);
+      arc.push([cx + Math.cos(a) * 0.1, -0.03 + sy * (sy > 0 ? 0.22 : 0.1)]);
     }
     local.push({ role: 'ear', pts: arc, open: true });
   }

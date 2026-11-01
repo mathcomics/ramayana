@@ -61,11 +61,12 @@ and default posture. Measurements are in head-units (h = head diameter).
 
 ### 5.1 Monkey (vanara)
 
-- Head: **always a rounded square, from any side.** Views:
+- Head: **always a rounded square, from any side**, tapered so the top is
+  narrower than the bottom (`head.taper` ≈ 0.8). Views:
   - front: two eye dots, ears as half-discs outside the head, open mouth
     as an arched trapezoid;
   - three-quarter: one eye toward the face side, ear as a C-curl on the
-    back side, mouth shifted toward the face;
+    back side (the curl's lower half hangs longer than its upper half), mouth shifted toward the face;
   - side: eye near the top front, C-curl ear, mouth toward the front.
   - No muzzle or snout: nothing sticks out of the square.
   - The open mouth is always a round arch over a flat bottom, and always
