@@ -43,6 +43,10 @@ from its silhouette alone.
   segment on the *inner* side. Leg: curved thigh-front, curved calf-back.
   Arm: curved triceps (back of upper arm), curved forearm-front.
   See `reference/sketch-limbs-and-heads.jpg`.
+- **Knotty joints** (all species): the upper segment runs full width into
+  the elbow or knee, and the lower segment starts thinner (`knot` × joint
+  width, ~0.55), swells along its curved side, then tapers to the wrist
+  or ankle. Arms and legs follow the same rule.
 - Start with simple forms; add feature variation later.
 - Seeded roughness: slight edge wobble and small thickness variation, so it
   reads as brushwork. Same seed → same image.

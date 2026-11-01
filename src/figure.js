@@ -115,24 +115,30 @@ function segment(A, B, wa, wb, theta, cs, dirM, bulge) {
   return [sA, sB, cB, ...quad(cB, ctrl, cA, 12)];
 }
 
+// Knotty joints: the upper segment runs full width into the joint (the
+// knot), the lower segment starts thinner (knot × joint width), swells
+// along its curved side, then tapers to the wrist or ankle.
 function limbShapes(S, L, kind) {
   const out = [];
   const bulge = S.bulge;
+  const lowBulge = S.lowerBulge ?? bulge;
   if (kind === 'arm') {
     const [w0, w1, w2] = S.arm.w;
+    const k = S.arm.knot ?? 1;
     out.push(circlePts(L.sh, w0 / 2));
     out.push(segment(L.sh, L.E, w0, w1, L.tu, -ELBOW, L.dirM, bulge));
     out.push(circlePts(L.E, w1 / 2));
-    out.push(segment(L.E, L.Wr, w1, w2, L.tl, +ELBOW, L.dirM, bulge));
+    out.push(segment(L.E, L.Wr, w1 * k, w2, L.tl, +ELBOW, L.dirM, lowBulge));
     // hand: simple fist
     const r = S.arm.hand;
     out.push(circlePts(add(L.Wr, mul(L.dirM(L.th), r * 0.7)), r));
   } else {
     const [w0, w1, w2] = S.leg.w;
+    const k = S.leg.knot ?? 1;
     out.push(circlePts(L.hp, w0 / 2));
     out.push(segment(L.hp, L.K, w0, w1, L.tt, -KNEE, L.dirM, bulge));
     out.push(circlePts(L.K, w1 / 2));
-    out.push(segment(L.K, L.A, w1, w2, L.ts, +KNEE, L.dirM, bulge));
+    out.push(segment(L.K, L.A, w1 * k, w2, L.ts, +KNEE, L.dirM, lowBulge));
     out.push(circlePts(L.A, w2 / 2));
     // foot: a wedge, flat top, slightly rounded sole
     const heel = add(L.A, mul(L.dirM(L.tf), -0.1));
