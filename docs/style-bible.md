@@ -67,7 +67,9 @@ and default posture. Measurements are in head-units (h = head diameter).
   - three-quarter: one eye toward the face side, ear as a C-curl on the
     back side, mouth shifted toward the face;
   - side: eye near the top front, C-curl ear, a short square muzzle with
-    the open mouth as a wedge cut into its front.
+    the open mouth on it.
+  - The open mouth is always a round arch over a flat bottom, and always
+    stays inside the face (the renderer clips it to the head silhouette).
 - Torso: chest tapering to a narrow waist.
 - Arms: long — hanging, they reach about the knee.
 - Legs: comparatively short, often deeply bent.

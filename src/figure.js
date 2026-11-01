@@ -255,12 +255,21 @@ function headShapes(S, sk) {
   }
 
   if (sk.pose.mouth === 'open') {
-    let m;
-    if (view === 'front') m = [[-0.2, 0.36], [0.2, 0.36], [0.11, 0.14], [0, 0.1], [-0.11, 0.14]];
-    else if (view === '3q') m = [[0.08, 0.37], [0.46, 0.35], [0.38, 0.12], [0.2, 0.12]];
-    else m = [[0.12, 0.15], [0.6, 0.05], [0.6, 0.37]];
+    // Flat bottom, round arched top (half-ellipse), kept inside the face:
+    // [centre x, bottom y, half width, arch height]
+    const [cx, yb, a, b] =
+      view === 'front' ? [0, 0.36, 0.19, 0.24]
+      : view === '3q' ? [0.24, 0.36, 0.16, 0.22]
+      : [0.4, 0.34, 0.15, 0.2];
+    const m = [];
+    for (let i = 0; i <= 16; i++) {
+      const t = Math.PI * (i / 16);
+      m.push([cx + a * Math.cos(t), yb - b * Math.sin(t)]);
+    }
     local.push({ role: 'mouth', pts: m });
   }
+  // Mark head parts so the renderer can clip the mouth to the face.
+  for (const sh of local) if (sh.role === 'body') sh.head = true;
   return local.map((sh) => ({ ...sh, pts: sh.pts.map((q) => add(sk.H, rot(q, sk.headRot))) }));
 }
 
@@ -302,6 +311,8 @@ export function buildShapes(species, pose) {
 
 // Render a figure as an SVG <g>. Ground point at (x, y) in px; `scale` is
 // px per head-unit; facing 1 (right) or -1 (left).
+let clipSeq = 0;
+
 // Relative luminance (WCAG) of a #rgb / #rrggbb colour, 0..1.
 function luminance(hex) {
   let h = hex.replace('#', '');
@@ -326,6 +337,9 @@ export function renderFigure(species, pose, opts = {}) {
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
   let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;
+  const clipId = `face${++clipSeq}`;
+  const faceD = shapes.filter((s) => s.head).map((s) => pathD(s.pts)).join('');
+  if (faceD) svg += `<clipPath id="${clipId}"><path d="${faceD}"/></clipPath>`;
   let inBody = false;
   for (const s of shapes) {
     if (s.role === 'body') {
@@ -337,7 +351,8 @@ export function renderFigure(species, pose, opts = {}) {
     if (s.role === 'ear') {
       svg += `<path d="${pathD(s.pts, false)}" fill="none" stroke="${colors.eye}" stroke-width="0.06" stroke-linecap="round"/>`;
     } else {
-      svg += `<path d="${pathD(s.pts)}" fill="${colors[s.role]}"/>`;
+      const clip = s.role === 'mouth' && faceD ? ` clip-path="url(#${clipId})"` : '';
+      svg += `<path d="${pathD(s.pts)}" fill="${colors[s.role]}"${clip}/>`;
     }
   }
   if (inBody) svg += '</g>';
