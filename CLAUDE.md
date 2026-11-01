@@ -38,6 +38,7 @@ scene spec (JSON) → layout → figure geometry → SVG
 ## Commands
 
     node tools/contact-sheet.mjs monkey --zoom 3   # out/contact-monkey@3x.png
+    node tools/parts-sheet.mjs monkey              # out/parts-monkey.png (each body part)
     node tools/build-poselab.mjs                   # out/poselab.html (published artifact)
 
 Pose lab (published artifact, saves poses to its database, collection

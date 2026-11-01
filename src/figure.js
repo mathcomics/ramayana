@@ -371,6 +371,32 @@ export function buildShapes(species, pose) {
   return { shapes: out, sk, bbox: bbox(out.map((s) => s.pts)) };
 }
 
+// Every body part as its own list of shapes, for inspection
+// (tools/parts-sheet.mjs). Parts are in solved-pose coordinates.
+export function anatomy(species, pose) {
+  const S = species, sk = solve(species, pose);
+  const arm = limbShapes(S, sk.limbs.near, 'arm');
+  const leg = limbShapes(S, sk.limbs.near, 'leg');
+  const torso = torsoShape(sk);
+  const tail = tailShape(S, sk);
+  const body = (list) => list.map((pts) => ({ pts, role: 'body' }));
+  const parts = {
+    head: headShapes(S, sk),
+    neck: body([neckShape(S, sk)]),
+    torso: body([torso]),
+    'upper arm': body(arm.slice(0, 3)),
+    forearm: body(arm.slice(3, 4)),
+    hand: body(arm.slice(4)),
+    thigh: body(leg.slice(0, 3)),
+    shin: body(leg.slice(3, 5)),
+    foot: body(leg.slice(5)),
+  };
+  if (tail) parts.tail = body([tail.root, tail.body, tail.tip]);
+  const lc = loincloth(S, sk, torso);
+  parts.loincloth = lc.parts.map((pts) => ({ pts, role: 'cloth', clipPts: torso }));
+  return parts;
+}
+
 // Render a figure as an SVG <g>. Ground point at (x, y) in px; `scale` is
 // px per head-unit; facing 1 (right) or -1 (left).
 let clipSeq = 0;
