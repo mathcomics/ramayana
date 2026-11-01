@@ -158,13 +158,14 @@ function handShapes(S, L, wristW) {
   const at = (a, b) => add(add(L.Wr, mul(u, a * len)), mul(n, b));
   if (L.hand === 'fist') {
     // widens from the wrist to a flat top with rounded corners
-    const hw = 0.18, r = 0.08;
+    // and is shorter than the open hand (FIST × hand length)
+    const hw = 0.18, r = 0.07, F = S.arm.fist ?? 0.65;
     // base starts inside the forearm, with a wrist disc, so no gap opens
     // at the wrist whatever the angle
     return [circlePts(L.Wr, wristW / 2, 14), [
       at(-0.3, wristW * 0.5),
-      at(1 - r / len, hw), ...quad(at(1 - r / len, hw), at(1, hw), at(1, hw - r), 5),
-      at(1, -hw + r), ...quad(at(1, -hw + r), at(1, -hw), at(1 - r / len, -hw), 5),
+      at(F - r / len, hw), ...quad(at(F - r / len, hw), at(F, hw), at(F, hw - r), 5),
+      at(F, -hw + r), ...quad(at(F, -hw + r), at(F, -hw), at(F - r / len, -hw), 5),
       at(-0.3, -wristW * 0.5),
     ]];
   }

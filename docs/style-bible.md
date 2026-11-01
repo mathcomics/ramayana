@@ -80,7 +80,7 @@ and default posture. Measurements are in head-units (h = head diameter).
 - Tail: long, curling upward at the tip; expressive (follows motion).
 - Hands (all species; see `reference/sketch-hands.jpg`), set per arm:
   - fist: a wedge widening from the wrist to a flat top with rounded
-    corners;
+    corners, shorter than the open hand (`arm.fist` ≈ 0.65 of its length);
   - out: a blunt paddle for the fingers with a thumb (parallel sides,
     blunt end) on the side away from the body;
   - in: the same with the thumb on the side toward the body.
