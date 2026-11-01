@@ -43,79 +43,77 @@
       "name": "run-a",
       "view": "side",
       "headView": "side",
+      "mouth": 3,
       "spine": {
-        "lean": 28,
-        "chest": 4,
-        "neck": -22,
-        "head": -10
+        "lean": 50,
+        "chest": 0,
+        "neck": 30,
+        "head": -75
       },
       "near": {
         "arm": {
-          "shoulder": -35,
-          "elbow": 80
+          "shoulder": 50,
+          "elbow": 8
         },
         "leg": {
-          "hip": 72,
-          "knee": 28,
-          "ankle": 5
+          "hip": 104,
+          "knee": 104,
+          "ankle": -50
         }
       },
       "far": {
         "arm": {
-          "shoulder": 95,
-          "elbow": 50
+          "shoulder": 230,
+          "elbow": 90
         },
         "leg": {
-          "hip": -38,
-          "knee": 35,
-          "ankle": -25
+          "hip": 50,
+          "knee": 149,
+          "ankle": -44
         }
       },
       "tail": {
-        "lift": 35,
-        "curl": 90
-      },
-      "mouth": 3
+        "lift": 0,
+        "curl": 130
+      }
     },
     {
       "name": "run-b",
       "view": "side",
       "headView": "side",
+      "mouth": 3,
       "spine": {
         "lean": 28,
-        "chest": 4,
-        "neck": -22,
+        "chest": 0,
+        "neck": -15,
         "head": -10
       },
       "near": {
         "arm": {
-          "shoulder": 95,
-          "elbow": 50
+          "shoulder": 69,
+          "elbow": 101
         },
         "leg": {
-          "hip": -20,
-          "knee": 105,
-          "ankle": -10
+          "hip": 110,
+          "knee": 61,
+          "ankle": 6
         }
       },
       "far": {
         "arm": {
-          "shoulder": -35,
-          "elbow": 80
+          "shoulder": -97,
+          "elbow": 93
         },
         "leg": {
-          "hip": 55,
-          "knee": 75,
-          "ankle": 0
+          "hip": -41,
+          "knee": 61,
+          "ankle": -34
         }
       },
       "tail": {
-        "lift": 35,
-        "curl": 90
-      },
-      "airborne": true,
-      "lift": 0.35,
-      "mouth": 3
+        "lift": 55,
+        "curl": 120
+      }
     },
     {
       "name": "leap",
