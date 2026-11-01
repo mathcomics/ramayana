@@ -46,7 +46,7 @@ export function normalizePose(p = {}) {
     },
     near: limb(p.near),
     far: limb(p.far),
-    tail: { lift: num(p.tail?.lift, 30), curl: num(p.tail?.curl, 120) },
+    tail: { lift: num(p.tail?.lift, 30), curl: num(p.tail?.curl, 200) },
   };
 }
 
@@ -159,11 +159,13 @@ function handShapes(S, L, wristW) {
   if (L.hand === 'fist') {
     // widens from the wrist to a flat top with rounded corners
     const hw = 0.18, r = 0.08;
-    return [[
-      at(0, wristW * 0.45),
+    // base starts inside the forearm, with a wrist disc, so no gap opens
+    // at the wrist whatever the angle
+    return [circlePts(L.Wr, wristW / 2, 14), [
+      at(-0.3, wristW * 0.5),
       at(1 - r / len, hw), ...quad(at(1 - r / len, hw), at(1, hw), at(1, hw - r), 5),
       at(1, -hw + r), ...quad(at(1, -hw + r), at(1, -hw), at(1 - r / len, -hw), 5),
-      at(0, -wristW * 0.45),
+      at(-0.3, -wristW * 0.5),
     ]];
   }
   const s = L.hand === 'out' ? 1 : -1;
