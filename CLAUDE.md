@@ -34,3 +34,12 @@ scene spec (JSON) → layout → figure geometry → SVG
 - After any renderer change, regenerate the contact sheet and look at it.
 - Do not trace or copy third-party Warli reference material; derive
   primitives from the style bible and the artist's own work.
+
+## Commands
+
+    node tools/contact-sheet.mjs monkey --zoom 3   # out/contact-monkey@3x.png
+    node tools/build-poselab.mjs                   # out/poselab.html (published artifact)
+
+Pose lab (published artifact, saves poses to its database, collection
+`poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
+Saved poses are reviewed and then merged into `data/poses.json`.

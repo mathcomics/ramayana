@@ -1,0 +1,324 @@
+// Figure model: solve a pose on a species skeleton, build filled shapes,
+// emit SVG. Everything is authored FACING RIGHT; facing left mirrors.
+//
+// See geom.js for the angle convention (0 = down, +90 = forward).
+//
+// Limb rule (Mattesi "straight against curve", simplified):
+//   the upper segment is curved on the OUTER side of the joint's bend and
+//   straight on the inner side; the lower segment flips. For a leg that is
+//   a curved thigh-front against a curved calf-back; for an arm a curved
+//   triceps against a curved forearm-front.
+
+import {
+  dir, add, sub, mul, lerp, rot, quad, circlePts, roundRectPts, pathD, bbox,
+} from './geom.js';
+
+const ELBOW = +1; // forearm rotates toward +θ when the elbow flexes
+const KNEE = -1;  // shin rotates toward -θ when the knee flexes
+
+export const DEFAULT_COLORS = {
+  body: '#5a2a12',
+  cloth: '#e0541a',
+  eye: '#1a0d05',
+  mouth: '#f4efe6',
+};
+
+const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
+
+// Normalise a pose, filling defaults.
+export function normalizePose(p = {}) {
+  const limb = (l = {}) => ({
+    arm: { shoulder: num(l.arm?.shoulder, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0) },
+    leg: { hip: num(l.leg?.hip, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0) },
+  });
+  return {
+    name: p.name || 'untitled',
+    view: p.view === 'front' ? 'front' : 'side',
+    headView: p.headView || (p.view === 'front' ? 'front' : 'side'),
+    mouth: p.mouth === 'closed' ? 'closed' : 'open',
+    airborne: !!p.airborne,
+    lift: num(p.lift, 0),
+    spine: {
+      lean: num(p.spine?.lean, 0),
+      chest: num(p.spine?.chest, 0),
+      neck: num(p.spine?.neck, 0),
+      head: num(p.spine?.head, 0),
+    },
+    near: limb(p.near),
+    far: limb(p.far),
+    tail: { lift: num(p.tail?.lift, 30), curl: num(p.tail?.curl, 120) },
+  };
+}
+
+// ---------------------------------------------------------------- skeleton
+
+export function solve(species, poseIn) {
+  const pose = normalizePose(poseIn);
+  const S = species;
+  const front = pose.view === 'front';
+  const { lean, chest, neck, head } = pose.spine;
+
+  const P = [0, 0];
+  const up1 = 180 - lean;
+  const up2 = 180 - (lean + chest);
+  const up3 = 180 - (lean + chest + neck);
+  const headRot = lean + chest + neck + head;
+
+  const W = add(P, mul(dir(up1), S.spine.lower));
+  const N = add(W, mul(dir(up2), S.spine.upper));
+  const neckEnd = add(N, mul(dir(up3), S.neck));
+  const H = add(neckEnd, mul(dir(180 - headRot), S.head.size * 0.42));
+  const C = lerp(W, N, 0.78); // widest part of the chest
+
+  const fwd = (u) => dir(u - 90); // forward normal of a spine segment
+  const tw = front ? S.torso.front : S.torso.side;
+
+  // limb anchors
+  const limbs = {};
+  for (const side of ['near', 'far']) {
+    const m = front && side === 'far' ? -1 : 1; // front view: far = picture-left, mirrored
+    const lat = front ? (side === 'near' ? 1 : -1) : 0;
+    const dirM = (t) => { const d = dir(t); return [m * d[0], d[1]]; };
+
+    const sh = add(lerp(C, N, 0.45), mul(fwd(up2), front ? lat * tw.chest * 0.42 : -0.04));
+    const hp = add(P, mul(fwd(up1), front ? lat * tw.hip * 0.3 : 0.03));
+
+    const a = pose[side].arm, l = pose[side].leg;
+    const tu = m * -(lean + chest) + a.shoulder;
+    const tl = tu + a.elbow;
+    const th = tl + a.wrist;
+    const E = add(sh, mul(dirM(tu), S.arm.upper));
+    const Wr = add(E, mul(dirM(tl), S.arm.lower));
+
+    const tt = m * -lean + l.hip;
+    const ts = tt - l.knee;
+    const tf = ts + 90 + l.ankle;
+    const K = add(hp, mul(dirM(tt), S.leg.upper));
+    const A = add(K, mul(dirM(ts), S.leg.lower));
+
+    limbs[side] = { m, dirM, sh, E, Wr, tu, tl, th, hp, K, A, tt, ts, tf };
+  }
+
+  return { pose, front, P, W, C, N, neckEnd, H, up1, up2, up3, headRot, fwd, tw, limbs };
+}
+
+// ------------------------------------------------------------------ shapes
+
+// One limb segment A->B, straight on one side, curved on the other.
+// cs = +1 puts the curve on the dirM(θ+90) side, -1 on dirM(θ-90).
+function segment(A, B, wa, wb, theta, cs, dirM, bulge) {
+  const nC = dirM(theta + cs * 90);
+  const nS = mul(nC, -1);
+  const sA = add(A, mul(nS, wa / 2)), sB = add(B, mul(nS, wb / 2));
+  const cA = add(A, mul(nC, wa / 2)), cB = add(B, mul(nC, wb / 2));
+  const ctrl = add(lerp(cA, cB, 0.38), mul(nC, bulge * (wa + wb) / 2));
+  return [sA, sB, cB, ...quad(cB, ctrl, cA, 12)];
+}
+
+function limbShapes(S, L, kind) {
+  const out = [];
+  const bulge = S.bulge;
+  if (kind === 'arm') {
+    const [w0, w1, w2] = S.arm.w;
+    out.push(circlePts(L.sh, w0 / 2));
+    out.push(segment(L.sh, L.E, w0, w1, L.tu, -ELBOW, L.dirM, bulge));
+    out.push(circlePts(L.E, w1 / 2));
+    out.push(segment(L.E, L.Wr, w1, w2, L.tl, +ELBOW, L.dirM, bulge));
+    // hand: simple fist
+    const r = S.arm.hand;
+    out.push(circlePts(add(L.Wr, mul(L.dirM(L.th), r * 0.7)), r));
+  } else {
+    const [w0, w1, w2] = S.leg.w;
+    out.push(circlePts(L.hp, w0 / 2));
+    out.push(segment(L.hp, L.K, w0, w1, L.tt, -KNEE, L.dirM, bulge));
+    out.push(circlePts(L.K, w1 / 2));
+    out.push(segment(L.K, L.A, w1, w2, L.ts, +KNEE, L.dirM, bulge));
+    out.push(circlePts(L.A, w2 / 2));
+    // foot: a wedge, flat top, slightly rounded sole
+    const heel = add(L.A, mul(L.dirM(L.tf), -0.1));
+    const toe = add(L.A, mul(L.dirM(L.tf), S.leg.foot));
+    out.push(segment(heel, toe, w2 * 1.05, 0.07, L.tf, -1, L.dirM, 0.25));
+  }
+  return out;
+}
+
+function torsoShape(sk) {
+  const { P, W, C, N, up1, up2, fwd, tw, front } = sk;
+  const f1 = fwd(up1), f2 = fwd(up2), fm = fwd((up1 + up2) / 2);
+  const upv = dir(up2);
+  const hipF = add(P, mul(f1, tw.hip / 2)), hipB = add(P, mul(f1, -tw.hip / 2));
+  const waF = add(W, mul(fm, tw.waist / 2)), waB = add(W, mul(fm, -tw.waist / 2));
+  const chF = add(C, mul(f2, tw.chest / 2)), chB = add(C, mul(f2, -tw.chest / 2));
+  const topF = add(add(N, mul(f2, tw.chest * 0.28)), mul(upv, 0.06));
+  const topB = add(add(N, mul(f2, -tw.chest * 0.28)), mul(upv, 0.06));
+
+  const pts = [hipB];
+  if (front) {
+    // gentle curves on both sides
+    pts.push(...quad(hipB, add(lerp(hipB, waB, 0.5), mul(f1, -0.05)), waB, 6));
+    pts.push(...quad(waB, add(lerp(waB, chB, 0.5), mul(f2, -0.08)), chB, 6));
+  } else {
+    // back: straight
+    pts.push(waB, chB);
+  }
+  pts.push(...quad(chB, add(N, mul(f2, -tw.chest * 0.45)), topB, 6));
+  pts.push(topF);
+  pts.push(...quad(topF, add(N, mul(f2, tw.chest * 0.5)), chF, 6));
+  // front: curved (chest and belly)
+  pts.push(...quad(chF, add(lerp(chF, waF, 0.5), mul(fm, front ? 0.08 : 0.16)), waF, 8));
+  pts.push(...quad(waF, add(lerp(waF, hipF, 0.5), mul(f1, front ? 0.05 : 0.08)), hipF, 6));
+  // bottom: rounded
+  pts.push(...quad(hipF, add(P, mul(dir(-sk.pose.spine.lean), 0.3)), hipB, 8));
+  return pts;
+}
+
+function neckShape(S, sk) {
+  const w = S.neckWidth || 0.3;
+  const base = lerp(sk.C, sk.N, 0.5);
+  const top = lerp(sk.neckEnd, sk.H, 0.5);
+  const th = 180 - (sk.pose.spine.lean + sk.pose.spine.chest + sk.pose.spine.neck);
+  return segment(base, top, w * 1.15, w, th, -1, dir, 0.15);
+}
+
+function tailShape(S, sk) {
+  const T = S.tail;
+  if (!T) return null;
+  const { P, up1, fwd, tw, pose } = sk;
+  const back = mul(fwd(up1), -1);
+  let p = add(add(P, mul(back, tw.hip * 0.38)), mul(dir(up1), 0.12));
+  let theta = -90 - pose.spine.lean - pose.tail.lift;
+  const n = T.segments, segLen = T.length / n;
+  const weights = Array.from({ length: n }, (_, k) => Math.pow(k + 1, 1.7));
+  const wsum = weights.reduce((a, b) => a + b, 0);
+  const spine = [p];
+  const angles = [];
+  for (let k = 0; k < n; k++) {
+    theta -= pose.tail.curl * (weights[k] / wsum);
+    angles.push(theta);
+    p = add(p, mul(dir(theta), segLen));
+    spine.push(p);
+  }
+  const left = [], right = [];
+  for (let i = 0; i < spine.length; i++) {
+    const t = i / (spine.length - 1);
+    const w = T.w[0] + (T.w[1] - T.w[0]) * t;
+    const a = angles[Math.min(i, angles.length - 1)];
+    const nrm = dir(a + 90);
+    left.push(add(spine[i], mul(nrm, w / 2)));
+    right.push(add(spine[i], mul(nrm, -w / 2)));
+  }
+  return { body: [...left, ...right.reverse()], tip: circlePts(spine[spine.length - 1], T.w[1] / 2, 10), root: circlePts(spine[0], T.w[0] / 2, 10) };
+}
+
+function loinclothShape(sk) {
+  const local = sk.front
+    ? [[-0.36, -0.12], [0.36, -0.12], [0.0, 0.42]]
+    : [[-0.33, -0.12], [0.34, -0.12], [0.16, 0.42]];
+  return local.map((q) => add(sk.P, rot(q, sk.pose.spine.lean)));
+}
+
+// Head shapes in head-local coords (x forward, y down, centred), then
+// rotated and translated. Returns [{pts, role, stroke?}].
+function headShapes(S, sk) {
+  const s = S.head.size, hw = s / 2;
+  const view = sk.pose.headView;
+  const local = [];
+  if (view === 'front') {
+    local.push({ role: 'body', pts: circlePts([-hw - 0.02, -0.02], 0.15, 14) });
+    local.push({ role: 'body', pts: circlePts([hw + 0.02, -0.02], 0.15, 14) });
+  }
+  local.push({ role: 'body', pts: roundRectPts(hw, hw, S.head.radius) });
+  if (S.head.muzzle && view !== 'front') {
+    const mx = view === 'side' ? 0.42 : 0.28;
+    local.push({ role: 'body', pts: roundRectPts(0.22, 0.21, 0.1).map((q) => add(q, [mx, 0.21])) });
+  }
+  // features
+  const eye = (c) => local.push({ role: 'eye', pts: circlePts(c, 0.075, 12) });
+  if (view === 'front') { eye([-0.19, -0.1]); eye([0.19, -0.1]); }
+  else if (view === '3q') eye([0.17, -0.14]);
+  else eye([0.15, -0.2]);
+
+  if (view !== 'front') {
+    // ear: a C-curl opening toward the face
+    const cx = view === 'side' ? -0.16 : -0.22;
+    const arc = [];
+    for (let i = 0; i <= 14; i++) {
+      const a = (70 + (i / 14) * 220) * Math.PI / 180;
+      arc.push([cx + Math.cos(a) * 0.1, 0.0 + Math.sin(a) * 0.12]);
+    }
+    local.push({ role: 'ear', pts: arc, open: true });
+  }
+
+  if (sk.pose.mouth === 'open') {
+    let m;
+    if (view === 'front') m = [[-0.2, 0.36], [0.2, 0.36], [0.11, 0.14], [0, 0.1], [-0.11, 0.14]];
+    else if (view === '3q') m = [[0.08, 0.37], [0.46, 0.35], [0.38, 0.12], [0.2, 0.12]];
+    else m = [[0.12, 0.15], [0.6, 0.05], [0.6, 0.37]];
+    local.push({ role: 'mouth', pts: m });
+  }
+  return local.map((sh) => ({ ...sh, pts: sh.pts.map((q) => add(sk.H, rot(q, sk.headRot))) }));
+}
+
+// Build all shapes in draw order: [{pts, role, open?}]
+export function buildShapes(species, pose) {
+  const sk = solve(species, pose);
+  const S = species;
+  const out = [];
+  const push = (list, role = 'body') => list.forEach((pts) => out.push({ pts, role }));
+  const tail = tailShape(S, sk);
+
+  if (sk.front) {
+    if (tail) { push([tail.root, tail.body, tail.tip]); }
+    push(limbShapes(S, sk.limbs.far, 'leg'));
+    push(limbShapes(S, sk.limbs.near, 'leg'));
+    push([neckShape(S, sk), torsoShape(sk)]);
+    out.push({ pts: loinclothShape(sk), role: 'cloth' });
+    push(limbShapes(S, sk.limbs.far, 'arm'));
+    push(limbShapes(S, sk.limbs.near, 'arm'));
+    out.push(...headShapes(S, sk));
+  } else {
+    push(limbShapes(S, sk.limbs.far, 'arm'));
+    push(limbShapes(S, sk.limbs.far, 'leg'));
+    if (tail) { push([tail.root, tail.body, tail.tip]); }
+    push(limbShapes(S, sk.limbs.near, 'leg'));
+    push([neckShape(S, sk), torsoShape(sk)]);
+    out.push({ pts: loinclothShape(sk), role: 'cloth' });
+    out.push(...headShapes(S, sk));
+    push(limbShapes(S, sk.limbs.near, 'arm'));
+  }
+
+  // place on the ground: lowest point at y = 0 (or -lift when airborne)
+  const bb = bbox(out.filter((s) => !s.open).map((s) => s.pts));
+  const dy = -bb.y1 - (sk.pose.airborne ? sk.pose.lift : 0);
+  const dx = -(bb.x0 + bb.x1) / 2;
+  for (const s of out) s.pts = s.pts.map((q) => [q[0] + dx, q[1] + dy]);
+  return { shapes: out, sk, bbox: bbox(out.map((s) => s.pts)) };
+}
+
+// Render a figure as an SVG <g>. Ground point at (x, y) in px; `scale` is
+// px per head-unit; facing 1 (right) or -1 (left).
+export function renderFigure(species, pose, opts = {}) {
+  const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
+  const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
+  const { shapes, bbox: bb } = buildShapes(species, pose);
+  // Shapes are emitted in draw order; consecutive body shapes share one
+  // <g fill> so the silhouette merges visually.
+  let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;
+  let inBody = false;
+  for (const s of shapes) {
+    if (s.role === 'body') {
+      if (!inBody) { svg += `<g fill="${colors.body}">`; inBody = true; }
+      svg += `<path d="${pathD(s.pts)}"/>`;
+      continue;
+    }
+    if (inBody) { svg += '</g>'; inBody = false; }
+    if (s.role === 'ear') {
+      svg += `<path d="${pathD(s.pts, false)}" fill="none" stroke="${colors.eye}" stroke-width="0.06" stroke-linecap="round"/>`;
+    } else {
+      svg += `<path d="${pathD(s.pts)}" fill="${colors[s.role]}"/>`;
+    }
+  }
+  if (inBody) svg += '</g>';
+  svg += '</g>';
+  return { svg, bbox: bb };
+}

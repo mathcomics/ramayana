@@ -1,0 +1,345 @@
+{
+  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle + lifts the toes. Front view: near = picture-right, far = picture-left (mirrored).",
+  "poses": [
+    {
+      "name": "stand",
+      "view": "side",
+      "headView": "side",
+      "mouth": "closed",
+      "spine": {
+        "lean": 8,
+        "chest": 4,
+        "neck": -8,
+        "head": -4
+      },
+      "near": {
+        "arm": {
+          "shoulder": 14,
+          "elbow": 22
+        },
+        "leg": {
+          "hip": 4,
+          "knee": 14,
+          "ankle": 2
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 2,
+          "elbow": 16
+        },
+        "leg": {
+          "hip": -8,
+          "knee": 10,
+          "ankle": 2
+        }
+      },
+      "tail": {
+        "lift": 20,
+        "curl": 140
+      }
+    },
+    {
+      "name": "run-a",
+      "view": "side",
+      "headView": "side",
+      "spine": {
+        "lean": 28,
+        "chest": 4,
+        "neck": -22,
+        "head": -10
+      },
+      "near": {
+        "arm": {
+          "shoulder": -35,
+          "elbow": 80
+        },
+        "leg": {
+          "hip": 72,
+          "knee": 28,
+          "ankle": 5
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 95,
+          "elbow": 50
+        },
+        "leg": {
+          "hip": -38,
+          "knee": 35,
+          "ankle": -25
+        }
+      },
+      "tail": {
+        "lift": 35,
+        "curl": 90
+      }
+    },
+    {
+      "name": "run-b",
+      "view": "side",
+      "headView": "side",
+      "spine": {
+        "lean": 28,
+        "chest": 4,
+        "neck": -22,
+        "head": -10
+      },
+      "near": {
+        "arm": {
+          "shoulder": 95,
+          "elbow": 50
+        },
+        "leg": {
+          "hip": -20,
+          "knee": 105,
+          "ankle": -10
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": -35,
+          "elbow": 80
+        },
+        "leg": {
+          "hip": 55,
+          "knee": 75,
+          "ankle": 0
+        }
+      },
+      "tail": {
+        "lift": 35,
+        "curl": 90
+      },
+      "airborne": true,
+      "lift": 0.35
+    },
+    {
+      "name": "leap",
+      "view": "side",
+      "headView": "side",
+      "airborne": true,
+      "lift": 0.8,
+      "spine": {
+        "lean": 20,
+        "chest": -6,
+        "neck": -14,
+        "head": -8
+      },
+      "near": {
+        "arm": {
+          "shoulder": 150,
+          "elbow": 15
+        },
+        "leg": {
+          "hip": 70,
+          "knee": 100,
+          "ankle": 0
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 130,
+          "elbow": 25
+        },
+        "leg": {
+          "hip": -45,
+          "knee": 40,
+          "ankle": -30
+        }
+      },
+      "tail": {
+        "lift": 10,
+        "curl": 90
+      }
+    },
+    {
+      "name": "tumble",
+      "view": "side",
+      "headView": "side",
+      "airborne": true,
+      "lift": 0.1,
+      "spine": {
+        "lean": 105,
+        "chest": 10,
+        "neck": -10,
+        "head": 10
+      },
+      "near": {
+        "arm": {
+          "shoulder": 40,
+          "elbow": 40
+        },
+        "leg": {
+          "hip": -60,
+          "knee": 70,
+          "ankle": 0
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 80,
+          "elbow": 30
+        },
+        "leg": {
+          "hip": 20,
+          "knee": 90,
+          "ankle": 0
+        }
+      },
+      "tail": {
+        "lift": -20,
+        "curl": 60
+      }
+    },
+    {
+      "name": "point",
+      "view": "side",
+      "headView": "3q",
+      "spine": {
+        "lean": 6,
+        "chest": -4,
+        "neck": -4,
+        "head": 0
+      },
+      "near": {
+        "arm": {
+          "shoulder": 100,
+          "elbow": 0
+        },
+        "leg": {
+          "hip": 18,
+          "knee": 10,
+          "ankle": 0
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": -10,
+          "elbow": 30
+        },
+        "leg": {
+          "hip": -18,
+          "knee": 8,
+          "ankle": 10
+        }
+      },
+      "tail": {
+        "lift": 25,
+        "curl": 140
+      }
+    },
+    {
+      "name": "throw",
+      "view": "side",
+      "headView": "side",
+      "spine": {
+        "lean": -12,
+        "chest": -8,
+        "neck": 10,
+        "head": 0
+      },
+      "near": {
+        "arm": {
+          "shoulder": 200,
+          "elbow": 50
+        },
+        "leg": {
+          "hip": -25,
+          "knee": 15,
+          "ankle": 15
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 80,
+          "elbow": 20
+        },
+        "leg": {
+          "hip": 35,
+          "knee": 20,
+          "ankle": -5
+        }
+      },
+      "tail": {
+        "lift": 30,
+        "curl": 160
+      }
+    },
+    {
+      "name": "crouch-fight",
+      "view": "front",
+      "headView": "front",
+      "spine": {
+        "lean": 0,
+        "chest": 0,
+        "neck": 0,
+        "head": 0
+      },
+      "near": {
+        "arm": {
+          "shoulder": 60,
+          "elbow": 110
+        },
+        "leg": {
+          "hip": 38,
+          "knee": 70,
+          "ankle": 0
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 45,
+          "elbow": 75
+        },
+        "leg": {
+          "hip": 38,
+          "knee": 70,
+          "ankle": 0
+        }
+      },
+      "tail": {
+        "lift": -60,
+        "curl": 200
+      }
+    },
+    {
+      "name": "flex",
+      "view": "front",
+      "headView": "front",
+      "spine": {
+        "lean": 0,
+        "chest": 0,
+        "neck": 0,
+        "head": 0
+      },
+      "near": {
+        "arm": {
+          "shoulder": 90,
+          "elbow": 105
+        },
+        "leg": {
+          "hip": 25,
+          "knee": 35,
+          "ankle": 0
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 90,
+          "elbow": 105
+        },
+        "leg": {
+          "hip": 25,
+          "knee": 35,
+          "ankle": 0
+        }
+      },
+      "tail": {
+        "lift": -60,
+        "curl": 200
+      }
+    }
+  ]
+}

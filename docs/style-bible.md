@@ -36,6 +36,14 @@ from its silhouette alone.
 - Bodies are **solid fills**. Overlapping parts merge into one silhouette.
 - Limbs are tapered: thicker at the body, thinner at hands and feet.
 - Joints are rounded, never sharp elbows of geometry.
+- **Straight against curve** (all species; simplified from Michael Mattesi's
+  force drawing). Each limb segment has one straight edge and one curved
+  edge, and the curve flips sides at the joint. Rule as implemented: the
+  upper segment curves on the *outer* side of the joint's bend, the lower
+  segment on the *inner* side. Leg: curved thigh-front, curved calf-back.
+  Arm: curved triceps (back of upper arm), curved forearm-front.
+  See `reference/sketch-limbs-and-heads.jpg`.
+- Start with simple forms; add feature variation later.
 - Seeded roughness: slight edge wobble and small thickness variation, so it
   reads as brushwork. Same seed → same image.
 - Minimum feature size at render scale ≈ 2–3 px (stripes, teeth, horns).
@@ -47,8 +55,13 @@ and default posture. Measurements are in head-units (h = head diameter).
 
 ### 5.1 Monkey (vanara)
 
-- Head: small round, eye dot, small ear bumps. Open mouth shown as a white
-  ring when shouting.
+- Head: **always a rounded square, from any side.** Views:
+  - front: two eye dots, ears as half-discs outside the head, open mouth
+    as an arched trapezoid;
+  - three-quarter: one eye toward the face side, ear as a C-curl on the
+    back side, mouth shifted toward the face;
+  - side: eye near the top front, C-curl ear, a short square muzzle with
+    the open mouth as a wedge cut into its front.
 - Torso: chest tapering to a narrow waist.
 - Arms: long — hanging, they reach about the knee.
 - Legs: comparatively short, often deeply bent.
