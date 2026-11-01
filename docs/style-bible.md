@@ -78,7 +78,11 @@ and default posture. Measurements are in head-units (h = head diameter).
 - Arms: long — hanging, they reach about the knee.
 - Legs: comparatively short, often deeply bent.
 - Tail: long, curling upward at the tip; expressive (follows motion).
-- Hands: spiral/curled fist, or splayed reaching fingers.
+- Hands (all species; see `reference/sketch-hands.jpg`), set per arm:
+  - fist: a wedge widening from the wrist into a rounded end;
+  - out: a blunt paddle for the fingers with a thin pointed thumb on the
+    side away from the body;
+  - in: the same with the thumb on the side toward the body.
 - Feet: elongated wedges.
 - Garment: triangular loincloth at the hip — the main identity colour.
 - Default posture: leaning forward, knees bent.
@@ -108,7 +112,8 @@ streaming hair, sari/skirt silhouette.
 - Skeleton: pelvis (root) → 2-segment spine → neck → head;
   shoulders → elbows → wrists; hips → knees → ankles; tail chain (monkey).
 - Pose = joint angles relative to parent + facing (left/right) +
-  view (side/front) + grounded/airborne.
+  view (side/front) + hand per arm. A pose says nothing about where the
+  figure sits in a panel (height, ground colour): that is scene layout.
 - Side view: far limbs behind torso, near limbs in front.
   Front view: used for crouching / flexing / confronting.
 - No foreshortening. Flat, as in Warli.

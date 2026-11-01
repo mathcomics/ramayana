@@ -83,21 +83,30 @@ select, input[type="text"] {
 }
 .sw[aria-pressed="true"] { border-color: var(--fg); box-shadow: 0 0 0 2px var(--bg) inset; }
 
-.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 fieldset {
   border: 1px solid var(--line); border-radius: 8px; background: var(--panel);
-  padding: 10px 12px 12px; margin: 0; min-width: 0; display: grid; gap: 6px;
+  padding: 8px 10px 10px; margin: 0; min-width: 0; display: grid; gap: 4px;
 }
 legend { font-weight: 600; font-size: 13px; padding: 0 4px; }
-.row { display: grid; grid-template-columns: 64px minmax(0, 1fr) 46px; align-items: center; gap: 8px; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "l v" "s s"; align-items: center; column-gap: 6px; }
+.row label { grid-area: l; }
+.row output { grid-area: v; }
+.row input { grid-area: s; }
+.handrow { display: grid; gap: 3px; padding-top: 2px; }
+.handrow > span { font-size: 12.5px; color: var(--muted); }
+.handrow .seg { width: 100%; }
+.handrow .seg button { flex: 1 1 0; padding: 5px 2px; font-size: 12px; }
 .row label { font-size: 12.5px; color: var(--muted); }
 .row output { font-family: var(--font-mono); font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; }
 input[type="range"] { width: 100%; accent-color: var(--accent); }
 .check { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; }
 
 .save { display: grid; gap: 10px; }
-.posebar { display: flex; gap: 8px; align-items: center; }
-.posebar select { flex: 1 1 auto; font-weight: 600; }
+.posebar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.pick { display: flex; gap: 8px; align-items: center; flex: 1 1 200px; min-width: 0; }
+.pick select { flex: 1 1 auto; min-width: 0; font-weight: 600; }
+.posebar .sw { width: 22px; height: 22px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .status { margin-top: -2px; }
 .save .bar { align-items: end; }
@@ -116,7 +125,8 @@ pre {
 }
 @media (max-width: 420px) {
   .actual { width: 92px; }
-  .row { grid-template-columns: 58px minmax(0, 1fr) 40px; }
+  .groups { gap: 6px; }
+  fieldset { padding: 6px 6px 8px; }
 }
 </style>
 
@@ -134,9 +144,13 @@ pre {
       </div>
     </div>
     <div class="posebar">
-      <label class="sr" for="preset">Pose</label>
-      <select id="preset"></select>
-      <button class="btn" id="saveBtn" type="button">Save</button>
+      <div class="pick">
+        <label class="sr" for="preset">Pose</label>
+        <select id="preset"></select>
+        <button class="btn" id="saveBtn" type="button">Save</button>
+      </div>
+      <div class="swatches" id="bodyc" role="group" aria-label="Body colour"></div>
+      <div class="swatches" id="clothc" role="group" aria-label="Loincloth colour"></div>
     </div>
     <div class="status" id="status" role="status"></div>
   </section>
@@ -146,12 +160,6 @@ pre {
     <div class="field"><span>Head</span><div class="seg" id="headView"></div></div>
     <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
     <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
-  </div>
-
-  <div class="bar">
-    <div class="field"><span>Ground</span><div class="swatches" id="ground"></div></div>
-    <div class="field"><span>Body colour</span><div class="swatches" id="bodyc"></div></div>
-    <div class="field"><span>Loincloth</span><div class="swatches" id="clothc"></div></div>
   </div>
 
   <div class="groups" id="groups"></div>
@@ -176,22 +184,21 @@ const STARTERS = /*__POSES__*/;
 </script>
 <script>
 (() => {
-  const GROUNDS = [['paper', '#f2ece1'], ['blue', '#3fb4dc'], ['pink', '#d9857e'], ['geru', '#7b2f1b']];
+  const PAPER = '#f2ece1';
   const BODIES = [['brown', '#5a2a12'], ['dark red', '#7c1d1d'], ['black', '#141210'], ['white', '#f3f1ec'], ['gold', '#c79a2c'], ['tan', '#c08d6a']];
   const CLOTHS = [['orange', '#e0541a'], ['yellow', '#f0d23a'], ['green', '#2fb39a'], ['red', '#d42a2a'], ['purple', '#8a5cd6']];
 
   const SLIDERS = [
-    { key: 'spine', title: 'Body', rows: [
+    { key: 'spine', title: 'Body & tail', rows: [
       ['spine.lean', 'lean', -60, 180], ['spine.chest', 'chest', -60, 60],
-      ['spine.neck', 'neck', -60, 90], ['spine.head', 'head', -90, 90]] },
+      ['spine.neck', 'neck', -60, 90], ['spine.head', 'head', -90, 90],
+      ['tail.lift', 'tail lift', -90, 120], ['tail.curl', 'tail curl', -60, 300]] },
     { key: 'near', title: 'Near arm & leg', rows: [
       ['near.arm.shoulder', 'shoulder', -90, 230], ['near.arm.elbow', 'elbow', 0, 160], ['near.arm.wrist', 'wrist', -90, 90],
       ['near.leg.hip', 'hip', -90, 150], ['near.leg.knee', 'knee', 0, 160], ['near.leg.ankle', 'ankle', -60, 60]] },
     { key: 'far', title: 'Far arm & leg', rows: [
       ['far.arm.shoulder', 'shoulder', -90, 230], ['far.arm.elbow', 'elbow', 0, 160], ['far.arm.wrist', 'wrist', -90, 90],
       ['far.leg.hip', 'hip', -90, 150], ['far.leg.knee', 'knee', 0, 160], ['far.leg.ankle', 'ankle', -60, 60]] },
-    { key: 'tail', title: 'Tail & air', rows: [
-      ['tail.lift', 'tail lift', -90, 120], ['tail.curl', 'tail curl', -60, 300], ['lift', 'height', 0, 3, 0.05]] },
   ];
 
   const clone = (o) => JSON.parse(JSON.stringify(o));
@@ -205,7 +212,7 @@ const STARTERS = /*__POSES__*/;
   const state = {
     pose: normalizePose(STARTERS[0]),
     facing: 1,
-    ground: GROUNDS[0][1], body: BODIES[0][1], cloth: CLOTHS[0][1],
+    body: BODIES[0][1], cloth: CLOTHS[0][1],
     saved: [],
     dirty: false,
   };
@@ -219,10 +226,10 @@ const STARTERS = /*__POSES__*/;
     const p = state.pose;
     const big = renderFigure(SPECIES, p, { x: 0, y: 0, scale: 1, facing: state.facing, colors });
     const groundLine = `<line x1="-6" x2="6" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
-    $('big').innerHTML = `<svg viewBox="-4.6 -8.3 9.2 9" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Figure preview"><rect x="-20" y="-20" width="40" height="40" fill="${state.ground}"/>${groundLine}${big.svg}</svg>`;
+    $('big').innerHTML = `<svg viewBox="-4.6 -8.3 9.2 9" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Figure preview"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${big.svg}</svg>`;
     const small = renderFigure(SPECIES, p, { x: 0, y: 0, scale: 1, facing: state.facing, colors });
     // 20 px per head-unit: the target phone scale
-    $('small').innerHTML = `<svg viewBox="-2.8 -8.3 5.6 9" width="112" height="180" style="width:100%;height:100%;max-width:112px" role="img" aria-label="Figure at phone size"><rect x="-20" y="-20" width="40" height="40" fill="${state.ground}"/>${small.svg}</svg>`;
+    $('small').innerHTML = `<svg viewBox="-2.8 -8.3 5.6 9" width="112" height="180" style="width:100%;height:100%;max-width:112px" role="img" aria-label="Figure at phone size"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${small.svg}</svg>`;
     $('meta').textContent = `monkey · ${p.view} · ${p.name}`;
     $('json').textContent = JSON.stringify(exportPose(), null, 2);
   }
@@ -230,7 +237,6 @@ const STARTERS = /*__POSES__*/;
   function exportPose() {
     const p = clone(state.pose);
     const out = { name: p.name, view: p.view, headView: p.headView, mouth: p.mouth };
-    if (p.airborne) { out.airborne = true; out.lift = p.lift; }
     out.spine = p.spine; out.near = p.near; out.far = p.far; out.tail = p.tail;
     return out;
   }
@@ -272,7 +278,6 @@ const STARTERS = /*__POSES__*/;
         input.addEventListener('input', () => {
           const v = Number(input.value);
           set(state.pose, path, v);
-          if (path === 'lift') state.pose.airborne = v > 0;
           out.textContent = step < 1 ? v.toFixed(2) : v + '°';
           markDirty(); draw();
         });
@@ -281,13 +286,18 @@ const STARTERS = /*__POSES__*/;
           input.value = v; out.textContent = step < 1 ? Number(v).toFixed(2) : v + '°';
         };
         fs.appendChild(row);
+        if (path.endsWith('.arm.wrist')) {
+          const hr = document.createElement('div'); hr.className = 'handrow';
+          hr.innerHTML = `<span>hand</span><div class="seg" id="hand-${g.key}"></div>`;
+          fs.appendChild(hr);
+        }
       }
       host.appendChild(fs);
     }
   }
 
   function syncControls() {
-    for (const id of ['view', 'headView', 'mouth', 'facing', 'ground', 'bodyc', 'clothc']) $(id)._sync();
+    for (const id of ['view', 'headView', 'mouth', 'facing', 'bodyc', 'clothc', 'hand-near', 'hand-far']) $(id)._sync();
     document.querySelectorAll('.row').forEach((r) => r._sync());
     const front = state.pose.view === 'front';
     $('lg-near').textContent = front ? 'Right arm & leg (as seen)' : 'Near arm & leg';
@@ -336,10 +346,13 @@ const STARTERS = /*__POSES__*/;
   seg('headView', [['Front', 'front'], ['Side', 'side']], () => state.pose.headView, (v) => { state.pose.headView = v; });
   seg('mouth', [['Slit', 1], ['Arch', 2], ['Wide', 3]], () => state.pose.mouth, (v) => { state.pose.mouth = v; });
   seg('facing', [['→', 1], ['←', -1]], () => state.facing, (v) => { state.facing = v; });
-  swatches('ground', GROUNDS, 'ground');
   swatches('bodyc', BODIES, 'body');
   swatches('clothc', CLOTHS, 'cloth');
   buildSliders();
+  for (const side of ['near', 'far']) {
+    seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in']],
+      () => state.pose[side].arm.hand, (v) => { state.pose[side].arm.hand = v; });
+  }
   load(STARTERS[0]);
   fillPresets();
 

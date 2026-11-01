@@ -27,7 +27,10 @@ const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
 // Normalise a pose, filling defaults.
 export function normalizePose(p = {}) {
   const limb = (l = {}) => ({
-    arm: { shoulder: num(l.arm?.shoulder, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0) },
+    arm: {
+      shoulder: num(l.arm?.shoulder, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0),
+      hand: ['fist', 'out', 'in'].includes(l.arm?.hand) ? l.arm.hand : 'fist',
+    },
     leg: { hip: num(l.leg?.hip, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0) },
   });
   return {
@@ -35,8 +38,6 @@ export function normalizePose(p = {}) {
     view: p.view === 'front' ? 'front' : 'side',
     headView: (p.headView || p.view) === 'front' ? 'front' : 'side',
     mouth: [1, 2, 3].includes(p.mouth) ? p.mouth : 2,
-    airborne: !!p.airborne,
-    lift: num(p.lift, 0),
     spine: {
       lean: num(p.spine?.lean, 0),
       chest: num(p.spine?.chest, 0),
@@ -95,7 +96,7 @@ export function solve(species, poseIn) {
     const K = add(hp, mul(dirM(tt), S.leg.upper));
     const A = add(K, mul(dirM(ts), S.leg.lower));
 
-    limbs[side] = { m, dirM, sh, E, Wr, tu, tl, th, hp, K, A, tt, ts, tf };
+    limbs[side] = { m, dirM, sh, E, Wr, tu, tl, th, hp, K, A, tt, ts, tf, hand: a.hand };
   }
 
   return { pose, front, P, W, C, N, neckEnd, H, up1, up2, up3, headRot, fwd, tw, limbs };
@@ -128,9 +129,7 @@ function limbShapes(S, L, kind) {
     out.push(segment(L.sh, L.E, w0, w1, L.tu, -ELBOW, L.dirM, bulge));
     out.push(circlePts(L.E, w1 / 2));
     out.push(segment(L.E, L.Wr, w1 * k, w2, L.tl, +ELBOW, L.dirM, lowBulge));
-    // hand: simple fist
-    const r = S.arm.hand;
-    out.push(circlePts(add(L.Wr, mul(L.dirM(L.th), r * 0.7)), r));
+    out.push(...handShapes(S, L, w2));
   } else {
     const [w0, w1, w2] = S.leg.w;
     const k = S.leg.knot ?? 1;
@@ -145,6 +144,28 @@ function limbShapes(S, L, kind) {
     out.push(segment(heel, toe, w2 * 1.05, 0.07, L.tf, -1, L.dirM, 0.25));
   }
   return out;
+}
+
+// Hands, three configurations (see reference/sketch-hands.jpg):
+//   fist: a wedge widening from the wrist to a rounded end;
+//   out / in: a blunt paddle for the fingers with a thin pointed thumb,
+//   thumb on the side away from the body (out) or toward it (in).
+// "Out" is the dirM(θ+90) side: forward in side view, away from the
+// midline in front view.
+function handShapes(S, L, wristW) {
+  const len = S.arm.hand ?? 0.42;
+  const u = L.dirM(L.th), n = L.dirM(L.th + 90);
+  const at = (a, b) => add(add(L.Wr, mul(u, a * len)), mul(n, b));
+  if (L.hand === 'fist') {
+    const B1 = at(0.62, 0.17), B2 = at(0.62, -0.17);
+    return [[at(0, wristW * 0.45), B1, ...quad(B1, at(1.08, 0), B2, 10), at(0, -wristW * 0.45)]];
+  }
+  const s = L.hand === 'out' ? 1 : -1;
+  const palm = [at(-0.05, s * wristW * 0.48), at(0.9, s * 0.16), at(1.0, -s * 0.13), at(-0.05, -s * wristW * 0.48)];
+  const base = at(0.12, s * 0.07);
+  const tip = add(base, mul(L.dirM(L.th + s * 42), len * 0.72));
+  const thumb = [at(0.3, s * 0.06), tip, at(0.02, s * wristW * 0.42)];
+  return [palm, thumb];
 }
 
 function torsoShape(sk) {
@@ -304,9 +325,10 @@ export function buildShapes(species, pose) {
     push(limbShapes(S, sk.limbs.near, 'arm'));
   }
 
-  // place on the ground: lowest point at y = 0 (or -lift when airborne)
+  // Lowest point at y = 0. Where the figure sits in a panel is the
+  // scene layout's job, not the pose's.
   const bb = bbox(out.filter((s) => !s.open).map((s) => s.pts));
-  const dy = -bb.y1 - (sk.pose.airborne ? sk.pose.lift : 0);
+  const dy = -bb.y1;
   const dx = -(bb.x0 + bb.x1) / 2;
   for (const s of out) s.pts = s.pts.map((q) => [q[0] + dx, q[1] + dy]);
   return { shapes: out, sk, bbox: bbox(out.map((s) => s.pts)) };

@@ -1,5 +1,5 @@
 {
-  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle + lifts the toes. headView: front | side. mouth: 1 (slit), 2 (arch), 3 (wide shout). Front view: near = picture-right, far = picture-left (mirrored).",
+  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle + lifts the toes. headView: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body). mouth: 1 (slit), 2 (arch), 3 (wide shout). Front view: near = picture-right, far = picture-left (mirrored).",
   "poses": [
     {
       "name": "stand",
@@ -15,7 +15,8 @@
       "near": {
         "arm": {
           "shoulder": 14,
-          "elbow": 22
+          "elbow": 22,
+          "hand": "fist"
         },
         "leg": {
           "hip": 4,
@@ -26,7 +27,8 @@
       "far": {
         "arm": {
           "shoulder": 2,
-          "elbow": 16
+          "elbow": 16,
+          "hand": "fist"
         },
         "leg": {
           "hip": -8,
@@ -53,7 +55,8 @@
       "near": {
         "arm": {
           "shoulder": 50,
-          "elbow": 8
+          "elbow": 8,
+          "hand": "out"
         },
         "leg": {
           "hip": 104,
@@ -64,7 +67,8 @@
       "far": {
         "arm": {
           "shoulder": 230,
-          "elbow": 90
+          "elbow": 90,
+          "hand": "fist"
         },
         "leg": {
           "hip": 50,
@@ -91,7 +95,8 @@
       "near": {
         "arm": {
           "shoulder": 69,
-          "elbow": 101
+          "elbow": 101,
+          "hand": "fist"
         },
         "leg": {
           "hip": 110,
@@ -102,7 +107,8 @@
       "far": {
         "arm": {
           "shoulder": -97,
-          "elbow": 93
+          "elbow": 93,
+          "hand": "fist"
         },
         "leg": {
           "hip": -41,
@@ -119,8 +125,6 @@
       "name": "leap",
       "view": "side",
       "headView": "side",
-      "airborne": true,
-      "lift": 0.8,
       "spine": {
         "lean": 20,
         "chest": -6,
@@ -130,7 +134,8 @@
       "near": {
         "arm": {
           "shoulder": 150,
-          "elbow": 15
+          "elbow": 15,
+          "hand": "out"
         },
         "leg": {
           "hip": 70,
@@ -141,7 +146,8 @@
       "far": {
         "arm": {
           "shoulder": 130,
-          "elbow": 25
+          "elbow": 25,
+          "hand": "out"
         },
         "leg": {
           "hip": -45,
@@ -159,8 +165,6 @@
       "name": "tumble",
       "view": "side",
       "headView": "side",
-      "airborne": true,
-      "lift": 0.1,
       "spine": {
         "lean": 105,
         "chest": 10,
@@ -170,7 +174,8 @@
       "near": {
         "arm": {
           "shoulder": 40,
-          "elbow": 40
+          "elbow": 40,
+          "hand": "out"
         },
         "leg": {
           "hip": -60,
@@ -181,7 +186,8 @@
       "far": {
         "arm": {
           "shoulder": 80,
-          "elbow": 30
+          "elbow": 30,
+          "hand": "out"
         },
         "leg": {
           "hip": 20,
@@ -208,7 +214,8 @@
       "near": {
         "arm": {
           "shoulder": 100,
-          "elbow": 0
+          "elbow": 0,
+          "hand": "out"
         },
         "leg": {
           "hip": 18,
@@ -219,7 +226,8 @@
       "far": {
         "arm": {
           "shoulder": -10,
-          "elbow": 30
+          "elbow": 30,
+          "hand": "fist"
         },
         "leg": {
           "hip": -18,
@@ -246,7 +254,8 @@
       "near": {
         "arm": {
           "shoulder": 200,
-          "elbow": 50
+          "elbow": 50,
+          "hand": "out"
         },
         "leg": {
           "hip": -25,
@@ -257,7 +266,8 @@
       "far": {
         "arm": {
           "shoulder": 80,
-          "elbow": 20
+          "elbow": 20,
+          "hand": "in"
         },
         "leg": {
           "hip": 35,
@@ -284,7 +294,8 @@
       "near": {
         "arm": {
           "shoulder": 60,
-          "elbow": 110
+          "elbow": 110,
+          "hand": "fist"
         },
         "leg": {
           "hip": 38,
@@ -295,7 +306,8 @@
       "far": {
         "arm": {
           "shoulder": 45,
-          "elbow": 75
+          "elbow": 75,
+          "hand": "fist"
         },
         "leg": {
           "hip": 38,
@@ -322,7 +334,8 @@
       "near": {
         "arm": {
           "shoulder": 90,
-          "elbow": 105
+          "elbow": 105,
+          "hand": "fist"
         },
         "leg": {
           "hip": 25,
@@ -333,7 +346,8 @@
       "far": {
         "arm": {
           "shoulder": 90,
-          "elbow": 105
+          "elbow": 105,
+          "hand": "fist"
         },
         "leg": {
           "hip": 25,
