@@ -185,10 +185,22 @@ function upperLegShapes(S, L) {
   return [circlePts(L.hp, w0 / 2), segment(L.hp, L.K, w0, w1, L.tt, -KNEE, L.dirM, S.bulge)];
 }
 
-// Loincloth = the area where the upper legs overlap the torso: the two
-// thighs (union), clipped to the torso outline. It follows the legs.
+// Convex hull (monotone chain) of a point set.
+function hull(points) {
+  const pts = [...points].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lower = [], upper = [];
+  for (const p of pts) { while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], p) <= 0) lower.pop(); lower.push(p); }
+  for (const p of pts.reverse()) { while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], p) <= 0) upper.pop(); upper.push(p); }
+  return lower.slice(0, -1).concat(upper.slice(0, -1));
+}
+
+// Loincloth = the span across both upper legs (one shape enclosing both
+// thighs), clipped to the torso outline. It follows the legs, and in
+// front view it bridges the crotch as one piece.
 function loincloth(S, sk, torso) {
-  return { role: 'cloth', pts: [], parts: [...upperLegShapes(S, sk.limbs.near), ...upperLegShapes(S, sk.limbs.far)], clipPts: torso };
+  const thighs = [...upperLegShapes(S, sk.limbs.near), ...upperLegShapes(S, sk.limbs.far)];
+  return { role: 'cloth', pts: [], parts: [hull(thighs.flat())], clipPts: torso };
 }
 
 function torsoShape(sk) {

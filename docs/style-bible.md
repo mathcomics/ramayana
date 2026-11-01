@@ -85,7 +85,9 @@ and default posture. Measurements are in head-units (h = head diameter).
     blunt end) on the side away from the body;
   - in: the same with the thumb on the side toward the body.
 - Feet: elongated wedges.
-- Garment: triangular loincloth at the hip — the main identity colour.
+- Garment: loincloth — the main identity colour. Shape is derived, not
+  drawn: the span across both upper legs, clipped to the torso outline,
+  so it follows the legs (one band across the crotch in front view).
 - Default posture: leaning forward, knees bent.
 - Optional: mane of loose strokes around the head.
 - Body colours seen: brown, dark red, white, gold, black, tan.
