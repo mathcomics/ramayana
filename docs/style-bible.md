@@ -46,7 +46,8 @@ from its silhouette alone.
 - **Knotty joints** (all species): the upper segment runs full width into
   the elbow or knee, and the lower segment starts thinner (`knot` × joint
   width, ~0.55), swells along its curved side, then tapers to the wrist
-  or ankle. Arms and legs follow the same rule.
+  or ankle. The upper segment likewise starts thin at the shoulder or hip
+  and swells to full width at the joint. Arms and legs follow the same rule.
 - Eyes and ear curls are pure white or pure black, whichever contrasts
   more with the body colour (chosen automatically, never set by hand).
 - Start with simple forms; add feature variation later.
