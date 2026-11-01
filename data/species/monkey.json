@@ -3,8 +3,7 @@
   "units": "head-units (1 = head size)",
   "head": {
     "size": 1.0,
-    "radius": 0.26,
-    "muzzle": true
+    "radius": 0.26
   },
   "neck": 0.18,
   "neckWidth": 0.38,

@@ -233,10 +233,6 @@ function headShapes(S, sk) {
     local.push({ role: 'body', pts: circlePts([hw + 0.02, -0.02], 0.15, 14) });
   }
   local.push({ role: 'body', pts: roundRectPts(hw, hw, S.head.radius) });
-  if (S.head.muzzle && view !== 'front') {
-    const mx = view === 'side' ? 0.42 : 0.28;
-    local.push({ role: 'body', pts: roundRectPts(0.22, 0.21, 0.1).map((q) => add(q, [mx, 0.21])) });
-  }
   // features
   const eye = (c) => local.push({ role: 'eye', pts: circlePts(c, 0.075, 12) });
   if (view === 'front') { eye([-0.19, -0.1]); eye([0.19, -0.1]); }
@@ -259,8 +255,8 @@ function headShapes(S, sk) {
     // [centre x, bottom y, half width, arch height]
     const [cx, yb, a, b] =
       view === 'front' ? [0, 0.36, 0.19, 0.24]
-      : view === '3q' ? [0.24, 0.36, 0.16, 0.22]
-      : [0.4, 0.34, 0.15, 0.2];
+      : view === '3q' ? [0.16, 0.36, 0.17, 0.22]
+      : [0.26, 0.36, 0.17, 0.22];
     const m = [];
     for (let i = 0; i <= 16; i++) {
       const t = Math.PI * (i / 16);

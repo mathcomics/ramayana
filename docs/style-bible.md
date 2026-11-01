@@ -66,8 +66,8 @@ and default posture. Measurements are in head-units (h = head diameter).
     as an arched trapezoid;
   - three-quarter: one eye toward the face side, ear as a C-curl on the
     back side, mouth shifted toward the face;
-  - side: eye near the top front, C-curl ear, a short square muzzle with
-    the open mouth on it.
+  - side: eye near the top front, C-curl ear, mouth toward the front.
+  - No muzzle or snout: nothing sticks out of the square.
   - The open mouth is always a round arch over a flat bottom, and always
     stays inside the face (the renderer clips it to the head silhouette).
 - Torso: chest tapering to a narrow waist.
