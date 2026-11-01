@@ -157,14 +157,23 @@ function handShapes(S, L, wristW) {
   const u = L.dirM(L.th), n = L.dirM(L.th + 90);
   const at = (a, b) => add(add(L.Wr, mul(u, a * len)), mul(n, b));
   if (L.hand === 'fist') {
-    const B1 = at(0.62, 0.17), B2 = at(0.62, -0.17);
-    return [[at(0, wristW * 0.45), B1, ...quad(B1, at(1.08, 0), B2, 10), at(0, -wristW * 0.45)]];
+    // widens from the wrist to a flat top with rounded corners
+    const hw = 0.18, r = 0.08;
+    return [[
+      at(0, wristW * 0.45),
+      at(1 - r / len, hw), ...quad(at(1 - r / len, hw), at(1, hw), at(1, hw - r), 5),
+      at(1, -hw + r), ...quad(at(1, -hw + r), at(1, -hw), at(1 - r / len, -hw), 5),
+      at(0, -wristW * 0.45),
+    ]];
   }
   const s = L.hand === 'out' ? 1 : -1;
   const palm = [at(-0.05, s * wristW * 0.48), at(0.9, s * 0.16), at(1.0, -s * 0.13), at(-0.05, -s * wristW * 0.48)];
-  const base = at(0.12, s * 0.07);
-  const tip = add(base, mul(L.dirM(L.th + s * 42), len * 0.72));
-  const thumb = [at(0.3, s * 0.06), tip, at(0.02, s * wristW * 0.42)];
+  // thumb: a strip with parallel sides and a blunt end
+  const td = L.dirM(L.th + s * 42), tn = L.dirM(L.th + s * 42 + 90);
+  const tw = 0.09, tl = len * 0.7;
+  const b = at(0.16, s * 0.04);
+  const thumb = [add(b, mul(tn, tw / 2)), add(add(b, mul(td, tl)), mul(tn, tw / 2)),
+    add(add(b, mul(td, tl)), mul(tn, -tw / 2)), add(b, mul(tn, -tw / 2))];
   return [palm, thumb];
 }
 

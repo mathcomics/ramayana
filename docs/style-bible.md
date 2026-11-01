@@ -79,9 +79,10 @@ and default posture. Measurements are in head-units (h = head diameter).
 - Legs: comparatively short, often deeply bent.
 - Tail: long, curling upward at the tip; expressive (follows motion).
 - Hands (all species; see `reference/sketch-hands.jpg`), set per arm:
-  - fist: a wedge widening from the wrist into a rounded end;
-  - out: a blunt paddle for the fingers with a thin pointed thumb on the
-    side away from the body;
+  - fist: a wedge widening from the wrist to a flat top with rounded
+    corners;
+  - out: a blunt paddle for the fingers with a thumb (parallel sides,
+    blunt end) on the side away from the body;
   - in: the same with the thumb on the side toward the body.
 - Feet: elongated wedges.
 - Garment: triangular loincloth at the hip — the main identity colour.
