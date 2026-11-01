@@ -73,7 +73,7 @@ and default posture. Measurements are in head-units (h = head diameter).
     arched top: 1 slit (shallow), 2 arch (peaked), 3 wide (boxy shout).
     In side view the opening runs out to the front edge of the face.
     The mouth never sticks out of the head; no muzzle or snout.
-- Neck: thin (`neckWidth` ≈ 0.24).
+- Neck: thin (`neckWidth` ≈ 0.24) and fairly long (`neck` ≈ 0.27).
 - Torso: chest tapering to a narrow waist.
 - Arms: long — hanging, they reach about the knee.
 - Legs: comparatively short, often deeply bent.
