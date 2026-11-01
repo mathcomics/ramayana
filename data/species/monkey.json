@@ -56,5 +56,11 @@
     "segments": 16
   },
   "bulge": 0.8,
-  "lowerBulge": 1.1
+  "lowerBulge": 1.1,
+  "shoulder": {
+    "side": {
+      "near": 0.4,
+      "far": -0.1
+    }
+  }
 }

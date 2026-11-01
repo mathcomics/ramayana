@@ -80,7 +80,11 @@ export function solve(species, poseIn) {
     const lat = front ? (side === 'near' ? 1 : -1) : 0;
     const dirM = (t) => { const d = dir(t); return [m * d[0], d[1]]; };
 
-    const sh = add(lerp(C, N, 0.45), mul(fwd(up2), front ? lat * tw.chest * 0.42 : -0.04));
+    // Shoulder anchor. Front view: spread across the chest. Side view: each
+    // arm has its own anchor along the chest's depth (near forward, far
+    // back), as a fraction of the chest's half-depth (+ = forward).
+    const sideAnchor = (S.shoulder?.side?.[side] ?? 0) * tw.chest / 2;
+    const sh = add(lerp(C, N, 0.45), mul(fwd(up2), front ? lat * tw.chest * 0.42 : sideAnchor));
     const hp = add(P, mul(fwd(up1), front ? lat * tw.hip * 0.3 : 0.03));
 
     const a = pose[side].arm, l = pose[side].leg;

@@ -118,6 +118,8 @@ streaming hair, sari/skirt silhouette.
   view (side/front) + hand per arm. A pose says nothing about where the
   figure sits in a panel (height, ground colour): that is scene layout.
 - Side view: far limbs behind torso, near limbs in front.
+  Each arm has its own shoulder anchor in side view: near arm toward the
+  front of the chest, far arm just behind centre (`shoulder.side`).
   Front view: used for crouching / flexing / confronting.
 - No foreshortening. Flat, as in Warli.
 - Joint limits per species prevent broken anatomy.
