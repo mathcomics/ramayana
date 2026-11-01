@@ -179,6 +179,18 @@ function handShapes(S, L, wristW) {
   return [palm, thumb];
 }
 
+// The upper leg alone (hip disc + thigh), as drawn in limbShapes.
+function upperLegShapes(S, L) {
+  const [w0, w1] = S.leg.w;
+  return [circlePts(L.hp, w0 / 2), segment(L.hp, L.K, w0, w1, L.tt, -KNEE, L.dirM, S.bulge)];
+}
+
+// Loincloth = the area where the upper legs overlap the torso: the two
+// thighs (union), clipped to the torso outline. It follows the legs.
+function loincloth(S, sk, torso) {
+  return { role: 'cloth', pts: [], parts: [...upperLegShapes(S, sk.limbs.near), ...upperLegShapes(S, sk.limbs.far)], clipPts: torso };
+}
+
 function torsoShape(sk) {
   const { P, W, C, N, up1, up2, fwd, tw, front } = sk;
   const f1 = fwd(up1), f2 = fwd(up2), fm = fwd((up1 + up2) / 2);
@@ -247,12 +259,6 @@ function tailShape(S, sk) {
   return { body: [...left, ...right.reverse()], tip: circlePts(spine[spine.length - 1], T.w[1] / 2, 10), root: circlePts(spine[0], T.w[0] / 2, 10) };
 }
 
-function loinclothShape(sk) {
-  const local = sk.front
-    ? [[-0.36, -0.12], [0.36, -0.12], [0.0, 0.42]]
-    : [[-0.33, -0.12], [0.34, -0.12], [0.16, 0.42]];
-  return local.map((q) => add(sk.P, rot(q, sk.pose.spine.lean)));
-}
 
 // Head shapes in head-local coords (x forward, y down, centred), then
 // rotated and translated. Returns [{pts, role, stroke?}].
@@ -320,8 +326,9 @@ export function buildShapes(species, pose) {
     if (tail) { push([tail.root, tail.body, tail.tip]); }
     push(limbShapes(S, sk.limbs.far, 'leg'));
     push(limbShapes(S, sk.limbs.near, 'leg'));
-    push([neckShape(S, sk), torsoShape(sk)]);
-    out.push({ pts: loinclothShape(sk), role: 'cloth' });
+    const torso = torsoShape(sk);
+    push([neckShape(S, sk), torso]);
+    out.push(loincloth(S, sk, torso));
     push(limbShapes(S, sk.limbs.far, 'arm'));
     push(limbShapes(S, sk.limbs.near, 'arm'));
     out.push(...headShapes(S, sk));
@@ -330,8 +337,9 @@ export function buildShapes(species, pose) {
     push(limbShapes(S, sk.limbs.far, 'leg'));
     if (tail) { push([tail.root, tail.body, tail.tip]); }
     push(limbShapes(S, sk.limbs.near, 'leg'));
-    push([neckShape(S, sk), torsoShape(sk)]);
-    out.push({ pts: loinclothShape(sk), role: 'cloth' });
+    const torso = torsoShape(sk);
+    push([neckShape(S, sk), torso]);
+    out.push(loincloth(S, sk, torso));
     out.push(...headShapes(S, sk));
     push(limbShapes(S, sk.limbs.near, 'arm'));
   }
@@ -341,7 +349,12 @@ export function buildShapes(species, pose) {
   const bb = bbox(out.filter((s) => !s.open).map((s) => s.pts));
   const dy = -bb.y1;
   const dx = -(bb.x0 + bb.x1) / 2;
-  for (const s of out) s.pts = s.pts.map((q) => [q[0] + dx, q[1] + dy]);
+  const mv = (pts) => pts.map((q) => [q[0] + dx, q[1] + dy]);
+  for (const s of out) {
+    s.pts = mv(s.pts);
+    if (s.parts) s.parts = s.parts.map(mv);
+    if (s.clipPts) s.clipPts = mv(s.clipPts);
+  }
   return { shapes: out, sk, bbox: bbox(out.map((s) => s.pts)) };
 }
 
@@ -384,7 +397,11 @@ export function renderFigure(species, pose, opts = {}) {
       continue;
     }
     if (inBody) { svg += '</g>'; inBody = false; }
-    if (s.role === 'ear') {
+    if (s.parts) {
+      const id = `${clipId}c${shapes.indexOf(s)}`;
+      svg += `<clipPath id="${id}"><path d="${pathD(s.clipPts)}"/></clipPath>` +
+        `<g fill="${colors[s.role]}" clip-path="url(#${id})">${s.parts.map((p) => `<path d="${pathD(p)}"/>`).join('')}</g>`;
+    } else if (s.role === 'ear') {
       svg += `<path d="${pathD(s.pts, false)}" fill="none" stroke="${colors.eye}" stroke-width="0.06" stroke-linecap="round"/>`;
     } else {
       const clip = s.role === 'mouth' && faceD ? ` clip-path="url(#${clipId})"` : '';
