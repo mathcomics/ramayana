@@ -96,6 +96,10 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .check { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; }
 
 .save { display: grid; gap: 10px; }
+.posebar { display: flex; gap: 8px; align-items: center; }
+.posebar select { flex: 1 1 auto; font-weight: 600; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.status { margin-top: -2px; }
 .save .bar { align-items: end; }
 .btn {
   font: inherit; font-weight: 600; font-size: 13px; border-radius: 5px; cursor: pointer;
@@ -105,12 +109,6 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .btn:disabled { opacity: 0.5; cursor: default; }
 button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .status { font-size: 12.5px; color: var(--muted); min-height: 1.2em; }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip {
-  font: inherit; font-size: 12.5px; border: 1px solid var(--line); background: var(--panel);
-  color: var(--fg); border-radius: 999px; padding: 4px 10px; cursor: pointer;
-}
-.chip.saved { border-color: var(--accent); }
 .hint { font-size: 12.5px; color: var(--muted); max-width: 65ch; margin: 0; }
 pre {
   font-family: var(--font-mono); font-size: 11.5px; background: var(--panel); border: 1px solid var(--line);
@@ -135,12 +133,15 @@ pre {
         <div class="cap">phone size</div>
       </div>
     </div>
+    <div class="posebar">
+      <label class="sr" for="preset">Pose</label>
+      <select id="preset"></select>
+      <button class="btn" id="saveBtn" type="button">Save</button>
+    </div>
+    <div class="status" id="status" role="status"></div>
   </section>
 
   <div class="bar">
-    <label class="field"><span>Start from</span>
-      <select id="preset"></select>
-    </label>
     <div class="field"><span>Body</span><div class="seg" id="view"></div></div>
     <div class="field"><span>Head</span><div class="seg" id="headView"></div></div>
     <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
@@ -155,17 +156,15 @@ pre {
 
   <div class="groups" id="groups"></div>
 
-  <section class="save" aria-label="Save">
+  <section class="save" aria-label="Save as a new pose">
     <div class="bar">
-      <label class="field" style="flex:1 1 180px"><span>Pose name</span>
-        <input type="text" id="name" autocomplete="off" spellcheck="false">
+      <label class="field" style="flex:1 1 180px"><span>Save as a new pose</span>
+        <input type="text" id="name" autocomplete="off" spellcheck="false" placeholder="e.g. run-c">
       </label>
-      <button class="btn" id="saveBtn" type="button">Save pose</button>
+      <button class="btn ghost" id="saveAsBtn" type="button">Save as new</button>
       <button class="btn ghost" id="copyBtn" type="button">Copy JSON</button>
     </div>
-    <div class="status" id="status" role="status"></div>
-    <div class="field"><span>Your saved poses</span><div class="chips" id="saved"></div></div>
-    <p class="hint">Saving with an existing name replaces that pose. Saved poses are kept with this page, so Claude can read them and add them to the repo.</p>
+    <p class="hint">Save keeps your changes under the pose’s own name, so editing a starter pose replaces it. Poses you’ve changed are marked “edited” in the list. They’re kept with this page, so Claude can read them and add them to the repo.</p>
     <pre id="json" aria-label="Pose JSON"></pre>
   </section>
 </div>
@@ -208,8 +207,10 @@ const STARTERS = /*__POSES__*/;
     facing: 1,
     ground: GROUNDS[0][1], body: BODIES[0][1], cloth: CLOTHS[0][1],
     saved: [],
+    dirty: false,
   };
   const $ = (id) => document.getElementById(id);
+  let db = null;
 
   // ---------- render
   function draw() {
@@ -228,7 +229,7 @@ const STARTERS = /*__POSES__*/;
 
   function exportPose() {
     const p = clone(state.pose);
-    const out = { name: $('name').value.trim() || p.name, view: p.view, headView: p.headView, mouth: p.mouth };
+    const out = { name: p.name, view: p.view, headView: p.headView, mouth: p.mouth };
     if (p.airborne) { out.airborne = true; out.lift = p.lift; }
     out.spine = p.spine; out.near = p.near; out.far = p.far; out.tail = p.tail;
     return out;
@@ -240,7 +241,7 @@ const STARTERS = /*__POSES__*/;
     for (const [label, value] of options) {
       const b = document.createElement('button');
       b.type = 'button'; b.textContent = label;
-      b.addEventListener('click', () => { setv(value); syncControls(); draw(); });
+      b.addEventListener('click', () => { setv(value); if (id !== 'facing') markDirty(); syncControls(); draw(); });
       b.dataset.value = JSON.stringify(value);
       el.appendChild(b);
     }
@@ -273,7 +274,7 @@ const STARTERS = /*__POSES__*/;
           set(state.pose, path, v);
           if (path === 'lift') state.pose.airborne = v > 0;
           out.textContent = step < 1 ? v.toFixed(2) : v + '°';
-          draw();
+          markDirty(); draw();
         });
         row._sync = () => {
           const v = get(state.pose, path) ?? 0;
@@ -293,23 +294,40 @@ const STARTERS = /*__POSES__*/;
     $('lg-far').textContent = front ? 'Left arm & leg (as seen)' : 'Far arm & leg';
   }
 
+  // One list: starter poses, with any saved version replacing the starter
+  // of the same name, followed by poses that exist only as saved ones.
+  function allPoses() {
+    const saved = new Map(state.saved.map((p) => [p.name, p]));
+    const list = STARTERS.map((p) => saved.has(p.name)
+      ? { pose: saved.get(p.name), edited: true }
+      : { pose: p, edited: false });
+    for (const p of state.saved) if (!STARTERS.some((q) => q.name === p.name)) list.push({ pose: p, edited: true, isNew: true });
+    return list;
+  }
+
+  function markDirty() {
+    if (state.dirty) return;
+    state.dirty = true;
+    if (db) setStatus(`Unsaved changes to “${state.pose.name}”.`);
+  }
+  function setStatus(t) { $('status').textContent = t; }
+
   function load(p) {
     state.pose = normalizePose(clone(p));
-    $('name').value = state.pose.name;
+    state.dirty = false;
     syncControls(); draw();
   }
 
   function fillPresets() {
     const sel = $('preset');
-    const opts = STARTERS.map((p, i) => `<option value="s:${i}">${p.name}</option>`);
-    const saved = state.saved.map((p, i) => `<option value="d:${i}">${p.name} (saved)</option>`);
-    const cur = sel.value;
-    sel.innerHTML = `<optgroup label="Starter poses">${opts.join('')}</optgroup>` + (saved.length ? `<optgroup label="Saved">${saved.join('')}</optgroup>` : '');
+    const cur = state.pose?.name;
+    sel.innerHTML = allPoses().map(({ pose, edited }) =>
+      `<option value="${pose.name.replace(/"/g, '&quot;')}">${pose.name}${edited ? ' · edited' : ''}</option>`).join('');
     if (cur) sel.value = cur;
   }
   $('preset').addEventListener('change', (e) => {
-    const [k, i] = e.target.value.split(':');
-    load(k === 's' ? STARTERS[+i] : state.saved[+i]);
+    const hit = allPoses().find((x) => x.pose.name === e.target.value);
+    if (hit) { load(hit.pose); setStatus(''); }
   });
 
   seg('view', [['Side', 'side'], ['Front', 'front']], () => state.pose.view, (v) => {
@@ -322,8 +340,8 @@ const STARTERS = /*__POSES__*/;
   swatches('bodyc', BODIES, 'body');
   swatches('clothc', CLOTHS, 'cloth');
   buildSliders();
-  fillPresets();
   load(STARTERS[0]);
+  fillPresets();
 
   // ---------- copy
   $('copyBtn').addEventListener('click', async () => {
@@ -336,58 +354,50 @@ const STARTERS = /*__POSES__*/;
     }
   });
 
-  // ---------- saved poses (shared store)
-  let db = null;
-  const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'pose';
-  $('saveBtn').disabled = true;
-  $('status').textContent = 'Connecting to saved poses…';
-
-  function renderSaved() {
-    const host = $('saved'); host.innerHTML = '';
-    if (!state.saved.length) { host.innerHTML = '<span class="hint">None yet. Tune a pose, name it, and tap Save pose.</span>'; return; }
-    state.saved.forEach((p) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'chip saved'; b.textContent = p.name;
-      b.addEventListener('click', () => load(p));
-      host.appendChild(b);
-    });
-  }
-  renderSaved();
+  // ---------- saved poses (kept with this page)
+  const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'pose';
+  $('saveBtn').disabled = true; $('saveAsBtn').disabled = true;
+  setStatus('Connecting to saved poses…');
 
   (async () => {
     db = window.claude?.use ? await window.claude.use('db') : null;
     if (!db) {
-      $('status').textContent = 'Saving isn’t available here. Use Copy JSON instead.';
+      setStatus('Saving isn’t available in this view. Open the page from your Claude artifacts while signed in, or use Copy JSON.');
       return;
     }
-    $('saveBtn').disabled = false;
-    $('status').textContent = '';
-    let timer = setTimeout(() => { $('status').textContent = 'Saved poses can’t be reached yet. They’ll appear when the connection returns.'; }, 10000);
+    $('saveBtn').disabled = false; $('saveAsBtn').disabled = false;
+    setStatus(state.dirty ? `Unsaved changes to “${state.pose.name}”.` : '');
+    const timer = setTimeout(() => setStatus('Saved poses can’t be reached yet. They’ll appear when the connection returns.'), 10000);
     db.collection('poses').onSnapshot((snap) => {
-      if (!snap.metadata?.fromCache) { clearTimeout(timer); if ($('status').textContent.startsWith('Saved poses can’t')) $('status').textContent = ''; }
-      state.saved = snap.docs.map((d) => d.data()).filter((d) => d && d.pose).map((d) => d.pose)
-        .sort((a, b) => a.name.localeCompare(b.name));
-      renderSaved(); fillPresets();
+      if (!snap.metadata?.fromCache) clearTimeout(timer);
+      state.saved = snap.docs.map((d) => d.data()).filter((d) => d && d.pose).map((d) => d.pose);
+      fillPresets();
     }, (e) => {
       clearTimeout(timer);
-      $('status').textContent = 'Saved poses stopped updating (' + (e?.code || 'error') + '). Reload the page to reconnect.';
+      setStatus('Saved poses stopped updating (' + (e?.code || 'error') + '). Reload the page to reconnect.');
     });
   })();
 
-  $('saveBtn').addEventListener('click', async () => {
+  async function save(name, btn) {
     if (!db) return;
-    const name = $('name').value.trim();
-    if (!name) { $('status').textContent = 'Give the pose a name first.'; $('name').focus(); return; }
     const pose = exportPose(); pose.name = name;
-    $('saveBtn').disabled = true;
+    btn.disabled = true;
     try {
       await db.collection('poses').doc(slug(name)).set({ species: 'monkey', pose, savedAt: new Date().toISOString() });
-      $('status').textContent = `Saved “${name}”.`;
+      state.pose.name = name; state.dirty = false;
+      setStatus(`Saved “${name}”.`);
+      fillPresets(); draw();
     } catch (e) {
-      $('status').textContent = e?.code === 'permission_denied'
+      setStatus(e?.code === 'permission_denied'
         ? 'You can view this page but not save to it. Use Copy JSON instead.'
-        : 'Couldn’t save (' + (e?.code || 'error') + '). Try again in a moment.';
-    } finally { $('saveBtn').disabled = false; }
+        : 'Couldn’t save (' + (e?.code || 'error') + '). Try again in a moment.');
+    } finally { btn.disabled = false; }
+  }
+  $('saveBtn').addEventListener('click', () => save(state.pose.name, $('saveBtn')));
+  $('saveAsBtn').addEventListener('click', () => {
+    const name = $('name').value.trim();
+    if (!name) { setStatus('Type a name for the new pose first.'); $('name').focus(); return; }
+    save(name, $('saveAsBtn')).then(() => { if (!state.dirty) $('name').value = ''; });
   });
 })();
 </script>
