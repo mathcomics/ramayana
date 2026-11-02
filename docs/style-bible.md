@@ -97,21 +97,11 @@ and default posture. Measurements are in head-units (h = head diameter).
 - Optional: mane of loose strokes around the head.
 - Body colours seen: brown, dark red, white, gold, black, tan.
 
-### 5.2 Rakshasa
-
-- Head: round, two small horns; shouting mouth shown as a ring of teeth.
-- Torso: block or barrel, carrying a pattern — horizontal stripes, zigzag,
-  or triangles; typically red on black.
-- Limbs: thin, long, black; curled fists.
-- Default posture: wide crouched stance, weight low, elbows out.
-- Female variant: streaming hair, striped dress shape, wider hips.
-- Scale varies freely (small and large rakshasas in one scene).
-
-### 5.3 Human
+### 5.2 Male
 
 Not in the reference work; first version, to be refined. Same parts and
 rules as the monkey (head, ears outside, mouths, hands, knotty limbs,
-torso curl), with its own proportions in `data/species/human.json`:
+torso curl), with its own proportions in `data/species/male.json`:
 
 - Taller: longer legs (thigh 1.5, shin 1.45) and torso; arms a bit
   shorter than the monkey's.
@@ -122,7 +112,24 @@ torso curl), with its own proportions in `data/species/human.json`:
 - Thighs are widest at the hip and narrow toward the knee (the monkey's
   start thin at the hip).
 - No tail.
-- Women (hair, sari silhouette) to come.
+
+### 5.3 Female
+
+First version, `data/species/female.json`. Like the male, with:
+
+- A hair bun (`head.bun`): a disc at the back of the head in side view,
+  on top of the head in front view. Part of the body silhouette.
+- Narrower shoulders, narrow waist, wider hips (front view reads as an
+  hourglass).
+- Slightly shorter and slimmer than the male; smaller ears.
+- A dhoti with a full top reads as a sari.
+
+### Only three species
+
+Monkey, male and female cover every figure. Rakshasas are not a separate
+species: they are male or female figures, set apart by character
+definitions (colours, outfit, later props and markings). There are no
+female monkeys.
 
 All species share the same poses (`data/poses.json`). A species changes how
 a pose looks, never the pose.
@@ -175,6 +182,5 @@ Poses are tuned visually in the pose lab and stored as data.
 
 ## 10. Open questions
 
-- Human anatomy: confirm the hourglass approach.
 - Is a back view ever needed?
 - Are split panels always stacked bands, or sometimes side by side?

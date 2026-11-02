@@ -26,8 +26,8 @@ scene spec (JSON) → layout → figure geometry → SVG
 - Poses describe the figure only. Placement in a panel, height above the
   ground and background colour belong to scene layout.
 - Later, an LLM will write scene specs and this engine will draw them.
-  Today the focus is the figure model: generic monkey and human (done),
-  then rakshasa.
+  Three species cover every figure: monkey, male and female. Named
+  characters (and rakshasas) will be defined on top of them.
 
 ### Layout
 
@@ -50,7 +50,7 @@ out/                     generated renders (not committed)
 Needs Node 18+ and `rsvg-convert` (librsvg) for PNG output. No npm installs.
 
 ```sh
-node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: human)
+node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: male, female)
 node tools/parts-sheet.mjs monkey              # each body part at one scale
 node tools/build-poselab.mjs                   # rebuild the pose lab page
 ```

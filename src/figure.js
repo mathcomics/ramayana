@@ -350,6 +350,13 @@ function headShapes(S, sk) {
   };
   if (view === 'front') { local.push({ role: 'body', pts: ear(-1) }, { role: 'body', pts: ear(1) }); }
   else local.push({ role: 'body', pts: ear(-1) });
+  // Hair bun (female): a disc on the back of the head in side view, on
+  // top in front view. Part of the silhouette.
+  if (S.head.bun) {
+    const r = S.head.bun;
+    const c = view === 'front' ? [0, -hw - r * 0.35] : [-hw * 0.78, -hw * 0.62];
+    local.push({ role: 'body', pts: circlePts(c, r, 18) });
+  }
   local.push({ role: 'body', pts: square, head: true });
 
   // Eyes

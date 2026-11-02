@@ -10,8 +10,8 @@ scene spec (JSON) → layout → figure geometry → SVG
 - Specs are symbolic: species, pose, facing, placement. Never raw coordinates.
 - The renderer is deterministic. Randomness (brush roughness, crowd variety)
   is always seeded.
-- LLM generation of specs comes later. Current focus: figure model and
-  rendering for generic human, monkey and rakshasa — pose and anatomy.
+- LLM generation of specs comes later. Three species: monkey, male,
+  female (rakshasas are male/female characters, not a species).
 
 ## Source of truth
 
@@ -50,14 +50,15 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 
 ## Status (2026-11-02)
 
-- Two species, sharing one skeleton and one set of poses: **monkey** (done,
-  tuned by the artist) and **human** (first version, proportions in
-  `data/species/human.json`, not yet reviewed in detail).
+- Three species, one skeleton, one shared set of poses: **monkey** (done,
+  tuned by the artist), **male** and **female** (first versions; female has
+  a hair bun and hourglass proportions). No rakshasa species and no female
+  monkeys.
 - Outfit options at render time: bottom briefs | dhoti, top bare | full.
   Palettes: body brown / dark red / tan; cloth white / yellow / red.
 - Nine shared poses in `data/poses.json`. The pose lab switches species,
   outfit and colours as view-only options; saves hold only the pose
   (collection `poses`); merge into the repo when asked.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
-- Next: refine human (and women), then generic rakshasa, then scene
-  layout and panels.
+- Next: characters — each inherits a species and fixes outfit, cloth
+  colour and body colour. Then scene layout and panels.

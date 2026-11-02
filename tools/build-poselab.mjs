@@ -16,9 +16,11 @@ const unmodule = (src) => src
   .replace(/^export\s+(const|function|let|class)\s/gm, '$1 ');
 
 const renderer = ['src/geom.js', 'src/figure.js'].map((p) => `// ---- ${p}\n${unmodule(read(p))}`).join('\n');
-// every species in data/species, monkey first
+// every species in data/species, in this order
+const ORDER = ['monkey', 'male', 'female'];
+const rank = (id) => (ORDER.includes(id) ? ORDER.indexOf(id) : ORDER.length);
 const ids = readdirSync(join(root, 'data/species')).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5))
-  .sort((a, b) => (a === 'monkey' ? -1 : b === 'monkey' ? 1 : a.localeCompare(b)));
+  .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
 const species = JSON.stringify(Object.fromEntries(ids.map((id) => [id, JSON.parse(read(`data/species/${id}.json`))])));
 const poses = JSON.stringify(JSON.parse(read('data/poses.json')).poses);
 

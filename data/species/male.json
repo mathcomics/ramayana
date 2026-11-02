@@ -1,5 +1,5 @@
 {
-  "id": "human",
+  "id": "male",
   "units": "head-units (1 = head size)",
   "head": {
     "size": 1.0,
