@@ -26,8 +26,8 @@ scene spec (JSON) → layout → figure geometry → SVG
 - Poses describe the figure only. Placement in a panel, height above the
   ground and background colour belong to scene layout.
 - Later, an LLM will write scene specs and this engine will draw them.
-  Today the focus is the figure model: generic monkey (done), then
-  rakshasa and human.
+  Today the focus is the figure model: generic monkey and human (done),
+  then rakshasa.
 
 ### Layout
 
@@ -50,7 +50,7 @@ out/                     generated renders (not committed)
 Needs Node 18+ and `rsvg-convert` (librsvg) for PNG output. No npm installs.
 
 ```sh
-node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× for inspection
+node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: human)
 node tools/parts-sheet.mjs monkey              # each body part at one scale
 node tools/build-poselab.mjs                   # rebuild the pose lab page
 ```
@@ -65,7 +65,10 @@ real phone size (figures roughly 60–150 px tall).
 - **Views:** side and front. Facing left is a mirror of facing right.
 - **Pose:** joint angles relative to the parent joint, plus head view,
   mouth (1–3) and a hand per arm (`fist`, `out` or `in`). See the `_doc`
-  field in `data/poses.json`.
+  field in `data/poses.json`. All species share the same poses.
+- **Look (not part of the pose):** species, facing, body and cloth
+  colours, and outfit (`bottom`: briefs | dhoti, `top`: bare | full),
+  passed to `renderFigure` as options.
 - **Shapes:** limbs follow straight-against-curve with knotty joints. The
   head is a tapered rounded square with ears outside it. The loincloth is
   derived from the thighs and the torso.
@@ -75,8 +78,9 @@ The full rules, with the reasoning behind each, are in
 
 ### Pose lab
 
-A phone-friendly page for tuning poses with sliders, published as a
-claude.ai artifact (private to the owner):
+A phone-friendly page for tuning poses with sliders. Species, outfit and
+colours can be switched to see a pose on any figure; they are not saved.
+It is published as a claude.ai artifact (private to the owner):
 https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 
 The page keeps its saves in its own database (collection `poses`).

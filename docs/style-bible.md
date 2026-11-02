@@ -109,11 +109,30 @@ and default posture. Measurements are in head-units (h = head diameter).
 
 ### 5.3 Human
 
-Not yet present in the reference work — to be designed.
-Starting proposal: the Warli hourglass torso redone as a filled silhouette
-(inverted-triangle chest, triangle/dhoti hips), upright default posture,
-slimmer limbs than rakshasas, no tail, no horns. Women: hair bun or
-streaming hair, sari/skirt silhouette.
+Not in the reference work; first version, to be refined. Same parts and
+rules as the monkey (head, ears outside, mouths, hands, knotty limbs,
+torso curl), with its own proportions in `data/species/human.json`:
+
+- Taller: longer legs (thigh 1.5, shin 1.45) and torso; arms a bit
+  shorter than the monkey's.
+- Broad chest, narrow waist (front view reads as an inverted triangle).
+- Slimmer limbs; head rounder and less tapered; smaller ears.
+- No tail.
+- Women (hair, sari silhouette) to come.
+
+All species share the same poses (`data/poses.json`). A species changes how
+a pose looks, never the pose.
+
+## 5.4 Outfit and colours
+
+Outfit and colours are chosen when a figure is drawn; they are not part of
+the pose.
+
+- Bottom: `briefs` (the loincloth only) or `dhoti` (both thighs, from hip
+  to knee, in the cloth colour).
+- Top: `bare` or `full` (the whole torso in the cloth colour).
+- Body colours: brown, dark red, tan.
+- Cloth colours: white, yellow, red.
 
 ## 6. Figure model (shared)
 

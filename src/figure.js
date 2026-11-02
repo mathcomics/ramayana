@@ -18,7 +18,7 @@ const KNEE = -1;  // shin rotates toward -θ when the knee flexes
 
 export const DEFAULT_COLORS = {
   body: '#5a2a12',
-  cloth: '#e0541a',
+  cloth: '#c8322a',
   mouth: '#f4efe6',
 };
 
@@ -337,7 +337,8 @@ function headShapes(S, sk) {
   // Ears: solid loops outside the head (same colour, no outline), the lower
   // half hanging longer than the upper. Front: both sides. Side: the back.
   const ear = (dirX) => {
-    const y0 = -0.06, rx = 0.17, top = 0.13, bot = 0.21, inset = 0.05;
+    const k = S.head.ear ?? 1; // ear size relative to the monkey's
+    const y0 = -0.06, rx = 0.17 * k, top = 0.13 * k, bot = 0.21 * k, inset = 0.05;
     const pts = [];
     for (let i = 0; i <= 16; i++) {
       const a = -Math.PI / 2 + Math.PI * (i / 16); // top -> outward -> bottom
@@ -373,30 +374,42 @@ function headShapes(S, sk) {
 }
 
 // Build all shapes in draw order: [{pts, role, open?}]
-export function buildShapes(species, pose) {
+// Outfit (a rendering choice, not part of the pose):
+//   bottom: 'briefs' (loincloth only) | 'dhoti' (thighs in cloth colour)
+//   top:    'bare' | 'full' (whole torso in cloth colour)
+export const DEFAULT_OUTFIT = { bottom: 'briefs', top: 'bare' };
+
+export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT) {
   const sk = solve(species, pose);
   const S = species;
   const out = [];
   const push = (list, role = 'body') => list.forEach((pts) => out.push({ pts, role }));
   const tail = tailShape(S, sk);
+  const dhoti = outfit.bottom === 'dhoti', fullTop = outfit.top === 'full';
+  // legs: hip disc, thigh and knee disc take the cloth colour in a dhoti
+  const pushLeg = (L) => limbShapes(S, L, 'leg').forEach((pts, i) =>
+    out.push({ pts, role: dhoti && i < 3 ? 'cloth' : 'body' }));
+  const pushTorso = (torso) => {
+    out.push({ pts: neckShape(S, sk), role: 'body' }, { pts: torso, role: fullTop ? 'cloth' : 'body' });
+  };
 
   if (sk.front) {
     if (tail) { push([tail.root, tail.body, tail.tip]); }
-    push(limbShapes(S, sk.limbs.far, 'leg'));
-    push(limbShapes(S, sk.limbs.near, 'leg'));
+    pushLeg(sk.limbs.far);
+    pushLeg(sk.limbs.near);
     const torso = torsoShape(sk);
-    push([neckShape(S, sk), torso]);
+    pushTorso(torso);
     out.push(loincloth(S, sk, torso));
     push(limbShapes(S, sk.limbs.far, 'arm'));
     push(limbShapes(S, sk.limbs.near, 'arm'));
     out.push(...headShapes(S, sk));
   } else {
     push(limbShapes(S, sk.limbs.far, 'arm'));
-    push(limbShapes(S, sk.limbs.far, 'leg'));
+    pushLeg(sk.limbs.far);
     if (tail) { push([tail.root, tail.body, tail.tip]); }
-    push(limbShapes(S, sk.limbs.near, 'leg'));
+    pushLeg(sk.limbs.near);
     const torso = torsoShape(sk);
-    push([neckShape(S, sk), torso]);
+    pushTorso(torso);
     out.push(loincloth(S, sk, torso));
     out.push(...headShapes(S, sk));
     push(limbShapes(S, sk.limbs.near, 'arm'));
@@ -466,7 +479,7 @@ export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
   colors.eye = eyeColor(colors.body);
-  const { shapes, bbox: bb } = buildShapes(species, pose);
+  const { shapes, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) });
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
   let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;

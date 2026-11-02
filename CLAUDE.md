@@ -48,20 +48,16 @@ Pose lab (published artifact, saves poses to its database, collection
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 Saved poses are reviewed and then merged into `data/poses.json`.
 
-## Status (2026-11-01)
+## Status (2026-11-02)
 
-- Generic monkey done: shared skeleton, two views (side/front), knotty
-  straight-against-curve limbs, tapered rounded-square head with outside
-  ears and three mouth openings, three hands (fist/out/in), hinged torso
-  curl, derived loincloth, tail.
-- Nine monkey poses in `data/poses.json`, tuned by the artist in the pose
-  lab and merged. Pose-lab saves also live in the artifact's `poses`
-  collection; merge them into the repo when asked.
-- Manuscript (2026-11-02): wordless (images only). Canon = Dutt's
-  condensed Ramayana (1899). `manuscript/scenes.md` v0.3: 93 one-image
-  scenes, from the bridal of Sita to the flight home (11.04), Surpanakha
-  episode dropped; `characters.md`: 14 identifiable characters
-  (Kumbhakarna is a one-off giant, shown in parts) with silhouette signatures, plus creature and
-  prop needs. Outside-Dutt episodes decided (jewels, tail fire in; Angad's foot open). Open: grouping scenes into screens.
-- Next: artist reviews the scene list; generic rakshasa and human (same
-  skeleton, own species profiles), then scene layout and panels.
+- Two species, sharing one skeleton and one set of poses: **monkey** (done,
+  tuned by the artist) and **human** (first version, proportions in
+  `data/species/human.json`, not yet reviewed in detail).
+- Outfit options at render time: bottom briefs | dhoti, top bare | full.
+  Palettes: body brown / dark red / tan; cloth white / yellow / red.
+- Nine shared poses in `data/poses.json`. The pose lab switches species,
+  outfit and colours as view-only options; saves hold only the pose
+  (collection `poses`); merge into the repo when asked.
+- Manuscript is maintained in a separate conversation (`manuscript/`).
+- Next: refine human (and women), then generic rakshasa, then scene
+  layout and panels.

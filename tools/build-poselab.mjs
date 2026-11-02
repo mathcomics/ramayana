@@ -1,9 +1,9 @@
 // Build the self-contained pose lab page: inlines the renderer modules,
-// species data and starter poses into tools/poselab.template.html.
+// species data (all species) and starter poses into tools/poselab.template.html.
 //
 //   node tools/build-poselab.mjs   ->  out/poselab.html
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -16,7 +16,10 @@ const unmodule = (src) => src
   .replace(/^export\s+(const|function|let|class)\s/gm, '$1 ');
 
 const renderer = ['src/geom.js', 'src/figure.js'].map((p) => `// ---- ${p}\n${unmodule(read(p))}`).join('\n');
-const species = JSON.stringify(JSON.parse(read('data/species/monkey.json')));
+// every species in data/species, monkey first
+const ids = readdirSync(join(root, 'data/species')).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5))
+  .sort((a, b) => (a === 'monkey' ? -1 : b === 'monkey' ? 1 : a.localeCompare(b)));
+const species = JSON.stringify(Object.fromEntries(ids.map((id) => [id, JSON.parse(read(`data/species/${id}.json`))])));
 const poses = JSON.stringify(JSON.parse(read('data/poses.json')).poses);
 
 const html = read('tools/poselab.template.html')
