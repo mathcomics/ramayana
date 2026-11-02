@@ -55,6 +55,7 @@ Needs Node 18+ and `rsvg-convert` (librsvg) for PNG output. No npm installs.
 node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: male, female)
 node tools/parts-sheet.mjs monkey              # each body part at one scale
 node tools/build-poselab.mjs                   # rebuild the pose lab page
+node tools/head-sheet.mjs                      # heads of all species, light colours, for drawing corrections
 node tools/export-hair.mjs                     # hair → data/shapes/*.svg for hand editing
 node tools/import-hair.mjs                     # edited hair SVGs → data/species/female.json
 ```
