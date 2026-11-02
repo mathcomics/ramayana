@@ -177,6 +177,17 @@ colour. Colour names resolve through the palette in the same file. Ids
 like `monkey1`, `raxas_m1` and `raxas_f1` are generic types for unnamed
 figures. Signature features (necklaces, crowns, top bun…) come later.
 
+
+## 5.6 Drawn faces
+
+Faces are drawn by the artist, one SVG per character and view
+(`data/faces/`, see its README). Bodies and poses stay rule-based. A drawn
+face is never edited by code: it is placed whole on the head (moved,
+scaled, rotated with the head, mirrored for facing left). Skin drawn in
+`#c87137` takes the character's body colour and `#00ff00` the cloth colour;
+every other colour is fixed. An optional `back` layer goes behind the whole
+body; optional `mouth-1/2/3` layers follow the pose's mouth size.
+
 ## 6. Figure model (shared)
 
 - Skeleton: pelvis (root) → 2-segment spine → neck → head;

@@ -44,6 +44,8 @@ tools/parts-sheet.mjs    every body part separately → out/parts-<species>.png
 tools/build-poselab.mjs  builds the pose lab page → out/poselab.html
 tools/poselab.template.html  pose lab source
 data/shapes/*.svg        hand-editable shapes (hair), head-units, head centre at 0,0
+data/faces/              the artist's face drawings, <character>-<front|side>.svg (own README)
+data/faces.json          imported faces (generated; do not edit)
 out/                     generated renders (not committed)
 ```
 
@@ -58,6 +60,8 @@ node tools/build-poselab.mjs                   # rebuild the pose lab page
 node tools/head-sheet.mjs                      # heads of all species, light colours, for drawing corrections
 node tools/export-hair.mjs                     # hair → data/shapes/*.svg for hand editing
 node tools/import-hair.mjs                     # edited hair SVGs → data/species/female.json
+node tools/face-templates.mjs                  # face templates per species and view
+node tools/import-faces.mjs                    # data/faces/*.svg → data/faces.json
 ```
 
 After any renderer change, regenerate the contact sheet and look at it at
@@ -76,7 +80,8 @@ real phone size (figures roughly 60–150 px tall).
   (`bottom`: briefs | dhoti, `top`: bare | full). `characterLook()` turns it
   into `renderFigure` options; facing is chosen per use.
 - **Shapes:** limbs follow straight-against-curve with knotty joints. The
-  head is a tapered rounded square with ears outside it. The loincloth is
+  head is a tapered rounded square with ears outside it, unless the
+  character has a drawn face (`data/faces/`), which replaces it. The loincloth is
   derived from the thighs and the torso.
 
 The full rules, with the reasoning behind each, are in

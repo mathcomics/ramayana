@@ -1,0 +1,52 @@
+# Faces
+
+The artist's face drawings. A drawn face replaces the generated head for a
+character; characters without one keep the generated head.
+
+## Workflow
+
+1. Start from the template for the character's species and view:
+   `templates/<monkey|male|female>-<front|side>.svg`.
+2. Draw the face in the layers, or paste it in and scale it to fit the guide.
+   The guide (generated head, neck and shoulders at the figure's real scale)
+   is locked and ignored on import.
+3. Save as `<character-id>-<front|side>.svg` in this folder, using the ids in
+   `data/characters.json`: `rama-front.svg`, `sita-side.svg`,
+   `monkey1-front.svg`, `raxas_m1-side.svg` …
+4. Commit the file (or hand it to Claude), then run
+   `node tools/import-faces.mjs`. That writes `data/faces.json`, which the
+   renderer and the pose lab use.
+
+The drawing is never edited. On import, each layer's elements are copied
+unchanged with the transforms of their groups; the renderer only moves,
+scales, rotates (with the head) and mirrors (facing left) the whole layer.
+
+## Coordinates
+
+Head-units: the head centre is (0, 0), y points down, the head spans about
+±0.5. The red cross in the guide marks the centre. In side view the face
+looks **right**.
+
+## Layers
+
+| Layer | Use |
+|---|---|
+| `head` | The face: skin, eyes, ears, mouth, crown, beard, earrings… Turns with the head. |
+| `back` | Optional. Drawn behind the whole body, e.g. long hair below the shoulders in front view. |
+| `mouth-1`, `mouth-2`, `mouth-3` | Optional. The pose's mouth size (1 small … 3 wide) picks one. If absent, the mouth drawn in `head` is used for every size. |
+
+Layers are matched by name (Inkscape layer label or group id). A file with
+no named layers is imported entirely as `head`.
+
+## Colours
+
+| Draw with | Becomes |
+|---|---|
+| `#c87137` (skin) | the character's body colour |
+| `#00ff00` (cloth) | the character's cloth colour |
+| anything else | kept exactly as drawn |
+
+So one face can serve several characters, and a character's colours can
+change without redrawing. Avoid using the skin colour for anything that
+should stay fixed (e.g. a beard), and avoid a fixed colour that equals a
+body colour you want to stand out from.

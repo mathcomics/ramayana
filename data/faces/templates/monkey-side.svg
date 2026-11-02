@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Face template: monkey, side view (face looks right).
+     Units: head-units, head centre at (0,0), y down. Save as
+     data/faces/<character-id>-side.svg (e.g. rama-side.svg).
+     Layers:
+       head     - the face itself; turns with the head
+       back     - optional; drawn behind the whole body (e.g. long hair in front view)
+       mouth-1/2/3 - optional; the pose's mouth size picks one
+     Colours: skin #c87137 -> character body colour; cloth #00ff00 -> cloth
+     colour; every other colour is kept as drawn. The guide layer is ignored. -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     width="600" height="900" viewBox="-1.5 -1.2 3 4.5">
+  <g id="guide" inkscape:groupmode="layer" inkscape:label="guide" sodipodi:insensitive="true" opacity="0.7">
+    <path d="M-0.35 2.39L-0.338 2.292L-0.327 2.193L-0.315 2.095L-0.303 1.997L-0.292 1.898L-0.28 1.8L-0.28 1.747L-0.28 1.693L-0.28 1.64L-0.28 1.587L-0.28 1.533L-0.28 1.48L-0.313 1.383L-0.345 1.286L-0.378 1.19L-0.41 1.093L-0.443 0.996L-0.475 0.899L-0.456 0.833L-0.431 0.776L-0.399 0.727L-0.361 0.687L-0.317 0.654L-0.266 0.63L0.266 0.63L0.33 0.654L0.382 0.687L0.423 0.727L0.452 0.776L0.469 0.833L0.475 0.899L0.476 1.023L0.463 1.146L0.437 1.27L0.398 1.393L0.346 1.517L0.28 1.64L0.28 1.64L0.28 1.64L0.315 1.765L0.341 1.89L0.357 2.015L0.364 2.14L0.362 2.265L0.35 2.39L0.262 2.456L0.175 2.503L0.087 2.531L0 2.54L-0.088 2.531L-0.175 2.503L-0.263 2.456L-0.35 2.39Z" fill="#e8e1d9"/>
+    <path d="M-0.138 0.795L-0.12 0.21L0.12 0.21L0.128 0.269L0.134 0.327L0.14 0.382L0.144 0.436L0.147 0.488L0.149 0.537L0.15 0.585L0.15 0.631L0.149 0.675L0.146 0.717L0.143 0.757L0.138 0.795Z" fill="#e8e1d9"/>
+    <path d="M-0.381 -0.19L-0.424 -0.188L-0.466 -0.18L-0.505 -0.168L-0.54 -0.152L-0.57 -0.132L-0.592 -0.11L-0.607 -0.085L-0.614 -0.06L-0.614 -0.019L-0.605 0.02L-0.589 0.057L-0.564 0.088L-0.534 0.115L-0.498 0.134L-0.458 0.146L-0.415 0.15Z" fill="#d9c3b6"/>
+    <path d="M0.192 -0.5L0.257 -0.487L0.318 -0.45L0.37 -0.393L0.407 -0.32L0.426 -0.24L0.474 0.24L0.47 0.32L0.441 0.393L0.389 0.45L0.32 0.487L0.24 0.5L-0.24 0.5L-0.32 0.487L-0.389 0.45L-0.441 0.393L-0.47 0.32L-0.474 0.24L-0.426 -0.24L-0.407 -0.32L-0.37 -0.393L-0.318 -0.45L-0.257 -0.487L-0.192 -0.5Z" fill="#d9c3b6"/>
+    <path d="M0.215 -0.16L0.205 -0.123L0.178 -0.095L0.14 -0.085L0.103 -0.095L0.075 -0.123L0.065 -0.16L0.075 -0.198L0.102 -0.225L0.14 -0.235L0.178 -0.225L0.205 -0.198Z" fill="#ffffff"/>
+    <path d="M0.557 0.37L0.554 0.349L0.545 0.322L0.531 0.292L0.513 0.262L0.49 0.234L0.465 0.209L0.438 0.188L0.411 0.173L0.386 0.163L0.367 0.16L0.348 0.163L0.323 0.173L0.296 0.188L0.269 0.209L0.244 0.234L0.221 0.262L0.203 0.292L0.189 0.322L0.18 0.349L0.177 0.37Z" fill="#ffffff"/>
+    <path d="M-0.08 0H0.08M0 -0.08V0.08" stroke="#b04040" stroke-width="0.01" fill="none"/>
+  </g>
+  <g id="back" inkscape:groupmode="layer" inkscape:label="back"></g>
+  <g id="head" inkscape:groupmode="layer" inkscape:label="head"></g>
+  <g id="mouth-1" inkscape:groupmode="layer" inkscape:label="mouth-1"></g>
+  <g id="mouth-2" inkscape:groupmode="layer" inkscape:label="mouth-2"></g>
+  <g id="mouth-3" inkscape:groupmode="layer" inkscape:label="mouth-3"></g>
+</svg>

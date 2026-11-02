@@ -491,7 +491,7 @@ function headShapes(S, sk) {
   }
   local.push({ role: 'mouth', pts: m });
 
-  return local.map((sh) => ({ ...sh, pts: sh.pts.map((q) => add(sk.H, rot(q, sk.headRot))) }));
+  return local.map((sh) => ({ ...sh, headPart: true, pts: sh.pts.map((q) => add(sk.H, rot(q, sk.headRot))) }));
 }
 
 // Build all shapes in draw order: [{pts, role, open?}]
@@ -553,7 +553,9 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT) {
     if (s.parts) s.parts = s.parts.map(mv);
     if (s.clipPts) s.clipPts = mv(s.clipPts);
   }
-  return { shapes: out, sk, bbox: bbox(out.map((s) => s.pts)) };
+  // where the head ends up, for drawn faces (head-local origin and angle)
+  const headAnchor = { at: [sk.H[0] + dx, sk.H[1] + dy], rot: sk.headRot };
+  return { shapes: out, sk, headAnchor, bbox: bbox(out.map((s) => s.pts)) };
 }
 
 // Every body part as its own list of shapes, for inspection
@@ -606,7 +608,19 @@ export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
   colors.eye = eyeColor(colors.body);
-  const { shapes, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) });
+  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) });
+  // Drawn face (data/faces): replaces the generated head. Its layers are
+  // copied unchanged, placed with one transform; placeholder colours are
+  // swapped for the character's body and cloth colours.
+  const drawn = opts.face?.[sk.pose.headView === 'front' ? 'front' : 'side'];
+  const recolor = (g) => {
+    let out = g;
+    const ph = opts.facePlaceholders || { body: '#c87137', cloth: '#00ff00' };
+    for (const [k, hex] of Object.entries(ph)) out = out.replace(new RegExp(hex.replace('#', '#?'), 'gi'), colors[k]);
+    return out;
+  };
+  const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})">${recolor(g)}</g>`;
+  const faceHead = drawn && (drawn.head || '') + (drawn.mouth?.[sk.pose.mouth] || '');
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
   let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;
@@ -614,7 +628,14 @@ export function renderFigure(species, pose, opts = {}) {
   const faceD = shapes.filter((s) => s.head).map((s) => pathD(s.pts)).join('');
   if (faceD) svg += `<clipPath id="${clipId}"><path d="${faceD}"/></clipPath>`;
   let inBody = false;
+  if (drawn?.defs) svg += `<defs>${drawn.defs}</defs>`;
+  if (drawn?.back) svg += place(drawn.back);            // behind the whole body
+  let headDone = false;
   for (const s of shapes) {
+    if (drawn && s.headPart) {                          // drawn face instead of the generated head
+      if (!headDone) { if (inBody) { svg += '</g>'; inBody = false; } svg += place(faceHead); headDone = true; }
+      continue;
+    }
     if (s.role === 'body') {
       if (!inBody) { svg += `<g fill="${colors.body}">`; inBody = true; }
       svg += `<path d="${pathD(s.pts)}"/>`;
@@ -639,8 +660,10 @@ export function renderFigure(species, pose, opts = {}) {
 
 // Look of a character from data/characters.json: species id plus the
 // render options (colours, outfit) for renderFigure.
-export function characterLook(character, palette) {
+export function characterLook(character, palette, faces) {
   return {
+    face: faces?.faces?.[character.id],
+    facePlaceholders: faces?.placeholders,
     species: character.species,
     colors: { body: palette.body[character.body], cloth: palette.cloth[character.cloth] },
     outfit: { top: character.top, bottom: character.bottom },
