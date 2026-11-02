@@ -132,7 +132,11 @@ First version, `data/species/female.json`. Like the male, with:
 - Slightly shorter and slimmer than the male.
 - Head narrower than the male's and strongly tapered to the chin, with
   rounder corners (`head.width` ≈ 0.74, `taper` ≈ 1.42).
-- Hair waves are short and close together (`hair.waves`).
+- Hair is a **thick frame**: it sits `hair.thickness` (≈ 0.26) outside the
+  head's outline on top and sides, then falls as broad locks
+  (`hair.lockWidth` ≈ 0.8 in side view) to `hair.length` below the head
+  centre, with a narrow gap at the neck in front view. Waves are short and
+  close together (`hair.waves`).
 - A dhoti with a full top reads as a sari.
 
 ### Only three species

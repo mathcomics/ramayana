@@ -7,10 +7,11 @@
     "taper": 1.42,
     "ear": 0,
     "hair": {
-      "length": 1.7,
-      "wave": 0.07,
-      "spread": 0.22,
-      "crown": 0.12,
+      "length": 1.75,
+      "thickness": 0.26,
+      "lockWidth": 0.8,
+      "neckGap": 0.16,
+      "wave": 0.06,
       "waves": 2
     },
     "width": 0.74

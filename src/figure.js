@@ -339,40 +339,71 @@ function wavy(a, b, waves, amp, sign = 1, n = 28) {
 }
 
 // Hair in head-local coordinates (x forward, y down, head spans ±hw).
-// `len` is how far below the head centre the hair falls (head-units).
+// The hair is a thick frame around the head's own outline (`thickness`
+// outside it on top and sides), continuing down as broad locks to
+// `length` below the head centre. Outer edges wavy.
 function hairShape(H, view, hw, edge) {
   const len = H.length ?? 1.6, amp = H.wave ?? 0.07, wv = H.waves ?? 1;
+  const T = H.thickness ?? 0.25;
+  const n = Math.max(2, Math.round(5 * wv));            // waves down a side
+  // outer edge: follows the head, then flares a little below the chin
+  const outX = (y) => edge(Math.max(-hw, Math.min(hw, y))) + T + Math.max(0, y - hw) * 0.12;
+  const sideEdge = (sign, y0, y1, steps = 48) => {
+    const pts = [];
+    for (let i = 0; i <= steps; i++) {
+      const t = i / steps, y = y0 + (y1 - y0) * t;
+      const w = Math.sin(t * Math.PI * n) * amp * Math.min(1, t * 4);
+      pts.push([sign * (outX(y) + w), y]);
+    }
+    return pts;
+  };
+  const top = -hw - T;
+  const crown = (fromX, toX) => quad([fromX, -hw * 0.55], [0, top - T * 0.9], [toX, -hw * 0.55], 16);
+
   if (view === 'front') {
-    // A cap over the top, then two wavy locks falling past the shoulders,
-    // inner edges close to the neck. Drawn behind the head.
-    const out = hw + (H.spread ?? 0.2), top = -hw - (H.crown ?? 0.12);
-    const side = (dir) => {
-      const pts = [];
-      const a = [dir * edge(-hw * 0.6) * 1.05, -hw * 0.75];
-      const b = [dir * out, len];
-      pts.push(a, ...wavy(a, b, 3 * wv, amp, dir, 40));
-      pts.push(...quad(b, [dir * (out - 0.12), len + 0.12], [dir * 0.24, len], 6));
-      pts.push([dir * 0.24, hw * 0.7]);
-      return pts;
+    // drawn behind the body: only the outline and the gap at the neck matter
+    const gap = H.neckGap ?? 0.17;
+    const lockEnd = (sign) => {
+      const o = sign * outX(len), g = sign * gap;
+      return quad([o, len], [(o + g) / 2, len + 0.22], [g, len], 8);
     };
-    const cap = quad([-edge(-hw) * 1.12, -hw * 0.6], [0, top - 0.25], [edge(-hw) * 1.12, -hw * 0.6], 12);
-    const right = side(1), left = side(-1).reverse();
-    return [...cap, ...right, ...left];
+    return [
+      ...crown(-outX(-hw * 0.55), outX(-hw * 0.55)),
+      ...sideEdge(1, -hw * 0.55, len),
+      ...lockEnd(1),
+      [gap, hw * 0.85], [-gap, hw * 0.85],
+      ...lockEnd(-1).reverse(),
+      ...sideEdge(-1, -hw * 0.55, len).reverse(),
+    ];
   }
-  // Side view: the hair covers the back of the head (front edge a wavy line
-  // from the crown down behind the eye to the jaw), then falls down the
-  // back as one wavy mass with a rounded end.
-  const top = -hw - (H.crown ?? 0.12);
-  const crownF = [0.08, -hw - 0.02];
-  const jaw = [-0.06, hw * 0.9];
-  const backX = -edge(0) - (H.spread ?? 0.2);
-  const endF = [-0.15, len], endB = [backX - 0.1, len];
-  const pts = [crownF];
-  pts.push(...wavy(crownF, jaw, 2 * wv, amp * 0.8, -1, 24));   // front edge over the head
-  pts.push(...wavy(jaw, endF, 3 * wv, amp, -1, 40));             // front edge down the back
-  pts.push(...quad(endF, [(endF[0] + endB[0]) / 2, len + 0.3], endB, 10)); // rounded end
-  pts.push(...wavy(endB, [backX, 0], 3 * wv, amp, -1, 40));      // back edge going up
-  pts.push(...quad([backX, 0], [backX + 0.05, top], crownF, 12)); // over the crown
+  // Side view, drawn over the head: front edge a wavy line from the crown,
+  // down behind the eye to the jaw, then down the back of the neck; back
+  // edge follows the back of the head at `thickness`, then falls as one
+  // broad mass with a rounded end.
+  const lockW = H.lockWidth ?? 0.75;
+  const frontTop = [0.06, -hw - T * 0.35];
+  const jaw = [-0.04, hw * 0.92];
+  const frontX = -0.08;
+  // back edge: hugs the back of the head at T, then eases out to the full
+  // lock width below the chin
+  const backX = (y) => {
+    const head = -(edge(Math.max(-hw, Math.min(hw, y))) + T);
+    const lock = frontX - lockW;
+    const t = Math.max(0, Math.min(1, (y - hw * 0.4) / 0.7));
+    const k = t * t * (3 - 2 * t);
+    return head + (Math.min(head, lock) - head) * k;
+  };
+  const pts = [frontTop];
+  pts.push(...wavy(frontTop, jaw, Math.max(2, Math.round(2 * wv)), amp * 0.7, -1, 24));
+  pts.push(...wavy(jaw, [frontX, len], n, amp, -1, 40));
+  const bb = [backX(len), len];
+  pts.push(...quad([frontX, len], [(frontX + bb[0]) / 2, len + 0.3], bb, 10));
+  const steps = 56, y0 = len, y1 = -hw * 0.55;
+  for (let i = 1; i <= steps; i++) {
+    const t = i / steps, y = y0 + (y1 - y0) * t;
+    pts.push([backX(y) - Math.sin(t * Math.PI * n) * amp, y]);
+  }
+  pts.push(...quad([backX(y1), y1], [-hw * 0.35, top - T * 0.7], frontTop, 14));
   return pts;
 }
 
