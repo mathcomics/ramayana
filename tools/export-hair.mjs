@@ -1,6 +1,6 @@
 // Export the female hair (front and side) as editable SVG templates.
 //
-//   node tools/export-hair.mjs   ->  data/shapes/hair-female-front.svg, -side.svg
+//   node tools/export-hair.mjs [front|side]   ->  data/shapes/hair-female-front.svg, -side.svg
 //
 // Coordinates are head-units: the head centre is (0,0), x forward (the face
 // looks right in side view), y down, the head spans about ±0.5. The head,
@@ -16,7 +16,8 @@ import { pathD } from '../src/geom.js';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const S = JSON.parse(readFileSync(join(root, 'data/species/female.json'), 'utf8'));
 
-for (const view of ['front', 'side']) {
+const only = process.argv.slice(2);
+for (const view of ['front', 'side'].filter((v) => !only.length || only.includes(v))) {
   const pose = { view, headView: view, mouth: 2, spine: { lean: 0, chest: 0, neck: 0, head: 0 } };
   const parts = anatomy(S, pose);
   // head centre in figure coordinates = centre of the head square's bbox

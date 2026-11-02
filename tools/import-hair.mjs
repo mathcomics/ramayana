@@ -3,7 +3,7 @@
 //   node tools/import-hair.mjs [file.svg ...]
 //   (default: data/shapes/hair-female-front.svg and -side.svg)
 //
-// Takes the path with id="hair" from each file, flattens it to points in
+// Takes the path with id="hair" (or the first path in the hair layer) from each file, flattens it to points in
 // head-units (head centre at 0,0) and stores it in data/species/female.json
 // as head.hairShape.front / .side. The renderer uses these instead of the
 // generated hair. Group or path transforms (translate/scale/matrix) set by
@@ -79,9 +79,18 @@ S.head.hairShape = S.head.hairShape || {};
 for (const f of files) {
   const view = /front/.test(basename(f)) ? 'front' : 'side';
   const src = readFileSync(f, 'utf8');
-  const tag = src.match(/<path\b[^>]*\bid="hair"[^>]*>/s);
-  if (!tag) { console.error(`${f}: no <path id="hair">`); process.exitCode = 1; continue; }
-  const d = tag[0].match(/\sd="([^"]+)"/s)[1];
+  // the path id="hair", or else the first path inside the group id="hair-layer"
+  // (editors often rename paths)
+  let tag = src.match(/<path\b[^>]*\bid="hair"[^>]*>/s);
+  if (!tag) {
+    const layer = src.search(/<g\b[^>]*\bid="hair-layer"/);
+    if (layer >= 0) {
+      const m2 = /<path\b[^>]*>/s.exec(src.slice(layer));
+      if (m2) { tag = [m2[0]]; tag.index = layer + m2.index; }
+    }
+  }
+  if (!tag) { console.error(`${f}: no <path id="hair"> and no path in the hair layer`); process.exitCode = 1; continue; }
+  const d = tag[0].match(/\sd="([^"]+)"/s)[1].replace(/\s+/g, ' ');
   // collect transforms of enclosing groups (by position) and the path itself
   let m = I;
   const before = src.slice(0, tag.index);

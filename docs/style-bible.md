@@ -131,18 +131,21 @@ First version, `data/species/female.json`. Like the male, with:
 - Narrower shoulders, narrow waist, wider hips (front view reads as an
   hourglass).
 - Slightly shorter and slimmer than the male.
+- Side view: the eye sits close to the front of the face (`head.eyeSide`,
+  its distance behind the front edge).
 - Head narrower than the male's and strongly tapered to the chin, with
   rounder corners (`head.width` ≈ 0.74, `taper` ≈ 1.42).
 - Hair is a **thick frame**: it sits `hair.thickness` (≈ 0.26) outside the
   head's outline on top and sides, then falls as broad locks
   (`hair.lockWidth` ≈ 0.8 in side view) to `hair.length` below the head
-  centre, with a narrow gap at the neck in front view. Waves are short and
+  centre, with no gap between the locks in front view. Waves are short and
   close together (`hair.waves`).
 - Hair can be **drawn by hand**: `data/shapes/hair-female-front.svg` and
   `-side.svg` hold one path `id="hair"` over a locked guide layer (head,
   eyes, neck, torso), in head-units with the head centre at (0,0) and the
   face looking right. `tools/import-hair.mjs` reads them into
-  `head.hairShape`, which replaces the generated hair.
+  `head.hairShape`, which replaces the generated hair. The side hair is
+  now hand-drawn by the artist; the front hair is still generated.
 - A dhoti with a full top reads as a sari.
 
 ### Only three species

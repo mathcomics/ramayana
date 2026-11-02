@@ -371,7 +371,7 @@ function hairShape(H, view, hw, edge) {
       ...crown(-outX(-hw * 0.55), outX(-hw * 0.55)),
       ...sideEdge(1, -hw * 0.55, len),
       ...lockEnd(1),
-      [gap, hw * 0.85], [-gap, hw * 0.85],
+      ...(gap > 0 ? [[gap, hw * 0.85], [-gap, hw * 0.85]] : []),
       ...lockEnd(-1).reverse(),
       ...sideEdge(-1, -hw * 0.55, len).reverse(),
     ];
@@ -455,7 +455,7 @@ function headShapes(S, sk) {
   // Eyes
   const eye = (c) => local.push({ role: 'eye', pts: circlePts(c, 0.075, 12) });
   if (view === 'front') { eye([-0.19, -0.12]); eye([0.19, -0.12]); }
-  else eye([0.14, -0.16]);
+  else eye([S.head.eyeSide != null ? edge(-0.16) - S.head.eyeSide : 0.14, -0.16]);
 
   // Mouth, by species (`mouth` in the species file; see
   // reference/sketch-mouths.jpg). Side view: the opening runs out through
