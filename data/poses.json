@@ -91,281 +91,293 @@
       "headView": "side",
       "mouth": 3,
       "spine": {
-        "chest": 0,
+        "chest": 39,
         "head": -90,
-        "lean": 70,
+        "lean": 54,
         "neck": 29
       },
       "near": {
         "arm": {
-          "elbow": 101,
+          "elbow": 108,
           "hand": "in",
-          "shoulder": 60,
+          "shoulder": 87,
           "wrist": 0
         },
         "leg": {
           "ankle": 6,
-          "hip": 126,
+          "hip": 93,
           "knee": 105
         }
       },
       "far": {
         "arm": {
-          "elbow": 77,
-          "hand": "in",
+          "elbow": 96,
+          "hand": "out",
           "shoulder": -90,
           "wrist": 23
         },
         "leg": {
           "ankle": 8,
-          "hip": 28,
-          "knee": 108
+          "hip": 13,
+          "knee": 126
         }
       },
       "tail": {
         "curl": 300,
-        "lift": 18
+        "lift": -42
       }
     },
     {
       "name": "leap",
       "view": "side",
       "headView": "side",
+      "mouth": 3,
       "spine": {
-        "lean": 20,
-        "chest": -6,
-        "neck": -14,
-        "head": -8
+        "chest": 23,
+        "head": -8,
+        "lean": -17,
+        "neck": -14
       },
       "near": {
         "arm": {
-          "shoulder": 150,
-          "elbow": 15,
-          "hand": "out"
+          "elbow": 53,
+          "hand": "out",
+          "shoulder": 77,
+          "wrist": 0
         },
         "leg": {
-          "hip": 70,
-          "knee": 100,
-          "ankle": 0
+          "ankle": 0,
+          "hip": 107,
+          "knee": 105
         }
       },
       "far": {
         "arm": {
-          "shoulder": 130,
-          "elbow": 25,
-          "hand": "out"
+          "elbow": 4,
+          "hand": "out",
+          "shoulder": 120,
+          "wrist": 0
         },
         "leg": {
-          "hip": -45,
-          "knee": 40,
-          "ankle": -30
+          "ankle": -30,
+          "hip": -67,
+          "knee": 59
         }
       },
       "tail": {
-        "lift": 10,
-        "curl": 200
-      },
-      "mouth": 3
+        "curl": 200,
+        "lift": 10
+      }
     },
     {
       "name": "tumble",
-      "view": "side",
-      "headView": "side",
+      "view": "front",
+      "headView": "front",
+      "mouth": 2,
       "spine": {
-        "lean": 105,
-        "chest": 10,
-        "neck": -10,
-        "head": 10
+        "chest": 43,
+        "head": 10,
+        "lean": 86,
+        "neck": -2
       },
       "near": {
         "arm": {
-          "shoulder": 40,
-          "elbow": 40,
-          "hand": "out"
+          "elbow": 101,
+          "hand": "out",
+          "shoulder": 122,
+          "wrist": 0
         },
         "leg": {
-          "hip": -60,
-          "knee": 70,
-          "ankle": 0
+          "ankle": 0,
+          "hip": 106,
+          "knee": 117
         }
       },
       "far": {
         "arm": {
-          "shoulder": 80,
-          "elbow": 30,
-          "hand": "out"
+          "elbow": 27,
+          "hand": "out",
+          "shoulder": 148,
+          "wrist": 0
         },
         "leg": {
-          "hip": 20,
-          "knee": 90,
-          "ankle": 0
+          "ankle": 0,
+          "hip": 11,
+          "knee": 37
         }
       },
       "tail": {
-        "lift": -20,
-        "curl": 200
-      },
-      "mouth": 2
+        "curl": 200,
+        "lift": 36
+      }
     },
     {
       "name": "point",
       "view": "side",
       "headView": "side",
+      "mouth": 2,
       "spine": {
-        "lean": 6,
         "chest": -4,
-        "neck": -4,
-        "head": 0
+        "head": -26,
+        "lean": 6,
+        "neck": 20
       },
       "near": {
         "arm": {
-          "shoulder": 100,
           "elbow": 0,
-          "hand": "out"
+          "hand": "out",
+          "shoulder": 93,
+          "wrist": 0
         },
         "leg": {
-          "hip": 18,
-          "knee": 10,
-          "ankle": 0
+          "ankle": -22,
+          "hip": 35,
+          "knee": 20
         }
       },
       "far": {
         "arm": {
-          "shoulder": -10,
           "elbow": 30,
-          "hand": "fist"
+          "hand": "fist",
+          "shoulder": -33,
+          "wrist": 0
         },
         "leg": {
-          "hip": -18,
-          "knee": 8,
-          "ankle": 10
+          "ankle": 17,
+          "hip": -9,
+          "knee": 8
         }
       },
       "tail": {
-        "lift": 25,
-        "curl": 200
-      },
-      "mouth": 2
+        "curl": 166,
+        "lift": -2
+      }
     },
     {
       "name": "throw",
       "view": "side",
       "headView": "side",
+      "mouth": 3,
       "spine": {
-        "lean": -12,
-        "chest": -8,
-        "neck": 10,
-        "head": 0
+        "chest": 15,
+        "head": -67,
+        "lean": -16,
+        "neck": 56
       },
       "near": {
         "arm": {
-          "shoulder": 200,
-          "elbow": 50,
-          "hand": "out"
+          "elbow": 107,
+          "hand": "out",
+          "shoulder": 128,
+          "wrist": 0
         },
         "leg": {
-          "hip": -25,
-          "knee": 15,
-          "ankle": 15
+          "ankle": 46,
+          "hip": 22,
+          "knee": 87
         }
       },
       "far": {
         "arm": {
-          "shoulder": 80,
-          "elbow": 20,
-          "hand": "in"
+          "elbow": 107,
+          "hand": "in",
+          "shoulder": 94,
+          "wrist": 0
         },
         "leg": {
-          "hip": 35,
-          "knee": 20,
-          "ankle": -5
+          "ankle": -5,
+          "hip": 56,
+          "knee": 55
         }
       },
       "tail": {
-        "lift": 30,
-        "curl": 200
-      },
-      "mouth": 3
+        "curl": 200,
+        "lift": 30
+      }
     },
     {
       "name": "crouch-fight",
       "view": "front",
       "headView": "front",
+      "mouth": 3,
       "spine": {
-        "lean": 0,
         "chest": 0,
-        "neck": 0,
-        "head": 0
+        "head": 0,
+        "lean": 0,
+        "neck": 14
       },
       "near": {
         "arm": {
-          "shoulder": 60,
           "elbow": 110,
-          "hand": "fist"
+          "hand": "out",
+          "shoulder": 60,
+          "wrist": 0
         },
         "leg": {
+          "ankle": 0,
           "hip": 38,
-          "knee": 70,
-          "ankle": 0
+          "knee": 70
         }
       },
       "far": {
         "arm": {
-          "shoulder": 45,
           "elbow": 75,
-          "hand": "fist"
+          "hand": "out",
+          "shoulder": 45,
+          "wrist": 0
         },
         "leg": {
+          "ankle": 0,
           "hip": 38,
-          "knee": 70,
-          "ankle": 0
+          "knee": 70
         }
       },
       "tail": {
-        "lift": -60,
-        "curl": 200
-      },
-      "mouth": 3
+        "curl": 200,
+        "lift": -60
+      }
     },
     {
       "name": "flex",
       "view": "front",
       "headView": "front",
+      "mouth": 2,
       "spine": {
-        "lean": 0,
         "chest": 0,
-        "neck": 0,
-        "head": 0
+        "head": 0,
+        "lean": 0,
+        "neck": 0
       },
       "near": {
         "arm": {
-          "shoulder": 90,
-          "elbow": 105,
-          "hand": "fist"
+          "elbow": 0,
+          "hand": "fist",
+          "shoulder": 34,
+          "wrist": 0
         },
         "leg": {
+          "ankle": 0,
           "hip": 25,
-          "knee": 35,
-          "ankle": 0
+          "knee": 35
         }
       },
       "far": {
         "arm": {
-          "shoulder": 90,
-          "elbow": 105,
-          "hand": "fist"
+          "elbow": 0,
+          "hand": "fist",
+          "shoulder": 29,
+          "wrist": 0
         },
         "leg": {
+          "ankle": 0,
           "hip": 25,
-          "knee": 35,
-          "ankle": 0
+          "knee": 35
         }
       },
       "tail": {
-        "lift": -60,
-        "curl": 200
-      },
-      "mouth": 2
+        "curl": 300,
+        "lift": -82
+      }
     }
   ]
 }

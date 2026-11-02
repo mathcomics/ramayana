@@ -44,3 +44,15 @@ scene spec (JSON) → layout → figure geometry → SVG
 Pose lab (published artifact, saves poses to its database, collection
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 Saved poses are reviewed and then merged into `data/poses.json`.
+
+## Status (2026-11-01)
+
+- Generic monkey done: shared skeleton, two views (side/front), knotty
+  straight-against-curve limbs, tapered rounded-square head with outside
+  ears and three mouth openings, three hands (fist/out/in), hinged torso
+  curl, derived loincloth, tail.
+- Nine monkey poses in `data/poses.json`, tuned by the artist in the pose
+  lab and merged. Pose-lab saves also live in the artifact's `poses`
+  collection; merge them into the repo when asked.
+- Next: generic rakshasa and human (same skeleton, own species profiles),
+  then scene layout and panels.
