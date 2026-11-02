@@ -116,7 +116,11 @@ torso curl), with its own proportions in `data/species/human.json`:
 - Taller: longer legs (thigh 1.5, shin 1.45) and torso; arms a bit
   shorter than the monkey's.
 - Broad chest, narrow waist (front view reads as an inverted triangle).
-- Slimmer limbs; head rounder and less tapered; smaller ears.
+- Slimmer limbs; smaller ears.
+- Head tapers the opposite way to the monkey's: narrower at the chin
+  (`head.taper` ≈ 1.22, i.e. the top is wider than the bottom).
+- Thighs are widest at the hip and narrow toward the knee (the monkey's
+  start thin at the hip).
 - No tail.
 - Women (hair, sari silhouette) to come.
 
