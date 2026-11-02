@@ -20,6 +20,7 @@ export const DEFAULT_COLORS = {
   body: '#5a2a12',
   cloth: '#c8322a',
   mouth: '#f4efe6',
+  hair: '#17110d',
 };
 
 const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
@@ -324,13 +325,65 @@ function tailShape(S, sk) {
 // shape exponent]. Exponent < 1 squares the arch off, > 1 makes it peaked.
 const MOUTHS = { 1: [0.2, 0.09, 1], 2: [0.19, 0.21, 1.25], 3: [0.26, 0.33, 0.6] };
 
+// A wavy line from a to b: `waves` bumps of height `amp`, bulging to the
+// left of the direction of travel (sign +1) or right (-1).
+function wavy(a, b, waves, amp, sign = 1, n = 28) {
+  const d = sub(b, a), len = Math.hypot(d[0], d[1]) || 1;
+  const nrm = [-d[1] / len * sign, d[0] / len * sign];
+  const out = [];
+  for (let i = 1; i <= n; i++) {
+    const t = i / n, w = Math.sin(t * Math.PI * waves) * amp * Math.sin(t * Math.PI);
+    out.push(add(lerp(a, b, t), mul(nrm, w)));
+  }
+  return out;
+}
+
+// Hair in head-local coordinates (x forward, y down, head spans ±hw).
+// `len` is how far below the head centre the hair falls (head-units).
+function hairShape(H, view, hw, edge) {
+  const len = H.length ?? 1.6, amp = H.wave ?? 0.07;
+  if (view === 'front') {
+    // A cap over the top, then two wavy locks falling past the shoulders,
+    // inner edges close to the neck. Drawn behind the head.
+    const out = hw + (H.spread ?? 0.2), top = -hw - (H.crown ?? 0.12);
+    const side = (dir) => {
+      const pts = [];
+      const a = [dir * edge(-hw * 0.6) * 1.05, -hw * 0.75];
+      const b = [dir * out, len];
+      pts.push(a, ...wavy(a, b, 3, amp, dir));
+      pts.push(...quad(b, [dir * (out - 0.12), len + 0.12], [dir * 0.24, len], 6));
+      pts.push([dir * 0.24, hw * 0.7]);
+      return pts;
+    };
+    const cap = quad([-edge(-hw) * 1.12, -hw * 0.6], [0, top - 0.25], [edge(-hw) * 1.12, -hw * 0.6], 12);
+    const right = side(1), left = side(-1).reverse();
+    return [...cap, ...right, ...left];
+  }
+  // Side view: the hair covers the back of the head (front edge a wavy line
+  // from the crown down behind the eye to the jaw), then falls down the
+  // back as one wavy mass with a rounded end.
+  const top = -hw - (H.crown ?? 0.12);
+  const crownF = [0.08, -hw - 0.02];
+  const jaw = [-0.06, hw * 0.9];
+  const backX = -edge(0) - (H.spread ?? 0.2);
+  const endF = [-0.15, len], endB = [backX - 0.1, len];
+  const pts = [crownF];
+  pts.push(...wavy(crownF, jaw, 2, amp * 0.8, -1, 16));        // front edge over the head
+  pts.push(...wavy(jaw, endF, 3, amp, -1));                      // front edge down the back
+  pts.push(...quad(endF, [(endF[0] + endB[0]) / 2, len + 0.3], endB, 10)); // rounded end
+  pts.push(...wavy(endB, [backX, 0], 3, amp, -1));               // back edge going up
+  pts.push(...quad([backX, 0], [backX + 0.05, top], crownF, 12)); // over the crown
+  return pts;
+}
+
 function headShapes(S, sk) {
   const s = S.head.size, hw = s / 2;
   const view = sk.pose.headView;
   const local = [];
   // Tapered rounded square: top narrower than bottom.
   const taper = S.head.taper ?? 1; // top width / bottom width
-  const wAt = (y) => taper + (1 - taper) * ((y + hw) / s); // x-scale at height y
+  const wd = S.head.width ?? 1;   // overall width factor
+  const wAt = (y) => wd * (taper + (1 - taper) * ((y + hw) / s)); // x-scale at height y
   const edge = (y) => hw * wAt(y); // half width of the head at height y
   const square = roundRectPts(hw, hw, S.head.radius).map(([x, y]) => [x * wAt(y), y]);
 
@@ -348,16 +401,17 @@ function headShapes(S, sk) {
     }
     return pts;
   };
-  if (view === 'front') { local.push({ role: 'body', pts: ear(-1) }, { role: 'body', pts: ear(1) }); }
-  else local.push({ role: 'body', pts: ear(-1) });
-  // Hair bun (female): a disc on the back of the head in side view, on
-  // top in front view. Part of the silhouette.
-  if (S.head.bun) {
-    const r = S.head.bun;
-    const c = view === 'front' ? [0, -hw - r * 0.35] : [-hw * 0.78, -hw * 0.62];
-    local.push({ role: 'body', pts: circlePts(c, r, 18) });
+  const hasEars = (S.head.ear ?? 1) > 0;
+  if (hasEars) {
+    if (view === 'front') { local.push({ role: 'body', pts: ear(-1) }, { role: 'body', pts: ear(1) }); }
+    else local.push({ role: 'body', pts: ear(-1) });
   }
+  // Long flowing hair (female): behind the head in front view, over the
+  // back of the head in side view (see reference/sketch-female-hair.jpg).
+  const hair = S.head.hair ? hairShape(S.head.hair, view, hw, edge) : null;
+  if (hair && view === 'front') local.push({ role: 'hair', pts: hair });
   local.push({ role: 'body', pts: square, head: true });
+  if (hair && view !== 'front') local.push({ role: 'hair', pts: hair });
 
   // Eyes
   const eye = (c) => local.push({ role: 'eye', pts: circlePts(c, 0.075, 12) });
@@ -420,6 +474,12 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT) {
     out.push(loincloth(S, sk, torso));
     out.push(...headShapes(S, sk));
     push(limbShapes(S, sk.limbs.near, 'arm'));
+  }
+
+  // Front view: hair hangs behind the whole body, not just the head.
+  if (sk.front) {
+    const hair = out.filter((x) => x.role === 'hair');
+    if (hair.length) { const rest = out.filter((x) => x.role !== 'hair'); out.length = 0; out.push(...hair, ...rest); }
   }
 
   // Lowest point at y = 0. Where the figure sits in a panel is the
@@ -515,4 +575,14 @@ export function renderFigure(species, pose, opts = {}) {
   if (inBody) svg += '</g>';
   svg += '</g>';
   return { svg, bbox: bb };
+}
+
+// Look of a character from data/characters.json: species id plus the
+// render options (colours, outfit) for renderFigure.
+export function characterLook(character, palette) {
+  return {
+    species: character.species,
+    colors: { body: palette.body[character.body], cloth: palette.cloth[character.cloth] },
+    outfit: { top: character.top, bottom: character.bottom },
+  };
 }

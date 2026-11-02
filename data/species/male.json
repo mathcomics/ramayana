@@ -5,7 +5,8 @@
     "size": 1.0,
     "radius": 0.3,
     "taper": 1.22,
-    "ear": 0.55
+    "ear": 0.55,
+    "width": 0.88
   },
   "neck": 0.3,
   "neckWidth": 0.24,

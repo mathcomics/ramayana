@@ -116,7 +116,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .posebar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
 .pick { display: flex; gap: 8px; align-items: center; flex: 1 1 200px; min-width: 0; }
 .pick input { flex: 1 1 auto; min-width: 0; font-weight: 600; }
-.posebar .sw { width: 22px; height: 22px; }
+.charsel { font: inherit; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 6px 8px; min-width: 0; flex: 0 1 160px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .status { margin-top: -2px; }
 .save .bar { align-items: end; }
@@ -155,8 +155,8 @@ pre {
         <input type="text" id="name" autocomplete="off" spellcheck="false" placeholder="pose name">
         <button class="btn" id="saveBtn" type="button">Save</button>
       </div>
-      <div class="swatches" id="bodyc" role="group" aria-label="Body colour"></div>
-      <div class="swatches" id="clothc" role="group" aria-label="Loincloth colour"></div>
+      <label class="sr" for="character">Character</label>
+      <select id="character" class="charsel" title="Character (view only)"></select>
     </div>
     <div class="status" id="status" role="status"></div>
   </section>
@@ -168,11 +168,6 @@ pre {
     <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
   </div>
 
-  <div class="bar" aria-label="Look (view only, not saved with the pose)">
-    <div class="field"><span>Species</span><div class="seg" id="species"></div></div>
-    <div class="field"><span>Bottom</span><div class="seg" id="bottom"></div></div>
-    <div class="field"><span>Top</span><div class="seg" id="top"></div></div>
-  </div>
 
   <div class="groups" id="groups"></div>
 
@@ -188,16 +183,17 @@ pre {
 <script>
 /*__RENDERER__*/
 const SPECIES = /*__SPECIES__*/;
+const CAST = /*__CHARACTERS__*/;
 const STARTERS = /*__POSES__*/;
 </script>
 <script>
 (() => {
   const PAPER = '#f2ece1';
-  const BODIES = [['brown', '#5a2a12'], ['dark red', '#7c1d1d'], ['tan', '#c08d6a']];
-  const CLOTHS = [['white', '#f4f1ea'], ['yellow', '#f0d23a'], ['red', '#c8322a']];
   // Species, outfit, colours and facing change only the view: the pose is
   // shared by every species and saved without them.
-  const LOOK = new Set(['facing', 'species', 'bottom', 'top']);
+  const LOOK = new Set(['facing']);
+  const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
+  const look = () => characterLook(charById(state.character), CAST.palette);
 
   const SLIDERS = [
     { key: 'spine', title: 'Body & tail', rows: [
@@ -223,8 +219,7 @@ const STARTERS = /*__POSES__*/;
   const state = {
     pose: normalizePose(STARTERS[0]),
     facing: 1,
-    body: BODIES[0][1], cloth: CLOTHS[2][1],
-    species: 'monkey', outfit: { bottom: 'briefs', top: 'bare' },
+    character: (CAST.characters.find((c) => c.species === 'monkey') || CAST.characters[0]).id,
     saved: [],
     dirty: false,
   };
@@ -233,12 +228,12 @@ const STARTERS = /*__POSES__*/;
 
   // ---------- render
   function draw() {
-    const colors = { body: state.body, cloth: state.cloth };
+    const L = look();
     const p = state.pose;
-    const big = renderFigure(SPECIES[state.species], p, { x: 0, y: 0, scale: 1, facing: state.facing, colors, outfit: state.outfit });
+    const big = renderFigure(SPECIES[L.species], p, { x: 0, y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit });
     const groundLine = `<line x1="-6" x2="6" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
     $('big').innerHTML = `<svg viewBox="-4.6 -8.3 9.2 9" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Figure preview"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${big.svg}</svg>`;
-    $('meta').textContent = `${state.species} · ${p.view} · ${p.name}`;
+    $('meta').textContent = `${charById(state.character).name} · ${p.view} · ${p.name}`;
     $('json').textContent = JSON.stringify(exportPose(), null, 2);
   }
 
@@ -308,9 +303,10 @@ const STARTERS = /*__POSES__*/;
   }
 
   function syncControls() {
-    for (const id of ['view', 'headView', 'mouth', 'facing', 'species', 'bottom', 'top', 'bodyc', 'clothc', 'hand-near', 'hand-far']) $(id)._sync();
+    for (const id of ['view', 'headView', 'mouth', 'facing', 'hand-near', 'hand-far']) $(id)._sync();
+    $('character').value = state.character;
     // tail controls only apply to species with a tail
-    const hasTail = !!SPECIES[state.species].tail;
+    const hasTail = !!SPECIES[look().species].tail;
     for (const id of ['s-tail-lift', 's-tail-curl']) {
       const el = $(id); el.disabled = !hasTail; el.closest('.row').style.opacity = hasTail ? '' : '0.4';
     }
@@ -347,8 +343,8 @@ const STARTERS = /*__POSES__*/;
 
   // ---------- gallery: every pose as a thumbnail; tap to edit it
   function thumbSvg(pose) {
-    const colors = { body: state.body, cloth: state.cloth };
-    const r = renderFigure(SPECIES[state.species], pose, { x: 0, y: 0, scale: 1, facing: state.facing, colors, outfit: state.outfit });
+    const L = look();
+    const r = renderFigure(SPECIES[L.species], pose, { x: 0, y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit });
     const b = r.bbox, w = b.x1 - b.x0, h = b.y1 - b.y0, side = Math.max(w, h) + 0.6;
     const cx = (b.x0 + b.x1) / 2 * state.facing, cy = (b.y0 + b.y1) / 2;
     return `<svg viewBox="${cx - side / 2} ${cy - side / 2} ${side} ${side}" aria-hidden="true">${r.svg}</svg>`;
@@ -387,11 +383,9 @@ const STARTERS = /*__POSES__*/;
   seg('headView', [['Front', 'front'], ['Side', 'side']], () => state.pose.headView, (v) => { state.pose.headView = v; });
   seg('mouth', [['Slit', 1], ['Arch', 2], ['Wide', 3]], () => state.pose.mouth, (v) => { state.pose.mouth = v; });
   seg('facing', [['→', 1], ['←', -1]], () => state.facing, (v) => { state.facing = v; });
-  seg('species', Object.keys(SPECIES).map((k) => [k[0].toUpperCase() + k.slice(1), k]), () => state.species, (v) => { state.species = v; });
-  seg('bottom', [['Briefs', 'briefs'], ['Dhoti', 'dhoti']], () => state.outfit.bottom, (v) => { state.outfit.bottom = v; });
-  seg('top', [['Bare', 'bare'], ['Full', 'full']], () => state.outfit.top, (v) => { state.outfit.top = v; });
-  swatches('bodyc', BODIES, 'body');
-  swatches('clothc', CLOTHS, 'cloth');
+  // Character menu: changes only the look, never the pose.
+  $('character').innerHTML = CAST.characters.map((c) => `<option value="${c.id}">${c.name}</option>`).join('');
+  $('character').addEventListener('change', (e) => { state.character = e.target.value; syncControls(); draw(); renderGallery(); });
   buildSliders();
   for (const side of ['near', 'far']) {
     seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in']],

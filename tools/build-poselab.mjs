@@ -23,11 +23,13 @@ const ids = readdirSync(join(root, 'data/species')).filter((f) => f.endsWith('.j
   .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
 const species = JSON.stringify(Object.fromEntries(ids.map((id) => [id, JSON.parse(read(`data/species/${id}.json`))])));
 const poses = JSON.stringify(JSON.parse(read('data/poses.json')).poses);
+const characters = JSON.stringify(JSON.parse(read('data/characters.json')));
 
 const html = read('tools/poselab.template.html')
   .replace('/*__RENDERER__*/', () => renderer)
   .replace('/*__SPECIES__*/', () => species)
-  .replace('/*__POSES__*/', () => poses);
+  .replace('/*__POSES__*/', () => poses)
+  .replace('/*__CHARACTERS__*/', () => characters);
 
 if (/^\s*(import|export)\s/m.test(renderer)) throw new Error('module syntax left in renderer');
 mkdirSync(join(root, 'out'), { recursive: true });

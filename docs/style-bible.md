@@ -108,7 +108,8 @@ torso curl), with its own proportions in `data/species/male.json`:
 - Broad chest, narrow waist (front view reads as an inverted triangle).
 - Slimmer limbs; smaller ears.
 - Head tapers the opposite way to the monkey's: narrower at the chin
-  (`head.taper` ≈ 1.22, i.e. the top is wider than the bottom).
+  (`head.taper` ≈ 1.22, i.e. the top is wider than the bottom), and is a
+  little narrower overall (`head.width` ≈ 0.88).
 - Thighs are widest at the hip and narrow toward the knee (the monkey's
   start thin at the hip).
 - No tail.
@@ -117,11 +118,14 @@ torso curl), with its own proportions in `data/species/male.json`:
 
 First version, `data/species/female.json`. Like the male, with:
 
-- A hair bun (`head.bun`): a disc at the back of the head in side view,
-  on top of the head in front view. Part of the body silhouette.
+- Long flowing hair (`head.hair`; see `reference/sketch-female-hair.jpg`),
+  near-black. Front view: a cap over the head and two wavy locks falling
+  past the shoulders, drawn **behind the whole body**. Side view: covers the
+  back of the head (front edge a wavy line behind the eye) and falls down
+  the back as one wavy mass with a rounded end, drawn **in front**. No ears.
 - Narrower shoulders, narrow waist, wider hips (front view reads as an
   hourglass).
-- Slightly shorter and slimmer than the male; smaller ears.
+- Slightly shorter and slimmer than the male.
 - A dhoti with a full top reads as a sari.
 
 ### Only three species
@@ -144,6 +148,14 @@ the pose.
 - Top: `bare` or `full` (the whole torso in the cloth colour).
 - Body colours: brown, dark red, tan.
 - Cloth colours: white, yellow, red.
+
+## 5.5 Characters
+
+`data/characters.json` defines every figure the story uses. A character
+picks a species and fixes body colour, outfit (top, bottom) and cloth
+colour. Colour names resolve through the palette in the same file. Ids
+like `monkey1`, `raxas_m1` and `raxas_f1` are generic types for unnamed
+figures. Signature features (necklaces, crowns, top bun…) come later.
 
 ## 6. Figure model (shared)
 

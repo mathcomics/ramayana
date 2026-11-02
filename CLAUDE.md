@@ -51,14 +51,14 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 ## Status (2026-11-02)
 
 - Three species, one skeleton, one shared set of poses: **monkey** (done,
-  tuned by the artist), **male** and **female** (first versions; female has
-  a hair bun and hourglass proportions). No rakshasa species and no female
-  monkeys.
-- Outfit options at render time: bottom briefs | dhoti, top bare | full.
-  Palettes: body brown / dark red / tan; cloth white / yellow / red.
-- Nine shared poses in `data/poses.json`. The pose lab switches species,
-  outfit and colours as view-only options; saves hold only the pose
-  (collection `poses`); merge into the repo when asked.
+  tuned by the artist), **male** (first version) and **female** (first
+  version, long wavy hair). No rakshasa species and no female monkeys.
+- **Characters** in `data/characters.json`: 14 entries (11 named, plus
+  generic `monkey1`, `raxas_m1`, `raxas_f1`), each = species + body colour
+  + outfit + cloth colour. Signature features (necklaces, crowns, buns…)
+  not yet built.
+- Nine shared poses in `data/poses.json`. The pose lab has a character menu
+  (view only); saves hold only the pose (collection `poses`); merge into
+  the repo when asked.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
-- Next: characters — each inherits a species and fixes outfit, cloth
-  colour and body colour. Then scene layout and panels.
+- Next: character signature features, then scene layout and panels.

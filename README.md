@@ -38,6 +38,7 @@ src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
 src/figure.js            skeleton solve, body-part shapes, SVG output
 data/species/*.json      per-species proportions, in head-units
 data/poses.json          named poses (joint angles, view, hands, mouth)
+data/characters.json     cast: species + body colour + outfit + cloth colour
 tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
 tools/parts-sheet.mjs    every body part separately → out/parts-<species>.png
 tools/build-poselab.mjs  builds the pose lab page → out/poselab.html
@@ -66,9 +67,10 @@ real phone size (figures roughly 60–150 px tall).
 - **Pose:** joint angles relative to the parent joint, plus head view,
   mouth (1–3) and a hand per arm (`fist`, `out` or `in`). See the `_doc`
   field in `data/poses.json`. All species share the same poses.
-- **Look (not part of the pose):** species, facing, body and cloth
-  colours, and outfit (`bottom`: briefs | dhoti, `top`: bare | full),
-  passed to `renderFigure` as options.
+- **Look (not part of the pose):** a character from
+  `data/characters.json` fixes species, body and cloth colours and outfit
+  (`bottom`: briefs | dhoti, `top`: bare | full). `characterLook()` turns it
+  into `renderFigure` options; facing is chosen per use.
 - **Shapes:** limbs follow straight-against-curve with knotty joints. The
   head is a tapered rounded square with ears outside it. The loincloth is
   derived from the thighs and the torso.
@@ -78,8 +80,9 @@ The full rules, with the reasoning behind each, are in
 
 ### Pose lab
 
-A phone-friendly page for tuning poses with sliders. Species, outfit and
-colours can be switched to see a pose on any figure; they are not saved.
+A phone-friendly page for tuning poses with sliders. A character menu
+shows the pose on any member of the cast; it changes only the view, never
+the saved pose.
 It is published as a claude.ai artifact (private to the owner):
 https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 
