@@ -341,7 +341,7 @@ function wavy(a, b, waves, amp, sign = 1, n = 28) {
 // Hair in head-local coordinates (x forward, y down, head spans ±hw).
 // `len` is how far below the head centre the hair falls (head-units).
 function hairShape(H, view, hw, edge) {
-  const len = H.length ?? 1.6, amp = H.wave ?? 0.07;
+  const len = H.length ?? 1.6, amp = H.wave ?? 0.07, wv = H.waves ?? 1;
   if (view === 'front') {
     // A cap over the top, then two wavy locks falling past the shoulders,
     // inner edges close to the neck. Drawn behind the head.
@@ -350,7 +350,7 @@ function hairShape(H, view, hw, edge) {
       const pts = [];
       const a = [dir * edge(-hw * 0.6) * 1.05, -hw * 0.75];
       const b = [dir * out, len];
-      pts.push(a, ...wavy(a, b, 3, amp, dir));
+      pts.push(a, ...wavy(a, b, 3 * wv, amp, dir, 40));
       pts.push(...quad(b, [dir * (out - 0.12), len + 0.12], [dir * 0.24, len], 6));
       pts.push([dir * 0.24, hw * 0.7]);
       return pts;
@@ -368,10 +368,10 @@ function hairShape(H, view, hw, edge) {
   const backX = -edge(0) - (H.spread ?? 0.2);
   const endF = [-0.15, len], endB = [backX - 0.1, len];
   const pts = [crownF];
-  pts.push(...wavy(crownF, jaw, 2, amp * 0.8, -1, 16));        // front edge over the head
-  pts.push(...wavy(jaw, endF, 3, amp, -1));                      // front edge down the back
+  pts.push(...wavy(crownF, jaw, 2 * wv, amp * 0.8, -1, 24));   // front edge over the head
+  pts.push(...wavy(jaw, endF, 3 * wv, amp, -1, 40));             // front edge down the back
   pts.push(...quad(endF, [(endF[0] + endB[0]) / 2, len + 0.3], endB, 10)); // rounded end
-  pts.push(...wavy(endB, [backX, 0], 3, amp, -1));               // back edge going up
+  pts.push(...wavy(endB, [backX, 0], 3 * wv, amp, -1, 40));      // back edge going up
   pts.push(...quad([backX, 0], [backX + 0.05, top], crownF, 12)); // over the crown
   return pts;
 }
@@ -418,16 +418,37 @@ function headShapes(S, sk) {
   if (view === 'front') { eye([-0.19, -0.12]); eye([0.19, -0.12]); }
   else eye([0.14, -0.16]);
 
-  // Mouth: flat bottom, arched top. In side view the arch is centred near
-  // the front edge so the opening runs out to the face's edge.
-  const [a, b, p] = MOUTHS[sk.pose.mouth];
+  // Mouth, by species (`mouth` in the species file; see
+  // reference/sketch-mouths.jpg). Side view: the opening runs out through
+  // the front edge of the face (the renderer clips it to the head).
+  //   arch  (monkey): flat bottom, arched top
+  //   box   (male):   a rectangular slot
+  //   wedge (female): a V notch, point toward the back of the head
+  const kind = S.mouth || 'arch';
+  const lvl = sk.pose.mouth;
   const yb = 0.37;
-  const cx = view === 'front' ? 0 : edge(yb) - 0.12;
   const m = [];
-  for (let i = 0; i <= 20; i++) {
-    const t = Math.PI * (i / 20);
-    const c = Math.cos(t), sn = Math.sin(t);
-    m.push([cx + a * Math.sign(c) * Math.pow(Math.abs(c), p), yb - b * Math.pow(sn, p)]);
+  if (kind === 'arch') {
+    const [a, b, p] = MOUTHS[lvl];
+    const cx = view === 'front' ? 0 : edge(yb) - 0.12;
+    for (let i = 0; i <= 20; i++) {
+      const t = Math.PI * (i / 20);
+      const c = Math.cos(t), sn = Math.sin(t);
+      m.push([cx + a * Math.sign(c) * Math.pow(Math.abs(c), p), yb - b * Math.pow(sn, p)]);
+    }
+  } else {
+    const h = [0.08, 0.15, 0.22][lvl - 1];          // opening height
+    const depth = [0.26, 0.32, 0.38][lvl - 1];     // how far into the face
+    const yc = yb - 0.02 - h / 2;
+    if (view === 'front') {
+      const w = depth * 0.95;
+      if (kind === 'box') m.push([-w / 2, yc - h / 2], [w / 2, yc - h / 2], [w / 2, yc + h / 2], [-w / 2, yc + h / 2]);
+      else m.push([0, yc - h * 0.75], [w / 2, yc + h / 2], [-w / 2, yc + h / 2]);
+    } else {
+      const ex = edge(yc) + 0.15;                     // past the front edge
+      if (kind === 'box') m.push([ex, yc - h / 2], [ex - depth - 0.15, yc - h / 2], [ex - depth - 0.15, yc + h / 2], [ex, yc + h / 2]);
+      else m.push([ex, yc - h * 0.75], [ex - depth - 0.15, yc + h * 0.05], [ex, yc + h * 0.75]);
+    }
   }
   local.push({ role: 'mouth', pts: m });
 

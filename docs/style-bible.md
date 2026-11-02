@@ -69,8 +69,12 @@ and default posture. Measurements are in head-units (h = head diameter).
     no outline; the lower half hangs longer than the upper. Front view:
     both sides. Side view: on the back of the head.
   - Eyes: front view two dots, side view one dot toward the front.
-  - Mouth: **never closed**; three openings, always a flat bottom under an
-    arched top: 1 slit (shallow), 2 arch (peaked), 3 wide (boxy shout).
+  - Mouth: **never closed**; three openings (1 small, 2 medium, 3 wide).
+    The shape depends on the species (`mouth`; see
+    `reference/sketch-mouths.jpg`): monkey **arch** (flat bottom, arched
+    top), male **box** (a rectangular slot), female **wedge** (a V notch
+    pointing to the back of the head). In front view the box is a
+    rectangle and the wedge a triangle.
     In side view the opening runs out to the front edge of the face.
     The mouth never sticks out of the head; no muzzle or snout.
 - Neck: thin (`neckWidth` ≈ 0.24) and fairly long (`neck` ≈ 0.27).
@@ -126,6 +130,9 @@ First version, `data/species/female.json`. Like the male, with:
 - Narrower shoulders, narrow waist, wider hips (front view reads as an
   hourglass).
 - Slightly shorter and slimmer than the male.
+- Head narrower than the male's and strongly tapered to the chin, with
+  rounder corners (`head.width` ≈ 0.74, `taper` ≈ 1.42).
+- Hair waves are short and close together (`hair.waves`).
 - A dhoti with a full top reads as a sari.
 
 ### Only three species
