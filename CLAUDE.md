@@ -15,6 +15,8 @@ scene spec (JSON) → layout → figure geometry → SVG
 
 ## Source of truth
 
+- `README.md` — project overview, layout, commands, pose lab.
+
 - `docs/style-bible.md` — visual rules. Read it before changing the renderer.
 - `reference/` — the artist's original friezes. Output is judged against these.
 
@@ -24,7 +26,8 @@ scene spec (JSON) → layout → figure geometry → SVG
     reference/   artist's reference images
     src/         renderer library (skeleton, species, parts, svg output)
     data/        species profiles, poses (JSON)
-    tools/       pose lab, contact sheet
+    tools/       pose lab, contact sheet, parts sheet
+    manuscript/  story text and scene breakdown (own README)
     out/         generated renders (not committed)
 
 ## Conventions
