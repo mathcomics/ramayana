@@ -43,6 +43,7 @@ tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
 tools/parts-sheet.mjs    every body part separately → out/parts-<species>.png
 tools/build-poselab.mjs  builds the pose lab page → out/poselab.html
 tools/poselab.template.html  pose lab source
+data/shapes/*.svg        hand-editable shapes (hair), head-units, head centre at 0,0
 out/                     generated renders (not committed)
 ```
 
@@ -54,6 +55,8 @@ Needs Node 18+ and `rsvg-convert` (librsvg) for PNG output. No npm installs.
 node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: male, female)
 node tools/parts-sheet.mjs monkey              # each body part at one scale
 node tools/build-poselab.mjs                   # rebuild the pose lab page
+node tools/export-hair.mjs                     # hair → data/shapes/*.svg for hand editing
+node tools/import-hair.mjs                     # edited hair SVGs → data/species/female.json
 ```
 
 After any renderer change, regenerate the contact sheet and look at it at

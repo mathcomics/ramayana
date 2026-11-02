@@ -138,6 +138,11 @@ First version, `data/species/female.json`. Like the male, with:
   (`hair.lockWidth` ≈ 0.8 in side view) to `hair.length` below the head
   centre, with a narrow gap at the neck in front view. Waves are short and
   close together (`hair.waves`).
+- Hair can be **drawn by hand**: `data/shapes/hair-female-front.svg` and
+  `-side.svg` hold one path `id="hair"` over a locked guide layer (head,
+  eyes, neck, torso), in head-units with the head centre at (0,0) and the
+  face looking right. `tools/import-hair.mjs` reads them into
+  `head.hairShape`, which replaces the generated hair.
 - A dhoti with a full top reads as a sari.
 
 ### Only three species

@@ -444,7 +444,10 @@ function headShapes(S, sk) {
   }
   // Long flowing hair (female): behind the head in front view, over the
   // back of the head in side view (see reference/sketch-female-hair.jpg).
-  const hair = S.head.hair ? hairShape(S.head.hair, view, hw, edge) : null;
+  // hand-drawn hair (data/shapes, imported with tools/import-hair.mjs)
+  // takes precedence over the generated shape
+  const drawn = S.head.hairShape?.[view === 'front' ? 'front' : 'side'];
+  const hair = drawn ? drawn.map((q) => [q[0], q[1]]) : S.head.hair ? hairShape(S.head.hair, view, hw, edge) : null;
   if (hair && view === 'front') local.push({ role: 'hair', pts: hair });
   local.push({ role: 'body', pts: square, head: true });
   if (hair && view !== 'front') local.push({ role: 'hair', pts: hair });
