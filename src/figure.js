@@ -381,7 +381,9 @@ function hairShape(H, view, hw, edge) {
   // edge follows the back of the head at `thickness`, then falls as one
   // broad mass with a rounded end.
   const lockW = H.lockWidth ?? 0.75;
-  const frontTop = [0.06, -hw - T * 0.35];
+  // rounded cap: from the forehead over the top of the head, T outside it
+  const frontTop = [edge(-hw) * 0.85, -hw + 0.03];          // hairline at the forehead
+  const aboveEye = [0.03, -hw * 0.45];
   const jaw = [-0.04, hw * 0.92];
   const frontX = -0.08;
   // back edge: hugs the back of the head at T, then eases out to the full
@@ -394,7 +396,8 @@ function hairShape(H, view, hw, edge) {
     return head + (Math.min(head, lock) - head) * k;
   };
   const pts = [frontTop];
-  pts.push(...wavy(frontTop, jaw, Math.max(2, Math.round(2 * wv)), amp * 0.7, -1, 24));
+  pts.push(...quad(frontTop, [aboveEye[0] + 0.12, -hw * 0.95], aboveEye, 10));   // hairline curves back above the eye
+  pts.push(...wavy(aboveEye, jaw, Math.max(2, Math.round(2 * wv)), amp * 0.7, -1, 24));
   pts.push(...wavy(jaw, [frontX, len], n, amp, -1, 40));
   const bb = [backX(len), len];
   pts.push(...quad([frontX, len], [(frontX + bb[0]) / 2, len + 0.3], bb, 10));
@@ -403,7 +406,9 @@ function hairShape(H, view, hw, edge) {
     const t = i / steps, y = y0 + (y1 - y0) * t;
     pts.push([backX(y) - Math.sin(t * Math.PI * n) * amp, y]);
   }
-  pts.push(...quad([backX(y1), y1], [-hw * 0.35, top - T * 0.7], frontTop, 14));
+  const backTop = [backX(y1), y1], crownTop = [-0.05, top];
+  pts.push(...quad(backTop, [backTop[0], top], crownTop, 12));
+  pts.push(...quad(crownTop, [edge(-hw) * 0.95, top + T * 0.15], frontTop, 12));
   return pts;
 }
 
@@ -474,7 +479,7 @@ function headShapes(S, sk) {
     if (view === 'front') {
       const w = depth * 0.95;
       if (kind === 'box') m.push([-w / 2, yc - h / 2], [w / 2, yc - h / 2], [w / 2, yc + h / 2], [-w / 2, yc + h / 2]);
-      else m.push([0, yc - h * 0.75], [w / 2, yc + h / 2], [-w / 2, yc + h / 2]);
+      else m.push([0, yc + h * 0.75], [w / 2, yc - h / 2], [-w / 2, yc - h / 2]); // point down
     } else {
       const ex = edge(yc) + 0.15;                     // past the front edge
       if (kind === 'box') m.push([ex, yc - h / 2], [ex - depth - 0.15, yc - h / 2], [ex - depth - 0.15, yc + h / 2], [ex, yc + h / 2]);

@@ -74,7 +74,7 @@ and default posture. Measurements are in head-units (h = head diameter).
     `reference/sketch-mouths.jpg`): monkey **arch** (flat bottom, arched
     top), male **box** (a rectangular slot), female **wedge** (a V notch
     pointing to the back of the head). In front view the box is a
-    rectangle and the wedge a triangle.
+    rectangle and the wedge a triangle pointing down.
     In side view the opening runs out to the front edge of the face.
     The mouth never sticks out of the head; no muzzle or snout.
 - Neck: thin (`neckWidth` ≈ 0.24) and fairly long (`neck` ≈ 0.27).
@@ -124,8 +124,9 @@ First version, `data/species/female.json`. Like the male, with:
 
 - Long flowing hair (`head.hair`; see `reference/sketch-female-hair.jpg`),
   near-black. Front view: a cap over the head and two wavy locks falling
-  past the shoulders, drawn **behind the whole body**. Side view: covers the
-  back of the head (front edge a wavy line behind the eye) and falls down
+  past the shoulders, drawn **behind the whole body**. Side view: a rounded
+  cap over the top of the head down to the forehead, the hairline curving
+  back above the eye, covering the back of the head and falls down
   the back as one wavy mass with a rounded end, drawn **in front**. No ears.
 - Narrower shoulders, narrow waist, wider hips (front view reads as an
   hourglass).
