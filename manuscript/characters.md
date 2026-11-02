@@ -1,13 +1,15 @@
 # Characters
 
-There are 20 identifiable characters. Identity never depends on colour
+There are 14 identifiable characters. Identity never depends on colour
 alone: each has a **signature** silhouette feature that reads at phone
 size. Garment colours will be fixed once the human and rakshasa models
 exist.
 
-Everyone else is drawn as a generic figure of their species.
+Everyone else is drawn as a generic figure of their species, by role:
+sage, king, queen, courtier, charioteer, boatman, female monkey (Tara),
+rakshasi (Trijata, Mandodari).
 
-## Humans (9)
+## Humans (7)
 
 | Character | Signature (silhouette) | Notes |
 |---|---|---|
@@ -18,10 +20,8 @@ Everyone else is drawn as a generic figure of their species.
 | **Dasharatha** | tall crown and beard; slight stoop | |
 | **Kaikeyi** | high piled hair; raised pointing hand | |
 | **Manthara** | hunched back | |
-| **Valmiki** | long beard and a staff | stands for all sages in book XII |
-| **Lava & Kusa** | twin children, always as a pair, child scale; stringed instrument | one entry |
 
-## Monkeys (5)
+## Monkeys (4)
 
 | Character | Signature | Notes |
 |---|---|---|
@@ -29,32 +29,27 @@ Everyone else is drawn as a generic figure of their species.
 | **Sugriva** | flower garland (crown after his coronation) | |
 | **Bali** | gold chain around the neck | |
 | **Angad** | arm bands | |
-| **Tara** | female monkey: hair and a skirt shape | needs a female monkey variant |
 
-## Rakshasas (6)
+## Rakshasas (3)
 
 | Character | Signature | Notes |
 |---|---|---|
 | **Ravana** | ten heads in a row, crowned | as the ascetic: one head, staff and pot |
-| **Surpanakha** | streaming hair, long claws | no nose after 06.03 |
-| **Kumbhakarna** | giant (2–3× scale), barrel belly | |
 | **Indrajit** | bow; rides a cloud or a chariot | |
 | **Vibhishana** | plain torso with no pattern; palms joined | the only gentle rakshasa |
-| **Mandodari** | female rakshasa wearing a crown | |
 
 ## Creatures and one-offs (not species models)
 
+- Kumbhakarna: a giant, usually only partly in the panel (a sleeping head,
+  a leg and a hand). Drawn as one-off parts, not with the rakshasa model.
 - Golden deer (Maricha in disguise)
 - Jatayu, the vulture
-- Sacrificial horse (book XII)
 - Agni, rising from the flames (11.02)
 - Flying chariots: Ravana's (drawn by asses) and the Pushpaka (drawn by swans)
-- Earth goddess's throne rising from the ground (12.07)
 
 ## New art the scene list needs
 
-- Species variants: female monkey, child human, giant rakshasa, ten-headed
-  rakshasa, female rakshasa with a crown
+- Species variants: female monkey, female rakshasa, ten-headed rakshasa
 - Props: bow, arrow, quiver, sword, mace, javelin, staff, pitcher, sandals,
-  ring, jewel, throne, umbrella, banner, hut, boat/raft, chariot, rocks,
-  tree, fire/pyre, water band, cloud, mountain
+  ring, jewel, throne, umbrella, banner, lamp, drum, hut, boat, chariot,
+  rocks, tree, fire/pyre, water band, cloud, mountain

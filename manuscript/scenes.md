@@ -1,6 +1,7 @@
 # Scenes
 
-Draft v0.1. One row = one image. Rules and format are in `README.md`.
+Draft v0.2. One row = one image. The story runs from the bridal of Sita
+to the flight home (11.04); the Surpanakha episode is left out. Rules and format are in `README.md`.
 **Bold** = identifiable character (`characters.md`); everyone else is
 generic. Books follow Dutt; each heading links to that book.
 
@@ -74,20 +75,15 @@ generic. Books follow Dutt; each heading links to that book.
 
 | id | what we see | cast | props |
 |---|---|---|---|
-| 06.01 | **Surpanakha** sidles up to **Rama**, beckoning | Surpanakha, Rama | hut |
-| 06.02 | **Surpanakha** lunges at **Sita**, claws out; **Rama** blocks her | Surpanakha, Sita, Rama | — |
-| 06.03 | **Lakshman** swings his sword; **Surpanakha** flees, hands at her face | Lakshman, Surpanakha | sword |
-| 06.04 | A rakshasa army charges; **Rama** shoots into it | Rama, 4 rakshasas | bow, arrows |
-| 06.05 | **Surpanakha**, noseless, wails to **Ravana**; a rakshasa (Maricha) listens | Surpanakha, Ravana, rakshasa | — |
-| 06.06 | A golden deer by the hut; **Sita** points at it | Sita, Rama | deer, hut |
-| 06.07 | **Rama** chases the leaping deer, bow drawn | Rama | deer, bow |
-| 06.08 | The arrow hits; the deer becomes a rakshasa, falling and shouting | Rama, rakshasa | bow, arrow |
-| 06.09 | **Sita** pushes **Lakshman** away; he goes, looking back | Sita, Lakshman | hut |
-| 06.10 | An ascetic with staff and pot approaches **Sita** | Ravana (ascetic), Sita | staff, pot |
-| 06.11 | The ascetic becomes **Ravana**, ten heads; **Sita** recoils | Ravana, Sita | — |
-| 06.12 | **Ravana** drags **Sita** by the hair into his flying chariot | Ravana, Sita | flying chariot |
-| 06.13 | The vulture Jatayu attacks; **Ravana** strikes; Jatayu falls | Ravana, Sita | vulture, sword |
-| 06.14 | The chariot flies over the sea, **Sita** reaching back | Ravana, Sita | flying chariot, water |
+| 06.01 | A golden deer (a rakshasa in disguise) by the hut; **Sita** points at it | Sita, Rama | deer, hut |
+| 06.02 | **Rama** chases the leaping deer, bow drawn | Rama | deer, bow |
+| 06.03 | The arrow hits; the deer turns back into a rakshasa, falling and shouting | Rama, rakshasa | bow, arrow |
+| 06.04 | **Sita** pushes **Lakshman** away; he goes, looking back | Sita, Lakshman | hut |
+| 06.05 | An ascetic with staff and pot approaches **Sita** | Ravana (ascetic), Sita | staff, pot |
+| 06.06 | The ascetic becomes **Ravana**, ten heads; **Sita** recoils | Ravana, Sita | — |
+| 06.07 | **Ravana** drags **Sita** by the hair into his flying chariot | Ravana, Sita | flying chariot |
+| 06.08 | The vulture Jatayu attacks; **Ravana** strikes; Jatayu falls | Ravana, Sita | vulture, sword |
+| 06.09 | The chariot flies over the sea, **Sita** reaching back | Ravana, Sita | flying chariot, water |
 
 ## VII. In the Nilgiri Mountains
 [Dutt VII](https://ancient-buddhist-texts.net/English-Texts/Ramayana/07-Nilgiri.htm)
@@ -99,10 +95,10 @@ generic. Books follow Dutt; each heading links to that book.
 | 07.03 | **Sugriva** watches from a rock; **Hanuman** bounds down to meet the princes | Sugriva, Hanuman, Rama, Lakshman | rocks |
 | 07.04 | **Rama** and **Sugriva** clasp hands over a fire; **Hanuman** offers flowers | Rama, Sugriva, Hanuman | fire |
 | 07.05 | **Sugriva** points toward Kishkindha; **Rama** raises his bow, vowing | Sugriva, Rama | bow |
-| 07.06 | **Tara** pulls at **Bali**'s arm; he shakes her off | Tara, Bali | — |
+| 07.06 | A female monkey (Tara) pulls at **Bali**'s arm; he shakes her off | female monkey, Bali | — |
 | 07.07 | **Bali** and **Sugriva** fight; Sugriva swings an uprooted tree | Bali, Sugriva | tree |
 | 07.08 | **Rama** shoots from behind a tree; **Bali** falls | Rama, Bali, Sugriva | tree, bow |
-| 07.09 | **Tara** and **Angad** mourn over **Bali** | Tara, Angad, Bali | — |
+| 07.09 | A female monkey (Tara) and **Angad** mourn over **Bali** | female monkey, Angad, Bali | — |
 | 07.10 | Water is poured over the crowned **Sugriva**; **Angad** stands beside him | Sugriva, Angad, Hanuman | jar, umbrella |
 | 07.11 | Monsoon: **Rama** and **Lakshman** shelter on a hill; Rama grieves | Rama, Lakshman | rain cloud |
 | 07.12 | **Sugriva** sends monkeys running in four directions | Sugriva, 4 monkeys | — |
@@ -126,7 +122,7 @@ generic. Books follow Dutt; each heading links to that book.
 | id | what we see | cast | props |
 |---|---|---|---|
 | 09.01 | **Ravana** on his throne; rakshasa chiefs leap up brandishing weapons | Ravana, 3 rakshasas | throne, mace |
-| 09.02 | Rakshasas beat drums to wake the giant **Kumbhakarna** | Kumbhakarna, 2 rakshasas | drum |
+| 09.02 | Rakshasas beat drums by a giant sleeping head (Kumbhakarna) | giant head, 2 rakshasas | drum |
 | 09.03 | **Indrajit** flexes and boasts | Indrajit, Ravana | bow |
 | 09.04 | **Vibhishana** pleads with joined palms; **Ravana** drives him out | Vibhishana, Ravana | — |
 | 09.05 | **Vibhishana** and four companions fly to **Rama**; Rama welcomes him | Vibhishana, Rama, Sugriva | — |
@@ -141,8 +137,8 @@ generic. Books follow Dutt; each heading links to that book.
 | 10.03 | **Sita**, in a chariot, sees the fallen brothers; a rakshasi (Trijata) comforts her | Sita, rakshasi | chariot |
 | 10.04 | Battle: **Hanuman** and **Angad** hurl rocks and trees at rakshasas | Hanuman, Angad, 3 rakshasas | rocks, tree |
 | 10.05 | **Ravana**'s javelin strikes **Lakshman**; **Rama** drives Ravana back | Ravana, Lakshman, Rama | javelin, bow |
-| 10.06 | **Kumbhakarna** scatters monkeys, gripping **Sugriva** | Kumbhakarna, Sugriva, 3 monkeys | spear |
-| 10.07 | **Rama**'s arrow beheads **Kumbhakarna**; the body topples into the sea | Rama, Kumbhakarna | bow, water |
+| 10.06 | A giant leg and hand (Kumbhakarna) enter the panel; monkeys scatter; the hand grips **Sugriva** | giant leg + hand, Sugriva, 3 monkeys | — |
+| 10.07 | **Rama**'s arrow strikes; the giant head (Kumbhakarna) falls into the sea | Rama, giant head | bow, water |
 | 10.08 | **Indrajit** pours offerings into a sacrificial fire | Indrajit | fire |
 | 10.09 | **Indrajit** strikes down a false Sita before the monkeys; **Rama** collapses | Indrajit, false Sita, Rama | sword |
 | 10.10 | **Lakshman** shoots **Indrajit** at the shrine | Lakshman, Indrajit, Vibhishana | bow, fire |
@@ -152,10 +148,10 @@ generic. Books follow Dutt; each heading links to that book.
 | 10.14 | A charioteer brings a heavenly chariot; **Rama** mounts it | charioteer (Matali), Rama | chariot, bow |
 | 10.15 | **Rama** and **Ravana** duel from their chariots, arrows crossing | Rama, Ravana | 2 chariots |
 | 10.16 | Rama's last arrow pierces **Ravana**'s chest; he falls | Rama, Ravana | bow, arrow |
-| 10.17 | **Mandodari** mourns over **Ravana** | Mandodari, Ravana | — |
+| 10.17 | A rakshasi queen (Mandodari) mourns over **Ravana** | rakshasi, Ravana | — |
 | 10.18 | **Vibhishana** lights the pyre; **Rama** lays down his bow | Vibhishana, Rama | pyre, bow |
 
-## XI. Rama's Return and Consecration
+## XI. Rama's Return (ends at 11.04)
 [Dutt XI](https://ancient-buddhist-texts.net/English-Texts/Ramayana/11-Ramas-Return.htm)
 
 | id | what we see | cast | props |
@@ -163,32 +159,10 @@ generic. Books follow Dutt; each heading links to that book.
 | 11.01 | **Sita** steps into the fire; **Rama** looks away; **Lakshman** watches | Sita, Rama, Lakshman | fire |
 | 11.02 | The fire god rises from the flames carrying **Sita**, unharmed | Agni, Sita | fire |
 | 11.03 | **Rama** embraces **Sita** | Rama, Sita | — |
-| 11.04 | The swan-drawn flying chariot carries them home; **Rama** points down | Rama, Sita, Lakshman | flying chariot |
-| 11.05 | **Bharat** runs to meet **Rama**, sandals held high; they embrace | Bharat, Rama | sandals |
-| 11.06 | **Bharat** sets the sandals at **Rama**'s feet | Bharat, Rama | sandals |
-| 11.07 | Coronation: a sage pours water over **Rama** on the throne; **Sugriva** and **Vibhishana** wave fans | Rama, Sugriva, Vibhishana, sage | throne, umbrella |
+| 11.04 | The swan-drawn flying chariot carries them home; they wave | Rama, Sita, Lakshman | flying chariot |
 
-## XII. The Sacrifice of the Horse
-[Dutt XII](https://ancient-buddhist-texts.net/English-Texts/Ramayana/12-Sacrifice.htm)
-
-| id | what we see | cast | props |
-|---|---|---|---|
-| 12.01 | **Lakshman** leaves **Sita** alone in the forest, looking back | Lakshman, Sita | tree |
-| 12.02 | **Sita** holds twin babies at **Valmiki**'s hermitage | Sita, Valmiki, 2 babies | hut |
-| 12.03 | A dark horse is let loose; **Lakshman** follows it | Lakshman, 2 courtiers | horse |
-| 12.04 | **Lava & Kusa** sing to a stringed instrument before **Rama** on the throne | Lava & Kusa, Rama | throne, instrument |
-| 12.05 | **Rama** comes down and embraces the twins | Rama, Lava & Kusa | — |
-| 12.06 | **Valmiki** leads **Sita** into the assembly | Valmiki, Sita, Rama | — |
-| 12.07 | The earth opens; a throne rises and takes **Sita** down; **Rama** reaches out | Sita, Rama | earth's throne |
-| 12.08 | **Rama** alone | Rama | throne |
-
-## Conclusion
-[Dutt, Conclusion](https://ancient-buddhist-texts.net/English-Texts/Ramayana/13-Conclusion.htm)
-
-| id | what we see | cast | props |
-|---|---|---|---|
-| 13.01 | **Lakshman** guards the door; an angry sage demands to enter | Lakshman, sage | — |
-| 13.02 | **Rama** and his brothers walk into the Sarayu river | Rama, Lakshman, Bharat, brother | water |
+**The story ends here.** Dutt's later return, coronation, book XII and
+conclusion are not drawn.
 
 ## Outside Dutt (undecided)
 

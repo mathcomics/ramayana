@@ -18,6 +18,10 @@ and the prose links count as canon.
   Griffith's full verse translation, https://www.gutenberg.org/ebooks/24869,
   or Shastri's prose, https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki
 
+**Our telling is narrower than Dutt:** it ends with the flight home
+(scene 11.04) and skips the Surpanakha episode (book VI starts with the
+golden deer).
+
 Episodes Dutt leaves out (Tataka, Ahalya, Shabari, Kabandha, Hanuman's
 childhood, …) stay out unless we decide otherwise. Those decisions go in
 the "Outside Dutt" section of `scenes.md`.
@@ -28,7 +32,7 @@ the "Outside Dutt" section of `scenes.md`.
 manuscript/
   README.md        this file: canon and scene rules
   scenes.md        the list of scenes, in story order, grouped by Dutt's books
-  characters.md    the ~20 identifiable characters and their signature features
+  characters.md    the 14 identifiable characters and their signature features
 ```
 
 ## Scene rules
