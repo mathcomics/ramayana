@@ -58,7 +58,7 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   lab and merged. Pose-lab saves also live in the artifact's `poses`
   collection; merge them into the repo when asked.
 - Manuscript (2026-11-02): wordless (images only). Canon = Dutt's
-  condensed Ramayana (1899). `manuscript/scenes.md` v0.1: 109 one-image
+  condensed Ramayana (1899). `manuscript/scenes.md` v0.1: 108 one-image
   scenes over Dutt's 12 books + conclusion; `characters.md`: 20
   identifiable characters with silhouette signatures, plus creature and
   prop needs. Open: "Outside Dutt" episodes, grouping scenes into screens.
