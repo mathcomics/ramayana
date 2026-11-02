@@ -4,7 +4,7 @@
 //
 // Units are head-units: the head centre is (0,0), y down, the head spans
 // about ±0.5; in side view the face looks right. The locked "guide" layer
-// shows the generated head, neck and shoulders at the figure's real scale.
+// shows the generated head and neck at the figure's real scale.
 // Draw (or paste and scale) the face over the guide in the layers below; the
 // guide layer is ignored on import. See data/faces/README.md.
 
@@ -28,7 +28,6 @@ for (const species of ['monkey', 'male', 'female']) {
     const loc = (pts) => pts.map(([x, y]) => [x - c[0], y - c[1]]);
     const shape = (p, fill) => `<path d="${pathD(loc(p.pts))}" fill="${fill}"/>`;
     const guides = [
-      ...parts.torso.map((p) => shape(p, '#e8e1d9')),
       ...parts.neck.map((p) => shape(p, '#e8e1d9')),
       ...parts.head.filter((p) => p.role === 'body').map((p) => shape(p, '#d9c3b6')),
       ...parts.head.filter((p) => p.role === 'eye' || p.role === 'mouth').map((p) => shape(p, '#ffffff')),

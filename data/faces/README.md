@@ -8,7 +8,7 @@ character; characters without one keep the generated head.
 1. Start from the template for the character's species and view:
    `templates/<monkey|male|female>-<front|side>.svg`.
 2. Draw the face in the layers, or paste it in and scale it to fit the guide.
-   The guide (generated head, neck and shoulders at the figure's real scale)
+   The guide (generated head and neck at the figure's real scale)
    is locked and ignored on import.
 3. Save as `<character-id>-<front|side>.svg` in this folder, using the ids in
    `data/characters.json`: `rama-front.svg`, `sita-side.svg`,
