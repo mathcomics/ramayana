@@ -65,10 +65,20 @@ export function solve(species, poseIn) {
   const headRot = lean + chest + neck + head;
 
   const W = add(P, mul(dir(up1), S.spine.lower));
-  const N = add(W, mul(dir(up2), S.spine.upper));
+  // The torso is two blocks hinged at the waist. The hinge sits on the
+  // OUTER side of the bend (back edge for a forward bend, front edge for
+  // an arch back), so that side stays continuous and a notch opens on the
+  // inner side. W2 is the centre of the upper block's bottom edge.
+  const tw0 = front ? S.torso.front : S.torso.side;
+  const wh = tw0.waist / 2;
+  const hs = chest >= 0 ? -1 : 1;                       // -1: hinge on back
+  const fw1 = dir(up1 - 90), fw2 = dir(up2 - 90);
+  const hinge = add(W, mul(fw1, hs * wh));
+  const W2 = add(hinge, mul(fw2, -hs * wh));
+  const N = add(W2, mul(dir(up2), S.spine.upper));
   const neckEnd = add(N, mul(dir(up3), S.neck));
   const H = add(neckEnd, mul(dir(180 - headRot), S.head.size * 0.42));
-  const C = lerp(W, N, 0.78); // widest part of the chest
+  const C = lerp(W2, N, 0.78); // widest part of the chest
 
   const fwd = (u) => dir(u - 90); // forward normal of a spine segment
   const tw = front ? S.torso.front : S.torso.side;
@@ -103,7 +113,7 @@ export function solve(species, poseIn) {
     limbs[side] = { m, dirM, sh, E, Wr, tu, tl, th, hp, K, A, tt, ts, tf, hand: a.hand };
   }
 
-  return { pose, front, P, W, C, N, neckEnd, H, up1, up2, up3, headRot, fwd, tw, limbs };
+  return { pose, front, P, W, W2, hinge, hs, C, N, neckEnd, H, up1, up2, up3, headRot, fwd, tw, limbs };
 }
 
 // ------------------------------------------------------------------ shapes
@@ -209,30 +219,61 @@ function loincloth(S, sk, torso) {
 }
 
 function torsoShape(sk) {
-  const { P, W, C, N, up1, up2, fwd, tw, front } = sk;
-  const f1 = fwd(up1), f2 = fwd(up2), fm = fwd((up1 + up2) / 2);
-  const upv = dir(up2);
+  // Two blocks hinged at the waist (see reference/sketch-torso-curl.jpg):
+  // lower block hip→waist, upper block waist→chest. The outer side of the
+  // bend turns smoothly round the hinge; the inner side opens a notch that
+  // deepens with the bend. Side view: back edge straight, front curved.
+  const { P, W, W2, hinge, hs, C, N, up1, up2, fwd, tw, front } = sk;
+  const f1 = fwd(up1), f2 = fwd(up2), u1 = dir(up1), u2 = dir(up2);
+  const wh = tw.waist / 2;
   const hipF = add(P, mul(f1, tw.hip / 2)), hipB = add(P, mul(f1, -tw.hip / 2));
-  const waF = add(W, mul(fm, tw.waist / 2)), waB = add(W, mul(fm, -tw.waist / 2));
+  const lwF = add(W, mul(f1, wh)), lwB = add(W, mul(f1, -wh));     // lower block top
+  const uwF = add(W2, mul(f2, wh)), uwB = add(W2, mul(f2, -wh));   // upper block bottom
   const chF = add(C, mul(f2, tw.chest / 2)), chB = add(C, mul(f2, -tw.chest / 2));
-  const topF = add(add(N, mul(f2, tw.chest * 0.28)), mul(upv, 0.06));
-  const topB = add(add(N, mul(f2, -tw.chest * 0.28)), mul(upv, 0.06));
+  const topF = add(add(N, mul(f2, tw.chest * 0.28)), mul(u2, 0.06));
+  const topB = add(add(N, mul(f2, -tw.chest * 0.28)), mul(u2, 0.06));
+
+  // outer side: round the corner at the hinge
+  const fillet = (lowerUp, upperUp, sign) => {
+    const d = 0.16;
+    // walking up: lower edge → hinge → upper edge (sign -1), or reverse
+    const a = add(hinge, mul(u1, -d)), b = add(hinge, mul(u2, d));
+    return sign < 0 ? [a, ...quad(a, hinge, b, 6)] : [b, ...quad(b, hinge, a, 6)];
+  };
+  // inner side: notch between the upper block's bottom corner and the
+  // lower block's top corner, deepening with the bend
+  const notch = (uCorner, lCorner) => {
+    const mid = lerp(uCorner, lCorner, 0.5);
+    const gap = Math.hypot(uCorner[0] - lCorner[0], uCorner[1] - lCorner[1]);
+    const depth = 0.45 * Math.min(1, gap / tw.waist);
+    return lerp(mid, hinge, depth);
+  };
+  const bulge = (a, b, n, amt, k = 6) => quad(a, add(lerp(a, b, 0.5), mul(n, amt)), b, k);
+  const backBow = front ? -0.05 : 0, frontBow = front ? 0.06 : 0.12;
 
   const pts = [hipB];
-  if (front) {
-    // gentle curves on both sides
-    pts.push(...quad(hipB, add(lerp(hipB, waB, 0.5), mul(f1, -0.05)), waB, 6));
-    pts.push(...quad(waB, add(lerp(waB, chB, 0.5), mul(f2, -0.08)), chB, 6));
-  } else {
-    // back: straight
-    pts.push(waB, chB);
+  // back side, going up
+  if (hs < 0) {                       // forward bend: back is the outer side
+    pts.push(...bulge(hipB, add(hinge, mul(u1, -0.16)), f1, backBow));
+    pts.push(...fillet(null, null, -1).slice(1));
+    pts.push(...bulge(add(hinge, mul(u2, 0.16)), chB, f2, backBow));
+  } else {                            // arched back: notch on the back
+    pts.push(...bulge(hipB, lwB, f1, backBow), notch(uwB, lwB), uwB);
+    pts.push(...bulge(uwB, chB, f2, backBow));
   }
+  // over the top
   pts.push(...quad(chB, add(N, mul(f2, -tw.chest * 0.45)), topB, 6));
   pts.push(topF);
   pts.push(...quad(topF, add(N, mul(f2, tw.chest * 0.5)), chF, 6));
-  // front: curved (chest and belly)
-  pts.push(...quad(chF, add(lerp(chF, waF, 0.5), mul(fm, front ? 0.08 : 0.16)), waF, 8));
-  pts.push(...quad(waF, add(lerp(waF, hipF, 0.5), mul(f1, front ? 0.05 : 0.08)), hipF, 6));
+  // front side, going down
+  if (hs < 0) {                       // forward bend: notch on the front
+    pts.push(...bulge(chF, uwF, f2, frontBow), notch(uwF, lwF), lwF);
+    pts.push(...bulge(lwF, hipF, f1, frontBow * 0.7));
+  } else {                            // arched back: front is the outer side
+    pts.push(...bulge(chF, add(hinge, mul(u2, 0.16)), f2, frontBow));
+    pts.push(...fillet(null, null, 1).slice(1));
+    pts.push(...bulge(add(hinge, mul(u1, -0.16)), hipF, f1, frontBow * 0.7));
+  }
   // bottom: rounded
   pts.push(...quad(hipF, add(P, mul(dir(-sk.pose.spine.lean), 0.3)), hipB, 8));
   return pts;

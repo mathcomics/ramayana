@@ -75,6 +75,11 @@ and default posture. Measurements are in head-units (h = head diameter).
     The mouth never sticks out of the head; no muzzle or snout.
 - Neck: thin (`neckWidth` ≈ 0.24) and fairly long (`neck` ≈ 0.27).
 - Torso: chest tapering to a narrow waist.
+- Torso curl (all species; see `reference/sketch-torso-curl.jpg`): the
+  torso is two blocks hinged at the waist. Bending forward, the upper
+  block pivots on the back edge: the back turns in one smooth curve and a
+  notch opens on the front, deepening with the bend (a C at ~90°).
+  Arching back mirrors this. `spine.chest` sets the bend (−60…100).
 - Arms: long — hanging, they reach about the knee.
 - Legs: comparatively short, often deeply bent.
 - Tail: long, curling upward at the tip; expressive (follows motion).
