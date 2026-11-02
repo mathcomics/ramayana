@@ -1,0 +1,60 @@
+# Characters
+
+There are 20 identifiable characters. Identity never depends on colour
+alone: each has a **signature** silhouette feature that reads at phone
+size. Garment colours will be fixed once the human and rakshasa models
+exist.
+
+Everyone else is drawn as a generic figure of their species.
+
+## Humans (9)
+
+| Character | Signature (silhouette) | Notes |
+|---|---|---|
+| **Rama** | great bow, tallest human; topknot crown (matted topknot in exile) | |
+| **Sita** | hair to the waist; sari silhouette | hair loose in Lanka |
+| **Lakshman** | bow, plus a quiver on his back; a head shorter than Rama | usually just behind Rama |
+| **Bharat** | the sandals (held, on his head, or on the throne) | matted hair from book IV |
+| **Dasharatha** | tall crown and beard; slight stoop | |
+| **Kaikeyi** | high piled hair; raised pointing hand | |
+| **Manthara** | hunched back | |
+| **Valmiki** | long beard and a staff | stands for all sages in book XII |
+| **Lava & Kusa** | twin children, always as a pair, child scale; stringed instrument | one entry |
+
+## Monkeys (5)
+
+| Character | Signature | Notes |
+|---|---|---|
+| **Hanuman** | mace; tail held high; can be drawn huge | |
+| **Sugriva** | flower garland (crown after his coronation) | |
+| **Bali** | gold chain around the neck | |
+| **Angad** | arm bands | |
+| **Tara** | female monkey: hair and a skirt shape | needs a female monkey variant |
+
+## Rakshasas (6)
+
+| Character | Signature | Notes |
+|---|---|---|
+| **Ravana** | ten heads in a row, crowned | as the ascetic: one head, staff and pot |
+| **Surpanakha** | streaming hair, long claws | no nose after 06.03 |
+| **Kumbhakarna** | giant (2–3× scale), barrel belly | |
+| **Indrajit** | bow; rides a cloud or a chariot | |
+| **Vibhishana** | plain torso with no pattern; palms joined | the only gentle rakshasa |
+| **Mandodari** | female rakshasa wearing a crown | |
+
+## Creatures and one-offs (not species models)
+
+- Golden deer (Maricha in disguise)
+- Jatayu, the vulture
+- Sacrificial horse (book XII)
+- Agni, rising from the flames (11.02)
+- Flying chariots: Ravana's (drawn by asses) and the Pushpaka (drawn by swans)
+- Earth goddess's throne rising from the ground (12.07)
+
+## New art the scene list needs
+
+- Species variants: female monkey, child human, giant rakshasa, ten-headed
+  rakshasa, female rakshasa with a crown
+- Props: bow, arrow, quiver, sword, mace, javelin, staff, pitcher, sandals,
+  ring, jewel, throne, umbrella, banner, hut, boat/raft, chariot, rocks,
+  tree, fire/pyre, water band, cloud, mountain
