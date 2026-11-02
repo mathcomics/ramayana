@@ -1,6 +1,6 @@
 # Scenes
 
-Draft v0.2. One row = one image. The story runs from the bridal of Sita
+Draft v0.3. One row = one image. The story runs from the bridal of Sita
 to the flight home (11.04); the Surpanakha episode is left out. Rules and format are in `README.md`.
 **Bold** = identifiable character (`characters.md`); everyone else is
 generic. Books follow Dutt; each heading links to that book.
@@ -83,7 +83,8 @@ generic. Books follow Dutt; each heading links to that book.
 | 06.06 | The ascetic becomes **Ravana**, ten heads; **Sita** recoils | Ravana, Sita | — |
 | 06.07 | **Ravana** drags **Sita** by the hair into his flying chariot | Ravana, Sita | flying chariot |
 | 06.08 | The vulture Jatayu attacks; **Ravana** strikes; Jatayu falls | Ravana, Sita | vulture, sword |
-| 06.09 | The chariot flies over the sea, **Sita** reaching back | Ravana, Sita | flying chariot, water |
+| 06.09 | As the chariot passes a hill, **Sita** drops a bundle of jewels; monkeys look up | Sita, Ravana, 2 monkeys | flying chariot, rocks |
+| 06.10 | The chariot flies over the sea, **Sita** reaching back | Ravana, Sita | flying chariot, water |
 
 ## VII. In the Nilgiri Mountains
 [Dutt VII](https://ancient-buddhist-texts.net/English-Texts/Ramayana/07-Nilgiri.htm)
@@ -94,15 +95,16 @@ generic. Books follow Dutt; each heading links to that book.
 | 07.02 | **Rama**, head in hands, wanders; **Lakshman** follows | Rama, Lakshman | tree |
 | 07.03 | **Sugriva** watches from a rock; **Hanuman** bounds down to meet the princes | Sugriva, Hanuman, Rama, Lakshman | rocks |
 | 07.04 | **Rama** and **Sugriva** clasp hands over a fire; **Hanuman** offers flowers | Rama, Sugriva, Hanuman | fire |
-| 07.05 | **Sugriva** points toward Kishkindha; **Rama** raises his bow, vowing | Sugriva, Rama | bow |
-| 07.06 | A female monkey (Tara) pulls at **Bali**'s arm; he shakes her off | female monkey, Bali | — |
-| 07.07 | **Bali** and **Sugriva** fight; Sugriva swings an uprooted tree | Bali, Sugriva | tree |
-| 07.08 | **Rama** shoots from behind a tree; **Bali** falls | Rama, Bali, Sugriva | tree, bow |
-| 07.09 | A female monkey (Tara) and **Angad** mourn over **Bali** | female monkey, Angad, Bali | — |
-| 07.10 | Water is poured over the crowned **Sugriva**; **Angad** stands beside him | Sugriva, Angad, Hanuman | jar, umbrella |
-| 07.11 | Monsoon: **Rama** and **Lakshman** shelter on a hill; Rama grieves | Rama, Lakshman | rain cloud |
-| 07.12 | **Sugriva** sends monkeys running in four directions | Sugriva, 4 monkeys | — |
-| 07.13 | **Rama** gives **Hanuman** his ring | Rama, Hanuman | ring |
+| 07.05 | **Sugriva** shows **Rama** the bundle of jewels; Rama presses them to his chest and weeps | Sugriva, Rama, Lakshman | jewels |
+| 07.06 | **Sugriva** points toward Kishkindha; **Rama** raises his bow, vowing | Sugriva, Rama | bow |
+| 07.07 | A female monkey (Tara) pulls at **Bali**'s arm; he shakes her off | female monkey, Bali | — |
+| 07.08 | **Bali** and **Sugriva** fight; Sugriva swings an uprooted tree | Bali, Sugriva | tree |
+| 07.09 | **Rama** shoots from behind a tree; **Bali** falls | Rama, Bali, Sugriva | tree, bow |
+| 07.10 | A female monkey (Tara) and **Angad** mourn over **Bali** | female monkey, Angad, Bali | — |
+| 07.11 | Water is poured over the crowned **Sugriva**; **Angad** stands beside him | Sugriva, Angad, Hanuman | jar, umbrella |
+| 07.12 | Monsoon: **Rama** and **Lakshman** shelter on a hill; Rama grieves | Rama, Lakshman | rain cloud |
+| 07.13 | **Sugriva** sends monkeys running in four directions | Sugriva, 4 monkeys | — |
+| 07.14 | **Rama** gives **Hanuman** his ring | Rama, Hanuman | ring |
 
 ## VIII. Sita Discovered
 [Dutt VIII](https://ancient-buddhist-texts.net/English-Texts/Ramayana/08-Sita-Discovered.htm)
@@ -113,8 +115,9 @@ generic. Books follow Dutt; each heading links to that book.
 | 08.02 | **Hanuman** hides in a tree; **Sita** sits below, guarded by rakshasis | Hanuman, Sita, 2 rakshasis | tree |
 | 08.03 | **Hanuman** kneels and gives **Sita** the ring | Hanuman, Sita | ring |
 | 08.04 | **Sita** gives **Hanuman** the jewel from her hair | Sita, Hanuman | jewel |
-| 08.05 | **Hanuman** runs through Lanka with a burning tail; rakshasas flee | Hanuman, 3–4 rakshasas | fire |
-| 08.06 | **Hanuman** gives **Rama** the jewel; Rama presses it to his heart | Hanuman, Rama, Lakshman | jewel |
+| 08.05 | Before **Ravana** on his throne, rakshasas set **Hanuman**'s tail on fire | Ravana, Hanuman, 2 rakshasas | throne, fire |
+| 08.06 | **Hanuman** runs through Lanka with a burning tail; rakshasas flee | Hanuman, 3–4 rakshasas | fire |
+| 08.07 | **Hanuman** gives **Rama** the jewel; Rama presses it to his heart | Hanuman, Rama, Lakshman | jewel |
 
 ## IX. The Council of War
 [Dutt IX](https://ancient-buddhist-texts.net/English-Texts/Ramayana/09-Council-of-War.htm)
@@ -164,12 +167,13 @@ generic. Books follow Dutt; each heading links to that book.
 **The story ends here.** Dutt's later return, coronation, book XII and
 conclusion are not drawn.
 
-## Outside Dutt (undecided)
+## Outside Dutt
 
-These episodes are well known but not in Dutt. Each needs a yes or no.
+These episodes are well known but not in Dutt.
 
-- Tataka slain, Ahalya freed (book I)
-- Shabari's berries; Kabandha (between VI and VII)
-- Sita drops her jewels from the chariot; Sugriva shows them to Rama
-- Hanuman's tail is set on fire by the rakshasas (Dutt only has Lanka burning)
-- Angad's foot that no one can lift (later tellings)
+- Tataka slain, Ahalya freed (book I): **no**
+- Shabari's berries; Kabandha (between VI and VII): **no**
+- Sita drops her jewels from the chariot; Sugriva shows them to Rama:
+  **yes**, 06.09 and 07.05
+- Hanuman's tail is set on fire by the rakshasas: **yes**, 08.05
+- Angad's foot that no one can lift (later tellings): undecided

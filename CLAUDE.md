@@ -58,10 +58,10 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   lab and merged. Pose-lab saves also live in the artifact's `poses`
   collection; merge them into the repo when asked.
 - Manuscript (2026-11-02): wordless (images only). Canon = Dutt's
-  condensed Ramayana (1899). `manuscript/scenes.md` v0.2: 90 one-image
+  condensed Ramayana (1899). `manuscript/scenes.md` v0.3: 93 one-image
   scenes, from the bridal of Sita to the flight home (11.04), Surpanakha
   episode dropped; `characters.md`: 14 identifiable characters
   (Kumbhakarna is a one-off giant, shown in parts) with silhouette signatures, plus creature and
-  prop needs. Open: "Outside Dutt" episodes, grouping scenes into screens.
+  prop needs. Outside-Dutt episodes decided (jewels, tail fire in; Angad's foot open). Open: grouping scenes into screens.
 - Next: artist reviews the scene list; generic rakshasa and human (same
   skeleton, own species profiles), then scene layout and panels.
