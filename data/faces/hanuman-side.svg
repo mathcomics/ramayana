@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Face template: monkey, side view (face looks right).
+     Units: head-units, head centre at (0,0), y down. Save as
+     data/faces/<character-id>-side.svg (e.g. rama-side.svg).
+     Layers:
+       head     - the face itself; turns with the head
+       back     - optional; drawn behind the whole body (e.g. long hair in front view)
+       mouth-1/2/3 - optional; the pose's mouth size picks one
+     Colours: skin #c87137 -> character body colour; cloth #00ff00 -> cloth
+     colour; every other colour is kept as drawn. The guide layer is ignored. -->
+
+<svg
+   width="600"
+   height="900"
+   viewBox="-1.5 -1.2 3 4.5"
+   version="1.1"
+   id="svg19541"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs19545" />
+  <g
+     id="guide"
+     opacity="0.7">
+    <path
+       d="M-0.138 0.795L-0.12 0.21L0.12 0.21L0.128 0.269L0.134 0.327L0.14 0.382L0.144 0.436L0.147 0.488L0.149 0.537L0.15 0.585L0.15 0.631L0.149 0.675L0.146 0.717L0.143 0.757L0.138 0.795Z"
+       fill="#e8e1d9"
+       id="path19523" />
+    <path
+       d="M-0.381 -0.19L-0.424 -0.188L-0.466 -0.18L-0.505 -0.168L-0.54 -0.152L-0.57 -0.132L-0.592 -0.11L-0.607 -0.085L-0.614 -0.06L-0.614 -0.019L-0.605 0.02L-0.589 0.057L-0.564 0.088L-0.534 0.115L-0.498 0.134L-0.458 0.146L-0.415 0.15Z"
+       fill="#d9c3b6"
+       id="path19525" />
+    <path
+       d="M0.192 -0.5L0.257 -0.487L0.318 -0.45L0.37 -0.393L0.407 -0.32L0.426 -0.24L0.474 0.24L0.47 0.32L0.441 0.393L0.389 0.45L0.32 0.487L0.24 0.5L-0.24 0.5L-0.32 0.487L-0.389 0.45L-0.441 0.393L-0.47 0.32L-0.474 0.24L-0.426 -0.24L-0.407 -0.32L-0.37 -0.393L-0.318 -0.45L-0.257 -0.487L-0.192 -0.5Z"
+       fill="#d9c3b6"
+       id="path19527" />
+    <path
+       d="M0.215 -0.16L0.205 -0.123L0.178 -0.095L0.14 -0.085L0.103 -0.095L0.075 -0.123L0.065 -0.16L0.075 -0.198L0.102 -0.225L0.14 -0.235L0.178 -0.225L0.205 -0.198Z"
+       fill="#ffffff"
+       id="path19529" />
+    <path
+       d="M0.557 0.37L0.554 0.349L0.545 0.322L0.531 0.292L0.513 0.262L0.49 0.234L0.465 0.209L0.438 0.188L0.411 0.173L0.386 0.163L0.367 0.16L0.348 0.163L0.323 0.173L0.296 0.188L0.269 0.209L0.244 0.234L0.221 0.262L0.203 0.292L0.189 0.322L0.18 0.349L0.177 0.37Z"
+       fill="#ffffff"
+       id="path19531" />
+    <path
+       d="M-0.08 0H0.08M0 -0.08V0.08"
+       stroke="#b04040"
+       stroke-width="0.01"
+       fill="none"
+       id="path19533" />
+  </g>
+  <g
+     id="back" />
+  <g
+     id="head">
+    <path
+       id="rect480"
+       style="fill:#7c1d1d;fill-opacity:1;stroke-width:0.0150001"
+       d="m -0.19275222,-0.47174755 h 0.4200001 c 0.1385,0 0.1881694,0.13622379 0.21,0.26254952 l 0.08,0.46293124 c 0.021831,0.12632577 -0.1114999,0.23146565 -0.25,0.23146565 h -0.5 c -0.1385,0 -0.2718306,-0.1051399 -0.2500001,-0.23146565 l 0.08,-0.46293124 c 0.021831,-0.12632572 0.0715,-0.26254952 0.21,-0.26254952 z" />
+    <circle
+       style="fill:#e3dedb;fill-opacity:1;stroke-width:0.015"
+       id="path639-4"
+       cx="0.23819216"
+       cy="-0.15198833"
+       r="0.075000003" />
+    <path
+       id="path639-4-05"
+       style="fill:#d40000;stroke-width:0.015"
+       d="m 0.40302618,-0.34999583 a 0.06250001,0.06250001 0 0 0 -0.054463,0.0619824 0.06250001,0.06250001 0 0 0 0.0625,0.0625 0.06250001,0.06250001 0 0 0 0.024131,-0.004844 z" />
+    <path
+       style="fill:#7c1d1d;fill-opacity:1;stroke-width:0.015"
+       d="m -0.44826072,0.14139126 0.056181,-0.25316529 c 4.656e-4,0.0198398 -0.1522888,-0.21376466 -0.1954833,0.0204285 -0.030249,0.164007 0.1101866,0.26741827 0.1393023,0.23273679 z"
+       id="path855-2" />
+  </g>
+  <g
+     id="mouth-1">
+    <path
+       style="display:inline;fill:#e3dedb;fill-opacity:1;stroke-width:0.015"
+       d="M 0.18129504,0.32204971 0.54003583,0.31971181 0.51289511,0.20535089 C 0.42211096,0.14423535 0.17807262,0.24839976 0.18129504,0.32204971 Z"
+       id="path855-4-3" />
+  </g>
+  <g
+     id="mouth-2"
+     style="display:inline">
+    <path
+       style="display:inline;fill:#e3dedb;fill-opacity:1;stroke-width:0.015"
+       d="m 0.07681154,0.33553268 0.46659506,-0.003854 -0.0353,-0.1885199 C 0.3900279,0.04241205 0.07262032,0.21412337 0.07681154,0.33553268 Z"
+       id="path855-4-5" />
+  </g>
+  <g
+     id="mouth-3"
+     style="display:inline">
+    <path
+       style="display:inline;fill:#e3dedb;fill-opacity:1;stroke-width:0.0164137"
+       d="m -0.23008265,0.35618643 0.5586879,-0.006128 -0.0422678,-0.29975836 c -0.14138351,-0.16019365 -0.52143854,0.11283801 -0.5164201,0.30588636 z"
+       id="path855-4"
+       transform="matrix(0.83516225,0,0,1,0.2590901,0.00772665)" />
+  </g>
+</svg>
