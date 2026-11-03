@@ -39,7 +39,7 @@
       "id": "bharat",
       "name": "Bharat",
       "species": "male",
-      "body": "#7c1d1d",
+      "body": "#d38d5f",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "white"
@@ -57,7 +57,7 @@
       "id": "kaikeyi",
       "name": "Kaikeyi",
       "species": "female",
-      "body": "#c08d6a",
+      "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -84,7 +84,7 @@
       "id": "monkey1",
       "name": "monkey1",
       "species": "monkey",
-      "body": "#7c1d1d",
+      "body": "#5a2a12",
       "top": "bare",
       "bottom": "briefs",
       "cloth": "yellow"
@@ -102,7 +102,7 @@
       "id": "indrajit",
       "name": "Indrajit",
       "species": "male",
-      "body": "#7c1d1d",
+      "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"
@@ -111,7 +111,7 @@
       "id": "vibhishana",
       "name": "Vibhishana",
       "species": "male",
-      "body": "#c08d6a",
+      "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"
@@ -129,7 +129,7 @@
       "id": "raxas_f1",
       "name": "raxas_f1",
       "species": "female",
-      "body": "#7c1d1d",
+      "body": "#a02c2c",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"

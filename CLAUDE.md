@@ -48,7 +48,7 @@ Pose lab (published artifact, saves poses to its database, collection
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 Saved poses are reviewed and then merged into `data/poses.json`.
 
-## Status (2026-11-02)
+## Status (2026-11-03)
 
 - Three species, one skeleton, one shared set of poses: **monkey** (done,
   tuned by the artist), **male**, **female** (long hair; side hair drawn by
@@ -61,7 +61,7 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   `data/faces/templates/`; `tools/import-faces.mjs` → `data/faces.json`.
   Never edit the drawings' curves or colours; only place, rotate and
   mirror (colours exactly as drawn, decided 2026-11-02). Imported so
-  far: front and side for dasharatha, hanuman, lakshman, rama, ravana, sita, sugriva. Characters/views without a face use the
+  far: front and side for all characters except raxas_m1. Characters/views without a face use the
   generated head. Check with `node tools/face-sheet.mjs`.
 - Nine shared poses in `data/poses.json`. The pose lab has a character menu
   (view only); saves hold only the pose (collection `poses`); merge into
