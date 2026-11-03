@@ -54,15 +54,18 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 - Three species, one skeleton, one shared set of poses: **monkey** (done,
   tuned by the artist), **male**, **female** (long hair; side hair drawn by
   the artist in `data/shapes/`). Mouth shape per species (arch/box/wedge).
-- **Characters** in `data/characters.json` (14: species, body colour as a
+- **Characters** in `data/characters.json` (18, incl. queen1, queen2,
+  surpanakha, sage1 added 2026-11-03 as copies for the artist to customise: species, body colour as a
   hex matching the drawn face's skin, outfit, cloth colour). The pose lab
   has no colour controls.
 - **Faces are the artist's drawings** (decided 2026-11-02): one SVG per
   character and view in `data/faces/`, from templates in
   `data/faces/templates/`; `tools/import-faces.mjs` → `data/faces.json`.
   Never edit the drawings' curves or colours; only place, rotate and
-  mirror (colours exactly as drawn, decided 2026-11-02). Imported so
-  far: front and side for all characters except raxas_m1. Characters/views without a face use the
+  mirror (colours exactly as drawn, decided 2026-11-02). All 18
+  characters have front and side faces (raxas_m1 = copy of indrajit;
+  queens and surpanakha = copies of sita; sage1 = dasharatha without
+  crown, white beard). Characters/views without a face use the
   generated head. Check with `node tools/face-sheet.mjs`.
 - Nine shared poses in `data/poses.json`. The pose lab has a character menu
   (view only); saves hold only the pose (collection `poses`); merge into
@@ -77,5 +80,6 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 - **Next phase: scenes.** Proposal in `docs/scene-spec.md` (scene spec JSON
   or the artist's scene SVG with figure markers → layout → panel SVG; props
   as artist-drawn SVGs with anchors). First milestone: one screen of 2–3
-  bands from real scenes. Faces still to come: raxas_m1; some faces will be
-  revised.
+  bands from real scenes. The copied faces will be customised by the artist.
+  `manuscript/characters.md` doesn't list queen1/queen2/surpanakha/sage1
+  yet (manuscript conversation).

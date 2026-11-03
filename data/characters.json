@@ -120,7 +120,7 @@
       "id": "raxas_m1",
       "name": "raxas_m1",
       "species": "male",
-      "body": "#7c1d1d",
+      "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"
@@ -133,6 +133,42 @@
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"
+    },
+    {
+      "id": "queen1",
+      "name": "queen1",
+      "species": "female",
+      "body": "#c87137",
+      "top": "full",
+      "bottom": "dhoti",
+      "cloth": "yellow"
+    },
+    {
+      "id": "queen2",
+      "name": "queen2",
+      "species": "female",
+      "body": "#c87137",
+      "top": "full",
+      "bottom": "dhoti",
+      "cloth": "yellow"
+    },
+    {
+      "id": "surpanakha",
+      "name": "Surpanakha",
+      "species": "female",
+      "body": "#c87137",
+      "top": "full",
+      "bottom": "dhoti",
+      "cloth": "yellow"
+    },
+    {
+      "id": "sage1",
+      "name": "sage1",
+      "species": "male",
+      "body": "#c87137",
+      "top": "bare",
+      "bottom": "dhoti",
+      "cloth": "yellow"
     }
   ]
 }
