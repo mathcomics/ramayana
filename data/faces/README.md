@@ -40,14 +40,7 @@ no named layers is imported entirely as `head`.
 
 ## Colours
 
-Faces are used **exactly as drawn**: no colour is swapped. Draw the skin in
-the character's body colour so the face meets the neck without a seam. The
-palette is in `data/characters.json`:
-
-| Body colour | Hex |
-|---|---|
-| brown | `#5a2a12` |
-| dark red | `#7c1d1d` |
-| tan | `#c08d6a` |
-
-(The palette can also be changed to the artist's colours instead.)
+Faces are used **exactly as drawn**: no colour is swapped. Each character's
+body colour in `data/characters.json` is a plain hex that matches the skin in
+its drawn face, so the face meets the neck without a seam. Changing a skin
+colour means changing both the drawing and that hex.

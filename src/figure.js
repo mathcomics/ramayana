@@ -657,7 +657,7 @@ export function characterLook(character, palette, faces) {
   return {
     face: faces?.faces?.[character.id],
     species: character.species,
-    colors: { body: palette.body[character.body], cloth: palette.cloth[character.cloth] },
+    colors: { body: character.body, cloth: palette.cloth[character.cloth] },
     outfit: { top: character.top, bottom: character.bottom },
   };
 }

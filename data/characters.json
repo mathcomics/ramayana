@@ -1,11 +1,6 @@
 {
-  "_doc": "Characters inherit a species and fix body colour, outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour. Colour names refer to the palette below. Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later.",
+  "_doc": "Characters inherit a species and fix body colour (hex; must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from the cloth palette below). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later.",
   "palette": {
-    "body": {
-      "brown": "#5a2a12",
-      "dark red": "#7c1d1d",
-      "tan": "#c08d6a"
-    },
     "cloth": {
       "white": "#f4f1ea",
       "yellow": "#f0d23a",
@@ -17,7 +12,7 @@
       "id": "rama",
       "name": "Rama",
       "species": "male",
-      "body": "brown",
+      "body": "#916f6f",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -26,7 +21,7 @@
       "id": "sita",
       "name": "Sita",
       "species": "female",
-      "body": "dark red",
+      "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -35,7 +30,7 @@
       "id": "lakshman",
       "name": "Lakshman",
       "species": "male",
-      "body": "tan",
+      "body": "#c08d6a",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "white"
@@ -44,7 +39,7 @@
       "id": "bharat",
       "name": "Bharat",
       "species": "male",
-      "body": "dark red",
+      "body": "#7c1d1d",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "white"
@@ -53,7 +48,7 @@
       "id": "dasharatha",
       "name": "Dasharatha",
       "species": "male",
-      "body": "dark red",
+      "body": "#7c1d1d",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -62,7 +57,7 @@
       "id": "kaikeyi",
       "name": "Kaikeyi",
       "species": "female",
-      "body": "tan",
+      "body": "#c08d6a",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -71,7 +66,7 @@
       "id": "hanuman",
       "name": "Hanuman",
       "species": "monkey",
-      "body": "tan",
+      "body": "#7c1d1d",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "red"
@@ -80,7 +75,7 @@
       "id": "sugriva",
       "name": "Sugriva",
       "species": "monkey",
-      "body": "dark red",
+      "body": "#5a2a12",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -89,7 +84,7 @@
       "id": "monkey1",
       "name": "monkey1",
       "species": "monkey",
-      "body": "dark red",
+      "body": "#7c1d1d",
       "top": "bare",
       "bottom": "briefs",
       "cloth": "yellow"
@@ -98,7 +93,7 @@
       "id": "ravana",
       "name": "Ravana",
       "species": "male",
-      "body": "brown",
+      "body": "#5a2a12",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"
@@ -107,7 +102,7 @@
       "id": "indrajit",
       "name": "Indrajit",
       "species": "male",
-      "body": "dark red",
+      "body": "#7c1d1d",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"
@@ -116,7 +111,7 @@
       "id": "vibhishana",
       "name": "Vibhishana",
       "species": "male",
-      "body": "tan",
+      "body": "#c08d6a",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"
@@ -125,7 +120,7 @@
       "id": "raxas_m1",
       "name": "raxas_m1",
       "species": "male",
-      "body": "dark red",
+      "body": "#7c1d1d",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"
@@ -134,7 +129,7 @@
       "id": "raxas_f1",
       "name": "raxas_f1",
       "species": "female",
-      "body": "dark red",
+      "body": "#7c1d1d",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"

@@ -166,14 +166,15 @@ the pose.
 - Bottom: `briefs` (the loincloth only) or `dhoti` (both thighs, from hip
   to knee, in the cloth colour).
 - Top: `bare` or `full` (the whole torso in the cloth colour).
-- Body colours: brown, dark red, tan.
+- Body colour: a hex per character, matching the skin of its drawn face
+  (no named body palette).
 - Cloth colours: white, yellow, red.
 
 ## 5.5 Characters
 
 `data/characters.json` defines every figure the story uses. A character
-picks a species and fixes body colour, outfit (top, bottom) and cloth
-colour. Colour names resolve through the palette in the same file. Ids
+picks a species and fixes body colour (hex), outfit (top, bottom) and cloth
+colour (a name from the cloth palette in the same file). Ids
 like `monkey1`, `raxas_m1` and `raxas_f1` are generic types for unnamed
 figures. Signature features (necklaces, crowns, top bun…) come later.
 
@@ -184,8 +185,7 @@ Faces are drawn by the artist, one SVG per character and view
 (`data/faces/`, see its README). Bodies and poses stay rule-based. A drawn
 face is never edited by code: it is placed whole on the head (moved,
 scaled, rotated with the head, mirrored for facing left). Colours are used
-exactly as drawn, so the face's skin must match the character's body
-colour. An optional `back` layer goes behind the whole
+exactly as drawn; the character's body colour is set to the face's skin. An optional `back` layer goes behind the whole
 body; optional `mouth-1/2/3` layers follow the pose's mouth size.
 
 ## 6. Figure model (shared)

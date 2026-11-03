@@ -86,12 +86,6 @@ select, input[type="text"] {
 }
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }
-.swatches { display: inline-flex; gap: 6px; }
-.sw {
-  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--line);
-  cursor: pointer; padding: 0;
-}
-.sw[aria-pressed="true"] { border-color: var(--fg); box-shadow: 0 0 0 2px var(--bg) inset; }
 
 .groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 fieldset {
@@ -190,7 +184,7 @@ const STARTERS = /*__POSES__*/;
 <script>
 (() => {
   const PAPER = '#f2ece1';
-  // Species, outfit, colours and facing change only the view: the pose is
+  // Character and facing change only the view: the pose is
   // shared by every species and saved without them.
   const LOOK = new Set(['facing']);
   const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
@@ -259,17 +253,6 @@ const STARTERS = /*__POSES__*/;
       el.appendChild(b);
     }
     el._sync = () => { for (const b of el.children) b.setAttribute('aria-pressed', String(b.dataset.value === JSON.stringify(getv()))); };
-  }
-  function swatches(id, list, keyName) {
-    const el = $(id); el.innerHTML = '';
-    for (const [label, color] of list) {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'sw'; b.style.background = color; b.title = label;
-      b.setAttribute('aria-label', label);
-      b.addEventListener('click', () => { state[keyName] = color; syncControls(); draw(); renderGallery(); });
-      b.dataset.value = color; el.appendChild(b);
-    }
-    el._sync = () => { for (const b of el.children) b.setAttribute('aria-pressed', String(b.dataset.value === state[keyName])); };
   }
 
   function buildSliders() {

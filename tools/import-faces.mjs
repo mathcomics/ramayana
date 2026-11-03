@@ -72,6 +72,14 @@ for (const f of files) {
   const svg = tree.children.find((c) => c.tag === 'svg');
   if (!svg) { console.error(`${f}: no <svg>`); continue; }
   let found = findLayers(svg, [], {});
+  if (Object.keys(found).length && !found.head) {
+    // head layer lost its name (e.g. renamed to g2146): the remaining
+    // top-level groups (not guide, not a named layer) are the head
+    const named = (n) => LAYERS.includes(label(n)) || label(n).startsWith('guide');
+    const hasLayer = (n) => named(n) || (n.children || []).some((c) => c.tag && hasLayer(c));
+    const kids = svg.children.filter((c) => c.tag === 'g' && !hasLayer(c));
+    if (kids.length) found.head = { chain: [], node: { tag: 'g', attrs: {}, children: kids } };
+  }
   if (!Object.keys(found).length) {
     // no named layers: everything except the guide is the head
     const kids = svg.children.filter((c) => c.tag && c.tag !== 'defs' && !/^(sodipodi|metadata)/.test(c.tag) && label(c) !== 'guide');

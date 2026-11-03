@@ -53,14 +53,15 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 - Three species, one skeleton, one shared set of poses: **monkey** (done,
   tuned by the artist), **male**, **female** (long hair; side hair drawn by
   the artist in `data/shapes/`). Mouth shape per species (arch/box/wedge).
-- **Characters** in `data/characters.json` (14: species, body colour,
-  outfit, cloth colour).
+- **Characters** in `data/characters.json` (14: species, body colour as a
+  hex matching the drawn face's skin, outfit, cloth colour). The pose lab
+  has no colour controls.
 - **Faces are the artist's drawings** (decided 2026-11-02): one SVG per
   character and view in `data/faces/`, from templates in
   `data/faces/templates/`; `tools/import-faces.mjs` → `data/faces.json`.
   Never edit the drawings' curves or colours; only place, rotate and
   mirror (colours exactly as drawn, decided 2026-11-02). Imported so
-  far: hanuman-front, sugriva-front. Characters/views without a face use the
+  far: front and side for hanuman, rama, sita, sugriva. Characters/views without a face use the
   generated head. Check with `node tools/face-sheet.mjs`.
 - Nine shared poses in `data/poses.json`. The pose lab has a character menu
   (view only); saves hold only the pose (collection `poses`); merge into
