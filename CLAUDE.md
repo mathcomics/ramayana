@@ -68,11 +68,12 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   (view only); saves hold only the pose (collection `poses`); merge into
   the repo when asked.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
+  Scene list v0.3 (93 scenes). `manuscript/characters.md` lists who is
+  identifiable (the 11 named characters in `data/characters.json`) and
+  the generic types; looks live only in `data/characters.json`. Bali,
+  Angad, Tara and Manthara are now generic figures.
 - **Next phase: scenes.** Proposal in `docs/scene-spec.md` (scene spec JSON
   or the artist's scene SVG with figure markers → layout → panel SVG; props
   as artist-drawn SVGs with anchors). First milestone: one screen of 2–3
   bands from real scenes. Faces still to come: raxas_m1; some faces will be
   revised.
-- Known conflict: `manuscript/README.md` still says "human, monkey or
-  rakshasa"; the engine has monkey/male/female. Fix in the manuscript
-  conversation.
