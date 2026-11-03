@@ -58,7 +58,7 @@ function findLayers(node, chain, found) {
     if (!c.tag) continue;
     const name = c.tag === 'g' ? label(c) : '';
     if (name === 'guide' || name.startsWith('guide')) continue;
-    if (LAYERS.includes(name)) { found[name] = { chain: [...chain, c.attrs.transform].filter(Boolean), node: c }; continue; }
+    if (LAYERS.includes(name)) { found[name] = { chain: chain.filter(Boolean), node: c } /* own transform added once, below */; continue; }
     findLayers(c, c.tag === 'g' || c.tag === 'svg' ? [...chain, c.attrs.transform].filter(Boolean) : chain, found);
   }
   return found;
