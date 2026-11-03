@@ -33,6 +33,7 @@ scene spec (JSON) → layout → figure geometry → SVG
 
 ```
 docs/style-bible.md      visual rules — read before changing the renderer
+docs/scene-spec.md       proposal: scene spec, props, layout (next phase)
 reference/               the artist's paintings and sketches (the yardstick)
 src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
 src/figure.js            skeleton solve, body-part shapes, SVG output

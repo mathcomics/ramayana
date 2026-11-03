@@ -18,6 +18,7 @@ scene spec (JSON) → layout → figure geometry → SVG
 - `README.md` — project overview, layout, commands, pose lab.
 
 - `docs/style-bible.md` — visual rules. Read it before changing the renderer.
+- `docs/scene-spec.md` — proposal for scenes (spec + template routes, props).
 - `reference/` — the artist's original friezes. Output is judged against these.
 
 ## Layout
@@ -67,5 +68,11 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   (view only); saves hold only the pose (collection `poses`); merge into
   the repo when asked.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
-- Next: import the artist's faces (front and side) as they arrive; then
-  signature features, scene layout and panels.
+- **Next phase: scenes.** Proposal in `docs/scene-spec.md` (scene spec JSON
+  or the artist's scene SVG with figure markers → layout → panel SVG; props
+  as artist-drawn SVGs with anchors). First milestone: one screen of 2–3
+  bands from real scenes. Faces still to come: raxas_m1; some faces will be
+  revised.
+- Known conflict: `manuscript/README.md` still says "human, monkey or
+  rakshasa"; the engine has monkey/male/female. Fix in the manuscript
+  conversation.
