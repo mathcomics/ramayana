@@ -100,7 +100,7 @@
      id="mouth-1"
      style="display:inline">
     <path
-       style="display:inline;fill:#241f1c;stroke-width:0.015"
+       style="display:inline;fill:#e3dbdb;stroke-width:0.015"
        d="m -0.19386775,0.33950211 0.4462018,-0.002324 c 0,0 -0.064822,-0.12355195 -0.197058,-0.13242499 -0.1658835,-0.0111307 -0.2892465,0.12114251 -0.2491438,0.13474899 z"
        id="path855-7" />
   </g>
@@ -108,7 +108,7 @@
      id="mouth-2"
      style="display:inline">
     <path
-       style="fill:#241f1c;stroke-width:0.015"
+       style="fill:#e3dbdb;stroke-width:0.015"
        d="m -0.19586685,0.33036787 0.4462018,-0.003592 c 0,0 -0.064822,-0.19096766 -0.197058,-0.20468225 -0.1658835,-0.0172042 -0.2892465,0.18724344 -0.2491438,0.20827425 z"
        id="path855" />
   </g>
