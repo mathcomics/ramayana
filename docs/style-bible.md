@@ -185,8 +185,9 @@ Faces are drawn by the artist, one SVG per character and view
 (`data/faces/`, see its README). Bodies and poses stay rule-based. A drawn
 face is never edited by code: it is placed whole on the head (moved,
 scaled, rotated with the head, mirrored for facing left). Colours are used
-exactly as drawn; the character's body colour is set to the face's skin. An optional `back` layer goes behind the whole
-body; optional `mouth-1/2/3` layers follow the pose's mouth size.
+exactly as drawn; the character's body colour is set to the face's skin. The `head` layer is drawn over the neck and body
+(in side view the near arm still crosses in front). An optional `back`
+layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose's mouth size.
 
 ## 6. Figure model (shared)
 

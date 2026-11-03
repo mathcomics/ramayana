@@ -626,7 +626,8 @@ export function renderFigure(species, pose, opts = {}) {
   let headDone = false;
   for (const s of shapes) {
     if (drawn && s.headPart) {                          // drawn face instead of the generated head
-      if (!headDone) { if (inBody) { svg += '</g>'; inBody = false; } svg += place(faceHead); headDone = true; }
+      // placed where the generated face would go (front-view hair is moved behind the body)
+      if (!headDone && s.role !== 'hair') { if (inBody) { svg += '</g>'; inBody = false; } svg += place(faceHead); headDone = true; }
       continue;
     }
     if (s.role === 'body') {
