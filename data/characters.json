@@ -30,7 +30,7 @@
       "id": "lakshman",
       "name": "Lakshman",
       "species": "male",
-      "body": "#c08d6a",
+      "body": "#c87137",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "white"
@@ -48,7 +48,7 @@
       "id": "dasharatha",
       "name": "Dasharatha",
       "species": "male",
-      "body": "#7c1d1d",
+      "body": "#c87137",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -93,7 +93,7 @@
       "id": "ravana",
       "name": "Ravana",
       "species": "male",
-      "body": "#5a2a12",
+      "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red"

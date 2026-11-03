@@ -61,7 +61,7 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   `data/faces/templates/`; `tools/import-faces.mjs` → `data/faces.json`.
   Never edit the drawings' curves or colours; only place, rotate and
   mirror (colours exactly as drawn, decided 2026-11-02). Imported so
-  far: front and side for hanuman, rama, sita, sugriva. Characters/views without a face use the
+  far: front and side for dasharatha, hanuman, lakshman, rama, ravana, sita, sugriva. Characters/views without a face use the
   generated head. Check with `node tools/face-sheet.mjs`.
 - Nine shared poses in `data/poses.json`. The pose lab has a character menu
   (view only); saves hold only the pose (collection `poses`); merge into
