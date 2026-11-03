@@ -12,7 +12,7 @@ this file only says who exists and where they appear in the story.
 | **Rama** | `rama` | male | hero, books I–XI |
 | **Sita** | `sita` | female | books I–XI |
 | **Lakshman** | `lakshman` | male | always near Rama |
-| **Bharat** | `bharat` | male | books IV (the sandals) |
+| **Bharat** | `bharat` | male | books II–IV (the sandals) |
 | **Dasharatha** | `dasharatha` | male | books I–III |
 | **Kaikeyi** | `kaikeyi` | female | book II |
 | **Hanuman** | `hanuman` | monkey | books VII–X |
