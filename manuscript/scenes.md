@@ -26,7 +26,7 @@ generic. Books follow Dutt; each heading links to that book.
 |---|---|---|---|
 | 02.01 | **Dasharatha** points to **Rama**; the assembly raises its arms and cheers | Dasharatha, Rama, 3 people | umbrella |
 | 02.02 | The city celebrates: people dance with banners and lamps | 4 people | banner, lamp |
-| 02.03 | **Manthara** whispers into **Kaikeyi**'s ear | Manthara, Kaikeyi | — |
+| 02.03 | A hunched old maid (Manthara) whispers into **Kaikeyi**'s ear | female, Kaikeyi | — |
 | 02.04 | **Kaikeyi** lies on the floor, hair loose; **Dasharatha** bends over her | Kaikeyi, Dasharatha | — |
 | 02.05 | **Kaikeyi** holds up two fingers (two boons); **Dasharatha** clutches his head | Kaikeyi, Dasharatha | — |
 | 02.06 | **Rama** bows at the feet of the slumped king; **Kaikeyi** points away | Rama, Dasharatha, Kaikeyi | — |
@@ -97,11 +97,11 @@ generic. Books follow Dutt; each heading links to that book.
 | 07.04 | **Rama** and **Sugriva** clasp hands over a fire; **Hanuman** offers flowers | Rama, Sugriva, Hanuman | fire |
 | 07.05 | **Sugriva** shows **Rama** the bundle of jewels; Rama presses them to his chest and weeps | Sugriva, Rama, Lakshman | jewels |
 | 07.06 | **Sugriva** points toward Kishkindha; **Rama** raises his bow, vowing | Sugriva, Rama | bow |
-| 07.07 | A female monkey (Tara) pulls at **Bali**'s arm; he shakes her off | female monkey, Bali | — |
-| 07.08 | **Bali** and **Sugriva** fight; Sugriva swings an uprooted tree | Bali, Sugriva | tree |
-| 07.09 | **Rama** shoots from behind a tree; **Bali** falls | Rama, Bali, Sugriva | tree, bow |
-| 07.10 | A female monkey (Tara) and **Angad** mourn over **Bali** | female monkey, Angad, Bali | — |
-| 07.11 | Water is poured over the crowned **Sugriva**; **Angad** stands beside him | Sugriva, Angad, Hanuman | jar, umbrella |
+| 07.07 | A monkey (Tara) pulls at Bali's arm; he shakes her off | monkey, monkey (Bali) | — |
+| 07.08 | Bali and **Sugriva** fight; Sugriva swings an uprooted tree | monkey (Bali), Sugriva | tree |
+| 07.09 | **Rama** shoots from behind a tree; Bali falls | Rama, monkey (Bali), Sugriva | tree, bow |
+| 07.10 | A monkey (Tara) and a young monkey (Angad) mourn over Bali | 3 monkeys | — |
+| 07.11 | Water is poured over the crowned **Sugriva**; a young monkey (Angad) stands beside him | Sugriva, monkey, Hanuman | jar, umbrella |
 | 07.12 | Monsoon: **Rama** and **Lakshman** shelter on a hill; Rama grieves | Rama, Lakshman | rain cloud |
 | 07.13 | **Sugriva** sends monkeys running in four directions | Sugriva, 4 monkeys | — |
 | 07.14 | **Rama** gives **Hanuman** his ring | Rama, Hanuman | ring |
@@ -138,7 +138,7 @@ generic. Books follow Dutt; each heading links to that book.
 | 10.01 | Monkeys carry rocks overhead and drop them into the sea: the bridge | 4 monkeys | rocks, water |
 | 10.02 | **Indrajit**, hidden in a cloud, shoots serpent arrows; **Rama** and **Lakshman** fall, bound | Indrajit, Rama, Lakshman | cloud, serpent-rope |
 | 10.03 | **Sita**, in a chariot, sees the fallen brothers; a rakshasi (Trijata) comforts her | Sita, rakshasi | chariot |
-| 10.04 | Battle: **Hanuman** and **Angad** hurl rocks and trees at rakshasas | Hanuman, Angad, 3 rakshasas | rocks, tree |
+| 10.04 | Battle: **Hanuman** and a monkey (Angad) hurl rocks and trees at rakshasas | Hanuman, monkey, 3 rakshasas | rocks, tree |
 | 10.05 | **Ravana**'s javelin strikes **Lakshman**; **Rama** drives Ravana back | Ravana, Lakshman, Rama | javelin, bow |
 | 10.06 | A giant leg and hand (Kumbhakarna) enter the panel; monkeys scatter; the hand grips **Sugriva** | giant leg + hand, Sugriva, 3 monkeys | — |
 | 10.07 | **Rama**'s arrow strikes; the giant head (Kumbhakarna) falls into the sea | Rama, giant head | bow, water |

@@ -32,7 +32,7 @@ the "Outside Dutt" section of `scenes.md`.
 manuscript/
   README.md        this file: canon and scene rules
   scenes.md        the list of scenes, in story order, grouped by Dutt's books
-  characters.md    the 14 identifiable characters and their signature features
+  characters.md    who is identifiable; their looks live in data/characters.json
 ```
 
 ## Scene rules
@@ -47,12 +47,17 @@ stacked bands). Every scene must work without words.
 - **Few props.** At most 2 props or effects per scene (fire, tree, hut,
   water band, bow, chariot…). No backgrounds; the ground colour is
   the only setting.
-- **Three species.** Every figure is a human, monkey or rakshasa. Anything
+- **Three species.** Every figure is a monkey, male or female
+  (`data/species/`). Humans and rakshasas are both male or female figures;
+  a rakshasa is set apart by its character type (body colour, outfit).
+  Anything
   else (deer, vulture, horse, a god in the flames) is listed as a
   creature or one-off and needs its own art.
 - **Named only when it matters.** In `scenes.md`, **bold** names are
   identifiable characters from `characters.md`. Anyone else is a generic
-  figure, described by role (sage, queen, charioteer, monkey, rakshasa).
+  figure, described by role (sage, queen, charioteer, monkey, rakshasa),
+  drawn with a generic type from `data/characters.json` (`monkey1`,
+  `raxas_m1`, `raxas_f1`, …).
 
 ## Scene line format
 
