@@ -35,7 +35,8 @@ looks **right**.
 | `back` | Optional. Drawn behind the whole body, e.g. long hair below the shoulders in front view. |
 | `mouth-1`, `mouth-2`, `mouth-3` | Optional. The pose's mouth size (1 small … 3 wide) picks one. If absent, the mouth drawn in `head` is used for every size. |
 
-Layers are matched by name (Inkscape layer label or group id). A file with
+Layers are matched by name (Inkscape layer label or group id). Hiding a
+layer in the editor doesn't matter: every layer is imported as visible. A file with
 no named layers is imported entirely as `head`.
 
 ## Colours

@@ -91,7 +91,9 @@ for (const f of files) {
     const inner = node.children.map(serialize).join('');
     if (!inner.trim()) continue;                         // empty layer
     const own = node.attrs.transform ? [node.attrs.transform] : [];
-    const style = node.attrs.style || '', opacity = node.attrs.opacity;
+    // a layer hidden in the editor (display:none) is only an editing state: show it
+    const style = (node.attrs.style || '').split(';').filter((d) => d.trim() && !/^\s*display\s*:/.test(d)).join(';');
+    const opacity = node.attrs.opacity;
     let g = `<g${[...chain, ...own].length ? ` transform="${[...chain, ...own].join(' ')}"` : ''}${style ? ` style="${esc(style)}"` : ''}${opacity ? ` opacity="${opacity}"` : ''}>${inner}</g>`;
     if (name.startsWith('mouth-')) (entry.mouth ||= {})[name.slice(6)] = g;
     else entry[name] = g;
