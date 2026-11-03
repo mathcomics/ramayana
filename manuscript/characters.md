@@ -9,40 +9,44 @@ this file only says who exists and where they appear in the story.
 
 | Character | id | Species | Role in the story |
 |---|---|---|---|
-| **Rama** | `rama` | male | hero, books I–XI |
-| **Sita** | `sita` | female | books I–XI |
+| **Rama** | `rama` | male | hero, all sections |
+| **Sita** | `sita` | female | all sections |
 | **Lakshman** | `lakshman` | male | always near Rama |
-| **Bharat** | `bharat` | male | books II–IV (the sandals) |
-| **Dasharatha** | `dasharatha` | male | books I–III |
-| **Kaikeyi** | `kaikeyi` | female | book II |
-| **Hanuman** | `hanuman` | monkey | books VII–X |
-| **Sugriva** | `sugriva` | monkey | books VII–X |
-| **Ravana** | `ravana` | male (rakshasa) | books VI, IX–X |
-| **Indrajit** | `indrajit` | male (rakshasa) | books IX–X |
-| **Vibhishana** | `vibhishana` | male (rakshasa) | books IX–X |
+| **Bharat** | `bharat` | male | not drawn in v0.4 (Bharat's visit dropped) |
+| **Dasharatha** | `dasharatha` | male | sections 1–2 |
+| **Kaikeyi** | `kaikeyi` | female | section 2 |
+| **Hanuman** | `hanuman` | monkey | sections 6–14 |
+| **Sugriva** | `sugriva` | monkey | sections 6–14 |
+| **Ravana** | `ravana` | male (rakshasa) | sections 4–14 |
+| **Indrajit** | `indrajit` | male (rakshasa) | sections 9–14 |
+| **Vibhishana** | `vibhishana` | male (rakshasa) | sections 9–14 |
 
 ## Generic types
 
 | Type | Species | Used for |
 |---|---|---|
 | `monkey1` | monkey | any monkey, incl. Bali, Angad, Tara |
-| `raxas_m1` | male | rakshasa warriors, Maricha |
-| `raxas_f1` | female | rakshasis: guards, Trijata, Mandodari |
+| `raxas_m1` | male | rakshasa warriors, Khara, Maricha |
+| `raxas_f1` | female | rakshasis: Surpanakha (rakshasi form), guards, Trijata, Mandodari |
 
-Still needed as generic types: human male and female (sages, kings,
-queens, courtiers, Manthara, the boatman, the charioteer).
+Still needed as generic types: human male and female (sages, queens,
+guests, the charioteer, Surpanakha's fair form, the false Sita), and
+children (the four boys, 01.02–01.04).
 
 ## Creatures and one-offs (not species models)
 
-- Kumbhakarna: a giant, usually only partly in the panel (a sleeping head,
-  a leg and a hand). Drawn as one-off parts.
-- Golden deer (Maricha in disguise)
-- Jatayu, the vulture
+- Kumbhakarna: a giant, much larger than the others (section 11), whole
+  or only partly in the panel (head, hand, arm).
+- Golden deer (Maricha in disguise); forest deer; birds
+- Jatayu, the vulture; Garuda, the eagle (10.11)
 - Agni, rising from the flames (11.02)
 - Flying chariots: Ravana's (drawn by asses) and the Pushpaka (drawn by swans)
 
 ## Props the scene list needs
 
-bow, arrow, quiver, sword, mace, javelin, staff, pitcher, sandals, ring,
-jewel, throne, umbrella, banner, lamp, drum, hut, boat, chariot, rocks,
-tree, fire/pyre, water band, cloud, mountain
+bow, arrow, target, books, garlands, sword, mace, spear, javelin, staff,
+pot, jar, ring, jewel(s), crown, throne, umbrella, drum, conch, food heap,
+hut (and top view), cave, boat, chariot, flying chariot, rocks, tree
+(and top view), fire/pyre, water band, lake, rain cloud, cloud,
+serpent-rope, mountain, herbs, bridge. Back outlines: palace, river,
+forest line, Lanka towers and wall.

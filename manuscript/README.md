@@ -18,9 +18,10 @@ and the prose links count as canon.
   Griffith's full verse translation, https://www.gutenberg.org/ebooks/24869,
   or Shastri's prose, https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki
 
-**Our telling is narrower than Dutt:** it ends with the flight home
-(scene 11.04) and skips the Surpanakha episode (book VI starts with the
-golden deer).
+**Our telling is narrower than Dutt in the early books and wider in
+the war:** it starts with the princes' childhood, shrinks books I–V to a
+few sections, includes Surpanakha and Khara's army, gives the war four
+sections, and ends with the flight home (15.06).
 
 Episodes Dutt leaves out (Tataka, Ahalya, Shabari, Kabandha, Hanuman's
 childhood, …) stay out unless we decide otherwise. Those decisions go in
@@ -31,22 +32,28 @@ the "Outside Dutt" section of `scenes.md`.
 ```
 manuscript/
   README.md        this file: canon and scene rules
-  scenes.md        the list of scenes, in story order, grouped by Dutt's books
+  scenes.md        the list of scenes, in story order, grouped in sections
   characters.md    who is identifiable; their looks live in data/characters.json
 ```
 
 ## Scene rules
 
-A scene is **one image**. Later, screens will group scenes (1 panel, or 2–3
-stacked bands). Every scene must work without words.
+A scene is **one panel**. Scenes are grouped into **sections**: one chain
+of events, about 10–15 panels (not strict), the first usually setting the
+scene. A panel is `full` (a whole portrait screen) or `half`, or its size
+is decided later. Full panels use the height: **back (high)** and
+**front (low)**. Every scene must work without words.
 
 - **One action.** A gesture readable from the silhouettes alone (point,
   strike, bow at feet, run, lift, fall).
 - **Few figures.** 1–5 figures, about the density of the reference friezes.
   A crowd is a short row of generic figures.
 - **Few props.** At most 2 props or effects per scene (fire, tree, hut,
-  water band, bow, chariot…). No backgrounds; the ground colour is
-  the only setting.
+  water band, bow, chariot…).
+- **Setting as outline.** The ground colour is the main setting. A panel
+  may add a simple outline in the back (palace on the horizon, river and
+  boat, tree line, Lanka's towers). A top view is allowed for an
+  establishing panel (03.01).
 - **Three species.** Every figure is a monkey, male or female
   (`data/species/`). Humans and rakshasas are both male or female figures;
   a rakshasa is set apart by its character type (body colour, outfit).
@@ -61,14 +68,15 @@ stacked bands). Every scene must work without words.
 
 ## Scene line format
 
-`| id | what we see | cast | props |`
+`| id | size | what we see | cast | props |`
 
-- `id` = book number + scene number (`06.04`). Keep IDs stable once art
+- `id` = section number + panel number (`06.04`). Keep IDs stable once art
   exists. Use suffixes such as `06.04a` to insert scenes.
+- `size` = `full`, `half`, or blank (decide later).
 - "What we see" is one short sentence in the present tense, about bodies
-  and gestures only.
+  and gestures only; full panels say what is in the back and the front.
 
 ## Open questions
 
-- How scenes are grouped into screens (and which scenes share one screen).
+- Size of the panels still left blank.
 - Ground colour per scene or per book.

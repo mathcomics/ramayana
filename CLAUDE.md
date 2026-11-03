@@ -68,7 +68,9 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   (view only); saves hold only the pose (collection `poses`); merge into
   the repo when asked.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
-  Scene list v0.3 (93 scenes). `manuscript/characters.md` lists who is
+  Scene list v0.4 (15 sections, 145 panels; sizes full/half where
+  decided; full panels use back/front; early books shrunk, war in four
+  sections). `manuscript/characters.md` lists who is
   identifiable (the 11 named characters in `data/characters.json`) and
   the generic types; looks live only in `data/characters.json`. Bali,
   Angad, Tara and Manthara are now generic figures.
