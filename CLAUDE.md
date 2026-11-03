@@ -59,8 +59,9 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   character and view in `data/faces/`, from templates in
   `data/faces/templates/`; `tools/import-faces.mjs` → `data/faces.json`.
   Never edit the drawings' curves; only place, recolour placeholders
-  (#c87137 skin → body, #00ff00 → cloth), rotate and mirror. None imported
-  yet; characters without a face use the generated head.
+  (#c87137 skin → body, #00ff00 → cloth), rotate and mirror. Imported so
+  far: hanuman-front, sugriva-front. Characters/views without a face use the
+  generated head. Check with `node tools/face-sheet.mjs`.
 - Nine shared poses in `data/poses.json`. The pose lab has a character menu
   (view only); saves hold only the pose (collection `poses`); merge into
   the repo when asked.
