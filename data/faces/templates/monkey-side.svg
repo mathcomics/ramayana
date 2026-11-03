@@ -6,8 +6,8 @@
        head     - the face itself; turns with the head
        back     - optional; drawn behind the whole body (e.g. long hair in front view)
        mouth-1/2/3 - optional; the pose's mouth size picks one
-     Colours: skin #c87137 -> character body colour; cloth #00ff00 -> cloth
-     colour; every other colour is kept as drawn. The guide layer is ignored. -->
+     Colours are used exactly as drawn; match the skin to the character's
+     body colour (data/characters.json palette). The guide layer is ignored. -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"

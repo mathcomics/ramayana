@@ -40,13 +40,14 @@ no named layers is imported entirely as `head`.
 
 ## Colours
 
-| Draw with | Becomes |
-|---|---|
-| `#c87137` (skin) | the character's body colour |
-| `#00ff00` (cloth) | the character's cloth colour |
-| anything else | kept exactly as drawn |
+Faces are used **exactly as drawn**: no colour is swapped. Draw the skin in
+the character's body colour so the face meets the neck without a seam. The
+palette is in `data/characters.json`:
 
-So one face can serve several characters, and a character's colours can
-change without redrawing. Avoid using the skin colour for anything that
-should stay fixed (e.g. a beard), and avoid a fixed colour that equals a
-body colour you want to stand out from.
+| Body colour | Hex |
+|---|---|
+| brown | `#5a2a12` |
+| dark red | `#7c1d1d` |
+| tan | `#c08d6a` |
+
+(The palette can also be changed to the artist's colours instead.)

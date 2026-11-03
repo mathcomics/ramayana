@@ -58,8 +58,8 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 - **Faces are the artist's drawings** (decided 2026-11-02): one SVG per
   character and view in `data/faces/`, from templates in
   `data/faces/templates/`; `tools/import-faces.mjs` → `data/faces.json`.
-  Never edit the drawings' curves; only place, recolour placeholders
-  (#c87137 skin → body, #00ff00 → cloth), rotate and mirror. Imported so
+  Never edit the drawings' curves or colours; only place, rotate and
+  mirror (colours exactly as drawn, decided 2026-11-02). Imported so
   far: hanuman-front, sugriva-front. Characters/views without a face use the
   generated head. Check with `node tools/face-sheet.mjs`.
 - Nine shared poses in `data/poses.json`. The pose lab has a character menu

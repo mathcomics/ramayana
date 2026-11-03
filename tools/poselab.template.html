@@ -231,7 +231,7 @@ const STARTERS = /*__POSES__*/;
   function draw() {
     const L = look();
     const p = state.pose;
-    const big = renderFigure(SPECIES[L.species], p, { x: 0, y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit, face: L.face, facePlaceholders: L.facePlaceholders });
+    const big = renderFigure(SPECIES[L.species], p, { x: 0, y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit, face: L.face });
     const groundLine = `<line x1="-6" x2="6" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
     $('big').innerHTML = `<svg viewBox="-4.6 -8.3 9.2 9" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Figure preview"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${big.svg}</svg>`;
     $('meta').textContent = `${charById(state.character).name} · ${p.view} · ${p.name}`;
@@ -345,7 +345,7 @@ const STARTERS = /*__POSES__*/;
   // ---------- gallery: every pose as a thumbnail; tap to edit it
   function thumbSvg(pose) {
     const L = look();
-    const r = renderFigure(SPECIES[L.species], pose, { x: 0, y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit, face: L.face, facePlaceholders: L.facePlaceholders });
+    const r = renderFigure(SPECIES[L.species], pose, { x: 0, y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit, face: L.face });
     const b = r.bbox, w = b.x1 - b.x0, h = b.y1 - b.y0, side = Math.max(w, h) + 0.6;
     const cx = (b.x0 + b.x1) / 2 * state.facing, cy = (b.y0 + b.y1) / 2;
     return `<svg viewBox="${cx - side / 2} ${cy - side / 2} ${side} ${side}" aria-hidden="true">${r.svg}</svg>`;

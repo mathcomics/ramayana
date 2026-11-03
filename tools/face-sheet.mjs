@@ -25,7 +25,7 @@ cast.forEach((c, r) => {
   const S = read(`data/species/${L.species}.json`);
   s += `<text x="110" y="${40 + r * rh + rh / 2}" font-family="sans-serif" font-size="16" fill="#555" text-anchor="end">${c.name}</text>`;
   columns.forEach(([, pose], i) => {
-    s += renderFigure(S, pose, { x: 130 + i * cw + cw / 2, y: 40 + (r + 1) * rh - 20, scale: 34, colors: L.colors, outfit: L.outfit, face: L.face, facePlaceholders: L.facePlaceholders }).svg;
+    s += renderFigure(S, pose, { x: 130 + i * cw + cw / 2, y: 40 + (r + 1) * rh - 20, scale: 34, colors: L.colors, outfit: L.outfit, face: L.face }).svg;
   });
 });
 writeFileSync(join(root, 'out/face-sheet.svg'), `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#efe8db"/>${s}</svg>`);

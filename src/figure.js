@@ -610,16 +610,9 @@ export function renderFigure(species, pose, opts = {}) {
   colors.eye = eyeColor(colors.body);
   const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) });
   // Drawn face (data/faces): replaces the generated head. Its layers are
-  // copied unchanged, placed with one transform; placeholder colours are
-  // swapped for the character's body and cloth colours.
+  // copied unchanged, colours included, and placed with one transform.
   const drawn = opts.face?.[sk.pose.headView === 'front' ? 'front' : 'side'];
-  const recolor = (g) => {
-    let out = g;
-    const ph = opts.facePlaceholders || { body: '#c87137', cloth: '#00ff00' };
-    for (const [k, hex] of Object.entries(ph)) out = out.replace(new RegExp(hex.replace('#', '#?'), 'gi'), colors[k]);
-    return out;
-  };
-  const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})">${recolor(g)}</g>`;
+  const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})">${g}</g>`;
   const faceHead = drawn && (drawn.head || '') + (drawn.mouth?.[sk.pose.mouth] || '');
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
@@ -663,7 +656,6 @@ export function renderFigure(species, pose, opts = {}) {
 export function characterLook(character, palette, faces) {
   return {
     face: faces?.faces?.[character.id],
-    facePlaceholders: faces?.placeholders,
     species: character.species,
     colors: { body: palette.body[character.body], cloth: palette.cloth[character.cloth] },
     outfit: { top: character.top, bottom: character.bottom },
