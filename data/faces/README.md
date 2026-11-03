@@ -36,7 +36,9 @@ looks **right**.
 | `mouth-1`, `mouth-2`, `mouth-3` | Optional. The pose's mouth size (1 small … 3 wide) picks one. If absent, the mouth drawn in `head` is used for every size. |
 
 Layers are matched by name (Inkscape layer label or group id). Hiding a
-layer in the editor doesn't matter: every layer is imported as visible. A file with
+layer in the editor doesn't matter: every layer is imported as visible.
+Anything drawn outside a named layer is imported as part of `head`, in
+the file's drawing order. A file with
 no named layers is imported entirely as `head`.
 
 ## Colours

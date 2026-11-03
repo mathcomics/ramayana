@@ -72,13 +72,24 @@ for (const f of files) {
   const svg = tree.children.find((c) => c.tag === 'svg');
   if (!svg) { console.error(`${f}: no <svg>`); continue; }
   let found = findLayers(svg, [], {});
-  if (Object.keys(found).length && !found.head) {
-    // head layer lost its name (e.g. renamed to g2146): the remaining
-    // top-level groups (not guide, not a named layer) are the head
+  if (Object.keys(found).length) {
+    // Anything drawn outside a named layer (a loose path, or a layer that lost
+    // its name, e.g. g2146) belongs to the head, in document order.
     const named = (n) => LAYERS.includes(label(n)) || label(n).startsWith('guide');
     const hasLayer = (n) => named(n) || (n.children || []).some((c) => c.tag && hasLayer(c));
-    const kids = svg.children.filter((c) => c.tag === 'g' && !hasLayer(c));
-    if (kids.length) found.head = { chain: [], node: { tag: 'g', attrs: {}, children: kids } };
+    const loose = (c) => c.tag && !/^(defs|metadata|sodipodi:|inkscape:|title|desc)/.test(c.tag) && !hasLayer(c);
+    const headTop = found.head && svg.children.includes(found.head.node);
+    if (svg.children.some(loose) && (headTop || !found.head)) {
+      const kids = [];
+      for (const c of svg.children) {
+        if (loose(c)) kids.push(c);
+        else if (headTop && c === found.head.node) {
+          const style = (c.attrs.style || '').split(';').filter((d) => d.trim() && !/^\s*display\s*:/.test(d)).join(';');
+          kids.push({ ...c, attrs: { ...c.attrs, style } });
+        }
+      }
+      found.head = { chain: [], node: { tag: 'g', attrs: {}, children: kids } };
+    }
   }
   if (!Object.keys(found).length) {
     // no named layers: everything except the guide is the head
