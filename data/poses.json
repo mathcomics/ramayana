@@ -1,5 +1,5 @@
 {
-  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle + lifts the toes. headView: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body). mouth: 1 (slit), 2 (arch), 3 (wide shout). Front view: near = picture-right, far = picture-left (mirrored).",
+  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle is the foot's angle from the ground, not the shin: 0 = flat with toes forward (side view) or outward (front view), + lifts the toes (-180..180). headView: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body). mouth: 1 (slit), 2 (arch), 3 (wide shout). Front view: near = picture-right, far = picture-left (mirrored).",
   "poses": [
     {
       "name": "stand",
@@ -20,7 +20,7 @@
           "wrist": 5
         },
         "leg": {
-          "ankle": -17,
+          "ankle": -12,
           "hip": 27,
           "knee": 14
         }
@@ -33,7 +33,7 @@
           "wrist": 2
         },
         "leg": {
-          "ankle": 17,
+          "ankle": 1,
           "hip": -8,
           "knee": 0
         }
@@ -62,7 +62,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 6,
+          "ankle": 27,
           "hip": 123,
           "knee": 61
         }
@@ -75,7 +75,7 @@
           "wrist": 23
         },
         "leg": {
-          "ankle": 8,
+          "ankle": -153,
           "hip": -24,
           "knee": 96
         }
@@ -104,7 +104,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 6,
+          "ankle": -60,
           "hip": 93,
           "knee": 105
         }
@@ -117,7 +117,7 @@
           "wrist": 23
         },
         "leg": {
-          "ankle": 8,
+          "ankle": -159,
           "hip": 13,
           "knee": 126
         }
@@ -146,7 +146,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 0,
+          "ankle": 19,
           "hip": 107,
           "knee": 105
         }
@@ -159,7 +159,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": -30,
+          "ankle": -139,
           "hip": -67,
           "knee": 59
         }
@@ -188,7 +188,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 0,
+          "ankle": -97,
           "hip": 106,
           "knee": 117
         }
@@ -201,7 +201,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 0,
+          "ankle": 60,
           "hip": 11,
           "knee": 37
         }
@@ -230,7 +230,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": -22,
+          "ankle": -13,
           "hip": 35,
           "knee": 20
         }
@@ -243,7 +243,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 17,
+          "ankle": -6,
           "hip": -9,
           "knee": 8
         }
@@ -272,7 +272,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 46,
+          "ankle": -3,
           "hip": 22,
           "knee": 87
         }
@@ -285,7 +285,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": -5,
+          "ankle": 12,
           "hip": 56,
           "knee": 55
         }
@@ -314,7 +314,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 0,
+          "ankle": -32,
           "hip": 38,
           "knee": 70
         }
@@ -327,7 +327,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 0,
+          "ankle": -32,
           "hip": 38,
           "knee": 70
         }
@@ -356,7 +356,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 0,
+          "ankle": -10,
           "hip": 25,
           "knee": 35
         }
@@ -369,7 +369,7 @@
           "wrist": 0
         },
         "leg": {
-          "ankle": 0,
+          "ankle": -10,
           "hip": 25,
           "knee": 35
         }

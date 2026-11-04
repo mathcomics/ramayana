@@ -107,7 +107,9 @@ export function solve(species, poseIn) {
 
     const tt = m * -lean + l.hip;
     const ts = tt - l.knee;
-    const tf = ts + 90 + l.ankle;
+    // foot angle from the ground, not the shin: 0 = flat, toes forward
+    // (side view) or outward (front view); + lifts the toes
+    const tf = 90 + l.ankle;
     const K = add(hp, mul(dirM(tt), S.leg.upper));
     const A = add(K, mul(dirM(ts), S.leg.lower));
 
