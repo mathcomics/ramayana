@@ -68,7 +68,7 @@ Needs Node 18+ and `rsvg-convert` (librsvg) for PNG output. No npm installs.
 npm test                                       # all tests (node:test, no packages)
 UPDATE_SNAPSHOT=1 npm test                     # accept an intended render change
 node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: male, female)
-node tools/parts-sheet.mjs monkey              # each body part at one scale
+node tools/parts-sheet.mjs monkey [--light]    # each body part at one scale (--light: pale, outlined, PDF, to draw on)
 node tools/build-poselab.mjs                   # rebuild the pose lab page
 node tools/face-templates.mjs                  # face templates per species and view
 node tools/import-faces.mjs                    # data/faces/*.svg → data/faces.json
