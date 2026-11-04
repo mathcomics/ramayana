@@ -376,20 +376,27 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
   const sk = solve(species, pose);
   const S = species;
   const out = [];
-  const push = (list, role = 'body') => list.forEach((pts) => out.push({ pts, role }));
+  // every shape carries `part`, the body part it belongs to (e.g.
+  // "near-forearm"); several shapes can make one part (discs + segment)
   const tail = tailShape(S, sk);
   const dhoti = outfit.bottom === 'dhoti', fullTop = outfit.top === 'full';
+  const side = (L) => (L === sk.limbs.near ? 'near' : 'far');
+  // limbShapes order: arm = shoulder disc, upper arm, elbow disc, forearm, hand…;
+  // leg = hip disc, thigh, knee disc, shin, ankle disc, foot
+  const armPart = (i) => (i < 3 ? 'upper-arm' : i === 3 ? 'forearm' : 'hand');
+  const legPart = (i) => (i < 3 ? 'thigh' : i < 5 ? 'shin' : 'foot');
   // legs: hip disc, thigh and knee disc take the cloth colour in a dhoti
   const pushLeg = (L) => limbShapes(S, L, 'leg').forEach((pts, i) =>
-    out.push({ pts, role: dhoti && i < 3 ? 'cloth' : 'body' }));
-  const pushTail = () => { if (tail) push([tail.root, tail.body, tail.tip]); };
-  const pushArm = (L) => push(limbShapes(S, L, 'arm'));
+    out.push({ pts, role: dhoti && i < 3 ? 'cloth' : 'body', part: `${side(L)}-${legPart(i)}` }));
+  const pushTail = () => { if (tail) [tail.root, tail.body, tail.tip].forEach((pts) => out.push({ pts, role: 'body', part: 'tail' })); };
+  const pushArm = (L) => limbShapes(S, L, 'arm').forEach((pts, i) =>
+    out.push({ pts, role: 'body', part: `${side(L)}-${armPart(i)}` }));
   const torso = torsoShape(sk);
   const pushTorso = () => out.push(
-    { pts: neckShape(S, sk), role: 'body' },
-    { pts: torso, role: fullTop ? 'cloth' : 'body', top: fullTop },
-    loincloth(S, sk, torso));
-  const head = headShapes(S, sk);
+    { pts: neckShape(S, sk), role: 'body', part: 'neck' },
+    { pts: torso, role: fullTop ? 'cloth' : 'body', top: fullTop, part: 'torso' },
+    { ...loincloth(S, sk, torso), part: 'loincloth' });
+  const head = headShapes(S, sk).map((h) => ({ ...h, part: 'head' }));
 
   if (sk.front) {
     pushTail(); pushLeg(sk.limbs.far); pushLeg(sk.limbs.near); pushTorso();

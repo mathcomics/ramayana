@@ -53,6 +53,7 @@ data/poses.json          named poses (joint angles, view, hands, mouth)
 data/characters.json     cast: species + body colour + outfit + cloth colour
 tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
 tools/parts-sheet.mjs    every body part separately → out/parts-<species>.png
+tools/figure-svg.mjs     one character, one pose → editable SVG, one path per body part
 tools/build-poselab.mjs  builds the pose lab page → out/poselab.html
 tools/poselab.template.html  pose lab source
 data/faces/              the artist's face drawings, <character>-<front|side>.svg (own README)
@@ -68,6 +69,7 @@ Needs Node 18+ and `rsvg-convert` (librsvg) for PNG output. No npm installs.
 npm test                                       # all tests (node:test, no packages)
 UPDATE_SNAPSHOT=1 npm test                     # accept an intended render change
 node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: male, female)
+node tools/figure-svg.mjs rama --pose stand      # out/figure-rama-stand-side/front.svg (or --pose-file x.json)
 node tools/parts-sheet.mjs monkey [--light]    # each body part at one scale (--light: pale, outlined, PDF, to draw on)
 node tools/build-poselab.mjs                   # rebuild the pose lab page
 node tools/face-templates.mjs                  # face templates per species and view
