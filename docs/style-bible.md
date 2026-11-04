@@ -211,7 +211,7 @@ layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose'
 Pose names read `<base>-<what the body does>`, so a pose can be found
 from a scene description:
 
-- base: `stand`, `walk`, `run`, `leap`, `crouch`, `bend`, `kneel`, `lunge`, `sit`,
+- base: `stand`, `walk`, `run`, `leap`, `crouch`, `bend`, `crawl`, `kneel`, `lunge`, `sit`,
   `lie`, `fall`;
 - the rest names what is visible (arms, then legs), never an emotion:
   `stand-hands-to-face`, not `fear`;
