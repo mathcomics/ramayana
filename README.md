@@ -63,7 +63,7 @@ node tools/export-hair.mjs                     # hair → data/shapes/*.svg for 
 node tools/import-hair.mjs                     # edited hair SVGs → data/species/female.json
 node tools/face-templates.mjs                  # face templates per species and view
 node tools/import-faces.mjs                    # data/faces/*.svg → data/faces.json
-node tools/face-sheet.mjs                      # every drawn face on figures (mouths 1–3, front and side)
+node tools/face-sheet.mjs                      # all characters on one US-letter page (PNG + PDF)
 ```
 
 After any renderer change, regenerate the contact sheet and look at it at

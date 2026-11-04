@@ -66,7 +66,7 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   characters have front and side faces (raxas_m1 = copy of indrajit;
   queens and surpanakha = copies of sita; sage1 = dasharatha without
   crown, white beard). Characters/views without a face use the
-  generated head. Check with `node tools/face-sheet.mjs`.
+  generated head. Check with `node tools/face-sheet.mjs` (one US-letter page, PNG + PDF).
 - Nine shared poses in `data/poses.json`. The pose lab has a character menu
   (view only); saves hold only the pose (collection `poses`); merge into
   the repo when asked.
@@ -77,6 +77,9 @@ Saved poses are reviewed and then merged into `data/poses.json`.
   identifiable (the 11 named characters in `data/characters.json`) and
   the generic types; looks live only in `data/characters.json`. Bali,
   Angad, Tara and Manthara are now generic figures.
+- **Cast is complete** (18). More generic monkeys and rakshasas will come
+  from cloth colour and a cloth **pattern** (to be introduced next), not
+  new characters.
 - **Next phase: scenes.** Proposal in `docs/scene-spec.md` (scene spec JSON
   or the artist's scene SVG with figure markers → layout → panel SVG; props
   as artist-drawn SVGs with anchors). First milestone: one screen of 2–3
