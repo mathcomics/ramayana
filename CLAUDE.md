@@ -114,7 +114,10 @@ renderer or panel changes.
   look back; throne, palace, tree). Site builder `tools/build-site.mjs` →
   `_site/`; Cloudflare Pages not set up yet (steps in docs/panels.md).
   Panel lab published.
-- **Next:** refine the new poses in the lab (11 saves there, not merged); artist feedback on the sample; walk pose; props
+- **Next:** refine the new poses in the lab (14 saves there, not merged);
+  **back view** for front poses that bend head-down, e.g. fall-headlong
+  (back of the head; needs a back-head layer in the face files and a back
+  draw order; style bible §6); artist feedback on the sample; walk pose; props
   import (`data/props/<id>.svg`, like faces); cloth pattern for generic
   figures; template route (figure markers in an artist's scene SVG).
   The copied faces will be customised by the artist.
