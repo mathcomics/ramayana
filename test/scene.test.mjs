@@ -73,3 +73,10 @@ test('backgroundInner keeps the drawing, drops the guide layer and editor markup
   for (const s of ['namedview', 'metadata', 'note', 'rect', 'inkscape:']) assert.ok(!out.includes(s), s);
   assert.equal(backgroundInner(''), '');
 });
+
+test('a character without a drawn face is an issue (no generated fallback)', () => {
+  const noFace = { ...assets, faces: { faces: {} } };
+  const r = renderPanel({ figures: [{ who: 'rama' }, { who: 'sita', view: 'front' }] }, noFace);
+  assert.match(r.issues.join('\n'), /rama\): no drawn side face/);
+  assert.match(r.issues.join('\n'), /sita\): no drawn front face/);
+});

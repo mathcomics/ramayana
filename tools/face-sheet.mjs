@@ -31,12 +31,12 @@ cast.forEach((c, i) => {
   const S = SPECIES[opts.species];
   const x0 = M + (i % COLS) * cw, y0 = TOP + Math.floor(i / COLS) * ch;
   s += `<rect x="${x0 + 3}" y="${y0 + 3}" width="${cw - 6}" height="${ch - 6}" rx="6" fill="#f6f1e8" stroke="#ddd3c3"/>`;
-  s += `<text x="${x0 + 12}" y="${y0 + 20}" ${font} font-size="12" fill="#444">${c.name}${F.faces[c.id] ? '' : ' (no face)'}</text>`;
+  s += `<text x="${x0 + 12}" y="${y0 + 20}" ${font} font-size="12" fill="#444">${c.name}${F.faces[c.id] ? '' : ' (NO FACE: every character needs one)'}</text>`;
 
   // two full figures, scaled to the cell height
   const ground = y0 + ch - 12;
   [[front(2), x0 + 0.2 * cw], [side(2), x0 + 0.45 * cw]].forEach(([pose, x]) => {
-    const { bbox } = buildShapes(S, pose, opts.outfit);
+    const { bbox } = buildShapes(S, pose, opts.outfit, 'side', opts.face);
     const scale = FIG / (bbox.y1 - bbox.y0);
     s += renderFigure(S, pose, { ...opts, x, y: ground, scale }).svg;
   });

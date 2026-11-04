@@ -43,7 +43,7 @@ tools/build-site.mjs     reader site → _site/ (Cloudflare Pages)
 tools/render-panels.mjs  screens → out/panels/*.png, with issues and needs
 tools/build-panellab.mjs panel lab page → out/panellab.html
 tools/lib.mjs            shared tool helpers (paths, data, sections, rsvg, lab bundling)
-tools/svg.mjs            SVG parsing, transforms, path flattening (import tools)
+tools/svg.mjs            SVG parsing for import-faces
 test/                    npm test: unit, data integrity and render snapshot
 reference/               the artist's paintings and sketches (the yardstick)
 src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
@@ -55,7 +55,6 @@ tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
 tools/parts-sheet.mjs    every body part separately → out/parts-<species>.png
 tools/build-poselab.mjs  builds the pose lab page → out/poselab.html
 tools/poselab.template.html  pose lab source
-data/shapes/*.svg        hand-editable shapes (hair), head-units, head centre at 0,0
 data/faces/              the artist's face drawings, <character>-<front|side>.svg (own README)
 data/faces.json          imported faces (generated; do not edit)
 out/, _site/             generated (not committed)
@@ -72,8 +71,6 @@ node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: male, femal
 node tools/parts-sheet.mjs monkey              # each body part at one scale
 node tools/build-poselab.mjs                   # rebuild the pose lab page
 node tools/head-sheet.mjs                      # heads of all species, light colours, for drawing corrections
-node tools/export-hair.mjs                     # hair → data/shapes/*.svg for hand editing
-node tools/import-hair.mjs                     # edited hair SVGs → data/species/female.json
 node tools/face-templates.mjs                  # face templates per species and view
 node tools/import-faces.mjs                    # data/faces/*.svg → data/faces.json
 node tools/face-sheet.mjs                      # all characters on one US-letter page (PNG + PDF)
@@ -115,8 +112,9 @@ real phone size (figures roughly 60–150 px tall).
   (`bottom`: briefs | dhoti, `top`: bare | full). `characterLook()` turns it
   into `renderFigure` options; facing is chosen per use.
 - **Shapes:** limbs follow straight-against-curve with knotty joints. The
-  head is a tapered rounded square with ears outside it, unless the
-  character has a drawn face (`data/faces/`), which replaces it. The loincloth is
+  head is a tapered rounded square with ears outside it; every character
+  has a drawn face (`data/faces/`) that replaces it, so the generated head
+  only shows on species sheets. The loincloth is
   derived from the thighs and the torso.
 
 The full rules, with the reasoning behind each, are in

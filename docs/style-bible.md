@@ -140,12 +140,10 @@ First version, `data/species/female.json`. Like the male, with:
   (`hair.lockWidth` ≈ 0.8 in side view) to `hair.length` below the head
   centre, with no gap between the locks in front view. Waves are short and
   close together (`hair.waves`).
-- Hair can be **drawn by hand**: `data/shapes/hair-female-front.svg` and
-  `-side.svg` hold one path `id="hair"` over a locked guide layer (head,
-  eyes, neck, torso), in head-units with the head centre at (0,0) and the
-  face looking right. `tools/import-hair.mjs` reads them into
-  `head.hairShape`, which replaces the generated hair. The side hair is
-  now hand-drawn by the artist; the front hair is still generated.
+- A character's hair comes with its drawn face (§5.6). The generated
+  hair above is only a species reference, for the contact and head sheets
+  and the face templates' guide (decided 2026-11-04; the hand-drawn
+  species hair in `data/shapes/` was retired).
 - A dhoti with a full top reads as a sari.
 
 ### Only three species
@@ -189,7 +187,12 @@ figures. Signature features (necklaces, crowns, top bun…) come later.
 ## 5.6 Drawn faces
 
 Faces are drawn by the artist, one SVG per character and view
-(`data/faces/`, see its README). Bodies and poses stay rule-based. A drawn
+(`data/faces/`, see its README). **Every character has both a front and a
+side face; there is no generated fallback** (decided 2026-11-04). The
+generated head stays only as the species reference (sheets, template
+guides) and as the anchor the face is placed on; with a drawn face, the
+generated hair is left out and does not affect the figure's size or
+placement. Bodies and poses stay rule-based. A drawn
 face is never edited by code: it is placed whole on the head (moved,
 scaled, rotated with the head, mirrored for facing left). Colours are used
 exactly as drawn; the character's body colour is set to the face's skin. The `head` layer is drawn over the neck and body

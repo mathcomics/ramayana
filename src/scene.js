@@ -5,7 +5,7 @@
 // Delivery is a vertical scroll of panels. Every panel is the full width
 // (360 units) and `size` × one screen height (720 units) tall.
 
-import { renderFigure, buildShapes, characterLook } from './figure.js';
+import { renderFigure, buildShapes, characterLook, normalizePose } from './figure.js';
 
 export const SCREEN = { w: 360, h: 720 };
 export const DEFAULT_SIZE = 0.75;
@@ -67,7 +67,10 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const r = row(f.row);
     const unit = r.unit * zoom * (f.scale ?? 1);
     const view = f.view === 'front' ? 'front' : 'side';
-    const { bbox } = buildShapes(S, pose, look.outfit, view);
+    // every character has a drawn face; there is no generated fallback
+    const headView = view === 'front' ? 'front' : normalizePose(pose).headView;
+    if (!look.face?.[headView]?.head) issues.push(`figure ${i + 1} (${f.who}): no drawn ${headView} face (data/faces/${f.who}-${headView}.svg)`);
+    const { bbox } = buildShapes(S, pose, look.outfit, view, look.face);
     return { f, name: f.id || f.who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, facing: f.facing === 'left' ? -1 : 1, x: null };
   }).filter(Boolean);

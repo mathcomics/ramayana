@@ -445,10 +445,9 @@ function headShapes(S, sk) {
   }
   // Long flowing hair (female): behind the head in front view, over the
   // back of the head in side view (see reference/sketch-female-hair.jpg).
-  // hand-drawn hair (data/shapes, imported with tools/import-hair.mjs)
-  // takes precedence over the generated shape
-  const drawn = S.head.hairShape?.[view === 'front' ? 'front' : 'side'];
-  const hair = drawn ? drawn.map((q) => [q[0], q[1]]) : S.head.hair ? hairShape(S.head.hair, view, hw, edge) : null;
+  // Characters always have a drawn face, which brings its own hair; this
+  // generated hair only shows in species sheets and face-template guides.
+  const hair = S.head.hair ? hairShape(S.head.hair, view, hw, edge) : null;
   if (hair && view === 'front') local.push({ role: 'hair', pts: hair });
   local.push({ role: 'body', pts: square, head: true });
   if (hair && view !== 'front') local.push({ role: 'hair', pts: hair });
@@ -533,7 +532,10 @@ export const DEFAULT_OUTFIT = { bottom: 'briefs', top: 'bare' };
 //   bottom: 'briefs' (loincloth only) | 'dhoti' (thighs in cloth colour)
 //   top:    'bare' | 'full' (whole torso in cloth colour)
 // view: 'side' (default) or 'front' (derived from the side pose; see frontOf).
-export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side') {
+// face: the character's drawn face (data/faces), if any. A drawn face brings
+// its own hair, so the generated hair is left out and never counts toward
+// the figure's size or placement.
+export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side', face = null) {
   if (view === 'front') ({ species, pose } = frontOf(species, pose));
   const sk = solve(species, pose);
   const S = species;
@@ -551,7 +553,8 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
     { pts: neckShape(S, sk), role: 'body' },
     { pts: torso, role: fullTop ? 'cloth' : 'body', top: fullTop },
     loincloth(S, sk, torso));
-  const head = headShapes(S, sk);
+  const drawnFace = face?.[sk.pose.headView === 'front' ? 'front' : 'side'];
+  const head = headShapes(S, sk).filter((x) => !(drawnFace && x.role === 'hair'));
 
   if (sk.front) {
     // hair hangs behind the whole body, not just the head
@@ -654,8 +657,9 @@ export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
   colors.eye = eyeColor(colors.body);
-  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view);
-  // Drawn face (data/faces): replaces the generated head. Its layers are
+  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.face);
+  // Drawn face (data/faces): replaces the generated head (every character
+  // has one; the generated head is for species sheets only). Its layers are
   // copied unchanged, colours included, and placed with one transform.
   const drawn = opts.face?.[sk.pose.headView === 'front' ? 'front' : 'side'];
   const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})">${g}</g>`;

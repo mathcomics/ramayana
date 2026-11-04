@@ -1,7 +1,10 @@
 # Faces
 
-The artist's face drawings. A drawn face replaces the generated head for a
-character; characters without one keep the generated head.
+The artist's face drawings. A drawn face replaces the generated head.
+**Every character must have a front and a side face** (decided
+2026-11-04): there is no generated fallback. A new character starts with
+its two face files; `import-faces` and the panels report any that are
+missing.
 
 ## Workflow
 

@@ -13,7 +13,7 @@
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { root } from './lib.mjs';
+import { root, json } from './lib.mjs';
 import { parse, serialize, label, esc, withoutDisplay } from './svg.mjs';
 
 const dir = process.argv[2] || join(root, 'data/faces');
@@ -86,3 +86,8 @@ writeFileSync(outPath, JSON.stringify({
   faces,
 }, null, 1));
 console.log(`${outPath}: ${Object.keys(faces).length} character(s)`);
+// Every character must have a drawn face in both views (no generated fallback).
+const cast = json('data/characters.json').characters.map((c) => c.id);
+for (const id of cast) for (const v of ['front', 'side'])
+  if (!faces[id]?.[v]?.head) { console.error(`  ! ${id}: no ${v} face (draw data/faces/${id}-${v}.svg)`); process.exitCode = 1; }
+for (const id of Object.keys(faces)) if (!cast.includes(id)) console.error(`  ! ${id}: face for a character not in data/characters.json`);

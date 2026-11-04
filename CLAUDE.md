@@ -73,13 +73,17 @@ renderer or panel changes.
   `renderFigure` takes an `id` prefix (panels no longer rewrite ids by
   regex) and a character look can be spread straight into its options.
   All renders, sheets, the site and generated data are unchanged.
-  Open: `node tools/import-hair.mjs` with no arguments also imports the
-  **front** hair SVG (the exported generated shape), which would replace
-  the generated front hair; run it with the side file only for now.
+- **Every character must have a drawn face, front and side; no fallback**
+  (decided 2026-11-04). Panels list a missing face as an issue and
+  `import-faces` reports it. The hand-drawn species hair (`data/shapes/`,
+  `import-hair`, `export-hair`, `head.hairShape`) was retired; the
+  generated female hair is only a species reference for sheets and
+  template guides, and generated hair never counts toward a figure with a
+  drawn face (female figures moved a few px as a result).
 
 - Three species, one skeleton, one shared set of poses: **monkey** (done,
-  tuned by the artist), **male**, **female** (long hair; side hair drawn by
-  the artist in `data/shapes/`). Mouth shape per species (arch/box/wedge).
+  tuned by the artist), **male**, **female** (generated long hair, species
+  reference only). Mouth shape per species (arch/box/wedge).
 - **Characters** in `data/characters.json` (18, incl. queen1, queen2,
   surpanakha, sage1 added 2026-11-03 as copies for the artist to customise: species, body colour as a
   hex matching the drawn face's skin, outfit, cloth colour). The pose lab
@@ -91,8 +95,8 @@ renderer or panel changes.
   mirror (colours exactly as drawn, decided 2026-11-02). All 18
   characters have front and side faces (raxas_m1 = copy of indrajit;
   queens and surpanakha = copies of sita; sage1 = dasharatha without
-  crown, white beard). Characters/views without a face use the
-  generated head. Check with `node tools/face-sheet.mjs` (one US-letter page, PNG + PDF).
+  crown, white beard). No generated fallback: every character needs
+  both faces. Check with `node tools/face-sheet.mjs` (one US-letter page, PNG + PDF).
 - **28 shared poses** in `data/poses.json` (2026-11-04), all **side
   view**, alphabetical, named `<base>-<visible action>` (style bible §7).
   Most are first drafts from a pose reference sheet, being refined in the
