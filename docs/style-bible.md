@@ -189,7 +189,8 @@ exactly as drawn; the character's body colour is set to the face's skin. The `he
 (in side view the near arm still crosses in front). An optional `back`
 layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose's mouth size.
 - Male mouths (`mouth-1/2/3` layers) are white, set in the face files at
-  the artist's request (2026-11-04).
+  the artist's request (2026-11-04); sage1's are light grey, against his
+  white hair and beard.
 
 ## 6. Figure model (shared)
 
