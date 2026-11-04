@@ -188,6 +188,8 @@ scaled, rotated with the head, mirrored for facing left). Colours are used
 exactly as drawn; the character's body colour is set to the face's skin. The `head` layer is drawn over the neck and body
 (in side view the near arm still crosses in front). An optional `back`
 layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose's mouth size.
+- Male mouths (`mouth-1/2/3` layers) are white, set in the face files at
+  the artist's request (2026-11-04).
 
 ## 6. Figure model (shared)
 
