@@ -2,49 +2,7 @@
   "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle is the foot's angle from the ground, not the shin: 0 = flat with toes forward (side view) or outward (front view), + lifts the toes (-180..180). headView: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body). mouth: 1 (slit), 2 (arch), 3 (wide shout). Front view: near = picture-right, far = picture-left (mirrored).",
   "poses": [
     {
-      "name": "bend-bow",
-      "view": "side",
-      "headView": "side",
-      "mouth": 1,
-      "spine": {
-        "lean": 70,
-        "chest": 20,
-        "neck": 15,
-        "head": -5
-      },
-      "near": {
-        "arm": {
-          "shoulder": 90,
-          "elbow": 10,
-          "hand": "in",
-          "wrist": 0
-        },
-        "leg": {
-          "hip": 75,
-          "knee": 5,
-          "ankle": -2
-        }
-      },
-      "far": {
-        "arm": {
-          "shoulder": 90,
-          "elbow": 10,
-          "hand": "in",
-          "wrist": 0
-        },
-        "leg": {
-          "hip": 75,
-          "knee": 5,
-          "ankle": -2
-        }
-      },
-      "tail": {
-        "lift": -60,
-        "curl": 200
-      }
-    },
-    {
-      "name": "bend-hands-on-knees",
+      "name": "bend-low",
       "view": "side",
       "headView": "side",
       "mouth": 3,
@@ -1427,48 +1385,6 @@
       "tail": {
         "lift": -30,
         "curl": 237
-      }
-    },
-    {
-      "name": "stand-hunch-arms-up",
-      "view": "side",
-      "headView": "side",
-      "mouth": 3,
-      "spine": {
-        "lean": -15,
-        "chest": 40,
-        "neck": 0,
-        "head": -15
-      },
-      "near": {
-        "arm": {
-          "shoulder": 85,
-          "elbow": 80,
-          "hand": "out",
-          "wrist": 0
-        },
-        "leg": {
-          "hip": 5,
-          "knee": 40,
-          "ankle": -2
-        }
-      },
-      "far": {
-        "arm": {
-          "shoulder": 55,
-          "elbow": 110,
-          "hand": "out",
-          "wrist": 0
-        },
-        "leg": {
-          "hip": -35,
-          "knee": 40,
-          "ankle": -2
-        }
-      },
-      "tail": {
-        "lift": -20,
-        "curl": 200
       }
     },
     {
