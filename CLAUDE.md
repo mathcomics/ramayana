@@ -142,7 +142,11 @@ renderer or panel changes.
   look back; throne, palace, tree). Site builder `tools/build-site.mjs` →
   `_site/`; Cloudflare Pages not set up yet (steps in docs/panels.md).
   Panel lab published.
-- **Next:** refine the new poses in the lab (14 saves there, not merged);
+- **Pose lab saves merged 2026-11-04** (20 saves, 13 with changes: bend-low,
+  crouch-arms-over-head, fall-back, fall-headlong, kneel, lie-front, run-low,
+  sit, sit-lean-back, stand, stand-hands-on-hips, stand-point,
+  stand-point-up). The saves stay in the lab.
+- **Next:** keep refining poses in the lab;
   **back view** for front poses that bend head-down, e.g. fall-headlong
   (back of the head; needs a back-head layer in the face files and a back
   draw order; style bible §6); artist feedback on the sample; walk pose; props

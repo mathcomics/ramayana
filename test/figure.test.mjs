@@ -49,8 +49,8 @@ test('front view: upright torso, front head, shortened spine (never below 35 %)'
     const k = f.species.spine.upper / S.spine.upper;
     assert.ok(k >= 0.35 - 1e-9 && k <= 1 + 1e-9, `${p.name}: torso factor ${k}`);
   }
-  const lie = POSES.find((p) => p.name === 'lie-front');
-  assert.ok(Math.abs(frontOf(S, lie).species.spine.upper / S.spine.upper - 0.35) < 1e-9, 'lying torso clamps to 35 %');
+  const flat = { spine: { lean: 90 } };                         // torso horizontal
+  assert.ok(Math.abs(frontOf(S, flat).species.spine.upper / S.spine.upper - 0.35) < 1e-9, 'lying torso clamps to 35 %');
   // a pose that is already front stays as it is
   const already = frontOf(S, { view: 'front' });
   assert.equal(already.species, S);
