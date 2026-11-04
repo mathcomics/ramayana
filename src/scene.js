@@ -64,7 +64,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (f.headView) pose.headView = f.headView;
     if (f.hands) { if (f.hands.near) setPath(pose, 'near.arm.hand', f.hands.near); if (f.hands.far) setPath(pose, 'far.arm.hand', f.hands.far); }
     for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, k, v);
-    const look = characterLook(c, assets.characters.palette, assets.faces);
+    const look = characterLook(c, assets.characters.palette, assets.faces, f.cloth);
+    if (f.cloth && !look.colors.cloth) issues.push(`figure ${i + 1} (${f.who}): unknown cloth "${f.cloth}"`);
     const S = assets.species[look.species];
     const r = row(f.row);
     const unit = r.unit * zoom * (f.scale ?? 1);
@@ -125,7 +126,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   props.filter((o) => o.layer !== 'front').forEach((o) => { s += drawProp(o); });
   figs.forEach((o) => {
     s += renderFigure(o.S, o.pose, { x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
-      view: o.view, colors: o.look.colors, outfit: o.look.outfit, face: o.look.face }).svg;
+      view: o.view, pattern: o.look.pattern, colors: o.look.colors, outfit: o.look.outfit, face: o.look.face }).svg;
   });
   props.filter((o) => o.layer === 'front').forEach((o) => { s += drawProp(o); });
   // clip ids from renderFigure are page-global; keep panels independent

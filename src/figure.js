@@ -546,7 +546,7 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
   const pushLeg = (L) => limbShapes(S, L, 'leg').forEach((pts, i) =>
     out.push({ pts, role: dhoti && i < 3 ? 'cloth' : 'body' }));
   const pushTorso = (torso) => {
-    out.push({ pts: neckShape(S, sk), role: 'body' }, { pts: torso, role: fullTop ? 'cloth' : 'body' });
+    out.push({ pts: neckShape(S, sk), role: 'body' }, { pts: torso, role: fullTop ? 'cloth' : 'body', top: fullTop });
   };
 
   if (sk.front) {
@@ -640,6 +640,27 @@ export function eyeColor(body) {
   return (1.05) / (L + 0.05) >= (L + 0.05) / 0.05 ? '#ffffff' : '#000000';
 }
 
+// Cloth patterns for the upper body (a full top), style bible §5.4. A cloth
+// name is a palette colour, optionally followed by a pattern:
+// "red", "red-check", "red-diamond", "red-stripe". The pattern is drawn in
+// black or white, whichever contrasts more with the cloth, in head-units,
+// so it scales with the figure (features ≥ ~0.1 head-unit, ~2 px on a
+// phone).
+export const CLOTH_PATTERNS = ['check', 'diamond', 'stripe'];
+export function parseCloth(name, palette = {}) {
+  const [base, pattern] = String(name || '').split('-');
+  return { color: palette[base] ?? palette[name], pattern: CLOTH_PATTERNS.includes(pattern) ? pattern : null };
+}
+function patternDef(id, kind, ink) {
+  const t = 0.36;                                   // tile, head-units
+  const body = {
+    check: `<rect width="${t / 2}" height="${t / 2}"/><rect x="${t / 2}" y="${t / 2}" width="${t / 2}" height="${t / 2}"/>`,
+    diamond: `<path d="M${t / 2} ${t * 0.18}L${t * 0.82} ${t / 2}L${t / 2} ${t * 0.82}L${t * 0.18} ${t / 2}Z"/>`,
+    stripe: `<rect y="${t * 0.36}" width="${t}" height="${t * 0.28}"/>`,
+  }[kind];
+  return `<pattern id="${id}" patternUnits="userSpaceOnUse" width="${t}" height="${t}"><g fill="${ink}">${body}</g></pattern>`;
+}
+
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
@@ -676,6 +697,11 @@ export function renderFigure(species, pose, opts = {}) {
       const id = `${clipId}c${shapes.indexOf(s)}`;
       svg += `<clipPath id="${id}"><path d="${pathD(s.clipPts)}"/></clipPath>` +
         `<g fill="${colors[s.role]}" clip-path="url(#${id})">${s.parts.map((p) => `<path d="${pathD(p)}"/>`).join('')}</g>`;
+    } else if (s.top && opts.pattern && CLOTH_PATTERNS.includes(opts.pattern)) {
+      // patterned top: the cloth colour, then the pattern over it
+      const id = `${clipId}p${shapes.indexOf(s)}`, d = pathD(s.pts);
+      svg += `<defs>${patternDef(id, opts.pattern, eyeColor(colors.cloth))}</defs>` +
+        `<path d="${d}" fill="${colors.cloth}"/><path d="${d}" fill="url(#${id})"/>`;
     } else if (s.role === 'ear') {
       svg += `<path d="${pathD(s.pts, false)}" fill="none" stroke="${colors.eye}" stroke-width="0.06" stroke-linecap="round"/>`;
     } else {
@@ -690,11 +716,14 @@ export function renderFigure(species, pose, opts = {}) {
 
 // Look of a character from data/characters.json: species id plus the
 // render options (colours, outfit) for renderFigure.
-export function characterLook(character, palette, faces) {
+// `cloth` overrides the character's cloth (e.g. a pattern for one figure).
+export function characterLook(character, palette, faces, cloth = character.cloth) {
+  const c = parseCloth(cloth, palette.cloth);
   return {
     face: faces?.faces?.[character.id],
     species: character.species,
-    colors: { body: character.body, cloth: palette.cloth[character.cloth] },
+    pattern: c.pattern,
+    colors: { body: character.body, cloth: c.color },
     outfit: { top: character.top, bottom: character.bottom },
   };
 }

@@ -34,7 +34,7 @@ s += `<text x="${W - M}" y="32" ${font} font-size="10" fill="#888" text-anchor="
 cast.forEach((c, i) => {
   const L = characterLook(c, C.palette, F);
   const S = read(`data/species/${L.species}.json`);
-  const opts = { colors: L.colors, outfit: L.outfit, face: L.face };
+  const opts = { pattern: L.pattern, colors: L.colors, outfit: L.outfit, face: L.face };
   const x0 = M + (i % COLS) * cw, y0 = TOP + Math.floor(i / COLS) * ch;
   s += `<rect x="${x0 + 3}" y="${y0 + 3}" width="${cw - 6}" height="${ch - 6}" rx="6" fill="#f6f1e8" stroke="#ddd3c3"/>`;
   s += `<text x="${x0 + 12}" y="${y0 + 20}" ${font} font-size="12" fill="#444">${c.name}${F.faces[c.id] ? '' : ' (no face)'}</text>`;

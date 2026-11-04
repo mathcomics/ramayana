@@ -169,6 +169,13 @@ the pose.
 - Body colour: a hex per character, matching the skin of its drawn face
   (no named body palette).
 - Cloth colours: white, yellow, red.
+- **Cloth patterns** (for rakshasas only): a cloth name can add a pattern
+  to the colour: `red-check`, `red-diamond`, `red-stripe` (any palette
+  colour works). The pattern goes on the upper body only (a `full` top);
+  the dhoti stays plain. It is drawn in black or white, whichever
+  contrasts more with the cloth (white on red), in head-units so it
+  scales with the figure: check = squares, diamond = small diamonds,
+  stripe = horizontal bands, all on a 0.36 head-unit tile.
 
 ## 5.5 Characters
 

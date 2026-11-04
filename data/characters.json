@@ -1,5 +1,5 @@
 {
-  "_doc": "Characters inherit a species and fix body colour (hex; must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from the cloth palette below). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later.",
+  "_doc": "Characters inherit a species and fix body colour (hex; must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from the cloth palette below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later.",
   "palette": {
     "cloth": {
       "white": "#f4f1ea",

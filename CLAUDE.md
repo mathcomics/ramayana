@@ -99,9 +99,11 @@ renderer or panel changes.
   identifiable (the 11 named characters in `data/characters.json`) and
   the generic types; looks live only in `data/characters.json`. Bali,
   Angad, Tara and Manthara are now generic figures.
-- **Cast is complete** (18). More generic monkeys and rakshasas will come
-  from cloth colour and a cloth **pattern** (to be introduced next), not
-  new characters.
+- **Cast is complete** (18). More generic monkeys and rakshasas come from
+  cloth colour and a **cloth pattern** (2026-11-04: `red-check`,
+  `red-diamond`, `red-stripe` on a full top; rakshasas only; a panel
+  figure can override `cloth`; pose lab has a pattern menu, view only),
+  not new characters.
 - **Panels (spec route) implemented 2026-11-03** (`docs/panels.md`,
   `src/scene.js`). Delivery is a vertical scroll of full-width panels;
   `size` is a share of a screen height (mostly 0.75, sometimes 0.5 or 1);
@@ -118,8 +120,7 @@ renderer or panel changes.
   **back view** for front poses that bend head-down, e.g. fall-headlong
   (back of the head; needs a back-head layer in the face files and a back
   draw order; style bible §6); artist feedback on the sample; walk pose; props
-  import (`data/props/<id>.svg`, like faces); cloth pattern for generic
-  figures; template route (figure markers in an artist's scene SVG).
+  import (`data/props/<id>.svg`, like faces); template route (figure markers in an artist's scene SVG).
   The copied faces will be customised by the artist.
   `manuscript/characters.md` doesn't list queen1/queen2/surpanakha/sage1
   yet (manuscript conversation).

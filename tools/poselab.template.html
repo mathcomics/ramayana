@@ -151,6 +151,8 @@ pre {
       </div>
       <label class="sr" for="character">Character</label>
       <select id="character" class="charsel" title="Character (view only)"></select>
+      <label class="sr" for="pattern">Cloth pattern</label>
+      <select id="pattern" class="charsel" title="Cloth pattern on a full top (view only)"><option value="">plain</option><option value="check">check</option><option value="diamond">diamond</option><option value="stripe">stripe</option></select>
     </div>
     <div class="status" id="status" role="status"></div>
   </section>
@@ -187,7 +189,7 @@ const STARTERS = /*__POSES__*/;
   // shared by every species and saved without them.
   const LOOK = new Set(['facing']);
   const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
-  const look = () => characterLook(charById(state.character), CAST.palette, FACES);
+  const look = () => { const c = charById(state.character); return characterLook(c, CAST.palette, FACES, state.pattern ? `${String(c.cloth).split('-')[0]}-${state.pattern}` : c.cloth); };
 
   const SLIDERS = [
     { key: 'spine', title: 'Body & tail', rows: [
@@ -213,6 +215,7 @@ const STARTERS = /*__POSES__*/;
   const state = {
     pose: normalizePose(STARTERS[0]),
     facing: 1,
+    pattern: '',   // view only: cloth pattern on a full top (rakshasas)
     character: (CAST.characters.find((c) => c.species === 'monkey') || CAST.characters[0]).id,
     saved: [],
     dirty: false,
@@ -225,7 +228,7 @@ const STARTERS = /*__POSES__*/;
     const L = look();
     const p = state.pose;
     // side (edited) and front (derived from it), next to each other
-    const opts = { y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit, face: L.face };
+    const opts = { y: 0, scale: 1, facing: state.facing, pattern: L.pattern, colors: L.colors, outfit: L.outfit, face: L.face };
     const side = renderFigure(SPECIES[L.species], p, { ...opts, x: -3.3 });
     const front = renderFigure(SPECIES[L.species], p, { ...opts, x: 3.3, view: 'front' });
     const groundLine = `<line x1="-8" x2="8" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
@@ -328,7 +331,7 @@ const STARTERS = /*__POSES__*/;
   // ---------- gallery: every pose as a thumbnail; tap to edit it
   function thumbSvg(pose) {
     const L = look();
-    const r = renderFigure(SPECIES[L.species], pose, { x: 0, y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit, face: L.face });
+    const r = renderFigure(SPECIES[L.species], pose, { x: 0, y: 0, scale: 1, facing: state.facing, pattern: L.pattern, colors: L.colors, outfit: L.outfit, face: L.face });
     const b = r.bbox, w = b.x1 - b.x0, h = b.y1 - b.y0, side = Math.max(w, h) + 0.6;
     const cx = (b.x0 + b.x1) / 2 * state.facing, cy = (b.y0 + b.y1) / 2;
     return `<svg viewBox="${cx - side / 2} ${cy - side / 2} ${side} ${side}" aria-hidden="true">${r.svg}</svg>`;
@@ -367,6 +370,7 @@ const STARTERS = /*__POSES__*/;
   // Character menu: changes only the look, never the pose.
   $('character').innerHTML = CAST.characters.map((c) => `<option value="${c.id}">${c.name}</option>`).join('');
   $('character').addEventListener('change', (e) => { state.character = e.target.value; syncControls(); draw(); renderGallery(); });
+  $('pattern').addEventListener('change', (e) => { state.pattern = e.target.value; draw(); renderGallery(); });
   buildSliders();
   for (const side of ['near', 'far']) {
     seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in']],

@@ -67,6 +67,7 @@ repeated inside the JSON.
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `back` · `mid` · `front` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. |
+| `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
 | `headView` | `front` · `side` | Overrides the pose (side view only). |
