@@ -19,6 +19,7 @@ export const DEFAULT_COLORS = {
   cloth: '#c8322a',
 };
 
+export const HANDS = ['fist', 'out', 'in', 'point'];
 const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
 
 // Normalise a pose, filling defaults.
@@ -26,7 +27,7 @@ export function normalizePose(p = {}) {
   const limb = (l = {}) => ({
     arm: {
       shoulder: num(l.arm?.shoulder, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0),
-      hand: ['fist', 'out', 'in'].includes(l.arm?.hand) ? l.arm.hand : 'fist',
+      hand: HANDS.includes(l.arm?.hand) ? l.arm.hand : 'fist',
     },
     leg: { hip: num(l.leg?.hip, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0) },
   });
@@ -161,9 +162,12 @@ function limbShapes(S, L, kind) {
 // Hands, three configurations (see reference/sketch-hands.jpg):
 //   fist: a wedge widening from the wrist to a rounded end;
 //   out / in: a blunt paddle for the fingers with a thin pointed thumb,
-//   thumb on the side away from the body (out) or toward it (in).
+//   thumb on the side away from the body (out) or toward it (in);
+//   point: like out, but the single finger is longer (POINT.finger × the
+//   thumb) and the grouped fingers shorter (POINT.palm × the paddle).
 // "Out" is the dirM(θ+90) side: forward in side view, away from the
 // midline in front view.
+const POINT = { finger: 1.6, palm: 0.6 };
 function handShapes(S, L, wristW) {
   const len = S.arm.hand ?? 0.42;
   const u = L.dirM(L.th), n = L.dirM(L.th + 90);
@@ -181,11 +185,13 @@ function handShapes(S, L, wristW) {
       at(-0.3, -wristW * 0.5),
     ]];
   }
-  const s = L.hand === 'out' ? 1 : -1;
-  const palm = [at(-0.05, s * wristW * 0.48), at(0.9, s * 0.16), at(1.0, -s * 0.13), at(-0.05, -s * wristW * 0.48)];
-  // thumb: a strip with parallel sides and a blunt end
+  const s = L.hand === 'in' ? -1 : 1;
+  const pt = L.hand === 'point';
+  const pl = pt ? POINT.palm : 1;                     // paddle length factor
+  const palm = [at(-0.05, s * wristW * 0.48), at(0.9 * pl, s * 0.16), at(1.0 * pl, -s * 0.13), at(-0.05, -s * wristW * 0.48)];
+  // thumb (or pointing finger): a strip with parallel sides and a blunt end
   const td = L.dirM(L.th + s * 42), tn = L.dirM(L.th + s * 42 + 90);
-  const tw = 0.09, tl = len * 0.7;
+  const tw = 0.09, tl = len * 0.7 * (pt ? POINT.finger : 1);
   const b = at(0.16, s * 0.04);
   const thumb = [add(b, mul(tn, tw / 2)), add(add(b, mul(td, tl)), mul(tn, tw / 2)),
     add(add(b, mul(td, tl)), mul(tn, -tw / 2)), add(b, mul(tn, -tw / 2))];

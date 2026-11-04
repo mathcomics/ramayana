@@ -15,6 +15,7 @@ test('normalizePose fills defaults and rejects bad values', () => {
   assert.equal(p.near.arm.shoulder, 0);
   assert.deepEqual(p.spine, { lean: 0, chest: 0, neck: 0, head: 0 });
   assert.equal(normalizePose({ view: 'front' }).headView, 'front');
+  assert.equal(normalizePose({ near: { arm: { hand: 'point' } } }).near.arm.hand, 'point');
 });
 
 test('every species × pose × view builds finite shapes, feet on y = 0, centred', () => {
@@ -67,6 +68,15 @@ test('ankle sets the foot from the ground: a flat foot stays flat however the kn
     const sk = solve(SPECIES.male, { near: { leg: { hip: 30, knee, ankle: 0 } } });
     assert.equal(sk.limbs.near.tf, 90);
   }
+});
+
+test('point hand: a longer single finger and shorter grouped fingers than out', () => {
+  const hand = (h) => anatomy(SPECIES.male, { near: { arm: { shoulder: 90, elbow: 0, hand: h } } }).hand.map((s) => s.pts);
+  const reach = (pts) => Math.max(...pts.map((p) => p[0]));   // arm points forward (+x)
+  const len = (pts) => Math.hypot(pts[1][0] - pts[0][0], pts[1][1] - pts[0][1]);
+  const [outPalm, outThumb] = hand('out'), [ptPalm, ptFinger] = hand('point');
+  assert.ok(reach(ptPalm) < reach(outPalm));
+  assert.ok(len(ptFinger) > len(outThumb) * 1.5);
 });
 
 test('monkeys have a tail, men and women do not', () => {

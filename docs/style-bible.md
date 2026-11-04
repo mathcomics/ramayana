@@ -77,7 +77,10 @@ and default posture. Measurements are in head-units (h = head diameter).
     corners, shorter than the open hand (`arm.fist` ≈ 0.65 of its length);
   - out: a blunt paddle for the fingers with a thumb (parallel sides,
     blunt end) on the side away from the body;
-  - in: the same with the thumb on the side toward the body.
+  - in: the same with the thumb on the side toward the body;
+  - point: like out, but the single finger is longer (1.6 × the thumb)
+    and the grouped fingers shorter (0.6 × the paddle), for pointing
+    (added 2026-11-04).
 - Feet: elongated wedges.
 - Garment: loincloth — the main identity colour. Shape is derived, not
   drawn: the span across both upper legs, clipped to the torso outline,

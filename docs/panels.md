@@ -71,7 +71,7 @@ repeated inside the JSON.
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
 | `headView` | `front` · `side` | Overrides the pose (side view only). |
-| `hands` | `{ "near": "fist", "far": "out" }` | Overrides the pose. |
+| `hands` | `{ "near": "point", "far": "fist" }` (fist · out · in · point) | Overrides the pose. |
 | `adjust` | `{ "near.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json`. For one-off gestures; a gesture used twice becomes a pose. |
 | `scale` | number | This figure only (a child, a giant). |
 | `lift` | head-units | Off the ground (leap, flight). |

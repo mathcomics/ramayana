@@ -373,7 +373,7 @@ const STARTERS = /*__POSES__*/;
   $('pattern').addEventListener('change', (e) => { state.pattern = e.target.value; draw(); renderGallery(); });
   buildSliders();
   for (const side of ['near', 'far']) {
-    seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in']],
+    seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in'], ['Point', 'point']],
       () => state.pose[side].arm.hand, (v) => { state.pose[side].arm.hand = v; });
   }
   renderGallery();

@@ -146,6 +146,9 @@ renderer or panel changes.
   crouch-arms-over-head, fall-back, fall-headlong, kneel, lie-front, run-low,
   sit, sit-lean-back, stand, stand-hands-on-hips, stand-point,
   stand-point-up). The saves stay in the lab.
+- **Point hand** added 2026-11-04 (`hand: point`, like out with a 1.6×
+  longer single finger and 0.6× grouped fingers; pose lab has a Point
+  button). No pose uses it yet.
 - **Next:** keep refining poses in the lab;
   **back view** for front poses that bend head-down, e.g. fall-headlong
   (back of the head; needs a back-head layer in the face files and a back
