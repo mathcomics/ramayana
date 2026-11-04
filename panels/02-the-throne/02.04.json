@@ -1,0 +1,10 @@
+{
+  "id": "02.04",
+  "scene": "Rama walks away alone",
+  "size": "half",
+  "ground": "off-white",
+  "figures": [
+    { "who": "rama", "pose": "stand", "facing": "left", "at": "center-left", "mouth": 1 }
+  ],
+  "needs": ["pose: walk"]
+}

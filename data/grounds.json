@@ -1,0 +1,11 @@
+{
+  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex.",
+  "default": "off-white",
+  "grounds": {
+    "off-white": "#f2ece1",
+    "dusty-pink": "#e9cfc4",
+    "sky-blue": "#cfe0e6",
+    "sand": "#e8dcc0",
+    "geru": "#9c4a2f"
+  }
+}

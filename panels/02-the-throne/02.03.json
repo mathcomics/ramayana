@@ -1,0 +1,53 @@
+{
+  "id": "02.03",
+  "scene": "Kaikeyi points Rama away; the king slumps",
+  "size": "half",
+  "ground": "dusty-pink",
+  "props": [
+    {
+      "prop": "throne",
+      "at": "right"
+    }
+  ],
+  "figures": [
+    {
+      "who": "rama",
+      "pose": "stand",
+      "facing": "left",
+      "at": "left",
+      "mouth": 1
+    },
+    {
+      "who": "kaikeyi",
+      "pose": "point",
+      "facing": "left",
+      "at": "center-left",
+      "mouth": 3
+    },
+    {
+      "who": "dasharatha",
+      "pose": "stand",
+      "facing": "left",
+      "at": {
+        "left-of": "throne",
+        "gap": 0.2
+      },
+      "mouth": 1,
+      "adjust": {
+        "spine.lean": 10,
+        "spine.chest": 40,
+        "spine.neck": 20,
+        "spine.head": 15,
+        "near.arm.shoulder": 5,
+        "near.arm.elbow": 0,
+        "far.arm.shoulder": 0,
+        "far.arm.elbow": 0,
+        "near.leg.knee": 25,
+        "far.leg.knee": 20
+      }
+    }
+  ],
+  "needs": [
+    "pose: slump (or sit, on the throne)"
+  ]
+}

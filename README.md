@@ -33,7 +33,15 @@ scene spec (JSON) → layout → figure geometry → SVG
 
 ```
 docs/style-bible.md      visual rules — read before changing the renderer
-docs/scene-spec.md       proposal: scene spec, props, layout (next phase)
+docs/scene-spec.md       proposal: scene spec, props, layout
+docs/panels.md           the panel language (implemented), lab, publishing
+src/scene.js             panels and screens: definition in, SVG out
+panels/<NN-section>/     panel definitions: <id>.json (+ optional <id>.svg background)
+data/props.json          prop registry (sizes; placeholders until drawn)
+data/grounds.json        ground colours
+tools/build-site.mjs     reader site → _site/ (Cloudflare Pages)
+tools/render-panels.mjs  screens → out/panels/*.png, with issues and needs
+tools/build-panellab.mjs panel lab page → out/panellab.html
 reference/               the artist's paintings and sketches (the yardstick)
 src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
 src/figure.js            skeleton solve, body-part shapes, SVG output
@@ -47,7 +55,7 @@ tools/poselab.template.html  pose lab source
 data/shapes/*.svg        hand-editable shapes (hair), head-units, head centre at 0,0
 data/faces/              the artist's face drawings, <character>-<front|side>.svg (own README)
 data/faces.json          imported faces (generated; do not edit)
-out/                     generated renders (not committed)
+out/, _site/             generated (not committed)
 ```
 
 ### Commands
@@ -64,6 +72,9 @@ node tools/import-hair.mjs                     # edited hair SVGs → data/speci
 node tools/face-templates.mjs                  # face templates per species and view
 node tools/import-faces.mjs                    # data/faces/*.svg → data/faces.json
 node tools/face-sheet.mjs                      # all characters on one US-letter page (PNG + PDF)
+node tools/render-panels.mjs [02]              # panel screens → out/panels/, lists issues and needs
+node tools/build-site.mjs                      # reader site → _site/
+node tools/build-panellab.mjs                  # panel lab page → out/panellab.html
 ```
 
 After any renderer change, regenerate the contact sheet and look at it at
@@ -100,6 +111,18 @@ https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 The page keeps its saves in its own database (collection `poses`).
 They are merged into `data/poses.json` on request, and the contact sheet
 is reviewed after each merge. Republishing keeps the same URL.
+
+### Panels and the site
+
+Scenes in `manuscript/scenes.md` are guidance; **panel definitions** in
+`panels/` say what is drawn (JSON per panel, optional background SVG);
+the **site** is built from them into `_site/` and served by Cloudflare
+Pages. The language, the lab and the publishing setup are in
+[docs/panels.md](docs/panels.md).
+
+**Panel lab** (published artifact; drafts saved to its database, collection
+`panels`, merged into `panels/` on request):
+https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
 
 ## Working conventions
 

@@ -19,6 +19,7 @@ scene spec (JSON) → layout → figure geometry → SVG
 
 - `docs/style-bible.md` — visual rules. Read it before changing the renderer.
 - `docs/scene-spec.md` — proposal for scenes (spec + template routes, props).
+- `docs/panels.md` — the panel language as implemented; lab; Cloudflare publishing.
 - `reference/` — the artist's original friezes. Output is judged against these.
 
 ## Layout
@@ -29,7 +30,8 @@ scene spec (JSON) → layout → figure geometry → SVG
     data/        species profiles, poses (JSON)
     tools/       pose lab, contact sheet, parts sheet
     manuscript/  story text and scene breakdown (own README)
-    out/         generated renders (not committed)
+    panels/      panel definitions, one folder per section
+    out/, _site/ generated (not committed)
 
 ## Conventions
 
@@ -48,6 +50,15 @@ scene spec (JSON) → layout → figure geometry → SVG
 Pose lab (published artifact, saves poses to its database, collection
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 Saved poses are reviewed and then merged into `data/poses.json`.
+
+    node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
+    node tools/build-site.mjs                      # _site/ (Cloudflare Pages build)
+    node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
+
+Panel lab (published artifact, drafts in its database, collection
+`panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
+Drafts are merged into `panels/` when asked; republish the lab after
+renderer or panel changes.
 
 ## Status (2026-11-03)
 
@@ -80,9 +91,17 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 - **Cast is complete** (18). More generic monkeys and rakshasas will come
   from cloth colour and a cloth **pattern** (to be introduced next), not
   new characters.
-- **Next phase: scenes.** Proposal in `docs/scene-spec.md` (scene spec JSON
-  or the artist's scene SVG with figure markers → layout → panel SVG; props
-  as artist-drawn SVGs with anchors). First milestone: one screen of 2–3
-  bands from real scenes. The copied faces will be customised by the artist.
+- **Panels (spec route) implemented 2026-11-03** (`docs/panels.md`,
+  `src/scene.js`). Sample: section 2 "The throne", 8 half panels → 4
+  screens in `panels/02-the-throne/` (02.07 has a placeholder background
+  SVG). Props are placeholder boxes (`data/props.json`). Poses are
+  approximated with `adjust`; each panel's `needs` lists what's missing
+  (walk, pull, slump, look back; throne, palace, tree). Site builder
+  `tools/build-site.mjs` → `_site/`; Cloudflare Pages not set up yet
+  (steps in docs/panels.md). Panel lab published.
+- **Next:** artist feedback on the sample; new poses (walk first); props
+  import (`data/props/<id>.svg`, like faces); cloth pattern for generic
+  figures; template route (figure markers in an artist's scene SVG).
+  The copied faces will be customised by the artist.
   `manuscript/characters.md` doesn't list queen1/queen2/surpanakha/sage1
   yet (manuscript conversation).

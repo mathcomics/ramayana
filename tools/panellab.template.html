@@ -1,0 +1,264 @@
+<title>Warli Panel Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap">
+<style>
+/* Layout: the screen as it will look on a phone, beside the selected
+   panel's JSON. Wide: two columns. Narrow: phone on top, editor below. */
+:root {
+  --bg: #eef0ee; --panel: #ffffff; --fg: #1d2420; --muted: #66706a; --line: #d6dbd7;
+  --accent: #8e3b1c; --accent-fg: #ffffff; --warn: #9a5b00; --ok: #2f6b3f;
+  --font-display: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141816; --panel: #1d2320; --fg: #e6ebe7; --muted: #9aa49e; --line: #2f3833;
+    --accent: #d9774f; --accent-fg: #1a0f0a; --warn: #e0a24a; --ok: #7cc28e; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141816; --panel: #1d2320; --fg: #e6ebe7; --muted: #9aa49e; --line: #2f3833;
+  --accent: #d9774f; --accent-fg: #1a0f0a; --warn: #e0a24a; --ok: #7cc28e; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.4 var(--font-body);
+  padding: 12px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px));
+}
+.wrap { max-width: 1040px; margin: 0 auto; display: grid; gap: 12px; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+h1 { font-family: var(--font-display); font-size: 1.15rem; margin: 0; letter-spacing: -0.01em; }
+select, button, textarea { font: inherit; color: var(--fg); }
+select { background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 6px 8px; min-width: 0; }
+.screens { display: flex; flex-wrap: wrap; gap: 6px; }
+.screens button, .panels button {
+  border: 1px solid var(--line); background: var(--panel); border-radius: 5px; padding: 5px 9px; cursor: pointer;
+  font-family: var(--font-mono); font-size: 12px;
+}
+.screens button[aria-pressed="true"], .panels button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.draft-dot { color: var(--warn); }
+.main { display: grid; grid-template-columns: minmax(0, 390px) minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 760px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.phone {
+  background: #fffdf8; border-radius: 18px; padding: 10px; border: 1px solid var(--line);
+  position: sticky; top: 8px; max-width: 390px; width: 100%; margin: 0 auto;
+}
+.phone svg { display: block; width: 100%; height: auto; border-radius: 8px; }
+.phone svg [data-panel] { cursor: pointer; }
+.side { display: grid; gap: 10px; min-width: 0; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 8px; min-width: 0; }
+.card h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0; font-weight: 600; }
+.panels { display: flex; flex-wrap: wrap; gap: 6px; }
+.scene { color: var(--muted); font-size: 13px; }
+textarea {
+  width: 100%; min-height: 340px; resize: vertical; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); padding: 8px; font: 12.5px/1.45 var(--font-mono); tab-size: 2;
+}
+textarea[aria-invalid="true"] { border-color: var(--warn); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { padding: 7px 12px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-fg); border-radius: 5px; cursor: pointer; font-weight: 500; }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.status { font-size: 12.5px; color: var(--muted); min-height: 1.2em; }
+ul.issues { margin: 0; padding-left: 18px; font-size: 12.5px; }
+ul.issues li.warn { color: var(--warn); }
+ul.issues li.need { color: var(--muted); }
+ul.issues li.ok { color: var(--ok); list-style: none; margin-left: -18px; }
+details { font-size: 12.5px; }
+details summary { cursor: pointer; color: var(--muted); }
+.ref { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.6; color: var(--fg); overflow-wrap: anywhere; }
+.ref b { font-family: var(--font-body); font-weight: 600; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Panel Lab</h1>
+    <select id="section" aria-label="Section"></select>
+    <div class="screens" id="screens" role="group" aria-label="Screens"></div>
+  </header>
+  <div class="main">
+    <div class="phone" id="phone" aria-label="Screen preview"></div>
+    <div class="side">
+      <div class="card">
+        <h2>Panels on this screen</h2>
+        <div class="panels" id="panels" role="group" aria-label="Panels"></div>
+        <div class="scene" id="scene"></div>
+      </div>
+      <div class="card">
+        <h2>Panel definition</h2>
+        <textarea id="json" spellcheck="false" aria-label="Panel JSON"></textarea>
+        <div class="row">
+          <button class="btn" id="saveBtn" disabled>Save draft</button>
+          <button class="btn ghost" id="revertBtn">Revert to repo</button>
+          <button class="btn ghost" id="copyBtn">Copy JSON</button>
+        </div>
+        <div class="status" id="status" role="status"></div>
+        <ul class="issues" id="issues"></ul>
+      </div>
+      <div class="card">
+        <details>
+          <summary>Names you can use</summary>
+          <div class="ref" id="ref"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/*__RENDERER__*/
+const ASSETS = /*__ASSETS__*/;
+const SECTIONS = /*__SECTIONS__*/;
+</script>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const slug = (id) => String(id).replace(/[^\w-]/g, '-');
+  const state = { section: 0, screen: 0, panelId: null, edits: {}, drafts: {}, bad: false };
+  let db = null;
+  try { const s = JSON.parse(localStorage.getItem('panellab') || '{}'); Object.assign(state, { section: s.section || 0, screen: s.screen || 0 }); } catch (e) {}
+  const remember = () => { try { localStorage.setItem('panellab', JSON.stringify({ section: state.section, screen: state.screen })); } catch (e) {} };
+
+  // The panels of a section: repo panels, replaced by saved drafts, plus
+  // draft-only panels for the section; unsaved edits on top.
+  function sectionPanels(si) {
+    const sec = SECTIONS[si];
+    const list = sec.panels.map((p) => state.drafts[p.id]?.panel || p);
+    for (const d of Object.values(state.drafts)) if (d.section === sec.name && !sec.panels.some((p) => p.id === d.panel.id)) list.push(d.panel);
+    return list.map((p) => state.edits[p.id] || p).sort((a, b) => String(a.id).localeCompare(String(b.id), 'en', { numeric: true }));
+  }
+  const repoPanel = (id) => SECTIONS[state.section].panels.find((p) => p.id === id);
+  const shownPanel = (id) => sectionPanels(state.section).find((p) => p.id === id);
+
+  function draw() {
+    const sec = SECTIONS[state.section];
+    const screens = packScreens(sectionPanels(state.section));
+    state.screen = Math.min(state.screen, screens.length - 1);
+    const cur = screens[state.screen] || [];
+    if (!cur.some((p) => p.id === state.panelId)) state.panelId = cur[0]?.id;
+    // screens bar
+    $('screens').innerHTML = '';
+    screens.forEach((ps, i) => {
+      const b = document.createElement('button');
+      b.textContent = ps.map((p) => p.id).join('+');
+      b.setAttribute('aria-pressed', String(i === state.screen));
+      b.addEventListener('click', () => { state.screen = i; state.panelId = null; remember(); draw(); });
+      $('screens').appendChild(b);
+    });
+    // phone
+    const { svg, issues } = renderScreen(cur, ASSETS, sec.backgrounds, { gap: 4 });
+    $('phone').innerHTML = svg;
+    // panels bar
+    $('panels').innerHTML = '';
+    cur.forEach((p) => {
+      const b = document.createElement('button');
+      const flag = state.edits[p.id] ? ' *' : state.drafts[p.id] ? ' •' : '';
+      b.innerHTML = p.id + (flag ? `<span class="draft-dot">${flag}</span>` : '');
+      b.title = state.edits[p.id] ? 'unsaved changes' : state.drafts[p.id] ? 'saved draft (not in repo yet)' : 'as in repo';
+      b.setAttribute('aria-pressed', String(p.id === state.panelId));
+      b.addEventListener('click', () => { state.panelId = p.id; draw(); });
+      $('panels').appendChild(b);
+    });
+    const p = shownPanel(state.panelId);
+    $('scene').textContent = p?.scene || '';
+    if (document.activeElement !== $('json')) $('json').value = p ? JSON.stringify(p, null, 2) : '';
+    $('json').setAttribute('aria-invalid', String(state.bad));
+    // issues for this panel
+    const mine = issues.filter((m) => m.startsWith((p?.id ?? '') + ':')).map((m) => m.slice(String(p?.id).length + 2));
+    const ul = $('issues'); ul.innerHTML = '';
+    const add = (t, cls) => { const li = document.createElement('li'); li.className = cls; li.textContent = t; ul.appendChild(li); };
+    if (state.bad) add('JSON doesn’t parse yet; the preview shows the last valid version.', 'warn');
+    mine.forEach((m) => add(m, /placeholder/.test(m) ? 'need' : 'warn'));
+    (p?.needs || []).forEach((n) => add('needs ' + n, 'need'));
+    if (!state.bad && !mine.length && !(p?.needs || []).length) add('No issues.', 'ok');
+    updateButtons();
+  }
+
+  function updateButtons() {
+    const id = state.panelId;
+    $('saveBtn').disabled = !db || !state.edits[id] || state.bad;
+    $('revertBtn').disabled = !state.edits[id] && !state.drafts[id];
+    $('revertBtn').textContent = state.drafts[id] && !state.edits[id] ? 'Delete draft' : 'Revert to repo';
+  }
+
+  $('json').addEventListener('input', () => {
+    try {
+      const p = JSON.parse($('json').value);
+      if (!p || typeof p !== 'object' || Array.isArray(p)) throw new Error('not an object');
+      p.id = state.panelId;               // the id is the file name; keep it fixed here
+      state.edits[state.panelId] = p; state.bad = false;
+      setStatus('Unsaved changes to ' + state.panelId + '.');
+    } catch (e) { state.bad = true; }
+    draw();
+  });
+
+  $('phone').addEventListener('click', (e) => {
+    const el = e.target.closest('[data-panel]');
+    if (el && el.dataset.panel !== state.panelId) { state.panelId = el.dataset.panel; draw(); }
+  });
+
+  $('section').innerHTML = SECTIONS.map((s, i) => `<option value="${i}">${s.title}</option>`).join('');
+  $('section').value = String(state.section = Math.min(state.section, SECTIONS.length - 1));
+  $('section').addEventListener('change', () => { state.section = Number($('section').value); state.screen = 0; state.panelId = null; remember(); draw(); });
+
+  function setStatus(t) { $('status').textContent = t; }
+
+  $('copyBtn').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText($('json').value); setStatus('Copied.'); }
+    catch (e) { $('json').select(); setStatus('Select and copy the text above.'); }
+  });
+
+  $('revertBtn').addEventListener('click', async () => {
+    const id = state.panelId;
+    if (state.edits[id]) { delete state.edits[id]; state.bad = false; setStatus('Unsaved changes dropped.'); draw(); return; }
+    if (state.drafts[id] && db) {
+      $('revertBtn').disabled = true;
+      try { await db.collection('panels').doc(slug(id)).delete(); setStatus('Draft deleted; showing the repo version.'); }
+      catch (e) { setStatus('Couldn’t delete the draft (' + (e?.code || 'error') + ').'); updateButtons(); }
+    }
+  });
+
+  $('saveBtn').addEventListener('click', async () => {
+    const id = state.panelId, panel = state.edits[id];
+    if (!db || !panel) return;
+    $('saveBtn').disabled = true;
+    try {
+      await db.collection('panels').doc(slug(id)).set({ panel, section: SECTIONS[state.section].name, savedAt: new Date().toISOString() });
+      delete state.edits[id];
+      setStatus(`Saved draft of ${id}. Ask Claude to merge drafts into the repo.`);
+    } catch (e) {
+      setStatus(e?.code === 'permission_denied' ? 'You can view this page but not save to it. Use Copy JSON instead.'
+        : 'Couldn’t save (' + (e?.code || 'error') + '). Try again in a moment.');
+    }
+    draw();
+  });
+
+  // Reference: the names a panel may use.
+  const ch = ASSETS.characters.characters.map((c) => c.id).join(', ');
+  const po = ASSETS.poses.map((p) => p.name).join(', ');
+  const pr = Object.keys(ASSETS.props.props).join(', ');
+  const gr = Object.keys(ASSETS.grounds.grounds).join(', ');
+  $('ref').innerHTML = `<b>who</b> ${ch}<br><b>pose</b> ${po}<br><b>prop</b> ${pr}<br><b>ground</b> ${gr}<br>` +
+    `<b>size</b> full, half, third<br><b>at</b> ${Object.keys(SLOTS).join(', ')} · {"before"|"behind"|"beside"|"left-of"|"right-of": id, "gap": h}<br>` +
+    `<b>row</b> back, mid, front<br><b>figure</b> facing, mouth, headView, hands, adjust {"near.arm.shoulder": 40}, scale, lift, nudge<br><b>panel</b> zoom (figures), needs [..]`;
+
+  draw();
+
+  // Saved drafts (db collection "panels").
+  setStatus('Connecting to saved drafts…');
+  (async () => {
+    db = window.claude?.use ? await window.claude.use('db') : null;
+    if (!db) { setStatus('Drafts can’t be saved in this view. Use Copy JSON instead.'); updateButtons(); return; }
+    const timer = setTimeout(() => setStatus('Saved drafts can’t be reached yet. They’ll appear when the connection returns.'), 10000);
+    db.collection('panels').onSnapshot((snap) => {
+      clearTimeout(timer);
+      state.drafts = {};
+      snap.docs.map((d) => d.data()).filter((d) => d && d.panel && d.panel.id).forEach((d) => { state.drafts[d.panel.id] = d; });
+      if (/^Connecting/.test($('status').textContent)) setStatus(Object.keys(state.drafts).length ? `${Object.keys(state.drafts).length} saved draft(s) shown (•).` : '');
+      draw();
+    }, (e) => { clearTimeout(timer); setStatus('Saved drafts stopped updating (' + (e?.code || 'error') + '). Reload to reconnect.'); });
+  })();
+})();
+</script>
