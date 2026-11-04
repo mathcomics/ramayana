@@ -1,6 +1,7 @@
 # Faces
 
-The artist's face drawings. A drawn face replaces the generated head.
+The artist's face drawings. A drawn face is the character's whole head;
+the renderer only places it.
 **Every character must have a front and a side face** (decided
 2026-11-04): there is no generated fallback. A new character starts with
 its two face files; `import-faces` and the panels report any that are
@@ -11,7 +12,8 @@ missing.
 1. Start from the template for the character's species and view:
    `templates/<monkey|male|female>-<front|side>.svg`.
 2. Draw the face in the layers, or paste it in and scale it to fit the guide.
-   The guide (generated head and neck at the figure's real scale)
+   The guide (the species' head rectangle and neck at the figure's real
+   scale; drawing rules in style bible §5.6)
    is locked and ignored on import.
 3. Save as `<character-id>-<front|side>.svg` in this folder, using the ids in
    `data/characters.json`: `rama-front.svg`, `sita-side.svg`,

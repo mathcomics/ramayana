@@ -3,9 +3,9 @@
 //   node tools/parts-sheet.mjs [species]   ->  out/parts-<species>.png
 //
 // Side-view parts use a near-straight standing pose; front-view head and
-// torso are shown too, plus all three hands and all three mouths.
+// torso are shown too, plus all three hands.
 
-import { anatomy, eyeColor, DEFAULT_COLORS } from '../src/figure.js';
+import { anatomy, DEFAULT_COLORS } from '../src/figure.js';
 import { pathD, bbox } from '../src/geom.js';
 import { json, writeOut, rsvg } from './lib.mjs';
 
@@ -20,7 +20,6 @@ const add = (label, shapes) => cells.push({ label, shapes });
 const A = anatomy(S, side), F = anatomy(S, front);
 add('head · side', A.head);
 add('head · front', F.head);
-for (const m of [1, 2, 3]) add(`mouth ${m}`, anatomy(S, { ...front, mouth: m }).head);
 add('neck', A.neck);
 add('torso · side', A.torso);
 add('torso · front', F.torso);
@@ -34,7 +33,7 @@ if (A.tail) add('tail', A.tail);
 add('loincloth · front (torso faint)', F.loincloth);
 add('loincloth · side (torso faint)', A.loincloth);
 
-const colors = { ...DEFAULT_COLORS, eye: eyeColor(DEFAULT_COLORS.body) };
+const colors = DEFAULT_COLORS;
 const px = 70;                  // px per head-unit, same for every part
 const cellW = 190, cellH = 230, cols = 4;
 let svg = '';

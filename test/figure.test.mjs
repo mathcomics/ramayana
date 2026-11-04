@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizePose, solve, frontOf, buildShapes, renderFigure, eyeColor, parseCloth, characterLook, anatomy } from '../src/figure.js';
+import { normalizePose, solve, frontOf, buildShapes, renderFigure, parseCloth, characterLook, anatomy } from '../src/figure.js';
 import { SPECIES, POSES, CAST, FACES, allFinite, stableIds } from './helpers.mjs';
 
 const stand = POSES.find((p) => p.name === 'stand');
@@ -83,11 +83,14 @@ test('outfit: dhoti and full top use the cloth colour', () => {
   assert.ok(role({ bottom: 'briefs', top: 'full' }) > briefs);
 });
 
-test('eye colour is pure white or black, whichever contrasts more', () => {
-  assert.equal(eyeColor('#000000'), '#ffffff');
-  assert.equal(eyeColor('#ffffff'), '#000000');
-  assert.equal(eyeColor('#5a2a12'), '#ffffff');
-  assert.equal(eyeColor('#fd0'), '#000000');                   // 3-digit hex
+test('the guide head is a plain rectangle, size × (size · width)', () => {
+  for (const S of Object.values(SPECIES)) {
+    const [h] = anatomy(S, { view: 'front', headView: 'front' }).head;
+    const xs = h.pts.map((p) => p[0]), ys = h.pts.map((p) => p[1]);
+    assert.equal(h.pts.length, 4);
+    assert.ok(Math.abs(Math.max(...ys) - Math.min(...ys) - S.head.size) < 1e-9);
+    assert.ok(Math.abs(Math.max(...xs) - Math.min(...xs) - S.head.size * S.head.width) < 1e-9);
+  }
 });
 
 test('cloth names: colour plus optional pattern', () => {

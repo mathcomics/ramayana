@@ -12,6 +12,13 @@ test('only three species', () => {
   assert.deepEqual(Object.keys(SPECIES).sort(), ['female', 'male', 'monkey']);
 });
 
+test('species heads are only a size guide (faces are drawn)', () => {
+  for (const [id, S] of Object.entries(SPECIES)) {
+    assert.deepEqual(Object.keys(S.head).sort(), ['size', 'width'], `${id}: head keeps only size and width`);
+    assert.equal(S.mouth, undefined, `${id}: mouths are drawn in the face files`);
+  }
+});
+
 test('poses: unique, alphabetical, <base>-<action> names, side view only', () => {
   const names = POSES.map((p) => p.name);
   assert.equal(new Set(names).size, names.length, 'duplicate pose name');

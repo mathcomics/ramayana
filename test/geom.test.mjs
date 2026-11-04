@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { dir, add, sub, mul, lerp, rot, quad, circlePts, roundRectPts, pathD, bbox } from '../src/geom.js';
+import { dir, add, sub, mul, lerp, rot, quad, circlePts, pathD, bbox } from '../src/geom.js';
 
 const near = (a, b, eps = 1e-9) => a.every((v, i) => Math.abs(v - b[i]) < eps);
 
@@ -26,11 +26,9 @@ test('quad excludes its start and ends on its end point', () => {
   assert.ok(near(quad([0, 0], [5, 10], [10, 0], 2)[0], [5, 5]));   // midpoint of the bezier
 });
 
-test('circle and rounded rectangle stay inside their bounds', () => {
+test('circle stays inside its bounds', () => {
   const c = bbox([circlePts([1, 1], 2, 40)]);
   assert.ok(c.x0 >= -1 - 1e-9 && c.x1 <= 3 + 1e-9);
-  const r = bbox([roundRectPts(0.5, 0.5, 0.15)]);
-  assert.ok(near([r.x0, r.y0, r.x1, r.y1], [-0.5, -0.5, 0.5, 0.5]));
 });
 
 test('pathD rounds to 3 decimals and closes by default', () => {

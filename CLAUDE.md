@@ -76,14 +76,18 @@ renderer or panel changes.
 - **Every character must have a drawn face, front and side; no fallback**
   (decided 2026-11-04). Panels list a missing face as an issue and
   `import-faces` reports it. The hand-drawn species hair (`data/shapes/`,
-  `import-hair`, `export-hair`, `head.hairShape`) was retired; the
-  generated female hair is only a species reference for sheets and
-  template guides, and generated hair never counts toward a figure with a
-  drawn face (female figures moved a few px as a result).
+  `import-hair`, `export-hair`, `head.hairShape`) was retired.
+- **Species heads are only a size guide** (decided 2026-11-04): `head` is
+  `{ size, width }`, drawn as a plain rectangle (template guide, species
+  views). Generated ears, eyes, mouths, hair, taper and the eye-colour
+  rule were removed; their rules now live in style bible §5.6 as drawing
+  guidance. Contact sheets draw a character of the species (`--who`);
+  `head-sheet` was retired. Figures shift a pixel or two (hidden ears and
+  taper no longer count toward their width).
 
 - Three species, one skeleton, one shared set of poses: **monkey** (done,
-  tuned by the artist), **male**, **female** (generated long hair, species
-  reference only). Mouth shape per species (arch/box/wedge).
+  tuned by the artist), **male**, **female**. Mouth shape per species
+  (arch/box/wedge) is drawn in the faces; poses pick mouth size 1–3.
 - **Characters** in `data/characters.json` (18, incl. queen1, queen2,
   surpanakha, sage1 added 2026-11-03 as copies for the artist to customise: species, body colour as a
   hex matching the drawn face's skin, outfit, cloth colour). The pose lab

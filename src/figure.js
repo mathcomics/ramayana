@@ -9,9 +9,7 @@
 //   a curved thigh-front against a curved calf-back; for an arm a curved
 //   triceps against a curved forearm-front.
 
-import {
-  dir, add, sub, mul, lerp, rot, quad, circlePts, roundRectPts, pathD, bbox,
-} from './geom.js';
+import { dir, add, mul, lerp, rot, quad, circlePts, pathD, bbox } from './geom.js';
 
 const ELBOW = +1; // forearm rotates toward +θ when the elbow flexes
 const KNEE = -1;  // shin rotates toward -θ when the knee flexes
@@ -19,8 +17,6 @@ const KNEE = -1;  // shin rotates toward -θ when the knee flexes
 export const DEFAULT_COLORS = {
   body: '#5a2a12',
   cloth: '#c8322a',
-  mouth: '#f4efe6',
-  hair: '#17110d',
 };
 
 const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
@@ -320,178 +316,15 @@ function tailShape(S, sk) {
 }
 
 
-// Mouth openings, levels 1-3 (never closed): [half width, arch height,
-// shape exponent]. Exponent < 1 squares the arch off, > 1 makes it peaked.
-const MOUTHS = { 1: [0.2, 0.09, 1], 2: [0.19, 0.21, 1.25], 3: [0.26, 0.33, 0.6] };
-
-// A wavy line from a to b: `waves` bumps of height `amp`, bulging to the
-// left of the direction of travel (sign +1) or right (-1).
-function wavy(a, b, waves, amp, sign = 1, n = 28) {
-  const d = sub(b, a), len = Math.hypot(d[0], d[1]) || 1;
-  const nrm = [-d[1] / len * sign, d[0] / len * sign];
-  const out = [];
-  for (let i = 1; i <= n; i++) {
-    const t = i / n, w = Math.sin(t * Math.PI * waves) * amp * Math.sin(t * Math.PI);
-    out.push(add(lerp(a, b, t), mul(nrm, w)));
-  }
-  return out;
-}
-
-// Hair in head-local coordinates (x forward, y down, head spans ±hw).
-// The hair is a thick frame around the head's own outline (`thickness`
-// outside it on top and sides), continuing down as broad locks to
-// `length` below the head centre. Outer edges wavy.
-function hairShape(H, view, hw, edge) {
-  const len = H.length ?? 1.6, amp = H.wave ?? 0.07, wv = H.waves ?? 1;
-  const T = H.thickness ?? 0.25;
-  const n = Math.max(2, Math.round(5 * wv));            // waves down a side
-  // outer edge: follows the head, then flares a little below the chin
-  const outX = (y) => edge(Math.max(-hw, Math.min(hw, y))) + T + Math.max(0, y - hw) * 0.12;
-  const sideEdge = (sign, y0, y1, steps = 48) => {
-    const pts = [];
-    for (let i = 0; i <= steps; i++) {
-      const t = i / steps, y = y0 + (y1 - y0) * t;
-      const w = Math.sin(t * Math.PI * n) * amp * Math.min(1, t * 4);
-      pts.push([sign * (outX(y) + w), y]);
-    }
-    return pts;
-  };
-  const top = -hw - T;
-  const crown = (fromX, toX) => quad([fromX, -hw * 0.55], [0, top - T * 0.9], [toX, -hw * 0.55], 16);
-
-  if (view === 'front') {
-    // drawn behind the body: only the outline and the gap at the neck matter
-    const gap = H.neckGap ?? 0.17;
-    const lockEnd = (sign) => {
-      const o = sign * outX(len), g = sign * gap;
-      return quad([o, len], [(o + g) / 2, len + 0.22], [g, len], 8);
-    };
-    return [
-      ...crown(-outX(-hw * 0.55), outX(-hw * 0.55)),
-      ...sideEdge(1, -hw * 0.55, len),
-      ...lockEnd(1),
-      ...(gap > 0 ? [[gap, hw * 0.85], [-gap, hw * 0.85]] : []),
-      ...lockEnd(-1).reverse(),
-      ...sideEdge(-1, -hw * 0.55, len).reverse(),
-    ];
-  }
-  // Side view, drawn over the head: front edge a wavy line from the crown,
-  // down behind the eye to the jaw, then down the back of the neck; back
-  // edge follows the back of the head at `thickness`, then falls as one
-  // broad mass with a rounded end.
-  const lockW = H.lockWidth ?? 0.75;
-  // rounded cap: from the forehead over the top of the head, T outside it
-  const frontTop = [edge(-hw) * 0.85, -hw + 0.03];          // hairline at the forehead
-  const aboveEye = [0.03, -hw * 0.45];
-  const jaw = [-0.04, hw * 0.92];
-  const frontX = -0.08;
-  // back edge: hugs the back of the head at T, then eases out to the full
-  // lock width below the chin
-  const backX = (y) => {
-    const head = -(edge(Math.max(-hw, Math.min(hw, y))) + T);
-    const lock = frontX - lockW;
-    const t = Math.max(0, Math.min(1, (y - hw * 0.4) / 0.7));
-    const k = t * t * (3 - 2 * t);
-    return head + (Math.min(head, lock) - head) * k;
-  };
-  const pts = [frontTop];
-  pts.push(...quad(frontTop, [aboveEye[0] + 0.12, -hw * 0.95], aboveEye, 10));   // hairline curves back above the eye
-  pts.push(...wavy(aboveEye, jaw, Math.max(2, Math.round(2 * wv)), amp * 0.7, -1, 24));
-  pts.push(...wavy(jaw, [frontX, len], n, amp, -1, 40));
-  const bb = [backX(len), len];
-  pts.push(...quad([frontX, len], [(frontX + bb[0]) / 2, len + 0.3], bb, 10));
-  const steps = 56, y0 = len, y1 = -hw * 0.55;
-  for (let i = 1; i <= steps; i++) {
-    const t = i / steps, y = y0 + (y1 - y0) * t;
-    pts.push([backX(y) - Math.sin(t * Math.PI * n) * amp, y]);
-  }
-  const backTop = [backX(y1), y1], crownTop = [-0.05, top];
-  pts.push(...quad(backTop, [backTop[0], top], crownTop, 12));
-  pts.push(...quad(crownTop, [edge(-hw) * 0.95, top + T * 0.15], frontTop, 12));
-  return pts;
-}
-
-// Head shapes in head-local coords (x forward, y down, centred), then
-// rotated and translated. Returns [{pts, role, head?, headPart}].
+// The generated head is only a guide: a plain rectangle, `size` tall and
+// `size × width` wide, in head-local coords (x forward, y down, centred),
+// then rotated and translated. Every character has a drawn face
+// (data/faces) that is placed on it; the rectangle shows only on species
+// sheets and as the size guide in the face templates.
 function headShapes(S, sk) {
-  const s = S.head.size, hw = s / 2;
-  const view = sk.pose.headView;
-  const local = [];
-  // Tapered rounded square: top narrower than bottom.
-  const taper = S.head.taper ?? 1; // top width / bottom width
-  const wd = S.head.width ?? 1;   // overall width factor
-  const wAt = (y) => wd * (taper + (1 - taper) * ((y + hw) / s)); // x-scale at height y
-  const edge = (y) => hw * wAt(y); // half width of the head at height y
-  const square = roundRectPts(hw, hw, S.head.radius).map(([x, y]) => [x * wAt(y), y]);
-
-  // Ears: solid loops outside the head (same colour, no outline), the lower
-  // half hanging longer than the upper. Front: both sides. Side: the back.
-  const ear = (dirX) => {
-    const k = S.head.ear ?? 1; // ear size relative to the monkey's
-    const y0 = -0.06, rx = 0.17 * k, top = 0.13 * k, bot = 0.21 * k, inset = 0.05;
-    const pts = [];
-    for (let i = 0; i <= 16; i++) {
-      const a = -Math.PI / 2 + Math.PI * (i / 16); // top -> outward -> bottom
-      const sy = Math.sin(a);
-      const y = y0 + sy * (sy < 0 ? top : bot);
-      pts.push([dirX * (edge(y) - inset + Math.cos(a) * (rx + inset)), y]);
-    }
-    return pts;
-  };
-  const hasEars = (S.head.ear ?? 1) > 0;
-  if (hasEars) {
-    if (view === 'front') { local.push({ role: 'body', pts: ear(-1) }, { role: 'body', pts: ear(1) }); }
-    else local.push({ role: 'body', pts: ear(-1) });
-  }
-  // Long flowing hair (female): behind the head in front view, over the
-  // back of the head in side view (see reference/sketch-female-hair.jpg).
-  // Characters always have a drawn face, which brings its own hair; this
-  // generated hair only shows in species sheets and face-template guides.
-  const hair = S.head.hair ? hairShape(S.head.hair, view, hw, edge) : null;
-  if (hair && view === 'front') local.push({ role: 'hair', pts: hair });
-  local.push({ role: 'body', pts: square, head: true });
-  if (hair && view !== 'front') local.push({ role: 'hair', pts: hair });
-
-  // Eyes
-  const eye = (c) => local.push({ role: 'eye', pts: circlePts(c, 0.075, 12) });
-  if (view === 'front') { eye([-0.19, -0.12]); eye([0.19, -0.12]); }
-  else eye([S.head.eyeSide != null ? edge(-0.16) - S.head.eyeSide : 0.14, -0.16]);
-
-  // Mouth, by species (`mouth` in the species file; see
-  // reference/sketch-mouths.jpg). Side view: the opening runs out through
-  // the front edge of the face (the renderer clips it to the head).
-  //   arch  (monkey): flat bottom, arched top
-  //   box   (male):   a rectangular slot
-  //   wedge (female): a V notch, point toward the back of the head
-  const kind = S.mouth || 'arch';
-  const lvl = sk.pose.mouth;
-  const yb = 0.37;
-  const m = [];
-  if (kind === 'arch') {
-    const [a, b, p] = MOUTHS[lvl];
-    const cx = view === 'front' ? 0 : edge(yb) - 0.12;
-    for (let i = 0; i <= 20; i++) {
-      const t = Math.PI * (i / 20);
-      const c = Math.cos(t), sn = Math.sin(t);
-      m.push([cx + a * Math.sign(c) * Math.pow(Math.abs(c), p), yb - b * Math.pow(sn, p)]);
-    }
-  } else {
-    const h = [0.08, 0.15, 0.22][lvl - 1];          // opening height
-    const depth = [0.26, 0.32, 0.38][lvl - 1];     // how far into the face
-    const yc = yb - 0.02 - h / 2;
-    if (view === 'front') {
-      const w = depth * 0.95;
-      if (kind === 'box') m.push([-w / 2, yc - h / 2], [w / 2, yc - h / 2], [w / 2, yc + h / 2], [-w / 2, yc + h / 2]);
-      else m.push([0, yc + h * 0.75], [w / 2, yc - h / 2], [-w / 2, yc - h / 2]); // point down
-    } else {
-      const ex = edge(yc) + 0.15;                     // past the front edge
-      if (kind === 'box') m.push([ex, yc - h / 2], [ex - depth - 0.15, yc - h / 2], [ex - depth - 0.15, yc + h / 2], [ex, yc + h / 2]);
-      else m.push([ex, yc - h * 0.75], [ex - depth - 0.15, yc + h * 0.05], [ex, yc + h * 0.75]);
-    }
-  }
-  local.push({ role: 'mouth', pts: m });
-
-  return local.map((sh) => ({ ...sh, headPart: true, pts: sh.pts.map((q) => add(sk.H, rot(q, sk.headRot))) }));
+  const hh = S.head.size / 2, hw = hh * (S.head.width ?? 1);
+  const rect = [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]];
+  return [{ role: 'body', head: true, headPart: true, pts: rect.map((q) => add(sk.H, rot(q, sk.headRot))) }];
 }
 
 // Front view, derived from a side-view pose (style bible §6): the torso
@@ -532,10 +365,7 @@ export const DEFAULT_OUTFIT = { bottom: 'briefs', top: 'bare' };
 //   bottom: 'briefs' (loincloth only) | 'dhoti' (thighs in cloth colour)
 //   top:    'bare' | 'full' (whole torso in cloth colour)
 // view: 'side' (default) or 'front' (derived from the side pose; see frontOf).
-// face: the character's drawn face (data/faces), if any. A drawn face brings
-// its own hair, so the generated hair is left out and never counts toward
-// the figure's size or placement.
-export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side', face = null) {
+export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side') {
   if (view === 'front') ({ species, pose } = frontOf(species, pose));
   const sk = solve(species, pose);
   const S = species;
@@ -553,15 +383,12 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
     { pts: neckShape(S, sk), role: 'body' },
     { pts: torso, role: fullTop ? 'cloth' : 'body', top: fullTop },
     loincloth(S, sk, torso));
-  const drawnFace = face?.[sk.pose.headView === 'front' ? 'front' : 'side'];
-  const head = headShapes(S, sk).filter((x) => !(drawnFace && x.role === 'hair'));
+  const head = headShapes(S, sk);
 
   if (sk.front) {
-    // hair hangs behind the whole body, not just the head
-    out.push(...head.filter((x) => x.role === 'hair'));
     pushTail(); pushLeg(sk.limbs.far); pushLeg(sk.limbs.near); pushTorso();
     pushArm(sk.limbs.far); pushArm(sk.limbs.near);
-    out.push(...head.filter((x) => x.role !== 'hair'));
+    out.push(...head);
   } else {
     // far limbs behind the torso, near limbs in front; near arm over the head
     pushArm(sk.limbs.far); pushLeg(sk.limbs.far); pushTail(); pushLeg(sk.limbs.near); pushTorso();
@@ -611,22 +438,6 @@ export function anatomy(species, pose) {
   return parts;
 }
 
-// Relative luminance (WCAG) of a #rgb / #rrggbb colour, 0..1.
-function luminance(hex) {
-  let h = hex.replace('#', '');
-  if (h.length === 3) h = h.split('').map((c) => c + c).join('');
-  const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
-  const [r, g, b] = [0, 2, 4].map((i) => lin(parseInt(h.slice(i, i + 2), 16)));
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-}
-
-// Eyes (and ear curls) are always pure white or black, whichever has
-// more contrast with the body colour.
-export function eyeColor(body) {
-  const L = luminance(body);
-  return (1.05) / (L + 0.05) >= (L + 0.05) / 0.05 ? '#ffffff' : '#000000';
-}
-
 // Cloth patterns for the upper body (a full top), style bible §5.4. A cloth
 // name is a palette colour, optionally followed by a pattern:
 // "red", "red-check", "red-diamond", "red-stripe". The pattern is drawn in
@@ -656,10 +467,9 @@ let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
-  colors.eye = eyeColor(colors.body);
-  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.face);
-  // Drawn face (data/faces): replaces the generated head (every character
-  // has one; the generated head is for species sheets only). Its layers are
+  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view);
+  // Drawn face (data/faces): replaces the guide head (every character has
+  // one; the guide shows on species sheets only). Its layers are
   // copied unchanged, colours included, and placed with one transform.
   const drawn = opts.face?.[sk.pose.headView === 'front' ? 'front' : 'side'];
   const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})">${g}</g>`;
@@ -668,16 +478,14 @@ export function renderFigure(species, pose, opts = {}) {
   // <g fill> so the silhouette merges visually.
   let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;
   const clipId = opts.id ?? `face${++clipSeq}`;
-  const faceD = shapes.filter((s) => s.head).map((s) => pathD(s.pts)).join('');
-  if (faceD) svg += `<clipPath id="${clipId}"><path d="${faceD}"/></clipPath>`;
   let inBody = false;
   if (drawn?.defs) svg += `<defs>${drawn.defs}</defs>`;
   if (drawn?.back) svg += place(drawn.back);            // behind the whole body
   let headDone = false;
   for (const s of shapes) {
     if (drawn && s.headPart) {                          // drawn face instead of the generated head
-      // placed where the generated face would go (front-view hair is moved behind the body)
-      if (!headDone && s.role !== 'hair') { if (inBody) { svg += '</g>'; inBody = false; } svg += place(faceHead); headDone = true; }
+      // placed where the guide head would go
+      if (!headDone) { if (inBody) { svg += '</g>'; inBody = false; } svg += place(faceHead); headDone = true; }
       continue;
     }
     if (s.role === 'body') {
@@ -696,8 +504,7 @@ export function renderFigure(species, pose, opts = {}) {
       svg += `<defs>${patternDef(id, opts.pattern, '#000000')}</defs>` +
         `<path d="${d}" fill="${colors.cloth}"/><path d="${d}" fill="url(#${id})"/>`;
     } else {
-      const clip = s.role === 'mouth' && faceD ? ` clip-path="url(#${clipId})"` : '';
-      svg += `<path d="${pathD(s.pts)}" fill="${colors[s.role]}"${clip}/>`;
+      svg += `<path d="${pathD(s.pts)}" fill="${colors[s.role]}"/>`;
     }
   }
   if (inBody) svg += '</g>';

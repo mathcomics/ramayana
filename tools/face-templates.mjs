@@ -19,8 +19,7 @@ for (const species of Object.keys(all)) {
     const shape = (p, fill) => `<path d="${pathD(loc(p.pts))}" fill="${fill}"/>`;
     const guides = [
       ...parts.neck.map((p) => shape(p, '#e8e1d9')),
-      ...parts.head.filter((p) => p.role === 'body').map((p) => shape(p, '#d9c3b6')),
-      ...parts.head.filter((p) => p.role === 'eye' || p.role === 'mouth').map((p) => shape(p, '#ffffff')),
+      ...parts.head.map((p) => shape(p, '#d9c3b6')),
     ].join('\n    ');
     const svg = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- Face template: ${species}, ${view} view${view === 'side' ? ' (face looks right)' : ''}.

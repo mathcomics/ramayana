@@ -44,24 +44,6 @@ export function circlePts(c, r, n = 20) {
   return out;
 }
 
-// Rounded rectangle centred at origin, half sizes hw/hh, corner radius r.
-export function roundRectPts(hw, hh, r, n = 5) {
-  const pts = [];
-  const corners = [
-    [hw - r, -hh + r, -90],
-    [hw - r, hh - r, 0],
-    [-hw + r, hh - r, 90],
-    [-hw + r, -hh + r, 180],
-  ];
-  for (const [cx, cy, a0] of corners) {
-    for (let i = 0; i <= n; i++) {
-      const a = (a0 + (i / n) * 90) * RAD;
-      pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]);
-    }
-  }
-  return pts;
-}
-
 const f = (v) => (Math.round(v * 1000) / 1000).toString();
 
 export function pathD(pts, close = true) {

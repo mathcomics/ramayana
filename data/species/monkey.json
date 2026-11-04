@@ -3,8 +3,7 @@
   "units": "head-units (1 = head size)",
   "head": {
     "size": 1.0,
-    "radius": 0.26,
-    "taper": 0.8
+    "width": 1
   },
   "neck": 0.27,
   "neckWidth": 0.24,
@@ -62,6 +61,5 @@
       "near": 0.4,
       "far": -0.1
     }
-  },
-  "mouth": "arch"
+  }
 }

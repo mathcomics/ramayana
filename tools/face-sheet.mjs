@@ -36,7 +36,7 @@ cast.forEach((c, i) => {
   // two full figures, scaled to the cell height
   const ground = y0 + ch - 12;
   [[front(2), x0 + 0.2 * cw], [side(2), x0 + 0.45 * cw]].forEach(([pose, x]) => {
-    const { bbox } = buildShapes(S, pose, opts.outfit, 'side', opts.face);
+    const { bbox } = buildShapes(S, pose, opts.outfit);
     const scale = FIG / (bbox.y1 - bbox.y0);
     s += renderFigure(S, pose, { ...opts, x, y: ground, scale }).svg;
   });

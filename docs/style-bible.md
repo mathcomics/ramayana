@@ -48,8 +48,6 @@ from its silhouette alone.
   width, ~0.55), swells along its curved side, then tapers to the wrist
   or ankle. The upper segment likewise starts thin at the shoulder or hip
   and swells to full width at the joint. Arms and legs follow the same rule.
-- Eyes and ear curls are pure white or pure black, whichever contrasts
-  more with the body colour (chosen automatically, never set by hand).
 - Start with simple forms; add feature variation later.
 - Seeded roughness: slight edge wobble and small thickness variation, so it
   reads as brushwork. Same seed → same image.
@@ -62,21 +60,8 @@ and default posture. Measurements are in head-units (h = head diameter).
 
 ### 5.1 Monkey (vanara)
 
-- Head: **always a rounded square, from any side**, tapered so the top is
-  narrower than the bottom (`head.taper` ≈ 0.8). Two views only: front
-  and side (no three-quarter).
-  - Ears: solid loops always **outside** the head, same colour as the body,
-    no outline; the lower half hangs longer than the upper. Front view:
-    both sides. Side view: on the back of the head.
-  - Eyes: front view two dots, side view one dot toward the front.
-  - Mouth: **never closed**; three openings (1 small, 2 medium, 3 wide).
-    The shape depends on the species (`mouth`; see
-    `reference/sketch-mouths.jpg`): monkey **arch** (flat bottom, arched
-    top), male **box** (a rectangular slot), female **wedge** (a V notch
-    pointing to the back of the head). In front view the box is a
-    rectangle and the wedge a triangle pointing down.
-    In side view the opening runs out to the front edge of the face.
-    The mouth never sticks out of the head; no muzzle or snout.
+- Head: drawn by the artist per character (§5.6); the species gives only
+  its size (guide `head.width` 1, a square).
 - Neck: thin (`neckWidth` ≈ 0.24) and fairly long (`neck` ≈ 0.27).
 - Torso: chest tapering to a narrow waist.
 - Torso curl (all species; see `reference/sketch-torso-curl.jpg`): the
@@ -104,16 +89,14 @@ and default posture. Measurements are in head-units (h = head diameter).
 ### 5.2 Male
 
 Not in the reference work; first version, to be refined. Same parts and
-rules as the monkey (head, ears outside, mouths, hands, knotty limbs,
-torso curl), with its own proportions in `data/species/male.json`:
+rules as the monkey (hands, knotty limbs, torso curl), with its own
+proportions in `data/species/male.json`:
 
 - Taller: longer legs (thigh 1.5, shin 1.45) and torso; arms a bit
   shorter than the monkey's.
 - Broad chest, narrow waist (front view reads as an inverted triangle).
-- Slimmer limbs; smaller ears.
-- Head tapers the opposite way to the monkey's: narrower at the chin
-  (`head.taper` ≈ 1.22, i.e. the top is wider than the bottom), and is a
-  little narrower overall (`head.width` ≈ 0.88).
+- Slimmer limbs.
+- Head guide a little narrower than the monkey's (`head.width` 0.88).
 - Thighs are widest at the hip and narrow toward the knee (the monkey's
   start thin at the hip).
 - No tail.
@@ -122,28 +105,11 @@ torso curl), with its own proportions in `data/species/male.json`:
 
 First version, `data/species/female.json`. Like the male, with:
 
-- Long flowing hair (`head.hair`; see `reference/sketch-female-hair.jpg`),
-  near-black. Front view: a cap over the head and two wavy locks falling
-  past the shoulders, drawn **behind the whole body**. Side view: a rounded
-  cap over the top of the head down to the forehead, the hairline curving
-  back above the eye, covering the back of the head and falls down
-  the back as one wavy mass with a rounded end, drawn **in front**. No ears.
 - Narrower shoulders, narrow waist, wider hips (front view reads as an
   hourglass).
 - Slightly shorter and slimmer than the male.
-- Side view: the eye sits close to the front of the face (`head.eyeSide`,
-  its distance behind the front edge).
-- Head narrower than the male's and strongly tapered to the chin, with
-  rounder corners (`head.width` ≈ 0.74, `taper` ≈ 1.42).
-- Hair is a **thick frame**: it sits `hair.thickness` (≈ 0.26) outside the
-  head's outline on top and sides, then falls as broad locks
-  (`hair.lockWidth` ≈ 0.8 in side view) to `hair.length` below the head
-  centre, with no gap between the locks in front view. Waves are short and
-  close together (`hair.waves`).
-- A character's hair comes with its drawn face (§5.6). The generated
-  hair above is only a species reference, for the contact and head sheets
-  and the face templates' guide (decided 2026-11-04; the hand-drawn
-  species hair in `data/shapes/` was retired).
+- Head guide narrower still (`head.width` 0.74). Hair is part of the
+  drawn face (§5.6).
 - A dhoti with a full top reads as a sari.
 
 ### Only three species
@@ -188,19 +154,48 @@ figures. Signature features (necklaces, crowns, top bun…) come later.
 
 Faces are drawn by the artist, one SVG per character and view
 (`data/faces/`, see its README). **Every character has both a front and a
-side face; there is no generated fallback** (decided 2026-11-04). The
-generated head stays only as the species reference (sheets, template
-guides) and as the anchor the face is placed on; with a drawn face, the
-generated hair is left out and does not affect the figure's size or
-placement. Bodies and poses stay rule-based. A drawn
-face is never edited by code: it is placed whole on the head (moved,
-scaled, rotated with the head, mirrored for facing left). Colours are used
-exactly as drawn; the character's body colour is set to the face's skin. The `head` layer is drawn over the neck and body
-(in side view the near arm still crosses in front). An optional `back`
-layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose's mouth size.
-- Male mouths (`mouth-1/2/3` layers) are white, set in the face files at
-  the artist's request (2026-11-04); sage1's are light grey, against his
-  white hair and beard.
+side face; there is no generated fallback** (decided 2026-11-04). Bodies
+and poses stay rule-based. A drawn face is never edited by code: it is
+placed whole on the head (moved, scaled, rotated with the head, mirrored
+for facing left). Colours are used exactly as drawn; the character's body
+colour is set to the face's skin. The `head` layer is drawn over the neck
+and body (in side view the near arm still crosses in front). An optional
+`back` layer goes behind the whole body (e.g. long hair in front view);
+optional `mouth-1/2/3` layers follow the pose's mouth size.
+
+**Size guide.** A species head is only `size` and `width` (decided
+2026-11-04): a plain rectangle `size` tall and `size × width` wide,
+centred where the face goes. It is the guide in the face templates
+(`data/faces/templates/`) and the only head the renderer draws itself
+(on species views; contact sheets use a character). Widths: monkey 1,
+male 0.88, female 0.74.
+
+**Drawing guidance** (for the artist; the renderer no longer draws these):
+
+- Two views only, front and side (no three-quarter); side faces look right.
+- Monkey head: a rounded square, top narrower than the bottom. Male head:
+  narrower at the chin. Female head: narrower still, strongly tapered to
+  the chin, with rounder corners.
+- Ears (monkey, male): solid loops **outside** the head, in the skin
+  colour, no outline, the lower half hanging longer. Front view both
+  sides, side view on the back of the head. Women: no ears showing.
+- Eyes: front view two dots, side view one dot toward the front (women:
+  close to the front edge). Pure white or black, whichever contrasts more
+  with the skin.
+- Mouth: **never closed**; three openings, `mouth-1` small, `mouth-2`
+  medium, `mouth-3` wide (see `reference/sketch-mouths.jpg`): monkey an
+  **arch** (flat bottom, arched top), man a **box** (a slot), woman a
+  **wedge** (a V notch toward the back of the head; a triangle pointing
+  down in front view). In side view the opening reaches the front edge of
+  the face. No muzzle or snout.
+- Male mouths are white (artist's request, 2026-11-04); sage1's are light
+  grey, against his white hair and beard.
+- Female hair (see `reference/sketch-female-hair.jpg`): near-black, a
+  thick frame around the head that falls as broad wavy locks past the
+  shoulders. Front view: the locks go in the `back` layer, behind the
+  body. Side view: a cap from the forehead over the head, the hairline
+  curving back above the eye, falling down the back as one mass with a
+  rounded end, in the `head` layer (in front).
 
 ## 6. Figure model (shared)
 
