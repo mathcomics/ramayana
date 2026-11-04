@@ -78,9 +78,9 @@ renderer or panel changes.
   queens and surpanakha = copies of sita; sage1 = dasharatha without
   crown, white beard). Characters/views without a face use the
   generated head. Check with `node tools/face-sheet.mjs` (one US-letter page, PNG + PDF).
-- **41 shared poses** in `data/poses.json` (2026-11-04), alphabetical,
+- **40 shared poses** in `data/poses.json` (2026-11-04), alphabetical,
   named `<base>-<visible action>` with `front-` for front view (style
-  bible §7). 32 are first drafts from a pose reference sheet, being
+  bible §7). 31 are first drafts from a pose reference sheet, being
   refined in the pose lab; the lab's saves were merged on 2026-11-04.
   The **ankle is the foot's angle from the ground** (0 = flat), not from
   the shin. The pose lab has a character menu (view only); saves hold

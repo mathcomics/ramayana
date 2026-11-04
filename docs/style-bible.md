@@ -218,7 +218,7 @@ from a scene description:
 - front-view poses start with `front-` (`front-crouch-fists`); side view,
   the default, has no prefix.
 
-41 poses (2026-11-04), many drawn from a pose reference sheet and still
+40 poses (2026-11-04), many drawn from a pose reference sheet and still
 being refined. Poses are tuned visually in the pose lab and stored as data,
 alphabetically.
 
