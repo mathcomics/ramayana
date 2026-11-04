@@ -78,9 +78,15 @@ renderer or panel changes.
   queens and surpanakha = copies of sita; sage1 = dasharatha without
   crown, white beard). Characters/views without a face use the
   generated head. Check with `node tools/face-sheet.mjs` (one US-letter page, PNG + PDF).
-- Nine shared poses in `data/poses.json`. The pose lab has a character menu
-  (view only); saves hold only the pose (collection `poses`); merge into
-  the repo when asked.
+- **43 shared poses** in `data/poses.json` (2026-11-04), alphabetical,
+  named `<base>-<visible action>` with `front-` for front view (style
+  bible §7). 34 are first drafts from a pose reference sheet, being
+  refined in the pose lab; the lab's saves were merged on 2026-11-04.
+  The **ankle is the foot's angle from the ground** (0 = flat), not from
+  the shin. The pose lab has a character menu (view only); saves hold
+  only the pose (collection `poses`); merge into the repo when asked.
+  **Section 2 panels still use old pose names** (`point` →
+  `stand-point`); update them after the poses are refined.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
   Scene list v0.4 (15 sections, 145 panels; sizes full/half where
   decided; full panels use back/front; early books shrunk, war in four
@@ -103,7 +109,8 @@ renderer or panel changes.
   look back; throne, palace, tree). Site builder `tools/build-site.mjs` →
   `_site/`; Cloudflare Pages not set up yet (steps in docs/panels.md).
   Panel lab published.
-- **Next:** artist feedback on the sample; new poses (walk first); props
+- **Next:** refine the new poses in the lab, then rename poses in the
+  panels; artist feedback on the sample; walk pose; props
   import (`data/props/<id>.svg`, like faces); cloth pattern for generic
   figures; template route (figure markers in an artist's scene SVG).
   The copied faces will be customised by the artist.

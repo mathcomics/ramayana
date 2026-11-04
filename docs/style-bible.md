@@ -206,12 +206,21 @@ layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose'
 - No foreshortening. Flat, as in Warli.
 - Joint limits per species prevent broken anatomy.
 
-## 7. Pose vocabulary (initial)
+## 7. Pose vocabulary and names
 
-stand · walk · run (2 phases) · leap · tumble · crouch-fight · flex ·
-point · throw · carry-overhead · kneel · sit · dance
+Pose names read `<base>-<what the body does>`, so a pose can be found
+from a scene description:
 
-Poses are tuned visually in the pose lab and stored as data.
+- base: `stand`, `walk`, `run`, `leap`, `crouch`, `bend`, `kneel`, `sit`,
+  `lie`, `fall`;
+- the rest names what is visible (arms, then legs), never an emotion:
+  `stand-hands-to-face`, not `fear`;
+- front-view poses start with `front-` (`front-crouch-fists`); side view,
+  the default, has no prefix.
+
+43 poses (2026-11-04), many drawn from a pose reference sheet and still
+being refined. Poses are tuned visually in the pose lab and stored as data,
+alphabetically.
 
 ## 8. Identity
 
