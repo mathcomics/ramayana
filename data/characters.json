@@ -30,7 +30,7 @@
       "id": "lakshman",
       "name": "Lakshman",
       "species": "male",
-      "body": "#c87137",
+      "body": "#d38d5f",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "white"
@@ -39,7 +39,7 @@
       "id": "bharat",
       "name": "Bharat",
       "species": "male",
-      "body": "#d38d5f",
+      "body": "#c87137",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "white"
@@ -165,10 +165,10 @@
       "id": "sage1",
       "name": "sage1",
       "species": "male",
-      "body": "#c87137",
+      "body": "#5a2a12",
       "top": "bare",
       "bottom": "dhoti",
-      "cloth": "yellow"
+      "cloth": "white"
     }
   ]
 }
