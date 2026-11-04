@@ -54,7 +54,7 @@ body::before {
 h1 { font-family: var(--font-display); font-size: 1.15rem; margin: 0; letter-spacing: -0.01em; }
 .stage-head .meta { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
 .canvas {
-  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 8px;
+  display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr); gap: 8px;
   height: min(40vh, 330px);
 }
 .paper { border-radius: 6px; overflow: hidden; position: relative; min-width: 0; }
@@ -156,7 +156,6 @@ pre {
   </section>
 
   <div class="bar">
-    <div class="field"><span>Body</span><div class="seg" id="view"></div></div>
     <div class="field"><span>Head</span><div class="seg" id="headView"></div></div>
     <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
     <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
@@ -167,7 +166,7 @@ pre {
 
   <section class="save" aria-label="Pose data">
     <div class="bar">
-      <p class="hint" style="flex:1 1 240px">Pick a pose in the gallery to edit it. Save keeps your changes under the name in the box; type a new name to save a new pose. Poses are kept with this page, so Claude can read them and add them to the repo.</p>
+      <p class="hint" style="flex:1 1 240px">Pick a pose in the gallery to edit it. Poses are edited in side view; the front view next to it is derived from the side pose. Save keeps your changes under the name in the box; type a new name to save a new pose. Poses are kept with this page, so Claude can read them and add them to the repo.</p>
       <button class="btn ghost" id="copyBtn" type="button">Copy JSON</button>
     </div>
     <pre id="json" aria-label="Pose JSON"></pre>
@@ -225,16 +224,20 @@ const STARTERS = /*__POSES__*/;
   function draw() {
     const L = look();
     const p = state.pose;
-    const big = renderFigure(SPECIES[L.species], p, { x: 0, y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit, face: L.face });
-    const groundLine = `<line x1="-6" x2="6" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
-    $('big').innerHTML = `<svg viewBox="-4.6 -8.3 9.2 9" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Figure preview"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${big.svg}</svg>`;
-    $('meta').textContent = `${charById(state.character).name} · ${p.view} · ${p.name}`;
+    // side (edited) and front (derived from it), next to each other
+    const opts = { y: 0, scale: 1, facing: state.facing, colors: L.colors, outfit: L.outfit, face: L.face };
+    const side = renderFigure(SPECIES[L.species], p, { ...opts, x: -3.3 });
+    const front = renderFigure(SPECIES[L.species], p, { ...opts, x: 3.3, view: 'front' });
+    const groundLine = `<line x1="-8" x2="8" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
+    const cap = (x, t) => `<text x="${x}" y="0.55" font-size="0.36" fill="#000" fill-opacity="0.4" text-anchor="middle" font-family="sans-serif" letter-spacing="0.05">${t}</text>`;
+    $('big').innerHTML = `<svg viewBox="-6.6 -8.3 13.2 9.05" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pose preview, side and front"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${side.svg}${front.svg}${cap(-3.3, 'SIDE')}${cap(3.3, 'FRONT')}</svg>`;
+    $('meta').textContent = `${charById(state.character).name} · side + front · ${p.name}`;
     $('json').textContent = JSON.stringify(exportPose(), null, 2);
   }
 
   function exportPose() {
     const p = clone(state.pose);
-    const out = { name: p.name, view: p.view, headView: p.headView, mouth: p.mouth };
+    const out = { name: p.name, headView: p.headView, mouth: p.mouth };
     out.spine = p.spine; out.near = p.near; out.far = p.far; out.tail = p.tail;
     return out;
   }
@@ -287,7 +290,7 @@ const STARTERS = /*__POSES__*/;
   }
 
   function syncControls() {
-    for (const id of ['view', 'headView', 'mouth', 'facing', 'hand-near', 'hand-far']) $(id)._sync();
+    for (const id of ['headView', 'mouth', 'facing', 'hand-near', 'hand-far']) $(id)._sync();
     $('character').value = state.character;
     // tail controls only apply to species with a tail
     const hasTail = !!SPECIES[look().species].tail;
@@ -295,9 +298,6 @@ const STARTERS = /*__POSES__*/;
       const el = $(id); el.disabled = !hasTail; el.closest('.row').style.opacity = hasTail ? '' : '0.4';
     }
     document.querySelectorAll('.row').forEach((r) => r._sync());
-    const front = state.pose.view === 'front';
-    $('lg-near').textContent = front ? 'Right arm & leg (as seen)' : 'Near arm & leg';
-    $('lg-far').textContent = front ? 'Left arm & leg (as seen)' : 'Far arm & leg';
   }
 
   // One list: starter poses, with any saved version replacing the starter
@@ -361,9 +361,6 @@ const STARTERS = /*__POSES__*/;
   $('name').addEventListener('input', updateSaveLabel);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('saveBtn').click(); });
 
-  seg('view', [['Side', 'side'], ['Front', 'front']], () => state.pose.view, (v) => {
-    state.pose.view = v; state.pose.headView = v === 'front' ? 'front' : 'side';
-  });
   seg('headView', [['Front', 'front'], ['Side', 'side']], () => state.pose.headView, (v) => { state.pose.headView = v; });
   seg('mouth', [['Slit', 1], ['Arch', 2], ['Wide', 3]], () => state.pose.mouth, (v) => { state.pose.mouth = v; });
   seg('facing', [['→', 1], ['←', -1]], () => state.facing, (v) => { state.facing = v; });

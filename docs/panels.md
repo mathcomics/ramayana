@@ -68,7 +68,8 @@ repeated inside the JSON.
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `back` · `mid` · `front` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
-| `headView` | `front` · `side` | Overrides the pose. |
+| `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
+| `headView` | `front` · `side` | Overrides the pose (side view only). |
 | `hands` | `{ "near": "fist", "far": "out" }` | Overrides the pose. |
 | `adjust` | `{ "near.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json`. For one-off gestures; a gesture used twice becomes a pose. |
 | `scale` | number | This figure only (a child, a giant). |

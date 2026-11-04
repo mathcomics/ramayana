@@ -203,6 +203,14 @@ layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose'
   Each arm has its own shoulder anchor in side view: near arm toward the
   front of the chest, far arm just behind centre (`shoulder.side`).
   Front view: used for crouching / flexing / confronting.
+- **Poses are side view only; the front view is derived** from the side
+  pose when a figure is drawn (decided 2026-11-04):
+  - the torso stands upright, shortened to its height in the side view
+    (never below 0.35 of its length);
+  - the head is upright and front-facing, at full size;
+  - each arm and leg keeps its side-view angles, mirrored if needed so it
+    points to its own side (near = picture-right, far = picture-left);
+  - feet point outward and keep their tilt from the ground.
 - No foreshortening. Flat, as in Warli.
 - Joint limits per species prevent broken anatomy.
 
@@ -215,10 +223,10 @@ from a scene description:
   `lie`, `fall`;
 - the rest names what is visible (arms, then legs), never an emotion:
   `stand-hands-to-face`, not `fear`;
-- front-view poses start with `front-` (`front-crouch-fists`); side view,
-  the default, has no prefix.
+- poses are side view; there are no front poses (the front view is
+  derived, §6).
 
-36 poses (2026-11-04), many drawn from a pose reference sheet and still
+28 poses (2026-11-04), many drawn from a pose reference sheet and still
 being refined. Poses are tuned visually in the pose lab and stored as data,
 alphabetically.
 

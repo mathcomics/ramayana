@@ -500,9 +500,42 @@ function headShapes(S, sk) {
 // Outfit (a rendering choice, not part of the pose):
 //   bottom: 'briefs' (loincloth only) | 'dhoti' (thighs in cloth colour)
 //   top:    'bare' | 'full' (whole torso in cloth colour)
+// Front view, derived from a side-view pose (style bible §6): the torso
+// stands upright, shortened to its height in the side view; the head is
+// upright and front-facing at full size; each arm and leg keeps its
+// side-view angles but is mirrored if needed so it points to its own side
+// (near = picture-right, far = picture-left); feet point outward and keep
+// their tilt from the ground. Returns a front-view pose and a species
+// with the shortened spine.
+const wrap180 = (v) => { while (v > 180) v -= 360; while (v <= -180) v += 360; return v; };
+const MIN_TORSO = 0.35;
+export function frontOf(species, sidePose) {
+  const side = normalizePose(sidePose);
+  if (side.view === 'front') return { species, pose: side };   // already front
+  const sk = solve(species, side);
+  const { lean, chest } = side.spine;
+  const dx = sk.N[0] - sk.P[0], dy = sk.N[1] - sk.P[1];
+  const k = Math.max(MIN_TORSO, Math.abs(dy) / Math.hypot(dx, dy));
+  const S = { ...species, spine: { ...species.spine, lower: species.spine.lower * k, upper: species.spine.upper * k } };
+  const f = JSON.parse(JSON.stringify(side));
+  f.view = 'front'; f.headView = 'front';
+  f.spine = { lean: 0, chest: 0, neck: 0, head: 0 };
+  for (const s of ['near', 'far']) {
+    const a = side[s].arm, l = side[s].leg;
+    const up = wrap180(-(lean + chest) + a.shoulder), fo = up + a.elbow;   // side-view screen angles
+    const th = wrap180(-lean + l.hip), sh = th - l.knee;
+    const ga = up >= 0 ? 1 : -1, g = th >= 0 ? 1 : -1;                    // mirror toward its own side
+    f[s].arm = { ...a, shoulder: ga * up, elbow: ga * (fo - up) };
+    f[s].leg = { hip: g * th, knee: g * (th - sh), ankle: Math.abs(wrap180(90 + l.ankle)) - 90 };
+  }
+  return { species: S, pose: f };
+}
+
 export const DEFAULT_OUTFIT = { bottom: 'briefs', top: 'bare' };
 
-export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT) {
+// view: 'side' (default) or 'front' (derived from the side pose; see frontOf).
+export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side') {
+  if (view === 'front') ({ species, pose } = frontOf(species, pose));
   const sk = solve(species, pose);
   const S = species;
   const out = [];
@@ -587,7 +620,8 @@ export function anatomy(species, pose) {
 }
 
 // Render a figure as an SVG <g>. Ground point at (x, y) in px; `scale` is
-// px per head-unit; facing 1 (right) or -1 (left).
+// px per head-unit; facing 1 (right) or -1 (left); view 'side' (default)
+// or 'front' (derived from the side pose).
 let clipSeq = 0;
 
 // Relative luminance (WCAG) of a #rgb / #rrggbb colour, 0..1.
@@ -610,7 +644,7 @@ export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
   colors.eye = eyeColor(colors.body);
-  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) });
+  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view);
   // Drawn face (data/faces): replaces the generated head. Its layers are
   // copied unchanged, colours included, and placed with one transform.
   const drawn = opts.face?.[sk.pose.headView === 'front' ? 'front' : 'side'];

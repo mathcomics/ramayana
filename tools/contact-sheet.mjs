@@ -1,5 +1,6 @@
 // Render every pose for a species into a contact-sheet SVG (+ PNG if
-// rsvg-convert is available).
+// rsvg-convert is available): each pose in side view and, next to it, the
+// front view derived from it.
 //
 //   node tools/contact-sheet.mjs [species] [--scale 20] [--zoom 3]
 //
@@ -22,8 +23,8 @@ const zoom = opt('--zoom', 1);
 const species = JSON.parse(readFileSync(join(root, 'data/species', `${speciesId}.json`), 'utf8'));
 const { poses } = JSON.parse(readFileSync(join(root, 'data/poses.json'), 'utf8'));
 
-const cols = 3;
-const cellW = scale * 7, cellH = scale * 8.2;
+const cols = 3;                       // poses per row (each a side + front pair)
+const cellW = scale * 13, cellH = scale * 8.2;
 const rows = Math.ceil(poses.length / cols);
 const W = cols * cellW, H = rows * cellH;
 
@@ -31,7 +32,9 @@ let body = '';
 poses.forEach((pose, i) => {
   const cx = (i % cols) * cellW, cy = Math.floor(i / cols) * cellH;
   const groundY = cy + cellH - scale * 1.4;
-  const { svg } = renderFigure(species, pose, { x: cx + cellW / 2, y: groundY, scale });
+  const side = renderFigure(species, pose, { x: cx + cellW * 0.27, y: groundY, scale }).svg;
+  const front = renderFigure(species, pose, { x: cx + cellW * 0.73, y: groundY, scale, view: 'front' }).svg;
+  const svg = side + front;
   body += `<line x1="${cx + 8}" x2="${cx + cellW - 8}" y1="${groundY}" y2="${groundY}" stroke="#c9bfae" stroke-width="1"/>`;
   body += svg;
   body += `<text x="${cx + cellW / 2}" y="${cy + cellH - scale * 0.5}" font-family="sans-serif" font-size="${scale * 0.55}" fill="#7a6e5e" text-anchor="middle">${pose.name}</text>`;

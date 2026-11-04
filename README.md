@@ -84,7 +84,9 @@ real phone size (figures roughly 60–150 px tall).
 
 - **Skeleton:** a pelvis root, a torso hinged at the waist (it can curl),
   neck and head, two-segment arms and legs, and a tail for monkeys.
-- **Views:** side and front. Facing left is a mirror of facing right.
+- **Views:** poses are side view; the front view is derived from the
+  side pose when drawn (`view: 'front'`). Facing left is a mirror of
+  facing right.
 - **Pose:** joint angles relative to the parent joint (except the ankle:
   the foot's angle from the ground, 0 = flat), plus head view,
   mouth (1–3) and a hand per arm (`fist`, `out` or `in`). See the `_doc`

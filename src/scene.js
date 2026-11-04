@@ -68,8 +68,9 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const S = assets.species[look.species];
     const r = row(f.row);
     const unit = r.unit * zoom * (f.scale ?? 1);
-    const { bbox } = buildShapes(S, pose, look.outfit);
-    return { f, name: f.id || f.who, pose, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
+    const view = f.view === 'front' ? 'front' : 'side';
+    const { bbox } = buildShapes(S, pose, look.outfit, view);
+    return { f, name: f.id || f.who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, facing: f.facing === 'left' ? -1 : 1, x: null };
   }).filter(Boolean);
 
@@ -124,7 +125,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   props.filter((o) => o.layer !== 'front').forEach((o) => { s += drawProp(o); });
   figs.forEach((o) => {
     s += renderFigure(o.S, o.pose, { x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
-      colors: o.look.colors, outfit: o.look.outfit, face: o.look.face }).svg;
+      view: o.view, colors: o.look.colors, outfit: o.look.outfit, face: o.look.face }).svg;
   });
   props.filter((o) => o.layer === 'front').forEach((o) => { s += drawProp(o); });
   // clip ids from renderFigure are page-global; keep panels independent
