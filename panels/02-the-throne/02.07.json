@@ -1,13 +1,12 @@
 {
-  "id": "02.07",
   "scene": "Still walking, small in the panel. Back: outline of a river and a boat",
-  "size": "half",
+  "size": 0.5,
   "ground": "sky-blue",
-  "zoom": 0.55,
+  "zoom": 0.45,
   "figures": [
-    { "who": "rama", "pose": "stand", "facing": "left", "at": "center", "mouth": 1 },
-    { "who": "sita", "pose": "stand", "facing": "left", "at": { "behind": "rama", "gap": 0.1 }, "mouth": 1 },
-    { "who": "lakshman", "pose": "stand", "facing": "left", "at": { "behind": "sita", "gap": 0.1 }, "mouth": 1 }
+    { "who": "lakshman", "pose": "stand", "facing": "left", "at": 0.6, "mouth": 1 },
+    { "who": "sita", "pose": "stand", "facing": "left", "at": 0.5, "mouth": 1 },
+    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.4, "mouth": 1 }
   ],
   "needs": ["pose: walk", "background: river and boat (02.07.svg is a placeholder)"]
 }

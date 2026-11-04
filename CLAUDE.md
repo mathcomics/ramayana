@@ -92,13 +92,17 @@ renderer or panel changes.
   from cloth colour and a cloth **pattern** (to be introduced next), not
   new characters.
 - **Panels (spec route) implemented 2026-11-03** (`docs/panels.md`,
-  `src/scene.js`). Sample: section 2 "The throne", 8 half panels → 4
-  screens in `panels/02-the-throne/` (02.07 has a placeholder background
-  SVG). Props are placeholder boxes (`data/props.json`). Poses are
-  approximated with `adjust`; each panel's `needs` lists what's missing
-  (walk, pull, slump, look back; throne, palace, tree). Site builder
-  `tools/build-site.mjs` → `_site/`; Cloudflare Pages not set up yet
-  (steps in docs/panels.md). Panel lab published.
+  `src/scene.js`). Delivery is a vertical scroll of full-width panels;
+  `size` is a share of a screen height (mostly 0.75, sometimes 0.5 or 1);
+  the id is the file name (not in the JSON); `at` can be a number 0–1;
+  figures overlap in list order and scale with the panel (front row ≈ 2/3
+  of its height). Sample: section 2 "The throne", 8 panels in
+  `panels/02-the-throne/` (02.07 has a placeholder background SVG). Props
+  are placeholder boxes (`data/props.json`). Poses are approximated with
+  `adjust`; each panel's `needs` lists what's missing (walk, pull, slump,
+  look back; throne, palace, tree). Site builder `tools/build-site.mjs` →
+  `_site/`; Cloudflare Pages not set up yet (steps in docs/panels.md).
+  Panel lab published.
 - **Next:** artist feedback on the sample; new poses (walk first); props
   import (`data/props/<id>.svg`, like faces); cloth pattern for generic
   figures; template route (figure markers in an artist's scene SVG).

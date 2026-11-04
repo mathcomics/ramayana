@@ -1,17 +1,16 @@
 {
-  "id": "02.02",
   "scene": "Kaikeyi pulls the king back by the arm",
-  "size": "half",
+  "size": 0.75,
   "ground": "dusty-pink",
   "props": [
-    { "prop": "throne", "at": "right" }
+    { "prop": "throne", "at": 0.9 }
   ],
   "figures": [
-    { "who": "kaikeyi", "pose": "point", "facing": "right", "at": "left", "mouth": 2,
-      "adjust": { "spine.lean": -12, "near.arm.shoulder": 80 } },
-    { "who": "dasharatha", "pose": "stand", "facing": "right", "at": "center", "mouth": 2,
+    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.72, "mouth": 1 },
+    { "who": "dasharatha", "pose": "stand", "facing": "right", "at": 0.47, "mouth": 2,
       "adjust": { "spine.lean": -14, "far.arm.shoulder": -60 } },
-    { "who": "rama", "pose": "stand", "facing": "left", "at": "center-right", "mouth": 1 }
+    { "who": "kaikeyi", "pose": "point", "facing": "right", "at": 0.2, "mouth": 2,
+      "adjust": { "spine.lean": -12, "near.arm.shoulder": 80 } }
   ],
   "needs": ["pose: pull (leaning back, arms forward)"]
 }

@@ -10,35 +10,36 @@ artist's scene SVG) comes later.
 |---|---|---|
 | Scenes | `manuscript/scenes.md` | The story, one row per intended panel. **Guidance**, not a definition: a panel may split, merge or reword a scene. |
 | Panel definitions | `panels/<NN-section>/<id>.json` (+ optional `<id>.svg`) | What the renderer draws. One file per panel. |
-| Rendered panels | `_site/` (not committed) | Built by `tools/build-site.mjs`; Cloudflare Pages runs it on every push. |
+| Rendered panels | `_site/` (not committed): one scrolling page per section | Built by `tools/build-site.mjs`; Cloudflare Pages runs it on every push. |
 
 The **panel lab** (`tools/build-panellab.mjs`, published artifact) shows any
-screen as it will look on a phone while you edit a panel's JSON.
+section as it will scroll on a phone while you edit a panel's JSON.
 
-## Screens
+## Delivery: a scroll of panels
 
-A screen is 360 × 720 units (phone portrait). Panels are packed into screens
-in id order: a `full` panel (720) fills a screen; `half` (360) and `third`
-(240) panels stack until the screen is full. `"newScreen": true` forces a
-panel onto a new screen.
+The reader scrolls one long column. Every panel is the full width (360
+units) and `size` × one phone screen (720 units) tall: mostly **0.75**,
+sometimes 0.5, now and then 1. Panels follow each other in id order; there
+are no screens or pages to fill.
 
 ## Panel definition
 
+`panels/02-the-throne/02.03.json`; the **id is the file name** and is not
+repeated inside the JSON.
+
 ```json
 {
-  "id": "02.03",
   "scene": "Kaikeyi points Rama away; the king slumps",
-  "size": "half",
+  "size": 0.75,
   "ground": "dusty-pink",
-  "zoom": 1,
   "props": [
-    { "prop": "throne", "at": "right" }
+    { "prop": "throne", "at": 0.88 }
   ],
   "figures": [
-    { "who": "rama", "pose": "stand", "facing": "left", "at": "left", "mouth": 1 },
-    { "who": "kaikeyi", "pose": "point", "facing": "left", "at": "center-left", "mouth": 3 },
-    { "who": "dasharatha", "pose": "stand", "facing": "left", "at": { "left-of": "throne", "gap": 0.2 },
-      "adjust": { "spine.chest": 40, "spine.lean": 10 } }
+    { "who": "dasharatha", "pose": "stand", "facing": "left", "at": 0.74,
+      "adjust": { "spine.chest": 40, "spine.lean": 10 } },
+    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.16, "mouth": 1 },
+    { "who": "kaikeyi", "pose": "point", "facing": "left", "at": 0.48, "mouth": 3 }
   ],
   "needs": ["pose: slump (or sit, on the throne)"]
 }
@@ -48,16 +49,14 @@ panel onto a new screen.
 
 | Field | Values | Notes |
 |---|---|---|
-| `id` | `"02.03"` | Same as the file name. Scene ids can be reused or suffixed (`02.03a`). |
 | `scene` | text | The scene line it draws, for reference only. |
-| `size` | `full` · `half` · `third` | Default `half`. |
+| `size` | number | Share of a screen height. Default 0.75. |
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. |
-| `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.55). |
+| `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.45). |
 | `props` | list | See below. |
-| `figures` | list | Drawn back row first, then in list order. |
+| `figures` | list | **Overlap order: later figures are drawn over earlier ones.** |
 | `needs` | list of text | Missing poses, props, art. Collected into the to-do list. |
 | `background` | file name | Optional; default `<id>.svg` next to the JSON. |
-| `newScreen` | `true` | Start a new screen with this panel. |
 
 ### Figures
 
@@ -66,8 +65,8 @@ panel onto a new screen.
 | `who` | character id (`data/characters.json`) | Generic types (`monkey1`, `queen1` …) can repeat. |
 | `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. |
 | `facing` | `left` · `right` | |
-| `at` | slot or relation | See placement. Default `center`. |
-| `row` | `back` · `mid` · `front` | Default `front`. Back rows sit higher and smaller. |
+| `at` | number, slot or relation | See placement. Default 0.5 (centre). |
+| `row` | `back` · `mid` · `front` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `headView` | `front` · `side` | Overrides the pose. |
 | `hands` | `{ "near": "fist", "far": "out" }` | Overrides the pose. |
@@ -89,47 +88,52 @@ panel onto a new screen.
 
 ### Placement
 
+- **Number**: 0–1 across the width (0.5 = centre), where the figure's
+  centre stands. Figures may overlap; crowding is fine.
 - **Slots**: `left`, `center-left`, `center`, `center-right`, `right`
-  (14 %, 32 %, 50 %, 68 %, 86 % of the width).
+  (0.14, 0.32, 0.5, 0.68, 0.86).
 - **Relations**: `{ "before": X }` (in front of X's face), `{ "behind": X }`,
   `{ "beside": X }` (toward the open side), `{ "left-of": X }`,
   `{ "right-of": X }`. X is a figure's `who`/`id` or a prop's `prop`/`id`.
-  `"gap"` is the space between the two (head-units, default 0.3; negative
-  overlaps).
-- **No coordinates.** Exact placement belongs to a background SVG or,
-  later, the template route.
+  The two bounding boxes touch; `"gap"` adds space in head-units
+  (negative overlaps).
+- `nudge` shifts by head-units after placement.
 
-### Rows
+### Rows and figure size
 
-| Size | back: ground / unit | mid | front |
-|---|---|---|---|
-| full | 47 % / 11 | 70 % / 15 | 95 % / 20 |
-| half | 62 % / 11 | 78 % / 15 | 93 % / 20 |
-| third | 60 % / 9 | 78 % / 12 | 92 % / 15 |
+Figures scale with the panel height, so a front-row figure is about two
+thirds of its panel whatever the size.
 
-Ground is a share of the panel height from the top; unit is pixels per
-head-unit (a male figure is about 7.5 head-units tall, so ~150 px in front).
+| Row | Head-unit in a 0.75 panel | Ground line above the bottom |
+|---|---|---|
+| front | 46 (a man ≈ 345 tall) | 3 % of the panel height |
+| mid | 34 | 17 % |
+| back | 24 | 34 % |
+
+Other sizes scale in proportion (a 0.5 panel: × 2/3).
 
 ## Background SVG
 
 `panels/<section>/<id>.svg`, drawn in the panel's coordinates: 360 wide,
-720 / 360 / 240 high. Draw anything (horizon, river, hills); the renderer
-fills the ground colour first, then the background, then props and figures.
+`size` × 720 high (540 for 0.75). Draw anything (horizon, river, hills); the renderer
+fills the ground colour first, then the background, then back-layer props,
+figures in list order, and front-layer props.
 A layer labelled `guide` is ignored; editor attributes are stripped. The
 drawing is otherwise used as is.
 
 ## Commands
 
 ```sh
-node tools/render-panels.mjs [02]   # out/panels/<section>.png (all screens) + issues and needs
+node tools/render-panels.mjs [02]   # out/panels/<section>.png (all panels) + issues and needs
 node tools/build-site.mjs           # _site/ (the reader site)
 node tools/build-panellab.mjs       # out/panellab.html (published as the panel lab)
 ```
 
 ## Panel lab
 
-Pick a section and a screen; click a panel (or tap it in the phone view)
-and edit its JSON; the screen re-renders as you type and lists issues.
+Pick a section; the phone shows it as it scrolls. Pick a panel (or tap it
+in the phone) and edit its JSON; it re-renders as you type and lists
+issues.
 **Save draft** stores the panel in the lab's database (collection `panels`);
 drafts show with a dot and survive reloads. Claude merges drafts into
 `panels/` when asked, as with poses. Background SVGs come from the repo.

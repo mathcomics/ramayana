@@ -25,14 +25,13 @@ export function loadSections() {
   const dir = join(root, 'panels');
   return readdirSync(dir, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort().map((name) => {
     const files = readdirSync(join(dir, name)).sort();
-    const panels = files.filter((f) => f.endsWith('.json')).map((f) => {
-      const p = JSON.parse(readFileSync(join(dir, name, f), 'utf8'));
-      p.id ??= f.slice(0, -5);
-      return p;
-    }).sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }));
+    // the id is the file name; it is not stored in the JSON
+    const panels = files.filter((f) => f.endsWith('.json')).map((f) => ({
+      id: f.slice(0, -5), def: JSON.parse(readFileSync(join(dir, name, f), 'utf8')),
+    })).sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }));
     const backgrounds = {};
     for (const p of panels) {
-      const bg = join(dir, name, `${p.background || p.id + '.svg'}`);
+      const bg = join(dir, name, `${p.def.background || p.id + '.svg'}`);
       if (existsSync(bg)) backgrounds[p.id] = backgroundInner(readFileSync(bg, 'utf8'));
     }
     const m = name.match(/^(\d+)-(.*)$/);

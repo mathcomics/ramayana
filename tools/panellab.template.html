@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap">
 <style>
-/* Layout: the screen as it will look on a phone, beside the selected
+/* Layout: the section as it scrolls on a phone, beside the selected
    panel's JSON. Wide: two columns. Narrow: phone on top, editor below. */
 :root {
   --bg: #eef0ee; --panel: #ffffff; --fg: #1d2420; --muted: #66706a; --line: #d6dbd7;
@@ -32,12 +32,11 @@ header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 h1 { font-family: var(--font-display); font-size: 1.15rem; margin: 0; letter-spacing: -0.01em; }
 select, button, textarea { font: inherit; color: var(--fg); }
 select { background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 6px 8px; min-width: 0; }
-.screens { display: flex; flex-wrap: wrap; gap: 6px; }
-.screens button, .panels button {
+.panels button {
   border: 1px solid var(--line); background: var(--panel); border-radius: 5px; padding: 5px 9px; cursor: pointer;
   font-family: var(--font-mono); font-size: 12px;
 }
-.screens button[aria-pressed="true"], .panels button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.panels button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .draft-dot { color: var(--warn); }
 .main { display: grid; grid-template-columns: minmax(0, 390px) minmax(0, 1fr); gap: 16px; align-items: start; }
 @media (max-width: 760px) { .main { grid-template-columns: minmax(0, 1fr); } }
@@ -45,8 +44,10 @@ select { background: var(--panel); border: 1px solid var(--line); border-radius:
   background: #fffdf8; border-radius: 18px; padding: 10px; border: 1px solid var(--line);
   position: sticky; top: 8px; max-width: 390px; width: 100%; margin: 0 auto;
 }
-.phone svg { display: block; width: 100%; height: auto; border-radius: 8px; }
-.phone svg [data-panel] { cursor: pointer; }
+.phone { max-height: calc(100vh - 80px); overflow-y: auto; overscroll-behavior: contain; }
+.phone svg { display: block; width: 100%; height: auto; margin-bottom: 6px; cursor: pointer; outline-offset: 2px; }
+.phone svg.sel { outline: 3px solid var(--accent); }
+@media (max-width: 760px) { .phone { position: static; max-height: 70vh; } }
 .side { display: grid; gap: 10px; min-width: 0; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 8px; min-width: 0; }
 .card h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0; font-weight: 600; }
@@ -76,13 +77,12 @@ details summary { cursor: pointer; color: var(--muted); }
   <header>
     <h1>Panel Lab</h1>
     <select id="section" aria-label="Section"></select>
-    <div class="screens" id="screens" role="group" aria-label="Screens"></div>
   </header>
   <div class="main">
-    <div class="phone" id="phone" aria-label="Screen preview"></div>
+    <div class="phone" id="phone" aria-label="Section preview, scrolls like the phone"></div>
     <div class="side">
       <div class="card">
-        <h2>Panels on this screen</h2>
+        <h2>Panels</h2>
         <div class="panels" id="panels" role="group" aria-label="Panels"></div>
         <div class="scene" id="scene"></div>
       </div>
@@ -116,65 +116,60 @@ const SECTIONS = /*__SECTIONS__*/;
 (() => {
   const $ = (id) => document.getElementById(id);
   const slug = (id) => String(id).replace(/[^\w-]/g, '-');
-  const state = { section: 0, screen: 0, panelId: null, edits: {}, drafts: {}, bad: false };
+  const state = { section: 0, panelId: null, edits: {}, drafts: {}, bad: false };
   let db = null;
-  try { const s = JSON.parse(localStorage.getItem('panellab') || '{}'); Object.assign(state, { section: s.section || 0, screen: s.screen || 0 }); } catch (e) {}
-  const remember = () => { try { localStorage.setItem('panellab', JSON.stringify({ section: state.section, screen: state.screen })); } catch (e) {} };
+  try { const v = JSON.parse(localStorage.getItem('panellab') || '{}'); state.section = v.section || 0; state.panelId = v.panelId || null; } catch (e) {}
+  const remember = () => { try { localStorage.setItem('panellab', JSON.stringify({ section: state.section, panelId: state.panelId })); } catch (e) {} };
+  const byNum = (a, b) => String(a.id).localeCompare(String(b.id), 'en', { numeric: true });
 
-  // The panels of a section: repo panels, replaced by saved drafts, plus
-  // draft-only panels for the section; unsaved edits on top.
+  // A section's panels: repo panels, replaced by saved drafts, plus
+  // draft-only panels; unsaved edits on top. Each item: { id, def }.
   function sectionPanels(si) {
     const sec = SECTIONS[si];
-    const list = sec.panels.map((p) => state.drafts[p.id]?.panel || p);
-    for (const d of Object.values(state.drafts)) if (d.section === sec.name && !sec.panels.some((p) => p.id === d.panel.id)) list.push(d.panel);
-    return list.map((p) => state.edits[p.id] || p).sort((a, b) => String(a.id).localeCompare(String(b.id), 'en', { numeric: true }));
+    const list = sec.panels.map((p) => ({ id: p.id, def: state.drafts[p.id]?.panel || p.def }));
+    for (const [id, d] of Object.entries(state.drafts)) if (d.section === sec.name && !sec.panels.some((p) => p.id === id)) list.push({ id, def: d.panel });
+    return list.map((p) => ({ id: p.id, def: state.edits[p.id] || p.def })).sort(byNum);
   }
-  const repoPanel = (id) => SECTIONS[state.section].panels.find((p) => p.id === id);
-  const shownPanel = (id) => sectionPanels(state.section).find((p) => p.id === id);
+  const shown = (id) => sectionPanels(state.section).find((p) => p.id === id);
 
-  function draw() {
+  function draw(scroll) {
     const sec = SECTIONS[state.section];
-    const screens = packScreens(sectionPanels(state.section));
-    state.screen = Math.min(state.screen, screens.length - 1);
-    const cur = screens[state.screen] || [];
-    if (!cur.some((p) => p.id === state.panelId)) state.panelId = cur[0]?.id;
-    // screens bar
-    $('screens').innerHTML = '';
-    screens.forEach((ps, i) => {
-      const b = document.createElement('button');
-      b.textContent = ps.map((p) => p.id).join('+');
-      b.setAttribute('aria-pressed', String(i === state.screen));
-      b.addEventListener('click', () => { state.screen = i; state.panelId = null; remember(); draw(); });
-      $('screens').appendChild(b);
-    });
-    // phone
-    const { svg, issues } = renderScreen(cur, ASSETS, sec.backgrounds, { gap: 4 });
-    $('phone').innerHTML = svg;
-    // panels bar
+    const list = sectionPanels(state.section);
+    if (!list.some((p) => p.id === state.panelId)) state.panelId = list[0]?.id;
+    // phone: the whole section as it scrolls
+    const phone = $('phone'), top = phone.scrollTop;
+    let issuesOfSel = [];
+    phone.innerHTML = list.map(({ id, def }) => {
+      const r = renderPanel(def, ASSETS, { id, background: sec.backgrounds[id] || '' });
+      if (id === state.panelId) issuesOfSel = r.issues;
+      return id === state.panelId ? r.svg.replace('<svg ', '<svg class="sel" ') : r.svg;
+    }).join('');
+    phone.scrollTop = top;
+    if (scroll) phone.querySelector('svg.sel')?.scrollIntoView({ block: 'nearest' });
+    // panel buttons
     $('panels').innerHTML = '';
-    cur.forEach((p) => {
+    list.forEach(({ id, def }) => {
       const b = document.createElement('button');
-      const flag = state.edits[p.id] ? ' *' : state.drafts[p.id] ? ' •' : '';
-      b.innerHTML = p.id + (flag ? `<span class="draft-dot">${flag}</span>` : '');
-      b.title = state.edits[p.id] ? 'unsaved changes' : state.drafts[p.id] ? 'saved draft (not in repo yet)' : 'as in repo';
-      b.setAttribute('aria-pressed', String(p.id === state.panelId));
-      b.addEventListener('click', () => { state.panelId = p.id; draw(); });
+      const flag = state.edits[id] ? ' *' : state.drafts[id] ? ' •' : '';
+      b.innerHTML = id + `<span class="draft-dot">${flag}</span>`;
+      b.title = (state.edits[id] ? 'unsaved changes · ' : state.drafts[id] ? 'saved draft · ' : '') + 'size ' + (def.size ?? 0.75);
+      b.setAttribute('aria-pressed', String(id === state.panelId));
+      b.addEventListener('click', () => select(id));
       $('panels').appendChild(b);
     });
-    const p = shownPanel(state.panelId);
-    $('scene').textContent = p?.scene || '';
-    if (document.activeElement !== $('json')) $('json').value = p ? JSON.stringify(p, null, 2) : '';
+    const p = shown(state.panelId);
+    $('scene').textContent = p?.def.scene || '';
+    if (document.activeElement !== $('json')) $('json').value = p ? JSON.stringify(p.def, null, 2) : '';
     $('json').setAttribute('aria-invalid', String(state.bad));
-    // issues for this panel
-    const mine = issues.filter((m) => m.startsWith((p?.id ?? '') + ':')).map((m) => m.slice(String(p?.id).length + 2));
     const ul = $('issues'); ul.innerHTML = '';
     const add = (t, cls) => { const li = document.createElement('li'); li.className = cls; li.textContent = t; ul.appendChild(li); };
     if (state.bad) add('JSON doesn’t parse yet; the preview shows the last valid version.', 'warn');
-    mine.forEach((m) => add(m, /placeholder/.test(m) ? 'need' : 'warn'));
-    (p?.needs || []).forEach((n) => add('needs ' + n, 'need'));
-    if (!state.bad && !mine.length && !(p?.needs || []).length) add('No issues.', 'ok');
+    issuesOfSel.forEach((m) => add(m, /placeholder/.test(m) ? 'need' : 'warn'));
+    (p?.def.needs || []).forEach((n) => add('needs ' + n, 'need'));
+    if (!state.bad && !issuesOfSel.length && !(p?.def.needs || []).length) add('No issues.', 'ok');
     updateButtons();
   }
+  function select(id) { state.panelId = id; state.bad = false; remember(); draw(true); }
 
   function updateButtons() {
     const id = state.panelId;
@@ -187,7 +182,7 @@ const SECTIONS = /*__SECTIONS__*/;
     try {
       const p = JSON.parse($('json').value);
       if (!p || typeof p !== 'object' || Array.isArray(p)) throw new Error('not an object');
-      p.id = state.panelId;               // the id is the file name; keep it fixed here
+      delete p.id;                        // the id is the file name, not part of the JSON
       state.edits[state.panelId] = p; state.bad = false;
       setStatus('Unsaved changes to ' + state.panelId + '.');
     } catch (e) { state.bad = true; }
@@ -196,12 +191,12 @@ const SECTIONS = /*__SECTIONS__*/;
 
   $('phone').addEventListener('click', (e) => {
     const el = e.target.closest('[data-panel]');
-    if (el && el.dataset.panel !== state.panelId) { state.panelId = el.dataset.panel; draw(); }
+    if (el && el.dataset.panel !== state.panelId) select(el.dataset.panel);
   });
 
   $('section').innerHTML = SECTIONS.map((s, i) => `<option value="${i}">${s.title}</option>`).join('');
   $('section').value = String(state.section = Math.min(state.section, SECTIONS.length - 1));
-  $('section').addEventListener('change', () => { state.section = Number($('section').value); state.screen = 0; state.panelId = null; remember(); draw(); });
+  $('section').addEventListener('change', () => { state.section = Number($('section').value); state.panelId = null; remember(); $('phone').scrollTop = 0; draw(); });
 
   function setStatus(t) { $('status').textContent = t; }
 
@@ -225,7 +220,7 @@ const SECTIONS = /*__SECTIONS__*/;
     if (!db || !panel) return;
     $('saveBtn').disabled = true;
     try {
-      await db.collection('panels').doc(slug(id)).set({ panel, section: SECTIONS[state.section].name, savedAt: new Date().toISOString() });
+      await db.collection('panels').doc(slug(id)).set({ id, panel, section: SECTIONS[state.section].name, savedAt: new Date().toISOString() });
       delete state.edits[id];
       setStatus(`Saved draft of ${id}. Ask Claude to merge drafts into the repo.`);
     } catch (e) {
@@ -241,10 +236,10 @@ const SECTIONS = /*__SECTIONS__*/;
   const pr = Object.keys(ASSETS.props.props).join(', ');
   const gr = Object.keys(ASSETS.grounds.grounds).join(', ');
   $('ref').innerHTML = `<b>who</b> ${ch}<br><b>pose</b> ${po}<br><b>prop</b> ${pr}<br><b>ground</b> ${gr}<br>` +
-    `<b>size</b> full, half, third<br><b>at</b> ${Object.keys(SLOTS).join(', ')} · {"before"|"behind"|"beside"|"left-of"|"right-of": id, "gap": h}<br>` +
+    `<b>size</b> share of a screen height: 0.75 (default), 0.5, 1 …<br><b>at</b> 0–1 across the width, or ${Object.keys(SLOTS).join(', ')}, or {"before"|"behind"|"beside"|"left-of"|"right-of": who, "gap": h}<br><b>order</b> figures overlap in list order (last is in front)<br>` +
     `<b>row</b> back, mid, front<br><b>figure</b> facing, mouth, headView, hands, adjust {"near.arm.shoulder": 40}, scale, lift, nudge<br><b>panel</b> zoom (figures), needs [..]`;
 
-  draw();
+  draw(true);
 
   // Saved drafts (db collection "panels").
   setStatus('Connecting to saved drafts…');
@@ -255,7 +250,7 @@ const SECTIONS = /*__SECTIONS__*/;
     db.collection('panels').onSnapshot((snap) => {
       clearTimeout(timer);
       state.drafts = {};
-      snap.docs.map((d) => d.data()).filter((d) => d && d.panel && d.panel.id).forEach((d) => { state.drafts[d.panel.id] = d; });
+      snap.docs.map((d) => d.data()).filter((d) => d && d.id && d.panel).forEach((d) => { state.drafts[d.id] = d; });
       if (/^Connecting/.test($('status').textContent)) setStatus(Object.keys(state.drafts).length ? `${Object.keys(state.drafts).length} saved draft(s) shown (•).` : '');
       draw();
     }, (e) => { clearTimeout(timer); setStatus('Saved drafts stopped updating (' + (e?.code || 'error') + '). Reload to reconnect.'); });
