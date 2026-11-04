@@ -78,13 +78,17 @@ renderer or panel changes.
   queens and surpanakha = copies of sita; sage1 = dasharatha without
   crown, white beard). Characters/views without a face use the
   generated head. Check with `node tools/face-sheet.mjs` (one US-letter page, PNG + PDF).
-- **40 shared poses** in `data/poses.json` (2026-11-04), alphabetical,
+- **36 shared poses** in `data/poses.json` (2026-11-04), alphabetical,
   named `<base>-<visible action>` with `front-` for front view (style
-  bible §7). 31 are first drafts from a pose reference sheet, being
+  bible §7). 27 are first drafts from a pose reference sheet, being
   refined in the pose lab; the lab's saves were merged on 2026-11-04.
   The **ankle is the foot's angle from the ground** (0 = flat), not from
   the shin. The pose lab has a character menu (view only); saves hold
   only the pose (collection `poses`); merge into the repo when asked.
+  **Front views derived from side poses** (experiment 2026-11-04, accepted
+  in principle, not yet in the renderer): torso upright and shortened to
+  its side-view height, head upright, each arm and leg mirrored if needed
+  so it points to its own side, feet outward keeping their tilt.
   **Section 2 panels still use old pose names** (`point` →
   `stand-point`); update them after the poses are refined.
 - Manuscript is maintained in a separate conversation (`manuscript/`).

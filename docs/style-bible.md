@@ -211,14 +211,14 @@ layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose'
 Pose names read `<base>-<what the body does>`, so a pose can be found
 from a scene description:
 
-- base: `stand`, `walk`, `run`, `leap`, `crouch`, `bend`, `kneel`, `sit`,
+- base: `stand`, `walk`, `run`, `leap`, `crouch`, `bend`, `kneel`, `lunge`, `sit`,
   `lie`, `fall`;
 - the rest names what is visible (arms, then legs), never an emotion:
   `stand-hands-to-face`, not `fear`;
 - front-view poses start with `front-` (`front-crouch-fists`); side view,
   the default, has no prefix.
 
-40 poses (2026-11-04), many drawn from a pose reference sheet and still
+36 poses (2026-11-04), many drawn from a pose reference sheet and still
 being refined. Poses are tuned visually in the pose lab and stored as data,
 alphabetically.
 
