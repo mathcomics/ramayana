@@ -3,15 +3,35 @@
   "size": 0.75,
   "ground": "dusty-pink",
   "props": [
-    { "prop": "throne", "at": 0.88 }
+    {
+      "prop": "throne",
+      "at": 0.88
+    }
   ],
   "figures": [
-    { "who": "dasharatha", "pose": "stand", "facing": "left", "at": 0.74, "mouth": 1,
-      "adjust": { "spine.lean": 10, "spine.chest": 40, "spine.neck": 20, "spine.head": 15,
-                  "near.arm.shoulder": 5, "near.arm.elbow": 0, "far.arm.shoulder": 0, "far.arm.elbow": 0,
-                  "near.leg.knee": 25, "far.leg.knee": 20 } },
-    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.16, "mouth": 1 },
-    { "who": "kaikeyi", "pose": "point", "facing": "left", "at": 0.48, "mouth": 3 }
+    {
+      "who": "dasharatha",
+      "pose": "stand-hand-on-head",
+      "at": 0.8,
+      "mouth": 2,
+      "view": "front"
+    },
+    {
+      "who": "rama",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.14,
+      "mouth": 1
+    },
+    {
+      "who": "kaikeyi",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 0.42,
+      "mouth": 3
+    }
   ],
-  "needs": ["pose: slump (or sit, on the throne)"]
+  "needs": [
+    "pose: slump on the throne (sit) — stand-hand-on-head for now"
+  ]
 }

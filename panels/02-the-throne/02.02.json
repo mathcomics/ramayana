@@ -3,14 +3,40 @@
   "size": 0.75,
   "ground": "dusty-pink",
   "props": [
-    { "prop": "throne", "at": 0.9 }
+    {
+      "prop": "throne",
+      "at": 0.9
+    }
   ],
   "figures": [
-    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.72, "mouth": 1 },
-    { "who": "dasharatha", "pose": "stand", "facing": "right", "at": 0.47, "mouth": 2,
-      "adjust": { "spine.lean": -14, "far.arm.shoulder": -60 } },
-    { "who": "kaikeyi", "pose": "point", "facing": "right", "at": 0.2, "mouth": 2,
-      "adjust": { "spine.lean": -12, "near.arm.shoulder": 80 } }
+    {
+      "who": "rama",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.83,
+      "mouth": 1
+    },
+    {
+      "who": "dasharatha",
+      "pose": "stand-stagger-back",
+      "facing": "right",
+      "at": 0.56,
+      "mouth": 2
+    },
+    {
+      "who": "kaikeyi",
+      "pose": "stand-lean-back",
+      "facing": "right",
+      "at": 0.21,
+      "mouth": 2,
+      "adjust": {
+        "near.arm.shoulder": 85,
+        "near.arm.elbow": 10,
+        "far.arm.shoulder": 70
+      }
+    }
   ],
-  "needs": ["pose: pull (leaning back, arms forward)"]
+  "needs": [
+    "pose: pull (lean back, both arms forward): stand-lean-back with arms adjusted"
+  ]
 }

@@ -89,8 +89,9 @@ renderer or panel changes.
   character menu is view only; saves hold only the pose (collection
   `poses`); merge into the repo when asked. Contact sheets show side +
   front pairs.
-  **Section 2 panels still use old pose names** (`point` →
-  `stand-point`); update them after the poses are refined.
+  Section 2 panels use the new names (2026-11-04): 02.02 Kaikeyi
+  `stand-lean-back` + king `stand-stagger-back`; 02.03 `stand-point` and the
+  king in front view, `stand-hand-on-head`.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
   Scene list v0.4 (15 sections, 145 panels; sizes full/half where
   decided; full panels use back/front; early books shrunk, war in four
@@ -113,8 +114,7 @@ renderer or panel changes.
   look back; throne, palace, tree). Site builder `tools/build-site.mjs` →
   `_site/`; Cloudflare Pages not set up yet (steps in docs/panels.md).
   Panel lab published.
-- **Next:** refine the new poses in the lab, then rename poses in the
-  panels; artist feedback on the sample; walk pose; props
+- **Next:** refine the new poses in the lab (11 saves there, not merged); artist feedback on the sample; walk pose; props
   import (`data/props/<id>.svg`, like faces); cloth pattern for generic
   figures; template route (figure markers in an artist's scene SVG).
   The copied faces will be customised by the artist.
