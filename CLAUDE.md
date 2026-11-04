@@ -42,6 +42,9 @@ scene spec (JSON) → layout → figure geometry → SVG
 - Run `npm test` before every commit. A refactor must keep the render
   snapshot unchanged; an intended visual change is accepted with
   `UPDATE_SNAPSHOT=1 npm test` after looking at the render.
+- Commits: author somdip <somdip@gmail.com>, **unsigned**. After cloning,
+  run `git config --local commit.gpgsign false` (the session's signing key
+  is not on the GitHub account, so signed commits show "Unverified").
 - Do not trace or copy third-party Warli reference material; derive
   primitives from the style bible and the artist's own work.
 
