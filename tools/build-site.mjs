@@ -4,7 +4,7 @@
 //   node tools/build-site.mjs        ->  _site/index.html, _site/<section>.html
 import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
-import { root, loadAssets, loadSections } from './panels-lib.mjs';
+import { root, loadAssets, loadSections } from './lib.mjs';
 import { renderPanel } from '../src/scene.js';
 
 const out = join(root, '_site');

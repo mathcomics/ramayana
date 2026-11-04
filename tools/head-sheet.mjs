@@ -3,15 +3,11 @@
 //
 //   node tools/head-sheet.mjs   ->  out/head-sheet.svg / .png (print or draw over)
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { anatomy } from '../src/figure.js';
-import { pathD, bbox } from '../src/geom.js';
+import { pathD } from '../src/geom.js';
+import { loadSpecies, writeOut, rsvg, headFrame } from './lib.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SPECIES = ['monkey', 'male', 'female'];
+const ALL = loadSpecies();
+const SPECIES = Object.keys(ALL);
 const VIEWS = ['side', 'front'];
 const C = { face: '#f6dcc8', hair: '#cfe1f2', line: '#8a7f75', feature: '#ffffff', paper: '#ffffff' };
 const px = 210;                   // px per head-unit
@@ -19,12 +15,9 @@ const cellW = 520, cellH = 640, padL = 140, padT = 70;
 
 let body = '', id = 0;
 SPECIES.forEach((sp, r) => {
-  const S = JSON.parse(readFileSync(join(root, 'data/species', `${sp}.json`), 'utf8'));
   VIEWS.forEach((view, c) => {
-    const parts = anatomy(S, { view, headView: view, mouth: 2, spine: { lean: 0, chest: 0, neck: 0, head: 0 } });
+    const { parts, centre: hc } = headFrame(ALL[sp], view);
     const head = parts.head.find((p) => p.head).pts;
-    const b = bbox([head]);
-    const hc = [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2];
     const x = padL + c * cellW + cellW / 2, y = padT + r * cellH + cellH * 0.3;
     const sw = 1.4 / px;
     id++;
@@ -52,7 +45,6 @@ SPECIES.forEach((sp, r) => {
 });
 const W = padL + VIEWS.length * cellW + 20, H = padT + SPECIES.length * cellH;
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><rect width="${W}" height="${H}" fill="${C.paper}"/>${body}</svg>`;
-mkdirSync(join(root, 'out'), { recursive: true });
-writeFileSync(join(root, 'out/head-sheet.svg'), svg);
-execFileSync('rsvg-convert', ['-o', join(root, 'out/head-sheet.png'), join(root, 'out/head-sheet.svg')]);
+const svgPath = writeOut('out/head-sheet.svg', svg);
+rsvg(svgPath, svgPath.replace(/svg$/, 'png'));
 console.log('out/head-sheet.png');

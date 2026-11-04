@@ -27,10 +27,8 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 const setPath = (o, path, v) => { const k = path.split('.'); let t = o; while (k.length > 1) { const p = k.shift(); t = t[p] ??= {}; } t[k[0]] = v; };
 const clone = (o) => JSON.parse(JSON.stringify(o));
 
-export const panelHeight = (panel) => {
-  const s = Number(panel.size ?? DEFAULT_SIZE);
-  return Math.round(SCREEN.h * (s > 0 && s <= 2 ? s : DEFAULT_SIZE));
-};
+const validSize = (panel) => { const s = Number(panel.size ?? DEFAULT_SIZE); return s > 0 && s <= 2 ? s : null; };
+export const panelHeight = (panel) => Math.round(SCREEN.h * (validSize(panel) ?? DEFAULT_SIZE));
 
 // assets: { species, poses, characters, faces, props, grounds }
 // id: the panel's id (its file name); not part of the JSON.
@@ -40,8 +38,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   const W = SCREEN.w, H = panelHeight(panel);
   const zoom = panel.zoom ?? 1;           // figures only: "small in the panel"
   const issues = [];
-  const s0 = Number(panel.size ?? DEFAULT_SIZE);
-  if (!(s0 > 0 && s0 <= 2)) issues.push(`size ${JSON.stringify(panel.size)}: use a number such as 0.75, 0.5 or 1`);
+  if (validSize(panel) == null) issues.push(`size ${JSON.stringify(panel.size)}: use a number such as 0.75, 0.5 or 1`);
   const grounds = assets.grounds?.grounds || {};
   const ground = grounds[panel.ground] || panel.ground || grounds[assets.grounds?.default] || '#efe8db';
   if (panel.ground && !grounds[panel.ground] && !/^#/.test(panel.ground)) issues.push(`ground "${panel.ground}" not in data/grounds.json`);
@@ -124,14 +121,13 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       `<text x="${o.x}" y="${y + o.h / 2}" font-family="Helvetica, Arial, sans-serif" font-size="${Math.max(9, Math.min(16, o.w / 6))}" fill="#7a6f62" text-anchor="middle" dominant-baseline="middle">${esc(o.p.prop)}</text></g>`;
   };
   props.filter((o) => o.layer !== 'front').forEach((o) => { s += drawProp(o); });
-  figs.forEach((o) => {
-    s += renderFigure(o.S, o.pose, { x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
-      view: o.view, pattern: o.look.pattern, colors: o.look.colors, outfit: o.look.outfit, face: o.look.face }).svg;
+  // ids are unique per panel and figure, so panels can share a page
+  const pre = String(id).replace(/\W/g, '_');
+  figs.forEach((o, i) => {
+    s += renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
+      view: o.view, id: `${pre}-f${i}` }).svg;
   });
   props.filter((o) => o.layer === 'front').forEach((o) => { s += drawProp(o); });
-  // clip ids from renderFigure are page-global; keep panels independent
-  const pre = String(id).replace(/\W/g, '_');
-  s = s.replace(/id="(face\d+[^"]*)"/g, `id="${pre}-$1"`).replace(/url\(#(face\d+[^)]*)\)/g, `url(#${pre}-$1)`);
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
   return { svg, w: W, h: H, issues };
 }

@@ -15,7 +15,6 @@ export const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
 export const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
 export const mul = (a, s) => [a[0] * s, a[1] * s];
 export const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
-export const along = (p, theta, len) => add(p, mul(dir(theta), len));
 
 // Rotate a point (in a y-down frame) clockwise by phi degrees.
 export function rot(p, phi) {
@@ -80,5 +79,3 @@ export function bbox(ptsList) {
   }
   return { x0, y0, x1, y1 };
 }
-
-export const fmt = f;

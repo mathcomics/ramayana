@@ -12,44 +12,13 @@
 // guide (ignored). A file with no recognised layer is treated as all "head".
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { dirname, join, basename } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { root } from './lib.mjs';
+import { parse, serialize, label, esc, withoutDisplay } from './svg.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dir = process.argv[2] || join(root, 'data/faces');
 const outPath = process.argv[3] || join(root, 'data/faces.json');
 
-// ---- a minimal XML tree (enough for SVG written by drawing apps) ---------
-function parse(src) {
-  const rootNode = { tag: '#root', attrs: {}, children: [] };
-  const stack = [rootNode];
-  const re = /<!--[\s\S]*?-->|<\?[\s\S]*?\?>|<!\[CDATA\[[\s\S]*?\]\]>|<!DOCTYPE[\s\S]*?>|<\/([\w:.-]+)\s*>|<([\w:.-]+)((?:\s+[\w:.-]+\s*=\s*(?:"[^"]*"|'[^']*'))*)\s*(\/?)>|([^<]+)/g;
-  let m;
-  while ((m = re.exec(src))) {
-    const top = stack[stack.length - 1];
-    if (m[1]) { stack.pop(); continue; }
-    if (m[2]) {
-      const attrs = {};
-      for (const a of m[3].matchAll(/([\w:.-]+)\s*=\s*("([^"]*)"|'([^']*)')/g)) attrs[a[1]] = a[3] ?? a[4];
-      const node = { tag: m[2], attrs, children: [] };
-      top.children.push(node);
-      if (!m[4]) stack.push(node);
-      continue;
-    }
-    if (m[5] && m[5].trim()) top.children.push({ text: m[5] });
-  }
-  return rootNode;
-}
-const esc = (s) => String(s).replace(/&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[\da-f]+);)/gi, '&amp;').replace(/"/g, '&quot;');
-const SKIP_ATTR = /^(id|inkscape:.*|sodipodi:.*|xml:space)$/;
-function serialize(n) {
-  if (n.text != null) return n.text;
-  if (/^(sodipodi:|inkscape:|metadata$|title$|desc$)/.test(n.tag)) return '';
-  const attrs = Object.entries(n.attrs).filter(([k]) => !SKIP_ATTR.test(k)).map(([k, v]) => ` ${k}="${esc(v)}"`).join('');
-  const inner = n.children.map(serialize).join('');
-  return inner ? `<${n.tag}${attrs}>${inner}</${n.tag}>` : `<${n.tag}${attrs}/>`;
-}
-const label = (n) => (n.attrs['inkscape:label'] || n.attrs.id || '').trim().toLowerCase();
 const LAYERS = ['head', 'back', 'mouth-1', 'mouth-2', 'mouth-3'];
 
 // Find layers anywhere in the tree; keep the transforms of their ancestors.
@@ -58,7 +27,7 @@ function findLayers(node, chain, found) {
     if (!c.tag) continue;
     const name = c.tag === 'g' ? label(c) : '';
     if (name === 'guide' || name.startsWith('guide')) continue;
-    if (LAYERS.includes(name)) { found[name] = { chain: chain.filter(Boolean), node: c } /* own transform added once, below */; continue; }
+    if (LAYERS.includes(name)) { found[name] = { chain, node: c }; continue; }   // own transform added below
     findLayers(c, c.tag === 'g' || c.tag === 'svg' ? [...chain, c.attrs.transform].filter(Boolean) : chain, found);
   }
   return found;
@@ -84,8 +53,7 @@ for (const f of files) {
       for (const c of svg.children) {
         if (loose(c)) kids.push(c);
         else if (headTop && c === found.head.node) {
-          const style = (c.attrs.style || '').split(';').filter((d) => d.trim() && !/^\s*display\s*:/.test(d)).join(';');
-          kids.push({ ...c, attrs: { ...c.attrs, style } });
+          kids.push({ ...c, attrs: { ...c.attrs, style: withoutDisplay(c.attrs.style) } });
         }
       }
       found.head = { chain: [], node: { tag: 'g', attrs: {}, children: kids } };
@@ -103,7 +71,7 @@ for (const f of files) {
     if (!inner.trim()) continue;                         // empty layer
     const own = node.attrs.transform ? [node.attrs.transform] : [];
     // a layer hidden in the editor (display:none) is only an editing state: show it
-    const style = (node.attrs.style || '').split(';').filter((d) => d.trim() && !/^\s*display\s*:/.test(d)).join(';');
+    const style = withoutDisplay(node.attrs.style);
     const opacity = node.attrs.opacity;
     let g = `<g${[...chain, ...own].length ? ` transform="${[...chain, ...own].join(' ')}"` : ''}${style ? ` style="${esc(style)}"` : ''}${opacity ? ` opacity="${opacity}"` : ''}>${inner}</g>`;
     if (name.startsWith('mouth-')) (entry.mouth ||= {})[name.slice(6)] = g;

@@ -8,24 +8,14 @@
 // Draw (or paste and scale) the face over the guide in the layers below; the
 // guide layer is ignored on import. See data/faces/README.md.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { anatomy } from '../src/figure.js';
 import { pathD } from '../src/geom.js';
+import { loadSpecies, writeOut, headFrame } from './lib.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const out = join(root, 'data/faces/templates');
-mkdirSync(out, { recursive: true });
-
-for (const species of ['monkey', 'male', 'female']) {
-  const S = JSON.parse(readFileSync(join(root, 'data/species', `${species}.json`), 'utf8'));
+const all = loadSpecies();
+for (const species of Object.keys(all)) {
+  const S = all[species];
   for (const view of ['front', 'side']) {
-    const parts = anatomy(S, { view, headView: view, mouth: 2, spine: { lean: 0, chest: 0, neck: 0, head: 0 } });
-    const sq = parts.head.find((p) => p.head).pts;
-    const xs = sq.map((p) => p[0]), ys = sq.map((p) => p[1]);
-    const c = [(Math.min(...xs) + Math.max(...xs)) / 2, (Math.min(...ys) + Math.max(...ys)) / 2];
-    const loc = (pts) => pts.map(([x, y]) => [x - c[0], y - c[1]]);
+    const { parts, loc } = headFrame(S, view);
     const shape = (p, fill) => `<path d="${pathD(loc(p.pts))}" fill="${fill}"/>`;
     const guides = [
       ...parts.neck.map((p) => shape(p, '#e8e1d9')),
@@ -57,7 +47,7 @@ for (const species of ['monkey', 'male', 'female']) {
   <g id="mouth-3" inkscape:groupmode="layer" inkscape:label="mouth-3"></g>
 </svg>
 `;
-    writeFileSync(join(out, `${species}-${view}.svg`), svg);
+    writeOut(`data/faces/templates/${species}-${view}.svg`, svg);
   }
 }
-console.log('data/faces/templates: 6 templates');
+console.log(`data/faces/templates: ${Object.keys(all).length * 2} templates`);

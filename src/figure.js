@@ -70,8 +70,8 @@ export function solve(species, poseIn) {
   // OUTER side of the bend (back edge for a forward bend, front edge for
   // an arch back), so that side stays continuous and a notch opens on the
   // inner side. W2 is the centre of the upper block's bottom edge.
-  const tw0 = front ? S.torso.front : S.torso.side;
-  const wh = tw0.waist / 2;
+  const tw = front ? S.torso.front : S.torso.side;
+  const wh = tw.waist / 2;
   const hs = chest >= 0 ? -1 : 1;                       // -1: hinge on back
   const fw1 = dir(up1 - 90), fw2 = dir(up2 - 90);
   const hinge = add(W, mul(fw1, hs * wh));
@@ -82,7 +82,6 @@ export function solve(species, poseIn) {
   const C = lerp(W2, N, 0.78); // widest part of the chest
 
   const fwd = (u) => dir(u - 90); // forward normal of a spine segment
-  const tw = front ? S.torso.front : S.torso.side;
 
   // limb anchors
   const limbs = {};
@@ -237,7 +236,7 @@ function torsoShape(sk) {
   const topB = add(add(N, mul(f2, -tw.chest * 0.28)), mul(u2, 0.06));
 
   // outer side: round the corner at the hinge
-  const fillet = (lowerUp, upperUp, sign) => {
+  const fillet = (sign) => {
     const d = 0.16;
     // walking up: lower edge → hinge → upper edge (sign -1), or reverse
     const a = add(hinge, mul(u1, -d)), b = add(hinge, mul(u2, d));
@@ -258,7 +257,7 @@ function torsoShape(sk) {
   // back side, going up
   if (hs < 0) {                       // forward bend: back is the outer side
     pts.push(...bulge(hipB, add(hinge, mul(u1, -0.16)), f1, backBow));
-    pts.push(...fillet(null, null, -1).slice(1));
+    pts.push(...fillet(-1).slice(1));
     pts.push(...bulge(add(hinge, mul(u2, 0.16)), chB, f2, backBow));
   } else {                            // arched back: notch on the back
     pts.push(...bulge(hipB, lwB, f1, backBow), notch(uwB, lwB), uwB);
@@ -274,7 +273,7 @@ function torsoShape(sk) {
     pts.push(...bulge(lwF, hipF, f1, frontBow * 0.7));
   } else {                            // arched back: front is the outer side
     pts.push(...bulge(chF, add(hinge, mul(u2, 0.16)), f2, frontBow));
-    pts.push(...fillet(null, null, 1).slice(1));
+    pts.push(...fillet(1).slice(1));
     pts.push(...bulge(add(hinge, mul(u1, -0.16)), hipF, f1, frontBow * 0.7));
   }
   // bottom: rounded
@@ -321,8 +320,6 @@ function tailShape(S, sk) {
 }
 
 
-// Head shapes in head-local coords (x forward, y down, centred), then
-// rotated and translated. Returns [{pts, role, stroke?}].
 // Mouth openings, levels 1-3 (never closed): [half width, arch height,
 // shape exponent]. Exponent < 1 squares the arch off, > 1 makes it peaked.
 const MOUTHS = { 1: [0.2, 0.09, 1], 2: [0.19, 0.21, 1.25], 3: [0.26, 0.33, 0.6] };
@@ -414,6 +411,8 @@ function hairShape(H, view, hw, edge) {
   return pts;
 }
 
+// Head shapes in head-local coords (x forward, y down, centred), then
+// rotated and translated. Returns [{pts, role, head?, headPart}].
 function headShapes(S, sk) {
   const s = S.head.size, hw = s / 2;
   const view = sk.pose.headView;
@@ -496,10 +495,6 @@ function headShapes(S, sk) {
   return local.map((sh) => ({ ...sh, headPart: true, pts: sh.pts.map((q) => add(sk.H, rot(q, sk.headRot))) }));
 }
 
-// Build all shapes in draw order: [{pts, role, open?}]
-// Outfit (a rendering choice, not part of the pose):
-//   bottom: 'briefs' (loincloth only) | 'dhoti' (thighs in cloth colour)
-//   top:    'bare' | 'full' (whole torso in cloth colour)
 // Front view, derived from a side-view pose (style bible §6): the torso
 // stands upright, shortened to its height in the side view; the head is
 // upright and front-facing at full size; each arm and leg keeps its
@@ -533,6 +528,10 @@ export function frontOf(species, sidePose) {
 
 export const DEFAULT_OUTFIT = { bottom: 'briefs', top: 'bare' };
 
+// Build all shapes in draw order: [{pts, role, ...}].
+// Outfit (a rendering choice, not part of the pose):
+//   bottom: 'briefs' (loincloth only) | 'dhoti' (thighs in cloth colour)
+//   top:    'bare' | 'full' (whole torso in cloth colour)
 // view: 'side' (default) or 'front' (derived from the side pose; see frontOf).
 export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side') {
   if (view === 'front') ({ species, pose } = frontOf(species, pose));
@@ -545,41 +544,31 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
   // legs: hip disc, thigh and knee disc take the cloth colour in a dhoti
   const pushLeg = (L) => limbShapes(S, L, 'leg').forEach((pts, i) =>
     out.push({ pts, role: dhoti && i < 3 ? 'cloth' : 'body' }));
-  const pushTorso = (torso) => {
-    out.push({ pts: neckShape(S, sk), role: 'body' }, { pts: torso, role: fullTop ? 'cloth' : 'body', top: fullTop });
-  };
+  const pushTail = () => { if (tail) push([tail.root, tail.body, tail.tip]); };
+  const pushArm = (L) => push(limbShapes(S, L, 'arm'));
+  const torso = torsoShape(sk);
+  const pushTorso = () => out.push(
+    { pts: neckShape(S, sk), role: 'body' },
+    { pts: torso, role: fullTop ? 'cloth' : 'body', top: fullTop },
+    loincloth(S, sk, torso));
+  const head = headShapes(S, sk);
 
   if (sk.front) {
-    if (tail) { push([tail.root, tail.body, tail.tip]); }
-    pushLeg(sk.limbs.far);
-    pushLeg(sk.limbs.near);
-    const torso = torsoShape(sk);
-    pushTorso(torso);
-    out.push(loincloth(S, sk, torso));
-    push(limbShapes(S, sk.limbs.far, 'arm'));
-    push(limbShapes(S, sk.limbs.near, 'arm'));
-    out.push(...headShapes(S, sk));
+    // hair hangs behind the whole body, not just the head
+    out.push(...head.filter((x) => x.role === 'hair'));
+    pushTail(); pushLeg(sk.limbs.far); pushLeg(sk.limbs.near); pushTorso();
+    pushArm(sk.limbs.far); pushArm(sk.limbs.near);
+    out.push(...head.filter((x) => x.role !== 'hair'));
   } else {
-    push(limbShapes(S, sk.limbs.far, 'arm'));
-    pushLeg(sk.limbs.far);
-    if (tail) { push([tail.root, tail.body, tail.tip]); }
-    pushLeg(sk.limbs.near);
-    const torso = torsoShape(sk);
-    pushTorso(torso);
-    out.push(loincloth(S, sk, torso));
-    out.push(...headShapes(S, sk));
-    push(limbShapes(S, sk.limbs.near, 'arm'));
-  }
-
-  // Front view: hair hangs behind the whole body, not just the head.
-  if (sk.front) {
-    const hair = out.filter((x) => x.role === 'hair');
-    if (hair.length) { const rest = out.filter((x) => x.role !== 'hair'); out.length = 0; out.push(...hair, ...rest); }
+    // far limbs behind the torso, near limbs in front; near arm over the head
+    pushArm(sk.limbs.far); pushLeg(sk.limbs.far); pushTail(); pushLeg(sk.limbs.near); pushTorso();
+    out.push(...head);
+    pushArm(sk.limbs.near);
   }
 
   // Lowest point at y = 0. Where the figure sits in a panel is the
   // scene layout's job, not the pose's.
-  const bb = bbox(out.filter((s) => !s.open).map((s) => s.pts));
+  const bb = bbox(out.map((s) => s.pts));
   const dy = -bb.y1;
   const dx = -(bb.x0 + bb.x1) / 2;
   const mv = (pts) => pts.map((q) => [q[0] + dx, q[1] + dy]);
@@ -619,11 +608,6 @@ export function anatomy(species, pose) {
   return parts;
 }
 
-// Render a figure as an SVG <g>. Ground point at (x, y) in px; `scale` is
-// px per head-unit; facing 1 (right) or -1 (left); view 'side' (default)
-// or 'front' (derived from the side pose).
-let clipSeq = 0;
-
 // Relative luminance (WCAG) of a #rgb / #rrggbb colour, 0..1.
 function luminance(hex) {
   let h = hex.replace('#', '');
@@ -659,6 +643,13 @@ function patternDef(id, kind, ink) {
   return `<pattern id="${id}" patternUnits="userSpaceOnUse" width="${t}" height="${t}"><g fill="${ink}">${body}</g></pattern>`;
 }
 
+// Render a figure as an SVG <g>. Ground point at (x, y) in px; `scale` is
+// px per head-unit; facing 1 (right) or -1 (left); view 'side' (default)
+// or 'front' (derived from the side pose). `id` prefixes the figure's clip
+// and pattern ids; give each figure on a page its own (default: a counter).
+// The other options are a character look (see characterLook): colors,
+// outfit, pattern, face.
+let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
@@ -672,7 +663,7 @@ export function renderFigure(species, pose, opts = {}) {
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
   let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;
-  const clipId = `face${++clipSeq}`;
+  const clipId = opts.id ?? `face${++clipSeq}`;
   const faceD = shapes.filter((s) => s.head).map((s) => pathD(s.pts)).join('');
   if (faceD) svg += `<clipPath id="${clipId}"><path d="${faceD}"/></clipPath>`;
   let inBody = false;
@@ -700,8 +691,6 @@ export function renderFigure(species, pose, opts = {}) {
       const id = `${clipId}p${shapes.indexOf(s)}`, d = pathD(s.pts);
       svg += `<defs>${patternDef(id, opts.pattern, '#000000')}</defs>` +
         `<path d="${d}" fill="${colors.cloth}"/><path d="${d}" fill="url(#${id})"/>`;
-    } else if (s.role === 'ear') {
-      svg += `<path d="${pathD(s.pts, false)}" fill="none" stroke="${colors.eye}" stroke-width="0.06" stroke-linecap="round"/>`;
     } else {
       const clip = s.role === 'mouth' && faceD ? ` clip-path="url(#${clipId})"` : '';
       svg += `<path d="${pathD(s.pts)}" fill="${colors[s.role]}"${clip}/>`;

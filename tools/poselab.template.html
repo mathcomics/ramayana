@@ -228,7 +228,7 @@ const STARTERS = /*__POSES__*/;
     const L = look();
     const p = state.pose;
     // side (edited) and front (derived from it), next to each other
-    const opts = { y: 0, scale: 1, facing: state.facing, pattern: L.pattern, colors: L.colors, outfit: L.outfit, face: L.face };
+    const opts = { ...L, y: 0, scale: 1, facing: state.facing };
     const side = renderFigure(SPECIES[L.species], p, { ...opts, x: -3.3 });
     const front = renderFigure(SPECIES[L.species], p, { ...opts, x: 3.3, view: 'front' });
     const groundLine = `<line x1="-8" x2="8" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
@@ -331,7 +331,7 @@ const STARTERS = /*__POSES__*/;
   // ---------- gallery: every pose as a thumbnail; tap to edit it
   function thumbSvg(pose) {
     const L = look();
-    const r = renderFigure(SPECIES[L.species], pose, { x: 0, y: 0, scale: 1, facing: state.facing, pattern: L.pattern, colors: L.colors, outfit: L.outfit, face: L.face });
+    const r = renderFigure(SPECIES[L.species], pose, { ...L, x: 0, y: 0, scale: 1, facing: state.facing });
     const b = r.bbox, w = b.x1 - b.x0, h = b.y1 - b.y0, side = Math.max(w, h) + 0.6;
     const cx = (b.x0 + b.x1) / 2 * state.facing, cy = (b.y0 + b.y1) / 2;
     return `<svg viewBox="${cx - side / 2} ${cy - side / 2} ${side} ${side}" aria-hidden="true">${r.svg}</svg>`;

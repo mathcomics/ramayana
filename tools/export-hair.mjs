@@ -7,24 +7,14 @@
 // eyes, neck and shoulder line are in a locked "guide" layer for reference;
 // only the path with id="hair" is read back by the renderer.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { anatomy } from '../src/figure.js';
 import { pathD } from '../src/geom.js';
+import { json, writeOut, headFrame } from './lib.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const S = JSON.parse(readFileSync(join(root, 'data/species/female.json'), 'utf8'));
+const S = json('data/species/female.json');
 
 const only = process.argv.slice(2);
 for (const view of ['front', 'side'].filter((v) => !only.length || only.includes(v))) {
-  const pose = { view, headView: view, mouth: 2, spine: { lean: 0, chest: 0, neck: 0, head: 0 } };
-  const parts = anatomy(S, pose);
-  // head centre in figure coordinates = centre of the head square's bbox
-  const sq = parts.head.find((p) => p.head).pts;
-  const xs = sq.map((p) => p[0]), ys = sq.map((p) => p[1]);
-  const c = [(Math.min(...xs) + Math.max(...xs)) / 2, (Math.min(...ys) + Math.max(...ys)) / 2];
-  const loc = (pts) => pts.map(([x, y]) => [x - c[0], y - c[1]]);
+  const { parts, loc } = headFrame(S, view);
   const hair = parts.head.find((p) => p.role === 'hair');
   const guides = [
     ...parts.head.filter((p) => p.role !== 'hair'),
@@ -47,7 +37,6 @@ for (const view of ['front', 'side'].filter((v) => !only.length || only.includes
   </g>
 </svg>
 `;
-  mkdirSync(join(root, 'data/shapes'), { recursive: true });
-  writeFileSync(join(root, `data/shapes/hair-female-${view}.svg`), svg);
+  writeOut(`data/shapes/hair-female-${view}.svg`, svg);
   console.log(`data/shapes/hair-female-${view}.svg`);
 }

@@ -4,15 +4,10 @@
 //
 //   node tools/face-sheet.mjs   ->  out/face-sheet.svg, .png, .pdf
 
-import { readFileSync, writeFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { renderFigure, buildShapes, characterLook } from '../src/figure.js';
+import { loadAssets, writeOut, rsvg } from './lib.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const read = (p) => JSON.parse(readFileSync(join(root, p), 'utf8'));
-const C = read('data/characters.json'), F = read('data/faces.json'), P = read('data/poses.json').poses;
+const { characters: C, faces: F, poses: P, species: SPECIES } = loadAssets();
 const cast = C.characters;
 
 const front = (mouth) => ({ name: 'front', view: 'front', headView: 'front', mouth, spine: {},
@@ -32,9 +27,8 @@ s += `<text x="${M}" y="32" ${font} font-size="16" fill="#333">Faces</text>`;
 s += `<text x="${W - M}" y="32" ${font} font-size="10" fill="#888" text-anchor="end">figures: front, side (stand) · close-ups: front / side, mouths 1 2 3</text>`;
 
 cast.forEach((c, i) => {
-  const L = characterLook(c, C.palette, F);
-  const S = read(`data/species/${L.species}.json`);
-  const opts = { pattern: L.pattern, colors: L.colors, outfit: L.outfit, face: L.face };
+  const opts = characterLook(c, C.palette, F);
+  const S = SPECIES[opts.species];
   const x0 = M + (i % COLS) * cw, y0 = TOP + Math.floor(i / COLS) * ch;
   s += `<rect x="${x0 + 3}" y="${y0 + 3}" width="${cw - 6}" height="${ch - 6}" rx="6" fill="#f6f1e8" stroke="#ddd3c3"/>`;
   s += `<text x="${x0 + 12}" y="${y0 + 20}" ${font} font-size="12" fill="#444">${c.name}${F.faces[c.id] ? '' : ' (no face)'}</text>`;
@@ -64,7 +58,7 @@ cast.forEach((c, i) => {
 });
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11in" viewBox="0 0 ${W} ${H}"><defs>${defs}</defs><rect width="${W}" height="${H}" fill="#fff"/>${s}</svg>`;
-writeFileSync(join(root, 'out/face-sheet.svg'), svg);
-execFileSync('rsvg-convert', ['-w', String(W * 2), '-o', join(root, 'out/face-sheet.png'), join(root, 'out/face-sheet.svg')]);
-execFileSync('rsvg-convert', ['-f', 'pdf', '-o', join(root, 'out/face-sheet.pdf'), join(root, 'out/face-sheet.svg')]);
+const svgPath = writeOut('out/face-sheet.svg', svg);
+rsvg(svgPath, svgPath.replace(/svg$/, 'png'), ['-w', String(W * 2)]);
+rsvg(svgPath, svgPath.replace(/svg$/, 'pdf'), ['-f', 'pdf']);
 console.log('out/face-sheet.png, out/face-sheet.pdf');

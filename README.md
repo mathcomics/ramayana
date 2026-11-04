@@ -42,6 +42,9 @@ data/grounds.json        ground colours
 tools/build-site.mjs     reader site → _site/ (Cloudflare Pages)
 tools/render-panels.mjs  screens → out/panels/*.png, with issues and needs
 tools/build-panellab.mjs panel lab page → out/panellab.html
+tools/lib.mjs            shared tool helpers (paths, data, sections, rsvg, lab bundling)
+tools/svg.mjs            SVG parsing, transforms, path flattening (import tools)
+test/                    npm test: unit, data integrity and render snapshot
 reference/               the artist's paintings and sketches (the yardstick)
 src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
 src/figure.js            skeleton solve, body-part shapes, SVG output
@@ -63,6 +66,8 @@ out/, _site/             generated (not committed)
 Needs Node 18+ and `rsvg-convert` (librsvg) for PNG output. No npm installs.
 
 ```sh
+npm test                                       # all tests (node:test, no packages)
+UPDATE_SNAPSHOT=1 npm test                     # accept an intended render change
 node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: male, female)
 node tools/parts-sheet.mjs monkey              # each body part at one scale
 node tools/build-poselab.mjs                   # rebuild the pose lab page
@@ -79,6 +84,20 @@ node tools/build-panellab.mjs                  # panel lab page → out/panellab
 
 After any renderer change, regenerate the contact sheet and look at it at
 real phone size (figures roughly 60–150 px tall).
+
+### Tests
+
+`npm test` runs `test/*.test.mjs` with Node's built-in runner:
+
+- **geom, figure, scene, svg:** unit tests of the helpers, the skeleton and
+  the front-view derivation, outfits and patterns, eye colour, panel layout
+  and placement, background clean-up, and the import tools' SVG parsing.
+- **data:** every name resolves (species, poses, cloth, faces); pose names
+  follow style bible §7 and stay alphabetical.
+- **render snapshot** (`test/render-snapshot.json`): a fingerprint of every
+  species × pose × view × facing, every character and every panel. A
+  clean-up must leave it unchanged. When a render is meant to change, look
+  at it, then run `UPDATE_SNAPSHOT=1 npm test` and commit the new file.
 
 ### Figure model in brief
 

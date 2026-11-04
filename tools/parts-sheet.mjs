@@ -5,16 +5,12 @@
 // Side-view parts use a near-straight standing pose; front-view head and
 // torso are shown too, plus all three hands and all three mouths.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { anatomy, eyeColor, DEFAULT_COLORS } from '../src/figure.js';
 import { pathD, bbox } from '../src/geom.js';
+import { json, writeOut, rsvg } from './lib.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const id = process.argv[2] || 'monkey';
-const S = JSON.parse(readFileSync(join(root, 'data/species', `${id}.json`), 'utf8'));
+const S = json(`data/species/${id}.json`);
 
 const side = { view: 'side', spine: {}, near: { arm: { shoulder: 0, elbow: 25 }, leg: { hip: 0, knee: 25 } }, tail: { lift: 30, curl: 200 } };
 const front = { view: 'front', spine: {} };
@@ -48,7 +44,6 @@ cells.forEach((c, i) => {
   const cx = (b.x0 + b.x1) / 2, cy = (b.y0 + b.y1) / 2;
   const fit = Math.min(px, (cellW - 30) / (b.x1 - b.x0 || 1), (cellH - 60) / (b.y1 - b.y0 || 1));
   const g = c.shapes.map((s, k) => {
-    if (s.open) return `<path d="${pathD(s.pts, false)}" fill="none" stroke="${colors.eye}" stroke-width="0.06"/>`;
     if (!s.clipPts) return `<path d="${pathD(s.pts)}" fill="${colors[s.role] || colors.body}"/>`;
     // clipped part (loincloth): show it as drawn, with the torso faintly behind
     const id = `clip${i}_${k}`;
@@ -61,8 +56,6 @@ cells.forEach((c, i) => {
   svg += `<text x="${x0 + cellW / 2}" y="${y0 + cellH - 18}" font-family="sans-serif" font-size="14" fill="#6b6155" text-anchor="middle">${c.label}${fit < px ? ' (reduced)' : ''}</text>`;
 });
 const W = cols * cellW, H = Math.ceil(cells.length / cols) * cellH;
-mkdirSync(join(root, 'out'), { recursive: true });
-const out = join(root, 'out', `parts-${id}`);
-writeFileSync(out + '.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#e7e5df"/>${svg}</svg>`);
-execFileSync('rsvg-convert', ['-o', out + '.png', out + '.svg']);
-console.log(out + '.png');
+const out = writeOut(`out/parts-${id}.svg`, `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#e7e5df"/>${svg}</svg>`);
+rsvg(out, out.replace(/svg$/, 'png'));
+console.log(out.replace(/svg$/, 'png'));

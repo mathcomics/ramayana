@@ -28,7 +28,8 @@ scene spec (JSON) → layout → figure geometry → SVG
     reference/   artist's reference images
     src/         renderer library (skeleton, species, parts, svg output)
     data/        species profiles, poses (JSON)
-    tools/       pose lab, contact sheet, parts sheet
+    tools/       pose lab, contact sheet, parts sheet; lib.mjs + svg.mjs shared helpers
+    test/        npm test (node:test): unit, data integrity, render snapshot
     manuscript/  story text and scene breakdown (own README)
     panels/      panel definitions, one folder per section
     out/, _site/ generated (not committed)
@@ -38,6 +39,9 @@ scene spec (JSON) → layout → figure geometry → SVG
 - Measurements in head-units; panels use an SVG viewBox.
 - Test renders at real phone size (figures ~60–150 px tall).
 - After any renderer change, regenerate the contact sheet and look at it.
+- Run `npm test` before every commit. A refactor must keep the render
+  snapshot unchanged; an intended visual change is accepted with
+  `UPDATE_SNAPSHOT=1 npm test` after looking at the render.
 - Do not trace or copy third-party Warli reference material; derive
   primitives from the style bible and the artist's own work.
 
@@ -60,7 +64,18 @@ Panel lab (published artifact, drafts in its database, collection
 Drafts are merged into `panels/` when asked; republish the lab after
 renderer or panel changes.
 
-## Status (2026-11-03)
+## Status (2026-11-04)
+
+- **Code review 2026-11-04:** test suite added (`npm test`, 38 tests incl.
+  a 380-render snapshot). Dead code removed (unused geom helpers, the
+  old ear-curl and `open` shape paths, unused params). Tools share
+  `tools/lib.mjs` (replaces `panels-lib.mjs`) and `tools/svg.mjs`.
+  `renderFigure` takes an `id` prefix (panels no longer rewrite ids by
+  regex) and a character look can be spread straight into its options.
+  All renders, sheets, the site and generated data are unchanged.
+  Open: `node tools/import-hair.mjs` with no arguments also imports the
+  **front** hair SVG (the exported generated shape), which would replace
+  the generated front hair; run it with the side file only for now.
 
 - Three species, one skeleton, one shared set of poses: **monkey** (done,
   tuned by the artist), **male**, **female** (long hair; side hair drawn by
