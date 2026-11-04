@@ -172,10 +172,10 @@ the pose.
 - **Cloth patterns** (for rakshasas only): a cloth name can add a pattern
   to the colour: `red-check`, `red-diamond`, `red-stripe` (any palette
   colour works). The pattern goes on the upper body only (a `full` top);
-  the dhoti stays plain. It is drawn in black or white, whichever
-  contrasts more with the cloth (white on red), in head-units so it
-  scales with the figure: check = squares, diamond = small diamonds,
-  stripe = horizontal bands, all on a 0.36 head-unit tile.
+  the dhoti stays plain. It is drawn in black (red-black), in
+  head-units so it scales with the figure: check = squares, diamond =
+  small diamonds, stripe = horizontal bands, all on a 0.54 head-unit
+  tile.
 
 ## 5.5 Characters
 

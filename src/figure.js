@@ -643,16 +643,14 @@ export function eyeColor(body) {
 // Cloth patterns for the upper body (a full top), style bible §5.4. A cloth
 // name is a palette colour, optionally followed by a pattern:
 // "red", "red-check", "red-diamond", "red-stripe". The pattern is drawn in
-// black or white, whichever contrasts more with the cloth, in head-units,
-// so it scales with the figure (features ≥ ~0.1 head-unit, ~2 px on a
-// phone).
+// black, in head-units, so it scales with the figure.
 export const CLOTH_PATTERNS = ['check', 'diamond', 'stripe'];
 export function parseCloth(name, palette = {}) {
   const [base, pattern] = String(name || '').split('-');
   return { color: palette[base] ?? palette[name], pattern: CLOTH_PATTERNS.includes(pattern) ? pattern : null };
 }
 function patternDef(id, kind, ink) {
-  const t = 0.36;                                   // tile, head-units
+  const t = 0.54;                                   // tile, head-units
   const body = {
     check: `<rect width="${t / 2}" height="${t / 2}"/><rect x="${t / 2}" y="${t / 2}" width="${t / 2}" height="${t / 2}"/>`,
     diamond: `<path d="M${t / 2} ${t * 0.18}L${t * 0.82} ${t / 2}L${t / 2} ${t * 0.82}L${t * 0.18} ${t / 2}Z"/>`,
@@ -700,7 +698,7 @@ export function renderFigure(species, pose, opts = {}) {
     } else if (s.top && opts.pattern && CLOTH_PATTERNS.includes(opts.pattern)) {
       // patterned top: the cloth colour, then the pattern over it
       const id = `${clipId}p${shapes.indexOf(s)}`, d = pathD(s.pts);
-      svg += `<defs>${patternDef(id, opts.pattern, eyeColor(colors.cloth))}</defs>` +
+      svg += `<defs>${patternDef(id, opts.pattern, '#000000')}</defs>` +
         `<path d="${d}" fill="${colors.cloth}"/><path d="${d}" fill="url(#${id})"/>`;
     } else if (s.role === 'ear') {
       svg += `<path d="${pathD(s.pts, false)}" fill="none" stroke="${colors.eye}" stroke-width="0.06" stroke-linecap="round"/>`;
