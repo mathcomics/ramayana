@@ -211,6 +211,12 @@ layer goes behind the whole body; optional `mouth-1/2/3` layers follow the pose'
   - each arm and leg keeps its side-view angles, mirrored if needed so it
     points to its own side (near = picture-right, far = picture-left);
   - feet point outward and keep their tilt from the ground.
+  - **Planned (not yet built):** when the side pose bends far forward or
+    the head goes below the shoulders (e.g. `fall-headlong`), the front
+    view should turn to a **back view**: the back of the head instead of
+    the face. This needs a back layer per drawn face (e.g. a `back-head`
+    layer in `data/faces/`, or a plain head shape) and a draw order for
+    the back view (arms behind the torso, hair over the head).
 - No foreshortening. Flat, as in Warli.
 - Joint limits per species prevent broken anatomy.
 
