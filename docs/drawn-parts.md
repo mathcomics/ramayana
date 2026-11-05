@@ -44,7 +44,18 @@ the outline (start node and straight-vs-curved don't matter).
 - The torso blends four keys: front ↔ side (turn) and straight ↔ bent
   (bend). The bend swings round the waist (polar blend); `spine.chest`
   sets it (the drawn bend ≈ 71°; beyond, or arching back, extrapolates).
-  Front view: the bend follows the torso's shortening from the side pose.
+  Front view (one body, two drawings, shared heights): each point of the
+  front torso takes its height from where the side view puts the same
+  slice of the body (piecewise-affine on torso-node triangles), and the
+  slice's depth spreads the outline when it tips toward the viewer, so a
+  torso seen end-on keeps about its thickness and one tipped past level
+  turns over. Its width turns toward the front-bend drawing as the upper
+  body tips toward the viewer ((lean + chest) / the drawn bend).
+  Front-view joints: X from the front anchors, height from the posed side
+  anchors. The neck shows its up-down part; the face turns over when the
+  head is upside down.
+  The importer lists torso nodes and anchors whose heights differ between
+  the front and side drawings (> 3 px).
 - Shoulders, hips and neck are pinned to torso nodes, so they follow the
   turn and bend.
 - Out of the paper: `out` on the shoulder and hip (style bible §6). Side

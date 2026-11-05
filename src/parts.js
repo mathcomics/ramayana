@@ -64,6 +64,49 @@ function dpAttach(M, T, which, far, turn) {
   return lerp(front, dpMix(s, T, null), turn);
 }
 
+// ---- one body, two drawings: shared heights
+// The front and side torsos are two views of one body, with the same
+// heights. A point of the body is (sideways X, height y, depth Z): the front
+// drawing gives X, the side drawing gives Z. Posing (lean, chest bend)
+// moves the body in the side plane, so the side view shows it directly and
+// the front view takes each point's height from where the side view puts
+// it. Points of the straight side torso are carried to the posed side torso
+// piecewise-affinely, on triangles of torso nodes (as joints are).
+const DP_TRI = [[0, 1, 6], [1, 2, 3], [1, 3, 6], [3, 4, 5], [3, 5, 6]];
+function dpBary(P, A, B, C) {
+  const v0 = sub(B, A), v1 = sub(C, A), v2 = sub(P, A);
+  const d = v0[0] * v1[1] - v1[0] * v0[1];
+  if (Math.abs(d) < 1e-12) return null;
+  const b = (v2[0] * v1[1] - v1[0] * v2[1]) / d, c = (v0[0] * v2[1] - v2[0] * v0[1]) / d;
+  return [1 - b - c, b, c];
+}
+function dpSideMap(T0, T1) {
+  return (P) => {
+    let best = null;
+    for (const tri of DP_TRI) {
+      const w = dpBary(P, ...tri.map((i) => dpNode(T0, i)));
+      if (w && (!best || Math.min(...w) > Math.min(...best.w))) best = { tri, w };
+    }
+    const [A, B, C] = best.tri.map((i) => dpNode(T1, i));
+    return add(add(mul(A, best.w[0]), mul(B, best.w[1])), mul(C, best.w[2]));
+  };
+}
+// The straight side torso's depth at height y: centre and half-depth.
+function dpSlice(M, y) {
+  if (!M._side) Object.defineProperty(M, '_side', { value: dpFlat(M.torso.side, 16) });
+  const P = M._side, xs = [];
+  for (let i = 0; i < P.length; i++) {
+    const a = P[i], b = P[(i + 1) % P.length];
+    if ((a[1] - y) * (b[1] - y) <= 0 && a[1] !== b[1]) xs.push(a[0] + (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]));
+  }
+  if (!xs.length) {                                  // above or below the outline: the nearest end
+    const near = P.reduce((q, p) => (Math.abs(p[1] - y) < Math.abs(q[1] - y) ? p : q));
+    return { zc: near[0], d: 0 };
+  }
+  const z0 = Math.min(...xs), z1 = Math.max(...xs);
+  return { zc: (z0 + z1) / 2, d: (z1 - z0) / 2 };
+}
+
 // A limb part for this turn: its front and side shapes blended (each is
 // drawn in its bone frame, node for node).
 const dpTurn = (L, turn) => (turn <= 0 ? L.front : turn >= 1 ? L.side : dpLin(L.front, L.side, turn));
@@ -120,14 +163,11 @@ const dpMinF = (L) => {
 };
 const dpWrap = (v) => { while (v > 180) v -= 360; while (v <= -180) v += 360; return v; };
 
-// S: the species (head size); pose: the normalised SIDE pose (both views);
-// k: the front view's torso shortening from frontOf (1 in side view).
-export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
+// S: the species (head size); pose: the normalised SIDE pose (both views).
+export function buildParts(M, S, pose, outfit = {}, view = 'side') {
   const front = view === 'front';
-  const sp = pose.spine;                           // side-view spine: limb angles are measured in it
-  const { lean, chest, neck, head } = front ? { lean: 0, chest: 0, neck: 0, head: 0 } : sp;
+  const sp = pose.spine;                           // side-view spine: everything is measured in it
   const turn = front ? 0 : 1;
-  const bend = front ? (1 - k) / (1 - M.frontBend) : chest / M.bend;
   // place a part drawn in its bone frame (bone pointing down) at `at`, bone
   // angle `ang`, its length scaled by f (width unchanged)
   const place = (segs, at, ang, m = 1, f = 1) => dpMap(segs, (p) => {
@@ -135,14 +175,61 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     return add(at, [m * q[0], q[1]]);
   });
 
-  const T = dpMap(partsTorso(M, turn, bend), (p) => rot(p, lean));
+  // the posed side torso (both views need it) and the map onto it
+  const TS = dpMap(partsTorso(M, 1, sp.chest / M.bend), (p) => rot(p, sp.lean));
+  const sideMap = dpSideMap(M.torso.side, TS);
+  // a point of the body given by its side-drawing position: posed side position
+  const posed = (P) => sideMap(P);
+
+  let T, attachAt;
+  if (!front) {
+    T = TS;
+    attachAt = (which, far) => dpAttach(M, T, which, far, 1);
+  } else {
+    // Front torso: X from the front drawing (turning toward the front-bend
+    // drawing as the upper body tips toward the viewer), height from the
+    // side view of the same slice of the body. A slice tipped toward the
+    // viewer also shows its depth: the outline's top and bottom ends move
+    // apart by it, so a torso seen end-on keeps about its thickness.
+    const bx = Math.max(0, Math.min(1, (sp.lean + sp.chest) / M.bend));
+    const F = M.torso.front.map((s, i) => s.map((p, j) => [p[0] + (M.torso.frontBend[i][j][0] - p[0]) * bx, p[1]]));
+    const ys = M.torso.front.map((s) => s[0][1]);
+    const yTop = Math.min(...ys), yBot = Math.max(...ys);
+    const yMid = (yTop + yBot) / 2, half = (yBot - yTop) / 2;
+    const proj = (y) => {
+      const { zc, d } = dpSlice(M, y);
+      const c = posed([zc, y]), f = posed([zc + d, y]), b = posed([zc - d, y]);
+      return { y: c[1], thick: Math.abs(f[1] - b[1]) / 2 };
+    };
+    const up = proj(yTop).y <= proj(yBot).y ? 1 : -1;     // top still above the hips?
+    const cache = new Map();
+    const height = (y) => {
+      const key = Math.round(y * 1000);
+      if (!cache.has(key)) {
+        const r = proj(y), t = Math.max(-1, Math.min(1, (y - yMid) / half));
+        cache.set(key, r.y + r.thick * t * up);
+      }
+      return cache.get(key);
+    };
+    T = F.map((s) => s.map((p) => [p[0], height(p[1])]));
+    // joints: X from the front anchors, height from the side anchors
+    const sideP = (which, far) => {
+      const a = M.attachSide?.[far && which === 'shoulder' ? 'shoulderFar' : which];
+      return a ? dpMix(a, M.torso.side, null) : null;
+    };
+    attachAt = (which, far) => {
+      const x = dpMix(M.attach[which], F, far ? M.mirror : null)[0];
+      const P = sideP(which, far);
+      return [x, P ? posed(P)[1] : height(dpMix(M.attach[which], F, far ? M.mirror : null)[1])];
+    };
+  }
   const limbs = {};
   for (const s of ['near', 'far']) {
     const far = s === 'far';
     const m = front && far ? -1 : 1;           // front view: far limbs to picture-left
     const dirM = (t) => { const d = dir(t); return [m * d[0], d[1]]; };
     const a = pose[s].arm, l = pose[s].leg;
-    const sh = dpAttach(M, T, 'shoulder', far, turn), hp = dpAttach(M, T, 'hip', far, turn);
+    const sh = attachAt('shoulder', far), hp = attachAt('hip', far);
     // side-view angles of each segment, then projected for this view
     const su = -(sp.lean + sp.chest) + a.shoulder, sl = su + a.elbow;
     const st = -sp.lean + l.hip, ss = st - l.knee;
@@ -193,11 +280,22 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
       ],
     };
   }
-  const up3 = 180 - (lean + chest + neck);
-  const nb = dpAttach(M, T, 'neck', false, turn);
-  const neckTop = add(nb, mul(dir(up3), M.neck.len));
-  const headRot = lean + chest + neck + head;
-  const H = add(neckTop, mul(dir(180 - headRot), 0.21));
+  // Neck and head: the side pose's directions; the front view shows their
+  // up-down part (a neck tipped toward the viewer shortens, one past
+  // level points down; the face turns over when the head is upside down).
+  const up3 = 180 - (sp.lean + sp.chest + sp.neck);
+  const sideHead = sp.lean + sp.chest + sp.neck + sp.head;
+  const nb = attachAt('neck', false);
+  let neckAng = up3, neckF = 1, headRot = sideHead, headOff = dir(180 - sideHead);
+  if (front) {
+    const v = Math.cos(up3 * RAD);                       // up-down part of the neck
+    neckAng = v <= 0 ? 180 : 0; neckF = Math.max(Math.abs(v), 0.5);
+    headOff = [0, -Math.cos(sideHead * RAD)];
+    headRot = Math.cos(sideHead * RAD) < 0 ? 180 : 0;
+  }
+  const neckTop = add(nb, mul(dir(neckAng), M.neck.len * (front ? Math.abs(Math.cos(up3 * RAD)) : 1)));
+  const H = add(neckTop, mul(headOff, 0.21));
+  const lean = front ? 0 : sp.lean;
 
   // Outfit: the lower cloth covers the thighs only (no loincloth);
   // a full top puts the torso in the cloth colour.
@@ -206,7 +304,7 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
   const item = (part, segs, s) => ({ segs, role: part === 'thigh' ? 'cloth' : 'body', part: `${s}-${part}` });
   const push = (L, kind, s) => L[kind].forEach(([part, segs]) => out.push(item(part, segs, s)));
   const pushTorso = () => out.push(
-    { segs: place(M.neck.segs, nb, up3), role: 'body', part: 'neck' },
+    { segs: place(M.neck.segs, nb, neckAng, 1, neckF), role: 'body', part: 'neck' },
     { segs: T, role: fullTop ? 'cloth' : 'body', top: fullTop, part: 'torso' });
   const hh = S.head.size / 2, hw = hh * (S.head.width ?? 1);
   const headShape = { role: 'body', head: true, headPart: true, part: 'head',

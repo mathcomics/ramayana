@@ -430,17 +430,12 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
 // Drawn-parts figure (species.parts, src/parts.js): same result shape as
 // buildShapes. Each shape also has `d`, the drawn curves as path data.
 function partsShapes(S, poseIn, outfit, view) {
-  // limbs come from the side pose in both views (src/parts.js projects them);
-  // frontOf gives the front view's torso shortening and head settings
+  // everything comes from the side pose (src/parts.js projects it); the
+  // front view only takes its head settings from frontOf
   const side = normalizePose(poseIn);
-  let pose = side, k = 1;
   const front = view === 'front';
-  if (front) {
-    const f = frontOf(S, side);
-    pose = normalizePose(f.pose);
-    k = f.species.spine.lower / S.spine.lower;
-  }
-  const { shapes, H, headRot } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', k);
+  const pose = front ? normalizePose(frontOf(S, side).pose) : side;
+  const { shapes, H, headRot } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side');
   const bb = bbox(shapes.map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];

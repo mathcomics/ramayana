@@ -254,6 +254,17 @@ function importParts(file) {
   // feet: flat as drawn, each on its ankle anchor
   const ff = segsOf(F.foot), fs = segsOf(align(need(Sd, 'foot', 'side'), F.foot, 'side foot', false));
 
+  // Shared heights: the front and side drawings are two views of one body,
+  // so matching points must sit at the same height (y). List the ones
+  // that don't (more than 0.03 head-units = 3 px apart).
+  const warn = [];
+  const chk = (what, yf, ys, unit = 'px above the pelvis') => { if (Math.abs(yf - ys) > 0.03) warn.push(`${what}: front ${(-yf * K).toFixed(1)}, side ${(-ys * K).toFixed(1)} ${unit}`); };
+  const NODE = ['near top', 'neck', 'far top', 'far waist', 'far hip', 'near hip', 'near waist'];
+  keys.front.forEach((s, i) => chk(`torso node ${i} (${NODE[i]})`, s[0][1], keys.side[i][0][1]));
+  for (const k of ['shoulder', 'elbow', 'wrist', 'hip', 'knee', 'ankle', 'neck-base'])
+    if (A[`side-${k}`]) chk(`anchor ${k}`, A[k][1], A[`side-${k}`][1], 'px above the ground');
+  if (warn.length) console.warn(`${file}: heights differ between front and side\n  ${warn.join('\n  ')}`);
+
   return {
     torso: Object.fromEntries(Object.entries(keys).map(([k, v]) => [k, pack(v)])),
     attach, attachSide, mirror: [2, 1, 0, 6, 5, 4, 3],
