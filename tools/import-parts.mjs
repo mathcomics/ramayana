@@ -16,8 +16,8 @@
 //   front-bend  torso (bent forward, seen from the front)
 //   side-bend   torso (bent forward, seen from the side)
 //   anchors     circles: shoulder, elbow, wrist, hip, knee, ankle,
-//               neck-base, neck-top (optional wrist-<hand> for a hand
-//               drawn elsewhere)
+//               neck-base, neck-top; side-ankle for the side foot
+//               (optional wrist-<hand> for a hand drawn elsewhere)
 // Other layers are ignored. The four torsos must have the same edges in
 // the same order round the outline (any start node); the two feet likewise.
 import { readdirSync } from 'node:fs';
@@ -213,7 +213,7 @@ function importParts(file) {
     shin: bone(F.shin, A.knee, A.ankle),
     neck: bone(F.neck, A['neck-base'], A['neck-top']),
     hands,
-    foot: { front: pack(mapSegs(ff, (p) => sub(p, A.ankle))), side: pack(mapSegs(fs, (p) => sub(p, A.ankle))) },
+    foot: { front: pack(mapSegs(ff, (p) => sub(p, A.ankle))), side: pack(mapSegs(fs, (p) => sub(p, A['side-ankle'] || A.ankle))) },
   };
 }
 

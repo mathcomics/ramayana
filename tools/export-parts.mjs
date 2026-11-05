@@ -32,6 +32,28 @@ const knee = add(hip, [0, M.thigh.len]);
 const ankle = add(knee, [0, M.shin.len]);
 const neckTop = add(neckBase, [0, -M.neck.len]);
 
+// side view, assembled to the right on its own pelvis: the side torso with
+// the side-bend torso on it, the side foot on its own ankle
+const SX = 2.8;                                          // side pelvis, head-units right of the front
+const sideOf = (segs) => moveSegs(segs, [SX, 0]);
+const TS = M.torso.side;
+const sShoulder = add(at(M.attach.shoulder.w, M.attach.shoulder.idx, TS), [SX, 0]);
+const sHip = add(at(M.attach.hip.w, M.attach.hip.idx, TS), [SX, 0]);
+const sNeck = add(at(M.attach.neck.w, M.attach.neck.idx, TS), [SX, 0]);
+const sAnkle = add(sHip, [0, M.thigh.len + M.shin.len]);
+const flipX = (segs) => segs.map((s) => s.map((p) => [-p[0], p[1]]));   // side view: curve on triceps / calf
+const sElbow = add(sShoulder, [0, M.upperArm.len]), sWrist = add(sElbow, [0, M.forearm.len]), sKnee = add(sHip, [0, M.thigh.len]);
+// how the renderer places the shared limbs in side view (near side): for
+// reference only, the importer reads limbs from the front layer
+const sideGuide = {
+  neck: moveSegs(M.neck.segs, sNeck, true),
+  'upper-arm': moveSegs(flipX(M.upperArm.segs), sShoulder),
+  forearm: moveSegs(M.forearm.segs, sElbow),
+  hand: moveSegs(M.hands.fist, sWrist),
+  thigh: moveSegs(M.thigh.segs, sHip),
+  shin: moveSegs(flipX(M.shin.segs), sKnee),
+};
+
 const parts = {
   front: {
     torso: M.torso.front,
@@ -43,11 +65,12 @@ const parts = {
     shin: moveSegs(M.shin.segs, knee),
     foot: moveSegs(M.foot.front, ankle),
   },
-  side: { torso: M.torso.side, foot: moveSegs(M.foot.side, ankle) },
   'front-bend': { torso: M.torso.frontBend },
-  'side-bend': { torso: M.torso.sideBend },
+  'side-limbs (guide)': sideGuide,
+  side: { torso: sideOf(M.torso.side), foot: moveSegs(M.foot.side, sAnkle) },
+  'side-bend': { torso: sideOf(M.torso.sideBend) },
 };
-const anchors = { shoulder, elbow, wrist, hip, knee, ankle, 'neck-base': neckBase, 'neck-top': neckTop };
+const anchors = { shoulder, elbow, wrist, hip, knee, ankle, 'neck-base': neckBase, 'neck-top': neckTop, 'side-ankle': sAnkle };
 
 // ground at y = 0 (the lowest foot point), pelvis at x = 0
 const lowest = Math.max(...[...parts.front.foot, ...parts.side.foot].flat().map((p) => p[1]));
@@ -59,11 +82,14 @@ const onLine = ([a, b, c, d]) => [[b, 1 / 3], [c, 2 / 3]].every(([q, t]) =>
 const pathD = (segs) => `M ${P(segs[0][0])} ` + segs.map((s) => (onLine(s) ? `L ${P(s[3])}` : `C ${P(s[1])} ${P(s[2])} ${P(s[3])}`)).join(' ') + ' Z';
 
 const style = 'fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1';
+const guideStyle = 'fill:#b08a6a;fill-opacity:0.15;stroke:#8a8178;stroke-width:1;stroke-dasharray:4 3';
 let body = '';
 for (const [layer, items] of Object.entries(parts)) {
-  body += `  <g id="${layer}" inkscape:groupmode="layer" inkscape:label="${layer}"${layer === 'front' ? '' : ' style="display:none"'}>\n`;
+  const guide = layer.includes('guide'), lid = layer.replace(/ .*/, '');
+  // the bend torsos sit on the straight ones; they start hidden
+  body += `  <g id="${lid}" inkscape:groupmode="layer" inkscape:label="${layer}"${layer.endsWith('bend') ? ' style="display:none"' : ''}${guide ? ' sodipodi:insensitive="true"' : ''}>\n`;
   for (const [name, segs] of Object.entries(items))
-    body += `    <path id="${layer}-${name}" inkscape:label="${name}" style="${style}" d="${pathD(segs)}"/>\n`;
+    body += `    <path id="${lid}-${name}" inkscape:label="${name}" style="${guide ? guideStyle : style}" d="${pathD(segs)}"/>\n`;
   body += '  </g>\n';
 }
 body += '  <g id="anchors" inkscape:groupmode="layer" inkscape:label="anchors">\n';
@@ -86,14 +112,17 @@ const svg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
      up, feet are flat. Parts that share a joint sit on the same anchor:
      the four torsos on one pelvis (layers front, side, front-bend,
      side-bend; show one at a time), the hands on the wrist, both feet on
-     the ankle.
+     the ankle. The side view stands to the right on its own pelvis, its
+     foot on side-ankle. The layer "side-limbs (guide)" (locked, dashed)
+     shows how the renderer hangs the shared limbs on the side torso; it
+     is not read back: limbs are edited in the front layer.
 
      Labels: torso, neck, upper-arm, forearm, hand-fist, hand-out, hand-in,
      hand-point, thigh, shin, foot. The four torsos keep the same number of
      edges in the same order round the outline; the two feet likewise.
      anchors: shoulder, elbow, wrist, hip, knee, ankle, neck-base, neck-top
-     (the circle centre counts). 100 px = 1 head-unit; ground at y = 0. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     side-ankle (the circle centre counts). 100 px = 1 head-unit; ground at y = 0. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
      width="${w}" height="${h}" viewBox="${x0} ${y0} ${w} ${h}">
 <line x1="${x0}" x2="${f(x0 + w)}" y1="0" y2="0" stroke="#c9bfae" stroke-width="1"/>
 ${body}</svg>

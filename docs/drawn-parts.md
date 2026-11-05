@@ -11,7 +11,10 @@ renderer's frame: the figure faces right and the front-view limbs are its
 near side (picture-right). Every part is at rotation 0 (limbs hang straight
 down, neck up, feet flat) and parts that share a joint sit on the same
 anchor: the four torsos on one pelvis (one layer each; show one at a
-time), all hands on the wrist, both feet on the ankle.
+time), all hands on the wrist, the front foot on the ankle. The side view
+stands to the right on its own pelvis (side foot on `side-ankle`), with a
+locked guide layer showing how the shared limbs hang on the side torso
+(not read back; limbs are edited in the front layer).
 `node tools/export-parts.mjs` writes this file from `data/parts.json`. By
 layer and label:
 
@@ -20,7 +23,7 @@ layer and label:
 | `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand-fist`, `hand-out`, `hand-in`, `hand-point`, `thigh`, `shin`, `foot` |
 | `side` | `torso`, `foot` |
 | `front-bend`, `side-bend` | `torso`, bent forward |
-| `anchors` | circles `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`  |
+| `anchors` | circles `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-ankle`  |
 | `guide` | ignored |
 
 The four torsos need the same number of edges in the same order round
