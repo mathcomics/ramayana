@@ -45,6 +45,7 @@ const dpLin = (A, B, t) => A.map((s, i) => s.map((p, j) => lerp(p, B[i][j], t)))
 // 3 far waist (upper), 4 far waist (lower), 5 far hip, 6 near hip,
 // 7 near waist (lower), 8 near waist (upper). Side view: near = front.
 const DP_WAIST = [3, 4, 7, 8];
+const DP_CAP = 0.12;          // head-units above a joint where a limb's top end turns with the body
 const dpWaistMid = (T) => mul(DP_WAIST.reduce((a, i) => add(a, dpNode(T, i)), [0, 0]), 1 / DP_WAIST.length);
 
 // Torso outline in the pelvis frame (hip mid at 0,0). turn: 0 front, 1
@@ -212,6 +213,17 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const q = rot([p[0], p[1] * f], -ang);
     return add(at, [m * q[0], q[1]]);
   });
+  // A limb's top end (above its joint: the shoulder cap, the top of the
+  // thigh) sits inside the body, so it turns with the body, not with the
+  // limb: fully above DP_CAP of the joint, blending into the limb below.
+  // The body's down direction: the chest for an arm, the pelvis for a leg.
+  const placeCap = (segs, at, ang, m, f, bodyAng) => dpMap(segs, (p) => {
+    const q = rot([p[0], p[1] * f], -ang);
+    if (p[1] >= 0) return add(at, [m * q[0], q[1]]);
+    const w = Math.min(1, -p[1] / DP_CAP);
+    const r = rot(p, -bodyAng);
+    return add(at, [m * (q[0] + (r[0] - q[0]) * w), q[1] + (r[1] - q[1]) * w]);
+  });
 
   // the posed side torso (both views need it) and the map onto it
   const TS = dpMap(partsTorso(M, 1, sp.chest), (p) => rot(p, sp.lean));
@@ -302,7 +314,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist };
     limbs[s] = { joints: { sh, E, Wr, hp, Kn, A },
       arm: [
-        ['upper-arm', place(dpTurn(M.upperArm, turn), sh, U.ang, m, U.draw), dU],
+        ['upper-arm', placeCap(dpTurn(M.upperArm, turn), sh, U.ang, m, U.draw, front ? 0 : -(sp.lean + sp.chest)), dU],
         ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.draw), dL],
         // the pointing finger always goes on the side toward the body (the
         // drawn point hand has it outside, so it is mirrored across the forearm)
@@ -314,7 +326,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
         ['shin', place(dpTurn(M.shin, turn), Kn, Sh.ang, m, Sh.draw), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
         ['foot', dpMap(foot, (p) => { const q = rot(p, -ankle); return add(A, [m * q[0], q[1]]); }), dS],
-        ['thigh', place(dpTurn(M.thigh, turn), hp, Th.ang, m, Th.draw), dT],
+        ['thigh', placeCap(dpTurn(M.thigh, turn), hp, Th.ang, m, Th.draw, front ? 0 : -sp.lean), dT],
       ],
     };
   }

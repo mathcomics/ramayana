@@ -73,6 +73,10 @@ move the legs.
   view shortens the limb by cos(out); the front view is the projection
   (sideways, down) of the same limb, replacing the old mirroring. A pose
   without `out` shows its forward/back reach foreshortened in front.
+- A limb's top end (the shoulder cap, the top of the thigh: above its
+  joint) turns with the body, not the limb (fully 0.12 above the joint,
+  blending below), so it stays inside the chest or the buttocks when the
+  body leans.
 - Draw order: the shin always goes behind the thigh. Front view sorts by
   depth: legs under the torso, arms over it, but a part reaching toward
   the viewer comes over and one reaching away goes under; a torso
