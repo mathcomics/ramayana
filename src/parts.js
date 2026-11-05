@@ -129,7 +129,21 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     const dz = (theta, o) => Math.cos(o * RAD) * Math.sin(theta * RAD);
     const dU = dz(su, a.out), dL = dz(sl, a.out), dT = dz(st, l.out), dS = dz(ss, l.out);
     const th = front ? Lo.ang : sl + a.wrist;
-    const ankle = front ? Math.abs(dpWrap(90 + l.ankle)) - 90 : l.ankle;   // front: toes outward, same tilt
+    // Foot (keeps its size). Side view: the ankle angle as given. Front
+    // view: heights are shared between the views, so the front foot is
+    // turned until its lowest point sits as far below the ankle as the side
+    // foot's does (scaled by cos out), staying as close to flat as it can.
+    let ankle = l.ankle;
+    if (front) {
+      const low = (segs, r) => Math.max(...dpFlat(segs, 4).map((p) => rot(p, -r)[1]));
+      const want = low(M.foot.side, l.ankle) * Math.cos(l.out * RAD);
+      let best = 0, err = Infinity;
+      for (let r = -120; r <= 120; r += 1) {
+        const e = Math.abs(low(M.foot.front, r) - want) + Math.abs(r) * 1e-4;
+        if (e < err) { err = e; best = r; }
+      }
+      ankle = best;
+    }
     const E = add(sh, mul(dirM(U.ang), M.upperArm.len * U.f)), Wr = add(E, mul(dirM(Lo.ang), M.forearm.len * Lo.f));
     const Kn = add(hp, mul(dirM(Th.ang), M.thigh.len * Th.f)), A = add(Kn, mul(dirM(Sh.ang), M.shin.len * Sh.f));
     const foot = dpTurn(M.foot, turn);

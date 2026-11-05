@@ -52,6 +52,9 @@ the outline (start node and straight-vs-curved don't matter).
   the viewer comes over and one reaching away goes under; a torso
   leaning back goes behind the legs. A limb seen end-on keeps about its
   own width in length.
+- Feet keep their size. Front view: the foot turns until its lowest point
+  sits as far below the ankle as in the side view (× cos out); heights are
+  shared between the views. The old front-view tilt rule is gone.
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn
   over the legs.
 - Not yet: monkey tail, per-species parts.
