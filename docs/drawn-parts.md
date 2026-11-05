@@ -43,6 +43,10 @@ the outline (start node and straight-vs-curved don't matter).
   Front view: the bend follows the torso's shortening from the side pose.
 - Shoulders, hips and neck are pinned to torso nodes, so they follow the
   turn and bend.
+- Out of the paper: `out` on the shoulder and hip (style bible §6). Side
+  view shortens the limb by cos(out); the front view is the projection
+  (sideways, down) of the same limb, replacing the old mirroring. A pose
+  without `out` shows its forward/back reach foreshortened in front.
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn
   over the legs.
 - Not yet: monkey tail, per-species parts.

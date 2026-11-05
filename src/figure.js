@@ -27,10 +27,10 @@ const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
 export function normalizePose(p = {}) {
   const limb = (l = {}) => ({
     arm: {
-      shoulder: num(l.arm?.shoulder, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0),
+      shoulder: num(l.arm?.shoulder, 0), out: num(l.arm?.out, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0),
       hand: HANDS.includes(l.arm?.hand) ? l.arm.hand : 'fist',
     },
-    leg: { hip: num(l.leg?.hip, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0) },
+    leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0) },
   });
   return {
     name: p.name || 'untitled',
@@ -430,14 +430,17 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
 // Drawn-parts figure (species.parts, src/parts.js): same result shape as
 // buildShapes. Each shape also has `d`, the drawn curves as path data.
 function partsShapes(S, poseIn, outfit, view) {
-  let pose = normalizePose(poseIn), k = 1;
+  // limbs come from the side pose in both views (src/parts.js projects them);
+  // frontOf gives the front view's torso shortening and head settings
+  const side = normalizePose(poseIn);
+  let pose = side, k = 1;
   const front = view === 'front';
   if (front) {
-    const f = frontOf(S, pose);
+    const f = frontOf(S, side);
     pose = normalizePose(f.pose);
     k = f.species.spine.lower / S.spine.lower;
   }
-  const { shapes, H, headRot } = buildParts(S.parts, S, pose, outfit, front ? 'front' : 'side', k);
+  const { shapes, H, headRot } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', k);
   const bb = bbox(shapes.map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];

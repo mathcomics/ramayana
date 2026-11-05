@@ -214,6 +214,14 @@ male 0.88, female 0.74.
   Each arm has its own shoulder anchor in side view: near arm toward the
   front of the chest, far arm just behind centre (`shoulder.side`).
   Front view: used for crouching / flexing / confronting.
+- **Out of the paper** (branch `drawn-parts`, 2026-11-04): the shoulder
+  and the hip have a second angle, `out` (degrees, + = away from the body
+  sideways), turning the whole arm or leg out of the paper. A limb then
+  points along (cos(out)·sin θ, cos(out)·cos θ, sin(out)) (forward, down,
+  sideways), θ its side-view angle. The side view shows it shortened by
+  cos(out); the front view shows (sideways, down). Only lengths change,
+  never widths; hands and feet keep their size. With drawn parts this
+  replaces the mirroring below for the front view's arms and legs.
 - **Poses are side view only; the front view is derived** from the side
   pose when a figure is drawn (decided 2026-11-04):
   - the torso stands upright, shortened to its height in the side view
