@@ -65,7 +65,8 @@ move the legs.
   anchors. The neck shows its up-down part; the face turns over when the
   head is upside down.
   The importer lists torso nodes and anchors whose heights differ between
-  the front and side drawings (> 3 px).
+  the front and side drawings (> 3 px); the two shoulder corners may
+  differ as long as their middle matches.
 - Shoulders, hips and neck are pinned to torso nodes, so they follow the
   turn and bend.
 - Out of the paper: `out` on the shoulder and hip (style bible §6). Side

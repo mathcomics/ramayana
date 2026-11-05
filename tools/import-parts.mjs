@@ -367,7 +367,11 @@ function importParts(file) {
   // that don't (more than 0.03 head-units = 3 px apart).
   const warn = [];
   const chk = (what, yf, ys, unit = 'px above the pelvis') => { if (Math.abs(yf - ys) > 0.03) warn.push(`${what}: front ${(-yf * K).toFixed(1)}, side ${(-ys * K).toFixed(1)} ${unit}`); };
-  keys.front.forEach((s, i) => chk(`torso node ${i} (${TN.names[i]})`, s[0][1], keys.side[i][0][1]));
+  // the two shoulder corners (nodes 0, 2) may differ, as long as their
+  // middle matches
+  keys.front.forEach((s, i) => { if (i !== 0 && i !== 2) chk(`torso node ${i} (${TN.names[i]})`, s[0][1], keys.side[i][0][1]); });
+  const midTop = (T) => (node(T, 0)[1] + node(T, 2)[1]) / 2;
+  chk('torso shoulder corners (middle of nodes 0 and 2)', midTop(keys.front), midTop(keys.side));
   for (const k of ['shoulder', 'elbow', 'wrist', 'hip', 'knee', 'ankle', 'neck-base'])
     if (A[`side-${k}`]) chk(`anchor ${k}`, A[k][1], A[`side-${k}`][1], 'px above the ground');
   if (notes.length) console.warn(`${file}:\n  ${notes.join('\n  ')}`);
