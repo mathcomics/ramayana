@@ -121,7 +121,8 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     const st = -sp.lean + l.hip, ss = st - l.knee;
     // a limb seen end-on keeps at least about its own width in length (it
     // reads as the limb's round end, not a sliver)
-    const pj = (L, theta, o) => { const r = dpProject(theta, o, front); r.f = Math.max(r.f, dpMinF(L)); return r; };
+    // (only the drawn part; the joints stay where the projection puts them)
+    const pj = (L, theta, o) => { const r = dpProject(theta, o, front); r.draw = Math.max(r.f, dpMinF(L)); return r; };
     const U = pj(M.upperArm, su, a.out), Lo = pj(M.forearm, sl, a.out);
     const Th = pj(M.thigh, st, l.out), Sh = pj(M.shin, ss, l.out);
     // toward the viewer of the front view (+) or away (-): the forward reach
@@ -133,19 +134,19 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     const Kn = add(hp, mul(dirM(Th.ang), M.thigh.len * Th.f)), A = add(Kn, mul(dirM(Sh.ang), M.shin.len * Sh.f));
     const foot = dpTurn(M.foot, turn);
     const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist };
-    limbs[s] = {
+    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A },
       arm: [
-        ['upper-arm', place(dpTurn(M.upperArm, turn), sh, U.ang, m, U.f), dU],
-        ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.f), dL],
+        ['upper-arm', place(dpTurn(M.upperArm, turn), sh, U.ang, m, U.draw), dU],
+        ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.draw), dL],
         ['hand', place(dpTurn(hands, turn), Wr, th, m), dL],
       ],
       // the shin goes behind the thigh (drawn first), in every view
       // the shin goes behind the thigh (drawn first), in every view
       leg: [
-        ['shin', place(dpTurn(M.shin, turn), Kn, Sh.ang, m, Sh.f), dS],
+        ['shin', place(dpTurn(M.shin, turn), Kn, Sh.ang, m, Sh.draw), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
         ['foot', dpMap(foot, (p) => { const q = rot(p, -ankle); return add(A, [m * q[0], q[1]]); }), dS],
-        ['thigh', place(dpTurn(M.thigh, turn), hp, Th.ang, m, Th.f), dT],
+        ['thigh', place(dpTurn(M.thigh, turn), hp, Th.ang, m, Th.draw), dT],
       ],
     };
   }
@@ -186,7 +187,7 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     out.push(headShape); push(limbs.near, 'arm', 'near');
   }
   for (const s of out) if (s.segs) { s.pts = dpFlat(s.segs); }
-  return { shapes: out, H, headRot };
+  return { shapes: out, H, headRot, joints: { near: limbs.near.joints, far: limbs.far.joints } };
 }
 
 const dpF = (v) => (Math.round(v * 1000) / 1000).toString();
