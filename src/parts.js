@@ -152,7 +152,13 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
   const headShape = { role: 'body', head: true, headPart: true, part: 'head',
     pts: [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]].map((q) => add(H, rot(q, headRot))) };
   // the torso goes over the legs (a forward bend covers the thighs)
-  if (front) {
+  // front view: a torso leaning forward comes toward the viewer and covers
+  // the legs; leaning back it goes behind them (legs and leg cloth on top)
+  const torsoBack = sp.lean + sp.chest / 2 < 0;
+  if (front && torsoBack) {
+    pushTorso(); push(limbs.far, 'leg', 'far'); push(limbs.near, 'leg', 'near');
+    push(limbs.far, 'arm', 'far'); push(limbs.near, 'arm', 'near'); out.push(headShape);
+  } else if (front) {
     push(limbs.far, 'leg', 'far'); push(limbs.near, 'leg', 'near'); pushTorso();
     push(limbs.far, 'arm', 'far'); push(limbs.near, 'arm', 'near'); out.push(headShape);
   } else {
