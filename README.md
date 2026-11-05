@@ -35,6 +35,8 @@ scene spec (JSON) → layout → figure geometry → SVG
 docs/style-bible.md      visual rules — read before changing the renderer
 docs/scene-spec.md       proposal: scene spec, props, layout
 docs/panels.md           the panel language (implemented), lab, publishing
+docs/drawn-parts.md      drawn-parts figures (branch drawn-parts)
+docs/remaining-rules.md  what is still rule-based in them, and the blockers
 src/scene.js             panels and screens: definition in, SVG out
 panels/<NN-section>/     panel definitions: <id>.json (+ optional <id>.svg background)
 data/props.json          prop registry (sizes; placeholders until drawn)

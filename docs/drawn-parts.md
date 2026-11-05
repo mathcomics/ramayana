@@ -1,5 +1,7 @@
 # Drawn parts (experiment, branch `drawn-parts`)
 
+What is still rule-based, and what blocks each rule: `docs/remaining-rules.md`.
+
 Bodies built from the artist's own outlines instead of rule-based shapes.
 The skeleton, poses, faces and the derived front view stay as they are;
 only the shapes change. Two parts files: `male` and `female`. The monkey
