@@ -16,7 +16,9 @@
 //   front-bend  torso (bent forward, seen from the front)
 //   side-bend   torso (bent forward, seen from the side)
 //   anchors     circles: shoulder, elbow, wrist, hip, knee, ankle,
-//               neck-base, neck-top; side-ankle for the side foot
+//               neck-base, neck-top; side view: side-shoulder,
+//               side-shoulder-far, side-hip (both legs), side-neck-base,
+//               side-ankle (the side foot)
 //               (optional wrist-<hand> for a hand drawn elsewhere)
 // Other layers are ignored. The four torsos must have the same edges in
 // the same order round the outline (any start node); the two feet likewise.
@@ -179,6 +181,18 @@ function importParts(file) {
     hip: { idx: triH, w: bary(toT(A.hip), tri(keys.front, triH)) },
     neck: { idx: triN, w: bary(toT(A['neck-base']), tri(keys.front, triN)) },
   };
+  // side-view joints from the side anchors, on the side torso's nodes (so
+  // they follow the bend); one hip point for both legs. Without side
+  // anchors the front's are used on the side torso.
+  const PS = hipMid(torsos.side);
+  const sideAtt = (name, idx) => (A[name] ? { idx, w: bary(sub(A[name], PS), tri(keys.side, idx)) } : null);
+  const sTriS = [0, 1, 6], sTriSF = [2, 1, 3];
+  const attachSide = A['side-hip'] ? {
+    shoulder: sideAtt('side-shoulder', sTriS) || attach.shoulder,
+    shoulderFar: sideAtt('side-shoulder-far', sTriSF) || sideAtt('side-shoulder', sTriS) || attach.shoulder,
+    hip: sideAtt('side-hip', triH),
+    neck: sideAtt('side-neck-base', [1, 6, 3]) || attach.neck,
+  } : undefined;
   const upAx = (T) => angleOf(sub(node(T, 1), lerp(node(T, 3), node(T, 6), 0.5)));
   const bend = wrap(upAx(keys.side) - upAx(keys.sideBend));
   const height = (T) => -node(T, 1)[1];
@@ -205,7 +219,7 @@ function importParts(file) {
 
   return {
     torso: Object.fromEntries(Object.entries(keys).map(([k, v]) => [k, pack(v)])),
-    attach, mirror: [2, 1, 0, 6, 5, 4, 3],
+    attach, attachSide, mirror: [2, 1, 0, 6, 5, 4, 3],
     bend: r4(bend), frontBend: r4(height(keys.frontBend) / height(keys.front)),
     upperArm: bone(F['upper-arm'], A.shoulder, A.elbow),
     forearm: bone(F.forearm, A.elbow, A.wrist),

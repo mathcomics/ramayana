@@ -37,9 +37,21 @@ const neckTop = add(neckBase, [0, -M.neck.len]);
 const SX = 2.8;                                          // side pelvis, head-units right of the front
 const sideOf = (segs) => moveSegs(segs, [SX, 0]);
 const TS = M.torso.side;
-const sShoulder = add(at(M.attach.shoulder.w, M.attach.shoulder.idx, TS), [SX, 0]);
-const sHip = add(at(M.attach.hip.w, M.attach.hip.idx, TS), [SX, 0]);
-const sNeck = add(at(M.attach.neck.w, M.attach.neck.idx, TS), [SX, 0]);
+// side-view joints: the model's own (attachSide), or first guesses taken
+// from the front's, each at the same height as its front-view partner
+const sideAt = (k, far) => {
+  const a = M.attachSide?.[k];
+  if (a) return at(a.w, a.idx, TS);
+  const b = M.attach[k === 'shoulderFar' ? 'shoulder' : k];
+  const idx = far ? b.idx.map((i) => M.mirror[i]) : b.idx;
+  return at(b.w, idx, TS);
+};
+const level = (p, q) => [p[0], q[1]];                    // keep x, take the front partner's y
+const sHip0 = M.attachSide ? sideAt('hip') : [(sideAt('hip')[0] + sideAt('hip', true)[0]) / 2, 0];
+const sHip = add(level(sHip0, hip), [SX, 0]);            // one hip point for both legs
+const sShoulder = add(M.attachSide ? sideAt('shoulder') : level(sideAt('shoulder'), shoulder), [SX, 0]);
+const sShoulderFar = add(M.attachSide ? sideAt('shoulderFar') : level(sideAt('shoulder', true), shoulder), [SX, 0]);
+const sNeck = add(M.attachSide ? sideAt('neck') : level(sideAt('neck'), neckBase), [SX, 0]);
 const sAnkle = add(sHip, [0, M.thigh.len + M.shin.len]);
 const flipX = (segs) => segs.map((s) => s.map((p) => [-p[0], p[1]]));   // side view: curve on triceps / calf
 const sElbow = add(sShoulder, [0, M.upperArm.len]), sWrist = add(sElbow, [0, M.forearm.len]), sKnee = add(sHip, [0, M.thigh.len]);
@@ -70,7 +82,8 @@ const parts = {
   side: { torso: sideOf(M.torso.side), foot: moveSegs(M.foot.side, sAnkle) },
   'side-bend': { torso: sideOf(M.torso.sideBend) },
 };
-const anchors = { shoulder, elbow, wrist, hip, knee, ankle, 'neck-base': neckBase, 'neck-top': neckTop, 'side-ankle': sAnkle };
+const anchors = { shoulder, elbow, wrist, hip, knee, ankle, 'neck-base': neckBase, 'neck-top': neckTop,
+  'side-shoulder': sShoulder, 'side-shoulder-far': sShoulderFar, 'side-hip': sHip, 'side-ankle': sAnkle, 'side-neck-base': sNeck };
 
 // ground at y = 0 (the lowest foot point), pelvis at x = 0
 const lowest = Math.max(...[...parts.front.foot, ...parts.side.foot].flat().map((p) => p[1]));
@@ -112,8 +125,10 @@ const svg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
      up, feet are flat. Parts that share a joint sit on the same anchor:
      the four torsos on one pelvis (layers front, side, front-bend,
      side-bend; show one at a time), the hands on the wrist, both feet on
-     the ankle. The side view stands to the right on its own pelvis, its
-     foot on side-ankle. The layer "side-limbs (guide)" (locked, dashed)
+     the ankle. The side view stands to the right on its own pelvis with
+     its own anchors: side-shoulder, side-shoulder-far, side-hip (one point
+     for both legs), side-neck-base, side-ankle. A side anchor sits at the
+     same height as its front partner. The layer "side-limbs (guide)" (locked, dashed)
      shows how the renderer hangs the shared limbs on the side torso; it
      is not read back: limbs are edited in the front layer.
 
@@ -121,7 +136,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
      hand-point, thigh, shin, foot. The four torsos keep the same number of
      edges in the same order round the outline; the two feet likewise.
      anchors: shoulder, elbow, wrist, hip, knee, ankle, neck-base, neck-top
-     side-ankle (the circle centre counts). 100 px = 1 head-unit; ground at y = 0. -->
+     side-… (the circle centre counts). 100 px = 1 head-unit; ground at y = 0. -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
      width="${w}" height="${h}" viewBox="${x0} ${y0} ${w} ${h}">
 <line x1="${x0}" x2="${f(x0 + w)}" y1="0" y2="0" stroke="#c9bfae" stroke-width="1"/>

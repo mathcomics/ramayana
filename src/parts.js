@@ -49,11 +49,19 @@ export function partsTorso(M, turn, bend) {
   const pivot = lerp(dpNode(straight, 3), dpNode(straight, 6), 0.5);
   return dpPolar(straight, bent, bend, pivot);
 }
-function dpAttach(M, T, which, far) {
-  const a = M.attach[which];
-  const idx = far ? a.idx.map((i) => M.mirror[i]) : a.idx;
+// A joint on the torso: a mix of three torso nodes. Front and side each
+// have their own mix (attach / attachSide); a turn blends the two.
+// In side view one hip point serves both legs.
+function dpMix(a, T, mirror) {
+  const idx = mirror ? a.idx.map((i) => mirror[i]) : a.idx;
   const [A, B, C] = idx.map((i) => dpNode(T, i));
   return add(add(mul(A, a.w[0]), mul(B, a.w[1])), mul(C, a.w[2]));
+}
+function dpAttach(M, T, which, far, turn) {
+  const front = dpMix(M.attach[which], T, far ? M.mirror : null);
+  if (!M.attachSide || turn === 0) return front;
+  const s = M.attachSide[far && which === 'shoulder' ? 'shoulderFar' : which];
+  return lerp(front, dpMix(s, T, null), turn);
 }
 
 // Side view: the parts are drawn with every limb's curve on the outside;
@@ -80,7 +88,7 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     const m = front && far ? -1 : 1;           // front view: far limbs mirrored to picture-left
     const dirM = (t) => { const d = dir(t); return [m * d[0], d[1]]; };
     const a = pose[s].arm, l = pose[s].leg;
-    const sh = dpAttach(M, T, 'shoulder', far), hp = dpAttach(M, T, 'hip', far);
+    const sh = dpAttach(M, T, 'shoulder', far, turn), hp = dpAttach(M, T, 'hip', far, turn);
     const tu = m * -(lean + chest) + a.shoulder, tl = tu + a.elbow, th = tl + a.wrist;
     const E = add(sh, mul(dirM(tu), M.upperArm.len)), Wr = add(E, mul(dirM(tl), M.forearm.len));
     const tt = m * -lean + l.hip, ts = tt - l.knee;
@@ -102,7 +110,7 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     };
   }
   const up3 = 180 - (lean + chest + neck);
-  const nb = dpAttach(M, T, 'neck', false);
+  const nb = dpAttach(M, T, 'neck', false, turn);
   const neckTop = add(nb, mul(dir(up3), M.neck.len));
   const headRot = lean + chest + neck + head;
   const H = add(neckTop, mul(dir(180 - headRot), 0.21));

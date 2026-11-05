@@ -12,7 +12,11 @@ near side (picture-right). Every part is at rotation 0 (limbs hang straight
 down, neck up, feet flat) and parts that share a joint sit on the same
 anchor: the four torsos on one pelvis (one layer each; show one at a
 time), all hands on the wrist, the front foot on the ankle. The side view
-stands to the right on its own pelvis (side foot on `side-ankle`), with a
+stands to the right on its own pelvis with its own anchors
+(`side-shoulder`, `side-shoulder-far`, `side-hip`, `side-neck-base`,
+`side-ankle`); **a side anchor sits at the same height as its front
+partner**, and one `side-hip` serves both legs (so a lean can't put the
+hips at different heights). Turning blends the front and side joints. With a
 locked guide layer showing how the shared limbs hang on the side torso
 (not read back; limbs are edited in the front layer).
 `node tools/export-parts.mjs` writes this file from `data/parts.json`. By
