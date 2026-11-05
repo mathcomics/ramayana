@@ -79,10 +79,11 @@ move the legs.
   joint) turns with the body, not the limb (fully 0.12 above the joint,
   blending below), so it stays inside the chest or the buttocks when the
   body leans.
-- Draw order: the shin always goes behind the thigh. Front view sorts by
-  depth: legs under the torso, arms over it, but a part reaching toward
-  the viewer comes over and one reaching away goes under; a torso
-  leaning back goes behind the legs. A limb seen end-on keeps about its
+- Draw order by depth: each limb (and the head and tail) gets a depth
+  toward the viewer from the 3D pose (front view: forward; side view:
+  sideways) and is drawn far to near, as a unit (shin behind thigh); it
+  goes over the torso when it is in front of the torso at that height
+  (arms: of its middle less half its depth; legs: of its near surface). A limb seen end-on keeps about its
   own width in length.
 - Feet keep their size. Front view: the foot turns until its lowest point
   sits as far below the ankle as in the side view (× cos out); heights are

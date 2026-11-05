@@ -10,10 +10,7 @@ Updated 2026-11-05.
 
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
-| Front view: a limb part reaching toward the viewer (reach > 0.5) is drawn over the torso, one reaching away (< −0.5) under it | arms, legs (front view) | Depth sorting (step 2): each part gets a depth toward the viewer from the side pose, parts drawn back to front |
-| Front view: a torso leaning back (lean + chest/2 < 0) goes behind all the legs | torso, legs (front view) | Depth sorting (step 2) |
-| Side view: fixed draw order (far arm, far leg, tail, near leg, torso, head, near arm) | all parts (side view) | Depth sorting (step 2) for out-of-paper limbs (`out`) and a far arm crossing in front |
-| The drawn back hair layer is always behind the whole body (shows between the legs when the head is low) | head: hair back | Depth sorting (step 2), and the artist's review of the hair-back layers (a hanging-forward or back-of-head drawing) |
+| The drawn back hair layer is always behind the whole body (shows between the legs when the head is low) | head: hair back | The artist's hair-back layers (a hanging-forward or back-of-head drawing); then place it by depth like the other parts |
 | Front view: the foot is turned until its lowest point sits as far below the ankle as in the side view | feet (front view) | Toe direction from the `toe` / `side-toe` anchors (step 3), plus a toe-turn pose setting |
 | `headView` switch (front / side face) per pose; the front view always shows the front face | head | Head turn and tilt pose settings (step 4) |
 | The face flips 180° when the head is upside down | head | Head turn and tilt (step 4) and a back-of-head layer in the face files |
@@ -25,6 +22,17 @@ Updated 2026-11-05.
 | End-on hands (layer `end`) stored but not used | hands | Step 5 |
 
 ## Approximations (stay unless changed)
+
+Draw order is by depth (step 2, done 2026-11-05): each limb gets a depth toward
+the viewer from the 3D pose and is drawn as a unit far to near; it goes
+over the torso when it is in front of the torso there. Its thresholds:
+
+| Rule | Affected part | Blocker before it can be removed |
+|---|---|---|
+| An arm part is over the torso when in front of the torso's middle less half its depth there; a leg part when in front of the torso's near surface; the head unless behind the far surface | arms, legs, head | None: tuning of how much of the torso's depth counts |
+| A limb is drawn as one unit, as near as its nearest part; its parts keep a fixed order (upper arm, forearm, hand; shin, foot, thigh) | arms, legs | Per-part sorting, if a limb crossing itself ever looks wrong |
+| Side view: the torso counts as wide as the shoulders (arms) or hips (legs), at every height | torso (side view) | The front torso's width at the part's height, if needed |
+
 
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|

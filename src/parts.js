@@ -273,6 +273,18 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
       return [x, P ? posed(P)[1] : height(dpMix(M.attach[which], F, far ? M.mirror : null)[1])];
     };
   }
+  // 3D joints for depth: the side view's place (Y, Z) and the front
+  // anchors' sideways offset (X). In the side view one hip point serves
+  // both legs, but in 3D each hip keeps its own sideways offset.
+  const Fs = M.torso.front;
+  const sideJ = (which, far) => {
+    const a = M.attachSide?.[far && which === 'shoulder' ? 'shoulderFar' : which];
+    return posed(a ? dpMix(a, M.torso.side, null) : dpMix(M.attach[which], M.torso.side, far ? M.mirror : null));
+  };
+  const joint3 = (which, far) => {
+    const p = sideJ(which, far), x = dpMix(M.attach[which], Fs, far ? M.mirror : null)[0];
+    return [x, p[1], p[0]];
+  };
   const limbs = {};
   for (const s of ['near', 'far']) {
     const far = s === 'far';
@@ -289,9 +301,18 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const pj = (L, theta, o) => { const r = dpProject(theta, o, front); r.draw = Math.max(r.f, dpMinF(L)); return r; };
     const U = pj(M.upperArm, su, a.out), Lo = pj(M.forearm, sl, a.out);
     const Th = pj(M.thigh, st, l.out), Sh = pj(M.shin, ss, l.out);
-    // toward the viewer of the front view (+) or away (-): the forward reach
-    const dz = (theta, o) => Math.cos(o * RAD) * Math.sin(theta * RAD);
-    const dU = dz(su, a.out), dL = dz(sl, a.out), dT = dz(st, l.out), dS = dz(ss, l.out);
+    // The limb in 3D (X sideways, + toward the near side; Y down; Z
+    // forward), for depth: the shoulder and hip at their side-view place
+    // and front-view sideways offset, each segment along
+    // (±sin out, cos out·cos θ, cos out·sin θ).
+    const sgn = far ? -1 : 1;
+    const v3 = (theta, o) => [sgn * Math.sin(o * RAD), Math.cos(o * RAD) * Math.cos(theta * RAD), Math.cos(o * RAD) * Math.sin(theta * RAD)];
+    const add3 = (p, d, L) => [p[0] + d[0] * L, p[1] + d[1] * L, p[2] + d[2] * L];
+    const sh3 = joint3('shoulder', far), hp3 = joint3('hip', far);
+    const E3 = add3(sh3, v3(su, a.out), M.upperArm.len), W3 = add3(E3, v3(sl, a.out), M.forearm.len);
+    const K3 = add3(hp3, v3(st, l.out), M.thigh.len), A3 = add3(K3, v3(ss, l.out), M.shin.len);
+    const mid3 = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2, (p[2] + q[2]) / 2];
+    const dU = mid3(sh3, E3), dL = mid3(E3, W3), dH = W3, dT = mid3(hp3, K3), dS = mid3(K3, A3), dF = A3;
     const th = front ? Lo.ang : sl + a.wrist;
     // Foot (keeps its size). Side view: the ankle angle as given. Front
     // view: heights are shared between the views, so the front foot is
@@ -318,14 +339,13 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
         ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.draw), dL],
         // the pointing finger always goes on the side toward the body (the
         // drawn point hand has it outside, so it is mirrored across the forearm)
-        ['hand', a.hand === 'point' ? place(dpMap(dpTurn(hands, turn), (p) => [-p[0], p[1]]), Wr, th, m) : place(dpTurn(hands, turn), Wr, th, m), dL],
+        ['hand', a.hand === 'point' ? place(dpMap(dpTurn(hands, turn), (p) => [-p[0], p[1]]), Wr, th, m) : place(dpTurn(hands, turn), Wr, th, m), dH],
       ],
-      // the shin goes behind the thigh (drawn first), in every view
       // the shin goes behind the thigh (drawn first), in every view
       leg: [
         ['shin', place(dpTurn(M.shin, turn), Kn, Sh.ang, m, Sh.draw), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
-        ['foot', dpMap(foot, (p) => { const q = rot(p, -ankle); return add(A, [m * q[0], q[1]]); }), dS],
+        ['foot', dpMap(foot, (p) => { const q = rot(p, -ankle); return add(A, [m * q[0], q[1]]); }), dF],
         ['thigh', placeCap(dpTurn(M.thigh, turn), hp, Th.ang, m, Th.draw, front ? 0 : -sp.lean), dT],
       ],
     };
@@ -359,28 +379,65 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   const hh = S.head.size / 2, hw = hh * (S.head.width ?? 1);
   const headShape = { role: 'body', head: true, headPart: true, part: 'head',
     pts: [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]].map((q) => add(H, rot(q, headRot))) };
-  // Draw order. Side view: far arm, far leg, near leg, torso (over the
-  // legs, so a forward bend covers the thighs), head, near arm.
-  // Front view, by depth: legs go under the torso and arms over it, except
-  // a part reaching toward the viewer (forward reach > 0.5) comes over the
-  // torso and one reaching away (< -0.5) goes under it; a torso leaning
-  // back goes behind all the legs.
-  const torsoBack = sp.lean + sp.chest / 2 < 0;
-  // tail root: behind the pelvis (side view: toward the back hip corner)
-  const tail = tailSpec ? dpTail(tailSpec, front ? [0, -0.1 * bodyScale] : add(lerp([0, 0], dpNode(T, 5), 0.75), rot([0, -0.12 * bodyScale], lean)), lean, pose) : [];
-  const pushTail = () => tail.forEach((pts) => out.push({ pts, role: 'body', part: 'tail' }));
-  if (front) {
-    pushTail();
-    const under = [], over = [];
-    for (const kind of ['leg', 'arm']) for (const s of ['far', 'near']) for (const [part, segs, d] of limbs[s][kind]) {
-      const on = kind === 'leg' ? torsoBack || d > 0.5 : d >= -0.5;
+  // Draw order by depth (toward the viewer: Z in the front view, X in the
+  // side view). Parts are drawn far to near, each limb as a unit (as near as
+  // its nearest part) (its
+  // parts in their fixed order: upper arm, forearm, hand; shin, foot,
+  // thigh). The torso goes between: a part is drawn over it when it is in
+  // front of the torso's middle at that height (arms, by half the torso's
+  // depth there: arms beside the body stay over it) or of its near surface
+  // (legs: the top of a thigh sits inside the pelvis). The head is over the
+  // torso unless it is behind the torso's far surface.
+  const depthOf = (p3) => (front ? p3[2] : p3[0]);
+  const TSflat = dpFlat(TS, 12);
+  const halfW = { arm: Math.abs(dpMix(M.attach.shoulder, Fs, null)[0]), leg: Math.abs(dpNode(Fs, 6)[0]) };
+  const torsoAt = (y, kind) => {                 // torso centre and half-depth seen at height y
+    if (!front) return { c: 0, h: halfW[kind] };
+    const xs = [];
+    for (let i = 0; i < TSflat.length; i++) {
+      const a = TSflat[i], b = TSflat[(i + 1) % TSflat.length];
+      if ((a[1] - y) * (b[1] - y) <= 0 && a[1] !== b[1]) xs.push(a[0] + (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]));
+    }
+    if (!xs.length) {                            // above or below the torso: its nearest end
+      const near = TSflat.reduce((q, p) => (Math.abs(p[1] - y) < Math.abs(q[1] - y) ? p : q));
+      return { c: near[0], h: 0.1 };
+    }
+    const z0 = Math.min(...xs), z1 = Math.max(...xs);
+    return { c: (z0 + z1) / 2, h: (z1 - z0) / 2 };
+  };
+  const units = [];                              // {depth, over, items}
+  for (const s of ['far', 'near']) for (const kind of ['leg', 'arm']) {
+    const L = limbs[s][kind];
+    const over = [], under = [];
+    for (const [part, segs, p3] of L) {
+      const { c, h } = torsoAt(p3[1], kind);
+      const d = depthOf(p3);
+      const on = kind === 'arm' ? d >= c - h / 2 : d > c + h;
       (on ? over : under).push(item(part, segs, s));
     }
-    out.push(...under); pushTorso(); out.push(...over, headShape);
-  } else {
-    push(limbs.far, 'arm', 'far'); push(limbs.far, 'leg', 'far'); pushTail(); push(limbs.near, 'leg', 'near'); pushTorso();
-    out.push(headShape); push(limbs.near, 'arm', 'near');
+    // a limb is as near as its nearest part (a hand raised to the face
+    // decides whether the arm goes over the head)
+    const depth = Math.max(...L.map((x) => depthOf(x[2])));
+    if (under.length) units.push({ depth, over: false, items: under });
+    if (over.length) units.push({ depth, over: true, items: over });
   }
+  // head: its centre in 3D (side-view place; X = 0)
+  const nbS = sideJ('neck', false);
+  const upS = 180 - (sp.lean + sp.chest + sp.neck);
+  const headS = add(add(nbS, mul(dir(upS), M.neck.len)), mul(dir(180 - (sp.lean + sp.chest + sp.neck + sp.head)), 0.21));
+  const head3 = [0, headS[1], headS[0]];
+  const tH = torsoAt(head3[1], 'arm');
+  units.push({ depth: depthOf(head3), over: depthOf(head3) >= tH.c - tH.h, items: [headShape] });
+  // tail: from the back of the pelvis, in the middle (X = 0)
+  const tail = tailSpec ? dpTail(tailSpec, front ? [0, -0.1 * bodyScale] : add(lerp([0, 0], dpNode(T, 5), 0.75), rot([0, -0.12 * bodyScale], lean)), lean, pose) : [];
+  if (tail.length) {
+    const back = posed(add(dpNode(M.torso.side, 5), [-0.1, -0.12]));
+    units.push({ depth: front ? back[0] : 0, over: false, items: tail.map((pts) => ({ pts, role: 'body', part: 'tail' })) });
+  }
+  const byDepth = (a, b) => a.depth - b.depth;
+  for (const u of units.filter((u) => !u.over).sort(byDepth)) out.push(...u.items);
+  pushTorso();
+  for (const u of units.filter((u) => u.over).sort(byDepth)) out.push(...u.items);
   for (const s of out) if (s.segs) { s.pts = dpFlat(s.segs); }
   return { shapes: out, H, headRot, joints: { near: limbs.near.joints, far: limbs.far.joints } };
 }
