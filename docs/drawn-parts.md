@@ -6,19 +6,26 @@ only the shapes change. For now all three species use the male parts.
 
 ## The parts file
 
-`data/parts/<id>.svg` (100 px = 1 head-unit), by layer and label:
+`data/parts/<id>.svg` (100 px = 1 head-unit, ground at y = 0), in the
+renderer's frame: the figure faces right and the front-view limbs are its
+near side (picture-right). Every part is at rotation 0 (limbs hang straight
+down, neck up, feet flat) and parts that share a joint sit on the same
+anchor: the four torsos on one pelvis (one layer each; show one at a
+time), all hands on the wrist, both feet on the ankle.
+`node tools/export-parts.mjs` writes this file from `data/parts.json`. By
+layer and label:
 
 | Layer | Parts |
 |---|---|
-| `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand-fist`, `hand-out`, `hand-point` (`hand-in` optional, else `hand-out` mirrored), `thigh`, `shin`, `foot`. Limbs are the figure's left side, assembled on the torso. |
-| `side` | `torso`, `foot` (facing left) |
+| `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand-fist`, `hand-out`, `hand-in`, `hand-point`, `thigh`, `shin`, `foot` |
+| `side` | `torso`, `foot` |
 | `front-bend`, `side-bend` | `torso`, bent forward |
-| `anchors` | circles `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top` (optional `wrist-out` … for hands drawn away from the arm) |
+| `anchors` | circles `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`  |
 | `guide` | ignored |
 
 The four torsos need the same number of edges in the same order round
 the outline (start node and straight-vs-curved don't matter); the two
-feet likewise. Layers may be moved with a translate.
+feet likewise.
 
 `node tools/import-parts.mjs` → `data/parts.json`. A species uses it with
 `"parts": "male"` in `data/species/<id>.json`.

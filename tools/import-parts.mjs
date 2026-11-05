@@ -4,20 +4,22 @@
 //
 //   node tools/import-parts.mjs        -> data/parts.json
 //
-// The file (100 px = 1 head-unit), by layer and label:
+// The file (100 px = 1 head-unit) is in the renderer's frame: the figure
+// faces right, front-view limbs are its near side (picture-right). Parts
+// are drawn at rotation 0 (limbs straight down, neck up, feet flat), and
+// parts that share a joint sit on the same anchor (tools/export-parts.mjs
+// writes it that way). By layer and label:
 //   front       torso, neck, upper-arm, forearm, hand-fist, hand-out,
-//               hand-point (hand-in optional: else hand-out mirrored),
-//               thigh, shin, foot. Limbs are the figure's left side
-//               (picture-left), assembled on the front torso.
-//   side        torso, foot (facing left)
+//               hand-in, hand-point (missing hands fall back), thigh,
+//               shin, foot
+//   side        torso, foot
 //   front-bend  torso (bent forward, seen from the front)
 //   side-bend   torso (bent forward, seen from the side)
 //   anchors     circles: shoulder, elbow, wrist, hip, knee, ankle,
-//               neck-base, neck-top (optional: wrist-out, wrist-point …
-//               for hands not drawn at the wrist)
-//   guide       ignored
-// The four torsos must have the same edges in the same order round the
-// outline (any start node); the two feet likewise.
+//               neck-base, neck-top (optional wrist-<hand> for a hand
+//               drawn elsewhere)
+// Other layers are ignored. The four torsos must have the same edges in
+// the same order round the outline (any start node); the two feet likewise.
 import { readdirSync } from 'node:fs';
 import { parse, label } from './svg.mjs';
 import { read, writeOut } from './lib.mjs';
@@ -141,9 +143,9 @@ function importParts(file) {
   for (const k of ['torso', 'neck', 'upper-arm', 'forearm', 'hand-fist', 'thigh', 'shin', 'foot']) need(F, k, 'front');
   for (const k of ['shoulder', 'elbow', 'wrist', 'hip', 'knee', 'ankle', 'neck-base', 'neck-top']) need(AN, k, 'anchors');
 
-  // Mirror the whole drawing: front limbs become picture-right (= near),
-  // side parts face right (the renderer's convention). px -> head-units.
-  const M = (p) => [-p[0] / K, p[1] / K];
+  // The file is in the renderer's frame (facing right, front limbs on the
+  // near side, picture-right); px -> head-units.
+  const M = (p) => [p[0] / K, p[1] / K];
   const segsOf = (g) => g.map((x) => x.s.map(M));
   const A = Object.fromEntries(Object.entries(AN).map(([k, p]) => [k, M(p)]));
 
@@ -188,23 +190,18 @@ function importParts(file) {
   };
   const forearmAng = angleOf(sub(A.wrist, A.elbow));
   const hands = {};
-  const fist0 = M(F['hand-fist'][0].s[0]);
   for (const h of HANDS) {
     const g = F[`hand-${h}`];
     if (!g) continue;
-    // a hand drawn away from the arm: its wrist is anchors/wrist-<h>, or
-    // the fist's wrist moved by the offset between the two first nodes
-    const w = A[`wrist-${h}`] || (h === 'fist' ? A.wrist : add(A.wrist, sub(M(g[0].s[0]), fist0)));
+    const w = A[`wrist-${h}`] || A.wrist;              // hands sit on the wrist
     hands[h] = pack(mapSegs(segsOf(g), (p) => rot(sub(p, w), forearmAng)));
   }
   if (!hands.out) hands.out = hands.fist;
   if (!hands.point) hands.point = hands.out;
   if (!hands.in) hands.in = mapSegs(hands.out, (p) => [-p[0], p[1]]);   // thumb to the other side
 
-  // feet: flat as drawn, origin at the ankle; the side foot's ankle sits on
-  // the same nodes as the front foot's
+  // feet: flat as drawn, both on the ankle anchor
   const ff = segsOf(F.foot), fs = segsOf(align(need(Sd, 'foot', 'side'), F.foot, 'side foot', false));
-  const ankleSide = fromBary(bary(A.ankle, tri(ff, [0, 3, 4])), tri(fs, [0, 3, 4]));
 
   return {
     torso: Object.fromEntries(Object.entries(keys).map(([k, v]) => [k, pack(v)])),
@@ -216,7 +213,7 @@ function importParts(file) {
     shin: bone(F.shin, A.knee, A.ankle),
     neck: bone(F.neck, A['neck-base'], A['neck-top']),
     hands,
-    foot: { front: pack(mapSegs(ff, (p) => sub(p, A.ankle))), side: pack(mapSegs(fs, (p) => sub(p, ankleSide))) },
+    foot: { front: pack(mapSegs(ff, (p) => sub(p, A.ankle))), side: pack(mapSegs(fs, (p) => sub(p, A.ankle))) },
   };
 }
 
