@@ -12,16 +12,18 @@
 //   front       torso, neck, upper-arm, forearm, hand-fist, hand-out,
 //               hand-in, hand-point (missing hands fall back), thigh,
 //               shin, foot
-//   side        torso, foot
+//   side        torso, upper-arm, forearm, hand-*, thigh, shin, foot
+//               (each limb optional: else the front one is used)
 //   front-bend  torso (bent forward, seen from the front)
 //   side-bend   torso (bent forward, seen from the side)
 //   anchors     circles: shoulder, elbow, wrist, hip, knee, ankle,
 //               neck-base, neck-top; side view: side-shoulder,
-//               side-shoulder-far, side-hip (both legs), side-neck-base,
-//               side-ankle (the side foot)
+//               side-shoulder-far, side-elbow, side-wrist, side-hip
+//               (both legs), side-knee, side-ankle, side-neck-base
 //               (optional wrist-<hand> for a hand drawn elsewhere)
 // Other layers are ignored. The four torsos must have the same edges in
-// the same order round the outline (any start node); the two feet likewise.
+// the same order round the outline (any start node); a side limb, hand or
+// foot has the same number of edges as its front partner.
 import { readdirSync } from 'node:fs';
 import { parse, label } from './svg.mjs';
 import { read, writeOut } from './lib.mjs';
@@ -197,37 +199,72 @@ function importParts(file) {
   const bend = wrap(upAx(keys.side) - upAx(keys.sideBend));
   const height = (T) => -node(T, 1)[1];
 
-  // limbs: rigid, in bone frames (origin at the start joint, bone pointing down)
-  const bone = (g, a, b) => {
-    const ang = angleOf(sub(b, a));
-    return { segs: pack(mapSegs(segsOf(g), (p) => rot(sub(p, a), ang))), len: r4(Math.hypot(...sub(b, a))) };
+  // Limbs: rigid, in bone frames (origin at the start joint, bone pointing
+  // down), one shape per view. The side shape is optional: without it the
+  // front shape is used (mirrored across the bone where `flip`). Side
+  // anchors default to the front bone laid from the side start joint.
+  const toBone = (segs, a, b) => { const ang = angleOf(sub(b, a)); return mapSegs(segs, (p) => rot(sub(p, a), ang)); };
+  const reverse = (segs) => [...segs].reverse().map((s) => [...s].reverse());
+  // reorder `segs` (start node and direction) to match `ref` node for node
+  const match = (segs, ref, what) => {
+    if (segs.length !== ref.length) throw new Error(`${what}: ${segs.length} edges, front has ${ref.length}`);
+    let best = null;
+    for (const S of [segs, reverse(segs)]) for (let k = 0; k < S.length; k++) {
+      const r = S.slice(k).concat(S.slice(0, k));
+      const e = r.reduce((acc, s, i) => acc + Math.hypot(...sub(s[0], ref[i][0])), 0);
+      if (!best || e < best.e) best = { r, e };
+    }
+    return best.r;
   };
-  const forearmAng = angleOf(sub(A.wrist, A.elbow));
-  const hands = {};
-  for (const h of HANDS) {
-    const g = F[`hand-${h}`];
-    if (!g) continue;
-    const w = A[`wrist-${h}`] || A.wrist;              // hands sit on the wrist
-    hands[h] = pack(mapSegs(segsOf(g), (p) => rot(sub(p, w), forearmAng)));
-  }
-  if (!hands.out) hands.out = hands.fist;
-  if (!hands.point) hands.point = hands.out;
-  if (!hands.in) hands.in = mapSegs(hands.out, (p) => [-p[0], p[1]]);   // thumb to the other side
+  // side joints: the side anchor, else the front bone laid from the side joint above
+  const SJ = {};
+  SJ.shoulder = A['side-shoulder'] || A.shoulder;
+  SJ.elbow = A['side-elbow'] || add(SJ.shoulder, sub(A.elbow, A.shoulder));
+  SJ.wrist = A['side-wrist'] || add(SJ.elbow, sub(A.wrist, A.elbow));
+  SJ.hip = A['side-hip'] || A.hip;
+  SJ.knee = A['side-knee'] || add(SJ.hip, sub(A.knee, A.hip));
+  SJ.ankle = A['side-ankle'] || add(SJ.knee, sub(A.ankle, A.knee));
+  const limb = (name, j0, j1, flip) => {
+    const front = toBone(segsOf(F[name]), A[j0], A[j1]);
+    const s0 = SJ[j0], s1 = SJ[j1];
+    const side = Sd[name] ? match(toBone(segsOf(Sd[name]), s0, s1), front, `side ${name}`)
+      : match(flip ? mapSegs(front, (p) => [-p[0], p[1]]) : front, front, `side ${name}`);
+    return { front: pack(front), side: pack(side), len: r4(Math.hypot(...sub(A[j1], A[j0]))) };
+  };
 
-  // feet: flat as drawn, both on the ankle anchor
+  // Hands: on the wrist, turned so each points straight down (wrist to the
+  // hand's centre); wrist 0 in a pose = straight along the forearm.
+  const handFrame = (segs, w) => {
+    const pts = segs.flatMap((s) => s);
+    const c = mul(pts.reduce((acc, p) => add(acc, p), [0, 0]), 1 / pts.length);
+    return mapSegs(segs, (p) => rot(sub(p, w), angleOf(sub(c, w))));
+  };
+  const handsOf = (L, w, base) => {
+    const H = {};
+    for (const h of HANDS) if (L[`hand-${h}`]) H[h] = handFrame(segsOf(L[`hand-${h}`]), A[`wrist-${h}`] || w);
+    if (base) for (const h of HANDS) H[h] = H[h] ? match(H[h], base[h], `side hand-${h}`) : base[h];
+    H.out ||= H.fist; H.point ||= H.out;
+    H.in ||= mapSegs(H.out, (p) => [-p[0], p[1]]);     // thumb to the other side
+    return H;
+  };
+  const handsFront = handsOf(F, A.wrist);
+  const handsSide = handsOf(Sd, SJ.wrist, handsFront);
+  const packH = (H) => Object.fromEntries(Object.entries(H).map(([k, v]) => [k, pack(v)]));
+
+  // feet: flat as drawn, each on its ankle anchor
   const ff = segsOf(F.foot), fs = segsOf(align(need(Sd, 'foot', 'side'), F.foot, 'side foot', false));
 
   return {
     torso: Object.fromEntries(Object.entries(keys).map(([k, v]) => [k, pack(v)])),
     attach, attachSide, mirror: [2, 1, 0, 6, 5, 4, 3],
     bend: r4(bend), frontBend: r4(height(keys.frontBend) / height(keys.front)),
-    upperArm: bone(F['upper-arm'], A.shoulder, A.elbow),
-    forearm: bone(F.forearm, A.elbow, A.wrist),
-    thigh: bone(F.thigh, A.hip, A.knee),
-    shin: bone(F.shin, A.knee, A.ankle),
-    neck: bone(F.neck, A['neck-base'], A['neck-top']),
-    hands,
-    foot: { front: pack(mapSegs(ff, (p) => sub(p, A.ankle))), side: pack(mapSegs(fs, (p) => sub(p, A['side-ankle'] || A.ankle))) },
+    upperArm: limb('upper-arm', 'shoulder', 'elbow', true),
+    forearm: limb('forearm', 'elbow', 'wrist', false),
+    thigh: limb('thigh', 'hip', 'knee', false),
+    shin: limb('shin', 'knee', 'ankle', true),
+    neck: (() => { const s = toBone(segsOf(F.neck), A['neck-base'], A['neck-top']); return { segs: pack(s), len: r4(Math.hypot(...sub(A['neck-top'], A['neck-base']))) }; })(),
+    hands: { front: packH(handsFront), side: packH(handsSide) },
+    foot: { front: pack(mapSegs(ff, (p) => sub(p, A.ankle))), side: pack(mapSegs(fs, (p) => sub(p, SJ.ankle))) },
   };
 }
 
@@ -236,6 +273,6 @@ for (const f of readdirSync(new URL('../data/parts', import.meta.url)).filter((f
   const id = f.slice(0, -4);
   out[id] = importParts(`data/parts/${f}`);
   const m = out[id];
-  console.log(`${id}: bend ${m.bend.toFixed(0)}°, front-bend ×${m.frontBend.toFixed(2)}, arm ${m.upperArm.len}+${m.forearm.len}, leg ${m.thigh.len}+${m.shin.len}, hands ${Object.keys(m.hands).join(' ')}`);
+  console.log(`${id}: bend ${m.bend.toFixed(0)}°, front-bend ×${m.frontBend.toFixed(2)}, arm ${m.upperArm.len}+${m.forearm.len}, leg ${m.thigh.len}+${m.shin.len}, hands ${Object.keys(m.hands.front).join(' ')}`);
 }
 console.log(writeOut('data/parts.json', JSON.stringify({ note: 'generated by tools/import-parts.mjs from data/parts/*.svg; do not edit', parts: out })));

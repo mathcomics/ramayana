@@ -4,55 +4,55 @@
      then run tools/import-parts.mjs.
 
      The figure faces right; front-view limbs are its near side (picture-right).
-     Every part is at rotation 0: limbs hang straight down, the neck points
-     up, feet are flat. Parts that share a joint sit on the same anchor:
-     the four torsos on one pelvis (layers front, side, front-bend,
-     side-bend; show one at a time), the hands on the wrist, both feet on
-     the ankle. The side view stands to the right on its own pelvis with
-     its own anchors: side-shoulder, side-shoulder-far, side-hip (one point
-     for both legs), side-neck-base, side-ankle. A side anchor sits at the
-     same height as its front partner. The layer "side-limbs (guide)" (locked, dashed)
-     shows how the renderer hangs the shared limbs on the side torso; it
-     is not read back: limbs are edited in the front layer.
+     Every part is at rotation 0: limbs and hands hang straight down, the
+     neck points up, feet are flat. Parts that share a joint sit on the same
+     anchor: hands on the wrist, the foot on the ankle, and each bent torso
+     (red dashed, layers front-bend / side-bend) on its straight one.
+     The side view stands to the right with its own parts and anchors
+     (side-...); a side anchor sits at the same height as its front partner,
+     and one side-hip serves both legs. As the figure turns, each side part
+     is blended with its front partner, so it keeps the same number of edges
+     in the same order.
 
-     Labels: torso, neck, upper-arm, forearm, hand-fist, hand-out, hand-in,
-     hand-point, thigh, shin, foot. The four torsos keep the same number of
-     edges in the same order round the outline; the two feet likewise.
-     anchors: shoulder, elbow, wrist, hip, knee, ankle, neck-base, neck-top
-     side-… (the circle centre counts). 100 px = 1 head-unit; ground at y = 0. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-     width="563.76" height="603.73" viewBox="-143.42 -563.73 563.76 603.73">
-<line x1="-143.42" x2="420.34" y1="0" y2="0" stroke="#c9bfae" stroke-width="1"/>
+     Labels: torso, neck (front only), upper-arm, forearm, hand-fist,
+     hand-out, hand-in, hand-point, thigh, shin, foot.
+     anchors: shoulder, elbow, wrist, hip, knee, ankle, neck-base, neck-top,
+     side-shoulder, side-shoulder-far, side-elbow, side-wrist, side-hip,
+     side-knee, side-ankle, side-neck-base (the circle centre counts).
+     100 px = 1 head-unit; ground at y = 0. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="558.88" height="603.73" viewBox="-143.42 -563.73 558.88 603.73">
+<line x1="-143.42" x2="415.46" y1="0" y2="0" stroke="#c9bfae" stroke-width="1"/>
   <g id="front" inkscape:groupmode="layer" inkscape:label="front">
-    <path id="front-torso" inkscape:label="torso" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 73.47 -478.22 L 2.97 -499 L -68.28 -478.22 C -102.01 -468.38 -73.41 -410.86 -43.79 -389.53 L -44.53 -329.42 C -24.01 -310.86 5.75 -301.63 44.53 -328.68 L 45.64 -387.68 C 71.1 -413.48 108.35 -467.94 73.47 -478.22 Z"/>
+    <path id="front-torso" inkscape:label="torso" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 73.47 -478.22 L 2.97 -499 L -68.28 -478.22 C -102.01 -468.38 -73.41 -410.86 -43.79 -389.53 L -44.53 -329.42 C -24.01 -310.86 5.75 -301.63 44.53 -328.68 L 45.64 -389.68 C 71.1 -415.48 108.35 -467.94 73.47 -478.22 Z"/>
     <path id="front-neck" inkscape:label="neck" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 15.22 -483.65 L 15.21 -523.73 L -10.01 -523.26 L -10.02 -483.92 L 15.22 -483.65 Z"/>
     <path id="front-upper-arm" inkscape:label="upper-arm" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 80.73 -364.44 C 77.61 -348.59 57.73 -347.04 57.09 -363.99 L 52.81 -476.1 C 70.65 -479.24 79.9 -472.88 84.25 -461.44 C 93.27 -437.71 86.07 -391.65 80.73 -364.44 Z"/>
     <path id="front-forearm" inkscape:label="forearm" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 78.54 -367.03 C 100.85 -342.77 84.62 -304.84 76.12 -274.89 C 73.45 -265.48 60.93 -271.27 60.37 -282.53 L 56.33 -364.03 C 55.86 -373.39 70.19 -376.12 78.54 -367.03 Z"/>
-    <path id="front-hand-fist" inkscape:label="hand-fist" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 73.84 -274.34 C 75.42 -270.38 68.09 -243 63.91 -239.79 C 58.21 -235.42 35.04 -252.52 37.61 -259.47 C 38.77 -262.58 59.08 -280.77 63.27 -281.55 C 74.45 -283.61 72.4 -277.96 73.84 -274.34 Z"/>
-    <path id="front-hand-out" inkscape:label="hand-out" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 73.84 -274.34 C 75.23 -270.54 73.1 -247.55 71.55 -242.07 C 71.03 -240.21 64.42 -240.28 64.48 -244.3 L 64.65 -256.2 C 62.68 -257.36 47.37 -235.94 44.72 -236.4 C 36.88 -237.77 27.25 -252.28 28.43 -255.45 C 29.58 -258.57 59.08 -280.77 63.27 -281.55 C 74.45 -283.61 72.51 -278 73.84 -274.34 Z"/>
-    <path id="front-hand-in" inkscape:label="hand-in" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 62 -274.34 C 60.61 -270.54 62.74 -247.55 64.29 -242.07 C 64.81 -240.21 71.42 -240.28 71.36 -244.3 L 71.19 -256.2 C 73.16 -257.36 88.47 -235.94 91.12 -236.4 C 98.96 -237.77 108.59 -252.28 107.41 -255.45 C 106.26 -258.57 76.76 -280.77 72.57 -281.55 C 61.39 -283.61 63.33 -278 62 -274.34 Z"/>
-    <path id="front-hand-point" inkscape:label="hand-point" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 73.84 -274.34 C 75.42 -270.38 70.29 -248.67 66.11 -245.46 C 49.95 -242.92 49.63 -253.86 49.81 -258.1 L 34.21 -245.78 C 24.81 -242.64 28.96 -250.47 31.05 -252.85 C 33.25 -255.34 59.08 -280.77 63.27 -281.55 C 74.45 -283.61 72.4 -277.96 73.84 -274.34 Z"/>
+    <path id="front-hand-fist" inkscape:label="hand-fist" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 74.01 -277.78 C 77.44 -275.26 85.72 -248.15 83.88 -243.21 C 81.36 -236.49 52.65 -238.72 51.15 -245.98 C 50.48 -249.23 58.08 -275.42 61.22 -278.3 C 69.62 -285.97 70.87 -280.09 74.01 -277.78 Z"/>
+    <path id="front-hand-out" inkscape:label="hand-out" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 74.14 -276.94 C 76.97 -274.04 84.43 -252.19 85.25 -246.55 C 85.54 -244.64 79.48 -242 77.89 -245.7 L 73.18 -256.62 C 70.9 -256.88 65.69 -231.07 63.09 -230.41 C 55.37 -228.45 40.65 -237.75 40.43 -241.13 C 40.21 -244.44 58.05 -276.77 61.55 -279.19 C 70.91 -285.65 71.43 -279.73 74.14 -276.94 Z"/>
+    <path id="front-hand-in" inkscape:label="hand-in" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 61.7 -276.94 C 58.87 -274.04 51.41 -252.19 50.59 -246.55 C 50.3 -244.64 56.36 -242 57.95 -245.7 L 62.66 -256.62 C 64.94 -256.88 70.15 -231.07 72.75 -230.41 C 80.47 -228.45 95.19 -237.75 95.41 -241.13 C 95.63 -244.44 77.79 -276.77 74.29 -279.19 C 64.93 -285.65 64.41 -279.73 61.7 -276.94 Z"/>
+    <path id="front-hand-point" inkscape:label="hand-point" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 73.64 -278.86 C 77.48 -277.01 88.35 -257.53 87.44 -252.34 C 77.23 -239.56 69.61 -247.41 66.88 -250.66 L 63.69 -231.04 C 58.87 -222.38 56.65 -230.96 56.58 -234.12 C 56.52 -237.45 58.41 -273.64 60.98 -277.05 C 67.84 -286.11 70.14 -280.56 73.64 -278.86 Z"/>
     <path id="front-thigh" inkscape:label="thigh" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 41.52 -332.57 C 82.6 -280.35 54.54 -225.44 41.49 -174.03 C 35.29 -149.59 12.35 -159.97 11.17 -170.37 L -4.18 -305.63 C 4.08 -331.52 21.6 -330.28 41.52 -332.57 Z"/>
     <path id="front-shin" inkscape:label="shin" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 40.15 -173.05 C 68.07 -120.75 44.69 -76.52 33.49 -30.96 C 30.08 -17.09 13.49 -25.09 13.45 -31.81 L 12.67 -170.22 C 12.59 -184.05 34.55 -183.52 40.15 -173.05 Z"/>
     <path id="front-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 29.73 -29.78 C 33.88 -23.7 41.39 -18.9 53.39 -10.89 C 59.76 -11.18 64.77 -9.29 62.49 -1.09 L 11.53 0 L 15.85 -25.06 L 29.73 -29.78 Z"/>
   </g>
-  <g id="front-bend" inkscape:groupmode="layer" inkscape:label="front-bend" style="display:none">
-    <path id="front-bend-torso" inkscape:label="torso" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 73.47 -432.22 L 0.34 -432.53 L -68.28 -432.22 C -103.42 -432.06 -73.41 -364.86 -43.79 -343.53 L -44.53 -329.42 C -14.19 -309.58 15.84 -307.37 44.53 -328.68 L 45.64 -341.68 C 71.1 -367.48 108.35 -421.94 73.47 -432.22 Z"/>
-  </g>
-  <g id="side-limbs" inkscape:groupmode="layer" inkscape:label="side-limbs (guide)" sodipodi:insensitive="true">
-    <path id="side-limbs-neck" inkscape:label="neck" style="fill:#b08a6a;fill-opacity:0.15;stroke:#8a8178;stroke-width:1;stroke-dasharray:4 3" d="M 270.56 -483.65 L 270.55 -523.73 L 245.33 -523.26 L 245.32 -483.92 L 270.56 -483.65 Z"/>
-    <path id="side-limbs-upper-arm" inkscape:label="upper-arm" style="fill:#b08a6a;fill-opacity:0.15;stroke:#8a8178;stroke-width:1;stroke-dasharray:4 3" d="M 270.66 -364.44 C 273.78 -348.59 293.66 -347.04 294.3 -363.99 L 298.58 -476.1 C 280.74 -479.24 271.49 -472.88 267.14 -461.44 C 258.12 -437.71 265.32 -391.65 270.66 -364.44 Z"/>
-    <path id="side-limbs-forearm" inkscape:label="forearm" style="fill:#b08a6a;fill-opacity:0.15;stroke:#8a8178;stroke-width:1;stroke-dasharray:4 3" d="M 294.09 -367.03 C 316.4 -342.77 300.17 -304.84 291.67 -274.89 C 289 -265.48 276.48 -271.27 275.92 -282.53 L 271.88 -364.03 C 271.41 -373.39 285.74 -376.12 294.09 -367.03 Z"/>
-    <path id="side-limbs-hand" inkscape:label="hand" style="fill:#b08a6a;fill-opacity:0.15;stroke:#8a8178;stroke-width:1;stroke-dasharray:4 3" d="M 289.39 -274.34 C 290.97 -270.38 283.64 -243 279.46 -239.79 C 273.76 -235.42 250.59 -252.52 253.16 -259.47 C 254.32 -262.58 274.63 -280.77 278.82 -281.55 C 290 -283.61 287.95 -277.96 289.39 -274.34 Z"/>
-    <path id="side-limbs-thigh" inkscape:label="thigh" style="fill:#b08a6a;fill-opacity:0.15;stroke:#8a8178;stroke-width:1;stroke-dasharray:4 3" d="M 295.94 -332.57 C 337.02 -280.35 308.96 -225.44 295.91 -174.03 C 289.71 -149.59 266.77 -159.97 265.59 -170.37 L 250.24 -305.63 C 258.5 -331.52 276.02 -330.28 295.94 -332.57 Z"/>
-    <path id="side-limbs-shin" inkscape:label="shin" style="fill:#b08a6a;fill-opacity:0.15;stroke:#8a8178;stroke-width:1;stroke-dasharray:4 3" d="M 266.43 -173.05 C 238.51 -120.75 261.89 -76.52 273.09 -30.96 C 276.5 -17.09 293.09 -25.09 293.13 -31.81 L 293.91 -170.22 C 293.99 -184.05 272.03 -183.52 266.43 -173.05 Z"/>
+  <g id="front-bend" inkscape:groupmode="layer" inkscape:label="front-bend">
+    <path id="front-bend-torso" inkscape:label="torso" style="fill:#b06a6a;fill-opacity:0.2;stroke:#a03030;stroke-width:1;stroke-dasharray:5 3" d="M 73.47 -432.22 L 0.34 -432.53 L -68.28 -432.22 C -103.42 -432.06 -73.41 -364.86 -43.79 -343.53 L -44.53 -329.42 C -14.19 -309.58 15.84 -307.37 44.53 -328.68 L 45.64 -341.68 C 71.1 -367.48 108.35 -421.94 73.47 -432.22 Z"/>
   </g>
   <g id="side" inkscape:groupmode="layer" inkscape:label="side">
-    <path id="side-torso" inkscape:label="torso" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 277.47 -499.36 L 256.85 -499.81 L 239.27 -497.11 C 225.54 -491.33 200.25 -417.48 243.21 -383.64 L 247.8 -332.04 C 256.96 -310.44 289.33 -302.13 312.2 -326.06 L 313.7 -398.86 C 327.69 -430.32 306.63 -481.76 277.47 -499.36 Z"/>
-    <path id="side-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 286.45 -29.78 C 293.22 -23.7 305.47 -18.9 325.04 -10.89 C 335.43 -11.18 343.61 -9.29 339.89 -1.09 L 256.77 0 L 263.82 -25.06 L 286.45 -29.78 Z"/>
+    <path id="side-torso" inkscape:label="torso" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 277.47 -501.36 L 256.85 -501.81 L 239.27 -499.11 C 225.54 -493.33 200.25 -419.48 243.21 -385.64 L 247.8 -330.04 C 256.96 -308.44 289.33 -304.13 312.2 -328.06 L 313.7 -400.86 C 327.69 -432.32 306.63 -483.76 277.47 -501.36 Z"/>
+    <path id="side-upper-arm" inkscape:label="upper-arm" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 286.3 -365.99 C 285.66 -349.04 265.78 -350.59 262.66 -366.44 C 257.32 -393.65 250.12 -439.71 259.14 -463.44 C 263.49 -474.88 272.74 -481.24 290.58 -478.1 L 286.3 -365.99 Z"/>
+    <path id="side-forearm" inkscape:label="forearm" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 286.09 -369.03 C 308.4 -344.77 292.17 -306.84 283.67 -276.89 C 281 -267.48 268.48 -273.27 267.92 -284.53 L 263.88 -366.03 C 263.41 -375.39 277.74 -378.12 286.09 -369.03 Z"/>
+    <path id="side-hand-fist" inkscape:label="hand-fist" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 281.56 -279.78 C 284.99 -277.26 293.27 -250.15 291.43 -245.21 C 288.91 -238.49 260.2 -240.72 258.7 -247.98 C 258.03 -251.23 265.63 -277.42 268.77 -280.3 C 277.17 -287.97 278.42 -282.09 281.56 -279.78 Z"/>
+    <path id="side-hand-out" inkscape:label="hand-out" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 281.69 -278.94 C 284.52 -276.04 291.98 -254.19 292.8 -248.55 C 293.09 -246.64 287.03 -244 285.44 -247.7 L 280.73 -258.62 C 278.45 -258.88 273.24 -233.07 270.64 -232.41 C 262.92 -230.45 248.2 -239.75 247.98 -243.13 C 247.76 -246.44 265.6 -278.77 269.1 -281.19 C 278.46 -287.65 278.98 -281.73 281.69 -278.94 Z"/>
+    <path id="side-hand-in" inkscape:label="hand-in" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 269.25 -278.94 C 266.42 -276.04 258.96 -254.19 258.14 -248.55 C 257.85 -246.64 263.91 -244 265.5 -247.7 L 270.21 -258.62 C 272.49 -258.88 277.7 -233.07 280.3 -232.41 C 288.02 -230.45 302.74 -239.75 302.96 -243.13 C 303.18 -246.44 285.34 -278.77 281.84 -281.19 C 272.48 -287.65 271.96 -281.73 269.25 -278.94 Z"/>
+    <path id="side-hand-point" inkscape:label="hand-point" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 281.19 -280.86 C 285.03 -279.01 295.9 -259.53 294.99 -254.34 C 284.78 -241.56 277.16 -249.41 274.43 -252.66 L 271.24 -233.04 C 266.42 -224.38 264.2 -232.96 264.13 -236.12 C 264.07 -239.45 265.96 -275.64 268.53 -279.05 C 275.39 -288.11 277.69 -282.56 281.19 -280.86 Z"/>
+    <path id="side-thigh" inkscape:label="thigh" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 295.94 -332.57 C 337.02 -280.35 308.96 -225.44 295.91 -174.03 C 289.71 -149.59 266.77 -159.97 265.59 -170.37 L 250.24 -305.63 C 258.5 -331.52 276.02 -330.28 295.94 -332.57 Z"/>
+    <path id="side-shin" inkscape:label="shin" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 293.91 -170.22 L 293.13 -31.81 C 293.09 -25.09 276.5 -17.09 273.09 -30.96 C 261.89 -76.52 238.51 -120.75 266.43 -173.05 C 272.03 -183.52 293.99 -184.05 293.91 -170.22 Z"/>
+    <path id="side-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 288.45 -29.78 C 295.22 -23.7 307.47 -18.9 327.04 -10.89 C 337.43 -11.18 345.61 -9.29 341.89 -1.09 L 258.77 0 L 265.82 -25.06 L 288.45 -29.78 Z"/>
   </g>
-  <g id="side-bend" inkscape:groupmode="layer" inkscape:label="side-bend" style="display:none">
-    <path id="side-bend-torso" inkscape:label="torso" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 380.34 -405.03 L 373.12 -423.13 L 365.77 -438.31 C 366.6 -446.35 281.72 -467.06 254.26 -381.65 C 248.57 -363.21 249.45 -348.31 247.8 -332.04 C 256.75 -316.79 290.33 -300.38 312.2 -326.06 L 325.67 -366.71 C 330.78 -374.65 374.11 -352.89 380.34 -405.03 Z"/>
+  <g id="side-bend" inkscape:groupmode="layer" inkscape:label="side-bend">
+    <path id="side-bend-torso" inkscape:label="torso" style="fill:#b06a6a;fill-opacity:0.2;stroke:#a03030;stroke-width:1;stroke-dasharray:5 3" d="M 375.46 -411.08 L 367.14 -428.7 L 358.86 -443.39 C 359.19 -451.47 273.21 -466.9 251.07 -379.96 C 246.52 -361.2 248.32 -346.38 247.68 -330.04 C 257.55 -315.38 292.08 -301.07 312.32 -328.06 L 323.25 -369.46 C 327.87 -377.69 372.46 -358.65 375.46 -411.08 Z"/>
   </g>
   <g id="anchors" inkscape:groupmode="layer" inkscape:label="anchors">
     <circle id="anchor-shoulder" inkscape:label="shoulder" cx="67.92" cy="-462.89" r="4" style="fill:#d02020"/>
@@ -63,10 +63,13 @@
     <circle id="anchor-ankle" inkscape:label="ankle" cx="26.08" cy="-26.32" r="4" style="fill:#d02020"/>
     <circle id="anchor-neck-base" inkscape:label="neck-base" cx="2.6" cy="-483.78" r="4" style="fill:#d02020"/>
     <circle id="anchor-neck-top" inkscape:label="neck-top" cx="2.6" cy="-523.5" r="4" style="fill:#d02020"/>
-    <circle id="anchor-side-shoulder" inkscape:label="side-shoulder" cx="283.47" cy="-462.89" r="4" style="fill:#d02020"/>
-    <circle id="anchor-side-shoulder-far" inkscape:label="side-shoulder-far" cx="240.14" cy="-462.89" r="4" style="fill:#d02020"/>
+    <circle id="anchor-side-shoulder" inkscape:label="side-shoulder" cx="275.47" cy="-464.89" r="4" style="fill:#d02020"/>
+    <circle id="anchor-side-shoulder-far" inkscape:label="side-shoulder-far" cx="248.14" cy="-464.89" r="4" style="fill:#d02020"/>
+    <circle id="anchor-side-elbow" inkscape:label="side-elbow" cx="275.47" cy="-364.48" r="4" style="fill:#d02020"/>
+    <circle id="anchor-side-wrist" inkscape:label="side-wrist" cx="275.47" cy="-278.35" r="4" style="fill:#d02020"/>
     <circle id="anchor-side-hip" inkscape:label="side-hip" cx="280.5" cy="-309.74" r="4" style="fill:#d02020"/>
+    <circle id="anchor-side-knee" inkscape:label="side-knee" cx="280.5" cy="-170.16" r="4" style="fill:#d02020"/>
     <circle id="anchor-side-ankle" inkscape:label="side-ankle" cx="280.5" cy="-26.32" r="4" style="fill:#d02020"/>
-    <circle id="anchor-side-neck-base" inkscape:label="side-neck-base" cx="257.94" cy="-483.78" r="4" style="fill:#d02020"/>
+    <circle id="anchor-side-neck-base" inkscape:label="side-neck-base" cx="257.94" cy="-485.78" r="4" style="fill:#d02020"/>
   </g>
 </svg>

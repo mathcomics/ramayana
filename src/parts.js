@@ -64,9 +64,9 @@ function dpAttach(M, T, which, far, turn) {
   return lerp(front, dpMix(s, T, null), turn);
 }
 
-// Side view: the parts are drawn with every limb's curve on the outside;
-// these flip so the curve is on the triceps and the calf (style bible §4).
-const DP_SIDE_FLIP = { 'upper-arm': true, forearm: false, thigh: false, shin: true };
+// A limb part for this turn: its front and side shapes blended (each is
+// drawn in its bone frame, node for node).
+const dpTurn = (L, turn) => (turn <= 0 ? L.front : turn >= 1 ? L.side : dpLin(L.front, L.side, turn));
 
 // S: the species (head size); pose: a normalised pose (front view already derived by frontOf);
 // k: the front view's torso shortening from frontOf (1 in side view).
@@ -93,17 +93,17 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     const E = add(sh, mul(dirM(tu), M.upperArm.len)), Wr = add(E, mul(dirM(tl), M.forearm.len));
     const tt = m * -lean + l.hip, ts = tt - l.knee;
     const Kn = add(hp, mul(dirM(tt), M.thigh.len)), A = add(Kn, mul(dirM(ts), M.shin.len));
-    const fl = (part) => !front && DP_SIDE_FLIP[part];
-    const foot = front ? M.foot.front : M.foot.side;
+    const foot = dpTurn(M.foot, turn);
+    const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist };
     limbs[s] = {
       arm: [
-        ['upper-arm', place(M.upperArm.segs, sh, tu, m, fl('upper-arm'))],
-        ['forearm', place(M.forearm.segs, E, tl, m, fl('forearm'))],
-        ['hand', place(M.hands[a.hand] || M.hands.fist, Wr, th, m)],
+        ['upper-arm', place(dpTurn(M.upperArm, turn), sh, tu, m)],
+        ['forearm', place(dpTurn(M.forearm, turn), E, tl, m)],
+        ['hand', place(dpTurn(hands, turn), Wr, th, m)],
       ],
       leg: [
-        ['thigh', place(M.thigh.segs, hp, tt, m, fl('thigh'))],
-        ['shin', place(M.shin.segs, Kn, ts, m, fl('shin'))],
+        ['thigh', place(dpTurn(M.thigh, turn), hp, tt, m)],
+        ['shin', place(dpTurn(M.shin, turn), Kn, ts, m)],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
         ['foot', dpMap(foot, (p) => { const q = rot(p, -l.ankle); return add(A, [m * q[0], q[1]]); })],
       ],

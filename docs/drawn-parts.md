@@ -7,41 +7,36 @@ only the shapes change. For now all three species use the male parts.
 ## The parts file
 
 `data/parts/<id>.svg` (100 px = 1 head-unit, ground at y = 0), in the
-renderer's frame: the figure faces right and the front-view limbs are its
-near side (picture-right). Every part is at rotation 0 (limbs hang straight
-down, neck up, feet flat) and parts that share a joint sit on the same
-anchor: the four torsos on one pelvis (one layer each; show one at a
-time), all hands on the wrist, the front foot on the ankle. The side view
-stands to the right on its own pelvis with its own anchors
-(`side-shoulder`, `side-shoulder-far`, `side-hip`, `side-neck-base`,
-`side-ankle`); **a side anchor sits at the same height as its front
-partner**, and one `side-hip` serves both legs (so a lean can't put the
-hips at different heights). Turning blends the front and side joints. With a
-locked guide layer showing how the shared limbs hang on the side torso
-(not read back; limbs are edited in the front layer).
-`node tools/export-parts.mjs` writes this file from `data/parts.json`. By
-layer and label:
+renderer's frame: the figure faces right; front-view limbs are its near
+side (picture-right). `node tools/export-parts.mjs` writes it from
+`data/parts.json`; `node tools/import-parts.mjs` reads it back.
+
+- Every part at rotation 0: limbs and hands hang straight down, the neck
+  points up, feet are flat.
+- Parts that share a joint sit on the same anchor: hands on the wrist, the
+  foot on the ankle, each bent torso (red dashed) on its straight one.
+- The side view stands to the right with its own parts and `side-…`
+  anchors. A side anchor sits at the same height as its front partner;
+  one `side-hip` serves both legs.
+- A side part is blended with its front partner as the figure turns, so it
+  keeps the same number of edges (order and start node are matched on
+  import). A missing side limb falls back to the front one.
 
 | Layer | Parts |
 |---|---|
 | `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand-fist`, `hand-out`, `hand-in`, `hand-point`, `thigh`, `shin`, `foot` |
-| `side` | `torso`, `foot` |
+| `side` | `torso`, `upper-arm`, `forearm`, `hand-*`, `thigh`, `shin`, `foot` |
 | `front-bend`, `side-bend` | `torso`, bent forward |
-| `anchors` | circles `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-ankle`  |
-| `guide` | ignored |
+| `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base` |
 
 The four torsos need the same number of edges in the same order round
-the outline (start node and straight-vs-curved don't matter); the two
-feet likewise.
-
-`node tools/import-parts.mjs` → `data/parts.json`. A species uses it with
-`"parts": "male"` in `data/species/<id>.json`.
+the outline (start node and straight-vs-curved don't matter).
 
 ## How a figure is built (`src/parts.js`)
 
-- Limbs are placed rigidly on their bones (anchor to anchor); far limbs
-  in front view are mirrored. Side view flips the upper arm and shin
-  across the bone, so the curve is on the triceps and calf.
+- Limbs and hands are placed rigidly on their bones (front shape in front
+  view, side shape in side view, blended in between); far limbs in front
+  view are mirrored. A hand points along the forearm at wrist 0.
 - The torso blends four keys: front ↔ side (turn) and straight ↔ bent
   (bend). The bend swings round the waist (polar blend); `spine.chest`
   sets it (the drawn bend ≈ 71°; beyond, or arching back, extrapolates).
