@@ -131,9 +131,15 @@ pre {
    of it) and three columns of poses beside it. */
 @media (min-width: 1100px) {
   .wrap { max-width: min(1500px, 96vw); }
-  .canvas { grid-template-columns: minmax(0, 3fr) minmax(0, 1.15fr); height: min(66vh, 820px); }
+  .canvas { grid-template-columns: minmax(0, 3fr) minmax(0, 1.15fr); height: min(54vh, 680px); }
   .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* sliders on one line each (label, slider, value), so the panels fit under the stage */
+  .row { grid-template-columns: 6.5em minmax(0, 1fr) 3.4em; grid-template-areas: "l s v"; column-gap: 8px; }
+  fieldset { gap: 0; padding: 4px 10px 8px; }
+  .handrow { grid-template-columns: 6.5em minmax(0, 1fr); align-items: center; column-gap: 8px; }
+  .stage { padding-block: 6px 4px; }
+  .wrap { gap: 10px; }
 }
 @media (max-width: 420px) {
   .groups { gap: 6px; }
@@ -241,7 +247,7 @@ const STARTERS = /*__POSES__*/;
     const front = renderFigure(SPECIES[L.species], p, { ...opts, x: 3.3, view: 'front' });
     const groundLine = `<line x1="-8" x2="8" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
     const cap = (x, t) => `<text x="${x}" y="0.55" font-size="0.36" fill="#000" fill-opacity="0.4" text-anchor="middle" font-family="sans-serif" letter-spacing="0.05">${t}</text>`;
-    $('big').innerHTML = `<svg viewBox="-6.6 -8.3 13.2 9.05" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pose preview, side and front"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${side.svg}${front.svg}${cap(-3.3, 'SIDE')}${cap(3.3, 'FRONT')}</svg>`;
+    $('big').innerHTML = `<svg viewBox="-6.6 -7.1 13.2 7.85" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pose preview, side and front"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${side.svg}${front.svg}${cap(-3.3, 'SIDE')}${cap(3.3, 'FRONT')}</svg>`;
     $('meta').textContent = `${charById(state.character).name} · side + front · ${p.name}`;
     $('json').textContent = JSON.stringify(exportPose(), null, 2);
   }
