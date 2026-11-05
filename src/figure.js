@@ -45,7 +45,7 @@ export function normalizePose(p = {}) {
     },
     near: limb(p.near),
     far: limb(p.far),
-    tail: { lift: num(p.tail?.lift, 30), curl: num(p.tail?.curl, 200) },
+    tail: { lift: num(p.tail?.lift, 30), curl: num(p.tail?.curl, 200), turn: num(p.tail?.turn, 35) },
   };
 }
 

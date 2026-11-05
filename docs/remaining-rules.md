@@ -1,10 +1,11 @@
 # Remaining rules (drawn-parts renderer)
 
-Branch `drawn-parts`. The aim is a figure built only from the artist's drawn
-parts and projection. Lengths, heights, joints, torso bending and body scale
-already work that way. This list is what is still decided by a rule in
-`src/parts.js`, and what has to exist before each rule can go.
-Updated 2026-11-05.
+The aim is a figure built only from the artist's drawn parts and projection.
+Lengths, heights, joints, torso bending, body scale, the draw order (by
+depth) and the tail's views already work that way. This list is what is
+still decided by a rule in `src/parts.js`, and what has to exist before each
+rule can go. Updated 2026-11-05, after depth sorting (step 2). Problems seen
+in the poses themselves: `docs/problem-poses.md`.
 
 ## To be replaced
 
@@ -21,18 +22,20 @@ Updated 2026-11-05.
 | A limb's shape is picked by the view (front shape in front view, side shape in side view), not by where the limb points | upper arm, forearm, thigh, shin, hands | Blend front / side / end-on shapes by the limb's own direction (step 5; any view angle is step 6) |
 | End-on hands (layer `end`) stored but not used | hands | Step 5 |
 
-## Approximations (stay unless changed)
+## Draw order (by depth, step 2 done 2026-11-05)
 
-Draw order is by depth (step 2, done 2026-11-05): each limb gets a depth toward
-the viewer from the 3D pose and is drawn as a unit far to near; it goes
-over the torso when it is in front of the torso there. Its thresholds:
+Each limb, the head and the tail get a depth toward the viewer from the 3D
+pose and are drawn far to near; a limb goes over the torso when it is in
+front of the torso there. Its thresholds:
 
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
 | An arm part is over the torso when in front of the torso's middle less half its depth there; a leg part when in front of the torso's near surface; the head unless behind the far surface | arms, legs, head | None: tuning of how much of the torso's depth counts |
 | A limb is drawn as one unit, as near as its nearest part; its parts keep a fixed order (upper arm, forearm, hand; shin, foot, thigh) | arms, legs | Per-part sorting, if a limb crossing itself ever looks wrong |
 | Side view: the torso counts as wide as the shoulders (arms) or hips (legs), at every height | torso (side view) | The front torso's width at the part's height, if needed |
+| The tail is drawn behind the torso (its depth only orders it among the limbs) | tail | None: a tail in front of the body would need its own depth test |
 
+## Approximations (stay unless changed)
 
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
@@ -47,4 +50,4 @@ over the torso when it is in front of the torso there. Its thresholds:
 |---|---|---|
 | A limb seen end-on keeps about its own width in length (0.8 × width) | arms, legs | None: remove if strict projection is preferred |
 | Side view: the far shoulder has its own anchor, set slightly back | arms (side view) | None: a convention for a slight three-quarter look |
-| The tail is generated (length, taper, lift, curl); its front-view root is fixed behind the pelvis | tail (monkey) | A drawn tail part with its own anchors |
+| The tail's shape is generated (length, taper, lift, curl) in its own plane, turned by `tail.turn` (default 35°); each view is a projection | tail (monkey) | A drawn tail part with its own anchors |

@@ -67,15 +67,21 @@ Panel lab (published artifact, drafts in its database, collection
 Drafts are merged into `panels/` when asked; republish the lab after
 renderer or panel changes.
 
-## Status (2026-11-04)
+## Status (2026-11-05)
 
-- **Branch `drawn-parts` (experiment, 2026-11-04):** figures built from the
-  artist's drawn parts (`data/parts/male.svg` → `tools/import-parts.mjs` →
-  `data/parts.json`; `src/parts.js`; `docs/drawn-parts.md`). Parts files `male` and `female` (9-node torsos, two bend keys each); the
-  monkey is the male plus a generated tail; characters can have a body
-  `scale` (torso and legs; monkey1 0.8); no loincloth (cloth on thighs only);
-  pose lab republished with it. `anatomy`/parts-sheet/face templates still
-  use the rule-based shapes.
+- **Drawn parts (merged into main 2026-11-05):** figures are built from the
+  artist's drawn body parts (`data/parts/male.svg`, `female.svg` →
+  `tools/import-parts.mjs` → `data/parts.json`; `tools/export-parts.mjs`
+  writes the SVG back; renderer `src/parts.js`; `docs/drawn-parts.md`).
+  9-node torsos with two bend keys; front view = projection with shared
+  heights; limbs have `out` (out of the paper); draw order by depth;
+  no loincloth; monkey = male parts + tail (`tail.turn`); characters can
+  have a body `scale` (monkey1 0.8). What is still rule-based:
+  `docs/remaining-rules.md`; pose/face problems from the self-review:
+  `docs/problem-poses.md`. Next steps there: feet by toe direction (3),
+  head turn/tilt + back of head (4), wrist turn + end-on hands (5).
+  `anatomy`/parts-sheet/face templates still use the rule-based shapes.
+  Pose lab: wide layout on full screen.
 
 - **Code review 2026-11-04:** test suite added (`npm test`, 38 tests incl.
   a 380-render snapshot). Dead code removed (unused geom helpers, the

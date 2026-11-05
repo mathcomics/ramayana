@@ -149,23 +149,35 @@ function dpProject(theta, out, front) {
 // Tail (species.tail; monkey): a tapering curl from `root`, as in the
 // rule-based figure: it leaves backward, lifted by tail.lift, and curls by
 // tail.curl along its length.
-function dpTail(Tl, root, lean, pose) {
+function dpTail(Tl, root, lean, pose, front) {
+  // the tail curls in its own plane (lift, curl); each view is a
+  // projection of it
   let p = root;
   let theta = -90 - lean - pose.tail.lift;
   const n = Tl.segments, segLen = Tl.length / n;
   const wts = Array.from({ length: n }, (_, k) => Math.pow(k + 1, 1.7));
   const wsum = wts.reduce((a, b) => a + b, 0);
-  const spine = [p], angles = [];
+  const side = [p];
   for (let k = 0; k < n; k++) {
     theta -= pose.tail.curl * (wts[k] / wsum);
-    angles.push(theta);
     p = add(p, mul(dir(theta), segLen));
-    spine.push(p);
+    side.push(p);
   }
+  // the tail's plane is turned by tail.turn about the upright axis, toward
+  // the far side: the side view sees cos(turn) of its reach, the front view
+  // sin(turn) of it (to picture-left)
+  const tr = (pose.tail.turn ?? 35) * RAD;
+  const spine = side.map((q) => {
+    const dz = q[0] - root[0];
+    return front ? [dz * Math.sin(tr), q[1]] : [root[0] + dz * Math.cos(tr), q[1]];
+  });
   const left = [], right = [];
+  let nrm = [1, 0];
   for (let i = 0; i < spine.length; i++) {
+    const a = spine[Math.max(0, i - 1)], b = spine[Math.min(spine.length - 1, i + 1)];
+    const d = sub(b, a), L = Math.hypot(d[0], d[1]);
+    if (L > 1e-6) nrm = [-d[1] / L, d[0] / L];        // keeps the last good normal where the tail runs end-on
     const w = Tl.w[0] + (Tl.w[1] - Tl.w[0]) * (i / (spine.length - 1));
-    const nrm = dir(angles[Math.min(i, angles.length - 1)] + 90);
     left.push(add(spine[i], mul(nrm, w / 2)));
     right.push(add(spine[i], mul(nrm, -w / 2)));
   }
@@ -429,7 +441,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   const tH = torsoAt(head3[1], 'arm');
   units.push({ depth: depthOf(head3), over: depthOf(head3) >= tH.c - tH.h, items: [headShape] });
   // tail: from the back of the pelvis, in the middle (X = 0)
-  const tail = tailSpec ? dpTail(tailSpec, front ? [0, -0.1 * bodyScale] : add(lerp([0, 0], dpNode(T, 5), 0.75), rot([0, -0.12 * bodyScale], lean)), lean, pose) : [];
+  const tail = tailSpec ? dpTail(tailSpec, add(lerp([0, 0], dpNode(TS, 5), 0.75), rot([0, -0.12 * bodyScale], sp.lean)), sp.lean, pose, front) : [];
   if (tail.length) {
     const back = posed(add(dpNode(M.torso.side, 5), [-0.1, -0.12]));
     units.push({ depth: front ? back[0] : 0, over: false, items: tail.map((pts) => ({ pts, role: 'body', part: 'tail' })) });
