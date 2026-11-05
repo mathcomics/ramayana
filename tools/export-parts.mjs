@@ -16,6 +16,7 @@ const M = json('data/parts.json').parts[id];
 if (!M) throw new Error(`no parts "${id}" in data/parts.json`);
 const K = 100;
 const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
+const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
 const mul = (a, s) => [a[0] * s, a[1] * s];
 const node = (T, i) => T[i][0];
 const at = (W, idx, T) => idx.map((i) => node(T, i)).reduce((acc, p, k) => add(acc, mul(p, W[k])), [0, 0]);
@@ -54,6 +55,9 @@ const sShoulderFar = add(M.attachSide ? sideAt('shoulderFar') : level(sideAt('sh
 const sNeck = add(M.attachSide ? sideAt('neck') : level(sideAt('neck'), neckBase), [SX, 0]);
 const sElbow = add(sShoulder, [0, M.upperArm.len]), sWrist = add(sElbow, [0, M.forearm.len]);
 const sKnee = add(sHip, [0, M.thigh.len]), sAnkle = add(sKnee, [0, M.shin.len]);
+// end-on hands to the left of the front figure, on their own wrist
+const endWrist = [Math.min(...M.torso.front.flat().map((p) => p[0])) - 1.0, wrist[1]];
+const sNeckTop = add(sNeck, sub(neckTop, neckBase));
 const hand = (H, w) => Object.fromEntries(Object.entries(H).map(([h, s]) => [`hand-${h}`, moveSegs(s, w)]));
 
 const parts = {
@@ -78,10 +82,19 @@ const parts = {
     foot: moveSegs(M.foot.side, sAnkle),
   },
   'side-bend': { torso: sideOf(M.torso.sideBend) },
+  end: M.hands.end ? hand(M.hands.end, endWrist) : {},
 };
 const anchors = { shoulder, elbow, wrist, hip, knee, ankle, 'neck-base': neckBase, 'neck-top': neckTop,
   'side-shoulder': sShoulder, 'side-shoulder-far': sShoulderFar, 'side-elbow': sElbow, 'side-wrist': sWrist,
-  'side-hip': sHip, 'side-knee': sKnee, 'side-ankle': sAnkle, 'side-neck-base': sNeck };
+  'side-hip': sHip, 'side-knee': sKnee, 'side-ankle': sAnkle, 'side-neck-base': sNeck,
+  toe: add(ankle, M.toe?.front ?? [0.35, 0.25]), 'side-toe': add(sAnkle, M.toe?.side ?? [0.6, 0.25]),
+  'hand-tip': add(wrist, M.handTip?.front ?? [0, 0.3]), 'side-hand-tip': add(sWrist, M.handTip?.side ?? [0, 0.3]),
+  head: add(neckTop, M.headAt?.front ?? [0, -0.21]), 'side-head': add(sNeckTop, M.headAt?.side ?? [0, -0.21]),
+  'end-wrist': endWrist };
+// a side anchor sits at the same height as its front partner
+for (const k of Object.keys(anchors)) if (k.startsWith('side-') && anchors[k.slice(5)] && k !== 'side-shoulder-far')
+  anchors[k] = [anchors[k][0], anchors[k.slice(5)][1]];
+anchors['side-shoulder-far'] = [anchors['side-shoulder-far'][0], anchors.shoulder[1]];
 
 // ground at y = 0 (the lowest foot point), pelvis at x = 0
 const lowest = Math.max(...[...parts.front.foot, ...parts.side.foot].flat().map((p) => p[1]));
@@ -96,6 +109,7 @@ const style = 'fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1';
 const bendStyle = 'fill:#b06a6a;fill-opacity:0.2;stroke:#a03030;stroke-width:1;stroke-dasharray:5 3';
 let body = '';
 for (const [layer, items] of Object.entries(parts)) {
+  if (!Object.keys(items).length) continue;
   const bend = layer.endsWith('bend');                  // drawn over the straight torso, red dashed
   body += `  <g id="${layer}" inkscape:groupmode="layer" inkscape:label="${layer}">\n`;
   for (const [name, segs] of Object.entries(items))
@@ -128,11 +142,17 @@ const svg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
      is blended with its front partner, so it keeps the same number of edges
      in the same order.
 
+     Layer "end": the hands seen end-on (pointing at the viewer), on
+     end-wrist, left of the front figure; first drafts (the front hands
+     squashed), same edges as their front partners.
+
      Labels: torso, neck (front only), upper-arm, forearm, hand-fist,
      hand-out, hand-in, hand-point, thigh, shin, foot.
      anchors: shoulder, elbow, wrist, hip, knee, ankle, neck-base, neck-top,
      side-shoulder, side-shoulder-far, side-elbow, side-wrist, side-hip,
-     side-knee, side-ankle, side-neck-base (the circle centre counts).
+     side-knee, side-ankle, side-neck-base; toe, side-toe (tip of each foot),
+     hand-tip, side-hand-tip (tip of the fist), head, side-head (centre of
+     the head), end-wrist (the circle centre counts).
      100 px = 1 head-unit; ground at y = 0. -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      width="${w}" height="${h}" viewBox="${x0} ${y0} ${w} ${h}">

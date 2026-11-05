@@ -19,7 +19,11 @@
 //   anchors     circles: shoulder, elbow, wrist, hip, knee, ankle,
 //               neck-base, neck-top; side view: side-shoulder,
 //               side-shoulder-far, side-elbow, side-wrist, side-hip
-//               (both legs), side-knee, side-ankle, side-neck-base
+//               (both legs), side-knee, side-ankle, side-neck-base;
+//               tips: toe, side-toe, hand-tip, side-hand-tip; head centre:
+//               head, side-head; end-wrist for the end layer
+//   end         hand-fist, hand-out, hand-in, hand-point seen end-on
+//               (pointing at the viewer), on end-wrist (optional)
 //               (optional wrist-<hand> for a hand drawn elsewhere)
 // Other layers are ignored. The four torsos must have the same edges in
 // the same order round the outline (any start node); a side limb, hand or
@@ -121,7 +125,7 @@ function importParts(file) {
       if (!c.tag) continue;
       const o = add(off, translateOf(c));
       const L = label(c);
-      if (c.tag === 'g' && ['front', 'side', 'front-bend', 'side-bend', 'anchors'].includes(L)) layers[L] = { node: c, off: o };
+      if (c.tag === 'g' && ['front', 'side', 'front-bend', 'side-bend', 'end', 'anchors'].includes(L)) layers[L] = { node: c, off: o };
       else if (c.tag === 'g' || c.tag === 'svg') walk(c, o);
     }
   };
@@ -143,6 +147,7 @@ function importParts(file) {
     return out;
   };
   const F = items('front'), Sd = items('side'), FB = items('front-bend'), SB = items('side-bend'), AN = items('anchors');
+  const EN = layers.end ? items('end') : {};
   const need = (o, k, where) => { if (!o[k]) throw new Error(`${file}: ${where} has no "${k}"`); return o[k]; };
   for (const k of ['torso', 'neck', 'upper-arm', 'forearm', 'hand-fist', 'thigh', 'shin', 'foot']) need(F, k, 'front');
   for (const k of ['shoulder', 'elbow', 'wrist', 'hip', 'knee', 'ankle', 'neck-base', 'neck-top']) need(AN, k, 'anchors');
@@ -234,11 +239,12 @@ function importParts(file) {
 
   // Hands: on the wrist, turned so each points straight down (wrist to the
   // hand's centre); wrist 0 in a pose = straight along the forearm.
-  const handFrame = (segs, w) => {
+  const handAng = (segs, w) => {
     const pts = segs.flatMap((s) => s);
     const c = mul(pts.reduce((acc, p) => add(acc, p), [0, 0]), 1 / pts.length);
-    return mapSegs(segs, (p) => rot(sub(p, w), angleOf(sub(c, w))));
+    return angleOf(sub(c, w));
   };
+  const handFrame = (segs, w) => mapSegs(segs, (p) => rot(sub(p, w), handAng(segs, w)));
   const handsOf = (L, w, base) => {
     const H = {};
     for (const h of HANDS) if (L[`hand-${h}`]) H[h] = handFrame(segsOf(L[`hand-${h}`]), A[`wrist-${h}`] || w);
@@ -249,10 +255,44 @@ function importParts(file) {
   };
   const handsFront = handsOf(F, A.wrist);
   const handsSide = handsOf(Sd, SJ.wrist, handsFront);
+  // End-on hands (pointing at the viewer), layer "end", on the end-wrist
+  // anchor; not drawn yet: the front hands squashed to a third of their
+  // length, as a first draft.
+  const endWrist = A['end-wrist'];
+  const handsEnd = {};
+  for (const h of HANDS) {
+    const g = EN[`hand-${h}`];
+    handsEnd[h] = g && endWrist ? match(mapSegs(segsOf(g), (p) => sub(p, endWrist)), handsFront[h], `end hand-${h}`)
+      : mapSegs(handsFront[h], (p) => [p[0] * 1.05, p[1] * 0.35]);
+  }
+  // Tips: the toe of each foot and the tip of each hand (anchors toe,
+  // side-toe, hand-tip, side-hand-tip), in the part's own frame; first
+  // guesses: the outline point farthest from the ankle, the fist's lowest
+  // point.
+  const far = (segs) => segs.map((s) => s[0]).reduce((q, p) => (Math.hypot(...p) > Math.hypot(...q) ? p : q));
+  const low = (segs) => segs.map((s) => s[0]).reduce((q, p) => (p[1] > q[1] ? p : q));
+  const tip = (anchor, w, ang, segs, pick) => (anchor ? rot(sub(anchor, w), ang) : pick(segs));
+  const fistF = segsOf(F['hand-fist']), fistS = Sd['hand-fist'] ? segsOf(Sd['hand-fist']) : null;
+  const handTip = {
+    front: tip(A['hand-tip'], A.wrist, handAng(fistF, A.wrist), handsFront.fist, low),
+    side: tip(A['side-hand-tip'], SJ.wrist, fistS ? handAng(fistS, SJ.wrist) : 0, handsSide.fist, low),
+  };
+  // Head centre (anchors head, side-head), from the neck top; first guess
+  // 0.21 above it.
+  const sideNeckTop = add(A['side-neck-base'] || A['neck-base'], sub(A['neck-top'], A['neck-base']));
+  const headAt = {
+    front: A.head ? sub(A.head, A['neck-top']) : [0, -0.21],
+    side: A['side-head'] ? sub(A['side-head'], sideNeckTop) : [0, -0.21],
+  };
   const packH = (H) => Object.fromEntries(Object.entries(H).map(([k, v]) => [k, pack(v)]));
 
   // feet: flat as drawn, each on its ankle anchor
   const ff = segsOf(F.foot), fs = segsOf(align(need(Sd, 'foot', 'side'), F.foot, 'side foot', false));
+  const ffA = mapSegs(ff, (p) => sub(p, A.ankle)), fsA = mapSegs(fs, (p) => sub(p, SJ.ankle));
+  const toe = {
+    front: A.toe ? sub(A.toe, A.ankle) : far(ffA),
+    side: A['side-toe'] ? sub(A['side-toe'], SJ.ankle) : far(fsA),
+  };
 
   // Shared heights: the front and side drawings are two views of one body,
   // so matching points must sit at the same height (y). List the ones
@@ -274,8 +314,11 @@ function importParts(file) {
     thigh: limb('thigh', 'hip', 'knee', false),
     shin: limb('shin', 'knee', 'ankle', true),
     neck: (() => { const s = toBone(segsOf(F.neck), A['neck-base'], A['neck-top']); return { segs: pack(s), len: r4(Math.hypot(...sub(A['neck-top'], A['neck-base']))) }; })(),
-    hands: { front: packH(handsFront), side: packH(handsSide) },
-    foot: { front: pack(mapSegs(ff, (p) => sub(p, A.ankle))), side: pack(mapSegs(fs, (p) => sub(p, SJ.ankle))) },
+    hands: { front: packH(handsFront), side: packH(handsSide), end: packH(handsEnd) },
+    foot: { front: pack(ffA), side: pack(fsA) },
+    toe: { front: toe.front.map(r4), side: toe.side.map(r4) },
+    handTip: { front: handTip.front.map(r4), side: handTip.side.map(r4) },
+    headAt: { front: headAt.front.map(r4), side: headAt.side.map(r4) },
   };
 }
 

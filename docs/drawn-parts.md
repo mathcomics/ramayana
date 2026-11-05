@@ -31,7 +31,8 @@ side (picture-right). `node tools/export-parts.mjs` writes it from
 | `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand-fist`, `hand-out`, `hand-in`, `hand-point`, `thigh`, `shin`, `foot` |
 | `side` | `torso`, `upper-arm`, `forearm`, `hand-*`, `thigh`, `shin`, `foot` |
 | `front-bend`, `side-bend` | `torso`, bent forward |
-| `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base` |
+| `end` | `hand-fist`, `hand-out`, `hand-in`, `hand-point` seen end-on (pointing at the viewer), on `end-wrist`; same edges as the front hands (not used by the renderer yet) |
+| `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base`; tips `toe`, `side-toe`, `hand-tip`, `side-hand-tip`; head centre `head`, `side-head`; `end-wrist` (tips and head stored, not used by the renderer yet) |
 
 The four torsos need the same number of edges in the same order round
 the outline (start node and straight-vs-curved don't matter).
