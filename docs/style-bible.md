@@ -58,6 +58,19 @@ from its silhouette alone.
 All species share one skeleton (see §6). They differ by proportions, parts
 and default posture. Measurements are in head-units (h = head diameter).
 
+**Body parts are the artist's drawings** (decided 2026-11-05): every part
+(torso, neck, upper arm, forearm, hands, thigh, shin, foot) is drawn in
+`data/parts/male.svg` and `data/parts/female.svg`, front and side, with bent
+torsos, and placed on the skeleton as drawn (only moved, turned, mirrored,
+blended between its drawn views, and its length shortened when it turns out
+of the paper). The monkey uses the male parts plus a tail. The rules for
+limb curves, knots, hands and the torso curl below are drawing guidance
+for those files; the renderer no longer generates the shapes. See
+`docs/drawn-parts.md` and, for what is still rule-based,
+`docs/remaining-rules.md`. A character can have a body scale (torso, legs,
+feet and tail; head, neck and arms keep their size), e.g. 0.8 for a small
+generic monkey.
+
 ### 5.1 Monkey (vanara)
 
 - Head: drawn by the artist per character (§5.6); the species gives only
@@ -71,7 +84,9 @@ and default posture. Measurements are in head-units (h = head diameter).
   Arching back mirrors this. `spine.chest` sets the bend (−60…100).
 - Arms: long — hanging, they reach about the knee.
 - Legs: comparatively short, often deeply bent.
-- Tail: long, curling upward at the tip; expressive (follows motion).
+- Tail: long, curling upward at the tip; expressive (follows motion). It
+  curls in its own plane, turned by `tail.turn` (default 35°) toward the
+  far side, so the front view shows part of the curl.
 - Hands (all species; see `reference/sketch-hands.jpg`), set per arm:
   - fist: a wedge widening from the wrist to a flat top with rounded
     corners, shorter than the open hand (`arm.fist` ≈ 0.65 of its length);
@@ -82,9 +97,9 @@ and default posture. Measurements are in head-units (h = head diameter).
     and the grouped fingers shorter (0.6 × the paddle), for pointing
     (added 2026-11-04).
 - Feet: elongated wedges.
-- Garment: loincloth — the main identity colour. Shape is derived, not
-  drawn: the span across both upper legs, clipped to the torso outline,
-  so it follows the legs (one band across the crotch in front view).
+- Garment: the lower cloth covers the thighs only — the main identity
+  colour. There is no loincloth (retired 2026-11-05): the torso is drawn
+  over the tops of the thighs.
 - Default posture: leaning forward, knees bent.
 - Optional: mane of loose strokes around the head.
 - Body colours seen: brown, dark red, white, gold, black, tan.
@@ -130,8 +145,8 @@ a pose looks, never the pose.
 Outfit and colours are chosen when a figure is drawn; they are not part of
 the pose.
 
-- Bottom: `briefs` (the loincloth only) or `dhoti` (both thighs, from hip
-  to knee, in the cloth colour).
+- Bottom: the thighs, from hip to knee, in the cloth colour (`dhoti`;
+  `briefs` draws the same since the loincloth was retired).
 - Top: `bare` or `full` (the whole torso in the cloth colour).
 - Body colour: a hex per character, matching the skin of its drawn face
   (no named body palette).
@@ -214,14 +229,24 @@ male 0.88, female 0.74.
   Each arm has its own shoulder anchor in side view: near arm toward the
   front of the chest, far arm just behind centre (`shoulder.side`).
   Front view: used for crouching / flexing / confronting.
-- **Poses are side view only; the front view is derived** from the side
-  pose when a figure is drawn (decided 2026-11-04):
-  - the torso stands upright, shortened to its height in the side view
-    (never below 0.35 of its length);
-  - the head is upright and front-facing, at full size;
-  - each arm and leg keeps its side-view angles, mirrored if needed so it
-    points to its own side (near = picture-right, far = picture-left);
-  - feet point outward and keep their tilt from the ground.
+- **Out of the paper** (branch `drawn-parts`, 2026-11-04): the shoulder
+  and the hip have a second angle, `out` (degrees, + = away from the body
+  sideways), turning the whole arm or leg out of the paper. A limb then
+  points along (cos(out)·sin θ, cos(out)·cos θ, sin(out)) (forward, down,
+  sideways), θ its side-view angle. The side view shows it shortened by
+  cos(out); the front view shows (sideways, down). Only lengths change,
+  never widths; hands and feet keep their size. With drawn parts this
+  replaces the mirroring below for the front view's arms and legs.
+- **Poses are side view only; the front view is a projection** of the
+  same body (decided 2026-11-04, projection 2026-11-05): the front and
+  side drawings are two views of one body with shared heights. Every
+  height in the front view comes from the posed side view (the torso
+  shortens and turns over by itself, a torso seen end-on keeps about its
+  thickness); widths come from the front drawings; arms and legs are
+  projected with their `out` angles; the neck shows its up-down part and
+  the face turns over when the head is upside down; feet keep their
+  height below the ankle. Parts are drawn far to near by their depth
+  toward the viewer (both views).
   - **Planned (not yet built):** when the side pose bends far forward or
     the head goes below the shoulders (e.g. `fall-headlong`), the front
     view should turn to a **back view**: the back of the head instead of
