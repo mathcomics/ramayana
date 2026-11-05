@@ -20,13 +20,22 @@ const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
 const mul = (a, s) => [a[0] * s, a[1] * s];
 const node = (T, i) => T[i][0];
 const at = (W, idx, T) => idx.map((i) => node(T, i)).reduce((acc, p, k) => add(acc, mul(p, W[k])), [0, 0]);
+// a joint as stored (a mix of three torso nodes, or a point on a torso edge)
+const mix = (a, T, mirror) => {
+  if (a.edge) {
+    const [i, j] = mirror ? a.edge.map((n) => mirror[n]) : a.edge;
+    const A = node(T, i), d = sub(node(T, j), A), v = mirror ? -a.v : a.v;
+    return add(add(A, mul(d, a.u)), mul([-d[1], d[0]], v));
+  }
+  return at(a.w, mirror ? a.idx.map((i) => mirror[i]) : a.idx, T);
+};
 const moveSegs = (segs, o, flipY = false) => segs.map((s) => s.map((p) => add(o, flipY ? [-p[0], -p[1]] : p)));
 
 // joints, standing straight (pelvis at 0,0, in head-units)
 const T = M.torso.front;
-const shoulder = at(M.attach.shoulder.w, M.attach.shoulder.idx, T);
-const hip = at(M.attach.hip.w, M.attach.hip.idx, T);
-const neckBase = at(M.attach.neck.w, M.attach.neck.idx, T);
+const shoulder = mix(M.attach.shoulder, T);
+const hip = mix(M.attach.hip, T);
+const neckBase = mix(M.attach.neck, T);
 const elbow = add(shoulder, [0, M.upperArm.len]);
 const wrist = add(elbow, [0, M.forearm.len]);
 const knee = add(hip, [0, M.thigh.len]);
@@ -42,10 +51,8 @@ const TS = M.torso.side;
 // from the front's, each at the same height as its front-view partner
 const sideAt = (k, far) => {
   const a = M.attachSide?.[k];
-  if (a) return at(a.w, a.idx, TS);
-  const b = M.attach[k === 'shoulderFar' ? 'shoulder' : k];
-  const idx = far ? b.idx.map((i) => M.mirror[i]) : b.idx;
-  return at(b.w, idx, TS);
+  if (a) return mix(a, TS);
+  return mix(M.attach[k === 'shoulderFar' ? 'shoulder' : k], TS, far ? M.mirror : null);
 };
 const level = (p, q) => [p[0], q[1]];                    // keep x, take the front partner's y
 const sHip0 = M.attachSide ? sideAt('hip') : [(sideAt('hip')[0] + sideAt('hip', true)[0]) / 2, 0];
@@ -71,7 +78,7 @@ const parts = {
     shin: moveSegs(M.shin.front, knee),
     foot: moveSegs(M.foot.front, ankle),
   },
-  'front-bend': { torso: M.torso.frontBend },
+  'front-bend': Object.fromEntries(M.torso.frontBend.map((T, i) => [i ? `torso-${i + 1}` : 'torso', T])),
   side: {
     torso: sideOf(M.torso.side),
     'upper-arm': moveSegs(M.upperArm.side, sShoulder),
@@ -81,7 +88,7 @@ const parts = {
     shin: moveSegs(M.shin.side, sKnee),
     foot: moveSegs(M.foot.side, sAnkle),
   },
-  'side-bend': { torso: sideOf(M.torso.sideBend) },
+  'side-bend': Object.fromEntries(M.torso.sideBend.map((T, i) => [i ? `torso-${i + 1}` : 'torso', sideOf(T)])),
   end: M.hands.end ? hand(M.hands.end, endWrist) : {},
 };
 const anchors = { shoulder, elbow, wrist, hip, knee, ankle, 'neck-base': neckBase, 'neck-top': neckTop,
@@ -134,8 +141,9 @@ const svg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
      The figure faces right; front-view limbs are its near side (picture-right).
      Every part is at rotation 0: limbs and hands hang straight down, the
      neck points up, feet are flat. Parts that share a joint sit on the same
-     anchor: hands on the wrist, the foot on the ankle, and each bent torso
-     (red dashed, layers front-bend / side-bend) on its straight one.
+     anchor: hands on the wrist, the foot on the ankle, and the bent torsos
+     (red dashed, layers front-bend / side-bend: torso, torso-2, ... from
+     least to most bent) on the straight one.
      The side view stands to the right with its own parts and anchors
      (side-...); a side anchor sits at the same height as its front partner,
      and one side-hip serves both legs. As the figure turns, each side part

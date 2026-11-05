@@ -2,11 +2,11 @@
 
 Bodies built from the artist's own outlines instead of rule-based shapes.
 The skeleton, poses, faces and the derived front view stay as they are;
-only the shapes change. Each species has its own parts file: `male`,
-`female` and `monkey` (the last two first drafts made from the male by
-`tools/derive-parts.mjs`: the monkey has 12% longer arms; the female an
-hourglass front, bust and seat in side view, slimmer and 6% shorter).
-The monkey's tail is still generated from `data/species/monkey.json`.
+only the shapes change. Two parts files: `male` and `female`. The monkey
+uses the male parts plus a tail (generated from `data/species/monkey.json`).
+A character can have a body scale (`scale` in `data/characters.json`,
+default 1): torso, legs, feet and tail scale, head, neck, arms and hands
+keep their size (monkey1 is 0.8).
 
 ## The parts file
 
@@ -34,8 +34,17 @@ side (picture-right). `node tools/export-parts.mjs` writes it from
 | `end` | `hand-fist`, `hand-out`, `hand-in`, `hand-point` seen end-on (pointing at the viewer), on `end-wrist`; same edges as the front hands (not used by the renderer yet) |
 | `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base`; tips `toe`, `side-toe`, `hand-tip`, `side-hand-tip`; head centre `head`, `side-head`; `end-wrist` (tips and head stored, not used by the renderer yet) |
 
-The four torsos need the same number of edges in the same order round
-the outline (start node and straight-vs-curved don't matter).
+Torsos have 9 edges in the same order round the outline (start node and
+straight-vs-curved don't matter): near top, neck, far top, far waist
+(upper), far waist (lower), far hip, near hip, near waist (lower), near
+waist (upper); in the side view near = front. Each bend layer holds one or
+more bent torsos (`torso`, `torso-2`, …); they are ordered by how far they
+bend (side: measured angle; front: height) and paired in that order. A
+torso drawn with the old 7 edges gets the lower waist nodes added on
+import. The bend goes through the keys (straight → each bend), swinging
+round the waist between two keys and extrapolating before the first and
+past the last. Hips hang on the hip edge only, so a folding waist doesn't
+move the legs.
 
 ## How a figure is built (`src/parts.js`)
 

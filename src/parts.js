@@ -41,18 +41,37 @@ function dpPolar(A, B, t, pivot) {
 }
 const dpLin = (A, B, t) => A.map((s, i) => s.map((p, j) => lerp(p, B[i][j], t)));
 
+// Torso nodes (9, round the outline): 0 near top, 1 neck, 2 far top,
+// 3 far waist (upper), 4 far waist (lower), 5 far hip, 6 near hip,
+// 7 near waist (lower), 8 near waist (upper). Side view: near = front.
+const DP_WAIST = [3, 4, 7, 8];
+const dpWaistMid = (T) => mul(DP_WAIST.reduce((a, i) => add(a, dpNode(T, i)), [0, 0]), 1 / DP_WAIST.length);
+
 // Torso outline in the pelvis frame (hip mid at 0,0). turn: 0 front, 1
-// side; bend: 0 straight, 1 the drawn bend (model.bend degrees).
-export function partsTorso(M, turn, bend) {
-  const straight = dpLin(M.torso.front, M.torso.side, turn);
-  const bent = dpLin(M.torso.frontBend, M.torso.sideBend, turn);
-  const pivot = lerp(dpNode(straight, 3), dpNode(straight, 6), 0.5);
-  return dpPolar(straight, bent, bend, pivot);
+// side; deg: the bend in degrees. The drawn keys are the straight torso
+// and the bent ones at M.bends degrees; between two keys the outline swings
+// round the waist (polar blend), before the first and past the last it
+// extrapolates (an arch back, a deeper bend).
+export function partsTorso(M, turn, deg) {
+  const keys = [dpLin(M.torso.front, M.torso.side, turn),
+    ...M.torso.frontBend.map((fb, i) => dpLin(fb, M.torso.sideBend[i], turn))];
+  const at = [0, ...M.bends];
+  let k = 0;
+  while (k < at.length - 2 && deg > at[k + 1]) k++;
+  const t = (deg - at[k]) / (at[k + 1] - at[k]);
+  return dpPolar(keys[k], keys[k + 1], t, dpWaistMid(keys[k]));
 }
-// A joint on the torso: a mix of three torso nodes. Front and side each
-// have their own mix (attach / attachSide); a turn blends the two.
-// In side view one hip point serves both legs.
+// A joint on the torso: a mix of three torso nodes, or (`edge`) a point
+// along and off one torso edge (the hips: on the hip edge only, so a
+// folding waist doesn't move the legs). Front and side each have their own
+// (attach / attachSide); a turn blends the two. Far-side joints in front
+// view use the mirrored nodes.
 function dpMix(a, T, mirror) {
+  if (a.edge) {
+    const [i, j] = mirror ? a.edge.map((n) => mirror[n]) : a.edge;
+    const A = dpNode(T, i), d = sub(dpNode(T, j), A), v = mirror ? -a.v : a.v;
+    return add(add(A, mul(d, a.u)), mul([-d[1], d[0]], v));
+  }
   const idx = mirror ? a.idx.map((i) => mirror[i]) : a.idx;
   const [A, B, C] = idx.map((i) => dpNode(T, i));
   return add(add(mul(A, a.w[0]), mul(B, a.w[1])), mul(C, a.w[2]));
@@ -72,7 +91,7 @@ function dpAttach(M, T, which, far, turn) {
 // the front view takes each point's height from where the side view puts
 // it. Points of the straight side torso are carried to the posed side torso
 // piecewise-affinely, on triangles of torso nodes (as joints are).
-const DP_TRI = [[0, 1, 6], [1, 2, 3], [1, 3, 6], [3, 4, 5], [3, 5, 6]];
+const DP_TRI = [[0, 1, 8], [1, 2, 3], [1, 3, 8], [3, 4, 7], [3, 7, 8], [4, 5, 6], [4, 6, 7]];
 function dpBary(P, A, B, C) {
   const v0 = sub(B, A), v1 = sub(C, A), v2 = sub(P, A);
   const d = v0[0] * v1[1] - v1[0] * v0[1];
@@ -163,8 +182,27 @@ const dpMinF = (L) => {
 };
 const dpWrap = (v) => { while (v > 180) v -= 360; while (v <= -180) v += 360; return v; };
 
-// S: the species (head size); pose: the normalised SIDE pose (both views).
-export function buildParts(M, S, pose, outfit = {}, view = 'side') {
+// S: the species (head size, tail); pose: the normalised SIDE pose (both
+// views); bodyScale: the character's body scale.
+// A character's body scale (characters.json `scale`): the torso and legs
+// (thighs, shins, feet) and the tail scale by s; head, neck, arms and
+// hands keep their size.
+function dpScaled(M, s) {
+  if (s === 1) return M;
+  if (!M._scaled) Object.defineProperty(M, '_scaled', { value: new Map() });
+  if (!M._scaled.has(s)) {
+    const sc = (segs) => segs.map((g) => g.map((p) => [p[0] * s, p[1] * s]));
+    const limb = (L) => ({ front: sc(L.front), side: sc(L.side), len: L.len * s });
+    M._scaled.set(s, { ...M,
+      torso: { front: sc(M.torso.front), side: sc(M.torso.side), frontBend: M.torso.frontBend.map(sc), sideBend: M.torso.sideBend.map(sc) },
+      thigh: limb(M.thigh), shin: limb(M.shin), foot: { front: sc(M.foot.front), side: sc(M.foot.side) } });
+  }
+  return M._scaled.get(s);
+}
+
+export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 1) {
+  const M = dpScaled(M0, bodyScale);
+  const tailSpec = S.tail && (bodyScale === 1 ? S.tail : { ...S.tail, length: S.tail.length * bodyScale, w: S.tail.w.map((w) => w * bodyScale) });
   const front = view === 'front';
   const sp = pose.spine;                           // side-view spine: everything is measured in it
   const turn = front ? 0 : 1;
@@ -176,7 +214,7 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side') {
   });
 
   // the posed side torso (both views need it) and the map onto it
-  const TS = dpMap(partsTorso(M, 1, sp.chest / M.bend), (p) => rot(p, sp.lean));
+  const TS = dpMap(partsTorso(M, 1, sp.chest), (p) => rot(p, sp.lean));
   const sideMap = dpSideMap(M.torso.side, TS);
   // a point of the body given by its side-drawing position: posed side position
   const posed = (P) => sideMap(P);
@@ -191,8 +229,8 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side') {
     // side view of the same slice of the body. A slice tipped toward the
     // viewer also shows its depth: the outline's top and bottom ends move
     // apart by it, so a torso seen end-on keeps about its thickness.
-    const bx = Math.max(0, Math.min(1, (sp.lean + sp.chest) / M.bend));
-    const F = M.torso.front.map((s, i) => s.map((p, j) => [p[0] + (M.torso.frontBend[i][j][0] - p[0]) * bx, p[1]]));
+    const W = partsTorso(M, 0, Math.max(0, Math.min(M.bends[M.bends.length - 1], sp.lean + sp.chest)));
+    const F = M.torso.front.map((s, i) => s.map((p, j) => [W[i][j][0], p[1]]));
     const ys = M.torso.front.map((s) => s[0][1]);
     const yTop = Math.min(...ys), yBot = Math.max(...ys);
     const yMid = (yTop + yBot) / 2, half = (yBot - yTop) / 2;
@@ -317,7 +355,7 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side') {
   // back goes behind all the legs.
   const torsoBack = sp.lean + sp.chest / 2 < 0;
   // tail root: behind the pelvis (side view: toward the back hip corner)
-  const tail = S.tail ? dpTail(S.tail, front ? [0, -0.1] : add(lerp([0, 0], dpNode(T, 4), 0.75), rot([0, -0.12], lean)), lean, pose) : [];
+  const tail = tailSpec ? dpTail(tailSpec, front ? [0, -0.1 * bodyScale] : add(lerp([0, 0], dpNode(T, 5), 0.75), rot([0, -0.12 * bodyScale], lean)), lean, pose) : [];
   const pushTail = () => tail.forEach((pts) => out.push({ pts, role: 'body', part: 'tail' }));
   if (front) {
     pushTail();

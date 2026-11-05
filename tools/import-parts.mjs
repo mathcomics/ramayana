@@ -14,8 +14,8 @@
 //               shin, foot
 //   side        torso, upper-arm, forearm, hand-*, thigh, shin, foot
 //               (each limb optional: else the front one is used)
-//   front-bend  torso (bent forward, seen from the front)
-//   side-bend   torso (bent forward, seen from the side)
+//   front-bend  torso, torso-2, … (bent forward, seen from the front)
+//   side-bend   torso, torso-2, … (bent forward, seen from the side)
 //   anchors     circles: shoulder, elbow, wrist, hip, knee, ankle,
 //               neck-base, neck-top; side view: side-shoulder,
 //               side-shoulder-far, side-elbow, side-wrist, side-hip
@@ -25,8 +25,8 @@
 //   end         hand-fist, hand-out, hand-in, hand-point seen end-on
 //               (pointing at the viewer), on end-wrist (optional)
 //               (optional wrist-<hand> for a hand drawn elsewhere)
-// Other layers are ignored. The four torsos must have the same edges in
-// the same order round the outline (any start node); a side limb, hand or
+// Other layers are ignored. All torsos have the 9 edges of TN, in the same
+// order round the outline (any start node); a side limb, hand or
 // foot has the same number of edges as its front partner.
 import { readdirSync } from 'node:fs';
 import { parse, label } from './svg.mjs';
@@ -56,7 +56,7 @@ function parseD(d) {
     else throw new Error(`path command ${cmd} not supported (convert to path / curves)`);
   }
   const len = (g) => Math.hypot(g.s[3][0] - g.s[0][0], g.s[3][1] - g.s[0][1]);
-  return segs.filter((g) => !(g.line && len(g) < 2));   // drop the tiny closing edge
+  return segs.filter((g) => !(g.line && len(g) < 0.05));  // drop the zero-length closing edge
 }
 const translateOf = (n) => {
   const m = (n.attrs.transform || '').match(/translate\(\s*([-\d.e]+)[ ,]*([-\d.e]+)?\s*\)/);
@@ -85,11 +85,19 @@ const fromBary = (w, [A, B, C]) => add(add(mul(A, w[0]), mul(B, w[1])), mul(C, w
 const r4 = (v) => Math.round(v * 1e4) / 1e4;
 const pack = (segs) => segs.map((s) => s.map((p) => [r4(p[0]), r4(p[1])]));
 
+// Torso nodes, in order round the outline (as on the front torso):
+//   0 near top, 1 neck, 2 far top, 3 far waist (upper), 4 far waist
+//   (lower), 5 far hip, 6 near hip, 7 near waist (lower), 8 near waist
+//   (upper). In the side view "near" is the front of the body.
+const TN = { count: 9, neck: 1, farHip: 5, nearHip: 6, waist: [3, 4, 7, 8], upperWaist: [3, 8],
+  mirror: [2, 1, 0, 8, 7, 6, 5, 4, 3],
+  names: ['near top', 'neck', 'far top', 'far waist (upper)', 'far waist (lower)', 'far hip', 'near hip', 'near waist (lower)', 'near waist (upper)'] };
+
 // Rotate `segs` so its nodes line up with `ref`'s (any start node; a
 // straight edge may be redrawn as a curve). Torsos are matched on the
-// lower block, which a bend leaves alone: with the hips (nodes 4, 5) laid
-// on the reference's hips, the waist (3, 6) should land closest. Feet are
-// matched on the whole outline.
+// lower block, which a bend leaves alone: with the hips (nodes 5, 6) laid
+// on the reference's hips, the waist (3, 4, 7, 8) should land closest.
+// Feet are matched on the whole outline.
 function align(segs, ref, what, torso = true) {
   const n = ref.length;
   if (segs.length !== n) throw new Error(`${what}: ${segs.length} edges, expected ${n}`);
@@ -100,12 +108,12 @@ function align(segs, ref, what, torso = true) {
     let e;
     if (torso) {
       // similarity taking r's hips onto ref's hips
-      const a0 = P(r, 4), a1 = P(r, 5), b0 = P(ref, 4), b1 = P(ref, 5);
+      const a0 = P(r, TN.farHip), a1 = P(r, TN.nearHip), b0 = P(ref, TN.farHip), b1 = P(ref, TN.nearHip);
       const va = sub(a1, a0), vb = sub(b1, b0);
       const s = Math.hypot(...vb) / Math.hypot(...va), phi = angleOf(va) - angleOf(vb);
       if (Math.abs(wrap(phi)) > 60) continue;            // hips can't turn over
       const T = (p) => add(b0, mul(rot(sub(p, a0), phi), s));
-      e = [3, 6].reduce((acc, i) => acc + Math.hypot(...sub(T(P(r, i)), P(ref, i))), 0);
+      e = TN.waist.reduce((acc, i) => acc + Math.hypot(...sub(T(P(r, i)), P(ref, i))), 0);
     } else {
       const c = (S) => mul(S.reduce((acc, g) => add(acc, g.s[0]), [0, 0]), 1 / n);
       const cr = c(r), cf = c(ref);
@@ -115,6 +123,48 @@ function align(segs, ref, what, torso = true) {
   }
   if (process.env.DEBUG) console.log(what, 'start node', segs.indexOf(best.r[0]));
   return best.r;
+}
+
+// Split a cubic edge {s:[p0,c1,c2,p3]} at t (de Casteljau).
+function splitSeg(g, t) {
+  const [p0, p1, p2, p3] = g.s, L = (a, b) => lerp(a, b, t);
+  const a = L(p0, p1), b = L(p1, p2), c = L(p2, p3), d = L(a, b), e = L(b, c), m = L(d, e);
+  return [{ s: [p0, a, d, m], line: g.line }, { s: [m, e, c, p3], line: g.line }];
+}
+// t where the edge reaches height y (bisection; the edge runs up or down).
+function tAtY(g, y) {
+  const Y = (t) => { const u = 1 - t, s = g.s; return u * u * u * s[0][1] + 3 * u * u * t * s[1][1] + 3 * u * t * t * s[2][1] + t * t * t * s[3][1]; };
+  let lo = 0, hi = 1;
+  const sgn = Math.sign(Y(1) - Y(0)) || 1;
+  if ((y - Y(0)) * sgn <= 0 || (y - Y(1)) * sgn >= 0) return 0.5;
+  for (let i = 0; i < 40; i++) { const m = (lo + hi) / 2; if ((Y(m) - y) * sgn < 0) lo = m; else hi = m; }
+  return (lo + hi) / 2;
+}
+// A 7-edge torso (near top, neck, far top, far waist, far hip, near hip,
+// near waist) -> the 9 edges of TN, splitting far waist→far hip and near
+// hip→near waist. The first (straight) torso sets where, at the front's
+// lower-waist heights; later ones (its bends) split at the same t.
+function upgrade7(g, front9, mem) {
+  const P = (S, i) => S[((i % S.length) + S.length) % S.length].s[0];
+  let best = null;
+  for (let k = 0; k < 7; k++) {
+    const r = g.slice(k).concat(g.slice(0, k));
+    const a0 = P(r, 4), a1 = P(r, 5), b0 = P(front9, TN.farHip), b1 = P(front9, TN.nearHip);
+    const va = sub(a1, a0), vb = sub(b1, b0), phi = angleOf(va) - angleOf(vb);
+    if (Math.abs(wrap(phi)) > 60) continue;
+    const s = Math.hypot(...vb) / Math.hypot(...va);
+    const T = (p) => add(b0, mul(rot(sub(p, a0), phi), s));
+    const e = Math.hypot(...sub(T(P(r, 3)), P(front9, 3))) + Math.hypot(...sub(T(P(r, 6)), P(front9, 8)));
+    if (!best || e < best.e) best = { r, e };
+  }
+  const r = best.r;
+  if (mem.t == null) {
+    const mid = (S, a, b) => (P(S, a)[1] + P(S, b)[1]) / 2;
+    const yOff = mid(r, 4, 5) - mid(front9, TN.farHip, TN.nearHip);
+    mem.t = [tAtY(r[3], P(front9, 4)[1] + yOff), tAtY(r[5], P(front9, 7)[1] + yOff)];
+  }
+  const [a3, b3] = splitSeg(r[3], mem.t[0]), [a5, b5] = splitSeg(r[5], mem.t[1]);
+  return [r[0], r[1], r[2], a3, b3, r[4], a5, b5, r[6]];
 }
 
 function importParts(file) {
@@ -158,51 +208,69 @@ function importParts(file) {
   const segsOf = (g) => g.map((x) => x.s.map(M));
   const A = Object.fromEntries(Object.entries(AN).map(([k, p]) => [k, M(p)]));
 
-  // torsos: node order 0 near-top, 1 neck, 2 far-top, 3 far-waist,
-  // 4 far-hip, 5 near-hip, 6 near-waist (as on the front torso)
+  // Torsos (see TN): the straight front and side, and in each bend layer
+  // one or more bent torsos ("torso", "torso-2", …). Bends are ordered by
+  // how far they bend: side ones by the measured angle, front ones by
+  // height (taller = less bent); the n-th front bend pairs with the n-th
+  // side bend.
   const tf = F.torso;
-  const sideT = align(need(Sd, 'torso', 'side'), tf, 'side torso');
-  const torsos = {
-    front: segsOf(tf),
-    frontBend: segsOf(align(need(FB, 'torso', 'front-bend'), tf, 'front-bend torso')),
-    side: segsOf(sideT),
-    sideBend: segsOf(align(need(SB, 'torso', 'side-bend'), sideT, 'side-bend torso')),
+  if (tf.length !== TN.count) throw new Error(`front torso: ${tf.length} edges, expected ${TN.count}`);
+  // A torso drawn with the old 7 edges gets the two lower waist nodes added
+  // (its edges split at the front torso's lower-waist heights; its bends
+  // split at the same places along their edges).
+  const notes = [];
+  const up7 = {};
+  const to9 = (g, what) => {
+    if (g.length !== 7) return g;
+    const r = upgrade7(g, tf, up7);
+    notes.push(`${what}: had 7 edges, the two lower waist nodes were added`);
+    return r;
   };
-  if (tf.length !== 7) throw new Error(`front torso: ${tf.length} edges, expected 7`);
+  const sideT = align(to9(need(Sd, 'torso', 'side'), 'side torso'), tf, 'side torso');
+  const bendsIn = (L, ref, what) => Object.entries(L).filter(([k]) => /^torso/.test(k))
+    .map(([k, g]) => segsOf(align(to9(g, `${what} ${k}`), ref, `${what} ${k}`)));
   // each torso in a pelvis frame: hip mid at the origin, hip line as on the straight key
-  const hipMid = (T) => lerp(node(T, 4), node(T, 5), 0.5);
-  const hipAng = (T) => angleOf(sub(node(T, 5), node(T, 4)));
+  const hipMid = (T) => lerp(node(T, TN.farHip), node(T, TN.nearHip), 0.5);
+  const hipAng = (T) => angleOf(sub(node(T, TN.nearHip), node(T, TN.farHip)));
   const frame = (T, R0) => { const o = hipMid(T), phi = hipAng(T) - hipAng(R0); return mapSegs(T, (p) => rot(sub(p, o), phi)); };
-  const keys = {
-    front: frame(torsos.front, torsos.front),
-    frontBend: frame(torsos.frontBend, torsos.front),
-    side: frame(torsos.side, torsos.side),
-    sideBend: frame(torsos.sideBend, torsos.side),
-  };
-  const P0 = hipMid(torsos.front);
+  const front0 = segsOf(tf), side0 = segsOf(sideT);
+  const upAx = (T) => angleOf(sub(node(T, TN.neck), lerp(node(T, 3), node(T, 8), 0.5)));
+  const height = (T) => -node(T, TN.neck)[1];
+  const keys = { front: frame(front0, front0), side: frame(side0, side0) };
+  const sideBends = bendsIn(SB, sideT, 'side-bend').map((T) => frame(T, side0))
+    .map((T) => ({ T, deg: wrap(upAx(keys.side) - upAx(T)) })).sort((a, b) => a.deg - b.deg);
+  const frontBends = bendsIn(FB, tf, 'front-bend').map((T) => frame(T, front0)).sort((a, b) => height(b) - height(a));
+  if (!sideBends.length) throw new Error(`${file}: side-bend has no torso`);
+  if (frontBends.length !== sideBends.length) throw new Error(`${file}: ${frontBends.length} front-bend torsos but ${sideBends.length} side-bend`);
+  keys.frontBend = frontBends; keys.sideBend = sideBends.map((b) => b.T);
+  const bends = sideBends.map((b) => b.deg);
+
+  const P0 = hipMid(front0);
   const toT = (p) => sub(p, P0);
   const tri = (T, idx) => idx.map((i) => node(T, i));
-  const triS = [0, 1, 6], triH = [5, 4, 6], triN = [0, 1, 2];
+  // A joint is a mix of torso nodes, so it follows the bend. Hips hang on
+  // the hip edge only (nodes 5–6: a point along it and off it), so a
+  // folding waist doesn't move the legs.
+  const edgeAt = (P, T, a, b) => {
+    const A0 = node(T, a), d = sub(node(T, b), A0), L2 = d[0] * d[0] + d[1] * d[1], v = sub(P, A0);
+    return { edge: [a, b], u: (v[0] * d[0] + v[1] * d[1]) / L2, v: (v[0] * -d[1] + v[1] * d[0]) / L2 };
+  };
+  const triS = [0, 1, 8], triN = [0, 1, 2];
   const attach = {
     shoulder: { idx: triS, w: bary(toT(A.shoulder), tri(keys.front, triS)) },
-    hip: { idx: triH, w: bary(toT(A.hip), tri(keys.front, triH)) },
+    hip: edgeAt(toT(A.hip), keys.front, TN.farHip, TN.nearHip),
     neck: { idx: triN, w: bary(toT(A['neck-base']), tri(keys.front, triN)) },
   };
-  // side-view joints from the side anchors, on the side torso's nodes (so
-  // they follow the bend); one hip point for both legs. Without side
-  // anchors the front's are used on the side torso.
-  const PS = hipMid(torsos.side);
+  // side-view joints from the side anchors, on the side torso's nodes; one
+  // hip point for both legs
+  const PS = hipMid(side0);
   const sideAtt = (name, idx) => (A[name] ? { idx, w: bary(sub(A[name], PS), tri(keys.side, idx)) } : null);
-  const sTriS = [0, 1, 6], sTriSF = [2, 1, 3];
   const attachSide = A['side-hip'] ? {
-    shoulder: sideAtt('side-shoulder', sTriS) || attach.shoulder,
-    shoulderFar: sideAtt('side-shoulder-far', sTriSF) || sideAtt('side-shoulder', sTriS) || attach.shoulder,
-    hip: sideAtt('side-hip', triH),
-    neck: sideAtt('side-neck-base', [1, 6, 3]) || attach.neck,
+    shoulder: sideAtt('side-shoulder', triS) || attach.shoulder,
+    shoulderFar: sideAtt('side-shoulder-far', [2, 1, 3]) || sideAtt('side-shoulder', triS) || attach.shoulder,
+    hip: edgeAt(sub(A['side-hip'], PS), keys.side, TN.farHip, TN.nearHip),
+    neck: sideAtt('side-neck-base', [1, 8, 3]) || attach.neck,
   } : undefined;
-  const upAx = (T) => angleOf(sub(node(T, 1), lerp(node(T, 3), node(T, 6), 0.5)));
-  const bend = wrap(upAx(keys.side) - upAx(keys.sideBend));
-  const height = (T) => -node(T, 1)[1];
 
   // Limbs: rigid, in bone frames (origin at the start joint, bone pointing
   // down), one shape per view. The side shape is optional: without it the
@@ -299,16 +367,15 @@ function importParts(file) {
   // that don't (more than 0.03 head-units = 3 px apart).
   const warn = [];
   const chk = (what, yf, ys, unit = 'px above the pelvis') => { if (Math.abs(yf - ys) > 0.03) warn.push(`${what}: front ${(-yf * K).toFixed(1)}, side ${(-ys * K).toFixed(1)} ${unit}`); };
-  const NODE = ['near top', 'neck', 'far top', 'far waist', 'far hip', 'near hip', 'near waist'];
-  keys.front.forEach((s, i) => chk(`torso node ${i} (${NODE[i]})`, s[0][1], keys.side[i][0][1]));
+  keys.front.forEach((s, i) => chk(`torso node ${i} (${TN.names[i]})`, s[0][1], keys.side[i][0][1]));
   for (const k of ['shoulder', 'elbow', 'wrist', 'hip', 'knee', 'ankle', 'neck-base'])
     if (A[`side-${k}`]) chk(`anchor ${k}`, A[k][1], A[`side-${k}`][1], 'px above the ground');
+  if (notes.length) console.warn(`${file}:\n  ${notes.join('\n  ')}`);
   if (warn.length) console.warn(`${file}: heights differ between front and side\n  ${warn.join('\n  ')}`);
 
   return {
-    torso: Object.fromEntries(Object.entries(keys).map(([k, v]) => [k, pack(v)])),
-    attach, attachSide, mirror: [2, 1, 0, 6, 5, 4, 3],
-    bend: r4(bend), frontBend: r4(height(keys.frontBend) / height(keys.front)),
+    torso: { front: pack(keys.front), side: pack(keys.side), frontBend: keys.frontBend.map(pack), sideBend: keys.sideBend.map(pack) },
+    attach, attachSide, mirror: TN.mirror, bends: bends.map(r4),
     upperArm: limb('upper-arm', 'shoulder', 'elbow', true),
     forearm: limb('forearm', 'elbow', 'wrist', false),
     thigh: limb('thigh', 'hip', 'knee', false),
@@ -327,6 +394,6 @@ for (const f of readdirSync(new URL('../data/parts', import.meta.url)).filter((f
   const id = f.slice(0, -4);
   out[id] = importParts(`data/parts/${f}`);
   const m = out[id];
-  console.log(`${id}: bend ${m.bend.toFixed(0)}°, front-bend ×${m.frontBend.toFixed(2)}, arm ${m.upperArm.len}+${m.forearm.len}, leg ${m.thigh.len}+${m.shin.len}, hands ${Object.keys(m.hands.front).join(' ')}`);
+  console.log(`${id}: bends ${m.bends.map((b) => b.toFixed(0) + '°').join(' ')}, arm ${m.upperArm.len}+${m.forearm.len}, leg ${m.thigh.len}+${m.shin.len}, hands ${Object.keys(m.hands.front).join(' ')}`);
 }
 console.log(writeOut('data/parts.json', JSON.stringify({ note: 'generated by tools/import-parts.mjs from data/parts/*.svg; do not edit', parts: out })));

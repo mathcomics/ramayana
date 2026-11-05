@@ -372,8 +372,8 @@ export const DEFAULT_OUTFIT = { bottom: 'briefs', top: 'bare' };
 //   bottom: 'briefs' (loincloth only) | 'dhoti' (thighs in cloth colour)
 //   top:    'bare' | 'full' (whole torso in cloth colour)
 // view: 'side' (default) or 'front' (derived from the side pose; see frontOf).
-export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side') {
-  if (species.parts && typeof species.parts === 'object') return partsShapes(species, pose, outfit, view);
+export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side', bodyScale = 1) {
+  if (species.parts && typeof species.parts === 'object') return partsShapes(species, pose, outfit, view, bodyScale);
   if (view === 'front') ({ species, pose } = frontOf(species, pose));
   const sk = solve(species, pose);
   const S = species;
@@ -429,13 +429,13 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
 
 // Drawn-parts figure (species.parts, src/parts.js): same result shape as
 // buildShapes. Each shape also has `d`, the drawn curves as path data.
-function partsShapes(S, poseIn, outfit, view) {
+function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
   // everything comes from the side pose (src/parts.js projects it); the
   // front view only takes its head settings from frontOf
   const side = normalizePose(poseIn);
   const front = view === 'front';
   const pose = front ? normalizePose(frontOf(S, side).pose) : side;
-  const { shapes, H, headRot } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side');
+  const { shapes, H, headRot } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale);
   const bb = bbox(shapes.map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];
@@ -496,12 +496,12 @@ function patternDef(id, kind, ink) {
 // or 'front' (derived from the side pose). `id` prefixes the figure's clip
 // and pattern ids; give each figure on a page its own (default: a counter).
 // The other options are a character look (see characterLook): colors,
-// outfit, pattern, face.
+// outfit, pattern, face, bodyScale (torso and legs; drawn parts only).
 let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
-  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view);
+  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.bodyScale ?? 1);
   // Drawn face (data/faces): replaces the guide head (every character has
   // one; the guide shows on species sheets only). Its layers are
   // copied unchanged, colours included, and placed with one transform.
@@ -557,5 +557,6 @@ export function characterLook(character, palette, faces, cloth = character.cloth
     pattern: c.pattern,
     colors: { body: character.body, cloth: c.color },
     outfit: { top: character.top, bottom: character.bottom },
+    bodyScale: character.scale ?? 1,
   };
 }
