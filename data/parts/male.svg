@@ -21,8 +21,8 @@
      side-knee, side-ankle, side-neck-base (the circle centre counts).
      100 px = 1 head-unit; ground at y = 0. -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-     width="558.88" height="603.73" viewBox="-143.42 -563.73 558.88 603.73">
-<line x1="-143.42" x2="415.46" y1="0" y2="0" stroke="#c9bfae" stroke-width="1"/>
+     width="558.89" height="603.73" viewBox="-143.42 -563.73 558.89 603.73">
+<line x1="-143.42" x2="415.47" y1="0" y2="0" stroke="#c9bfae" stroke-width="1"/>
   <g id="front" inkscape:groupmode="layer" inkscape:label="front">
     <path id="front-torso" inkscape:label="torso" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 73.47 -478.22 L 2.97 -499 L -68.28 -478.22 C -102.01 -468.38 -73.41 -410.86 -43.79 -389.53 L -44.53 -329.42 C -24.01 -310.86 5.75 -301.63 44.53 -328.68 L 45.64 -389.68 C 71.1 -415.48 108.35 -467.94 73.47 -478.22 Z"/>
     <path id="front-neck" inkscape:label="neck" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 15.22 -483.65 L 15.21 -523.73 L -10.01 -523.26 L -10.02 -483.92 L 15.22 -483.65 Z"/>
@@ -52,7 +52,7 @@
     <path id="side-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 288.45 -29.78 C 295.22 -23.7 307.47 -18.9 327.04 -10.89 C 337.43 -11.18 345.61 -9.29 341.89 -1.09 L 258.77 0 L 265.82 -25.06 L 288.45 -29.78 Z"/>
   </g>
   <g id="side-bend" inkscape:groupmode="layer" inkscape:label="side-bend">
-    <path id="side-bend-torso" inkscape:label="torso" style="fill:#b06a6a;fill-opacity:0.2;stroke:#a03030;stroke-width:1;stroke-dasharray:5 3" d="M 375.46 -411.08 L 367.14 -428.7 L 358.86 -443.39 C 359.19 -451.47 273.21 -466.9 251.07 -379.96 C 246.52 -361.2 248.32 -346.38 247.68 -330.04 C 257.55 -315.38 292.08 -301.07 312.32 -328.06 L 323.25 -369.46 C 327.87 -377.69 372.46 -358.65 375.46 -411.08 Z"/>
+    <path id="side-bend-torso" inkscape:label="torso" style="fill:#b06a6a;fill-opacity:0.2;stroke:#a03030;stroke-width:1;stroke-dasharray:5 3" d="M 375.47 -411.07 L 367.15 -428.69 L 358.87 -443.38 C 359.2 -451.46 273.23 -466.9 251.08 -379.96 C 246.52 -361.2 248.32 -346.38 247.68 -330.04 C 257.55 -315.38 292.08 -301.07 312.32 -328.06 L 323.25 -369.46 C 327.88 -377.68 372.46 -358.64 375.47 -411.07 Z"/>
   </g>
   <g id="anchors" inkscape:groupmode="layer" inkscape:label="anchors">
     <circle id="anchor-shoulder" inkscape:label="shoulder" cx="67.92" cy="-462.89" r="4" style="fill:#d02020"/>

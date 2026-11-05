@@ -83,6 +83,33 @@ function dpProject(theta, out, front) {
   const f = Math.hypot(h, v);
   return { ang: f < 1e-6 ? 0 : Math.atan2(h, v) / RAD, f };
 }
+// Tail (species.tail; monkey): a tapering curl from `root`, as in the
+// rule-based figure: it leaves backward, lifted by tail.lift, and curls by
+// tail.curl along its length.
+function dpTail(Tl, root, lean, pose) {
+  let p = root;
+  let theta = -90 - lean - pose.tail.lift;
+  const n = Tl.segments, segLen = Tl.length / n;
+  const wts = Array.from({ length: n }, (_, k) => Math.pow(k + 1, 1.7));
+  const wsum = wts.reduce((a, b) => a + b, 0);
+  const spine = [p], angles = [];
+  for (let k = 0; k < n; k++) {
+    theta -= pose.tail.curl * (wts[k] / wsum);
+    angles.push(theta);
+    p = add(p, mul(dir(theta), segLen));
+    spine.push(p);
+  }
+  const left = [], right = [];
+  for (let i = 0; i < spine.length; i++) {
+    const w = Tl.w[0] + (Tl.w[1] - Tl.w[0]) * (i / (spine.length - 1));
+    const nrm = dir(angles[Math.min(i, angles.length - 1)] + 90);
+    left.push(add(spine[i], mul(nrm, w / 2)));
+    right.push(add(spine[i], mul(nrm, -w / 2)));
+  }
+  const disc = (c, r) => Array.from({ length: 12 }, (_, i) => add(c, [Math.cos(i * Math.PI / 6) * r, Math.sin(i * Math.PI / 6) * r]));
+  return [disc(spine[0], Tl.w[0] / 2), [...left, ...right.reverse()], disc(spine[spine.length - 1], Tl.w[1] / 2)];
+}
+
 // The least length factor for a limb part: about its own width.
 const dpMinF = (L) => {
   if (L._minF == null) {
@@ -191,7 +218,11 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
   // torso and one reaching away (< -0.5) goes under it; a torso leaning
   // back goes behind all the legs.
   const torsoBack = sp.lean + sp.chest / 2 < 0;
+  // tail root: behind the pelvis (side view: toward the back hip corner)
+  const tail = S.tail ? dpTail(S.tail, front ? [0, -0.1] : add(lerp([0, 0], dpNode(T, 4), 0.75), rot([0, -0.12], lean)), lean, pose) : [];
+  const pushTail = () => tail.forEach((pts) => out.push({ pts, role: 'body', part: 'tail' }));
   if (front) {
+    pushTail();
     const under = [], over = [];
     for (const kind of ['leg', 'arm']) for (const s of ['far', 'near']) for (const [part, segs, d] of limbs[s][kind]) {
       const on = kind === 'leg' ? torsoBack || d > 0.5 : d >= -0.5;
@@ -199,7 +230,7 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     }
     out.push(...under); pushTorso(); out.push(...over, headShape);
   } else {
-    push(limbs.far, 'arm', 'far'); push(limbs.far, 'leg', 'far'); push(limbs.near, 'leg', 'near'); pushTorso();
+    push(limbs.far, 'arm', 'far'); push(limbs.far, 'leg', 'far'); pushTail(); push(limbs.near, 'leg', 'near'); pushTorso();
     out.push(headShape); push(limbs.near, 'arm', 'near');
   }
   for (const s of out) if (s.segs) { s.pts = dpFlat(s.segs); }

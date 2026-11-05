@@ -71,8 +71,8 @@ renderer or panel changes.
 
 - **Branch `drawn-parts` (experiment, 2026-11-04):** figures built from the
   artist's drawn parts (`data/parts/male.svg` → `tools/import-parts.mjs` →
-  `data/parts.json`; `src/parts.js`; `docs/drawn-parts.md`). All three
-  species use the male parts for now; no loincloth (cloth on thighs only);
+  `data/parts.json`; `src/parts.js`; `docs/drawn-parts.md`). Each species has its parts file (female and monkey derived from the male
+  by `tools/derive-parts.mjs`, monkey tail still generated); no loincloth (cloth on thighs only);
   pose lab republished with it. `anatomy`/parts-sheet/face templates still
   use the rule-based shapes.
 

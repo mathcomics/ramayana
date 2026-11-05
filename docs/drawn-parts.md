@@ -2,7 +2,11 @@
 
 Bodies built from the artist's own outlines instead of rule-based shapes.
 The skeleton, poses, faces and the derived front view stay as they are;
-only the shapes change. For now all three species use the male parts.
+only the shapes change. Each species has its own parts file: `male`,
+`female` and `monkey` (the last two first drafts made from the male by
+`tools/derive-parts.mjs`: the monkey has 12% longer arms; the female an
+hourglass front, bust and seat in side view, slimmer and 6% shorter).
+The monkey's tail is still generated from `data/species/monkey.json`.
 
 ## The parts file
 
@@ -59,4 +63,4 @@ the outline (start node and straight-vs-curved don't matter).
   point hand is mirrored across the forearm).
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn
   over the legs.
-- Not yet: monkey tail, per-species parts.
+- Not yet: a drawn tail.
