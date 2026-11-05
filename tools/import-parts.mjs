@@ -1,0 +1,230 @@
+// Import the artist's drawn body parts (data/parts/<id>.svg) into
+// data/parts.json, the model the renderer places on the skeleton
+// (src/parts.js). Curves are kept exactly; only moved, rotated, mirrored.
+//
+//   node tools/import-parts.mjs        -> data/parts.json
+//
+// The file (100 px = 1 head-unit), by layer and label:
+//   front       torso, neck, upper-arm, forearm, hand-fist, hand-out,
+//               hand-point (hand-in optional: else hand-out mirrored),
+//               thigh, shin, foot. Limbs are the figure's left side
+//               (picture-left), assembled on the front torso.
+//   side        torso, foot (facing left)
+//   front-bend  torso (bent forward, seen from the front)
+//   side-bend   torso (bent forward, seen from the side)
+//   anchors     circles: shoulder, elbow, wrist, hip, knee, ankle,
+//               neck-base, neck-top (optional: wrist-out, wrist-point …
+//               for hands not drawn at the wrist)
+//   guide       ignored
+// The four torsos must have the same edges in the same order round the
+// outline (any start node); the two feet likewise.
+import { readdirSync } from 'node:fs';
+import { parse, label } from './svg.mjs';
+import { read, writeOut } from './lib.mjs';
+
+const K = 100;
+const HANDS = ['fist', 'out', 'in', 'point'];
+
+// ---- path parsing (m l h v c z, absolute or relative) into cubic segments
+function parseD(d) {
+  const toks = d.match(/[a-zA-Z]|-?(?:\d+\.?\d*|\.\d+)(?:e-?\d+)?/g);
+  let i = 0, cmd = null, cur = [0, 0], start = null; const segs = [];
+  const num = () => +toks[i++];
+  const isNum = () => i < toks.length && !/[a-zA-Z]/.test(toks[i]);
+  const L = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  const line = (p) => { segs.push({ s: [cur, L(cur, p, 1 / 3), L(cur, p, 2 / 3), p], line: true }); cur = p; };
+  while (i < toks.length) {
+    if (!isNum()) cmd = toks[i++];
+    const rel = cmd === cmd.toLowerCase(), C = cmd.toUpperCase();
+    const pt = () => { const x = num(), y = num(); return rel ? [cur[0] + x, cur[1] + y] : [x, y]; };
+    if (C === 'M') { cur = pt(); start = cur; cmd = rel ? 'l' : 'L'; }
+    else if (C === 'L') line(pt());
+    else if (C === 'H') { const x = num(); line([rel ? cur[0] + x : x, cur[1]]); }
+    else if (C === 'V') { const y = num(); line([cur[0], rel ? cur[1] + y : y]); }
+    else if (C === 'C') { const b = cur, c1 = pt(), c2 = pt(), p = pt(); segs.push({ s: [b, c1, c2, p], line: false }); cur = p; }
+    else if (C === 'Z') { line(start); cur = start; }
+    else throw new Error(`path command ${cmd} not supported (convert to path / curves)`);
+  }
+  const len = (g) => Math.hypot(g.s[3][0] - g.s[0][0], g.s[3][1] - g.s[0][1]);
+  return segs.filter((g) => !(g.line && len(g) < 2));   // drop the tiny closing edge
+}
+const translateOf = (n) => {
+  const m = (n.attrs.transform || '').match(/translate\(\s*([-\d.e]+)[ ,]*([-\d.e]+)?\s*\)/);
+  if (n.attrs.transform && !m) throw new Error(`only translate() is supported on layers (${label(n)})`);
+  return m ? [+m[1], +(m[2] || 0)] : [0, 0];
+};
+
+// ---- geometry helpers (drawing coordinates)
+const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
+const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
+const mul = (a, s) => [a[0] * s, a[1] * s];
+const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+const RAD = Math.PI / 180;
+const rot = (p, phi) => { const c = Math.cos(phi * RAD), s = Math.sin(phi * RAD); return [p[0] * c - p[1] * s, p[0] * s + p[1] * c]; };
+const angleOf = (v) => Math.atan2(v[0], v[1]) / RAD;        // 0 = down, +90 = +x
+const wrap = (v) => ((v + 540) % 360) - 180;
+const mapSegs = (segs, f) => segs.map((s) => s.map(f));
+const node = (segs, i) => segs[((i % segs.length) + segs.length) % segs.length][0];
+const bary = (X, [A, B, C]) => {
+  const v0 = sub(B, A), v1 = sub(C, A), v2 = sub(X, A);
+  const d = v0[0] * v1[1] - v1[0] * v0[1];
+  const b = (v2[0] * v1[1] - v1[0] * v2[1]) / d, c = (v0[0] * v2[1] - v2[0] * v0[1]) / d;
+  return [1 - b - c, b, c];
+};
+const fromBary = (w, [A, B, C]) => add(add(mul(A, w[0]), mul(B, w[1])), mul(C, w[2]));
+const r4 = (v) => Math.round(v * 1e4) / 1e4;
+const pack = (segs) => segs.map((s) => s.map((p) => [r4(p[0]), r4(p[1])]));
+
+// Rotate `segs` so its nodes line up with `ref`'s (any start node; a
+// straight edge may be redrawn as a curve). Torsos are matched on the
+// lower block, which a bend leaves alone: with the hips (nodes 4, 5) laid
+// on the reference's hips, the waist (3, 6) should land closest. Feet are
+// matched on the whole outline.
+function align(segs, ref, what, torso = true) {
+  const n = ref.length;
+  if (segs.length !== n) throw new Error(`${what}: ${segs.length} edges, expected ${n}`);
+  const P = (S, i) => S[((i % n) + n) % n].s[0];
+  let best = null;
+  for (let k = 0; k < n; k++) {
+    const r = segs.slice(k).concat(segs.slice(0, k));
+    let e;
+    if (torso) {
+      // similarity taking r's hips onto ref's hips
+      const a0 = P(r, 4), a1 = P(r, 5), b0 = P(ref, 4), b1 = P(ref, 5);
+      const va = sub(a1, a0), vb = sub(b1, b0);
+      const s = Math.hypot(...vb) / Math.hypot(...va), phi = angleOf(va) - angleOf(vb);
+      if (Math.abs(wrap(phi)) > 60) continue;            // hips can't turn over
+      const T = (p) => add(b0, mul(rot(sub(p, a0), phi), s));
+      e = [3, 6].reduce((acc, i) => acc + Math.hypot(...sub(T(P(r, i)), P(ref, i))), 0);
+    } else {
+      const c = (S) => mul(S.reduce((acc, g) => add(acc, g.s[0]), [0, 0]), 1 / n);
+      const cr = c(r), cf = c(ref);
+      e = r.reduce((acc, g, i) => acc + Math.hypot(...sub(sub(g.s[0], cr), sub(ref[i].s[0], cf))), 0);
+    }
+    if (!best || e < best.e) best = { r, e };
+  }
+  if (process.env.DEBUG) console.log(what, 'start node', segs.indexOf(best.r[0]));
+  return best.r;
+}
+
+function importParts(file) {
+  const root = parse(read(file));
+  const layers = {};
+  const walk = (n, off) => {
+    for (const c of n.children || []) {
+      if (!c.tag) continue;
+      const o = add(off, translateOf(c));
+      const L = label(c);
+      if (c.tag === 'g' && ['front', 'side', 'front-bend', 'side-bend', 'anchors'].includes(L)) layers[L] = { node: c, off: o };
+      else if (c.tag === 'g' || c.tag === 'svg') walk(c, o);
+    }
+  };
+  walk(root, [0, 0]);
+  const items = (L) => {
+    const out = {};
+    const go = (n, off) => {
+      for (const c of n.children || []) {
+        if (!c.tag) continue;
+        const o = add(off, translateOf(c));
+        const name = label(c).replace(new RegExp(`^(${L}|anchor)-`), '');
+        if (c.tag === 'g') go(c, o);
+        else if (c.tag === 'path') out[name] = parseD(c.attrs.d).map((g) => ({ ...g, s: g.s.map((p) => add(p, o)) }));
+        else if (c.tag === 'circle') out[name] = add([+c.attrs.cx, +c.attrs.cy], o);
+      }
+    };
+    if (!layers[L]) throw new Error(`${file}: no layer "${L}"`);
+    go(layers[L].node, layers[L].off);
+    return out;
+  };
+  const F = items('front'), Sd = items('side'), FB = items('front-bend'), SB = items('side-bend'), AN = items('anchors');
+  const need = (o, k, where) => { if (!o[k]) throw new Error(`${file}: ${where} has no "${k}"`); return o[k]; };
+  for (const k of ['torso', 'neck', 'upper-arm', 'forearm', 'hand-fist', 'thigh', 'shin', 'foot']) need(F, k, 'front');
+  for (const k of ['shoulder', 'elbow', 'wrist', 'hip', 'knee', 'ankle', 'neck-base', 'neck-top']) need(AN, k, 'anchors');
+
+  // Mirror the whole drawing: front limbs become picture-right (= near),
+  // side parts face right (the renderer's convention). px -> head-units.
+  const M = (p) => [-p[0] / K, p[1] / K];
+  const segsOf = (g) => g.map((x) => x.s.map(M));
+  const A = Object.fromEntries(Object.entries(AN).map(([k, p]) => [k, M(p)]));
+
+  // torsos: node order 0 near-top, 1 neck, 2 far-top, 3 far-waist,
+  // 4 far-hip, 5 near-hip, 6 near-waist (as on the front torso)
+  const tf = F.torso;
+  const sideT = align(need(Sd, 'torso', 'side'), tf, 'side torso');
+  const torsos = {
+    front: segsOf(tf),
+    frontBend: segsOf(align(need(FB, 'torso', 'front-bend'), tf, 'front-bend torso')),
+    side: segsOf(sideT),
+    sideBend: segsOf(align(need(SB, 'torso', 'side-bend'), sideT, 'side-bend torso')),
+  };
+  if (tf.length !== 7) throw new Error(`front torso: ${tf.length} edges, expected 7`);
+  // each torso in a pelvis frame: hip mid at the origin, hip line as on the straight key
+  const hipMid = (T) => lerp(node(T, 4), node(T, 5), 0.5);
+  const hipAng = (T) => angleOf(sub(node(T, 5), node(T, 4)));
+  const frame = (T, R0) => { const o = hipMid(T), phi = hipAng(T) - hipAng(R0); return mapSegs(T, (p) => rot(sub(p, o), phi)); };
+  const keys = {
+    front: frame(torsos.front, torsos.front),
+    frontBend: frame(torsos.frontBend, torsos.front),
+    side: frame(torsos.side, torsos.side),
+    sideBend: frame(torsos.sideBend, torsos.side),
+  };
+  const P0 = hipMid(torsos.front);
+  const toT = (p) => sub(p, P0);
+  const tri = (T, idx) => idx.map((i) => node(T, i));
+  const triS = [0, 1, 6], triH = [5, 4, 6], triN = [0, 1, 2];
+  const attach = {
+    shoulder: { idx: triS, w: bary(toT(A.shoulder), tri(keys.front, triS)) },
+    hip: { idx: triH, w: bary(toT(A.hip), tri(keys.front, triH)) },
+    neck: { idx: triN, w: bary(toT(A['neck-base']), tri(keys.front, triN)) },
+  };
+  const upAx = (T) => angleOf(sub(node(T, 1), lerp(node(T, 3), node(T, 6), 0.5)));
+  const bend = wrap(upAx(keys.side) - upAx(keys.sideBend));
+  const height = (T) => -node(T, 1)[1];
+
+  // limbs: rigid, in bone frames (origin at the start joint, bone pointing down)
+  const bone = (g, a, b) => {
+    const ang = angleOf(sub(b, a));
+    return { segs: pack(mapSegs(segsOf(g), (p) => rot(sub(p, a), ang))), len: r4(Math.hypot(...sub(b, a))) };
+  };
+  const forearmAng = angleOf(sub(A.wrist, A.elbow));
+  const hands = {};
+  const fist0 = M(F['hand-fist'][0].s[0]);
+  for (const h of HANDS) {
+    const g = F[`hand-${h}`];
+    if (!g) continue;
+    // a hand drawn away from the arm: its wrist is anchors/wrist-<h>, or
+    // the fist's wrist moved by the offset between the two first nodes
+    const w = A[`wrist-${h}`] || (h === 'fist' ? A.wrist : add(A.wrist, sub(M(g[0].s[0]), fist0)));
+    hands[h] = pack(mapSegs(segsOf(g), (p) => rot(sub(p, w), forearmAng)));
+  }
+  if (!hands.out) hands.out = hands.fist;
+  if (!hands.point) hands.point = hands.out;
+  if (!hands.in) hands.in = mapSegs(hands.out, (p) => [-p[0], p[1]]);   // thumb to the other side
+
+  // feet: flat as drawn, origin at the ankle; the side foot's ankle sits on
+  // the same nodes as the front foot's
+  const ff = segsOf(F.foot), fs = segsOf(align(need(Sd, 'foot', 'side'), F.foot, 'side foot', false));
+  const ankleSide = fromBary(bary(A.ankle, tri(ff, [0, 3, 4])), tri(fs, [0, 3, 4]));
+
+  return {
+    torso: Object.fromEntries(Object.entries(keys).map(([k, v]) => [k, pack(v)])),
+    attach, mirror: [2, 1, 0, 6, 5, 4, 3],
+    bend: r4(bend), frontBend: r4(height(keys.frontBend) / height(keys.front)),
+    upperArm: bone(F['upper-arm'], A.shoulder, A.elbow),
+    forearm: bone(F.forearm, A.elbow, A.wrist),
+    thigh: bone(F.thigh, A.hip, A.knee),
+    shin: bone(F.shin, A.knee, A.ankle),
+    neck: bone(F.neck, A['neck-base'], A['neck-top']),
+    hands,
+    foot: { front: pack(mapSegs(ff, (p) => sub(p, A.ankle))), side: pack(mapSegs(fs, (p) => sub(p, ankleSide))) },
+  };
+}
+
+const out = {};
+for (const f of readdirSync(new URL('../data/parts', import.meta.url)).filter((f) => f.endsWith('.svg')).sort()) {
+  const id = f.slice(0, -4);
+  out[id] = importParts(`data/parts/${f}`);
+  const m = out[id];
+  console.log(`${id}: bend ${m.bend.toFixed(0)}°, front-bend ×${m.frontBend.toFixed(2)}, arm ${m.upperArm.len}+${m.forearm.len}, leg ${m.thigh.len}+${m.shin.len}, hands ${Object.keys(m.hands).join(' ')}`);
+}
+console.log(writeOut('data/parts.json', JSON.stringify({ note: 'generated by tools/import-parts.mjs from data/parts/*.svg; do not edit', parts: out })));

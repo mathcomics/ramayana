@@ -69,6 +69,13 @@ renderer or panel changes.
 
 ## Status (2026-11-04)
 
+- **Branch `drawn-parts` (experiment, 2026-11-04):** figures built from the
+  artist's drawn parts (`data/parts/male.svg` → `tools/import-parts.mjs` →
+  `data/parts.json`; `src/parts.js`; `docs/drawn-parts.md`). All three
+  species use the male parts for now; no loincloth (cloth on thighs only);
+  pose lab republished with it. `anatomy`/parts-sheet/face templates still
+  use the rule-based shapes.
+
 - **Code review 2026-11-04:** test suite added (`npm test`, 38 tests incl.
   a 380-render snapshot). Dead code removed (unused geom helpers, the
   old ear-curl and `open` shape paths, unused params). Tools share

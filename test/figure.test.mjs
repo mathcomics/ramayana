@@ -128,3 +128,20 @@ test('a drawn face replaces the generated head', () => {
   assert.ok(withFace.includes(FACES.faces.rama.side.head));
   assert.ok(!without.includes(FACES.faces.rama.side.head));
 });
+
+// Drawn parts (experiment): species with "parts" use the artist's outlines.
+test('drawn parts: every pose builds in side and front, standing on the ground', async () => {
+  const { loadAssets } = await import('../tools/lib.mjs');
+  const A = loadAssets();
+  for (const id of ['male', 'female', 'monkey']) {
+    const S = A.species[id];
+    assert.equal(typeof S.parts, 'object', `${id} uses drawn parts`);
+    for (const p of A.poses) for (const view of ['side', 'front']) {
+      const { shapes, bbox, headAnchor } = buildShapes(S, p, { top: 'bare', bottom: 'dhoti' }, view);
+      assert.ok(Math.abs(bbox.y1) < 1e-9, `${p.name} ${view} on the ground`);
+      assert.ok(shapes.every((s) => s.pts.every((q) => q.every(Number.isFinite))), `${p.name} ${view} finite`);
+      assert.ok(Number.isFinite(headAnchor.at[0]));
+      assert.ok(!shapes.some((s) => s.part === 'loincloth'), 'no loincloth');
+    }
+  }
+});

@@ -10,6 +10,7 @@
 //   triceps against a curved forearm-front.
 
 import { dir, add, mul, lerp, rot, quad, circlePts, pathD, bbox } from './geom.js';
+import { buildParts, dpSegD } from './parts.js';
 
 const ELBOW = +1; // forearm rotates toward +θ when the elbow flexes
 const KNEE = -1;  // shin rotates toward -θ when the knee flexes
@@ -372,6 +373,7 @@ export const DEFAULT_OUTFIT = { bottom: 'briefs', top: 'bare' };
 //   top:    'bare' | 'full' (whole torso in cloth colour)
 // view: 'side' (default) or 'front' (derived from the side pose; see frontOf).
 export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side') {
+  if (species.parts && typeof species.parts === 'object') return partsShapes(species, pose, outfit, view);
   if (view === 'front') ({ species, pose } = frontOf(species, pose));
   const sk = solve(species, pose);
   const S = species;
@@ -423,6 +425,27 @@ export function buildShapes(species, pose, outfit = DEFAULT_OUTFIT, view = 'side
   // where the head ends up, for drawn faces (head-local origin and angle)
   const headAnchor = { at: [sk.H[0] + dx, sk.H[1] + dy], rot: sk.headRot };
   return { shapes: out, sk, headAnchor, bbox: bbox(out.map((s) => s.pts)) };
+}
+
+// Drawn-parts figure (species.parts, src/parts.js): same result shape as
+// buildShapes. Each shape also has `d`, the drawn curves as path data.
+function partsShapes(S, poseIn, outfit, view) {
+  let pose = normalizePose(poseIn), k = 1;
+  const front = view === 'front';
+  if (front) {
+    const f = frontOf(S, pose);
+    pose = normalizePose(f.pose);
+    k = f.species.spine.lower / S.spine.lower;
+  }
+  const { shapes, H, headRot } = buildParts(S.parts, S, pose, outfit, front ? 'front' : 'side', k);
+  const bb = bbox(shapes.map((s) => s.pts));
+  const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
+  const mv = (q) => [q[0] + dx, q[1] + dy];
+  for (const s of shapes) {
+    s.pts = s.pts.map(mv);
+    if (s.segs) { s.segs = s.segs.map((g) => g.map(mv)); s.d = dpSegD(s.segs); }
+  }
+  return { shapes, sk: { pose, front }, headAnchor: { at: mv(H), rot: headRot }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
 
 // Every body part as its own list of shapes, for inspection
@@ -503,7 +526,7 @@ export function renderFigure(species, pose, opts = {}) {
     }
     if (s.role === 'body') {
       if (!inBody) { svg += `<g fill="${colors.body}">`; inBody = true; }
-      svg += `<path d="${pathD(s.pts)}"/>`;
+      svg += `<path d="${s.d ?? pathD(s.pts)}"/>`;
       continue;
     }
     if (inBody) { svg += '</g>'; inBody = false; }
@@ -513,11 +536,11 @@ export function renderFigure(species, pose, opts = {}) {
         `<g fill="${colors[s.role]}" clip-path="url(#${id})">${s.parts.map((p) => `<path d="${pathD(p)}"/>`).join('')}</g>`;
     } else if (s.top && opts.pattern && CLOTH_PATTERNS.includes(opts.pattern)) {
       // patterned top: the cloth colour, then the pattern over it
-      const id = `${clipId}p${shapes.indexOf(s)}`, d = pathD(s.pts);
+      const id = `${clipId}p${shapes.indexOf(s)}`, d = s.d ?? pathD(s.pts);
       svg += `<defs>${patternDef(id, opts.pattern, '#000000')}</defs>` +
         `<path d="${d}" fill="${colors.cloth}"/><path d="${d}" fill="url(#${id})"/>`;
     } else {
-      svg += `<path d="${pathD(s.pts)}" fill="${colors[s.role]}"/>`;
+      svg += `<path d="${s.d ?? pathD(s.pts)}" fill="${colors[s.role]}"/>`;
     }
   }
   if (inBody) svg += '</g>';
