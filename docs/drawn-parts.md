@@ -55,6 +55,8 @@ the outline (start node and straight-vs-curved don't matter).
 - Feet keep their size. Front view: the foot turns until its lowest point
   sits as far below the ankle as in the side view (× cos out); heights are
   shared between the views. The old front-view tilt rule is gone.
+- The pointing finger always goes on the side toward the body (the drawn
+  point hand is mirrored across the forearm).
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn
   over the legs.
 - Not yet: monkey tail, per-species parts.

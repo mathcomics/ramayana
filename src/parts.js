@@ -152,7 +152,9 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
       arm: [
         ['upper-arm', place(dpTurn(M.upperArm, turn), sh, U.ang, m, U.draw), dU],
         ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.draw), dL],
-        ['hand', place(dpTurn(hands, turn), Wr, th, m), dL],
+        // the pointing finger always goes on the side toward the body (the
+        // drawn point hand has it outside, so it is mirrored across the forearm)
+        ['hand', a.hand === 'point' ? place(dpMap(dpTurn(hands, turn), (p) => [-p[0], p[1]]), Wr, th, m) : place(dpTurn(hands, turn), Wr, th, m), dL],
       ],
       // the shin goes behind the thigh (drawn first), in every view
       // the shin goes behind the thigh (drawn first), in every view
