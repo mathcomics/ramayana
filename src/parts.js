@@ -83,6 +83,14 @@ function dpProject(theta, out, front) {
   const f = Math.hypot(h, v);
   return { ang: f < 1e-6 ? 0 : Math.atan2(h, v) / RAD, f };
 }
+// The least length factor for a limb part: about its own width.
+const dpMinF = (L) => {
+  if (L._minF == null) {
+    const xs = L.front.flat().map((p) => p[0]);
+    L._minF = 0.8 * (Math.max(...xs) - Math.min(...xs)) / L.len;
+  }
+  return L._minF;
+};
 const dpWrap = (v) => { while (v > 180) v -= 360; while (v <= -180) v += 360; return v; };
 
 // S: the species (head size); pose: the normalised SIDE pose (both views);
@@ -111,8 +119,14 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     // side-view angles of each segment, then projected for this view
     const su = -(sp.lean + sp.chest) + a.shoulder, sl = su + a.elbow;
     const st = -sp.lean + l.hip, ss = st - l.knee;
-    const U = dpProject(su, a.out, front), Lo = dpProject(sl, a.out, front);
-    const Th = dpProject(st, l.out, front), Sh = dpProject(ss, l.out, front);
+    // a limb seen end-on keeps at least about its own width in length (it
+    // reads as the limb's round end, not a sliver)
+    const pj = (L, theta, o) => { const r = dpProject(theta, o, front); r.f = Math.max(r.f, dpMinF(L)); return r; };
+    const U = pj(M.upperArm, su, a.out), Lo = pj(M.forearm, sl, a.out);
+    const Th = pj(M.thigh, st, l.out), Sh = pj(M.shin, ss, l.out);
+    // toward the viewer of the front view (+) or away (-): the forward reach
+    const dz = (theta, o) => Math.cos(o * RAD) * Math.sin(theta * RAD);
+    const dU = dz(su, a.out), dL = dz(sl, a.out), dT = dz(st, l.out), dS = dz(ss, l.out);
     const th = front ? Lo.ang : sl + a.wrist;
     const ankle = front ? Math.abs(dpWrap(90 + l.ankle)) - 90 : l.ankle;   // front: toes outward, same tilt
     const E = add(sh, mul(dirM(U.ang), M.upperArm.len * U.f)), Wr = add(E, mul(dirM(Lo.ang), M.forearm.len * Lo.f));
@@ -121,15 +135,17 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
     const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist };
     limbs[s] = {
       arm: [
-        ['upper-arm', place(dpTurn(M.upperArm, turn), sh, U.ang, m, U.f)],
-        ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.f)],
-        ['hand', place(dpTurn(hands, turn), Wr, th, m)],
+        ['upper-arm', place(dpTurn(M.upperArm, turn), sh, U.ang, m, U.f), dU],
+        ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.f), dL],
+        ['hand', place(dpTurn(hands, turn), Wr, th, m), dL],
       ],
+      // the shin goes behind the thigh (drawn first), in every view
+      // the shin goes behind the thigh (drawn first), in every view
       leg: [
-        ['thigh', place(dpTurn(M.thigh, turn), hp, Th.ang, m, Th.f)],
-        ['shin', place(dpTurn(M.shin, turn), Kn, Sh.ang, m, Sh.f)],
+        ['shin', place(dpTurn(M.shin, turn), Kn, Sh.ang, m, Sh.f), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
-        ['foot', dpMap(foot, (p) => { const q = rot(p, -ankle); return add(A, [m * q[0], q[1]]); })],
+        ['foot', dpMap(foot, (p) => { const q = rot(p, -ankle); return add(A, [m * q[0], q[1]]); }), dS],
+        ['thigh', place(dpTurn(M.thigh, turn), hp, Th.ang, m, Th.f), dT],
       ],
     };
   }
@@ -143,24 +159,28 @@ export function buildParts(M, S, pose, outfit = {}, view = 'side', k = 1) {
   // a full top puts the torso in the cloth colour.
   const fullTop = outfit.top === 'full';
   const out = [];
-  const push = (L, kind, s) => L[kind].forEach(([part, segs]) =>
-    out.push({ segs, role: part === 'thigh' ? 'cloth' : 'body', part: `${s}-${part}` }));
+  const item = (part, segs, s) => ({ segs, role: part === 'thigh' ? 'cloth' : 'body', part: `${s}-${part}` });
+  const push = (L, kind, s) => L[kind].forEach(([part, segs]) => out.push(item(part, segs, s)));
   const pushTorso = () => out.push(
     { segs: place(M.neck.segs, nb, up3), role: 'body', part: 'neck' },
     { segs: T, role: fullTop ? 'cloth' : 'body', top: fullTop, part: 'torso' });
   const hh = S.head.size / 2, hw = hh * (S.head.width ?? 1);
   const headShape = { role: 'body', head: true, headPart: true, part: 'head',
     pts: [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]].map((q) => add(H, rot(q, headRot))) };
-  // the torso goes over the legs (a forward bend covers the thighs)
-  // front view: a torso leaning forward comes toward the viewer and covers
-  // the legs; leaning back it goes behind them (legs and leg cloth on top)
+  // Draw order. Side view: far arm, far leg, near leg, torso (over the
+  // legs, so a forward bend covers the thighs), head, near arm.
+  // Front view, by depth: legs go under the torso and arms over it, except
+  // a part reaching toward the viewer (forward reach > 0.5) comes over the
+  // torso and one reaching away (< -0.5) goes under it; a torso leaning
+  // back goes behind all the legs.
   const torsoBack = sp.lean + sp.chest / 2 < 0;
-  if (front && torsoBack) {
-    pushTorso(); push(limbs.far, 'leg', 'far'); push(limbs.near, 'leg', 'near');
-    push(limbs.far, 'arm', 'far'); push(limbs.near, 'arm', 'near'); out.push(headShape);
-  } else if (front) {
-    push(limbs.far, 'leg', 'far'); push(limbs.near, 'leg', 'near'); pushTorso();
-    push(limbs.far, 'arm', 'far'); push(limbs.near, 'arm', 'near'); out.push(headShape);
+  if (front) {
+    const under = [], over = [];
+    for (const kind of ['leg', 'arm']) for (const s of ['far', 'near']) for (const [part, segs, d] of limbs[s][kind]) {
+      const on = kind === 'leg' ? torsoBack || d > 0.5 : d >= -0.5;
+      (on ? over : under).push(item(part, segs, s));
+    }
+    out.push(...under); pushTorso(); out.push(...over, headShape);
   } else {
     push(limbs.far, 'arm', 'far'); push(limbs.far, 'leg', 'far'); push(limbs.near, 'leg', 'near'); pushTorso();
     out.push(headShape); push(limbs.near, 'arm', 'near');

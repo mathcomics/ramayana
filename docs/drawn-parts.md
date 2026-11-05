@@ -47,6 +47,11 @@ the outline (start node and straight-vs-curved don't matter).
   view shortens the limb by cos(out); the front view is the projection
   (sideways, down) of the same limb, replacing the old mirroring. A pose
   without `out` shows its forward/back reach foreshortened in front.
+- Draw order: the shin always goes behind the thigh. Front view sorts by
+  depth: legs under the torso, arms over it, but a part reaching toward
+  the viewer comes over and one reaching away goes under; a torso
+  leaning back goes behind the legs. A limb seen end-on keeps about its
+  own width in length.
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn
   over the legs.
 - Not yet: monkey tail, per-species parts.
