@@ -67,7 +67,15 @@ function importView(svg, f) {
   }
   const entry = {};
   const defs = svg.children.filter((c) => c.tag === 'defs').map((d) => d.children.map(serialize).join('')).join('');
-  for (const [name, { chain, node }] of Object.entries(found)) {
+  // The guide marks the head centre. If it was moved (a translate on the
+  // guide layer, e.g. dragged together with the drawing), everything is
+  // measured from where it now is.
+  const guide = (svg.children || []).find((c) => c.tag === 'g' && label(c) === 'guide');
+  const gm = guide?.attrs.transform?.match(/^\s*translate\(\s*([-\d.e]+)[\s,]+([-\d.e]+)?\s*\)\s*$/);
+  const off = gm ? [+gm[1], +(gm[2] || 0)] : [0, 0];
+  const shift = off[0] || off[1] ? [`translate(${-off[0]},${-off[1]})`] : [];
+  for (const [name, { chain: chain0, node }] of Object.entries(found)) {
+    const chain = [...shift, ...chain0];
     const inner = node.children.map(serialize).join('');
     if (!inner.trim()) continue;                         // empty layer
     const own = node.attrs.transform ? [node.attrs.transform] : [];
@@ -90,7 +98,7 @@ function importView(svg, f) {
   };
   const nape = findNape(svg);
   if (entry.hairBody) {
-    if (nape) entry.nape = nape.map((v) => Math.round(v * 1e4) / 1e4);
+    if (nape) entry.nape = [nape[0] - off[0], nape[1] - off[1]].map((v) => Math.round(v * 1e4) / 1e4);
     else console.error(`  ! ${f}: hair-body layer but no nape anchor (using 0, 0.65)`);
   }
   if (defs.trim()) entry.defs = defs;
@@ -110,7 +118,21 @@ for (const f of readdirSync(dir).filter((x) => x.endsWith('.svg')).sort()) {
   const views = svg.children.filter((c) => c.tag === 'g' && ['front', 'side'].includes(label(c)));
   if (views.length) {                                    // <id>.svg: front and side layers
     const id = f.replace(/\.svg$/, '');
-    for (const v of views) put(id, label(v), importView(v, `${f} (${label(v)})`), f);
+    for (const v of views) {
+      // layers and anchors may be named only by their id ("side-head",
+      // "front-nape", as the merge wrote them): drop the view prefix
+      const pre = `${label(v)}-`;
+      const relabel = (n) => {
+        for (const c of n.children || []) {
+          if (!c.tag) continue;
+          const id = (c.attrs.id || '').toLowerCase();
+          if (!c.attrs['inkscape:label'] && id.startsWith(pre)) c.attrs['inkscape:label'] = id.slice(pre.length);
+          relabel(c);
+        }
+      };
+      relabel(v);
+      put(id, label(v), importView(v, `${f} (${label(v)})`), f);
+    }
   } else if (two) put(two[1], two[2].toLowerCase(), importView(svg, f), f);   // older: <id>-<view>.svg
   else console.error(`${f}: no "front" / "side" layers`);
 }

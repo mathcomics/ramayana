@@ -31,6 +31,11 @@ scales, rotates (with the head) and mirrors (facing left) the whole layer.
 
 ## Coordinates
 
+The guide marks the head centre of each view. If you move the guide layer
+(say, dragging it along with the drawing), the importer measures from where
+the guide now is. Layers may be named by label or by id (`side-head`,
+`front-nape` …: the view prefix is ignored).
+
 Head-units: the head centre is (0, 0), y points down, the head spans about
 ±0.5. The red cross in the guide marks the centre. In side view the face
 looks **right**.
