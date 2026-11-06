@@ -23,7 +23,11 @@ numbers were used before the list existed):
 4. Head turn and tilt as angles in the pose, read from the `head` /
    `side-head` anchors; a back-of-head layer and a three-quarter face in
    the face files; replaces the `look` switch, the face flip and the
-   front-view neck rule.
+   front-view neck rule. Prototype 2026-11-06 (`tools/proto/head-turn/`):
+   the head as volumes lofted from the front and side drawings (exact in
+   both, round in between) with eyes, mouth and marks as cards on its
+   surface; this would also make the back of the head and the up / down
+   faces without extra drawings.
 5. Wrist turn and end-on parts: a wrist-turn pose setting; the `end`
    layers (limbs, sole, hands) imported and blended with front / side by
    each part's own 3D direction; replaces the view-picked shapes, the
