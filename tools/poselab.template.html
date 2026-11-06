@@ -141,6 +141,15 @@ pre {
   .stage { padding-block: 6px 4px; }
   .wrap { gap: 10px; }
 }
+.stage-head { flex-wrap: wrap; }
+.tabs { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel); margin-right: auto; }
+.tabs button { font: inherit; font-size: 13px; font-weight: 600; border: 0; background: transparent; color: var(--fg); padding: 5px 16px; cursor: pointer; }
+.tabs button + button { border-left: 1px solid var(--line); }
+.tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-fg); }
+.stage-head .charsel { flex: 0 1 180px; }
+body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !important; }
+.faces { display: grid; gap: 8px; }
+.facegrid svg { display: block; width: 100%; height: auto; background: var(--paper); border-radius: 6px; }
 @media (max-width: 420px) {
   .groups { gap: 6px; }
   fieldset { padding: 6px 6px 8px; }
@@ -151,37 +160,44 @@ pre {
   <section class="stage" aria-label="Preview">
     <div class="stage-head">
       <h1>Pose Lab</h1>
+      <div class="tabs" role="tablist" aria-label="View">
+        <button type="button" role="tab" id="tabPose" aria-selected="true">Pose</button>
+        <button type="button" role="tab" id="tabFace" aria-selected="false">Face</button>
+      </div>
+      <label class="sr" for="character">Character</label>
+      <select id="character" class="charsel" title="Character (view only)"></select>
       <span class="meta" id="meta">monkey · side</span>
     </div>
-    <div class="canvas">
+    <div class="canvas pose-only">
       <div class="paper" id="big"></div>
       <div class="gallery" id="gallery" role="listbox" aria-label="Poses"></div>
     </div>
-    <div class="posebar">
+    <div class="posebar pose-only">
       <div class="pick">
         <label class="sr" for="name">Pose name</label>
         <input type="text" id="name" autocomplete="off" spellcheck="false" placeholder="pose name">
         <button class="btn" id="saveBtn" type="button">Save</button>
         <button class="btn" id="revertBtn" type="button" title="Drop your edits and go back to this pose as last saved" disabled>Revert</button>
       </div>
-      <label class="sr" for="character">Character</label>
-      <select id="character" class="charsel" title="Character (view only)"></select>
-      <label class="sr" for="pattern">Cloth pattern</label>
-      <select id="pattern" class="charsel" title="Cloth pattern on a full top (view only)"><option value="">plain</option><option value="check">check</option><option value="diamond">diamond</option><option value="stripe">stripe</option></select>
     </div>
-    <div class="status" id="status" role="status"></div>
+    <div class="status pose-only" id="status" role="status"></div>
   </section>
 
-  <div class="bar">
+  <section class="faces face-only" id="facePane" aria-label="Head turned and tilted" hidden>
+    <p class="hint">The head turned (0° front, 90° side, 180° back) and tilted up and down, built only from the character's front and side face drawings. The 0° and 90° columns are the drawings themselves.</p>
+    <div class="facegrid" id="faceGrid"></div>
+  </section>
+
+  <div class="bar pose-only">
     <div class="field"><span>Look</span><div class="seg" id="headView"></div></div>
     <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
     <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
   </div>
 
 
-  <div class="groups" id="groups"></div>
+  <div class="groups pose-only" id="groups"></div>
 
-  <section class="save" aria-label="Pose data">
+  <section class="save pose-only" aria-label="Pose data">
     <div class="bar">
       <p class="hint" style="flex:1 1 240px">Pick a pose in the gallery to edit it. Poses are edited in side view; the front view next to it is derived from the side pose. Save keeps your changes under the name in the box; type a new name to save a new pose. Revert drops your edits and goes back to the pose as last saved (the character stays). Poses are kept with this page, so Claude can read them and add them to the repo.</p>
       <button class="btn ghost" id="copyBtn" type="button">Copy JSON</button>
@@ -204,7 +220,7 @@ const STARTERS = /*__POSES__*/;
   // shared by every species and saved without them.
   const LOOK = new Set(['facing']);
   const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
-  const look = () => { const c = charById(state.character); return characterLook(c, CAST.palette, FACES, state.pattern ? `${String(c.cloth).split('-')[0]}-${state.pattern}` : c.cloth); };
+  const look = () => { const c = charById(state.character); return characterLook(c, CAST.palette, FACES, c.cloth); };
 
   const SLIDERS = [
     { key: 'spine', title: 'Body & tail', rows: [
@@ -230,7 +246,6 @@ const STARTERS = /*__POSES__*/;
   const state = {
     pose: normalizePose(STARTERS[0]),
     facing: 1,
-    pattern: '',   // view only: cloth pattern on a full top (rakshasas)
     character: (CAST.characters.find((c) => c.species === 'monkey') || CAST.characters[0]).id,
     saved: [],
     dirty: false,
@@ -249,7 +264,7 @@ const STARTERS = /*__POSES__*/;
     const groundLine = `<line x1="-8" x2="8" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
     const cap = (x, t) => `<text x="${x}" y="0.55" font-size="0.36" fill="#000" fill-opacity="0.4" text-anchor="middle" font-family="sans-serif" letter-spacing="0.05">${t}</text>`;
     $('big').innerHTML = `<svg viewBox="-6.6 -7.1 13.2 7.85" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pose preview, side and front"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${side.svg}${front.svg}${cap(-3.3, 'SIDE')}${cap(3.3, 'FRONT')}</svg>`;
-    $('meta').textContent = `${charById(state.character).name} · side + front · ${p.name}`;
+    if (state.tab !== 'face') $('meta').textContent = `${charById(state.character).name} · side + front · ${p.name}`;
     $('json').textContent = JSON.stringify(exportPose(), null, 2);
   }
 
@@ -387,8 +402,34 @@ const STARTERS = /*__POSES__*/;
   seg('facing', [['→', 1], ['←', -1]], () => state.facing, (v) => { state.facing = v; });
   // Character menu: changes only the look, never the pose.
   $('character').innerHTML = CAST.characters.map((c) => `<option value="${c.id}">${c.name}</option>`).join('');
-  $('character').addEventListener('change', (e) => { state.character = e.target.value; syncControls(); draw(); renderGallery(); });
-  $('pattern').addEventListener('change', (e) => { state.pattern = e.target.value; draw(); renderGallery(); });
+  $('character').addEventListener('change', (e) => { state.character = e.target.value; syncControls(); draw(); renderGallery(); if (state.tab === 'face') setTab('face'); });
+  // ---------- tabs: Pose (the editor) and Face (the head turned, no controls)
+  const YAWS = [0, 30, 60, 90, 120, 150, 180], PITCHES = [40, 20, 0, -20, -40];
+  function drawFaces() {
+    const c = charById(state.character), turn = FACES.faces?.[c.id]?.turn;
+    if (!turn) { $('faceGrid').innerHTML = '<p class="hint">No face drawings for this character.</p>'; return; }
+    const C = 1.5, L = 1.3, T = 0.5;
+    let body = '';
+    YAWS.forEach((y, j) => { body += `<text x="${L + j * C + C / 2}" y="0.32" font-size="0.2" text-anchor="middle" fill="#000" fill-opacity="0.55" font-family="sans-serif">${y}°</text>`; });
+    PITCHES.forEach((p, i) => {
+      body += `<text x="0.15" y="${T + i * C + C / 2 + 0.07}" font-size="0.2" fill="#000" fill-opacity="0.55" font-family="sans-serif">${p > 0 ? 'up ' + p + '°' : p < 0 ? 'down ' + -p + '°' : 'level'}</text>`;
+      YAWS.forEach((y, j) => {
+        body += `<g transform="translate(${L + j * C + C / 2} ${T + i * C + C / 2})" color="${c.body}">${headTurn(turn, y, p, { id: `ft${i}-${j}` })}</g>`;
+      });
+    });
+    $('faceGrid').innerHTML = `<svg viewBox="0 0 ${L + YAWS.length * C} ${T + PITCHES.length * C}" role="img" aria-label="${c.name}'s head turned and tilted">${body}</svg>`;
+  }
+  function setTab(t) {
+    state.tab = t;
+    $('tabPose').setAttribute('aria-selected', t === 'pose'); $('tabFace').setAttribute('aria-selected', t === 'face');
+    document.body.classList.toggle('face-mode', t === 'face');
+    $('facePane').hidden = t !== 'face';
+    if (t === 'face') drawFaces();
+    $('meta').textContent = t === 'face' ? `${charById(state.character).name} · face` : `${charById(state.character).name} · side + front · ${state.pose.name}`;
+    try { localStorage.setItem('poselab-tab', t); } catch {}
+  }
+  $('tabPose').addEventListener('click', () => setTab('pose'));
+  $('tabFace').addEventListener('click', () => setTab('face'));
   buildSliders();
   for (const side of ['near', 'far']) {
     seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in'], ['Point', 'point']],
@@ -396,6 +437,7 @@ const STARTERS = /*__POSES__*/;
   }
   renderGallery();
   load(STARTERS[0]);
+  try { if (localStorage.getItem('poselab-tab') === 'face') setTab('face'); } catch {}
 
   // ---------- copy
   $('copyBtn').addEventListener('click', async () => {
@@ -456,7 +498,7 @@ const STARTERS = /*__POSES__*/;
     } finally { btn.disabled = false; }
   }
   // Revert: back to the pose as last saved (or the starter), keeping the
-  // character and pattern picks
+  // character pick
   $('revertBtn').addEventListener('click', () => {
     const it = allPoses().find((x) => x.pose.name === state.pose.name);
     if (it) { load(it.pose); setStatus(`Back to the saved “${it.pose.name}”.`); }

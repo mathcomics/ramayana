@@ -27,7 +27,10 @@ numbers were used before the list existed):
    the head as volumes lofted from the front and side drawings (exact in
    both, round in between) with eyes, mouth and marks as cards on its
    surface; this would also make the back of the head and the up / down
-   faces without extra drawings.
+   faces without extra drawings. Vector version on branch `head-turn`:
+   `tools/face-turn.mjs` (turn data in `data/faces.json`), `src/headturn.js`,
+   `node tools/head-turn-sheet.mjs`, pose lab Face tab; not yet used by
+   the figures.
 5. Wrist turn and end-on parts: a wrist-turn pose setting; the `end`
    layers (limbs, sole, hands) imported and blended with front / side by
    each part's own 3D direction; replaces the view-picked shapes, the
