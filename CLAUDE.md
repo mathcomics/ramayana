@@ -81,7 +81,8 @@ renderer or panel changes.
   `out`. Each move solves the value numerically (probe renders) so the part
   follows the pointer; the view is held still while dragging (no
   re-centring jump); angle label only while dragging; tapping where two
-  dots meet cycles them; the solved arm of a two-handed grip has none.
+  dots meet cycles them (the side-view left hip dot is drawn nudged back
+  and down, display only); the solved arm of a two-handed grip has none.
   `renderFigure` / `buildShapes` return `joints` (figure frame: limbs
   sh/E/Wr/grip/hp/Kn/A, spine pelvis/waist/neck/head/H).
   Sliders for dragged angles removed (panels keep head turn, tail, wrist

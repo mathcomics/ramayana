@@ -330,6 +330,10 @@ const STARTERS = /*__POSES__*/;
         const lim = (part, key, piv, child, label) => out.push({ view, side: sd, path: `${sd}.${part}.${key}`, label: `${n} ${label}`, piv: j(piv), dir: (J) => ang(J[sd][piv], J[sd][child]) });
         if (!solved(sd)) { lim('arm', 'shoulder', 'sh', 'E', 'shoulder'); lim('arm', 'elbow', 'E', 'Wr', 'elbow'); lim('arm', 'wrist', 'Wr', 'grip', 'wrist'); }
         lim('leg', 'hip', 'hp', 'Kn', 'hip'); lim('leg', 'knee', 'Kn', 'A', 'knee');
+        // both hips are one point in the side view: the left hip's dot is
+        // shown a little back and down so each can be tapped (display only;
+        // the turn is still about the hip)
+        if (sd === 'far') out[out.length - 2].nudge = [-0.13, 0.09];
         // the foot: its angle from the ground (toes forward = 90° in this frame)
         out.push({ view, side: sd, path: `${sd}.leg.ankle`, label: `${n} ankle`, piv: j('A'), dir: (J, p) => 90 + p[sd].leg.ankle });
       }
@@ -344,13 +348,15 @@ const STARTERS = /*__POSES__*/;
   }
   // figure frame -> picture (the stage's svg units)
   const toPic = (view, q) => { const o = state.off?.[view] || [0, 0]; return [VIEWX[view] + state.facing * q[0] + o[0], q[1] + o[1]]; };
+  // where a control's dot is drawn and tapped
+  const dotPic = (c) => { const q = c.piv(state.J[c.view]), n = c.nudge || [0, 0]; return toPic(c.view, [q[0] + n[0], q[1] + n[1]]); };
   const dirPic = (a) => [state.facing * Math.sin(a * Math.PI / 180), Math.cos(a * Math.PI / 180)];
   function handlesSvg() {
     if (!state.J || !state.showJ) return '';
     let s = '<g class="handles">';
     const seen = [];
     for (const view of ['side', 'front']) for (const c of controls(view)) {
-      const p = toPic(view, c.piv(state.J[view]));
+      const p = dotPic(c);
       if (seen.some((q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < 0.02)) continue;
       seen.push(p);
       const col = c.side === 'far' ? '#ffffff' : c.side === 'near' ? 'var(--accent)' : '#333';
@@ -424,7 +430,7 @@ const STARTERS = /*__POSES__*/;
       // a dot: select it (tapping again where two dots meet picks the other)
       const hits = [];
       for (const view of ['side', 'front']) for (const c of controls(view)) {
-        const p = toPic(view, c.piv(state.J[view]));
+        const p = dotPic(c);
         if (Math.hypot(m[0] - p[0], m[1] - p[1]) < 0.16) hits.push(c);
       }
       if (hits.length) {
