@@ -110,8 +110,10 @@ renderer or panel changes.
   hex matching the drawn face's skin, outfit, cloth colour). The pose lab
   has no colour controls.
 - **Faces are the artist's drawings** (decided 2026-11-02): one SVG per
-  character and view in `data/faces/`, from templates in
-  `data/faces/templates/`; `tools/import-faces.mjs` → `data/faces.json`.
+  character in `data/faces/<id>.svg` with top-level layers `front` and
+  `side` (merged 2026-11-05; each view may have a `hair-body` layer and a
+  `nape` anchor for long hair that moves with the upper body), from
+  templates in `data/faces/templates/<species>.svg`; `tools/import-faces.mjs` → `data/faces.json`.
   Never edit the drawings' curves or colours; only place, rotate and
   mirror (colours exactly as drawn, decided 2026-11-02). All 18
   characters have front and side faces (raxas_m1 = copy of indrajit;

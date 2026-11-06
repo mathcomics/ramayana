@@ -69,7 +69,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const view = f.view === 'front' ? 'front' : 'side';
     // every character has a drawn face; there is no generated fallback
     const headView = view === 'front' ? 'front' : normalizePose(pose).headView;
-    if (!look.face?.[headView]?.head) issues.push(`figure ${i + 1} (${f.who}): no drawn ${headView} face (data/faces/${f.who}-${headView}.svg)`);
+    if (!look.face?.[headView]?.head) issues.push(`figure ${i + 1} (${f.who}): no drawn ${headView} face (the ${headView} layer of data/faces/${f.who}.svg)`);
     const { bbox } = buildShapes(S, pose, look.outfit, view, look.bodyScale);
     return { f, name: f.id || f.who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, facing: f.facing === 'left' ? -1 : 1, x: null };

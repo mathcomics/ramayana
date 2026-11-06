@@ -50,6 +50,6 @@ test('faces: every face belongs to a character; every character has both views',
   for (const id of Object.keys(FACES.faces)) assert.ok(ids.has(id), `face for unknown character ${id}`);
   for (const id of ids) for (const view of ['front', 'side']) {
     assert.ok(FACES.faces[id]?.[view]?.head, `${id}: no ${view} face`);
-    assert.ok(existsSync(join(root, `data/faces/${id}-${view}.svg`)), `${id}-${view}.svg missing`);
+    assert.ok(existsSync(join(root, `data/faces/${id}.svg`)), `${id}.svg missing`);
   }
 });

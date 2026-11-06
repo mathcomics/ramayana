@@ -3,22 +3,24 @@
 The artist's face drawings. A drawn face is the character's whole head;
 the renderer only places it.
 **Every character must have a front and a side face** (decided
-2026-11-04): there is no generated fallback. A new character starts with
-its two face files; `import-faces` and the panels report any that are
-missing.
+2026-11-04): there is no generated fallback. Both are in one file per
+character, `<character-id>.svg` (since 2026-11-05), as two top-level
+layers, `front` and `side`; the side layer sits 3 head-units to the right
+(the importer ignores that offset). `import-faces` and the panels report
+a missing view.
 
 ## Workflow
 
-1. Start from the template for the character's species and view:
-   `templates/<monkey|male|female>-<front|side>.svg`.
+1. Start from the template for the character's species:
+   `templates/<monkey|male|female>.svg` (front and side layers).
 2. Draw the face in the layers, or paste it in and scale it to fit the guide.
    The guide (the species' head rectangle and the drawn body standing
    straight, at the figure's real scale; drawing rules in style bible §5.6)
    is locked and ignored on import. Long hair that lies on the back goes
    in `hair-body`, drawn over the body guide.
-3. Save as `<character-id>-<front|side>.svg` in this folder, using the ids in
-   `data/characters.json`: `rama-front.svg`, `sita-side.svg`,
-   `monkey1-front.svg`, `raxas_m1-side.svg` …
+3. Save as `<character-id>.svg` in this folder, using the ids in
+   `data/characters.json`: `rama.svg`, `sita.svg`, `monkey1.svg`,
+   `raxas_m1.svg` …
 4. Commit the file (or hand it to Claude), then run
    `node tools/import-faces.mjs`. That writes `data/faces.json`, which the
    renderer and the pose lab use.
@@ -34,6 +36,8 @@ Head-units: the head centre is (0, 0), y points down, the head spans about
 looks **right**.
 
 ## Layers
+
+In each of the `front` and `side` layers:
 
 | Layer | Use |
 |---|---|

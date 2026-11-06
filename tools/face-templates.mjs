@@ -1,6 +1,7 @@
 // Write face templates: one per species and view.
 //
-//   node tools/face-templates.mjs   ->  data/faces/templates/<species>-<front|side>.svg
+//   node tools/face-templates.mjs   ->  data/faces/templates/<species>.svg
+//   (front and side in one file, as the character faces are)
 //
 // Units are head-units: the head centre is (0,0), y down, the head spans
 // about ±0.5; in side view the face looks right. The locked "guide" layer
@@ -13,7 +14,9 @@
 
 import { pathD } from '../src/geom.js';
 import { buildShapes } from '../src/figure.js';
-import { loadSpecies, writeOut } from './lib.mjs';
+import { loadSpecies, writeOut, root } from './lib.mjs';
+import { mergeDir } from './merge-faces.mjs';
+import { join } from 'node:path';
 
 // standing straight, arms and legs hanging
 const STRAIGHT = { spine: { lean: 0, chest: 0, neck: 0, head: 0 },
@@ -75,4 +78,22 @@ for (const species of Object.keys(all)) {
     writeOut(`data/faces/templates/${species}-${view}.svg`, svg);
   }
 }
-console.log(`data/faces/templates: ${Object.keys(all).length * 2} templates`);
+// one file per species: the "front" and "side" layers side by side
+mergeDir(join(root, 'data/faces/templates'), (species) => `<!-- Face template: ${species}. Copy to data/faces/<character-id>.svg.
+     Two top-level layers, "front" and "side" (face looks right); the side
+     one sits 3 head-units to the right, an offset the importer ignores.
+     In each view:
+       head      - the face itself; turns with the head
+       back      - optional; hair behind the head; turns with the head,
+                   drawn behind the whole body
+       hair-body - optional; long hair on the back and shoulders; moves
+                   with the upper body (pinned at the nape, turns with the
+                   chest), drawn just behind the torso
+       mouth-1/2/3 - optional; the pose's mouth size picks one
+       anchors   - nape: where the body hair joins the body
+       guide     - locked, ignored on import: the head rectangle and the
+                   drawn body standing straight
+     Units: head-units, head centre at (0,0) in each view, y down.
+     Colours are used exactly as drawn; match the skin to the character's
+     body colour (data/characters.json). -->`);
+console.log(`data/faces/templates: ${Object.keys(all).length} templates`);
