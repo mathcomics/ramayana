@@ -80,7 +80,7 @@ renderer or panel changes.
   shoulder, elbow, wrist, hip, knee, ankle; front view: shoulder / hip
   `out`. Each move solves the value numerically (probe renders) so the part
   follows the pointer; the view is held still while dragging (no
-  re-centring jump); angle label only while dragging; tapping where two
+  re-centring jump); name + angle label while a joint is selected; tapping where two
   dots meet cycles them (the side-view left hip dot is drawn nudged back
   and down, display only); the solved arm of a two-handed grip has none.
   `renderFigure` / `buildShapes` return `joints` (figure frame: limbs

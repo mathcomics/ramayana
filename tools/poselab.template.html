@@ -310,7 +310,7 @@ const STARTERS = /*__POSES__*/;
   // the knob (or anywhere on the ring) to turn the joint. Side view: the
   // angles in the paper (lean, chest, neck, head, shoulder, elbow, wrist,
   // hip, knee, ankle). Front view: shoulder and hip `out` (sideways). The
-  // angle shows only while turning. Each move solves the joint's value
+  // angle shows while a joint is selected. Each move solves the joint's value
   // numerically so the part follows the pointer (works for any angle
   // convention, and for `out`'s foreshortening in the front view).
   const VIEWX = { side: -3.3, front: 3.3 };
@@ -369,7 +369,7 @@ const STARTERS = /*__POSES__*/;
       s += `<circle cx="${p[0]}" cy="${p[1]}" r="${RING}" fill="none" stroke="var(--accent)" stroke-width="0.025" stroke-dasharray="0.06 0.05"/>` +
         `<line x1="${p[0]}" y1="${p[1]}" x2="${k[0]}" y2="${k[1]}" stroke="var(--accent)" stroke-width="0.025"/>` +
         `<circle cx="${k[0]}" cy="${k[1]}" r="0.11" fill="var(--accent)" stroke="#fff" stroke-width="0.025" style="cursor:grab"/>`;
-      if (state.drag) {
+      {                                                   // the selected joint's name and angle
         const v = get(state.pose, sel.path) ?? 0;
         s += `<text x="${k[0] + 0.16}" y="${k[1] - 0.14}" font-size="0.26" font-family="sans-serif" font-weight="600" fill="#222" stroke="${PAPER}" stroke-width="0.06" paint-order="stroke">${sel.label} ${Math.round(v)}°</text>`;
       }
