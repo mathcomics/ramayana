@@ -318,7 +318,15 @@ from a scene description:
 - the rest names what is visible (arms, then legs), never an emotion:
   `stand-hands-to-face`, not `fear`;
 - poses are side view; there are no front poses (the front view is
-  derived, §6).
+  derived, §6);
+- one arm `arm`/`hand`, both `arms`/`hands`; variants as suffixes
+  (`-low`, `-back`); a prop in the name only when the body's shape is
+  made for it (`stand-shoot-bow`); head direction and mouth never (they
+  are set per figure).
+
+Every pose has an entry in `data/pose-index.json` (what it shows, what
+touches the ground, story moments, nearest poses); poses are picked by the
+rules in `docs/design/pose-picking.md`.
 
 28 poses, many drawn from a pose reference sheet and still
 being refined. Poses are tuned visually in the pose lab and stored as data,

@@ -56,6 +56,8 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/contact-sheet.mjs monkey --zoom 3   # out/contact-monkey@3x.png
     node tools/parts-sheet.mjs monkey              # out/parts-monkey.png (each body part)
     node tools/build-poselab.mjs                   # out/poselab.html (published artifact)
+    node tools/pose-catalogue.mjs                  # out/pose-catalogue.png (poses + story moments)
+    node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
 
 Pose lab (published artifact, saves poses to its database, collection
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
@@ -72,6 +74,16 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Pose picking (2026-11-06):** `data/pose-index.json` (per pose: desc,
+  ground, hold, story-moment tags, nearest poses; tag words; `wanted`
+  poses in order with what to use meanwhile; a test keeps it in step with
+  poses.json). Rules and names: `docs/design/pose-picking.md` (style bible
+  §7 extended). Tools: `pose-catalogue.mjs` (thumbnails + tags by base),
+  `pose-gaps.mjs` (→ `docs/issues/missing-poses.md`; `--scenes` gives
+  candidate poses per scene). Top gaps: shoot (21 scenes), walk (19),
+  ride/chariot (15), plead/palms joined (15). No renames yet (would orphan
+  lab saves); candidates if wanted: `stand-guard` → `stand-fists-up`.
+  Next: pose picker in the panel lab (filter by moment, tap to insert).
 - **Steps 3 and 4 finished (2026-11-06):** pose settings `spine.turn`
   (head turn, any angle; `look` is its shortcut) and `leg.toe` (toe turn);
   pose lab sliders "head turn", "toe turn". Feet blend front / side / sole

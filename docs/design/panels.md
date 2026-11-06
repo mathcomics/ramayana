@@ -63,7 +63,7 @@ repeated inside the JSON.
 | Field | Values | Notes |
 |---|---|---|
 | `who` | character id (`data/characters.json`) | Generic types (`monkey1`, `queen1` …) can repeat. |
-| `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. |
+| `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `back` · `mid` · `front` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. |

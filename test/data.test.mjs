@@ -1,7 +1,7 @@
 // Integrity of the data files: everything a name refers to exists.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCloth } from '../src/figure.js';
 import { root, SPECIES, POSES, CAST, FACES } from './helpers.mjs';
@@ -28,6 +28,26 @@ test('poses: unique, alphabetical, <base>-<action> names, side view only', () =>
     assert.notEqual(p.view, 'front', `${p.name}: poses are side view only`);
   }
   assert.ok(names.includes('stand'), 'the fallback pose "stand" is missing');
+});
+
+test('pose index: every pose and only those, known tags and neighbours', () => {
+  const index = JSON.parse(readFileSync(join(root, 'data/pose-index.json'), 'utf8'));
+  const names = POSES.map((p) => p.name);
+  assert.deepEqual(Object.keys(index.poses).sort(), [...names].sort(), 'pose-index.json must list exactly the poses in poses.json');
+  const GROUND = ['feet', 'one-knee', 'seat', 'front', 'back', 'air', 'feet-hands'];
+  for (const [name, e] of Object.entries(index.poses)) {
+    assert.ok(e.desc, `${name}: desc`);
+    assert.ok(GROUND.includes(e.ground), `${name}: ground ${e.ground}`);
+    for (const h of e.hold) assert.ok(['near', 'far'].includes(h), `${name}: hold ${h}`);
+    assert.ok(e.use.length, `${name}: no use tags`);
+    for (const t of e.use) assert.ok(index.tags[t], `${name}: unknown tag ${t}`);
+    for (const l of e.like) assert.ok(names.includes(l) && l !== name, `${name}: like ${l}`);
+  }
+  for (const [name, w] of Object.entries(index.wanted)) {
+    assert.ok(!names.includes(name), `wanted ${name} already exists: move it to poses`);
+    assert.ok(BASES.includes(name.split('-')[0]), `wanted ${name}: base`);
+    for (const t of w.use) assert.ok(index.tags[t], `wanted ${name}: unknown tag ${t}`);
+  }
 });
 
 test('characters: known species, hex body, known outfit and cloth', () => {
