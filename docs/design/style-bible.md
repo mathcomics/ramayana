@@ -300,6 +300,8 @@ male 0.88, female 0.74.
   the face turns over when the head is upside down; feet keep their
   height below the ankle. Parts are drawn far to near by their depth
   toward the viewer (both views).
+- **The neck is always behind the head**, and is drawn 1.5 × the length
+  of the drawn neck.
   - A head bent far forward or below the shoulders (e.g. `fall-headlong`)
     shows its top and back in the front view, from the turned head (no
     back-head drawing needed). A full back view of the body (arms behind

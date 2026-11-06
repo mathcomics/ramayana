@@ -75,6 +75,9 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Neck (2026-11-06):** always drawn behind the head (with the head's
+  depth unit when the head is behind the torso); 1.5 × the drawn length
+  (`NECK_STRETCH` in `src/parts.js`; style bible §6).
 - **Joint handles in the pose lab (2026-11-06):** dots on every joint;
   tap → ring + knob, drag to turn. Side view: lean, chest, neck, head,
   shoulder, elbow, wrist, hip, knee, ankle; front view: shoulder / hip

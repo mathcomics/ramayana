@@ -242,6 +242,7 @@ function dpScaled(M, s) {
   return M._scaled.get(s);
 }
 
+const NECK_STRETCH = 1.5;
 export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 1, who = null) {
   const M = dpScaled(M0, bodyScale);
   const tailSpec = S.tail && (bodyScale === 1 ? S.tail : { ...S.tail, length: S.tail.length * bodyScale, w: S.tail.w.map((w) => w * bodyScale) });
@@ -474,7 +475,9 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   const nb = attachAt('neck', false);
   const neckV = front ? [0, -Math.cos(tn)] : [Math.sin(tn), -Math.cos(tn)];   // unit neck as seen
   const neckF = Math.hypot(...neckV), neckAng = neckF < 1e-6 ? 180 : Math.atan2(neckV[0], neckV[1]) / RAD;
-  const neckTop = add(nb, mul(neckV, M.neck.len));
+  // the neck is drawn 1.5 × its drawn length (style bible §6: a slightly longer neck)
+  const neckLen = M.neck.len * NECK_STRETCH;
+  const neckTop = add(nb, mul(neckV, neckLen));
   const hA = M.headAt || { front: [0, -0.21], side: [0, -0.21] };
   const hO = [hA.front[0], (hA.front[1] + hA.side[1]) / 2, hA.side[0]];      // head centre from the neck top (head-local)
   const headR = headMatrix(sideHead, turnH, front);
@@ -489,8 +492,12 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   const item = (part, segs, s) => (segs.markup ? { role: 'prop', part: `${s}-${part}`, markup: segs.markup, mx: segs.mx, pts: segs.pts }
     : { segs, role: part === 'thigh' ? 'cloth' : part === 'prop' ? 'prop' : 'body', part: `${s}-${part}` });
   const push = (L, kind, s) => L[kind].forEach(([part, segs]) => out.push(item(part, segs, s)));
+  // The neck is always behind the head: drawn just before the torso when the
+  // head is in front of the torso, else just before the head (behind the torso too).
+  const neckItem = { segs: place(M.neck.segs, nb, neckAng, 1, neckF * NECK_STRETCH), role: 'body', part: 'neck' };
+  let neckWithHead = false;
   const pushTorso = () => out.push(
-    { segs: place(M.neck.segs, nb, neckAng, 1, neckF), role: 'body', part: 'neck' },
+    ...(neckWithHead ? [] : [neckItem]),
     { segs: T, role: fullTop ? 'cloth' : 'body', top: fullTop, part: 'torso' });
   const hh = S.head.size / 2, hw = hh * (S.head.width ?? 1);
   const headShape = { role: 'body', head: true, headPart: true, part: 'head',
@@ -540,10 +547,12 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // head: its centre in 3D (X sideways, Y down, Z forward)
   const nbS = sideJ('neck', false);
   const B = headMatrix(sideHead, turnH, true);                            // head-local -> body
-  const head3 = [0, nbS[1] - Math.cos(tn) * M.neck.len, nbS[0] + Math.sin(tn) * M.neck.len]
+  const head3 = [0, nbS[1] - Math.cos(tn) * neckLen, nbS[0] + Math.sin(tn) * neckLen]
     .map((v, i) => v + B[i][0] * hO[0] + B[i][1] * hO[1] + B[i][2] * hO[2]);
   const tH = torsoAt(head3[1], 'arm');
-  units.push({ depth: depthOf(head3), over: depthOf(head3) >= tH.c - tH.h, items: [headShape] });
+  const headOver = depthOf(head3) >= tH.c - tH.h;
+  neckWithHead = !headOver;
+  units.push({ depth: depthOf(head3), over: headOver, items: headOver ? [headShape] : [neckItem, headShape] });
   // tail: from the back of the pelvis, in the middle (X = 0)
   const tail = tailSpec ? dpTail(tailSpec, add(lerp([0, 0], dpNode(TS, 5), 0.75), rot([0, -0.12 * bodyScale], sp.lean)), sp.lean, pose, front) : [];
   if (tail.length) {

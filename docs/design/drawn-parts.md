@@ -105,7 +105,9 @@ move the legs.
   sole weights the three, each turned in the picture to match. Toes
   pointing the other way use the side drawing mirrored.
 - Neck and head in 3D: the neck leans with lean + chest + neck and is seen
-  by projection (shorter toward the viewer). The head's centre sits where
+  by projection (shorter toward the viewer). It is drawn 1.5 × the drawn
+  neck's length (`NECK_STRETCH`), and always behind the head: just before
+  the torso when the head is in front of it, else just before the head. The head's centre sits where
   the `head` / `side-head` anchors put it from the neck top (front x,
   side depth); the head tilts with lean + chest + neck + head and turns
   by `spine.turn` (`headMatrix`), and is drawn by `src/headturn.js` from
