@@ -13,7 +13,6 @@ themselves: `docs/problem-poses.md`.
 
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
-| A character's `back` layer (hair behind the body) is always behind the whole body (shows between the legs when the head is low) | head: hair back | The artist moving long hair into `hair-body` (moves with the upper body) or `under` (turns with the head); what stays in `back` is small |
 | Body hair (`hair-body`) is pinned to the upper body and doesn't hang with gravity (upside down it stays on the back) | hair-body | A hang setting per character, or a drawn hanging version, if it looks wrong |
 | Front view: the foot is turned until its lowest point sits as far below the ankle as in the side view | feet (front view) | Toe direction from the `toe` / `side-toe` anchors (step 3), plus a toe-turn pose setting |
 | `look` (front / left / right, relative to the body) picks a face drawing: a 90° switch, no in-between turn; side view looking right (away from the viewer) shows the side face | head | Head turn as an angle, a back-of-head layer and a three-quarter face (step 4) |
@@ -56,5 +55,6 @@ front of the torso there. Its thresholds:
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
 | Side view: the far shoulder has its own anchor, set slightly back | arms (side view) | None: a convention for a slight three-quarter look |
+| A character's `back` layer is drawn behind the whole body; only a small part of the female front locks uses it now (long hair is in `hair-body`, done for sita and her five copies 2026-11-06) | head: hair back | None: draw hair in `hair-body` or `under` instead if it shows between the legs |
 | The base face's `skin` layer is painted in the character's body colour (everything else in the face files as drawn) | faces | None: a decision (2026-11-06) |
 | The tail's shape is generated (length, taper, lift, curl) in its own plane, turned by `tail.turn` (default 35°); each view is a projection | tail (monkey) | A drawn tail part with its own anchors |

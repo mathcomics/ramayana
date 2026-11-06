@@ -14,13 +14,13 @@ All 28 poses, side and front, for Rama (male), Hanuman (monkey) and Sita
 | bend-low, crawl (front): the upper body pointing at the viewer projected to a thin band hidden behind the face; the face seemed to sit on the thighs | The front torso is now the artist's front drawings, picked by how far the upper body tips toward the viewer, so it keeps the deepest drawing's height. (2026-11-06) |
 | lie-front (front): the arched-back torso showed almost its full height (extrapolated) | Same change: no extrapolation; the drawing is picked by \|lean + chest\|. (2026-11-06) |
 | kneel (side and front): the near thigh folded at the hip; in front it stuck out past the knee with a flat cut end | The thigh top folds into the body by cos of the angle (side view only); an end-on limb ends at its lower joint. (2026-11-06) |
+| bend-low, crawl, crouch-arms-over-head, fall-back, run-low, leap-dive (front): Sita's long locks in `back` showed between the legs | The artist moved the locks to `hair-body`; kaikeyi, raxas_f1, queen1, queen2 and surpanakha (plain copies) now copy sita's file. (2026-11-06) |
 | Face sheet: front figures drawn in side view; monkey1's close-ups off-centre | The sheet passes the view and the body scale. (2026-11-06) |
 
 ## Better fixed in the drawings or the poses
 
 | Poses | Characters | What looks wrong | Where to fix |
 |---|---|---|---|
-| bend-low, crawl, crouch-arms-over-head, fall-back, run-low, leap-dive (front) | Sita | Her long locks in `back` are behind the whole body, so they show between the legs or below the body | `data/faces/sita.svg` (and copies): move the locks to `hair-body` or `under` |
 | bend-low, crawl, run-low, crouch-arms-over-head (front) | all | The head is lowered toward the viewer but the level face shows | Base faces: draw `front-down` (and `front-up`) with `top` / `chin` anchors; the renderer already switches at 25° |
 | bend-low, crawl, run-low, crouch-arms-over-head (front) | all | Shoulders and head sit higher than in the side view (the front-bend drawings are taller than the side bends: male deepest 0.70 vs 0.40, female 0.65 vs 0.07 head-units of neck height) | Parts SVG: shorten the front-bend torsos (or lengthen the side bends) where the two views should agree |
 | fall-headlong, leap-dive (front) | all | The head is below the body, so the face is drawn upside down | Face files: a back-of-head layer (then step 4, head turn, picks it) |

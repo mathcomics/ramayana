@@ -77,7 +77,8 @@ renderer or panel changes.
   `tools/face-templates.mjs` refreshes guides + templates after a base
   change; `tools/split-faces.mjs` was the one-time split; merge-faces
   removed. Front view picks up/down at ±25° head tilt. Face sheet fixed
-  (front view, body scale).
+  (front view, body scale). The five female copies (kaikeyi, raxas_f1,
+  queen1, queen2, surpanakha) are now copies of the new sita (hair-body).
 - **Front torso (2026-11-06):** the front drawings as drawn, picked by
   |lean + chest| folded at 90° (deepest at 90°, turned over past it); no
   projected heights, no minimum rule. Front and side heights can differ in
