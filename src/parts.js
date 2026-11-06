@@ -51,13 +51,14 @@ const dpWaistMid = (T) => mul(DP_WAIST.reduce((a, i) => add(a, dpNode(T, i)), [0
 // Torso outline in the pelvis frame (hip mid at 0,0). turn: 0 front, 1
 // side; deg: the bend in degrees. The drawn keys are the straight torso
 // and the bent ones at M.bends degrees; between two keys the outline swings
-// round the waist (polar blend). Past the deepest drawn bend it stays at
-// that bend; below straight (an arch back) it extrapolates.
+// round the waist (polar blend). It never goes past the drawings: an arch
+// back keeps the straight torso, a bend past the deepest drawn one keeps
+// that one (the pose's chest angle still turns the arms, neck and head).
 export function partsTorso(M, turn, deg) {
   const keys = [dpLin(M.torso.front, M.torso.side, turn),
     ...M.torso.frontBend.map((fb, i) => dpLin(fb, M.torso.sideBend[i], turn))];
   const at = [0, ...M.bends];
-  deg = Math.min(deg, at[at.length - 1]);        // the deepest drawn bend is as far as it goes
+  deg = Math.max(0, Math.min(deg, at[at.length - 1]));   // between straight and the deepest drawn bend
   let k = 0;
   while (k < at.length - 2 && deg > at[k + 1]) k++;
   const t = (deg - at[k]) / (at[k + 1] - at[k]);

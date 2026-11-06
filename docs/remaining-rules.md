@@ -43,7 +43,7 @@ front of the torso there. Its thresholds:
 |---|---|---|
 | Front torso width follows the front-bend drawings in proportion to (lean + chest) | torso (front view) | A decision on what the front-bend drawings mean (width only, or also height); the artist's torso-width review |
 | A torso tipped toward the viewer is spread evenly top to bottom by its thickness | torso (front view) | A true outline of the tipped body (slices as ellipses), only if the even spread looks wrong |
-| Bends below straight (arch back) are extrapolated; past the deepest drawn bend the torso stays at that bend | torso | An arch-back torso drawing |
+| The torso shape stays between the drawings: an arch back (chest < 0) keeps the straight torso, a bend past the deepest drawn one keeps that one; the chest angle still turns the arms, neck and head | torso | An arch-back torso drawing, to let the shape arch |
 | The deepest front-bend drawing is the thinnest the front torso gets: a shorter projection is stretched about the pelvis (joints with it) to its height | torso (front view) | None: a decision (2026-11-06) |
 | A limb's top end (shoulder cap, top of the thigh) turns with the body within 0.12 head-units of the joint | upper arm, thigh | None needed; the band can be tuned or drawn per part |
 
