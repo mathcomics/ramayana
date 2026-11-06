@@ -330,10 +330,6 @@ const STARTERS = /*__POSES__*/;
         const lim = (part, key, piv, child, label) => out.push({ view, side: sd, path: `${sd}.${part}.${key}`, label: `${n} ${label}`, piv: j(piv), dir: (J) => ang(J[sd][piv], J[sd][child]) });
         if (!solved(sd)) { lim('arm', 'shoulder', 'sh', 'E', 'shoulder'); lim('arm', 'elbow', 'E', 'Wr', 'elbow'); lim('arm', 'wrist', 'Wr', 'grip', 'wrist'); }
         lim('leg', 'hip', 'hp', 'Kn', 'hip'); lim('leg', 'knee', 'Kn', 'A', 'knee');
-        // both hips are one point in the side view: the left hip's dot is
-        // shown a little back and down so each can be tapped (display only;
-        // the turn is still about the hip)
-        if (sd === 'far') out[out.length - 2].nudge = [-0.13, 0.09];
         // the foot: its angle from the ground (toes forward = 90° in this frame)
         out.push({ view, side: sd, path: `${sd}.leg.ankle`, label: `${n} ankle`, piv: j('A'), dir: (J, p) => 90 + p[sd].leg.ankle });
       }
@@ -348,11 +344,31 @@ const STARTERS = /*__POSES__*/;
   }
   // figure frame -> picture (the stage's svg units)
   const toPic = (view, q) => { const o = state.off?.[view] || [0, 0]; return [VIEWX[view] + state.facing * q[0] + o[0], q[1] + o[1]]; };
-  // where a control's dot is drawn and tapped
-  const dotPic = (c) => { const q = c.piv(state.J[c.view]), n = c.nudge || [0, 0]; return toPic(c.view, [q[0] + n[0], q[1] + n[1]]); };
+  // Where each control's dot is drawn and tapped (display only: the turn is
+  // always about the joint itself). Dots that would overlap an earlier one
+  // (both hips in the side view, the shoulders and the neck) are pushed
+  // apart, away from it, or back and down where they coincide.
+  const GAP = 0.15;
+  function layoutDots() {
+    const placed = [], at = {};
+    for (const view of ['side', 'front']) for (const c of controls(view)) {
+      let p = toPic(view, c.piv(state.J[view]));
+      for (let it = 0; it < 6; it++) {
+        const q = placed.find((o) => Math.hypot(o[0] - p[0], o[1] - p[1]) < GAP);
+        if (!q) break;
+        let d = [p[0] - q[0], p[1] - q[1]], l = Math.hypot(d[0], d[1]);
+        if (l < 1e-3) { d = [-0.82 * state.facing, 0.57]; l = 1; }
+        p = [q[0] + d[0] / l * GAP, q[1] + d[1] / l * GAP];
+      }
+      placed.push(p); at[view + ':' + c.path] = p;
+    }
+    state.dots = at;
+  }
+  const dotPic = (c) => state.dots?.[c.view + ':' + c.path] || toPic(c.view, c.piv(state.J[c.view]));
   const dirPic = (a) => [state.facing * Math.sin(a * Math.PI / 180), Math.cos(a * Math.PI / 180)];
   function handlesSvg() {
     if (!state.J || !state.showJ) return '';
+    layoutDots();
     let s = '<g class="handles">';
     const seen = [];
     for (const view of ['side', 'front']) for (const c of controls(view)) {
