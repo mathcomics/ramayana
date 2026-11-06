@@ -87,7 +87,7 @@ select, input[type="text"] {
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }
 
-.groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.groups { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 fieldset {
   border: 1px solid var(--line); border-radius: 8px; background: var(--panel);
   padding: 8px 10px 10px; margin: 0; min-width: 0; display: grid; gap: 4px;
@@ -133,7 +133,7 @@ pre {
   .wrap { max-width: min(1500px, 96vw); }
   .canvas { grid-template-columns: minmax(0, 3fr) minmax(0, 1.15fr); height: min(54vh, 680px); }
   .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .groups { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   /* sliders on one line each (label, slider, value), so the panels fit under the stage */
   .row { grid-template-columns: 6.5em minmax(0, 1fr) 3.4em; grid-template-areas: "l s v"; column-gap: 8px; }
   fieldset { gap: 0; padding: 4px 10px 8px; }
@@ -150,6 +150,9 @@ pre {
 body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !important; }
 .faces { display: grid; gap: 8px; }
 .facegrid svg { display: block; width: 100%; max-width: 768px; height: auto; background: var(--paper); border-radius: 6px; }
+@media (max-width: 640px) {
+  .groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 420px) {
   .groups { gap: 6px; }
   fieldset { padding: 6px 6px 8px; }
@@ -229,12 +232,18 @@ const STARTERS = /*__POSES__*/;
       ['spine.neck', 'neck', -60, 90], ['spine.head', 'head', -90, 90], ['spine.turn', 'head turn', -180, 180],
       ['tail.lift', 'tail lift', -90, 120], ['tail.curl', 'tail curl', -60, 300], ['tail.turn', 'tail turn', -90, 90]] },
     { key: 'near', title: 'Near arm & leg', rows: [
-      ['near.arm.shoulder', 'shoulder', -90, 230], ['near.arm.out', 'shoulder out', -90, 90], ['near.arm.elbow', 'elbow', 0, 160], ['near.arm.wrist', 'wrist', -90, 90], ['near.arm.twist', 'wrist turn', -180, 180], ['near.arm.prop.angle', 'prop angle', -180, 180], ['near.arm.prop.out', 'prop out', -90, 90],
+      ['near.arm.shoulder', 'shoulder', -90, 230], ['near.arm.out', 'shoulder out', -90, 90], ['near.arm.elbow', 'elbow', 0, 160], ['near.arm.wrist', 'wrist', -90, 90], ['near.arm.twist', 'wrist turn', -180, 180],
       ['near.leg.hip', 'hip', -90, 150], ['near.leg.out', 'hip out', -90, 90], ['near.leg.knee', 'knee', 0, 160], ['near.leg.ankle', 'ankle', -180, 180], ['near.leg.toe', 'toe turn', -90, 90]] },
     { key: 'far', title: 'Far arm & leg', rows: [
-      ['far.arm.shoulder', 'shoulder', -90, 230], ['far.arm.out', 'shoulder out', -90, 90], ['far.arm.elbow', 'elbow', 0, 160], ['far.arm.wrist', 'wrist', -90, 90], ['far.arm.twist', 'wrist turn', -180, 180], ['far.arm.prop.angle', 'prop angle', -180, 180], ['far.arm.prop.out', 'prop out', -90, 90],
+      ['far.arm.shoulder', 'shoulder', -90, 230], ['far.arm.out', 'shoulder out', -90, 90], ['far.arm.elbow', 'elbow', 0, 160], ['far.arm.wrist', 'wrist', -90, 90], ['far.arm.twist', 'wrist turn', -180, 180],
       ['far.leg.hip', 'hip', -90, 150], ['far.leg.out', 'hip out', -90, 90], ['far.leg.knee', 'knee', 0, 160], ['far.leg.ankle', 'ankle', -180, 180], ['far.leg.toe', 'toe turn', -90, 90]] },
+    // one held prop at a time, in the hand chosen in this panel; `prop.` paths
+    // resolve to that arm's prop
+    { key: 'prop', title: 'Prop', rows: [['prop.angle', 'angle', -180, 180], ['prop.out', 'out', -90, 90]] },
   ];
+  // the arm holding the prop (the one with a prop, else the hand picked)
+  const propSide = () => (state.pose.far.arm.prop ? 'far' : state.pose.near.arm.prop ? 'near' : state.propHand || 'near');
+  const rp = (path) => (path.startsWith('prop.') ? `${propSide()}.arm.${path}` : path);
 
   const clone = (o) => JSON.parse(JSON.stringify(o));
   const get = (o, path) => path.split('.').reduce((a, k) => (a == null ? a : a[k]), o);
@@ -304,32 +313,29 @@ const STARTERS = /*__POSES__*/;
         const input = row.querySelector('input'), out = row.querySelector('output');
         input.addEventListener('input', () => {
           const v = Number(input.value);
-          set(state.pose, path, v);
+          if (path.startsWith('prop.') && !get(state.pose, rp('prop'))) { row._sync(); return; }   // no prop held
+          set(state.pose, rp(path), v);
           out.textContent = step < 1 ? v.toFixed(2) : v + '°';
           markDirty(); draw();
         });
         row._sync = () => {
-          const v = get(state.pose, path) ?? 0;
+          const v = get(state.pose, rp(path)) ?? 0;
           input.value = v; out.textContent = step < 1 ? Number(v).toFixed(2) : v + '°';
         };
         fs.appendChild(row);
-        if (path.endsWith('.arm.twist')) {
-          // a held prop (sword, club or bow, along its reference line through the grip); for a sword or club, one or both
-          // hands on the hilt (both: the other arm follows the hilt); for a bow, whether the other hand draws the string
-          const pr = document.createElement('div'); pr.className = 'handrow';
-          pr.innerHTML = `<span>prop</span><div class="seg" id="prop-${g.key}"></div>`;
-          fs.appendChild(pr);
-          const sr = document.createElement('div'); sr.className = 'handrow';
-          sr.innerHTML = `<span>bow string</span><div class="seg" id="string-${g.key}"></div>`;
-          fs.appendChild(sr);
-          const gr = document.createElement('div'); gr.className = 'handrow';
-          gr.innerHTML = `<span>grip</span><div class="seg" id="grip-${g.key}"></div>`;
-          fs.appendChild(gr);
-        }
         if (path.endsWith('.arm.wrist')) {
           const hr = document.createElement('div'); hr.className = 'handrow';
           hr.innerHTML = `<span>hand</span><div class="seg" id="hand-${g.key}"></div>`;
           fs.appendChild(hr);
+        }
+      }
+      if (g.key === 'prop') {
+        // which hand, what it holds; a sword or club in one or both hands (both: the other arm
+        // follows the hilt); a bow's string free or drawn to the other hand
+        for (const [id, label] of [['propKind', 'holds'], ['propHand', 'hand'], ['propGrip', 'grip'], ['propString', 'bow string']]) {
+          const r = document.createElement('div'); r.className = 'handrow';
+          r.innerHTML = `<span>${label}</span><div class="seg" id="${id}"></div>`;
+          fs.insertBefore(r, fs.children[id === 'propKind' || id === 'propHand' ? 1 + ['propKind', 'propHand'].indexOf(id) : fs.children.length]);
         }
       }
       host.appendChild(fs);
@@ -337,7 +343,7 @@ const STARTERS = /*__POSES__*/;
   }
 
   function syncControls() {
-    for (const id of ['headView', 'mouth', 'facing', 'hand-near', 'hand-far', 'faceMouth', 'prop-near', 'prop-far', 'string-near', 'string-far', 'grip-near', 'grip-far']) $(id)._sync();
+    for (const id of ['headView', 'mouth', 'facing', 'hand-near', 'hand-far', 'faceMouth', 'propKind', 'propHand', 'propGrip', 'propString']) $(id)._sync();
     $('character').value = state.character;
     // tail controls only apply to species with a tail
     const hasTail = !!SPECIES[look().species].tail;
@@ -453,14 +459,23 @@ const STARTERS = /*__POSES__*/;
   buildSliders();
   for (const side of ['near', 'far']) {
     const arm = () => state.pose[side].arm;
-    seg('prop-' + side, [['None', ''], ['Sword', 'sword'], ['Club', 'club'], ['Bow', 'bow']], () => arm().prop?.kind || '',
-      (v) => { if (!v) delete arm().prop; else arm().prop = { angle: 0, out: 0, ...(arm().prop || {}), kind: v }; });
-    seg('string-' + side, [['Free', false], ['Drawn', true]], () => !!arm().prop?.draw,
-      (v) => { if (arm().prop) { if (v) arm().prop.draw = true; else delete arm().prop.draw; } });
-    seg('grip-' + side, [['One hand', ''], ['Both', 'both']], () => arm().prop?.grip || '',
-      (v) => { if (arm().prop) { if (v) arm().prop.grip = v; else delete arm().prop.grip; } });
     seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in'], ['Point', 'point']],
       () => state.pose[side].arm.hand, (v) => { state.pose[side].arm.hand = v; });
+  }
+  {
+    const prop = () => state.pose[propSide()].arm.prop;
+    seg('propKind', [['None', ''], ['Sword', 'sword'], ['Club', 'club'], ['Bow', 'bow']], () => prop()?.kind || '', (v) => {
+      const arm = state.pose[propSide()].arm;
+      if (!v) { state.propHand = propSide(); delete arm.prop; } else arm.prop = { angle: 0, out: 0, ...(arm.prop || {}), kind: v };
+    });
+    seg('propHand', [['Near', 'near'], ['Far', 'far']], propSide, (v) => {
+      const from = propSide(); state.propHand = v;
+      if (from !== v && state.pose[from].arm.prop) { state.pose[v].arm.prop = state.pose[from].arm.prop; delete state.pose[from].arm.prop; }
+    });
+    seg('propGrip', [['One hand', ''], ['Both', 'both']], () => prop()?.grip || '',
+      (v) => { const p = prop(); if (p) { if (v) p.grip = v; else delete p.grip; } });
+    seg('propString', [['Free', false], ['Drawn', true]], () => !!prop()?.draw,
+      (v) => { const p = prop(); if (p) { if (v) p.draw = true; else delete p.draw; } });
   }
   renderGallery();
   load(STARTERS[0]);

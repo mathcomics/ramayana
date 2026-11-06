@@ -91,7 +91,9 @@ renderer or panel changes.
   "both"` solves the other arm in 3D to the hilt. 44 poses: overhead /
   shoulder / guard now two-handed, new `stand-sword-high`, `-hip`,
   `-forward`, `-behind-head`, `lunge-sword-strike` (all usable for a
-  club). Pose lab: Club option, grip One hand / Both.
+  club). Pose lab: a 4th panel "Prop" (holds None/Sword/Club/Bow, hand
+  Near/Far, angle, out, grip, bow string; one prop at a time); the four
+  panels side by side (2 columns under 640 px).
 - **New poses and held props (2026-11-06):** 11 poses from the artist's
   reference sheets (angles only, not traced): `walk`, `walk-passing`;
   `stand-shoot-bow`, `stand-shoot-bow-raise`, `stand-shoot-bow-release`;
