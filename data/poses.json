@@ -1928,41 +1928,47 @@
         "lean": 4,
         "chest": -6,
         "neck": 14,
-        "head": -8
+        "head": -8,
+        "turn": 0
       },
       "near": {
         "arm": {
-          "shoulder": -28,
-          "elbow": 12,
-          "hand": "in",
+          "shoulder": -40,
+          "elbow": 19,
+          "hand": "out",
           "wrist": 0,
-          "out": 4
+          "out": 4,
+          "twist": 0
         },
         "leg": {
-          "hip": 28,
-          "knee": 6,
-          "ankle": 12,
-          "out": 2
+          "hip": 36,
+          "knee": 31,
+          "ankle": -3,
+          "out": 0,
+          "toe": 0
         }
       },
       "far": {
         "arm": {
           "shoulder": 30,
-          "elbow": 25,
+          "elbow": 22,
           "hand": "in",
           "wrist": 0,
-          "out": 4
+          "out": 8,
+          "twist": 0
         },
         "leg": {
-          "hip": -22,
-          "knee": 12,
+          "hip": -14,
+          "knee": 21,
           "ankle": -25,
-          "out": 2
+          "out": 0,
+          "toe": 0
         }
       },
       "tail": {
         "lift": -30,
-        "curl": 220
+        "curl": 220,
+        "turn": 35
       }
     },
     {

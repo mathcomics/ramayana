@@ -75,6 +75,9 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Pose lab saves merged 2026-11-06:** 26 saves; only `walk` changed
+  (merged). `stand-look-left` (= `stand` with look left) not merged: head
+  direction isn't a pose (pose-picking rule 3). Saves stay in the lab.
 - **Weapons on reference lines + two-handed poses (2026-11-06):**
   `data/props/held/sword.svg`, `club.svg`, `bow.svg`: layer `base` plus
   optional layers named by character id (own version); each drawing
