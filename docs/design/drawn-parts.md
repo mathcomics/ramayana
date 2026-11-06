@@ -115,17 +115,19 @@ move the legs.
 - The tail is generated, not drawn.
 - Held props (`arm.prop`: `kind` sword, club or bow, `angle`, `out`,
   `draw`, `grip`):
-  - Files: `data/props/held/lines.svg` holds one reference line per
-    kind of line: `sword` (straight, grip end → tip) and `bow` (an arch
-    top → bottom, with a `grip` circle). `data/props/held/weapons.svg`
-    holds the drawings, one layer each (`sword`, `club` on the sword
-    line, `bow` on the bow line), each with a copy of its line (`line`
-    path, and `grip` for the bow) where the artist drew it.
-    `node tools/import-held.mjs` → `data/held.json`: each drawing moved
-    and scaled so its own line lands on the reference line, stored in
-    the line's frame (origin at the grip, +x along the line toward the
-    tip / top, +y the belly side; head-units). The line's length is the
-    weapon's length.
+  - Files: `data/props/held/sword.svg`, `club.svg`, `bow.svg`. Each has
+    a layer `base` (everyone's version) and optional layers named by a
+    character id (that character's own version). A layer holds the
+    drawing plus, not drawn, a path `line` (sword, club: straight, grip →
+    tip; bow: the curve, top tip → bottom tip) and, for the bow, a circle
+    `grip`. Drawn at size (100 px = 1 head-unit): the line's length is the
+    weapon's length. `node tools/import-held.mjs` → `data/held.json`: each
+    version in its line's frame (origin at the grip, +x along the line
+    toward the tip / top, +y the belly side; head-units), with the line's
+    points and ends. Layers that aren't `base` or a character id are
+    skipped with a warning.
+  - A figure uses its character's version (`who`, from `characterLook`),
+    else `base`.
   - In a figure: the line starts at the grip (the middle of the hand)
     and points along the hand's side-view angle + `angle`, with the arm's
     `out` + `out`; each view is its projection (lengths shorten, widths

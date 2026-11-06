@@ -33,11 +33,11 @@ export function loadSpecies() {
   // a species with "parts": "<id>" is drawn from the artist's parts
   // (data/parts.json, from data/parts/<id>.svg; experiment)
   const parts = existsSync(join(root, 'data/parts.json')) ? json('data/parts.json').parts : {};
-  // held props (data/held.json, from data/props/held/*.svg): shared by every species
+  // held props (data/held.json, from data/props/held/<kind>.svg): shared by every species
   const held = existsSync(join(root, 'data/held.json')) ? json('data/held.json') : null;
   return Object.fromEntries(ids.map((id) => {
     const S = json(`data/species/${id}.json`);
-    if (held) S.held = { lines: held.lines, weapons: held.weapons };
+    if (held) S.held = { sword: held.sword, club: held.club, bow: held.bow };
     if (typeof S.parts === 'string') {
       if (!parts[S.parts]) throw new Error(`species ${id}: no parts "${S.parts}" in data/parts.json`);
       S.parts = parts[S.parts];

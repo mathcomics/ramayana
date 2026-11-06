@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Club (tools/import-held.mjs -> data/held.json). One layer per version:
+     "base" for everyone, and a layer named by a character id for that
+     character's own club. Each layer: the drawing, plus a path labelled
+     "line" (not drawn): straight, from the grip (start) to the far end of
+     the head (end). It is held like a sword and uses the sword poses; its
+     length is the line's length: 100 px = 1 head-unit. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="200" height="400" viewBox="-100 -260 200 400">
+  <g inkscape:groupmode="layer" inkscape:label="base">
+    <path inkscape:label="club" d="M -4 30 L -4 -110 C -16 -130 -20 -170 -14 -200 C -10 -214 10 -214 14 -200 C 20 -170 16 -130 4 -110 L 4 30 Z" style="fill:#241f1c"/>
+    <path inkscape:label="line" d="M 0 0 L 0 -210" fill="none" stroke="#d02020" stroke-width="1"/>
+  </g>
+</svg>

@@ -19,17 +19,14 @@ style of a weapon can change without touching any pose.
 
 ## Built
 
-- One file of reference lines (`data/props/held/lines.svg`: a straight
-  sword line, an arched bow line) whose ends are the references, and one
-  file of weapon drawings (`weapons.svg`: sword, club, bow), each drawn
-  with its own copy of the line. Clubs use the sword line and the sword
-  poses.
+- One file per weapon (`data/props/held/sword.svg`, `club.svg`,
+  `bow.svg`), each with a `base` layer and optional per-character layers;
+  each drawing carries its line, whose ends are the references and whose
+  length is the weapon's. Clubs use the sword poses.
 - Two-handed grips: `grip: "both"` solves the other arm to the hilt.
 
 ## Open points
 
-- **Per-character weapons**: a character's own sword drawing
-  (`data/characters.json`: `props.sword`).
 - **Props per figure**: a panel could swap or remove a held prop
   (`"prop": null`) for a figure without a new pose.
 - Arrows in flight and quivers are scene props.

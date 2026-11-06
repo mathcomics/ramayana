@@ -69,7 +69,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const unit = r.unit * zoom * (f.scale ?? 1);
     const view = f.view === 'front' ? 'front' : 'side';
     // every character has a drawn face; there is no generated fallback
-    const { bbox, headAnchor } = buildShapes(S, pose, look.outfit, view, look.bodyScale);
+    const { bbox, headAnchor } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
     const headView = headAnchor.view ?? (view === 'front' ? 'front' : normalizePose(pose).headView);
     if (!look.face?.[headView]?.head) issues.push(`figure ${i + 1} (${f.who}): no drawn ${headView} face (the ${headView} layer of data/faces/${f.who}.svg)`);
     return { f, name: f.id || f.who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,

@@ -242,7 +242,7 @@ function dpScaled(M, s) {
   return M._scaled.get(s);
 }
 
-export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 1) {
+export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 1, who = null) {
   const M = dpScaled(M0, bodyScale);
   const tailSpec = S.tail && (bodyScale === 1 ? S.tail : { ...S.tail, length: S.tail.length * bodyScale, w: S.tail.w.map((w) => w * bodyScale) });
   const front = view === 'front';
@@ -418,9 +418,9 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     };
   }
   // Held props (arm.prop: sword, club or bow). The pose places a reference
-  // line through the hand's grip (data/props/held/lines.svg: a straight
-  // sword line for swords and clubs, a curved bow line); the weapon drawing
-  // (weapons.svg) is laid along it. The line turns with the hand: its
+  // line through the hand's grip; the weapon drawing (data/props/held/
+  // <kind>.svg: the character's own layer, else base) is laid along it by
+  // its own line (straight for a sword or club, curved for a bow). The line turns with the hand: its
   // direction is the hand's side-view angle + prop.angle, out of the paper
   // by the arm's out + prop.out; each view is its projection (lengths
   // shorten, widths stay). A bow's belly faces away from the hip; in the
@@ -429,18 +429,18 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   const HELD = S.held;
   for (const s of ['near', 'far']) {
     const H = limbs[s].held, P = H.prop;
-    const W = P && HELD?.weapons?.[P.kind];
+    // the character's own version of the weapon, else the base one
+    const V = P && HELD?.[P.kind], W = V && (V[who] || V.base), bow = P?.kind === 'bow';
     if (!W) continue;
     const pr = dpProject(H.theta + (P.angle ?? 0), H.out + (P.out ?? 0), front);
     const u = H.dirM(pr.ang), g = limbs[s].grip;
     let v = [-u[1], u[0]];
-    if (W.line === 'bow' && (g[0] - limbs[s].joints.hp[0]) * v[0] + (g[1] - limbs[s].joints.hp[1]) * v[1] < 0) v = mul(v, -1);
-    const ky = W.line === 'bow' && front ? 0.15 : 1;
+    if (bow && (g[0] - limbs[s].joints.hp[0]) * v[0] + (g[1] - limbs[s].joints.hp[1]) * v[1] < 0) v = mul(v, -1);
+    const ky = bow && front ? 0.15 : 1;
     const Mx = [u[0] * pr.f, u[1] * pr.f, v[0] * ky, v[1] * ky, g[0], g[1]];
     const at = (q) => [Mx[0] * q[0] + Mx[2] * q[1] + Mx[4], Mx[1] * q[0] + Mx[3] * q[1] + Mx[5]];
-    const line = HELD.lines[W.line];
-    limbs[s].arm.push(['prop', { markup: W.svg, mx: Mx, pts: line.pts.map(at) }, H.d3]);
-    if (W.line === 'bow') {
+    limbs[s].arm.push(['prop', { markup: W.svg, mx: Mx, pts: W.pts.map(at) }, H.d3]);
+    if (bow) {
       const poly = (pts) => pts.map((p, i) => { const q = pts[(i + 1) % pts.length]; return [p, lerp(p, q, 1 / 3), lerp(p, q, 2 / 3), q]; });
       const band = (pl, w) => {
         const L = [], R = [];
@@ -451,7 +451,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
         });
         return poly([...L, ...R.reverse()]);
       };
-      const [T1, T2] = line.tips.map(at);
+      const [T1, T2] = W.tips.map(at);
       const other = limbs[s === 'near' ? 'far' : 'near'].grip;
       if (P.draw) {
         limbs[s].arm.push(['prop', band([T1, other, T2], 0.025), H.d3]);

@@ -58,7 +58,7 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/build-poselab.mjs                   # out/poselab.html (published artifact)
     node tools/pose-catalogue.mjs                  # out/pose-catalogue.png (poses + story moments)
     node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
-    node tools/import-held.mjs                     # data/props/held/*.svg -> data/held.json (weapons)
+    node tools/import-held.mjs                     # data/props/held/{sword,club,bow}.svg -> data/held.json
 
 Pose lab (published artifact, saves poses to its database, collection
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
@@ -76,11 +76,12 @@ renderer or panel changes.
 ## Status (2026-11-06)
 
 - **Weapons on reference lines + two-handed poses (2026-11-06):**
-  `data/props/held/lines.svg` (sword line straight, bow line an arch with
-  a grip; the line ends are the references), `weapons.svg` (sword, club
-  on the sword line, bow; each drawn with its own copy of the line),
-  `tools/import-held.mjs` → `data/held.json`; the renderer lays the
-  drawing along the pose's line. Bow doubled (≈5.8 head-units). `grip:
+  `data/props/held/sword.svg`, `club.svg`, `bow.svg`: layer `base` plus
+  optional layers named by character id (own version); each drawing
+  carries its `line` (straight; bow: curve + `grip`), whose ends place it
+  and whose length is the weapon's (100 px = 1 head-unit; no separate
+  reference file). `tools/import-held.mjs` → `data/held.json`; figures
+  pick their character's version (`who` from `characterLook`), else base. Bow doubled (≈5.8 head-units). `grip:
   "both"` solves the other arm in 3D to the hilt. 44 poses: overhead /
   shoulder / guard now two-handed, new `stand-sword-high`, `-hip`,
   `-forward`, `-behind-head`, `lunge-sword-strike` (all usable for a

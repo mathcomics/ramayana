@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Bow (tools/import-held.mjs -> data/held.json). One layer per version:
+     "base" for everyone, and a layer named by a character id for that
+     character's own bow. Each layer: the drawing, plus (not drawn) a path
+     labelled "line", the bow's curve from the top tip (start) to the bottom
+     tip (end), and a circle labelled "grip" where the hand holds it. The
+     string runs tip to tip (to the drawing hand when drawn); the belly is
+     on the side away from the string. Draw at size: 100 px = 1 head-unit
+     (base: 5.8 tip to tip). -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="300" height="660" viewBox="-150 -330 300 660">
+  <g inkscape:groupmode="layer" inkscape:label="base">
+    <path inkscape:label="arch" d="M -66 -292 Q 64 -2.5 -66 292 L -61 286 Q 44 0 -61 -286 Z" style="fill:#241f1c"/>
+    <path inkscape:label="line" d="M -64 -290 Q 64 0 -64 290" fill="none" stroke="#d02020" stroke-width="1"/>
+    <circle inkscape:label="grip" cx="0" cy="0" r="4" fill="#2060d0"/>
+  </g>
+</svg>

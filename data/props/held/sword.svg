@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Sword (tools/import-held.mjs -> data/held.json). One layer per version:
+     "base" for everyone, and a layer named by a character id (rama,
+     indrajit, ...) for that character's own sword.
+     Each layer: the drawing, plus a path labelled "line" (not drawn): a
+     straight line from the grip (start, where the hand closes) to the tip
+     (end). The pose places this line in the hand; its length is the sword's
+     length, so draw at size: 100 px = 1 head-unit (base: 2.1 beyond the grip).
+     A two-handed grip puts the other hand 0.42 below the grip. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="200" height="400" viewBox="-100 -260 200 400">
+  <g inkscape:groupmode="layer" inkscape:label="base">
+    <path inkscape:label="blade" d="M -3.5 -12 L -3 -192 L 0 -210 L 3 -192 L 3.5 -12 Z" style="fill:#241f1c"/>
+    <path inkscape:label="guard" d="M -17 -15 L 17 -15 L 17 -9 L -17 -9 Z" style="fill:#241f1c"/>
+    <path inkscape:label="hilt" d="M -3 -12 L 3 -12 L 3 32 L -3 32 Z" style="fill:#241f1c"/>
+    <path inkscape:label="line" d="M 0 0 L 0 -210" fill="none" stroke="#d02020" stroke-width="1"/>
+  </g>
+</svg>

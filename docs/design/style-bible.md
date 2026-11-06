@@ -347,9 +347,10 @@ alphabetically.
   hand, laid along a straight reference line through the grip that turns
   with the hand. Drawn in near-black, flat, no outline:
   - the weapon's shape is the artist's drawing (`data/props/held/
-    weapons.svg`) laid along a reference line (`lines.svg`): the line's
-    ends fix where the drawing goes, so a weapon's style changes without
-    touching a pose;
+    <kind>.svg`, layer `base`, or a character's own layer), laid along
+    the pose's line by the line drawn with it: its ends fix where the
+    drawing goes and its length is the weapon's, so a weapon's style
+    changes without touching a pose;
   - sword: a straight blade (about 2.1 head-units from the grip to the
     point), a short crossguard and a hilt behind the grip;
   - club: on the sword line, a handle swelling into a heavy head;
