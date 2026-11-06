@@ -113,3 +113,11 @@ move the legs.
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn
   over the legs.
 - The tail is generated, not drawn.
+- Held props (`arm.prop`: `kind` sword or bow, `angle`, `out`, `draw`):
+  the reference line starts at the grip (the middle of the hand) and
+  points along the hand's side-view angle + `angle`, with the arm's `out`
+  + `out`; each view is its projection (lengths shorten, widths stay).
+  The shapes are built along that line (style bible §9) and drawn with
+  their arm, at the hand's depth. A bow's belly faces away from the hip;
+  a drawn bow's string goes to the other hand's grip. Props don't move
+  the figure: it is centred on its body.

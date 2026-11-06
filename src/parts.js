@@ -371,7 +371,9 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     // the pointing finger always goes on the side toward the body (the
     // drawn point hand has it outside, so it is mirrored across the forearm)
     const handSegs = dpShape(hands, look(sh_, a.out, a.twist));
-    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A },
+    // the grip: the middle of the hand, for a held prop (arm.prop)
+    const grip = add(Wr, mul(dirM(Hd.ang), 0.18 * Hd.f));
+    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A }, grip, held: { theta: sh_, out: a.out, prop: a.prop, m, dirM, d3: dH },
       arm: [
         ['upper-arm', place(dpShape(M.upperArm, look(su, a.out)), sh, U.ang, m), dU],
         ['forearm', place(dpShape(M.forearm, look(sl, a.out)), E, Lo.ang, m), dL],
@@ -385,6 +387,55 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
         ['thigh', placeCap(dpShape(M.thigh, look(st, l.out)), hp, Th.ang, m, 1, front ? null : -sp.lean), dT],
       ],
     };
+  }
+  // Held props (arm.prop): a sword or a bow in the hand, as simple shapes
+  // along a straight reference line through the grip (the artist's prop
+  // drawings can replace them later, laid along the same line). The line
+  // turns with the hand: prop.angle is added to the hand's side-view angle,
+  // prop.out to the arm's out; each view is its projection.
+  for (const s of ['near', 'far']) {
+    const H = limbs[s].held, P = H.prop;
+    if (!P || !['sword', 'bow'].includes(P.kind)) continue;
+    const pr = dpProject(H.theta + (P.angle ?? 0), H.out + (P.out ?? 0), front);
+    const u = H.dirM(pr.ang), v = [-u[1], u[0]], f = pr.f, g = limbs[s].grip;
+    const at = (a, b) => add(add(g, mul(u, a)), mul(v, b));
+    const poly = (pts) => pts.map((p, i) => { const q = pts[(i + 1) % pts.length]; return [p, lerp(p, q, 1 / 3), lerp(p, q, 2 / 3), q]; });
+    const band = (line, w) => {                     // a polyline as a filled band of width w
+      const L = [], R = [];
+      line.forEach((p, i) => {
+        const a = line[Math.max(0, i - 1)], b = line[Math.min(line.length - 1, i + 1)];
+        const d = sub(b, a), n = Math.hypot(d[0], d[1]) || 1, nn = [-d[1] / n * w / 2, d[0] / n * w / 2];
+        L.push(add(p, nn)); R.push(sub(p, nn));
+      });
+      return poly([...L, ...R.reverse()]);
+    };
+    const parts = [];
+    if (P.kind === 'sword') {
+      const blade = 2.0 * f, hilt = 0.32 * f, guard = 0.12 * f;
+      parts.push(poly([at(guard, 0.035), at(guard + blade * 0.9, 0.03), at(guard + blade, 0), at(guard + blade * 0.9, -0.03), at(guard, -0.035)]));
+      parts.push(poly([at(-hilt, 0.03), at(guard, 0.03), at(guard, -0.03), at(-hilt, -0.03)]));
+      parts.push(poly([at(guard - 0.03, 0.17), at(guard + 0.03, 0.17), at(guard + 0.03, -0.17), at(guard - 0.03, -0.17)]));
+    } else {
+      // bow: an arch through the grip, its belly away from the body (seen
+      // edge-on in the front view); the string tip to tip, or to the other
+      // hand when drawn, with an arrow from that hand through the grip
+      const half = 1.45 * f, bulge = front ? 0 : 0.32;
+      let n = v;
+      if ((g[0] - limbs[s].joints.hp[0]) * n[0] + (g[1] - limbs[s].joints.hp[1]) * n[1] < 0) n = mul(n, -1);
+      const T1 = add(g, mul(u, half)), T2 = add(g, mul(u, -half)), C = add(g, mul(n, bulge * 2));
+      const arc = Array.from({ length: 17 }, (_, k) => { const t = k / 16, w = 1 - t; return [w * w * T1[0] + 2 * w * t * C[0] + t * t * T2[0], w * w * T1[1] + 2 * w * t * C[1] + t * t * T2[1]]; });
+      parts.push(band(arc, 0.07));
+      const other = limbs[s === 'near' ? 'far' : 'near'].grip;
+      const tips = [add(T1, mul(n, bulge * 0.05)), add(T2, mul(n, bulge * 0.05))];
+      if (P.draw) {
+        parts.push(band([tips[0], other, tips[1]], 0.025));
+        const a = sub(g, other), al = Math.hypot(a[0], a[1]) || 1, ad = mul(a, 1 / al), ap = [-ad[1], ad[0]];
+        const tip = add(g, mul(ad, 0.35));
+        parts.push(band([other, tip], 0.03));
+        parts.push(poly([add(tip, mul(ad, 0.14)), add(tip, mul(ap, 0.06)), add(tip, mul(ap, -0.06))]));
+      } else parts.push(band(tips, 0.025));
+    }
+    for (const segs of parts) limbs[s].arm.push(['prop', segs, H.d3]);
   }
   // Neck and head in 3D. The neck leans with lean + chest + neck in the side
   // plane; each view is its projection (the front view sees its up-down
@@ -410,7 +461,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // a full top puts the torso in the cloth colour.
   const fullTop = outfit.top === 'full';
   const out = [];
-  const item = (part, segs, s) => ({ segs, role: part === 'thigh' ? 'cloth' : 'body', part: `${s}-${part}` });
+  const item = (part, segs, s) => ({ segs, role: part === 'thigh' ? 'cloth' : part === 'prop' ? 'prop' : 'body', part: `${s}-${part}` });
   const push = (L, kind, s) => L[kind].forEach(([part, segs]) => out.push(item(part, segs, s)));
   const pushTorso = () => out.push(
     { segs: place(M.neck.segs, nb, neckAng, 1, neckF), role: 'body', part: 'neck' },

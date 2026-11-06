@@ -74,6 +74,16 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **New poses and held props (2026-11-06):** 11 poses from the artist's
+  reference sheets (angles only, not traced): `walk`, `walk-passing`;
+  `stand-shoot-bow`, `stand-shoot-bow-raise`, `stand-shoot-bow-release`;
+  `stand-sword-overhead`, `stand-sword-shoulder`, `stand-sword-guard`,
+  `stand-sword-back`, `lunge-sword-thrust`, `lunge-sword-low` (39 poses;
+  index entries; walk / shoot gaps closed). Held props: `arm.prop`
+  (`kind` sword | bow, `angle` from the hand, `out`, `draw` for the bow
+  string to the other hand): generic shapes along a reference line
+  (`src/parts.js`), pose lab prop / bow string controls. Drawings along
+  the line and two-handed grips: `docs/proposals/2026-11-06-held-props.md`.
 - **Pose picking (2026-11-06):** `data/pose-index.json` (per pose: desc,
   ground, hold, story-moment tags, nearest poses; tag words; `wanted`
   poses in order with what to use meanwhile; a test keeps it in step with

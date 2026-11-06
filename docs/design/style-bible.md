@@ -328,7 +328,7 @@ Every pose has an entry in `data/pose-index.json` (what it shows, what
 touches the ground, story moments, nearest poses); poses are picked by the
 rules in `docs/design/pose-picking.md`.
 
-28 poses, many drawn from a pose reference sheet and still
+39 poses, many drawn from pose reference sheets and still
 being refined. Poses are tuned visually in the pose lab and stored as data,
 alphabetically.
 
@@ -341,10 +341,24 @@ alphabetically.
   silhouette feature (weapon, crown, hair, tail curl), so identity never
   depends on colour alone.
 
-## 9. Effects and props (later)
+## 9. Effects and props
 
-- Fire: layered yellow/orange/red flame curls with black strokes.
-- Props library: bow, arrow, mace, stones, banners, etc.
+- **Held props** are part of the pose (`arm.prop`): a sword or a bow in a
+  hand, laid along a straight reference line through the grip that turns
+  with the hand. Drawn in near-black, flat, no outline:
+  - sword: a straight blade (2 head-units) tapering to a point, a short
+    crossguard and a hilt behind the grip;
+  - bow: a plain arch (about 2.9 head-units tip to tip) through the grip,
+    its belly away from the body, with a thin straight string; when drawn
+    (`draw`), the string runs from both tips to the other hand and an
+    arrow lies from that hand through the grip. In the front view the bow
+    is seen edge-on (a straight line).
+  The shapes can later be replaced by the artist's drawings laid along
+  the same line (`docs/proposals/2026-11-06-held-props.md`).
+- Scene props (throne, chariot, trees) are placed by the panel, not the
+  pose (`docs/design/panels.md`).
+- Later: fire (layered yellow/orange/red flame curls with black strokes),
+  mace, stones, banners.
 
 ## 10. Open questions
 

@@ -19,6 +19,7 @@ const KNEE = -1;  // shin rotates toward -θ when the knee flexes
 export const DEFAULT_COLORS = {
   body: '#5a2a12',
   cloth: '#c8322a',
+  prop: '#241f1c',
 };
 
 export const HANDS = ['fist', 'out', 'in', 'point'];
@@ -30,6 +31,7 @@ export function normalizePose(p = {}) {
     arm: {
       shoulder: num(l.arm?.shoulder, 0), out: num(l.arm?.out, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0), twist: num(l.arm?.twist, 0),
       hand: HANDS.includes(l.arm?.hand) ? l.arm.hand : 'fist',
+      ...(l.arm?.prop && ['sword', 'bow'].includes(l.arm.prop.kind) ? { prop: { kind: l.arm.prop.kind, angle: num(l.arm.prop.angle, 0), out: num(l.arm.prop.out, 0), ...(l.arm.prop.draw ? { draw: true } : {}) } } : {}),
     },
     leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0), toe: num(l.leg?.toe, 0) },
   });
@@ -452,7 +454,8 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
   const tr = side.spine.turn * Math.PI / 180;
   const sideish = Math.abs(Math.sin(tr)) > Math.abs(Math.cos(tr));
   const face = { view: front !== sideish ? 'front' : 'side', mirror: front && sideish && Math.sin(tr) < 0, R: headR };
-  const bb = bbox(shapes.map((s) => s.pts));
+  // centred on the body: held props don't move the figure
+  const bb = bbox(shapes.filter((s) => s.role !== 'prop').map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];
   for (const s of shapes) {

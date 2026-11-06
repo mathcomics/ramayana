@@ -100,6 +100,18 @@
       "use": ["strike", "reach", "run"],
       "like": ["run", "stand-guard", "stand-point"]
     },
+    "lunge-sword-low": {
+      "desc": "lunge, near arm low and forward with the sword pointing down and forward, far arm back",
+      "ground": "feet", "hold": ["near"],
+      "use": ["strike", "shield"],
+      "like": ["lunge-sword-thrust", "lunge"]
+    },
+    "lunge-sword-thrust": {
+      "desc": "deep lunge, near arm straight forward with the sword pointing ahead, far arm back",
+      "ground": "feet", "hold": ["near"],
+      "use": ["strike"],
+      "like": ["lunge", "lunge-sword-low"]
+    },
     "run": {
       "desc": "running stride, body forward, fists swinging at the sides",
       "ground": "feet", "hold": ["near", "far"],
@@ -184,11 +196,53 @@
       "use": ["point", "threaten", "plead"],
       "like": ["stand-point", "stand-arms-up-knee-up"]
     },
+    "stand-shoot-bow": {
+      "desc": "side-on stance, far arm straight forward holding the bow upright, near hand drawing the string back to the cheek",
+      "ground": "feet", "hold": ["far"],
+      "use": ["shoot"],
+      "like": ["stand-shoot-bow-raise", "stand-shoot-bow-release"]
+    },
+    "stand-shoot-bow-raise": {
+      "desc": "standing, bow raised high in the far hand, near hand above the head drawing the string",
+      "ground": "feet", "hold": ["far"],
+      "use": ["shoot"],
+      "like": ["stand-shoot-bow", "stand-point-up"]
+    },
+    "stand-shoot-bow-release": {
+      "desc": "standing, far arm forward with the bow tipped, near hand flung back open past the ear (arrow loosed)",
+      "ground": "feet", "hold": ["far"],
+      "use": ["shoot"],
+      "like": ["stand-shoot-bow", "stand-point"]
+    },
     "stand-stagger-back": {
       "desc": "stepping back on the far foot, body tipped back, arms out",
       "ground": "feet", "hold": ["near", "far"],
       "use": ["shock", "fear", "fall"],
       "like": ["stand-arm-over-face", "fall-back"]
+    },
+    "stand-sword-back": {
+      "desc": "weight on the back leg, near arm swung far back with the sword, far arm forward",
+      "ground": "feet", "hold": ["near"],
+      "use": ["strike"],
+      "like": ["stand-throw", "stand-sword-overhead"]
+    },
+    "stand-sword-guard": {
+      "desc": "knees bent, both hands at the waist, sword angled up toward the opponent",
+      "ground": "feet", "hold": ["near"],
+      "use": ["threaten", "shield"],
+      "like": ["stand-guard", "stand-sword-shoulder"]
+    },
+    "stand-sword-overhead": {
+      "desc": "standing in a stride, both hands above the head holding the sword up",
+      "ground": "feet", "hold": ["near"],
+      "use": ["strike", "threaten"],
+      "like": ["stand-sword-shoulder", "stand-throw"]
+    },
+    "stand-sword-shoulder": {
+      "desc": "standing in a stride, both hands at the near shoulder, sword pointing up and back over it",
+      "ground": "feet", "hold": ["near"],
+      "use": ["strike", "threaten"],
+      "like": ["stand-sword-overhead", "stand-sword-guard"]
     },
     "stand-throw": {
       "desc": "bent knees, both arms raised and bent back over the head, head tipped back",
@@ -201,19 +255,21 @@
       "ground": "feet", "hold": ["near"],
       "use": ["throw", "strike"],
       "like": ["stand-throw", "stand-guard"]
+    },
+    "walk": {
+      "desc": "walking step: near leg forward, far leg back on its toes, arms swinging opposite to the legs",
+      "ground": "feet", "hold": ["near", "far"],
+      "use": ["walk"],
+      "like": ["walk-passing", "run"]
+    },
+    "walk-passing": {
+      "desc": "walking, the far leg passing the standing near leg, arms close to the body",
+      "ground": "feet", "hold": ["near", "far"],
+      "use": ["walk"],
+      "like": ["walk", "stand"]
     }
   },
   "wanted": {
-    "walk": {
-      "desc": "walking step, arms swinging opposite to the legs",
-      "use": ["walk"],
-      "until": "stand, or run with the lean taken out (spine.lean ~5, smaller hips)"
-    },
-    "stand-shoot-bow": {
-      "desc": "side-on stance, far arm straight forward (bow), near hand drawn back to the cheek",
-      "use": ["shoot"],
-      "until": "stand-point with the far arm forward and the near elbow bent back"
-    },
     "stand-palms-joined": {
       "desc": "standing, both forearms up, palms together in front of the chest",
       "use": ["plead", "stand"],

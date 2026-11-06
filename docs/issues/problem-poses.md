@@ -26,3 +26,6 @@ these: `docs/issues/rules-to-migrate.md`.
 | (turned heads, 90° and level) | Rama, Sita | A thin sliver of skin under the hairline, or a hair band across the forehead | Matching heights first; else tuning the layer bias (`docs/issues/rules-to-migrate.md`) |
 | (turned heads, 60° down 20–40°) | Sita | Small holes in the hair mass | Painter's order of the row slabs (`docs/issues/rules-to-migrate.md`) |
 | front poses with the head turned away (`look: right`, side view) | all | The back of the head shows the skin colour where no hair is drawn behind | Face files: hair or a cap drawn to cover the back, if wanted |
+| stand-shoot-bow, stand-shoot-bow-raise (side) | all | The drawing hand sits over the face; the string crosses the face | Pose lab: the near elbow a little lower / further back so the hand rests at the cheek |
+| stand-sword-overhead, stand-sword-shoulder, stand-sword-guard | all | The far hand is placed near the hilt by hand and doesn't quite meet it | Pose lab: far arm angles; or a two-handed grip setting (`docs/issues/rules-to-migrate.md`) |
+| new walk, shoot and sword poses (front) | all | First drafts from reference sheets: legs reaching forward and back have little hip out, so the stride overlaps in front | Pose lab: hip out on the stepping legs |

@@ -17,6 +17,7 @@
 ## Proposals
 
 - `proposals/2026-11-03-scene-spec.md` — scenes as specs or artist templates (spec route implemented as panels).
+- `proposals/2026-11-06-held-props.md` — swords and bows along a reference line in the hand (line and generic shapes built; drawings to do).
 
 ## Issues
 

@@ -14,7 +14,7 @@ catalogue and the gap report are generated from both.
 |---|---|
 | `desc` | What the body does, as seen. No emotions. |
 | `ground` | What touches the ground: `feet`, `one-knee`, `seat`, `front`, `back`, `air`, `feet-hands`. |
-| `hold` | Hands that can carry a prop as the pose stands (`near`, `far`). |
+| `hold` | Hands that can carry a prop as the pose stands (`near`, `far`). Poses made for a weapon carry it themselves (`arm.prop`: the sword or bow poses). |
 | `use` | Story moments the pose serves (tags). Emotions are allowed here, never in names. |
 | `like` | The nearest other poses: where to look when this one is almost right. |
 
