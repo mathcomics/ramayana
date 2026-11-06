@@ -250,10 +250,14 @@ male 0.88, female 0.74.
   not from the shin (0 = flat, toes forward in side view, toward the
   viewer in front view (2026-11-06); + lifts the toes). A foot stays flat
   however the leg bends.
-- **End-on parts** (drawn 2026-11-06, not used yet): each body file has an
-  `end` layer with the upper arm, forearm, thigh and shin seen end-on and
-  the foot with its sole toward the viewer, so a limb can later be blended
-  by its own direction (`docs/remaining-rules.md`, step 5).
+- **End-on parts** (2026-11-06): each body file has an `end` layer with
+  the upper arm, forearm, thigh and shin seen end-on and the foot with its
+  sole toward the viewer. A part shows the blend of its front, side and
+  end drawings that fits where it points, not the view's drawing: a limb
+  pointing at the viewer is its end drawing, a hand bent toward the viewer
+  shows its end hand, a foot with the toes raised shows its sole in the
+  front view. The wrist turn (`arm.twist`, degrees) turns the hand about
+  its own axis.
 - Side view: far limbs behind torso, near limbs in front.
   Each arm has its own shoulder anchor in side view: near arm toward the
   front of the chest, far arm just behind centre (`shoulder.side`).

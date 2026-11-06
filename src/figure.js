@@ -27,7 +27,7 @@ const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
 export function normalizePose(p = {}) {
   const limb = (l = {}) => ({
     arm: {
-      shoulder: num(l.arm?.shoulder, 0), out: num(l.arm?.out, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0),
+      shoulder: num(l.arm?.shoulder, 0), out: num(l.arm?.out, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0), twist: num(l.arm?.twist, 0),
       hand: HANDS.includes(l.arm?.hand) ? l.arm.hand : 'fist',
     },
     leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0) },

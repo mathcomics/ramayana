@@ -27,7 +27,9 @@ numbers were used before the list existed):
 5. Wrist turn and end-on parts: a wrist-turn pose setting; the `end`
    layers (limbs, sole, hands) imported and blended with front / side by
    each part's own 3D direction; replaces the view-picked shapes, the
-   0.8 × width end-on patch, the thigh fold and the mirrored point hand.
+   0.8 × width end-on patch and the front hand ignoring the wrist. Done
+   2026-11-06 (`dpLook` / `dpShape` in `src/parts.js`, `arm.twist`); the
+   thigh fold and the mirrored point hand stay (see the table).
 6. Any view angle: the same blend with a camera turned between front
    and side (not only 0° or 90°).
 
@@ -36,19 +38,17 @@ numbers were used before the list existed):
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
 | Body hair (`hair-body`) is pinned to the upper body and doesn't hang with gravity (upside down it stays on the back) | hair-body | A hang setting per character, or a drawn hanging version, if it looks wrong |
-| Front view: the foot is turned until its lowest point sits as far below the ankle as in the side view | feet (front view) | Toe direction from the `toe` / `side-toe` anchors (step 3), plus a toe-turn pose setting. The front foot is now drawn toes-first (2026-11-06), so this turn should go |
+| Front view: the foot is not turned; it blends from the front drawing (toes at the viewer) toward the sole by sin² of the ankle angle; the leg's `out` doesn't turn the foot | feet | Toe direction from the `toe` / `side-toe` anchors and a toe-turn pose setting (step 3) |
 | `look` (front / left / right, relative to the body) picks a face drawing: a 90° switch, no in-between turn; side view looking right (away from the viewer) shows the side face | head | Head turn as an angle, a back-of-head layer and a three-quarter face (step 4) |
 | The face flips 180° when the head is upside down | head | Head turn and tilt (step 4) and a back-of-head layer in the face files |
 | Front view: a head raised / lowered 25° or more (lean + chest + neck + head, folded past level) switches to the base's `front-up` / `front-down` face: a switch, no in-between | head (front view) | The artist drawing the up / down versions (empty so far, so the level face shows); more versions or a blend if the switch shows |
 | In up / down, the character's parts (and eyes / mouths the version lacks) are moved and stretched vertically so the base's `top` and `chin` anchors land on the version's | hair, crown, marks | The character's own `front-up` / `front-down` layers where the stretch looks wrong |
 | Head centre fixed 0.21 head-units above the neck top | head | Use the `head` / `side-head` anchors (stored, not read yet) (step 4) |
 | Front-view neck: points straight up or down, keeps at least half its length | neck | Head turn and tilt (step 4); the minimum length is otherwise a style choice |
-| Front view: the hand follows the forearm, the wrist angle is ignored | hands (front view) | Wrist turn pose setting and the end-on hands (step 5) |
-| The point hand is mirrored across the forearm so the finger is toward the body | hands | Wrist turn (step 5), or a point hand drawn with the finger on the inside |
-| A limb's shape is picked by the view (front shape in front view, side shape in side view), not by where the limb points | upper arm, forearm, thigh, shin, hands | Blend front / side / end-on shapes by the limb's own direction (step 5; any view angle is step 6). End-on drawings exist (layer `end`, 2026-11-06); the importer doesn't read them yet |
-| A limb seen end-on keeps about its own width in length (0.8 × width); the extra length goes back over its upper joint, so it still ends at its lower joint | arms, legs | End-on limb drawings blended by the limb's direction (step 5) |
-| Side view: the top of the thigh (above the hip) folds into the body, shortened by cos(angle between thigh and body), flat at 90° and beyond; not in the front view; upper arms are placed as drawn | thigh | End-on / bent-hip thigh drawings (step 5); until then the fold keeps thigh tops inside the buttocks (bend-low) without folding the near thigh (kneel) |
-| End-on hands (layer `end` of `data/parts/hands.svg`) stored but not used | hands | Step 5 |
+| The point hand is mirrored across the forearm so the finger is toward the body | hands | A point hand drawn with the finger on the inside (the wrist turn, `arm.twist`, now exists but only blends front / side / end) |
+| A part's turn between its front and side drawings uses \|c·side\| and \|c·front\| (no sign): a limb seen from its inner side or from behind shows the outer / front drawing, mirrored only by the view's far-limb rule | upper arm, forearm, thigh, shin, hands | Back / inner drawings, if a pose shows the difference (step 6 needs this too) |
+| Toward end-on, a part blends to its end drawing linearly in 1 − (length seen); the end drawing sits on the upper joint | arms, legs, hands | None: tuning, if the end blob comes in too early or late |
+| Side view: the top of the thigh (above the hip) folds into the body, shortened by cos(angle between thigh and body), flat at 90° and beyond; not in the front view | thigh | Bent-hip thigh drawings; the end-on thigh (step 5) doesn't cover a thigh turned against a leaning body |
 | One set of hands for every body, scaled uniformly to the body's guide hand | hands | None: a body that needs different hands would need its own hand file |
 
 ## Draw order (by depth, step 2 done 2026-11-05)

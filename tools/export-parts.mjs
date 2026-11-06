@@ -136,12 +136,25 @@ const parts = {
     foot: moveSegs(M.foot.side, sAnkle),
   },
   'side-bend': Object.fromEntries(M.torso.sideBend.map((T, i) => [i ? `torso-${i + 1}` : 'torso', sideOf(T)])),
+  end: {},
 };
+// end-on parts (layer end), in two columns right of the side view, each on
+// its own anchor at its joint's height; the sole beside the ankle
+const EX = SX + 2.4, endAt = {};
+for (const [name, L, j, x] of [['upper-arm', M.upperArm, 'shoulder', 0], ['forearm', M.forearm, 'elbow', 0], ['thigh', M.thigh, 'hip', 0.9], ['shin', M.shin, 'knee', 0.9]]) {
+  if (!L.end) continue;
+  const at = [EX + x, { shoulder, elbow, hip, knee }[j][1]];
+  parts.end[name] = moveSegs(L.end, at); endAt[`end-${j}`] = at;
+}
+if (M.foot.end) {
+  const at = [EX + 1.2, ankle[1] - 0.34];
+  parts.end.foot = moveSegs(M.foot.end.up, at); endAt['end-ankle'] = at; endAt['end-toe'] = add(at, M.foot.end.toe);
+}
 const anchors = { shoulder, elbow, wrist, hip, knee, ankle, 'neck-base': neckBase, 'neck-top': neckTop,
   'side-shoulder': sShoulder, 'side-shoulder-far': sShoulderFar, 'side-elbow': sElbow, 'side-wrist': sWrist,
   'side-hip': sHip, 'side-knee': sKnee, 'side-ankle': sAnkle, 'side-neck-base': sNeck,
   toe: add(ankle, M.toe?.front ?? [0.35, 0.25]), 'side-toe': add(sAnkle, M.toe?.side ?? [0.6, 0.25]),
-  head: add(neckTop, M.headAt?.front ?? [0, -0.21]), 'side-head': add(sNeckTop, M.headAt?.side ?? [0, -0.21]) };
+  head: add(neckTop, M.headAt?.front ?? [0, -0.21]), 'side-head': add(sNeckTop, M.headAt?.side ?? [0, -0.21]), ...endAt };
 // a side anchor sits at the same height as its front partner
 for (const k of Object.keys(anchors)) if (k.startsWith('side-') && anchors[k.slice(5)] && k !== 'side-shoulder-far')
   anchors[k] = [anchors[k][0], anchors[k.slice(5)][1]];
@@ -201,8 +214,16 @@ const svg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
      shin, foot.
      anchors: shoulder, elbow, wrist, hip, knee, ankle, neck-base, neck-top,
      side-shoulder, side-shoulder-far, side-elbow, side-wrist, side-hip,
-     side-knee, side-ankle, side-neck-base; toe, side-toe (tip of each foot),
-     head, side-head (centre of the head) (the circle centre counts).
+     side-knee, side-ankle, side-neck-base; toe, side-toe (tip of each foot;
+     the front foot points its toes at the viewer), head, side-head (centre
+     of the head) (the circle centre counts).
+
+     end: upper-arm, forearm, thigh, shin seen end-on (pointing at the
+     viewer), each round one anchor where its bone projects to a point
+     (end-shoulder, end-elbow, end-hip, end-knee); the foot with its sole
+     toward the viewer on end-ankle, end-toe at its toe tip. Same number
+     of edges as the front / side partners. The renderer blends front,
+     side and end by where each part points (src/parts.js, dpLook).
      100 px = 1 head-unit; ground at y = 0. -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      width="${w}" height="${h}" viewBox="${x0} ${y0} ${w} ${h}">

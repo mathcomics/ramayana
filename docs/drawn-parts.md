@@ -32,7 +32,7 @@ side (picture-right). `node tools/export-parts.mjs` writes it from
 |---|---|
 | `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand` (size guide, the "in" hand), `thigh`, `shin`, `foot` |
 | `side` | `torso`, `upper-arm`, `forearm`, `hand`, `thigh`, `shin`, `foot` |
-| `end` (draft, not read yet) | `upper-arm`, `forearm`, `thigh`, `shin` seen end-on (pointing at the viewer), each on one anchor `end-shoulder`, `end-elbow`, `end-hip`, `end-knee`; `foot` with its sole toward the viewer (heel left, toes right as in the side view) on `end-ankle`, tip `end-toe`. Same edge counts as the front / side partners (limbs 4, feet 7) |
+| `end` | `upper-arm`, `forearm`, `thigh`, `shin` seen end-on (pointing at the viewer), each on one anchor `end-shoulder`, `end-elbow`, `end-hip`, `end-knee`; `foot` with its sole toward the viewer (heel left, toes right as in the side view) on `end-ankle`, tip `end-toe`. Same edge counts as the front / side partners (limbs 4, feet 7) |
 | `front-bend`, `side-bend` | `torso`, bent forward |
 | `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base`; tips `toe`, `side-toe` (the front foot points its toes at the viewer, 2026-11-06); head centre `head`, `side-head` (tips and head stored, not used by the renderer yet) |
 
@@ -59,9 +59,15 @@ move the legs.
 
 ## How a figure is built (`src/parts.js`)
 
-- Limbs and hands are placed rigidly on their bones (front shape in front
-  view, side shape in side view, blended in between); far limbs in front
-  view are mirrored. A hand points along the forearm at wrist 0.
+- Limbs and hands are placed rigidly on their bones. Which drawing shows
+  depends on where the part itself points (step 5, 2026-11-06): in the
+  part's own frame the camera direction gives an end-on share (pointing at
+  or away from the viewer) and a turn between the front and side drawings;
+  the hand also turns about its axis by `arm.twist` (wrist turn). Its
+  length shows as f (the projected length); toward end-on it blends into
+  its end drawing, which sits on the upper joint (`dpLook`, `dpShape`).
+  Far limbs in front view are mirrored. A hand points along the forearm
+  at wrist 0.
 - The torso blends four keys: front ↔ side (turn) and straight ↔ bent
   (bend). The bend swings round the waist (polar blend); `spine.chest`
   sets it in the side view (between straight and the deepest drawn bend).
@@ -88,18 +94,16 @@ move the legs.
   (Turning it with the body, as before 2026-11-06, folded the near thigh
   in kneel.) Side view only: in front the thigh keeps its round top. Upper
   arms are placed as drawn.
-- A limb seen end-on keeps at least 0.8 × its width in length; the extra
-  goes back over its upper joint, so it still ends where the next part
-  starts (a thigh toward the viewer ends at the knee).
+- A limb seen end-on is its end drawing (no minimum length rule since step 5).
 - Draw order by depth: each limb (and the head and tail) gets a depth
   toward the viewer from the 3D pose (front view: forward; side view:
   sideways) and is drawn far to near, as a unit (shin behind thigh); it
   goes over the torso when it is in front of the torso at that height
-  (arms: of its middle less half its depth; legs: of its near surface). A limb seen end-on keeps about its
-  own width in length.
-- Feet keep their size. Front view: the foot turns until its lowest point
-  sits as far below the ankle as in the side view (× cos out); heights are
-  shared between the views. The old front-view tilt rule is gone.
+  (arms: of its middle less half its depth; legs: of its near surface). 
+- Feet keep their size. Side view: the side drawing turned by the ankle.
+  Front view: not turned; the front drawing (toes at the viewer) blends
+  toward the sole by sin² of the ankle (toes up, or the sole turned
+  toes-down for a negative ankle).
 - The pointing finger always goes on the side toward the body (the drawn
   point hand is mirrored across the forearm).
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn

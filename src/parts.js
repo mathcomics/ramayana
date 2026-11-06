@@ -170,14 +170,41 @@ function dpTail(Tl, root, lean, pose, front) {
   return [disc(spine[0], Tl.w[0] / 2), [...left, ...right.reverse()], disc(spine[spine.length - 1], Tl.w[1] / 2)];
 }
 
-// The least length factor for a limb part: about its own width.
-const dpMinF = (L) => {
-  if (L._minF == null) {
-    const xs = L.front.flat().map((p) => p[0]);
-    L._minF = 0.8 * (Math.max(...xs) - Math.min(...xs)) / L.len;
-  }
-  return L._minF;
-};
+// Which drawing a part shows (step 5, 2026-11-06): each limb part, hand
+// and foot is drawn three ways, front, side and end-on (layer end), and the
+// view picks a blend by where the part itself points in 3D, not by the
+// view alone. A part's frame (X sideways, + toward the near side; Y down;
+// Z forward) at rest hangs down (Y) with its front drawing seen from +Z and
+// its side drawing from +X (its outer side). The pose turns it by θ in the
+// side plane (about X), then by `out` sideways (about the turned Z), then
+// by `twist` about its own axis (hands: arm.twist). The camera looks from
+// +Z (front view) or +X (side view); seen in the part's frame it gives
+//   end   = |c·axis|              (pointing at or away from the viewer)
+//   side  = |c·outer side|, front = |c·front|   (the turn between them)
+function dpLook(theta, out, sgn, twist, front) {
+  const th = theta * RAD, ou = out * RAD, tw = twist * RAD;
+  const ds = [0, Math.cos(th), Math.sin(th)], Zp = [0, -Math.sin(th), Math.cos(th)], Xo = [sgn, 0, 0];
+  const d = ds.map((v, i) => Math.cos(ou) * v + Math.sin(ou) * Xo[i]);
+  const X0 = Xo.map((v, i) => Math.cos(ou) * v - Math.sin(ou) * ds[i]);
+  const Z = Zp.map((v, i) => Math.cos(tw) * v + Math.sin(tw) * X0[i]);
+  const X = X0.map((v, i) => Math.cos(tw) * v - Math.sin(tw) * Zp[i]);
+  const k = front ? 2 : 0;                        // the camera axis
+  const cy = d[k], cx = Math.abs(X[k]), cz = Math.abs(Z[k]);
+  const f = Math.sqrt(Math.max(0, 1 - cy * cy));  // length seen
+  const turn = cx + cz < 1e-9 ? 0 : Math.atan2(cx, cz) / (Math.PI / 2);
+  return { f, turn };
+}
+// A part's outline for this look, in its bone frame (bone pointing down,
+// origin at its upper joint): front and side blended by the turn, then
+// toward the end-on drawing as the part turns toward the viewer. Its length
+// shows as f; the end-on drawing sits on the upper joint, where the bone
+// shrinks to a point, so a part seen fully end-on is that drawing:
+//   x = lerp(x_side/front, x_end, 1 − f),  y = f·y_side/front + (1 − f)·y_end
+function dpShape(L, look) {
+  const lat = dpTurn(L, look.turn), f = look.f, w = 1 - f;
+  if (!L.end) return lat.map((s) => s.map((p) => [p[0], p[1] * f]));
+  return lat.map((s, i) => s.map((p, j) => { const e = L.end[i][j]; return [p[0] * f + e[0] * w, p[1] * f + e[1] * w]; }));
+}
 const dpWrap = (v) => { while (v > 180) v -= 360; while (v <= -180) v += 360; return v; };
 
 // S: the species (head size, tail); pose: the normalised SIDE pose (both
@@ -190,10 +217,11 @@ function dpScaled(M, s) {
   if (!M._scaled) Object.defineProperty(M, '_scaled', { value: new Map() });
   if (!M._scaled.has(s)) {
     const sc = (segs) => segs.map((g) => g.map((p) => [p[0] * s, p[1] * s]));
-    const limb = (L) => ({ front: sc(L.front), side: sc(L.side), len: L.len * s });
+    const limb = (L) => ({ front: sc(L.front), side: sc(L.side), ...(L.end ? { end: sc(L.end) } : {}), len: L.len * s });
+    const footEnd = M.foot.end && { ...M.foot.end, up: sc(M.foot.end.up), down: sc(M.foot.end.down), toe: M.foot.end.toe.map((v) => v * s) };
     M._scaled.set(s, { ...M,
       torso: { front: sc(M.torso.front), side: sc(M.torso.side), frontBend: M.torso.frontBend.map(sc), sideBend: M.torso.sideBend.map(sc) },
-      thigh: limb(M.thigh), shin: limb(M.shin), foot: { front: sc(M.foot.front), side: sc(M.foot.side) } });
+      thigh: limb(M.thigh), shin: limb(M.shin), foot: { front: sc(M.foot.front), side: sc(M.foot.side), ...(footEnd ? { end: footEnd } : {}) } });
   }
   return M._scaled.get(s);
 }
@@ -203,7 +231,6 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   const tailSpec = S.tail && (bodyScale === 1 ? S.tail : { ...S.tail, length: S.tail.length * bodyScale, w: S.tail.w.map((w) => w * bodyScale) });
   const front = view === 'front';
   const sp = pose.spine;                           // side-view spine: everything is measured in it
-  const turn = front ? 0 : 1;
   // place a part drawn in its bone frame (bone pointing down) at `at`, bone
   // angle `ang`, its length scaled by f (width unchanged)
   const place = (segs, at, ang, m = 1, f = 1) => dpMap(segs, (p) => {
@@ -271,20 +298,14 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     // side-view angles of each segment, then projected for this view
     const su = -(sp.lean + sp.chest) + a.shoulder, sl = su + a.elbow;
     const st = -sp.lean + l.hip, ss = st - l.knee;
-    // a limb seen end-on keeps at least about its own width in length (it
-    // reads as the limb's round end, not a sliver)
-    // (only the drawn part; the joints stay where the projection puts them)
-    // The extra length goes back over the upper joint, so the limb still
-    // ends at its lower joint (where the next part starts).
-    const pj = (L, theta, o) => { const r = dpProject(theta, o, front); r.draw = Math.max(r.f, dpMinF(L)); r.back = (r.draw - r.f) * L.len; return r; };
-    const from = (at, r) => add(at, mul(dirM(r.ang), -r.back));
-    const U = pj(M.upperArm, su, a.out), Lo = pj(M.forearm, sl, a.out);
-    const Th = pj(M.thigh, st, l.out), Sh = pj(M.shin, ss, l.out);
-    // The limb in 3D (X sideways, + toward the near side; Y down; Z
-    // forward), for depth: the shoulder and hip at their side-view place
-    // and front-view sideways offset, each segment along
-    // (±sin out, cos out·cos θ, cos out·sin θ).
+    const pj = (theta, o) => dpProject(theta, o, front);
+    const U = pj(su, a.out), Lo = pj(sl, a.out);
+    const Th = pj(st, l.out), Sh = pj(ss, l.out);
+    // the hand: its own direction (forearm + wrist), turned about its axis
+    // by arm.twist
+    const sh_ = sl + a.wrist, Hd = pj(sh_, a.out);
     const sgn = far ? -1 : 1;
+    const look = (theta, o, tw = 0) => dpLook(theta, o, sgn, tw, front);
     const v3 = (theta, o) => [sgn * Math.sin(o * RAD), Math.cos(o * RAD) * Math.cos(theta * RAD), Math.cos(o * RAD) * Math.sin(theta * RAD)];
     const add3 = (p, d, L) => [p[0] + d[0] * L, p[1] + d[1] * L, p[2] + d[2] * L];
     const sh3 = joint3('shoulder', far), hp3 = joint3('hip', far);
@@ -292,40 +313,41 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const K3 = add3(hp3, v3(st, l.out), M.thigh.len), A3 = add3(K3, v3(ss, l.out), M.shin.len);
     const mid3 = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2, (p[2] + q[2]) / 2];
     const dU = mid3(sh3, E3), dL = mid3(E3, W3), dH = W3, dT = mid3(hp3, K3), dS = mid3(K3, A3), dF = A3;
-    const th = front ? Lo.ang : sl + a.wrist;
-    // Foot (keeps its size). Side view: the ankle angle as given. Front
-    // view: heights are shared between the views, so the front foot is
-    // turned until its lowest point sits as far below the ankle as the side
-    // foot's does (scaled by cos out), staying as close to flat as it can.
-    let ankle = l.ankle;
+    // Foot (keeps its size, drawn flat on the ankle). Side view: the side
+    // drawing turned by the ankle angle. Front view: not turned; the front
+    // drawing (toes toward the viewer) blends toward the sole as the toes
+    // lift (ankle +: sole toward the viewer, toes up) or drop (toes down),
+    // by sin² of the ankle angle.
+    let footSegs, ankleRot = l.ankle;
     if (front) {
-      const low = (segs, r) => Math.max(...dpFlat(segs, 4).map((p) => rot(p, -r)[1]));
-      const want = low(M.foot.side, l.ankle) * Math.cos(l.out * RAD);
-      let best = 0, err = Infinity;
-      for (let r = -120; r <= 120; r += 1) {
-        const e = Math.abs(low(M.foot.front, r) - want) + Math.abs(r) * 1e-4;
-        if (e < err) { err = e; best = r; }
-      }
-      ankle = best;
-    }
+      ankleRot = 0;
+      const E = M.foot.end, sa = Math.sin(l.ankle * RAD), w = sa * sa;
+      if (E && w > 1e-6) {
+        const toesUp = l.ankle > 0;
+        const turnTo = Math.atan2(E.toe[0], E.toe[1]) / RAD - 180 + (toesUp ? 0 : 180);
+        const sole = dpMap(toesUp ? E.up : E.down, (p) => rot(p, turnTo));
+        footSegs = M.foot.front.map((g, i) => g.map((p, j) => lerp(p, sole[i][j], w)));
+      } else footSegs = M.foot.front;
+    } else footSegs = M.foot.side;
     const E = add(sh, mul(dirM(U.ang), M.upperArm.len * U.f)), Wr = add(E, mul(dirM(Lo.ang), M.forearm.len * Lo.f));
     const Kn = add(hp, mul(dirM(Th.ang), M.thigh.len * Th.f)), A = add(Kn, mul(dirM(Sh.ang), M.shin.len * Sh.f));
-    const foot = dpTurn(M.foot, turn);
-    const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist };
+    const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist,
+      end: (M.hands.end && (M.hands.end[a.hand] || M.hands.end.fist)) || undefined };
+    // the pointing finger always goes on the side toward the body (the
+    // drawn point hand has it outside, so it is mirrored across the forearm)
+    const handSegs = dpShape(hands, look(sh_, a.out, a.twist));
     limbs[s] = { joints: { sh, E, Wr, hp, Kn, A },
       arm: [
-        ['upper-arm', place(dpTurn(M.upperArm, turn), from(sh, U), U.ang, m, U.draw), dU],
-        ['forearm', place(dpTurn(M.forearm, turn), from(E, Lo), Lo.ang, m, Lo.draw), dL],
-        // the pointing finger always goes on the side toward the body (the
-        // drawn point hand has it outside, so it is mirrored across the forearm)
-        ['hand', a.hand === 'point' ? place(dpMap(dpTurn(hands, turn), (p) => [-p[0], p[1]]), Wr, th, m) : place(dpTurn(hands, turn), Wr, th, m), dH],
+        ['upper-arm', place(dpShape(M.upperArm, look(su, a.out)), sh, U.ang, m), dU],
+        ['forearm', place(dpShape(M.forearm, look(sl, a.out)), E, Lo.ang, m), dL],
+        ['hand', place(a.hand === 'point' ? dpMap(handSegs, (p) => [-p[0], p[1]]) : handSegs, Wr, Hd.ang, m), dH],
       ],
       // the shin goes behind the thigh (drawn first), in every view
       leg: [
-        ['shin', place(dpTurn(M.shin, turn), from(Kn, Sh), Sh.ang, m, Sh.draw), dS],
+        ['shin', place(dpShape(M.shin, look(ss, l.out)), Kn, Sh.ang, m), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
-        ['foot', dpMap(foot, (p) => { const q = rot(p, -ankle); return add(A, [m * q[0], q[1]]); }), dF],
-        ['thigh', placeCap(dpTurn(M.thigh, turn), from(hp, Th), Th.ang, m, Th.draw, front ? null : -sp.lean), dT],
+        ['foot', dpMap(footSegs, (p) => { const q = rot(p, -ankleRot); return add(A, [m * q[0], q[1]]); }), dF],
+        ['thigh', placeCap(dpShape(M.thigh, look(st, l.out)), hp, Th.ang, m, 1, front ? null : -sp.lean), dT],
       ],
     };
   }

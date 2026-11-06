@@ -71,10 +71,17 @@ renderer or panel changes.
 
 - **End-on parts + toes-first front foot (2026-11-06):** both body files
   have an `end` layer (upper arm, forearm, thigh, shin end-on; sole of the
-  foot; anchors end-shoulder/elbow/hip/knee/ankle, end-toe), not read yet.
+  foot; anchors end-shoulder/elbow/hip/knee/ankle, end-toe), used since step 5.
   The front foot is drawn toes at the viewer (artist's male, scaled 0.9
-  for the female); feet have 7 edges (all three views). Next: step 5
-  (import `end`, blend limb shapes by direction).
+  for the female); feet have 7 edges (all three views).
+- **Step 5 done (2026-11-06):** each limb part, hand and foot shows a blend
+  of its front, side and end drawings by its own 3D direction (`dpLook`,
+  `dpShape` in `src/parts.js`); new pose setting `arm.twist` (wrist turn,
+  pose lab slider). Removed: the 0.8 × width end-on rule, the front hand
+  ignoring the wrist, the front-view foot turn. Kept: thigh fold, mirrored
+  point hand. `export-parts` writes the end layer back. Steps list:
+  `docs/remaining-rules.md`. Next: step 3 (feet by toe direction) or 4
+  (head turn/tilt).
 - **Faces split into base + character (2026-11-06):** `data/faces/base/
   <species>.svg` (skin painted in the body colour, eyes, mouths, anchors
   top/chin; optional `front-up`/`front-down` versions, empty so far) and
@@ -98,8 +105,8 @@ renderer or panel changes.
   bent poses; the artist adjusts drawings.
 - **Limbs (2026-11-06):** thigh top folds into the body by cos(angle) in
   side view (no 0.12 cap band; arms plain); an end-on limb's extra length
-  goes back over its upper joint (kneel). End-on limb drawings (step 5)
-  would remove both patches.
+  goes back over its upper joint (kneel). (End-on rule replaced by the
+  end drawings in step 5.)
 
 - **Drawn parts (merged into main 2026-11-05):** figures are built from the
   artist's drawn body parts (`data/parts/male.svg`, `female.svg` →

@@ -179,6 +179,25 @@ const match = (segs, ref, what) => {
   return best.r;
 };
 
+// reorder `segs` to match `ref` by the direction of each node from the
+// shape's centre (for shapes of different proportions: an end-on part
+// against its long front partner). `turn` (degrees) turns `segs` first,
+// for the comparison only.
+const matchRound = (segs, ref, what, turn = 0) => {
+  if (segs.length !== ref.length) throw new Error(`${what}: ${segs.length} edges, front has ${ref.length}`);
+  const ctr = (S) => mul(S.reduce((acc, s) => add(acc, s[0]), [0, 0]), 1 / S.length);
+  const ang = (S, k = 0) => { const c = ctr(S); return S.map((s) => Math.atan2(...rot(sub(s[0], c), k).reverse())); };
+  const ra = ang(ref);
+  let best = null;
+  for (const S of [segs, reverse(segs)]) for (let k = 0; k < S.length; k++) {
+    const r = S.slice(k).concat(S.slice(0, k));
+    const a = ang(r, turn);
+    const e = a.reduce((acc, v, i) => { let d = Math.abs(v - ra[i]) % (2 * Math.PI); if (d > Math.PI) d = 2 * Math.PI - d; return acc + d; }, 0);
+    if (!best || e < best.e) best = { r, e };
+  }
+  return best.r;
+};
+
 // Hands: on the wrist, turned so each points straight down (wrist to the
 // hand's centre); wrist 0 in a pose = straight along the forearm.
 const handAng = (segs, w) => {
@@ -203,7 +222,8 @@ function importHands(file) {
       // end-on hands keep the turn of their front partner
       const segs = segsOf(L[`hand-${h}`]);
       H[h] = view === 'end' ? mapSegs(segs, (p) => sub(p, w)) : handFrame(segs, w);
-      if (view !== 'front') H[h] = match(H[h], out.front[h], `${view} hand-${h}`);
+      if (view === 'side') H[h] = match(H[h], out.front[h], `${view} hand-${h}`);
+      else if (view === 'end') H[h] = matchRound(H[h], out.front[h], `${view} hand-${h}`);
     }
     out[view] = H;
   }
@@ -245,7 +265,7 @@ function importParts(file) {
     return out;
   };
   if (file.endsWith('hands.svg')) return { items, layers };
-  const F = items('front'), Sd = items('side'), FB = items('front-bend'), SB = items('side-bend'), AN = items('anchors');
+  const F = items('front'), Sd = items('side'), EN = layers.end ? items('end') : {}, FB = items('front-bend'), SB = items('side-bend'), AN = items('anchors');
   const need = (o, k, where) => { if (!o[k]) throw new Error(`${file}: ${where} has no "${k}"`); return o[k]; };
   for (const k of ['torso', 'neck', 'upper-arm', 'forearm', 'thigh', 'shin', 'foot']) need(F, k, 'front');
   for (const k of ['shoulder', 'elbow', 'wrist', 'hip', 'knee', 'ankle', 'neck-base', 'neck-top']) need(AN, k, 'anchors');
@@ -338,7 +358,13 @@ function importParts(file) {
     const s0 = SJ[j0], s1 = SJ[j1];
     const side = Sd[name] ? match(toBone(segsOf(Sd[name]), s0, s1), front, `side ${name}`)
       : match(flip ? mapSegs(front, (p) => [-p[0], p[1]]) : front, front, `side ${name}`);
-    return { front: pack(front), side: pack(side), len: r4(Math.hypot(...sub(A[j1], A[j0]))) };
+    const out = { front: pack(front), side: pack(side), len: r4(Math.hypot(...sub(A[j1], A[j0]))) };
+    // end-on (layer end): drawn round its anchor end-<j0>, where the bone
+    // projects to a point; kept as drawn (not turned)
+    const ea = A[`end-${j0}`];
+    if (EN[name] && ea) { out.end = pack(matchRound(mapSegs(segsOf(EN[name]), (p) => sub(p, ea)), front, `end ${name}`)); out.endAt = ea.map(r4); }
+    else if (EN[name]) throw new Error(`${file}: end ${name} needs the anchor end-${j0}`);
+    return out;
   };
 
   // Hands: the shared ones (data/parts/hands.svg), scaled to the size of
@@ -368,6 +394,19 @@ function importParts(file) {
     side: A['side-toe'] ? sub(A['side-toe'], SJ.ankle) : far(fsA),
   };
 
+  // the sole (layer end, foot): round end-ankle, heel-to-toe toward
+  // end-toe. Two node orders: matched to the front foot with the toes
+  // turned up (sole toward the viewer, toes raised) and down.
+  let footEnd = null;
+  if (EN.foot) {
+    const ea = A['end-ankle'], et = A['end-toe'];
+    if (!ea || !et) throw new Error(`${file}: end foot needs the anchors end-ankle and end-toe`);
+    const sole = mapSegs(segsOf(EN.foot), (p) => sub(p, ea));
+    const toeV = sub(et, ea), up = angleOf(toeV) - 180;          // rot() by this points the toes up
+    footEnd = { up: pack(matchRound(sole, ffA, 'end foot (toes up)', up)), down: pack(matchRound(sole, ffA, 'end foot (toes down)', up + 180)),
+      toe: toeV.map(r4), at: ea.map(r4) };
+  }
+
   // Shared heights: the front and side drawings are two views of one body,
   // so matching points must sit at the same height (y). List the ones
   // that don't (more than 0.03 head-units = 3 px apart).
@@ -392,7 +431,7 @@ function importParts(file) {
     shin: limb('shin', 'knee', 'ankle', true),
     neck: (() => { const s = toBone(segsOf(F.neck), A['neck-base'], A['neck-top']); return { segs: pack(s), len: r4(Math.hypot(...sub(A['neck-top'], A['neck-base']))) }; })(),
     hands: { front: packH(handsFront), side: packH(handsSide), end: packH(handsEnd) },
-    foot: { front: pack(ffA), side: pack(fsA) },
+    foot: { front: pack(ffA), side: pack(fsA), ...(footEnd ? { end: footEnd } : {}) },
     toe: { front: toe.front.map(r4), side: toe.side.map(r4) },
     handTip: { front: handTip.front.map(r4), side: handTip.side.map(r4) },
     headAt: { front: headAt.front.map(r4), side: headAt.side.map(r4) },
