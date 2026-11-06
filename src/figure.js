@@ -518,15 +518,16 @@ function patternDef(id, kind, ink) {
 // The other options are a character look (see characterLook): colors,
 // outfit, pattern, face, bodyScale (torso and legs; drawn parts only),
 // who (character id: its own held weapons, data/props/held/).
-// Shading (style bible §4): the far leg (thigh with its cloth, shin, foot)
-// and the torso (bare skin or a full top) are 10% darker than the body or
-// cloth colour, so they separate from the near leg, the arms and the head.
-const SHADED = /^(far-(thigh|shin|foot)|torso)$/, SHADE = 0.9;
+// Two tones (style bible §4): the far leg (thigh with its cloth, shin,
+// foot) and the torso (bare skin or a full top) are 10% lighter than the
+// body or cloth colour (each channel 10% of the way to white), so they
+// separate from the near leg, the arms and the head.
+const SHADED = /^(far-(thigh|shin|foot)|torso)$/, SHADE = 0.1;
 function shade(c, k) {
   const m = /^#([0-9a-f]{6})$/i.exec(c || '');
   if (!m) return c;
   const n = parseInt(m[1], 16);
-  return '#' + [16, 8, 0].map((b) => Math.round(((n >> b) & 255) * k).toString(16).padStart(2, '0')).join('');
+  return '#' + [16, 8, 0].map((b) => { const v = (n >> b) & 255; return Math.round(v + (255 - v) * k).toString(16).padStart(2, '0'); }).join('');
 }
 let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {

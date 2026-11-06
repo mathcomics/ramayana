@@ -76,7 +76,7 @@ renderer or panel changes.
 ## Status (2026-11-06)
 
 - **Two tones (2026-11-06):** far leg (thigh/cloth, shin, foot) and torso
-  (skin or full top) 10% darker (`SHADED`, `shade()` in `src/figure.js`;
+  (skin or full top) 10% lighter (toward white) (`SHADED`, `shade()` in `src/figure.js`;
   style bible §3, §4).
 - **Pose lab saves merged 2026-11-06:** 26 saves; only `walk` changed
   (merged). `stand-look-left` (= `stand` with look left) not merged: head
