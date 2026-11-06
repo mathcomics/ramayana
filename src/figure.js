@@ -449,6 +449,15 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
   const L = side.look;
   const face = front ? { view: L === 'front' ? 'front' : 'side', mirror: L === 'right' }
     : { view: L === 'left' ? 'front' : 'side', mirror: false };
+  // Front view, front face: the head raised or lowered (as the viewer sees
+  // it: lean + chest + neck + head, folded past level) picks the base
+  // face's front-up / front-down version, from 25°.
+  if (front && face.view === 'front') {
+    const sp = side.spine;
+    let t = (((sp.lean + sp.chest + sp.neck + sp.head) % 360) + 540) % 360 - 180;
+    if (t > 90) t = 180 - t; else if (t < -90) t = -180 - t;
+    if (t >= 25) face.nod = 'down'; else if (t <= -25) face.nod = 'up';
+  }
   const bb = bbox(shapes.map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];
@@ -520,7 +529,10 @@ export function renderFigure(species, pose, opts = {}) {
   // copied unchanged, colours included, and placed with one transform.
   const drawn = opts.face?.[headAnchor.view ?? (sk.pose.headView === 'front' ? 'front' : 'side')];
   const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})${headAnchor.mirror ? ' scale(-1 1)' : ''}">${g}</g>`;
-  const faceHead = drawn && (drawn.head || '') + (drawn.mouth?.[sk.pose.mouth] || '');
+  // a raised / lowered head uses that version of the face when drawn
+  const ver = (headAnchor.nod && drawn?.[headAnchor.nod]) || drawn;
+  // the base face's skin is currentColor: the body colour
+  const faceHead = drawn && `<g color="${colors.body}">${ver.head || ''}${ver.mouth?.[sk.pose.mouth] || ''}</g>`;
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
   let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;

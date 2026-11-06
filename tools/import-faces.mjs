@@ -1,148 +1,102 @@
-// Import the artist's face drawings.
+// Import the face drawings: a base face per species and each character's
+// own parts (data/faces/README.md).
 //
-//   node tools/import-faces.mjs [dir] [out.json]
-//   (default: data/faces  ->  data/faces.json)
+//   node tools/import-faces.mjs      ->  data/faces.json
 //
-// Reads every <character-id>.svg in the directory: two top-level layers,
-// "front" and "side", each holding the view's layers (the side layer's
-// offset is ignored). The older <character-id>-<front|side>.svg files are
-// still read. The drawing
-// is never changed: each layer's elements are copied verbatim, together with
-// the transforms of the groups that contain them. Only element ids and
-// editor-only attributes are dropped, so several figures can share one SVG.
+// data/faces/base/<species>.svg: top-level layers front, side, front-up,
+// front-down; in each skin, eyes, mouth-1/2/3, anchors (top, chin).
+// data/faces/<id>.svg: top-level layers front, side (optional front-up,
+// front-down); in each back, hair-body, under, over, optional eyes and
+// mouth-1/2/3 (replace the base's), anchors (nape).
+// Layer offsets (the top-level layers' own transforms) are ignored; a moved
+// guide moves the origin with it. The drawings are copied unchanged (with
+// the transforms of their groups); only the base's skin is painted
+// currentColor, so the renderer fills it with the character's body colour.
 //
-// Layers (by inkscape:label or id): head, back, hair-body, mouth-1,
-// mouth-2, mouth-3, anchors (a circle labelled nape), guide (ignored). A
-// file with no recognised layer is treated as all "head".
+// For each character and view the importer composes:
+//   head  = under, skin, eyes, over        (turns with the head)
+//   mouth = { 1, 2, 3 }                     (drawn over the head)
+//   back, hairBody, nape, defs
+//   up / down (front): the same for the raised / lowered head, when the base
+//     has that version; the character's front-up / front-down layers if it
+//     has them, else its under / over moved and stretched so that the
+//     base's top and chin anchors land on that version's.
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, json } from './lib.mjs';
-import { parse, serialize, label, esc, withoutDisplay } from './svg.mjs';
+import { readFile, paintSkin } from './faces-lib.mjs';
+const r4 = (v) => Math.round(v * 1e4) / 1e4;
 
-const dir = process.argv[2] || join(root, 'data/faces');
-const outPath = process.argv[3] || join(root, 'data/faces.json');
-
-const LAYERS = ['head', 'back', 'hair-body', 'mouth-1', 'mouth-2', 'mouth-3'];
-
-// Find layers anywhere in the tree; keep the transforms of their ancestors.
-function findLayers(node, chain, found) {
-  for (const c of node.children || []) {
-    if (!c.tag) continue;
-    const name = c.tag === 'g' ? label(c) : '';
-    if (name === 'guide' || name.startsWith('guide') || name === 'anchors') continue;
-    if (LAYERS.includes(name)) { found[name] = { chain, node: c }; continue; }   // own transform added below
-    findLayers(c, c.tag === 'g' || c.tag === 'svg' ? [...chain, c.attrs.transform].filter(Boolean) : chain, found);
-  }
-  return found;
+const dir = join(root, 'data/faces');
+const outPath = join(root, 'data/faces.json');
+// ---- bases
+const bases = {};
+for (const f of readdirSync(join(dir, 'base')).filter((x) => x.endsWith('.svg'))) {
+  const species = f.replace(/\.svg$/, '');
+  const B = readFile(join(dir, 'base', f));
+  for (const v of ['front', 'side']) if (!B[v]?.layers.skin) console.error(`  ! base ${species}: no ${v} skin`);
+  bases[species] = B;
+  console.log(`base ${species}: ${Object.entries(B).filter(([, x]) => x.layers.skin).map(([k]) => k).join(', ')}`);
 }
 
-// One view: `svg` is the file's <svg> (old two-file format) or the view's
-// top-level layer (one file per character; its own transform is only the
-// layout offset and is ignored).
-function importView(svg, f) {
-  let found = findLayers(svg, [], {});
-  if (Object.keys(found).length) {
-    // Anything drawn outside a named layer (a loose path, or a layer that lost
-    // its name, e.g. g2146) belongs to the head, in document order.
-    const named = (n) => LAYERS.includes(label(n)) || label(n).startsWith('guide') || label(n) === 'anchors';
-    const hasLayer = (n) => named(n) || (n.children || []).some((c) => c.tag && hasLayer(c));
-    const loose = (c) => c.tag && !/^(defs|metadata|sodipodi:|inkscape:|title|desc)/.test(c.tag) && !hasLayer(c);
-    const headTop = found.head && svg.children.includes(found.head.node);
-    if (svg.children.some(loose) && (headTop || !found.head)) {
-      const kids = [];
-      for (const c of svg.children) {
-        if (loose(c)) kids.push(c);
-        else if (headTop && c === found.head.node) {
-          kids.push({ ...c, attrs: { ...c.attrs, style: withoutDisplay(c.attrs.style) } });
-        }
-      }
-      found.head = { chain: [], node: { tag: 'g', attrs: {}, children: kids } };
-    }
-  }
-  if (!Object.keys(found).length) {
-    // no named layers: everything except the guide is the head
-    const kids = svg.children.filter((c) => c.tag && c.tag !== 'defs' && !/^(sodipodi|metadata)/.test(c.tag) && label(c) !== 'guide' && label(c) !== 'anchors');
-    found = { head: { chain: [], node: { tag: 'g', attrs: {}, children: kids } } };
-  }
-  const entry = {};
-  const defs = svg.children.filter((c) => c.tag === 'defs').map((d) => d.children.map(serialize).join('')).join('');
-  // The guide marks the head centre. If it was moved (a translate on the
-  // guide layer, e.g. dragged together with the drawing), everything is
-  // measured from where it now is.
-  const guide = (svg.children || []).find((c) => c.tag === 'g' && label(c) === 'guide');
-  const gm = guide?.attrs.transform?.match(/^\s*translate\(\s*([-\d.e]+)[\s,]+([-\d.e]+)?\s*\)\s*$/);
-  const off = gm ? [+gm[1], +(gm[2] || 0)] : [0, 0];
-  const shift = off[0] || off[1] ? [`translate(${-off[0]},${-off[1]})`] : [];
-  for (const [name, { chain: chain0, node }] of Object.entries(found)) {
-    const chain = [...shift, ...chain0];
-    const inner = node.children.map(serialize).join('');
-    if (!inner.trim()) continue;                         // empty layer
-    const own = node.attrs.transform ? [node.attrs.transform] : [];
-    // a layer hidden in the editor (display:none) is only an editing state: show it
-    const style = withoutDisplay(node.attrs.style);
-    const opacity = node.attrs.opacity;
-    let g = `<g${[...chain, ...own].length ? ` transform="${[...chain, ...own].join(' ')}"` : ''}${style ? ` style="${esc(style)}"` : ''}${opacity ? ` opacity="${opacity}"` : ''}>${inner}</g>`;
-    if (name.startsWith('mouth-')) (entry.mouth ||= {})[name.slice(6)] = g;
-    else if (name === 'hair-body') entry.hairBody = g;
-    else entry[name] = g;
-  }
-  // nape: where the body hair joins the body (a circle labelled "nape")
-  const findNape = (n) => {
-    for (const c of n.children || []) {
-      if (!c.tag) continue;
-      if (c.tag === 'circle' && /(^|-)nape$/.test(label(c))) return [+c.attrs.cx, +c.attrs.cy];
-      const r = findNape(c); if (r) return r;
-    }
-    return null;
-  };
-  const nape = findNape(svg);
-  if (entry.hairBody) {
-    if (nape) entry.nape = [nape[0] - off[0], nape[1] - off[1]].map((v) => Math.round(v * 1e4) / 1e4);
-    else console.error(`  ! ${f}: hair-body layer but no nape anchor (using 0, 0.65)`);
-  }
-  if (defs.trim()) entry.defs = defs;
-  return entry;
-}
-
+// ---- characters
+const cast = json('data/characters.json').characters;
 const faces = {};
-const put = (id, view, entry, name) => {
-  (faces[id.toLowerCase()] ||= {})[view] = entry;
-  console.log(`${name} ${view}: ${Object.keys(entry).filter((k) => k !== 'defs' && k !== 'nape').map((k) => (k === 'mouth' ? `mouth(${Object.keys(entry.mouth)})` : k)).join(', ') || '(empty)'}`);
-};
-for (const f of readdirSync(dir).filter((x) => x.endsWith('.svg')).sort()) {
-  const tree = parse(readFileSync(join(dir, f), 'utf8'));
-  const svg = tree.children.find((c) => c.tag === 'svg');
-  if (!svg) { console.error(`${f}: no <svg>`); continue; }
-  const two = f.match(/^([\w-]+)-(front|side)\.svg$/i);
-  const views = svg.children.filter((c) => c.tag === 'g' && ['front', 'side'].includes(label(c)));
-  if (views.length) {                                    // <id>.svg: front and side layers
-    const id = f.replace(/\.svg$/, '');
-    for (const v of views) {
-      // layers and anchors may be named only by their id ("side-head",
-      // "front-nape", as the merge wrote them): drop the view prefix
-      const pre = `${label(v)}-`;
-      const relabel = (n) => {
-        for (const c of n.children || []) {
-          if (!c.tag) continue;
-          const id = (c.attrs.id || '').toLowerCase();
-          if (!c.attrs['inkscape:label'] && id.startsWith(pre)) c.attrs['inkscape:label'] = id.slice(pre.length);
-          relabel(c);
-        }
-      };
-      relabel(v);
-      put(id, label(v), importView(v, `${f} (${label(v)})`), f);
+for (const c of cast) {
+  const file = join(dir, `${c.id}.svg`);
+  if (!existsSync(file)) { console.error(`  ! ${c.id}: no data/faces/${c.id}.svg`); process.exitCode = 1; continue; }
+  const B = bases[c.species];
+  if (!B) { console.error(`  ! ${c.id}: no base face for ${c.species}`); process.exitCode = 1; continue; }
+  const X = readFile(file);
+  const entry = {};
+  const compose = (bv, xl, xmouth) => {
+    const L = xl, BL = bv.layers;
+    const head = (L.under || '') + (BL.skin ? paintSkin(BL.skin) : '') + (xmouth.eyes ?? BL.eyes ?? '') + (L.over || '');
+    const mouth = {};
+    for (const k of ['1', '2', '3']) { const m = xmouth[`mouth-${k}`] ?? BL[`mouth-${k}`]; if (m) mouth[k] = m; }
+    return { head, mouth };
+  };
+  for (const view of ['front', 'side']) {
+    const x = X[view];
+    if (!x) { console.error(`  ! ${c.id}: no ${view} layer`); process.exitCode = 1; continue; }
+    const own = { eyes: x.layers.eyes, 'mouth-1': x.layers['mouth-1'], 'mouth-2': x.layers['mouth-2'], 'mouth-3': x.layers['mouth-3'] };
+    const e = compose(B[view], x.layers, own);
+    if (x.layers.back) e.back = x.layers.back;
+    if (x.layers['hair-body']) {
+      e.hairBody = x.layers['hair-body'];
+      if (x.anchors.nape) e.nape = x.anchors.nape;
+      else console.error(`  ! ${c.id} ${view}: hair-body layer but no nape anchor (using 0, 0.65)`);
     }
-  } else if (two) put(two[1], two[2].toLowerCase(), importView(svg, f), f);   // older: <id>-<view>.svg
-  else console.error(`${f}: no "front" / "side" layers`);
+    const defs = (B[view].defs || '') + (x.defs || '');
+    if (defs.trim()) e.defs = defs;
+    // raised / lowered head (front)
+    if (view === 'front') for (const [k, name] of [['up', 'front-up'], ['down', 'front-down']]) {
+      const bv = B[name];
+      if (!bv?.layers.skin) continue;
+      // the character's layers and anything the version lacks (eyes,
+      // mouths) follow the anchors: moved and stretched so that the level
+      // face's top and chin land on this version's
+      const a0 = B.front.anchors, a1 = bv.anchors;
+      if (!a0.top || !a0.chin || !a1.top || !a1.chin) { console.error(`  ! base ${c.species} ${name}: needs top and chin anchors`); continue; }
+      const s = (a1.chin[1] - a1.top[1]) / (a0.chin[1] - a0.top[1]);
+      const t = `matrix(1 0 0 ${r4(s)} ${r4(a1.top[0] - a0.top[0])} ${r4(a1.top[1] - a0.top[1] * s)})`;
+      const follow = (g) => g && `<g transform="${t}">${g}</g>`;
+      let xl = X[name]?.layers;
+      if (!xl || (!xl.under && !xl.over)) xl = { under: follow(x.layers.under), over: follow(x.layers.over) };
+      const xv = X[name]?.layers || {};
+      // the character's own (eyes, mouths) first, then this version's, then the level base's
+      const pick = (k) => xv[k] ?? (x.layers[k] ? follow(x.layers[k]) : bv.layers[k] ? undefined : follow(B.front.layers[k]));
+      e[k] = compose(bv, xl, { eyes: pick('eyes'), 'mouth-1': pick('mouth-1'), 'mouth-2': pick('mouth-2'), 'mouth-3': pick('mouth-3') });
+    }
+    (faces[c.id] ||= {})[view] = e;
+  }
+  console.log(`${c.id}: ${['front', 'side'].map((v) => `${v} ${['under', 'over', 'back', 'hair-body', 'eyes', 'mouth-1'].filter((n) => X[v]?.layers[n]).join('/') || '-'}`).join('; ')}${faces[c.id]?.front?.up ? ' +up' : ''}${faces[c.id]?.front?.down ? ' +down' : ''}`);
 }
+for (const f of readdirSync(dir).filter((x) => x.endsWith('.svg')))
+  if (!cast.some((c) => `${c.id}.svg` === f)) console.error(`  ! ${f}: face for a character not in data/characters.json`);
 writeFileSync(outPath, JSON.stringify({
-  _doc: 'Generated by tools/import-faces.mjs from data/faces/*.svg. Do not edit; edit the SVGs. Coordinates: head-units, head centre at (0,0). Colours are used exactly as drawn.',
+  _doc: 'Generated by tools/import-faces.mjs from data/faces/base/*.svg and data/faces/*.svg. Do not edit; edit the SVGs. Coordinates: head-units, head centre at (0,0). The base skin is currentColor (the character\'s body colour); everything else as drawn.',
   faces,
 }, null, 1));
 console.log(`${outPath}: ${Object.keys(faces).length} character(s)`);
-// Every character must have a drawn face in both views (no generated fallback).
-const cast = json('data/characters.json').characters.map((c) => c.id);
-for (const id of cast) for (const v of ['front', 'side'])
-  if (!faces[id]?.[v]?.head) { console.error(`  ! ${id}: no ${v} face (draw the ${v} layer of data/faces/${id}.svg)`); process.exitCode = 1; }
-for (const id of Object.keys(faces)) if (!cast.includes(id)) console.error(`  ! ${id}: face for a character not in data/characters.json`);

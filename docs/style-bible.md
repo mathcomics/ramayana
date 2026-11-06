@@ -148,8 +148,8 @@ the pose.
 - Bottom: the thighs, from hip to knee, in the cloth colour (`dhoti`;
   `briefs` draws the same since the loincloth was retired).
 - Top: `bare` or `full` (the whole torso in the cloth colour).
-- Body colour: a hex per character, matching the skin of its drawn face
-  (no named body palette).
+- Body colour: a hex per character; it also paints the skin of the base
+  face (no named body palette).
 - Cloth colours: white, yellow, red.
 - **Cloth patterns** (for rakshasas only): a cloth name can add a pattern
   to the colour: `red-check`, `red-diamond`, `red-stripe` (any palette
@@ -170,21 +170,36 @@ figures. Signature features (necklaces, crowns, top bun…) come later.
 
 ## 5.6 Drawn faces
 
-Faces are drawn by the artist, one SVG per character and view
-(`data/faces/`, see its README). **Every character has both a front and a
-side face; there is no generated fallback** (decided 2026-11-04). Bodies
-and poses stay rule-based. A drawn face is never edited by code: it is
-placed whole on the head (moved, scaled, rotated with the head, mirrored
-for facing left). Colours are used exactly as drawn; the character's body
-colour is set to the face's skin. The `head` layer is drawn over the neck
-and body (in side view the near arm still crosses in front). An optional
-`back` layer goes behind the whole body (e.g. long hair in front view);
-optional `mouth-1/2/3` layers follow the pose's mouth size.
+Faces are drawn by the artist (`data/faces/`, see its README), in two
+parts (decided 2026-11-06):
+
+- **Base face**, one per species (`data/faces/base/<species>.svg`): the
+  face shape and ears (`skin`), `eyes` and three mouths, front and side,
+  plus optional front versions with the head raised and lowered
+  (`front-up`, `front-down`). Editing it changes every character of the
+  species. Its skin is painted in the character's body colour; eyes and
+  mouths keep their drawn colours.
+- **Character parts**, one file per character (`data/faces/<id>.svg`):
+  `under` (behind the base face) and `over` (hair, crown, beard, marks),
+  `back` (behind the whole body), `hair-body`; optional own `eyes` or
+  mouths replace the base's (rakshasa men, sugriva/monkey1, sage1,
+  dasharatha's side mouths). Colours as drawn. A guide shows the base
+  face.
+
+**Every character has both a front and a side face; there is no
+generated fallback** (decided 2026-11-04). Drawings are never edited by
+code: a face is placed whole on the head (moved, scaled, rotated with the
+head, mirrored for facing left). In the front view, a head raised or
+lowered 25° or more (as the viewer sees it: lean + chest + neck + head)
+uses the base's up / down version when drawn; the character's parts
+follow it by the base's `top` and `chin` anchors (moved and stretched
+vertically), unless the character draws its own up / down parts. The
+face is drawn over the neck and body (in side view the near arm still
+crosses in front); `mouth-1/2/3` follow the pose's mouth size.
 
 **Size guide.** A species head is only `size` and `width` (decided
 2026-11-04): a plain rectangle `size` tall and `size × width` wide,
-centred where the face goes. It is the guide in the face templates
-(`data/faces/templates/`) and the only head the renderer draws itself
+centred where the face goes. It is the only head the renderer draws itself
 (on species views; contact sheets use a character). Widths: monkey 1,
 male 0.88, female 0.74.
 
@@ -213,10 +228,10 @@ male 0.88, female 0.74.
   shoulders. Front view: the locks go in the `back` layer, behind the
   body. Side view: a cap from the forehead over the head, the hairline
   curving back above the eye, falling down the back as one mass with a
-  rounded end, in the `head` layer (in front).
+  rounded end, in the `over` layer (in front).
 
 - **Hair in two parts** (2026-11-05): hair that frames the head is drawn in
-  the face (`head`, or `back` for hair behind the head) and turns with the
+  the face (`over` / `under`, or `back` for hair behind the body) and turns with the
   head. Long hair that lies on the back and shoulders goes in the face's
   `hair-body` layer: it is pinned at the `nape` anchor and moves with the
   upper body (turns with the chest; in the front view shortens like the

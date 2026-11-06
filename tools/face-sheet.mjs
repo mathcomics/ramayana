@@ -10,9 +10,10 @@ import { loadAssets, writeOut, rsvg } from './lib.mjs';
 const { characters: C, faces: F, poses: P, species: SPECIES } = loadAssets();
 const cast = C.characters;
 
-const front = (mouth) => ({ name: 'front', view: 'front', headView: 'front', mouth, spine: {},
-  near: { arm: { shoulder: 25, hand: 'out' } }, far: { arm: { shoulder: 25, hand: 'out' } } });
-const side = (mouth) => ({ ...P.find((p) => p.name === 'stand'), mouth });
+// the stand pose, looking ahead, in front and side view
+const stand = (mouth) => ({ ...P.find((p) => p.name === 'stand'), mouth, look: 'front' });
+const front = (mouth) => ({ pose: stand(mouth), view: 'front' });
+const side = (mouth) => ({ pose: stand(mouth), view: 'side' });
 
 // page: 850 × 1100 units = 8.5 × 11 in
 const W = 850, H = 1100, M = 28, TOP = 50, COLS = 3;
@@ -35,23 +36,23 @@ cast.forEach((c, i) => {
 
   // two full figures, scaled to the cell height
   const ground = y0 + ch - 12;
-  [[front(2), x0 + 0.2 * cw], [side(2), x0 + 0.45 * cw]].forEach(([pose, x]) => {
-    const { bbox } = buildShapes(S, pose, opts.outfit);
+  [[front(2), x0 + 0.2 * cw], [side(2), x0 + 0.45 * cw]].forEach(([{ pose, view }, x]) => {
+    const { bbox } = buildShapes(S, pose, opts.outfit, view, opts.bodyScale);
     const scale = FIG / (bbox.y1 - bbox.y0);
-    s += renderFigure(S, pose, { ...opts, x, y: ground, scale }).svg;
+    s += renderFigure(S, pose, { ...opts, view, x, y: ground, scale }).svg;
   });
 
   // head close-ups: front (left column) and side (right column), mouths 1–3
   [front, side].forEach((make, col) => {
     [1, 2, 3].forEach((mouth, row) => {
-      const pose = make(mouth);
-      const { headAnchor } = buildShapes(S, pose, opts.outfit);
+      const { pose, view } = make(mouth);
+      const { headAnchor } = buildShapes(S, pose, opts.outfit, view, opts.bodyScale);
       const cx = x0 + cw - 12 - R - (1 - col) * 2.2 * R, cy = y0 + 14 + R + row * 2.2 * R;
       const scale = R / (0.82 * S.head.size);
       const id = `c${++clip}`;
       defs += `<clipPath id="${id}"><circle cx="${cx}" cy="${cy}" r="${R}"/></clipPath>`;
       s += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="#ebe3d5"/>`;
-      s += `<g clip-path="url(#${id})">${renderFigure(S, pose, { ...opts,
+      s += `<g clip-path="url(#${id})">${renderFigure(S, pose, { ...opts, view,
         x: cx - headAnchor.at[0] * scale, y: cy - headAnchor.at[1] * scale, scale }).svg}</g>`;
     });
   });

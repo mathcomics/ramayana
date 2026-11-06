@@ -67,7 +67,25 @@ Panel lab (published artifact, drafts in its database, collection
 Drafts are merged into `panels/` when asked; republish the lab after
 renderer or panel changes.
 
-## Status (2026-11-05)
+## Status (2026-11-06)
+
+- **Faces split into base + character (2026-11-06):** `data/faces/base/
+  <species>.svg` (skin painted in the body colour, eyes, mouths, anchors
+  top/chin; optional `front-up`/`front-down` versions, empty so far) and
+  `data/faces/<id>.svg` (`under`, `over`, `back`, `hair-body`, optional own
+  `eyes`/mouths; guide shows the base). Bases from rama, sita, hanuman.
+  `tools/face-templates.mjs` refreshes guides + templates after a base
+  change; `tools/split-faces.mjs` was the one-time split; merge-faces
+  removed. Front view picks up/down at ±25° head tilt. Face sheet fixed
+  (front view, body scale).
+- **Front torso (2026-11-06):** the front drawings as drawn, picked by
+  |lean + chest| folded at 90° (deepest at 90°, turned over past it); no
+  projected heights, no minimum rule. Front and side heights can differ in
+  bent poses; the artist adjusts drawings.
+- **Limbs (2026-11-06):** thigh top folds into the body by cos(angle) in
+  side view (no 0.12 cap band; arms plain); an end-on limb's extra length
+  goes back over its upper joint (kneel). End-on limb drawings (step 5)
+  would remove both patches.
 
 - **Drawn parts (merged into main 2026-11-05):** figures are built from the
   artist's drawn body parts (`data/parts/male.svg`, `female.svg` →
@@ -111,11 +129,11 @@ renderer or panel changes.
   has no colour controls.
 - **Faces are the artist's drawings** (decided 2026-11-02): one SVG per
   character in `data/faces/<id>.svg` with top-level layers `front` and
-  `side` (merged 2026-11-05; each view may have a `hair-body` layer and a
-  `nape` anchor for long hair that moves with the upper body), from
-  templates in `data/faces/templates/<species>.svg`; `tools/import-faces.mjs` → `data/faces.json`.
-  Never edit the drawings' curves or colours; only place, rotate and
-  mirror (colours exactly as drawn, decided 2026-11-02). All 18
+  `side` (merged 2026-11-05; split into base + character 2026-11-06, see
+  above), templates in `data/faces/templates/<species>.svg`;
+  `tools/import-faces.mjs` → `data/faces.json`. Never edit the drawings'
+  curves or colours; only place, rotate and mirror (only the base skin
+  takes the body colour). All 18
   characters have front and side faces (raxas_m1 = copy of indrajit;
   queens and surpanakha = copies of sita; sage1 = dasharatha without
   crown, white beard). No generated fallback: every character needs

@@ -1,99 +1,97 @@
-// Write face templates: one per species and view.
+// Face templates and guides (data/faces/README.md).
 //
-//   node tools/face-templates.mjs   ->  data/faces/templates/<species>.svg
-//   (front and side in one file, as the character faces are)
+//   node tools/face-templates.mjs
+//     -> data/faces/templates/<species>.svg   a new character's face file
+//     -> refreshes the guide layer in data/faces/base/*.svg and data/faces/*.svg
 //
-// Units are head-units: the head centre is (0,0), y down, the head spans
-// about ±0.5; in side view the face looks right. The locked "guide" layer
-// shows the species' head rectangle with the drawn body (data/parts)
-// standing straight at the figure's real scale, so body hair can be drawn
-// over the back. The "anchors" layer holds the nape (where body hair joins
-// the body), placed at the neck base.
-// Draw (or paste and scale) the face over the guide in the layers below; the
-// guide layer is ignored on import. See data/faces/README.md.
+// Run it after changing a base face or the body parts. The guide (locked,
+// ignored on import) shows the species' drawn body standing straight at the
+// figure's real scale (so body hair can be drawn over the back) and, in
+// character files and the base's raised / lowered versions, the base face.
+// Units are head-units: head centre (0,0), y down; side faces look right.
 
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import { pathD } from '../src/geom.js';
 import { buildShapes } from '../src/figure.js';
-import { loadSpecies, writeOut, root } from './lib.mjs';
-import { mergeDir } from './merge-faces.mjs';
-import { join } from 'node:path';
+import { loadSpecies, writeOut, root, json } from './lib.mjs';
+import { readFile, replaceGuides } from './faces-lib.mjs';
 
-// standing straight, arms and legs hanging
-const STRAIGHT = { spine: { lean: 0, chest: 0, neck: 0, head: 0 },
+const STRAIGHT = { look: 'front', spine: { lean: 0, chest: 0, neck: 0, head: 0 },
   near: { arm: { shoulder: 0, elbow: 0 }, leg: { hip: 0, knee: 0 } },
   far: { arm: { shoulder: 0, elbow: 0 }, leg: { hip: 0, knee: 0 } } };
-const GUIDE = { torso: '#d9cfc4', neck: '#e8e1d9', head: '#d9c3b6' };
-
+const GUIDE = { body: '#ebe5dd', torso: '#d9cfc4', neck: '#e8e1d9', skin: '#d9c3b6' };
+const OFFSET = 3;
 const all = loadSpecies();
+const dir = join(root, 'data/faces');
+
+// the drawn body standing straight, around the head centre, and the nape
+function bodyGuide(S, view) {
+  const { shapes, headAnchor, hairAnchor } = buildShapes(S, STRAIGHT, { top: 'bare', bottom: 'dhoti' }, view);
+  const [hx, hy] = headAnchor.at;
+  const loc = (pts) => pts.map(([x, y]) => [x - hx, y - hy]);
+  const body = shapes.filter((s) => s.pts?.length && !s.headPart && s.part !== 'torso' && s.part !== 'neck');
+  const markup = [
+    ...body.map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.body}"/>`),
+    ...shapes.filter((s) => s.part === 'torso').map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.torso}"/>`),
+    ...shapes.filter((s) => s.part === 'neck').map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.neck}"/>`),
+    '<path d="M-0.08 0H0.08M0 -0.08V0.08" stroke="#b04040" stroke-width="0.01" fill="none"/>',
+  ].join('\n');
+  const nape = [hairAnchor.at[0] - hx, hairAnchor.at[1] - hy].map((v) => Math.round(v * 1000) / 1000);
+  return { markup, nape };
+}
+// the base face (level) for a guide: skin in a neutral colour, eyes as drawn
+const baseFace = (B, view) => {
+  const L = B[view]?.layers || {};
+  const skin = (L.skin || '').replace(/fill\s*:\s*(?!none)[^;"]+/g, `fill:${GUIDE.skin}`).replace(/fill="(?!none)[^"]*"/g, `fill="${GUIDE.skin}"`);
+  return `<g opacity="0.6">${skin}${L.eyes || ''}</g>`;
+};
+
+const cast = json('data/characters.json').characters;
 for (const species of Object.keys(all)) {
   const S = all[species];
-  for (const view of ['front', 'side']) {
-    const { shapes, headAnchor, hairAnchor } = buildShapes(S, STRAIGHT, { top: 'bare', bottom: 'dhoti' }, view);
-    const [hx, hy] = headAnchor.at;
-    const loc = (pts) => pts.map(([x, y]) => [x - hx, y - hy]);
-    // the body behind, then the neck and torso over it, then the head guide
-    const body = shapes.filter((s) => s.pts?.length && !s.headPart && s.part !== 'torso' && s.part !== 'neck');
-    const guides = [
-      ...body.map((s) => `<path d="${pathD(loc(s.pts))}" fill="#ebe5dd"/>`),
-      ...shapes.filter((s) => s.part === 'torso').map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.torso}"/>`),
-      ...shapes.filter((s) => s.part === 'neck').map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.neck}"/>`),
-      ...shapes.filter((s) => s.headPart).map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.head}"/>`),
-    ].join('\n    ');
-    const [nx, ny] = [hairAnchor.at[0] - hx, hairAnchor.at[1] - hy].map((v) => Math.round(v * 1000) / 1000);
-    const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<!-- Face template: ${species}, ${view} view${view === 'side' ? ' (face looks right)' : ''}.
-     Units: head-units, head centre at (0,0), y down. Save as
-     data/faces/<character-id>-${view}.svg (e.g. rama-${view}.svg).
-     Layers:
-       head      - the face itself; turns with the head
-       back      - optional; hair behind the head; turns with the head,
-                   drawn behind the whole body
-       hair-body - optional; long hair on the back and shoulders; moves
-                   with the upper body (pinned at the nape, turns with the
-                   chest), drawn just behind the torso
-       mouth-1/2/3 - optional; the pose's mouth size picks one
-       anchors   - nape: where the body hair joins the body (keep it at
-                   the neck base unless the hair starts elsewhere)
-     Colours are used exactly as drawn; match the skin to the character's
-     body colour (data/characters.json palette). The guide layer is ignored. -->
+  const G = { front: bodyGuide(S, 'front'), side: bodyGuide(S, 'side') };
+  const baseFile = join(dir, 'base', `${species}.svg`);
+  const B = readFile(baseFile);
+  // base: body only on the level faces, the level face too on up / down
+  writeFileSync(baseFile, replaceGuides(readFileSync(baseFile, 'utf8'), {
+    front: G.front.markup, side: G.side.markup,
+    'front-up': G.front.markup + baseFace(B, 'front'), 'front-down': G.front.markup + baseFace(B, 'front') }));
+  const charGuides = { front: G.front.markup + baseFace(B, 'front'), side: G.side.markup + baseFace(B, 'side') };
+  for (const c of cast.filter((x) => x.species === species)) {
+    const f = join(dir, `${c.id}.svg`);
+    writeFileSync(f, replaceGuides(readFileSync(f, 'utf8'), charGuides));
+  }
+  // template for a new character
+  const layer = (name, inner = '') => `    <g inkscape:groupmode="layer" inkscape:label="${name}">${inner}</g>\n`;
+  let body = '';
+  for (const [view, dx] of [['front', 0], ['side', OFFSET]]) {
+    body += `  <g inkscape:groupmode="layer" inkscape:label="${view}"${dx ? ` transform="translate(${dx} 0)"` : ''}>\n`;
+    body += `    <g inkscape:groupmode="layer" inkscape:label="guide" sodipodi:insensitive="true" opacity="0.7">\n${charGuides[view]}\n    </g>\n`;
+    for (const n of ['back', 'hair-body', 'under', 'over']) body += layer(n);
+    body += layer('anchors', `<circle inkscape:label="nape" cx="${G[view].nape[0]}" cy="${G[view].nape[1]}" r="0.03" fill="#d02020"/>`);
+    body += '  </g>\n';
+  }
+  writeOut(`data/faces/templates/${species}.svg`, `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Face template: ${species}. Copy to data/faces/<character-id>.svg
+     (data/faces/README.md). The character's own parts over the ${species}
+     base face (data/faces/base/${species}.svg, shown in the guide; its skin
+     takes the body colour from data/characters.json). Top-level layers
+     front, side (face looks right; offset ignored); optionally front-up /
+     front-down with their own under / over. In each:
+       under     - behind the base face (hair behind the head …)
+       over      - over it (hair, crown, beard, marks …)
+       back      - behind the whole body
+       hair-body - long hair on the back; moves with the upper body,
+                   pinned at the nape anchor
+       eyes, mouth-1/2/3 - optional; replace the base's
+       guide     - locked, ignored
+     Colours as drawn. Units: head-units, head centre (0,0), y down. -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-     width="600" height="1000" viewBox="-1.5 -1.2 3 5">
-  <g id="guide" inkscape:groupmode="layer" inkscape:label="guide" sodipodi:insensitive="true" opacity="0.7">
-    ${guides}
-    <path d="M-0.08 0H0.08M0 -0.08V0.08" stroke="#b04040" stroke-width="0.01" fill="none"/>
-  </g>
-  <g id="hair-body" inkscape:groupmode="layer" inkscape:label="hair-body"></g>
-  <g id="back" inkscape:groupmode="layer" inkscape:label="back"></g>
-  <g id="head" inkscape:groupmode="layer" inkscape:label="head"></g>
-  <g id="mouth-1" inkscape:groupmode="layer" inkscape:label="mouth-1"></g>
-  <g id="mouth-2" inkscape:groupmode="layer" inkscape:label="mouth-2"></g>
-  <g id="mouth-3" inkscape:groupmode="layer" inkscape:label="mouth-3"></g>
-  <g id="anchors" inkscape:groupmode="layer" inkscape:label="anchors">
-    <circle id="nape" inkscape:label="nape" cx="${nx}" cy="${ny}" r="0.03" fill="#d02020"/>
-  </g>
-</svg>
-`;
-    writeOut(`data/faces/templates/${species}-${view}.svg`, svg);
-  }
+     width="1200" height="1000" viewBox="-1.5 -1.2 6 5">
+${body}</svg>
+`);
 }
-// one file per species: the "front" and "side" layers side by side
-mergeDir(join(root, 'data/faces/templates'), (species) => `<!-- Face template: ${species}. Copy to data/faces/<character-id>.svg.
-     Two top-level layers, "front" and "side" (face looks right); the side
-     one sits 3 head-units to the right, an offset the importer ignores.
-     In each view:
-       head      - the face itself; turns with the head
-       back      - optional; hair behind the head; turns with the head,
-                   drawn behind the whole body
-       hair-body - optional; long hair on the back and shoulders; moves
-                   with the upper body (pinned at the nape, turns with the
-                   chest), drawn just behind the torso
-       mouth-1/2/3 - optional; the pose's mouth size picks one
-       anchors   - nape: where the body hair joins the body
-       guide     - locked, ignored on import: the head rectangle and the
-                   drawn body standing straight
-     Units: head-units, head centre at (0,0) in each view, y down.
-     Colours are used exactly as drawn; match the skin to the character's
-     body colour (data/characters.json). -->`);
-console.log(`data/faces/templates: ${Object.keys(all).length} templates`);
+console.log('templates written, guides refreshed');
