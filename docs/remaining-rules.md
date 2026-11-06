@@ -17,9 +17,9 @@ numbers were used before the list existed):
 1. Out of the paper: `out` on the shoulder and hip, front view as a
    projection. Done.
 2. Draw order by depth. Done 2026-11-05.
-3. Feet by toe direction: the `toe` / `side-toe` anchors give each foot's
-   heel-to-toe line; a toe-turn pose setting; replaces the front-view foot
-   turn.
+3. Feet by toe direction: a toe-turn pose setting (`leg.toe`) and the
+   front, side and sole drawings blended by where the foot points. Done
+   2026-11-06.
 4. Head turn and tilt: the head turned in 3D from its front and side
    drawings (prototype `tools/proto/head-turn/`; renderer
    `src/headturn.js`, turn data from `tools/face-turn.mjs` in
@@ -28,9 +28,10 @@ numbers were used before the list existed):
    per height row, front width × side depth), the rest flat cards on the
    surface. Used by the figures since 2026-11-06: tilt = lean + chest +
    neck + head, turn from `look`. Replaced the face switch, the face flip,
-   the up / down faces and the need for a back-of-head drawing. Still to
-   do: a head-turn angle in the pose, the `head` / `side-head` anchors
-   (see the tables).
+   the up / down faces and the need for a back-of-head drawing. Head-turn
+   angle in the pose (`spine.turn`), head centre from the `head` /
+   `side-head` anchors and the neck projected without a minimum: done
+   2026-11-06.
 5. Wrist turn and end-on parts: a wrist-turn pose setting; the `end`
    layers (limbs, sole, hands) imported and blended with front / side by
    each part's own 3D direction; replaces the view-picked shapes, the
@@ -45,8 +46,8 @@ numbers were used before the list existed):
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
 | Body hair (`hair-body`) is pinned to the upper body and doesn't hang with gravity (upside down it stays on the back) | hair-body | A hang setting per character, or a drawn hanging version, if it looks wrong |
-| Front view: the foot is not turned; it blends from the front drawing (toes at the viewer) toward the sole by sin² of the ankle angle; the leg's `out` doesn't turn the foot | feet | Toe direction from the `toe` / `side-toe` anchors and a toe-turn pose setting (step 3) |
-| `look` (front / left / right) is a head turn of 0 / 90 / −90°: no in-between turn in poses yet | head | A head-turn pose setting (the renderer takes any angle) |
+| A foot blends its front, side and sole drawings by (c·toes)², (c·side)², (c·sole)², each turned in the picture to match (side drawing and sole by where the toes point, front drawing by where the sole faces); toes pointing the other way use the side drawing mirrored (re-matched node for node). The leg's `out` doesn't turn the foot (a foot stays flat) | feet | None: a decision; a foot turned with the leg would need a toe-turn link to `out` |
+| `look` (front / left / right) is kept as a shortcut for `spine.turn` 0 / 90 / −90° (poses without `turn`) | head | None: old poses; the pose lab saves `turn` |
 | Turned head: eyes, mouths, ears and marks are flat cards that switch from their front to their side drawing at a 45° turn (no in-between) | head | Front and side drawings of each piece with matching node counts, then blend like the limbs |
 | Turned head: front cards lie in the face plane on the head volume's front surface at their centre; side cards in the side plane at the eyes' distance from the middle; ears are front cards at the volume's middle depth | head | None: placement rules; a drawn depth per piece if one sits wrong |
 | Turned head: volumes are drawn as one slab per height row, sorted by the row centre's depth (a painter's order), with a layer bias: `under` −0.15, `back` −0.3 (times how much the face points at the viewer; reversed for the back of the head), `over` +0.15, blended toward the side drawing's layer near the side view. Close surfaces can interleave (stripes, small holes, a hair band crossing the face at some angles) | head | Per-pixel depth (true hidden-surface removal), or tuning the bias |
@@ -55,8 +56,8 @@ numbers were used before the list existed):
 | Turned head: where the front drawing reaches higher or lower than the side drawing, the missing side rows get a depth of the row width × the volume's usual depth-to-width ratio (a rounded cap; shows as a bump on side heads) | head, hair | Front and side drawings with matching heights (the importer lists the mismatches) |
 | Turned head: a `back` part (as drawn in the view the camera is nearer: the front layer under a 45° turn, else the side layer) goes behind the whole body; everything else is drawn with the head | hair | None: needed so front locks stay behind the shoulders |
 | Turned head: row ellipses seen nearly edge-on are left out, and the clip for eyes / mouths uses only the outline and well-open ellipses (rsvg loses coverage where many thin shapes overlap in a clip path) | head | None: a rendering workaround |
-| Head centre fixed 0.21 head-units above the neck top | head | Use the `head` / `side-head` anchors (stored, not read yet) |
-| Front-view neck: points straight up or down, keeps at least half its length | neck | A neck turned in 3D with the head; the minimum length is otherwise a style choice |
+| Head centre from the neck top: front x from the `head` anchor, depth from `side-head`, height the average of the two (they differ only where the drawings disagree) | head | None: matching anchor heights in the parts files |
+| The neck is one drawing (front) seen in both views, shortened by projection (no minimum length since 2026-11-06); it doesn't turn with the head | neck | A side neck drawing, and an end-on one, if a pose shows the difference |
 | The point hand is mirrored across the forearm so the finger is toward the body | hands | A point hand drawn with the finger on the inside (the wrist turn, `arm.twist`, now exists but only blends front / side / end) |
 | A part's turn between its front and side drawings uses \|c·side\| and \|c·front\| (no sign): a limb seen from its inner side or from behind shows the outer / front drawing, mirrored only by the view's far-limb rule | upper arm, forearm, thigh, shin, hands | Back / inner drawings, if a pose shows the difference (step 6 needs this too) |
 | Toward end-on, a part blends to its end drawing linearly in 1 − (length seen); the end drawing sits on the upper joint | arms, legs, hands | None: tuning, if the end blob comes in too early or late |

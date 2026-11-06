@@ -9,6 +9,7 @@
 // modules into one script.
 
 import { RAD, dir, add, sub, mul, lerp, rot } from './geom.js';
+import { headMatrix } from './headturn.js';
 
 const dpNode = (T, i) => T[((i % T.length) + T.length) % T.length][0];
 const dpMap = (segs, f) => segs.map((s) => s.map(f));
@@ -205,6 +206,21 @@ function dpShape(L, look) {
   if (!L.end) return lat.map((s) => s.map((p) => [p[0], p[1] * f]));
   return lat.map((s, i) => s.map((p, j) => { const e = L.end[i][j]; return [p[0] * f + e[0] * w, p[1] * f + e[1] * w]; }));
 }
+// Reorder cubic segments to match `ref` node for node, by each node's
+// direction from the shape's centre (any start node, either direction).
+function dpMatchRound(segs, ref) {
+  const ctr = (S) => mul(S.reduce((a, g) => add(a, g[0]), [0, 0]), 1 / S.length);
+  const angs = (S) => { const c = ctr(S); return S.map((g) => Math.atan2(g[0][1] - c[1], g[0][0] - c[0])); };
+  const ra = angs(ref);
+  const rev = [...segs].reverse().map((g) => [...g].reverse());
+  let best = null;
+  for (const S of [segs, rev]) for (let k = 0; k < S.length; k++) {
+    const r = S.slice(k).concat(S.slice(0, k)), a = angs(r);
+    const e = a.reduce((acc, v, i) => { let d = Math.abs(v - ra[i]) % (2 * Math.PI); if (d > Math.PI) d = 2 * Math.PI - d; return acc + d; }, 0);
+    if (!best || e < best.e) best = { r, e };
+  }
+  return best.r;
+}
 const dpWrap = (v) => { while (v > 180) v -= 360; while (v <= -180) v += 360; return v; };
 
 // S: the species (head size, tail); pose: the normalised SIDE pose (both
@@ -313,22 +329,41 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const K3 = add3(hp3, v3(st, l.out), M.thigh.len), A3 = add3(K3, v3(ss, l.out), M.shin.len);
     const mid3 = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2, (p[2] + q[2]) / 2];
     const dU = mid3(sh3, E3), dL = mid3(E3, W3), dH = W3, dT = mid3(hp3, K3), dS = mid3(K3, A3), dF = A3;
-    // Foot (keeps its size, drawn flat on the ankle). Side view: the side
-    // drawing turned by the ankle angle. Front view: not turned; the front
-    // drawing (toes toward the viewer) blends toward the sole as the toes
-    // lift (ankle +: sole toward the viewer, toes up) or drop (toes down),
-    // by sin² of the ankle angle.
-    let footSegs, ankleRot = l.ankle;
-    if (front) {
-      ankleRot = 0;
-      const E = M.foot.end, sa = Math.sin(l.ankle * RAD), w = sa * sa;
-      if (E && w > 1e-6) {
-        const toesUp = l.ankle > 0;
-        const turnTo = Math.atan2(E.toe[0], E.toe[1]) / RAD - 180 + (toesUp ? 0 : 180);
-        const sole = dpMap(toesUp ? E.up : E.down, (p) => rot(p, turnTo));
-        footSegs = M.foot.front.map((g, i) => g.map((p, j) => lerp(p, sole[i][j], w)));
-      } else footSegs = M.foot.front;
-    } else footSegs = M.foot.side;
+    // Foot (keeps its size, drawn flat on the ankle; step 3): a blend of
+    // its three drawings by where it points, like the limbs. Its frame: toes
+    // F, sole normal N (down out of the sole), outer side X; at rest F
+    // forward, N down. leg.toe turns the toes about the vertical (+ out,
+    // away from the body), the ankle then lifts them (+) about X. The
+    // camera c gives the weights (c·F)² for the front drawing (toes at the
+    // viewer), (c·X)² for the side drawing, (c·N)² for the sole; each
+    // drawing is turned in the picture to match: the side drawing and the
+    // sole by where the toes point, the front drawing by where the sole
+    // faces. Not turned by the leg's out (a foot stays flat).
+    // the side drawing mirrored (toes pointing the other way), its nodes
+    // matched again to the front drawing (mirroring reverses their order)
+    if (!M.foot._sideMirror) Object.defineProperty(M.foot, '_sideMirror', { value: dpMatchRound(dpMap(M.foot.side, (p) => [-p[0], p[1]]), M.foot.front) });
+    const footSegs = (() => {
+      const tau = (l.toe ?? 0) * RAD, an = l.ankle * RAD;
+      const F0 = [Math.sin(tau), 0, Math.cos(tau)], X = [Math.cos(tau), 0, -Math.sin(tau)], N0 = [0, 1, 0];
+      const F = F0.map((v, i) => v * Math.cos(an) - N0[i] * Math.sin(an)), N = N0.map((v, i) => v * Math.cos(an) + F0[i] * Math.sin(an));
+      const k = front ? 2 : 0, pr = (v) => (front ? [v[0], v[1]] : [v[2], v[1]]);
+      const w = [F[k] ** 2, X[k] ** 2, N[k] ** 2];
+      const ang = (v) => Math.atan2(v[1], v[0]) / RAD;
+      // turn `segs` so that `ref` (a drawn direction) points along `to` (seen); mirror when it points left
+      const turnTo = (segs, ref, to) => {
+        if (Math.hypot(...to) < 1e-6) return segs;
+        return dpMap(segs, (p) => rot(p, ang(to) - ang(ref)));
+      };
+      const fT = pr(F);
+      const sideD = fT[0] < 0 ? turnTo(M.foot._sideMirror, [-1, 0], fT) : turnTo(M.foot.side, [1, 0], fT);
+      const frontD = turnTo(M.foot.front, [0, 1], pr(N));
+      const E = M.foot.end;
+      const soleD = E ? turnTo(fT[1] < 0 ? E.up : E.down, [E.toe[0], E.toe[1]], fT) : frontD;
+      return M.foot.front.map((g, i) => g.map((_, j) => {
+        const a1 = frontD[i][j], b1 = sideD[i][j], c1 = soleD[i][j];
+        return [w[0] * a1[0] + w[1] * b1[0] + w[2] * c1[0], w[0] * a1[1] + w[1] * b1[1] + w[2] * c1[1]];
+      }));
+    })();
     const E = add(sh, mul(dirM(U.ang), M.upperArm.len * U.f)), Wr = add(E, mul(dirM(Lo.ang), M.forearm.len * Lo.f));
     const Kn = add(hp, mul(dirM(Th.ang), M.thigh.len * Th.f)), A = add(Kn, mul(dirM(Sh.ang), M.shin.len * Sh.f));
     const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist,
@@ -346,26 +381,29 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
       leg: [
         ['shin', place(dpShape(M.shin, look(ss, l.out)), Kn, Sh.ang, m), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
-        ['foot', dpMap(footSegs, (p) => { const q = rot(p, -ankleRot); return add(A, [m * q[0], q[1]]); }), dF],
+        ['foot', dpMap(footSegs, (p) => add(A, [m * p[0], p[1]])), dF],
         ['thigh', placeCap(dpShape(M.thigh, look(st, l.out)), hp, Th.ang, m, 1, front ? null : -sp.lean), dT],
       ],
     };
   }
-  // Neck and head: the side pose's directions; the front view shows their
-  // up-down part (a neck tipped toward the viewer shortens, one past
-  // level points down; the face turns over when the head is upside down).
-  const up3 = 180 - (sp.lean + sp.chest + sp.neck);
+  // Neck and head in 3D. The neck leans with lean + chest + neck in the side
+  // plane; each view is its projection (the front view sees its up-down
+  // part, so a neck tipped toward the viewer shortens). The head tilts by
+  // lean + chest + neck + head and turns by spine.turn (src/headturn.js,
+  // headMatrix); its centre sits where the parts' `head` / `side-head`
+  // anchors put it from the neck top (front x, side depth), turned with it.
+  const tn = (sp.lean + sp.chest + sp.neck) * RAD;
   const sideHead = sp.lean + sp.chest + sp.neck + sp.head;
+  const turnH = sp.turn ?? 0;
   const nb = attachAt('neck', false);
-  let neckAng = up3, neckF = 1, headRot = sideHead, headOff = dir(180 - sideHead);
-  if (front) {
-    const v = Math.cos(up3 * RAD);                       // up-down part of the neck
-    neckAng = v <= 0 ? 180 : 0; neckF = Math.max(Math.abs(v), 0.5);
-    headOff = [0, -Math.cos(sideHead * RAD)];
-    headRot = Math.cos(sideHead * RAD) < 0 ? 180 : 0;
-  }
-  const neckTop = add(nb, mul(dir(neckAng), M.neck.len * (front ? Math.abs(Math.cos(up3 * RAD)) : 1)));
-  const H = add(neckTop, mul(headOff, 0.21));
+  const neckV = front ? [0, -Math.cos(tn)] : [Math.sin(tn), -Math.cos(tn)];   // unit neck as seen
+  const neckF = Math.hypot(...neckV), neckAng = neckF < 1e-6 ? 180 : Math.atan2(neckV[0], neckV[1]) / RAD;
+  const neckTop = add(nb, mul(neckV, M.neck.len));
+  const hA = M.headAt || { front: [0, -0.21], side: [0, -0.21] };
+  const hO = [hA.front[0], (hA.front[1] + hA.side[1]) / 2, hA.side[0]];      // head centre from the neck top (head-local)
+  const headR = headMatrix(sideHead, turnH, front);
+  const H = add(neckTop, [headR[0][0] * hO[0] + headR[0][1] * hO[1] + headR[0][2] * hO[2], headR[1][0] * hO[0] + headR[1][1] * hO[1] + headR[1][2] * hO[2]]);
+  const headRot = front ? (Math.cos(sideHead * RAD) < 0 ? 180 : 0) : sideHead;     // the guide head only
   const lean = front ? 0 : sp.lean;
 
   // Outfit: the lower cloth covers the thighs only (no loincloth);
@@ -422,11 +460,11 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     if (under.length) units.push({ depth, over: false, items: under });
     if (over.length) units.push({ depth, over: true, items: over });
   }
-  // head: its centre in 3D (side-view place; X = 0)
+  // head: its centre in 3D (X sideways, Y down, Z forward)
   const nbS = sideJ('neck', false);
-  const upS = 180 - (sp.lean + sp.chest + sp.neck);
-  const headS = add(add(nbS, mul(dir(upS), M.neck.len)), mul(dir(180 - (sp.lean + sp.chest + sp.neck + sp.head)), 0.21));
-  const head3 = [0, headS[1], headS[0]];
+  const B = headMatrix(sideHead, turnH, true);                            // head-local -> body
+  const head3 = [0, nbS[1] - Math.cos(tn) * M.neck.len, nbS[0] + Math.sin(tn) * M.neck.len]
+    .map((v, i) => v + B[i][0] * hO[0] + B[i][1] * hO[1] + B[i][2] * hO[2]);
   const tH = torsoAt(head3[1], 'arm');
   units.push({ depth: depthOf(head3), over: depthOf(head3) >= tH.c - tH.h, items: [headShape] });
   // tail: from the back of the pelvis, in the middle (X = 0)
@@ -453,7 +491,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // over past level).
   const tilt = sp.lean + sp.chest, ct = Math.cos(tilt * RAD);
   const hair = { at: nb, rot: front ? 0 : tilt, sy: front ? Math.sign(ct || 1) * Math.max(Math.abs(ct), 0.25) : 1 };
-  return { shapes: out, H, headRot, hair, joints: { near: limbs.near.joints, far: limbs.far.joints } };
+  return { shapes: out, H, headRot, headR, hair, joints: { near: limbs.near.joints, far: limbs.far.joints } };
 }
 
 const dpF = (v) => (Math.round(v * 1000) / 1000).toString();

@@ -69,6 +69,13 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Steps 3 and 4 finished (2026-11-06):** pose settings `spine.turn`
+  (head turn, any angle; `look` is its shortcut) and `leg.toe` (toe turn);
+  pose lab sliders "head turn", "toe turn". Feet blend front / side / sole
+  drawings by direction (old front-view foot rule gone). Head centre from
+  the `head` / `side-head` anchors (male side head 0.12 behind the neck
+  top); neck projected without a minimum length. Steps list in
+  `docs/remaining-rules.md` (1–5 done; 6 any view angle left).
 - **Head turn (step 4, merged 2026-11-06 from branch `head-turn`):** heads at any turn and tilt
   from the front and side face drawings: `tools/face-turn.mjs` (import:
   volumes lofted per row from the paired front/side elements, other

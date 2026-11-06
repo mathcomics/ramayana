@@ -31,8 +31,9 @@ export function normalizePose(p = {}) {
       shoulder: num(l.arm?.shoulder, 0), out: num(l.arm?.out, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0), twist: num(l.arm?.twist, 0),
       hand: HANDS.includes(l.arm?.hand) ? l.arm.hand : 'fist',
     },
-    leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0) },
+    leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0), toe: num(l.leg?.toe, 0) },
   });
+  const lookIn = ['front', 'left', 'right'].includes(p.look) ? p.look : (p.headView || p.view) === 'front' ? 'left' : 'front';
   return {
     name: p.name || 'untitled',
     view: p.view === 'front' ? 'front' : 'side',
@@ -47,6 +48,9 @@ export function normalizePose(p = {}) {
       chest: num(p.spine?.chest, 0),
       neck: num(p.spine?.neck, 0),
       head: num(p.spine?.head, 0),
+      // head turn about its own up axis (degrees, + toward the near side);
+      // without it, `look` gives 0 / 90 / -90
+      turn: num(p.spine?.turn, { front: 0, left: 90, right: -90 }[lookIn]),
     },
     near: limb(p.near),
     far: limb(p.far),
@@ -440,31 +444,14 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
   const side = normalizePose(poseIn);
   const front = view === 'front';
   const pose = front ? normalizePose(frontOf(S, side).pose) : side;
-  const { shapes, H, headRot, hair } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale);
-  // Which drawn face shows, from where the head looks (relative to the body)
-  // and the view. Side view (the near side is the body's left): front -> the
-  // side face, left (toward the viewer) -> the front face, right (away) ->
-  // the side face until a back of the head is drawn. Front view: front ->
-  // the front face, left -> the side face looking picture-right, right ->
-  // the side face mirrored, looking picture-left.
-  const L = side.look;
-  const face = front ? { view: L === 'front' ? 'front' : 'side', mirror: L === 'right' }
-    : { view: L === 'left' ? 'front' : 'side', mirror: false };
-  // Front view, front face: the head raised or lowered (as the viewer sees
-  // it: lean + chest + neck + head, folded past level) picks the base
-  // face's front-up / front-down version, from 25°.
-  if (front && face.view === 'front') {
-    const sp = side.spine;
-    let t = (((sp.lean + sp.chest + sp.neck + sp.head) % 360) + 540) % 360 - 180;
-    if (t > 90) t = 180 - t; else if (t < -90) t = -180 - t;
-    if (t >= 25) face.nod = 'down'; else if (t <= -25) face.nod = 'up';
-  }
-  // The head in 3D (faces with turn data, src/headturn.js): tilted in the
-  // side plane by lean + chest + neck + head, turned by where it looks
-  // (front 0, left 90 toward the near side, right -90). Replaces the face
-  // switch above, the up / down faces and the face turning over.
-  const sp0 = side.spine;
-  face.R = headMatrix(sp0.lean + sp0.chest + sp0.neck + sp0.head, { front: 0, left: 90, right: -90 }[L] ?? 0, front);
+  const { shapes, H, headRot, headR, hair } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale);
+  // The head is drawn turned in 3D (src/headturn.js) by headR from
+  // buildParts. Which face drawing's body hair and defs go with it: the
+  // drawing the camera sees more of (front view: the front drawing while
+  // the head turns less than 45°; side view: the side drawing).
+  const tr = side.spine.turn * Math.PI / 180;
+  const sideish = Math.abs(Math.sin(tr)) > Math.abs(Math.cos(tr));
+  const face = { view: front !== sideish ? 'front' : 'side', mirror: front && sideish && Math.sin(tr) < 0, R: headR };
   const bb = bbox(shapes.map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];

@@ -13,7 +13,7 @@ test('normalizePose fills defaults and rejects bad values', () => {
   assert.equal(p.mouth, 2);
   assert.equal(p.near.arm.hand, 'fist');
   assert.equal(p.near.arm.shoulder, 0);
-  assert.deepEqual(p.spine, { lean: 0, chest: 0, neck: 0, head: 0 });
+  assert.deepEqual(p.spine, { lean: 0, chest: 0, neck: 0, head: 0, turn: 0 });
   assert.equal(normalizePose({ view: 'front' }).headView, 'front');
   assert.equal(normalizePose({ near: { arm: { hand: 'point' } } }).near.arm.hand, 'point');
 });

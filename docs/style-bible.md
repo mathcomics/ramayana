@@ -254,6 +254,9 @@ male 0.88, female 0.74.
 - Pose = joint angles relative to parent + facing (left/right) +
   view (side/front) + hand per arm. A pose says nothing about where the
   figure sits in a panel (height, ground colour): that is scene layout.
+- **Toe turn** (`leg.toe`, degrees, + toes out away from the body;
+  2026-11-06): turns the foot about the vertical; the foot shows the
+  blend of its front, side and sole drawings that fits where it points.
 - The ankle is the exception: it sets the foot's angle from the ground,
   not from the shin (0 = flat, toes forward in side view, toward the
   viewer in front view (2026-11-06); + lifts the toes). A foot stays flat
@@ -299,7 +302,9 @@ male 0.88, female 0.74.
 
 - **Where the head looks is relative to the body** (2026-11-06): `look` is
   `front` (the way the body faces), `left` (toward the near side) or
-  `right` (toward the far side): a head turn of 0°, 90° or −90°. Side
+  `right` (toward the far side): a head turn of 0°, 90° or −90°. Any angle
+  is `spine.turn` (degrees, + toward the near side; 2026-11-06), with
+  `look` as its shortcut. Side
   view: front = side face, left = front face (toward the viewer), right =
   the back of the head. Front view: front = front face, left = side face
   looking picture-right, right = side face looking picture-left. So a pose
