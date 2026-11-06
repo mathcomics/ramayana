@@ -84,6 +84,9 @@ renderer or panel changes.
   dots meet cycles them; the solved arm of a two-handed grip has none.
   `renderFigure` / `buildShapes` return `joints` (figure frame: limbs
   sh/E/Wr/grip/hp/Kn/A, spine pelvis/waist/neck/head/H).
+  Sliders for dragged angles removed (panels keep head turn, tail, wrist
+  turn, hand, toe turn, prop); ranges in `RANGES`. "Joints" toggle on the
+  stage hides the dots (remembered per browser).
 - **Right / left and head turn in degrees (2026-11-06):** poses name limbs
   `right` / `left` (the character's own; right = the side view's near
   side; `normalizePose` still reads near / far and maps them; the renderer

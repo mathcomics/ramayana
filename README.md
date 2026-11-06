@@ -131,7 +131,7 @@ The full rules, with the reasoning behind each, are in
 A phone-friendly page for tuning poses with sliders, or on the figures
 themselves: every joint shows a dot; tap one and drag the knob on its ring
 to turn it (side view: the angles in the paper; front view: shoulder and
-hip `out`). The angle shows only while turning. A character menu shows the
+hip `out`). The angle shows only while turning. A "Joints" toggle hides the dots. A character menu shows the
 pose on any member of the cast; it changes only the view, never the saved
 pose.
 It is published as a claude.ai artifact (private to the owner):

@@ -58,6 +58,10 @@ h1 { font-family: var(--font-display); font-size: 1.15rem; margin: 0; letter-spa
   height: min(40vh, 330px);
 }
 .paper { border-radius: 6px; overflow: hidden; position: relative; min-width: 0; }
+.canvas { position: relative; }
+.jtoggle { position: absolute; left: 8px; top: 8px; z-index: 2; font: inherit; font-size: 11.5px; font-weight: 600;
+  padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer; opacity: 0.85; }
+.jtoggle[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .paper svg { display: block; width: 100%; height: 100%; }
 #big { touch-action: none; }
 #big .jdot { cursor: pointer; }
@@ -175,6 +179,7 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
     </div>
     <div class="canvas pose-only">
       <div class="paper" id="big"></div>
+      <button type="button" class="jtoggle" id="jtoggle" aria-pressed="true" title="Show or hide the joint handles">Joints</button>
       <div class="gallery" id="gallery" role="listbox" aria-label="Poses"></div>
     </div>
     <div class="posebar pose-only">
@@ -227,17 +232,19 @@ const STARTERS = /*__POSES__*/;
   const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
   const look = () => { const c = charById(state.character); return characterLook(c, CAST.palette, FACES, c.cloth); };
 
+  // Joint angles are set by dragging on the figures (handles below); their
+  // ranges live here. The panels keep only what has no handle.
+  const RANGES = {
+    'spine.lean': [-60, 180], 'spine.chest': [-60, 100], 'spine.neck': [-60, 90], 'spine.head': [-90, 90],
+    'arm.shoulder': [-90, 230], 'arm.out': [-90, 90], 'arm.elbow': [0, 160], 'arm.wrist': [-90, 90],
+    'leg.hip': [-90, 150], 'leg.out': [-90, 90], 'leg.knee': [0, 160], 'leg.ankle': [-180, 180],
+  };
   const SLIDERS = [
     { key: 'spine', title: 'Body & tail', rows: [
-      ['spine.lean', 'lean', -60, 180], ['spine.chest', 'chest', -60, 100],
-      ['spine.neck', 'neck', -60, 90], ['spine.head', 'head', -90, 90], ['spine.turn', 'head turn', -90, 90],
+      ['spine.turn', 'head turn', -90, 90],
       ['tail.lift', 'tail lift', -90, 120], ['tail.curl', 'tail curl', -60, 300], ['tail.turn', 'tail turn', -90, 90]] },
-    { key: 'near', title: 'Right arm & leg', rows: [
-      ['near.arm.shoulder', 'shoulder', -90, 230], ['near.arm.out', 'shoulder out', -90, 90], ['near.arm.elbow', 'elbow', 0, 160], ['near.arm.wrist', 'wrist', -90, 90], ['near.arm.twist', 'wrist turn', -180, 180],
-      ['near.leg.hip', 'hip', -90, 150], ['near.leg.out', 'hip out', -90, 90], ['near.leg.knee', 'knee', 0, 160], ['near.leg.ankle', 'ankle', -180, 180], ['near.leg.toe', 'toe turn', -90, 90]] },
-    { key: 'far', title: 'Left arm & leg', rows: [
-      ['far.arm.shoulder', 'shoulder', -90, 230], ['far.arm.out', 'shoulder out', -90, 90], ['far.arm.elbow', 'elbow', 0, 160], ['far.arm.wrist', 'wrist', -90, 90], ['far.arm.twist', 'wrist turn', -180, 180],
-      ['far.leg.hip', 'hip', -90, 150], ['far.leg.out', 'hip out', -90, 90], ['far.leg.knee', 'knee', 0, 160], ['far.leg.ankle', 'ankle', -180, 180], ['far.leg.toe', 'toe turn', -90, 90]] },
+    { key: 'near', title: 'Right arm & leg', rows: [['near.arm.twist', 'wrist turn', -180, 180], ['near.leg.toe', 'toe turn', -90, 90]] },
+    { key: 'far', title: 'Left arm & leg', rows: [['far.arm.twist', 'wrist turn', -180, 180], ['far.leg.toe', 'toe turn', -90, 90]] },
     // one held prop at a time, in the hand chosen in this panel; `prop.` paths
     // resolve to that arm's prop
     { key: 'prop', title: 'Prop', rows: [['prop.angle', 'angle', -180, 180], ['prop.out', 'out', -90, 90]] },
@@ -311,7 +318,7 @@ const STARTERS = /*__POSES__*/;
   const SIDE_NAME = { near: 'right', far: 'left' };
   const ang = (a, b) => Math.atan2(b[0] - a[0], b[1] - a[1]) * 180 / Math.PI;   // 0 = down, 90 = picture-right (figure frame)
   const wrapA = (v) => ((v + 540) % 360) - 180;
-  const rangeOf = (path) => { for (const g of SLIDERS) for (const r of g.rows) if (r[0] === path) return [r[2], r[3]]; return [-180, 180]; };
+  const rangeOf = (path) => RANGES[path] || RANGES[path.replace(/^(near|far)\./, '')] || [-180, 180];
   function controls(view) {
     const out = [], P = state.pose;
     const solved = (sd) => ['near', 'far'].some((h) => h !== sd && P[h].arm.prop?.grip === 'both');   // arm moved by a two-handed grip
@@ -339,7 +346,7 @@ const STARTERS = /*__POSES__*/;
   const toPic = (view, q) => { const o = state.off?.[view] || [0, 0]; return [VIEWX[view] + state.facing * q[0] + o[0], q[1] + o[1]]; };
   const dirPic = (a) => [state.facing * Math.sin(a * Math.PI / 180), Math.cos(a * Math.PI / 180)];
   function handlesSvg() {
-    if (!state.J) return '';
+    if (!state.J || !state.showJ) return '';
     let s = '<g class="handles">';
     const seen = [];
     for (const view of ['side', 'front']) for (const c of controls(view)) {
@@ -394,10 +401,18 @@ const STARTERS = /*__POSES__*/;
     const el = $('s-' + c.path.replace(/\./g, '-'));
     if (el) { el.value = get(state.pose, c.path); el.closest('.row')._sync(); }
   }
+  try { state.showJ = localStorage.getItem('poselab-joints') !== 'off'; } catch { state.showJ = true; }
+  $('jtoggle').setAttribute('aria-pressed', String(state.showJ));
+  $('jtoggle').addEventListener('click', () => {
+    state.showJ = !state.showJ; if (!state.showJ) state.sel = null;
+    $('jtoggle').setAttribute('aria-pressed', String(state.showJ));
+    try { localStorage.setItem('poselab-joints', state.showJ ? 'on' : 'off'); } catch {}
+    draw();
+  });
   {
     const big = $('big');
     big.addEventListener('pointerdown', (e) => {
-      const m = picPoint(e); if (!m || !state.J) return;
+      const m = picPoint(e); if (!m || !state.J || !state.showJ) return;
       const sel = state.sel;
       if (sel) {
         const p = toPic(sel.view, sel.piv(state.J[sel.view])), r = Math.hypot(m[0] - p[0], m[1] - p[1]);
@@ -466,7 +481,7 @@ const STARTERS = /*__POSES__*/;
           input.value = v; out.textContent = step < 1 ? Number(v).toFixed(2) : v + '°';
         };
         fs.appendChild(row);
-        if (path.endsWith('.arm.wrist')) {
+        if (path.endsWith('.arm.twist')) {
           const hr = document.createElement('div'); hr.className = 'handrow';
           hr.innerHTML = `<span>hand</span><div class="seg" id="hand-${g.key}"></div>`;
           fs.appendChild(hr);
