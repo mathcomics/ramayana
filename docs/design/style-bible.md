@@ -28,12 +28,17 @@ from its silhouette alone.
   parameter.
 - Edges: slightly irregular; a torn or wavy paper edge is allowed as a panel
   treatment.
-- No gradients, no shading, no outlines around filled shapes (a faint
-  pencil-like halo is optional texture, not structure).
+- No gradients, no outlines around filled shapes (a faint pencil-like halo
+  is optional texture, not structure). The only shading is the flat
+  two-tone of §4.
 
 ## 4. Stroke and fill
 
 - Bodies are **solid fills**. Overlapping parts merge into one silhouette.
+- **Two tones:** the far leg (thigh and its cloth, shin, foot) and the
+  torso (bare skin or a full top) are filled 5% darker than the body or
+  cloth colour, so the near leg, the arms and the head stand out against
+  them. Faces, hands, arms, neck and props keep their colours.
 - Limbs are tapered: thicker at the body, thinner at hands and feet.
 - Joints are rounded, never sharp elbows of geometry.
 - **Straight against curve** (all species; simplified from Michael Mattesi's

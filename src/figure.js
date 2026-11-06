@@ -518,6 +518,16 @@ function patternDef(id, kind, ink) {
 // The other options are a character look (see characterLook): colors,
 // outfit, pattern, face, bodyScale (torso and legs; drawn parts only),
 // who (character id: its own held weapons, data/props/held/).
+// Shading (style bible §4): the far leg (thigh with its cloth, shin, foot)
+// and the torso (bare skin or a full top) are 5% darker than the body or
+// cloth colour, so they separate from the near leg, the arms and the head.
+const SHADED = /^(far-(thigh|shin|foot)|torso)$/, SHADE = 0.95;
+function shade(c, k) {
+  const m = /^#([0-9a-f]{6})$/i.exec(c || '');
+  if (!m) return c;
+  const n = parseInt(m[1], 16);
+  return '#' + [16, 8, 0].map((b) => Math.round(((n >> b) & 255) * k).toString(16).padStart(2, '0')).join('');
+}
 let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
@@ -546,6 +556,8 @@ export function renderFigure(species, pose, opts = {}) {
   if (turned) svg += turnPart('back');                 // behind the whole body
   else if (drawn?.back) svg += place(drawn.back);
   let headDone = false;
+  // the far leg and the torso (skin or cloth) a shade darker than the rest
+  const fill = (s, c) => (SHADED.test(s.part || '') ? shade(c, SHADE) : c);
   for (const s of shapes) {
     if (s.hairBody) {                                   // the face's body hair, moved with the upper body
       if (drawn?.hairBody && hairAnchor) {
@@ -567,21 +579,22 @@ export function renderFigure(species, pose, opts = {}) {
     }
     if (s.role === 'body') {
       if (!inBody) { svg += `<g fill="${colors.body}">`; inBody = true; }
-      svg += `<path d="${s.d ?? pathD(s.pts)}"/>`;
+      const f = fill(s, colors.body);
+      svg += `<path d="${s.d ?? pathD(s.pts)}"${f !== colors.body ? ` fill="${f}"` : ''}/>`;
       continue;
     }
     if (inBody) { svg += '</g>'; inBody = false; }
     if (s.parts) {
       const id = `${clipId}c${shapes.indexOf(s)}`;
       svg += `<clipPath id="${id}"><path d="${pathD(s.clipPts)}"/></clipPath>` +
-        `<g fill="${colors[s.role]}" clip-path="url(#${id})">${s.parts.map((p) => `<path d="${pathD(p)}"/>`).join('')}</g>`;
+        `<g fill="${fill(s, colors[s.role])}" clip-path="url(#${id})">${s.parts.map((p) => `<path d="${pathD(p)}"/>`).join('')}</g>`;
     } else if (s.top && opts.pattern && CLOTH_PATTERNS.includes(opts.pattern)) {
       // patterned top: the cloth colour, then the pattern over it
       const id = `${clipId}p${shapes.indexOf(s)}`, d = s.d ?? pathD(s.pts);
       svg += `<defs>${patternDef(id, opts.pattern, '#000000')}</defs>` +
-        `<path d="${d}" fill="${colors.cloth}"/><path d="${d}" fill="url(#${id})"/>`;
+        `<path d="${d}" fill="${fill(s, colors.cloth)}"/><path d="${d}" fill="url(#${id})"/>`;
     } else {
-      svg += `<path d="${s.d ?? pathD(s.pts)}" fill="${colors[s.role]}"/>`;
+      svg += `<path d="${s.d ?? pathD(s.pts)}" fill="${s.role === 'prop' ? colors.prop : fill(s, colors[s.role])}"/>`;
     }
   }
   if (inBody) svg += '</g>';
