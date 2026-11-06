@@ -78,7 +78,10 @@ renderer or panel changes.
   change; `tools/split-faces.mjs` was the one-time split; merge-faces
   removed. Front view picks up/down at ±25° head tilt. Face sheet fixed
   (front view, body scale). The five female copies (kaikeyi, raxas_f1,
-  queen1, queen2, surpanakha) are now copies of the new sita (hair-body).
+  queen1, queen2, surpanakha) were copies of sita. Artist's new sita,
+  queen1, raxas_f1 (2026-11-06; front/side hair with matching node counts
+  for later blending); kaikeyi and queen2 = copies of the new sita;
+  surpanakha still the previous sita.
   Face guides show torso and neck only.
 - **Hands shared (2026-11-06):** `data/parts/hands.svg` (fist/out/in/point,
   front/side/end, male size); body files have one guide `hand` (the "in"

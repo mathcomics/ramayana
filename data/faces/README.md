@@ -67,6 +67,18 @@ level parts follow the base's anchors).
 
 Draw order of a face: `under`, base skin, eyes, `over`, mouth.
 
+### Matching front and side shapes (for blending later)
+
+Where a hair shape is drawn in both views, give the front and side
+versions the same number of nodes, so a head turn can later blend one
+into the other (step 4). In sita, queen1 and raxas_f1 (2026-11-06): the
+front `back` hair pairs with the side `over` hair, and the front
+`hair-body` with the side `hair-body`; the two topmost nodes of a front
+shape correspond to the two rightmost nodes of its side partner.
+
+Save as **Inkscape SVG**: a plain SVG drops the layer names, and the
+importer needs them.
+
 ## Coordinates
 
 Head-units: the head centre is (0, 0), y points down, the head spans about
