@@ -1448,29 +1448,29 @@
       "name": "stand-sword-behind-head",
       "mouth": 3,
       "spine": {
-        "lean": -2,
-        "chest": -8,
-        "neck": 8,
-        "head": -6
+        "lean": 0,
+        "chest": -4,
+        "neck": 6,
+        "head": -4
       },
       "right": {
         "arm": {
           "shoulder": 165,
-          "elbow": 105,
+          "elbow": 60,
           "hand": "fist",
           "wrist": 0,
-          "out": 12,
+          "out": -12,
           "prop": {
             "kind": "sword",
-            "angle": 30,
+            "angle": 45,
             "grip": "both"
           }
         },
         "leg": {
-          "hip": 35,
-          "knee": 25,
+          "hip": 42,
+          "knee": 40,
           "ankle": 0,
-          "out": 8
+          "out": 12
         }
       },
       "left": {
@@ -1482,10 +1482,10 @@
           "out": 10
         },
         "leg": {
-          "hip": -25,
-          "knee": 12,
-          "ankle": -10,
-          "out": 8
+          "hip": -38,
+          "knee": 0,
+          "ankle": -5,
+          "out": 12
         }
       },
       "tail": {

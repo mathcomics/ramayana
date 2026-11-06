@@ -233,7 +233,7 @@
       "like": ["stand-throw", "stand-sword-overhead"]
     },
     "stand-sword-behind-head": {
-      "desc": "weight back, both hands behind the head, sword hanging back over the shoulders ready to swing (also a club)",
+      "desc": "wide stance, front knee bent, both hands above the head, sword held level over it pointing back (high guard; also a club)",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["strike", "threaten"],
       "like": ["stand-sword-back", "stand-sword-overhead"]
