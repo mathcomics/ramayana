@@ -5,9 +5,56 @@
      "line" (not drawn): straight, from the grip (start) to the far end of
      the head (end). It is held like a sword and uses the sword poses; its
      length is the line's length: 100 px = 1 head-unit. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="200" height="400" viewBox="-100 -260 200 400">
-  <g inkscape:groupmode="layer" inkscape:label="base">
-    <path inkscape:label="club" d="M -4 30 L -4 -110 C -16 -130 -20 -170 -14 -200 C -10 -214 10 -214 14 -200 C 20 -170 16 -130 4 -110 L 4 30 Z" style="fill:#241f1c"/>
-    <path inkscape:label="line" d="M 0 0 L 0 -210" fill="none" stroke="#d02020" stroke-width="1"/>
+
+<svg
+   width="200"
+   height="400"
+   viewBox="-100 -260 200 400"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="club.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="3.337544"
+     inkscape:cx="-20.823695"
+     inkscape:cy="130.48517"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g6" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="base"
+     id="g6">
+    <path
+       inkscape:label="club"
+       d="m -4,30 -4,-154 c -40.197321,-12.70767 -36.914482,-82.97369 8.04649804,-79.28376 C 45.981829,-204.34429 45.663839,-127.9089 8,-124 L 4,30 Z"
+       style="fill:#483737"
+       id="path2"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       inkscape:label="line"
+       d="M 0 0 L 0 -210"
+       fill="none"
+       stroke="#d02020"
+       stroke-width="1"
+       id="path4" />
   </g>
 </svg>

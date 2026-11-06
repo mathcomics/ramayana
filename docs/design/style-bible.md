@@ -345,15 +345,17 @@ alphabetically.
 
 - **Held props** are part of the pose (`arm.prop`): a sword or a bow in a
   hand, laid along a straight reference line through the grip that turns
-  with the hand. Drawn in near-black, flat, no outline:
+  with the hand. Flat, no outline, in the colours drawn:
   - the weapon's shape is the artist's drawing (`data/props/held/
     <kind>.svg`, layer `base`, or a character's own layer), laid along
     the pose's line by the line drawn with it: its ends fix where the
     drawing goes and its length is the weapon's, so a weapon's style
     changes without touching a pose;
-  - sword: a straight blade (about 2.1 head-units from the grip to the
-    point), a short crossguard and a hilt behind the grip;
-  - club: on the sword line, a handle swelling into a heavy head;
+  - sword: a slightly curved dark blade (about 2.1 head-units from the
+    grip to the point), a short red crossguard and a red hilt behind the
+    grip;
+  - club: a thin handle and a round heavy head (about 2.1 head-units from
+    the grip to the end of the head), dark brown;
   - bow: a plain arch (about 5.8 head-units tip to tip, taller than the
     figure's head-to-knee) through the grip, its belly away from the
     body, with a thin straight string; when drawn (`draw`), the string

@@ -7,11 +7,67 @@
      (end). The pose places this line in the hand; its length is the sword's
      length, so draw at size: 100 px = 1 head-unit (base: 2.1 beyond the grip).
      A two-handed grip puts the other hand 0.42 below the grip. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="200" height="400" viewBox="-100 -260 200 400">
-  <g inkscape:groupmode="layer" inkscape:label="base">
-    <path inkscape:label="blade" d="M -3.5 -12 L -3 -192 L 0 -210 L 3 -192 L 3.5 -12 Z" style="fill:#241f1c"/>
-    <path inkscape:label="guard" d="M -17 -15 L 17 -15 L 17 -9 L -17 -9 Z" style="fill:#241f1c"/>
-    <path inkscape:label="hilt" d="M -3 -12 L 3 -12 L 3 32 L -3 32 Z" style="fill:#241f1c"/>
-    <path inkscape:label="line" d="M 0 0 L 0 -210" fill="none" stroke="#d02020" stroke-width="1"/>
+
+<svg
+   width="200"
+   height="400"
+   viewBox="-100 -260 200 400"
+   version="1.1"
+   id="svg465"
+   sodipodi:docname="sword.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs469" />
+  <sodipodi:namedview
+     id="namedview467"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.72"
+     inkscape:cx="76.165254"
+     inkscape:cy="168.96186"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g463" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="base"
+     id="g463">
+    <path
+       inkscape:label="blade"
+       d="M -3.5,-12 C 2.4766464,-76.800621 4.2077062,-142.38746 -5,-210 H 7 c 5.116103,67.4959 3.239459,133.326855 -3.5,198 z"
+       style="fill:#241f1c"
+       id="path455"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:label="guard"
+       d="M -17 -15 L 17 -15 L 17 -9 L -17 -9 Z"
+       style="fill:#a02c2c"
+       id="path457" />
+    <path
+       inkscape:label="hilt"
+       d="M -3,-12 H 3 C 8.3163445,2.6666667 7.8486908,17.333333 3,32 H -3 C -7.7378167,16.497248 -7.8663505,1.8078989 -3,-12 Z"
+       style="fill:#a02c2c"
+       id="path459"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:label="line"
+       d="M 0 0 L 0 -210"
+       fill="none"
+       stroke="#d02020"
+       stroke-width="1"
+       id="path461" />
   </g>
 </svg>
