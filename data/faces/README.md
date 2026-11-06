@@ -48,7 +48,7 @@ In each of the `front` and `side` layers:
 |---|---|
 | `head` | The face: skin, eyes, ears, mouth, crown, beard, earrings… Turns with the head. |
 | `back` | Optional. Hair behind the head: turns with the head, drawn behind the whole body. |
-| `hair-body` | Optional. Long hair on the back and shoulders: moves with the upper body, pinned at the `nape` anchor and turned with the chest; the front view sees its up-down part, like the torso. Drawn just behind the torso. |
+| `hair-body` | Optional. Long hair on the back and shoulders: moves with the upper body, pinned at the `nape` anchor and turned with the chest; the front view sees its up-down part, like the torso. Drawn just behind the torso in the front view and just over it in the side view (under the head and the near arm). |
 | `anchors` | `nape`: a small circle where the body hair joins the body. The templates put it at the neck base; move it only if the hair starts elsewhere. Needed when there is a `hair-body` layer. |
 | `mouth-1`, `mouth-2`, `mouth-3` | Optional. The pose's mouth size (1 small … 3 wide) picks one. If absent, the mouth drawn in `head` is used for every size. |
 

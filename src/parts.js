@@ -448,10 +448,14 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   }
   const byDepth = (a, b) => a.depth - b.depth;
   for (const u of units.filter((u) => !u.over).sort(byDepth)) out.push(...u.items);
-  // body hair (a face's hair-body layer: long hair on the back) sits on
-  // the back, just behind the torso
-  out.push({ hairBody: true, part: 'hair-body', pts: [] });
+  // Body hair (a face's hair-body layer: long hair on the back). Not depth
+  // sorted: it lies on the torso. Front view: on the back, so just behind
+  // the torso. Side view: over the torso (it covers the back edge), under
+  // the head and everything in front of the torso.
+  const hairBody = { hairBody: true, part: 'hair-body', pts: [] };
+  if (front) out.push(hairBody);
   pushTorso();
+  if (!front) out.push(hairBody);
   for (const u of units.filter((u) => u.over).sort(byDepth)) out.push(...u.items);
   for (const s of out) if (s.segs) { s.pts = dpFlat(s.segs); }
   // Where body hair hangs from (the neck base) and how it turns: with the
