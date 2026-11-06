@@ -45,12 +45,12 @@ front of the torso there. Its thresholds:
 | A torso tipped toward the viewer is spread evenly top to bottom by its thickness | torso (front view) | A true outline of the tipped body (slices as ellipses), only if the even spread looks wrong |
 | The torso shape stays between the drawings: an arch back (chest < 0) keeps the straight torso, a bend past the deepest drawn one keeps that one; the chest angle still turns the arms, neck and head | torso | An arch-back torso drawing, to let the shape arch |
 | The deepest front-bend drawing is the thinnest the front torso gets: a shorter projection is stretched about the pelvis (joints with it) to its height | torso (front view) | None: a decision (2026-11-06) |
-| The top of the thigh (above the hip) folds into the body: shortened by cos(angle between thigh and body), flat at 90° and beyond. Upper arms have no such rule | thigh | None needed; replaces the earlier skinning of the top 0.12 head-units, which folded the near thigh at large angles (kneel) |
+| The top of the thigh (above the hip) folds into the body: shortened by cos(angle between thigh and body), flat at 90° and beyond; side view only (front view: no folding). Upper arms have no such rule | thigh | None needed; replaces the earlier skinning of the top 0.12 head-units, which folded the near thigh at large angles (kneel) |
 
 ## Style choices
 
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
-| A limb seen end-on keeps about its own width in length (0.8 × width) | arms, legs | None: remove if strict projection is preferred |
+| A limb seen end-on keeps about its own width in length (0.8 × width); the extra length goes back over its upper joint, so it still ends at its lower joint | arms, legs | None: remove if strict projection is preferred |
 | Side view: the far shoulder has its own anchor, set slightly back | arms (side view) | None: a convention for a slight three-quarter look |
 | The tail's shape is generated (length, taper, lift, curl) in its own plane, turned by `tail.turn` (default 35°); each view is a projection | tail (monkey) | A drawn tail part with its own anchors |

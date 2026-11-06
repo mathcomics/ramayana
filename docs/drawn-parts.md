@@ -81,7 +81,11 @@ move the legs.
   thigh turns away from it: shortened by cos(angle between them), flat at
   90° and beyond, so it stays inside the buttocks when the body leans.
   (Turning it with the body, as before 2026-11-06, folded the near thigh
-  in kneel.) Upper arms are placed as drawn.
+  in kneel.) Side view only: in front the thigh keeps its round top. Upper
+  arms are placed as drawn.
+- A limb seen end-on keeps at least 0.8 × its width in length; the extra
+  goes back over its upper joint, so it still ends where the next part
+  starts (a thigh toward the viewer ends at the knee).
 - Draw order by depth: each limb (and the head and tail) gets a depth
   toward the viewer from the 3D pose (front view: forward; side view:
   sideways) and is drawn far to near, as a unit (shin behind thigh); it

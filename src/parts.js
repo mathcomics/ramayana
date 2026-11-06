@@ -236,7 +236,9 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     // folds into the body: shortened by cos(angle between them), flat at
     // 90° and beyond. (Turning the cap with the body folded or twisted the
     // outline at large angles.)
-    const k = Math.max(0, Math.cos((bodyAng - ang) * RAD));
+    // Front view: no folding (the projected angle is not the angle at the
+    // hip; a thigh toward the viewer keeps its round top over the hip).
+    const k = bodyAng == null ? 1 : Math.max(0, Math.cos((bodyAng - ang) * RAD));
     return dpMap(segs, (p) => {
       const q = rot([p[0], p[1] < 0 ? p[1] * k : p[1] * f], -ang);
       return add(at, [m * q[0], q[1]]);
@@ -324,7 +326,10 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     // a limb seen end-on keeps at least about its own width in length (it
     // reads as the limb's round end, not a sliver)
     // (only the drawn part; the joints stay where the projection puts them)
-    const pj = (L, theta, o) => { const r = dpProject(theta, o, front); r.draw = Math.max(r.f, dpMinF(L)); return r; };
+    // The extra length goes back over the upper joint, so the limb still
+    // ends at its lower joint (where the next part starts).
+    const pj = (L, theta, o) => { const r = dpProject(theta, o, front); r.draw = Math.max(r.f, dpMinF(L)); r.back = (r.draw - r.f) * L.len; return r; };
+    const from = (at, r) => add(at, mul(dirM(r.ang), -r.back));
     const U = pj(M.upperArm, su, a.out), Lo = pj(M.forearm, sl, a.out);
     const Th = pj(M.thigh, st, l.out), Sh = pj(M.shin, ss, l.out);
     // The limb in 3D (X sideways, + toward the near side; Y down; Z
@@ -361,18 +366,18 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist };
     limbs[s] = { joints: { sh, E, Wr, hp, Kn, A },
       arm: [
-        ['upper-arm', place(dpTurn(M.upperArm, turn), sh, U.ang, m, U.draw), dU],
-        ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.draw), dL],
+        ['upper-arm', place(dpTurn(M.upperArm, turn), from(sh, U), U.ang, m, U.draw), dU],
+        ['forearm', place(dpTurn(M.forearm, turn), from(E, Lo), Lo.ang, m, Lo.draw), dL],
         // the pointing finger always goes on the side toward the body (the
         // drawn point hand has it outside, so it is mirrored across the forearm)
         ['hand', a.hand === 'point' ? place(dpMap(dpTurn(hands, turn), (p) => [-p[0], p[1]]), Wr, th, m) : place(dpTurn(hands, turn), Wr, th, m), dH],
       ],
       // the shin goes behind the thigh (drawn first), in every view
       leg: [
-        ['shin', place(dpTurn(M.shin, turn), Kn, Sh.ang, m, Sh.draw), dS],
+        ['shin', place(dpTurn(M.shin, turn), from(Kn, Sh), Sh.ang, m, Sh.draw), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
         ['foot', dpMap(foot, (p) => { const q = rot(p, -ankle); return add(A, [m * q[0], q[1]]); }), dF],
-        ['thigh', placeCap(dpTurn(M.thigh, turn), hp, Th.ang, m, Th.draw, front ? 0 : -sp.lean), dT],
+        ['thigh', placeCap(dpTurn(M.thigh, turn), from(hp, Th), Th.ang, m, Th.draw, front ? null : -sp.lean), dT],
       ],
     };
   }
