@@ -9,6 +9,28 @@ This list is what is still decided by a rule in `src/parts.js` /
 each rule can go. Updated 2026-11-06. Problems seen in the poses
 themselves: `docs/problem-poses.md`.
 
+## Steps
+
+The tables below refer to these steps (written down 2026-11-06; the
+numbers were used before the list existed):
+
+1. Out of the paper: `out` on the shoulder and hip, front view as a
+   projection. Done.
+2. Draw order by depth. Done 2026-11-05.
+3. Feet by toe direction: the `toe` / `side-toe` anchors give each foot's
+   heel-to-toe line; a toe-turn pose setting; replaces the front-view foot
+   turn.
+4. Head turn and tilt as angles in the pose, read from the `head` /
+   `side-head` anchors; a back-of-head layer and a three-quarter face in
+   the face files; replaces the `look` switch, the face flip and the
+   front-view neck rule.
+5. Wrist turn and end-on parts: a wrist-turn pose setting; the `end`
+   layers (limbs, sole, hands) imported and blended with front / side by
+   each part's own 3D direction; replaces the view-picked shapes, the
+   0.8 × width end-on patch, the thigh fold and the mirrored point hand.
+6. Any view angle: the same blend with a camera turned between front
+   and side (not only 0° or 90°).
+
 ## To be replaced
 
 | Rule | Affected part | Blocker before it can be removed |
