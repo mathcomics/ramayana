@@ -1,6 +1,6 @@
-# Warli-inspired Ramayana
+# Ramayana
 
-The Ramayana told as illustrated panels in the artist's own Warli-inspired
+The Ramayana told as illustrated panels in the artist's own
 style: flat figures with filled silhouettes, thick tapered limbs, and
 gesture that carries the story. It is delivered as a smartphone (portrait)
 webapp.
@@ -152,7 +152,7 @@ https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
 
 - Every visual change needs three things: a render you have looked at, a
   matching rule in `docs/style-bible.md`, and a commit to `main`.
-- Never trace or copy third-party Warli material. Derive the primitives
+- Never trace or copy third-party reference material. Derive the primitives
   from the style bible and the artist's own work.
 - `CLAUDE.md` holds the current status and next steps for AI-assisted
   sessions.

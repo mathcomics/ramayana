@@ -42,5 +42,5 @@ sections.forEach((sec, si) => {
     (next ? `<a class="next" href="${next.name}.html">${next.title} →</a>` : '')));
   links.push(`<a href="${sec.name}.html">${sec.title} <span class="muted">· ${sec.panels.length} panels</span></a>`);
 });
-writeFileSync(join(out, 'index.html'), page('Ramayana', `<header><h1>Ramayana</h1><div class="muted">Warli-inspired panels</div></header><nav>${links.join('')}</nav>`));
+writeFileSync(join(out, 'index.html'), page('Ramayana', `<header><h1>Ramayana</h1><div class="muted">illustrated panels</div></header><nav>${links.join('')}</nav>`));
 console.log(`_site/: ${sections.length} section(s)`);

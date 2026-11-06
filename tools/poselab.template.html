@@ -1,4 +1,4 @@
-<title>Warli Pose Lab</title>
+<title>Pose Lab</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap">
@@ -162,6 +162,7 @@ pre {
         <label class="sr" for="name">Pose name</label>
         <input type="text" id="name" autocomplete="off" spellcheck="false" placeholder="pose name">
         <button class="btn" id="saveBtn" type="button">Save</button>
+        <button class="btn" id="revertBtn" type="button" title="Drop your edits and go back to this pose as last saved" disabled>Revert</button>
       </div>
       <label class="sr" for="character">Character</label>
       <select id="character" class="charsel" title="Character (view only)"></select>
@@ -182,7 +183,7 @@ pre {
 
   <section class="save" aria-label="Pose data">
     <div class="bar">
-      <p class="hint" style="flex:1 1 240px">Pick a pose in the gallery to edit it. Poses are edited in side view; the front view next to it is derived from the side pose. Save keeps your changes under the name in the box; type a new name to save a new pose. Poses are kept with this page, so Claude can read them and add them to the repo.</p>
+      <p class="hint" style="flex:1 1 240px">Pick a pose in the gallery to edit it. Poses are edited in side view; the front view next to it is derived from the side pose. Save keeps your changes under the name in the box; type a new name to save a new pose. Revert drops your edits and goes back to the pose as last saved (the character stays). Poses are kept with this page, so Claude can read them and add them to the repo.</p>
       <button class="btn ghost" id="copyBtn" type="button">Copy JSON</button>
     </div>
     <pre id="json" aria-label="Pose JSON"></pre>
@@ -331,6 +332,7 @@ const STARTERS = /*__POSES__*/;
   function markDirty() {
     if (state.dirty) return;
     state.dirty = true;
+    $('revertBtn').disabled = false;
     if (db) setStatus(`Unsaved changes to “${state.pose.name}”.`);
   }
   function setStatus(t) { $('status').textContent = t; }
@@ -338,6 +340,7 @@ const STARTERS = /*__POSES__*/;
   function load(p) {
     state.pose = normalizePose(clone(p));
     state.dirty = false;
+    $('revertBtn').disabled = true;
     $('name').value = state.pose.name;
     syncControls(); draw(); updateSaveLabel(); markSelected();
   }
@@ -443,7 +446,7 @@ const STARTERS = /*__POSES__*/;
     btn.disabled = true;
     try {
       await db.collection('poses').doc(slug(name)).set({ pose, savedAt: new Date().toISOString() });
-      state.pose.name = name; state.dirty = false;
+      state.pose.name = name; state.dirty = false; $('revertBtn').disabled = true;
       setStatus(`Saved “${name}”.`);
       renderGallery(); draw(); updateSaveLabel();
     } catch (e) {
@@ -452,6 +455,12 @@ const STARTERS = /*__POSES__*/;
         : 'Couldn’t save (' + (e?.code || 'error') + '). Try again in a moment.');
     } finally { btn.disabled = false; }
   }
+  // Revert: back to the pose as last saved (or the starter), keeping the
+  // character and pattern picks
+  $('revertBtn').addEventListener('click', () => {
+    const it = allPoses().find((x) => x.pose.name === state.pose.name);
+    if (it) { load(it.pose); setStatus(`Back to the saved “${it.pose.name}”.`); }
+  });
   $('saveBtn').addEventListener('click', () => {
     const name = typedName();
     if (!name) { setStatus('Type a name for the pose first.'); $('name').focus(); return; }

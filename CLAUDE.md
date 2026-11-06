@@ -1,6 +1,6 @@
-# Warli-inspired Ramayana
+# Ramayana
 
-Ramayana story art in the artist's own Warli-inspired style, rendered as SVG
+Ramayana story art in the artist's own style, rendered as SVG
 for a smartphone (portrait) webapp.
 
 ## Architecture (planned)
@@ -45,7 +45,7 @@ scene spec (JSON) → layout → figure geometry → SVG
 - Commits: author somdip <somdip@gmail.com>, **unsigned**. After cloning,
   run `git config --local commit.gpgsign false` (the session's signing key
   is not on the GitHub account, so signed commits show "Unverified").
-- Do not trace or copy third-party Warli reference material; derive
+- Do not trace or copy third-party reference material; derive
   primitives from the style bible and the artist's own work.
 
 ## Commands

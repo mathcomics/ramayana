@@ -1,13 +1,13 @@
-# Style Bible — Warli-inspired Ramayana
+# Style Bible — Ramayana
 
-Draft v0.1, derived from the artist's own Ramayana friezes (not strict Warli).
+Draft v0.1, derived from the artist's own Ramayana friezes.
 This is the reference the renderer is judged against. When code and this
 document disagree, fix one of them deliberately.
 
 ## 1. Guiding idea
 
-Warli's grammar (flat figures, few primitives, rhythm in rows) with the
-artist's own body language: **filled silhouettes, thick tapered limbs, and
+Flat figures, few primitives, rhythm in rows, with the artist's own body
+language: **filled silhouettes, thick tapered limbs, and
 gesture that carries the story.** Every figure should read at phone size
 from its silhouette alone.
 
@@ -278,7 +278,8 @@ male 0.88, female 0.74.
     the face. This needs a back layer per drawn face (e.g. a `back-head`
     layer in `data/faces/`, or a plain head shape) and a draw order for
     the back view (arms behind the torso, hair over the head).
-- No foreshortening. Flat, as in Warli.
+- Foreshortening only by projection: a part turned out of the paper
+  shortens (never widens); otherwise flat.
 - Joint limits per species prevent broken anatomy.
 
 - **Where the head looks is relative to the body** (2026-11-06): `look` is
