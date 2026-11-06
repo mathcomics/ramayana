@@ -193,7 +193,6 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
   </section>
 
   <div class="bar pose-only">
-    <div class="field"><span>Look</span><div class="seg" id="headView"></div></div>
     <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
     <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
   </div>
@@ -229,12 +228,12 @@ const STARTERS = /*__POSES__*/;
   const SLIDERS = [
     { key: 'spine', title: 'Body & tail', rows: [
       ['spine.lean', 'lean', -60, 180], ['spine.chest', 'chest', -60, 100],
-      ['spine.neck', 'neck', -60, 90], ['spine.head', 'head', -90, 90], ['spine.turn', 'head turn', -180, 180],
+      ['spine.neck', 'neck', -60, 90], ['spine.head', 'head', -90, 90], ['spine.turn', 'head turn', -90, 90],
       ['tail.lift', 'tail lift', -90, 120], ['tail.curl', 'tail curl', -60, 300], ['tail.turn', 'tail turn', -90, 90]] },
-    { key: 'near', title: 'Near arm & leg', rows: [
+    { key: 'near', title: 'Right arm & leg', rows: [
       ['near.arm.shoulder', 'shoulder', -90, 230], ['near.arm.out', 'shoulder out', -90, 90], ['near.arm.elbow', 'elbow', 0, 160], ['near.arm.wrist', 'wrist', -90, 90], ['near.arm.twist', 'wrist turn', -180, 180],
       ['near.leg.hip', 'hip', -90, 150], ['near.leg.out', 'hip out', -90, 90], ['near.leg.knee', 'knee', 0, 160], ['near.leg.ankle', 'ankle', -180, 180], ['near.leg.toe', 'toe turn', -90, 90]] },
-    { key: 'far', title: 'Far arm & leg', rows: [
+    { key: 'far', title: 'Left arm & leg', rows: [
       ['far.arm.shoulder', 'shoulder', -90, 230], ['far.arm.out', 'shoulder out', -90, 90], ['far.arm.elbow', 'elbow', 0, 160], ['far.arm.wrist', 'wrist', -90, 90], ['far.arm.twist', 'wrist turn', -180, 180],
       ['far.leg.hip', 'hip', -90, 150], ['far.leg.out', 'hip out', -90, 90], ['far.leg.knee', 'knee', 0, 160], ['far.leg.ankle', 'ankle', -180, 180], ['far.leg.toe', 'toe turn', -90, 90]] },
     // one held prop at a time, in the hand chosen in this panel; `prop.` paths
@@ -280,8 +279,10 @@ const STARTERS = /*__POSES__*/;
 
   function exportPose() {
     const p = clone(state.pose);
-    const out = { name: p.name, look: p.look, mouth: p.mouth };
-    out.spine = p.spine; out.near = p.near; out.far = p.far; out.tail = p.tail;
+    // stored as the character's right / left (the normalised pose calls them near / far:
+    // the right side is the near one in the side view)
+    const out = { name: p.name, mouth: p.mouth };
+    out.spine = p.spine; out.right = p.near; out.left = p.far; out.tail = p.tail;
     return out;
   }
 
@@ -343,7 +344,7 @@ const STARTERS = /*__POSES__*/;
   }
 
   function syncControls() {
-    for (const id of ['headView', 'mouth', 'facing', 'hand-near', 'hand-far', 'faceMouth', 'propKind', 'propHand', 'propGrip', 'propString']) $(id)._sync();
+    for (const id of ['mouth', 'facing', 'hand-near', 'hand-far', 'faceMouth', 'propKind', 'propHand', 'propGrip', 'propString']) $(id)._sync();
     $('character').value = state.character;
     // tail controls only apply to species with a tail
     const hasTail = !!SPECIES[look().species].tail;
@@ -416,12 +417,6 @@ const STARTERS = /*__POSES__*/;
   $('name').addEventListener('input', updateSaveLabel);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('saveBtn').click(); });
 
-  // where the head looks, relative to the body (left = toward the near side)
-  // shortcuts for the head turn (0, 90 toward the near side, -90); the slider sets any angle
-  const LOOK_TURN = { front: 0, left: 90, right: -90 };
-  seg('headView', [['Front', 'front'], ['Left', 'left'], ['Right', 'right']],
-    () => Object.keys(LOOK_TURN).find((k) => LOOK_TURN[k] === state.pose.spine.turn),
-    (v) => { state.pose.look = v; state.pose.spine.turn = LOOK_TURN[v]; delete state.pose.headView; });
   seg('mouth', [['Slit', 1], ['Arch', 2], ['Wide', 3]], () => state.pose.mouth, (v) => { state.pose.mouth = v; });
   seg('facing', [['→', 1], ['←', -1]], () => state.facing, (v) => { state.facing = v; });
   // Character menu: changes only the look, never the pose.
@@ -468,7 +463,7 @@ const STARTERS = /*__POSES__*/;
       const arm = state.pose[propSide()].arm;
       if (!v) { state.propHand = propSide(); delete arm.prop; } else arm.prop = { angle: 0, out: 0, ...(arm.prop || {}), kind: v };
     });
-    seg('propHand', [['Near', 'near'], ['Far', 'far']], propSide, (v) => {
+    seg('propHand', [['Right', 'near'], ['Left', 'far']], propSide, (v) => {
       const from = propSide(); state.propHand = v;
       if (from !== v && state.pose[from].arm.prop) { state.pose[v].arm.prop = state.pose[from].arm.prop; delete state.pose[from].arm.prop; }
     });

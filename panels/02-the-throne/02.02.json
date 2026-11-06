@@ -30,9 +30,9 @@
       "at": 0.21,
       "mouth": 2,
       "adjust": {
-        "near.arm.shoulder": 85,
-        "near.arm.elbow": 10,
-        "far.arm.shoulder": 70
+        "right.arm.shoulder": 85,
+        "right.arm.elbow": 10,
+        "left.arm.shoulder": 70
       }
     }
   ],

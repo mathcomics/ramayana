@@ -12,8 +12,10 @@ keep their size (monkey1 is 0.8).
 ## The parts file
 
 `data/parts/<id>.svg` (100 px = 1 head-unit, ground at y = 0), in the
-renderer's frame: the figure faces right; front-view limbs are its near
-side (picture-right). `node tools/export-parts.mjs` writes it from
+renderer's frame: the figure faces right; front-view limbs are drawn with
+the near side (the character's right) on picture-right, and the finished
+front view is flipped so the right side is on picture-left (the head keeps
+its drawing unflipped and turns to match). `node tools/export-parts.mjs` writes it from
 `data/parts.json`; `node tools/import-parts.mjs` reads it back.
 
 - Every part at rotation 0: limbs and hands hang straight down, the neck

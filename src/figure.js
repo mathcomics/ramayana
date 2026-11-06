@@ -26,6 +26,13 @@ export const HANDS = ['fist', 'out', 'in', 'point'];
 const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
 
 // Normalise a pose, filling defaults.
+//
+// Poses name their limbs `right` and `left` (the character's own). In the
+// side view the right side is the near one (toward the viewer), so inside
+// the renderer they are `near` (right) and `far` (left); older poses with
+// near / far keys still load. The head turn `spine.turn` is in degrees from
+// the body's own front, + to its right, −90..90 (the old `look`: front 0,
+// left 90, right −90).
 export function normalizePose(p = {}) {
   const limb = (l = {}) => ({
     arm: {
@@ -36,28 +43,32 @@ export function normalizePose(p = {}) {
     leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0), toe: num(l.leg?.toe, 0) },
   });
   const lookIn = ['front', 'left', 'right'].includes(p.look) ? p.look : (p.headView || p.view) === 'front' ? 'left' : 'front';
+  const turn = num(p.spine?.turn, { front: 0, left: 90, right: -90 }[lookIn]);
   return {
     name: p.name || 'untitled',
     view: p.view === 'front' ? 'front' : 'side',
-    // where the head looks, relative to the body: front (the way the body
-    // faces), left (toward the near side), right (toward the far side).
-    // Older poses had headView (relative to the paper): front = left.
-    look: ['front', 'left', 'right'].includes(p.look) ? p.look : (p.headView || p.view) === 'front' ? 'left' : 'front',
-    headView: (p.view === 'front' || p.look === 'left' || (!p.look && p.headView === 'front')) ? 'front' : 'side',
+    // which face drawing the side view sees more of (the head turned past 45°)
+    headView: (p.view === 'front' || Math.abs(turn) > 45) ? 'front' : 'side',
     mouth: [1, 2, 3].includes(p.mouth) ? p.mouth : 2,
     spine: {
       lean: num(p.spine?.lean, 0),
       chest: num(p.spine?.chest, 0),
       neck: num(p.spine?.neck, 0),
       head: num(p.spine?.head, 0),
-      // head turn about its own up axis (degrees, + toward the near side);
-      // without it, `look` gives 0 / 90 / -90
-      turn: num(p.spine?.turn, { front: 0, left: 90, right: -90 }[lookIn]),
+      // head turn about its own up axis (degrees from the body's front, + to its right)
+      turn,
     },
-    near: limb(p.near),
-    far: limb(p.far),
+    near: limb(p.right ?? p.near),
+    far: limb(p.left ?? p.far),
     tail: { lift: num(p.tail?.lift, 30), curl: num(p.tail?.curl, 200), turn: num(p.tail?.turn, 35) },
   };
+}
+
+// A normalised pose as stored (data/poses.json, lab saves): right / left
+// limbs, no derived fields.
+export function storedPose(p) {
+  const n = normalizePose(p);
+  return { name: n.name, mouth: n.mouth, spine: n.spine, right: n.near, left: n.far, tail: n.tail };
 }
 
 // ---------------------------------------------------------------- skeleton
@@ -453,7 +464,23 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1, who = null) {
   // the head turns less than 45°; side view: the side drawing).
   const tr = side.spine.turn * Math.PI / 180;
   const sideish = Math.abs(Math.sin(tr)) > Math.abs(Math.cos(tr));
-  const face = { view: front !== sideish ? 'front' : 'side', mirror: front && sideish && Math.sin(tr) < 0, R: headR };
+  // The front view is mirrored: the character faces the viewer, so its
+  // right side (the side view's near side) is on picture-left. The parts are
+  // built with the near side on picture-right and flipped here; the head
+  // keeps its drawing unmirrored (R conjugated by the flip), so it turns to
+  // the same side of the body in both views.
+  const F = front ? -1 : 1;
+  const R = front ? headR.map((r, i) => r.map((v, j) => ((i === 0) !== (j === 0) ? -v : v))) : headR;
+  if (front) {
+    const fl = (q) => [-q[0], q[1]];
+    for (const s of shapes) {
+      s.pts = s.pts.map(fl);
+      if (s.segs) s.segs = s.segs.map((g) => g.map(fl));
+      if (s.mx) s.mx = [-s.mx[0], s.mx[1], -s.mx[2], s.mx[3], -s.mx[4], s.mx[5]];
+    }
+  }
+  const Hm = [F * H[0], H[1]], hairAt = [F * hair.at[0], hair.at[1]];
+  const face = { view: front !== sideish ? 'front' : 'side', mirror: front && sideish && Math.sin(tr) > 0, R };
   // centred on the body: held props don't move the figure
   const bb = bbox(shapes.filter((s) => s.role !== 'prop').map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
@@ -463,7 +490,7 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1, who = null) {
     if (s.segs) { s.segs = s.segs.map((g) => g.map(mv)); s.d = dpSegD(s.segs); }
     if (s.mx) s.mx = [s.mx[0], s.mx[1], s.mx[2], s.mx[3], s.mx[4] + dx, s.mx[5] + dy];
   }
-  return { shapes, sk: { pose, front }, headAnchor: { at: mv(H), rot: headRot, ...face }, hairAnchor: { ...hair, at: mv(hair.at) }, bbox: bbox(shapes.map((s) => s.pts)) };
+  return { shapes, sk: { pose, front }, headAnchor: { at: mv(Hm), rot: F * headRot, ...face }, hairAnchor: { ...hair, rot: F * hair.rot, at: mv(hairAt) }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
 
 // Every body part as its own list of shapes, for inspection

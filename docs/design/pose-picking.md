@@ -14,7 +14,7 @@ catalogue and the gap report are generated from both.
 |---|---|
 | `desc` | What the body does, as seen. No emotions. |
 | `ground` | What touches the ground: `feet`, `one-knee`, `seat`, `front`, `back`, `air`, `feet-hands`. |
-| `hold` | Hands that can carry a prop as the pose stands (`near`, `far`). Poses made for a weapon carry it themselves (`arm.prop`: the sword or bow poses). |
+| `hold` | Hands that can carry a prop as the pose stands (`right`, `left`). Poses made for a weapon carry it themselves (`arm.prop`: the sword or bow poses). |
 | `use` | Story moments the pose serves (tags). Emotions are allowed here, never in names. |
 | `like` | The nearest other poses: where to look when this one is almost right. |
 
@@ -52,7 +52,7 @@ entry changes in the same commit. A pose made from `wanted` moves from
    (points, pleads, strikes, carries). Check `hold` when the figure holds a
    prop.
 3. **The head and mouth are not the pose.** Where the figure looks
-   (`look`, `spine.turn`), how its head tilts and how wide its mouth is are
+   (`spine.turn`), how its head tilts and how wide its mouth is are
    set per figure in the panel. "Looks back", "shouts", "turns to Rama"
    never need a new pose.
 4. **Emotion through the body, not the name.** Use the `use` tags:

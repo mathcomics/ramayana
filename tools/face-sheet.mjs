@@ -11,7 +11,7 @@ const { characters: C, faces: F, poses: P, species: SPECIES } = loadAssets();
 const cast = C.characters;
 
 // the stand pose, looking ahead, in front and side view
-const stand = (mouth) => ({ ...P.find((p) => p.name === 'stand'), mouth, look: 'front' });
+const stand = (mouth) => ({ ...P.find((p) => p.name === 'stand'), mouth });
 const front = (mouth) => ({ pose: stand(mouth), view: 'front' });
 const side = (mouth) => ({ pose: stand(mouth), view: 'side' });
 

@@ -73,9 +73,11 @@ turn, front)` builds it for a figure, yaw / pitch for the sheets.
   anchors put it from the neck top (front x, side depth, height the
   average of the two), turned with the head.
 - Tilt = lean + chest + neck + head (+ bows the face), turn = `spine.turn`
-  (+ toward the body's near side; `look` front / left / right is 0 / 90 /
-  −90 when a pose has no turn). Front view: the camera looks at the body's
-  front; side view: at its side, showing the side drawing.
+  (degrees from the body's front, + to its right, the near side in the
+  side view; −90 … 90). Front view: the camera looks at the body's front,
+  the figure flipped so its right is on picture-left (the head's matrix is
+  conjugated by the flip, so the drawing isn't mirrored); side view: at its
+  right side, showing the side drawing.
 - `back` goes behind the whole body, the head after the torso in depth
   order; `hair-body` follows the upper body (`docs/design/drawn-parts.md`).
 - Sheets: `node tools/head-turn-sheet.mjs [ids]`, the pose lab's Face tab.

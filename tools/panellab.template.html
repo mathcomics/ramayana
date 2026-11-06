@@ -237,7 +237,7 @@ const SECTIONS = /*__SECTIONS__*/;
   const gr = Object.keys(ASSETS.grounds.grounds).join(', ');
   $('ref').innerHTML = `<b>who</b> ${ch}<br><b>pose</b> ${po}<br><b>prop</b> ${pr}<br><b>ground</b> ${gr}<br>` +
     `<b>size</b> share of a screen height: 0.75 (default), 0.5, 1 …<br><b>at</b> 0–1 across the width, or ${Object.keys(SLOTS).join(', ')}, or {"before"|"behind"|"beside"|"left-of"|"right-of": who, "gap": h}<br><b>order</b> figures overlap in list order (last is in front)<br>` +
-    `<b>row</b> back, mid, front<br><b>figure</b> facing, mouth, look (front/left/right), hands, adjust {"near.arm.shoulder": 40}, scale, lift, nudge<br><b>panel</b> zoom (figures), needs [..]`;
+    `<b>row</b> back, mid, front<br><b>figure</b> facing, mouth, turn (head, degrees, + to its right), hands {right, left}, adjust {"right.arm.shoulder": 40}, scale, lift, nudge<br><b>panel</b> zoom (figures), needs [..]`;
 
   draw(true);
 

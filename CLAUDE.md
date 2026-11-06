@@ -75,7 +75,18 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
-- **Two tones (2026-11-06):** far leg (thigh/cloth, shin, foot) and torso
+- **Right / left and head turn in degrees (2026-11-06):** poses name limbs
+  `right` / `left` (the character's own; right = the side view's near
+  side; `normalizePose` still reads near / far and maps them; the renderer
+  keeps near / far inside; `storedPose()` writes right / left). `look` is
+  gone: `spine.turn`, −90 … 90 from the body's front, + to its right (lab
+  slider "head turn"; panels `turn`). The front view is now flipped so the
+  right side is on picture-left (head drawing not mirrored: R conjugated),
+  so a head turns to the same side of the body in both views. Migrated
+  poses.json, pose-index `hold`, panel `adjust` paths (old `near.`/`far.`
+  paths and old lab saves still load). Lab: Right / Left panels, prop hand
+  Right / Left, no Look buttons.
+- **Two tones (2026-11-06):** left leg (thigh/cloth, shin, foot) and torso
   (skin or full top) 5% lighter (toward white) (`SHADED`, `shade()` in `src/figure.js`;
   style bible §3, §4).
 - **Pose lab saves merged 2026-11-06:** 26 saves; only `walk` changed

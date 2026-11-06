@@ -58,10 +58,11 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (!base) issues.push(`figure ${i + 1} (${f.who}): unknown pose "${f.pose}", using stand`);
     const pose = clone(base || assets.poses.find((p) => p.name === 'stand') || {});
     if (f.mouth) pose.mouth = f.mouth;
-    if (f.look) pose.look = f.look;
-    else if (f.headView) { pose.headView = f.headView; delete pose.look; }
-    if (f.hands) { if (f.hands.near) setPath(pose, 'near.arm.hand', f.hands.near); if (f.hands.far) setPath(pose, 'far.arm.hand', f.hands.far); }
-    for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, k, v);
+    if (typeof f.turn === 'number') setPath(pose, 'spine.turn', f.turn);   // head turn, degrees, + to its right
+    // limbs are right / left (older panels: near = right, far = left)
+    const side = (k) => k.replace(/^near\./, 'right.').replace(/^far\./, 'left.');
+    if (f.hands) for (const [h, v] of Object.entries(f.hands)) setPath(pose, side(`${h}.arm.hand`), v);
+    for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, side(k), v);
     const look = characterLook(c, assets.characters.palette, assets.faces, f.cloth);
     if (f.cloth && !look.colors.cloth) issues.push(`figure ${i + 1} (${f.who}): unknown cloth "${f.cloth}"`);
     const S = assets.species[look.species];

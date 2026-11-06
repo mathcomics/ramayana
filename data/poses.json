@@ -1,9 +1,8 @@
 {
-  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle is the foot's angle from the ground, not the shin: 0 = flat with toes forward (side view) or outward (front view), + lifts the toes (-180..180). look: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body) | point (like out, one long finger, shorter grouped fingers). mouth: 1 (slit), 2 (arch), 3 (wide shout). Poses are side view only; the front view is derived from them by the renderer (view: front): near = picture-right, far = picture-left. arm.out / leg.out (drawn parts): the whole arm or leg turned out of the paper, + = away from the body sideways (-90..90); side view shortens it by cos(out), front view shows its sideways reach. look: where the head looks, relative to the body: front (the way the body faces), left (toward the near side), right (toward the far side). arm.prop (optional): a held sword, club or bow (kind) along its reference line through the grip; angle is added to the hand's angle, out to the arm's out; a bow with draw: true has its string pulled to the other hand; grip: both puts the other hand on the hilt below this one (the other arm's angles are then ignored).",
+  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view). Limbs are the character's own right and left; the side view shows the right side nearer the viewer, the front view (derived from the side pose by the renderer) faces the viewer, so the right side is on picture-left. spine.lean tilts the whole body forward; chest/neck/head are relative; spine.turn turns the head from the body's own front, + to its right (-90..90). arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle is the foot's angle from the ground, not the shin: 0 = flat with toes forward, + lifts the toes (-180..180). arm.hand: fist | out (thumb away from body) | in (thumb toward body) | point (like out, one long finger, shorter grouped fingers). mouth: 1 (slit), 2 (arch), 3 (wide shout). arm.out / leg.out: the whole arm or leg turned out of the paper, + = away from the body sideways (-90..90); side view shortens it by cos(out), front view shows its sideways reach. arm.twist: wrist turn; leg.toe: toe turn. arm.prop (optional, one hand at a time): a held sword, club or bow (kind) along its line through the grip; angle is added to the hand's angle, out to the arm's out; a bow with draw: true has its string pulled to the other hand; grip: both puts the other hand on the hilt below this one (the other arm's angles are then ignored).",
   "poses": [
     {
       "name": "bend-low",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 70,
@@ -11,7 +10,7 @@
         "neck": 0,
         "head": -55
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 72,
           "elbow": 31,
@@ -26,7 +25,7 @@
           "out": 0
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 97,
           "elbow": 26,
@@ -48,7 +47,6 @@
     },
     {
       "name": "crawl",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "chest": 46,
@@ -56,7 +54,7 @@
         "lean": 55,
         "neck": 0
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 51,
           "hand": "in",
@@ -71,7 +69,7 @@
           "out": 0
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 106,
           "hand": "in",
@@ -93,7 +91,6 @@
     },
     {
       "name": "crouch-arms-over-head",
-      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": 30,
@@ -101,7 +98,7 @@
         "neck": 0,
         "head": 0
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 230,
           "elbow": 112,
@@ -116,7 +113,7 @@
           "out": 24
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 220,
           "elbow": 110,
@@ -138,7 +135,6 @@
     },
     {
       "name": "fall-back",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -70,
@@ -146,7 +142,7 @@
         "neck": 20,
         "head": -37
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 230,
           "elbow": 38,
@@ -161,7 +157,7 @@
           "out": 21
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 59,
           "elbow": 28,
@@ -183,7 +179,6 @@
     },
     {
       "name": "fall-headlong",
-      "look": "front",
       "mouth": 2,
       "spine": {
         "chest": 43,
@@ -191,7 +186,7 @@
         "lean": 72,
         "neck": -2
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 80,
           "hand": "out",
@@ -206,7 +201,7 @@
           "out": 17
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 76,
           "hand": "out",
@@ -228,7 +223,6 @@
     },
     {
       "name": "kneel",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": -2,
@@ -236,7 +230,7 @@
         "neck": 10,
         "head": -5
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 25,
           "elbow": 58,
@@ -251,7 +245,7 @@
           "out": 9
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -53,
           "elbow": 59,
@@ -273,7 +267,6 @@
     },
     {
       "name": "leap",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": 23,
@@ -281,7 +274,7 @@
         "lean": -17,
         "neck": -14
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 53,
           "hand": "out",
@@ -294,7 +287,7 @@
           "knee": 105
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 4,
           "hand": "out",
@@ -310,12 +303,10 @@
       "tail": {
         "curl": 200,
         "lift": 10
-      },
-      "view": "side"
+      }
     },
     {
       "name": "leap-dive",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": -10,
@@ -323,7 +314,7 @@
         "lean": 115,
         "neck": 0
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 6,
           "hand": "out",
@@ -338,7 +329,7 @@
           "out": 0
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 15,
           "hand": "out",
@@ -360,7 +351,6 @@
     },
     {
       "name": "leap-reach",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": -20,
@@ -368,7 +358,7 @@
         "lean": 55,
         "neck": -19
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 45,
           "hand": "out",
@@ -381,7 +371,7 @@
           "knee": 31
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 54,
           "hand": "out",
@@ -397,12 +387,10 @@
       "tail": {
         "curl": 220,
         "lift": -46
-      },
-      "view": "side"
+      }
     },
     {
       "name": "lie-front",
-      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": 90,
@@ -410,7 +398,7 @@
         "neck": -6,
         "head": -30
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 78,
           "elbow": 61,
@@ -423,7 +411,7 @@
           "ankle": -104
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 98,
           "elbow": 34,
@@ -443,7 +431,6 @@
     },
     {
       "name": "lunge",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 40,
@@ -451,7 +438,7 @@
         "neck": 0,
         "head": -30
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 160,
           "elbow": 10,
@@ -464,7 +451,7 @@
           "ankle": -2
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -50,
           "elbow": 20,
@@ -484,7 +471,6 @@
     },
     {
       "name": "lunge-sword-low",
-      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": 25,
@@ -492,7 +478,7 @@
         "neck": 5,
         "head": -28
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 40,
           "elbow": 10,
@@ -511,7 +497,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -40,
           "elbow": 30,
@@ -533,7 +519,6 @@
     },
     {
       "name": "lunge-sword-strike",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 30,
@@ -541,7 +526,7 @@
         "neck": 0,
         "head": -30
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 55,
           "elbow": 5,
@@ -561,7 +546,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 0,
           "elbow": 20,
@@ -583,7 +568,6 @@
     },
     {
       "name": "lunge-sword-thrust",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 22,
@@ -591,7 +575,7 @@
         "neck": 0,
         "head": -22
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 95,
           "elbow": 0,
@@ -610,7 +594,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -55,
           "elbow": 20,
@@ -632,7 +616,6 @@
     },
     {
       "name": "run",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": 0,
@@ -640,7 +623,7 @@
         "lean": 41,
         "neck": 13
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 101,
           "hand": "fist",
@@ -655,7 +638,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 87,
           "hand": "fist",
@@ -677,7 +660,6 @@
     },
     {
       "name": "run-arms-back",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 40,
@@ -685,7 +667,7 @@
         "neck": 0,
         "head": -30
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": -10,
           "elbow": 40,
@@ -698,7 +680,7 @@
           "ankle": -2
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -35,
           "elbow": 40,
@@ -718,7 +700,6 @@
     },
     {
       "name": "run-low",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": 39,
@@ -726,7 +707,7 @@
         "lean": 54,
         "neck": 29
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 111,
           "hand": "fist",
@@ -741,7 +722,7 @@
           "out": -7
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 96,
           "hand": "fist",
@@ -763,7 +744,6 @@
     },
     {
       "name": "sit",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": -10,
@@ -771,7 +751,7 @@
         "neck": 0,
         "head": -5
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 63,
           "elbow": 0,
@@ -784,7 +764,7 @@
           "ankle": -8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -45,
           "elbow": 19,
@@ -804,7 +784,6 @@
     },
     {
       "name": "sit-lean-back",
-      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": -35,
@@ -812,7 +791,7 @@
         "neck": 10,
         "head": 0
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": -45,
           "elbow": 10,
@@ -827,7 +806,7 @@
           "out": 17
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -65,
           "elbow": 5,
@@ -849,7 +828,6 @@
     },
     {
       "name": "stand",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "chest": -18,
@@ -857,7 +835,7 @@
         "lean": 8,
         "neck": 24
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 22,
           "hand": "in",
@@ -872,7 +850,7 @@
           "out": 0
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 27,
           "hand": "out",
@@ -894,7 +872,6 @@
     },
     {
       "name": "stand-arm-over-face",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -20,
@@ -902,7 +879,7 @@
         "neck": 0,
         "head": 10
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 130,
           "elbow": 110,
@@ -915,7 +892,7 @@
           "ankle": -2
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 70,
           "elbow": 90,
@@ -935,7 +912,6 @@
     },
     {
       "name": "stand-arms-up-knee-up",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -15,
@@ -943,7 +919,7 @@
         "neck": 10,
         "head": 10
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 100,
           "elbow": 30,
@@ -958,7 +934,7 @@
           "out": 30
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 80,
           "elbow": 50,
@@ -980,7 +956,6 @@
     },
     {
       "name": "stand-guard",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 25,
@@ -988,7 +963,7 @@
         "neck": 0,
         "head": -25
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 100,
           "elbow": 90,
@@ -1003,7 +978,7 @@
           "out": 0
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 70,
           "elbow": 110,
@@ -1025,7 +1000,6 @@
     },
     {
       "name": "stand-hand-on-head",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 0,
@@ -1033,7 +1007,7 @@
         "neck": 10,
         "head": 0
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 140,
           "elbow": 160,
@@ -1046,7 +1020,7 @@
           "ankle": -2
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -30,
           "elbow": 60,
@@ -1066,7 +1040,6 @@
     },
     {
       "name": "stand-hands-on-hips",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 0,
@@ -1074,7 +1047,7 @@
         "neck": 15,
         "head": -5
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": -66,
           "elbow": 90,
@@ -1087,7 +1060,7 @@
           "ankle": -2
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -80,
           "elbow": 118,
@@ -1107,7 +1080,6 @@
     },
     {
       "name": "stand-lean-back",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": -10,
@@ -1115,7 +1087,7 @@
         "lean": -30,
         "neck": 10
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 30,
           "hand": "out",
@@ -1128,7 +1100,7 @@
           "knee": 30
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 25,
           "hand": "out",
@@ -1144,12 +1116,10 @@
       "tail": {
         "curl": 300,
         "lift": -39
-      },
-      "view": "side"
+      }
     },
     {
       "name": "stand-point",
-      "look": "front",
       "mouth": 2,
       "spine": {
         "chest": -4,
@@ -1157,7 +1127,7 @@
         "lean": 6,
         "neck": 20
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 0,
           "hand": "point",
@@ -1172,7 +1142,7 @@
           "out": 11
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 30,
           "hand": "fist",
@@ -1194,7 +1164,6 @@
     },
     {
       "name": "stand-point-up",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -5,
@@ -1202,7 +1171,7 @@
         "neck": 10,
         "head": -10
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 150,
           "elbow": 5,
@@ -1217,7 +1186,7 @@
           "out": 6
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -35,
           "elbow": 30,
@@ -1239,7 +1208,6 @@
     },
     {
       "name": "stand-shoot-bow",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 2,
@@ -1247,7 +1215,7 @@
         "neck": 10,
         "head": -6
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 95,
           "elbow": 145,
@@ -1262,7 +1230,7 @@
           "out": 6
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 90,
           "elbow": 0,
@@ -1289,7 +1257,6 @@
     },
     {
       "name": "stand-shoot-bow-raise",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": -2,
@@ -1297,7 +1264,7 @@
         "neck": 0,
         "head": -20
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 150,
           "elbow": 110,
@@ -1312,7 +1279,7 @@
           "out": 6
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 140,
           "elbow": 0,
@@ -1339,7 +1306,6 @@
     },
     {
       "name": "stand-shoot-bow-release",
-      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": 2,
@@ -1347,7 +1313,7 @@
         "neck": 10,
         "head": -6
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 75,
           "elbow": 170,
@@ -1362,7 +1328,7 @@
           "out": 6
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 88,
           "elbow": 0,
@@ -1388,7 +1354,6 @@
     },
     {
       "name": "stand-stagger-back",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -25,
@@ -1396,7 +1361,7 @@
         "neck": 15,
         "head": 10
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 20,
           "elbow": 60,
@@ -1411,7 +1376,7 @@
           "out": 7
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 60,
           "elbow": 40,
@@ -1433,7 +1398,6 @@
     },
     {
       "name": "stand-sword-back",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -4,
@@ -1441,7 +1405,7 @@
         "neck": 10,
         "head": -4
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": -110,
           "elbow": 15,
@@ -1460,7 +1424,7 @@
           "out": 10
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 70,
           "elbow": 30,
@@ -1482,7 +1446,6 @@
     },
     {
       "name": "stand-sword-behind-head",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -2,
@@ -1490,7 +1453,7 @@
         "neck": 8,
         "head": -6
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 165,
           "elbow": 105,
@@ -1510,7 +1473,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 0,
           "elbow": 20,
@@ -1532,7 +1495,6 @@
     },
     {
       "name": "stand-sword-forward",
-      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": 10,
@@ -1540,7 +1502,7 @@
         "neck": 6,
         "head": -14
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 80,
           "elbow": 8,
@@ -1560,7 +1522,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 0,
           "elbow": 20,
@@ -1582,7 +1544,6 @@
     },
     {
       "name": "stand-sword-guard",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 8,
@@ -1590,7 +1551,7 @@
         "neck": 5,
         "head": -10
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 45,
           "elbow": 65,
@@ -1610,7 +1571,7 @@
           "out": 10
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 30,
           "elbow": 80,
@@ -1632,7 +1593,6 @@
     },
     {
       "name": "stand-sword-high",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 6,
@@ -1640,7 +1600,7 @@
         "neck": 8,
         "head": -8
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 125,
           "elbow": 85,
@@ -1660,7 +1620,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 0,
           "elbow": 20,
@@ -1682,7 +1642,6 @@
     },
     {
       "name": "stand-sword-hip",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 4,
@@ -1690,7 +1649,7 @@
         "neck": 8,
         "head": -6
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": -15,
           "elbow": 35,
@@ -1710,7 +1669,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 0,
           "elbow": 20,
@@ -1732,7 +1691,6 @@
     },
     {
       "name": "stand-sword-overhead",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 6,
@@ -1740,7 +1698,7 @@
         "neck": 10,
         "head": -8
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 165,
           "elbow": 30,
@@ -1760,7 +1718,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 150,
           "elbow": 45,
@@ -1782,7 +1740,6 @@
     },
     {
       "name": "stand-sword-shoulder",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 4,
@@ -1790,7 +1747,7 @@
         "neck": 8,
         "head": -6
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 55,
           "elbow": 125,
@@ -1810,7 +1767,7 @@
           "out": 8
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 45,
           "elbow": 115,
@@ -1832,7 +1789,6 @@
     },
     {
       "name": "stand-throw",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": 15,
@@ -1840,7 +1796,7 @@
         "lean": -16,
         "neck": 56
       },
-      "near": {
+      "right": {
         "arm": {
           "elbow": 107,
           "hand": "out",
@@ -1855,7 +1811,7 @@
           "out": 0
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "elbow": 107,
           "hand": "in",
@@ -1877,7 +1833,6 @@
     },
     {
       "name": "stand-wind-up",
-      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -10,
@@ -1885,7 +1840,7 @@
         "neck": 10,
         "head": 5
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 215,
           "elbow": 60,
@@ -1900,7 +1855,7 @@
           "out": 20
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 55,
           "elbow": 20,
@@ -1922,7 +1877,6 @@
     },
     {
       "name": "walk",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 4,
@@ -1931,7 +1885,7 @@
         "head": -8,
         "turn": 0
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": -40,
           "elbow": 19,
@@ -1948,7 +1902,7 @@
           "toe": 0
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": 30,
           "elbow": 22,
@@ -1973,7 +1927,6 @@
     },
     {
       "name": "walk-passing",
-      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 6,
@@ -1981,7 +1934,7 @@
         "neck": 14,
         "head": -8
       },
-      "near": {
+      "right": {
         "arm": {
           "shoulder": 6,
           "elbow": 18,
@@ -1996,7 +1949,7 @@
           "out": 2
         }
       },
-      "far": {
+      "left": {
         "arm": {
           "shoulder": -6,
           "elbow": 14,

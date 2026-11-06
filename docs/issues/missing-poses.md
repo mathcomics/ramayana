@@ -54,7 +54,7 @@ Scenes = scene lines whose words call for the moment. Moments with no pose come 
 | stand-pull | leaning back, both arms forward gripping, as in pulling a rope or a person | 7 | stand-lean-back with both arms adjusted forward |
 | sit-cross-legged | seated upright, legs folded (throne, reading, teaching) | 7 | sit |
 | kneel-palms-joined | kneel with the palms together in front of the chest | 6 | kneel with both arms adjusted |
-| walk-carry-shoulder | walking with a load on the near shoulder, near hand up holding it | 19 | stand with the near arm adjusted |
+| walk-carry-shoulder | walking with a load on the right shoulder, right hand up holding it | 19 | stand with the right arm adjusted |
 | stand-embrace | both arms forward and bent at chest height, to fold around another figure | 4 | stand with both arms forward (shoulder ~70, elbow ~70) |
 | lie-back | lying flat on the back, arms at the sides or one across the chest (sleep, death) | 4 | lie-front |
 | sit-ride | seated astride or on a chariot, legs down, arms forward holding reins or a bow | 15 | chariot scenes: stand or stand-shoot-bow on the chariot prop (on: chariot); sit for a horse |

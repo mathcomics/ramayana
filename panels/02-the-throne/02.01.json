@@ -7,9 +7,9 @@
   ],
   "figures": [
     { "who": "rama", "pose": "stand", "facing": "right", "at": 0.3, "mouth": 1,
-      "adjust": { "near.arm.shoulder": 55, "near.arm.elbow": 5 } },
+      "adjust": { "right.arm.shoulder": 55, "right.arm.elbow": 5 } },
     { "who": "dasharatha", "pose": "stand", "facing": "right", "at": 0.56, "mouth": 1,
-      "adjust": { "far.arm.shoulder": -70, "far.arm.elbow": 10 } }
+      "adjust": { "left.arm.shoulder": -70, "left.arm.elbow": 10 } }
   ],
   "needs": ["pose: walk (stride, arms swinging)", "relation: hand in hand"]
 }

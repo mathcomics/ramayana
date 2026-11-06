@@ -38,7 +38,7 @@ test('pose index: every pose and only those, known tags and neighbours', () => {
   for (const [name, e] of Object.entries(index.poses)) {
     assert.ok(e.desc, `${name}: desc`);
     assert.ok(GROUND.includes(e.ground), `${name}: ground ${e.ground}`);
-    for (const h of e.hold) assert.ok(['near', 'far'].includes(h), `${name}: hold ${h}`);
+    for (const h of e.hold) assert.ok(['right', 'left'].includes(h), `${name}: hold ${h}`);
     assert.ok(e.use.length, `${name}: no use tags`);
     for (const t of e.use) assert.ok(index.tags[t], `${name}: unknown tag ${t}`);
     for (const l of e.like) assert.ok(names.includes(l) && l !== name, `${name}: like ${l}`);

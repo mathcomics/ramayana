@@ -35,9 +35,9 @@ from its silhouette alone.
 ## 4. Stroke and fill
 
 - Bodies are **solid fills**. Overlapping parts merge into one silhouette.
-- **Two tones:** the far leg (thigh and its cloth, shin, foot) and the
+- **Two tones:** the left leg (thigh and its cloth, shin, foot) and the
   torso (bare skin or a full top) are filled 5% lighter than the body or
-  cloth colour (each channel 5% of the way to white), so the near leg, the arms and the head stand out against
+  cloth colour (each channel 5% of the way to white), so the right leg, the arms and the head stand out against
   them. Faces, hands, arms, neck and props keep their colours.
 - Limbs are tapered: thicker at the body, thinner at hands and feet.
 - Joints are rounded, never sharp elbows of geometry.
@@ -91,8 +91,8 @@ generic monkey.
 - Arms: long — hanging, they reach about the knee.
 - Legs: comparatively short, often deeply bent.
 - Tail: long, curling upward at the tip; expressive (follows motion). It
-  curls in its own plane, turned by `tail.turn` (default 35°) toward the
-  far side, so the front view shows part of the curl.
+  curls in its own plane, turned by `tail.turn` (default 35°) toward its
+  left side, so the front view shows part of the curl.
 - Hands (all species; see `reference/sketch-hands.jpg`), set per arm:
   - fist: a wedge widening from the wrist to a flat top with rounded
     corners, shorter than the open hand (`arm.fist` ≈ 0.65 of its length);
@@ -200,14 +200,14 @@ skin, hair masses, buns) become volumes, at each height an ellipse as
 wide as the front drawing and as deep as the side drawing; eyes, mouths,
 ears and marks are flat pieces on their surface (front ones up to a 45°
 turn, side ones past it). The head tilts with lean + chest + neck + head
-and turns with `look`, in both views, so the drawings show exactly in the
+and turns with `spine.turn`, in both views, so the drawings show exactly in the
 straight front and side views and everything else (three-quarter, up,
 down, upside down, the back of the head) comes from them. Front and side
 drawings must agree on heights (the importer lists where they don't).
 Drawn layering wins near the front (`under` behind the face, `over` in
 front), depth toward the back of the head; a part in `back` (as drawn in
 the nearer view) goes behind the whole body. The face is drawn over the
-neck and body (in side view the near arm still crosses in front);
+neck and body (in side view the right arm still crosses in front);
 `mouth-1/2/3` follow the pose's mouth size. The base's `front-up` /
 `front-down` layers are not used.
 
@@ -272,9 +272,14 @@ male 0.88, female 0.74.
   shows its end hand, a foot with the toes raised shows its sole in the
   front view. The wrist turn (`arm.twist`, degrees) turns the hand about
   its own axis.
-- Side view: far limbs behind torso, near limbs in front.
-  Each arm has its own shoulder anchor in side view: near arm toward the
-  front of the chest, far arm just behind centre (`shoulder.side`).
+- **Right and left:** limbs are the character's own right and left. The
+  side view shows the right side nearer the viewer (its right limbs in
+  front of the torso, the left ones behind); the front view faces the
+  viewer, so the right limbs are on picture-left. (Inside the renderer
+  the right side is called near, the left far.)
+- Side view: left limbs behind torso, right limbs in front.
+  Each arm has its own shoulder anchor in side view: right arm toward the
+  front of the chest, left arm just behind centre (`shoulder.side`).
   Front view: used for crouching / flexing / confronting.
 - **Out of the paper**: the shoulder
   and the hip have a second angle, `out` (degrees, + = away from the body
@@ -303,15 +308,13 @@ male 0.88, female 0.74.
   shortens (never widens); otherwise flat.
 - Joint limits per species prevent broken anatomy.
 
-- **Where the head looks is relative to the body**: `look` is
-  `front` (the way the body faces), `left` (toward the near side) or
-  `right` (toward the far side): a head turn of 0°, 90° or −90°. Any angle
-  is `spine.turn` (degrees, + toward the near side), with
-  `look` as its shortcut. Side
-  view: front = side face, left = front face (toward the viewer), right =
-  the back of the head. Front view: front = front face, left = side face
-  looking picture-right, right = side face looking picture-left. So a pose
-  turns its head the same way in both views.
+- **Where the head looks is relative to the body**: `spine.turn`, degrees
+  from the body's own front, + to its right, −90 … 90. Side view: 0 =
+  side face, +90 = the face toward the viewer (its right side is the near
+  one), −90 = turning away (more of the back of the head). Front view: 0 =
+  front face, +90 = side face looking picture-left (its right), −90 =
+  looking picture-right. So the head turns to the same side of the body in
+  both views.
 
 ## 7. Pose vocabulary and names
 
