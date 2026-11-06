@@ -26,6 +26,7 @@ import { writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, json } from './lib.mjs';
 import { readFile, paintSkin } from './faces-lib.mjs';
+import { turnData } from './face-turn.mjs';
 const r4 = (v) => Math.round(v * 1e4) / 1e4;
 
 const dir = join(root, 'data/faces');
@@ -90,6 +91,12 @@ for (const c of cast) {
       e[k] = compose(bv, xl, { eyes: pick('eyes'), 'mouth-1': pick('mouth-1'), 'mouth-2': pick('mouth-2'), 'mouth-3': pick('mouth-3') });
     }
     (faces[c.id] ||= {})[view] = e;
+  }
+  // turn data (src/headturn.js): the base's skin, eyes, mouths and the
+  // character's back / under / over (and own eyes, mouths) of both views
+  if (X.front && X.side) {
+    const lay = (v) => { const L = { ...B[v].layers, skin: B[v].layers.skin && paintSkin(B[v].layers.skin) }; for (const k of ['back', 'under', 'over', 'eyes', 'mouth-1', 'mouth-2', 'mouth-3']) if (X[v].layers[k]) L[k] = X[v].layers[k]; return { layers: L }; };
+    faces[c.id].turn = turnData({ front: lay('front'), side: lay('side') });
   }
   console.log(`${c.id}: ${['front', 'side'].map((v) => `${v} ${['under', 'over', 'back', 'hair-body', 'eyes', 'mouth-1'].filter((n) => X[v]?.layers[n]).join('/') || '-'}`).join('; ')}${faces[c.id]?.front?.up ? ' +up' : ''}${faces[c.id]?.front?.down ? ' +down' : ''}`);
 }
