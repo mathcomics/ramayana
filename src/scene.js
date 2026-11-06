@@ -58,7 +58,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (!base) issues.push(`figure ${i + 1} (${f.who}): unknown pose "${f.pose}", using stand`);
     const pose = clone(base || assets.poses.find((p) => p.name === 'stand') || {});
     if (f.mouth) pose.mouth = f.mouth;
-    if (f.headView) pose.headView = f.headView;
+    if (f.look) pose.look = f.look;
+    else if (f.headView) { pose.headView = f.headView; delete pose.look; }
     if (f.hands) { if (f.hands.near) setPath(pose, 'near.arm.hand', f.hands.near); if (f.hands.far) setPath(pose, 'far.arm.hand', f.hands.far); }
     for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, k, v);
     const look = characterLook(c, assets.characters.palette, assets.faces, f.cloth);
@@ -68,9 +69,9 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const unit = r.unit * zoom * (f.scale ?? 1);
     const view = f.view === 'front' ? 'front' : 'side';
     // every character has a drawn face; there is no generated fallback
-    const headView = view === 'front' ? 'front' : normalizePose(pose).headView;
+    const { bbox, headAnchor } = buildShapes(S, pose, look.outfit, view, look.bodyScale);
+    const headView = headAnchor.view ?? (view === 'front' ? 'front' : normalizePose(pose).headView);
     if (!look.face?.[headView]?.head) issues.push(`figure ${i + 1} (${f.who}): no drawn ${headView} face (the ${headView} layer of data/faces/${f.who}.svg)`);
-    const { bbox } = buildShapes(S, pose, look.outfit, view, look.bodyScale);
     return { f, name: f.id || f.who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, facing: f.facing === 'left' ? -1 : 1, x: null };
   }).filter(Boolean);

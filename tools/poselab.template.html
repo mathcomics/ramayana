@@ -172,7 +172,7 @@ pre {
   </section>
 
   <div class="bar">
-    <div class="field"><span>Head</span><div class="seg" id="headView"></div></div>
+    <div class="field"><span>Look</span><div class="seg" id="headView"></div></div>
     <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
     <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
   </div>
@@ -254,7 +254,7 @@ const STARTERS = /*__POSES__*/;
 
   function exportPose() {
     const p = clone(state.pose);
-    const out = { name: p.name, headView: p.headView, mouth: p.mouth };
+    const out = { name: p.name, look: p.look, mouth: p.mouth };
     out.spine = p.spine; out.near = p.near; out.far = p.far; out.tail = p.tail;
     return out;
   }
@@ -378,7 +378,8 @@ const STARTERS = /*__POSES__*/;
   $('name').addEventListener('input', updateSaveLabel);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('saveBtn').click(); });
 
-  seg('headView', [['Front', 'front'], ['Side', 'side']], () => state.pose.headView, (v) => { state.pose.headView = v; });
+  // where the head looks, relative to the body (left = toward the near side)
+  seg('headView', [['Front', 'front'], ['Left', 'left'], ['Right', 'right']], () => state.pose.look, (v) => { state.pose.look = v; delete state.pose.headView; });
   seg('mouth', [['Slit', 1], ['Arch', 2], ['Wide', 3]], () => state.pose.mouth, (v) => { state.pose.mouth = v; });
   seg('facing', [['→', 1], ['←', -1]], () => state.facing, (v) => { state.facing = v; });
   // Character menu: changes only the look, never the pose.

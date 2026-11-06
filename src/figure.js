@@ -35,7 +35,11 @@ export function normalizePose(p = {}) {
   return {
     name: p.name || 'untitled',
     view: p.view === 'front' ? 'front' : 'side',
-    headView: (p.headView || p.view) === 'front' ? 'front' : 'side',
+    // where the head looks, relative to the body: front (the way the body
+    // faces), left (toward the near side), right (toward the far side).
+    // Older poses had headView (relative to the paper): front = left.
+    look: ['front', 'left', 'right'].includes(p.look) ? p.look : (p.headView || p.view) === 'front' ? 'left' : 'front',
+    headView: (p.view === 'front' || p.look === 'left' || (!p.look && p.headView === 'front')) ? 'front' : 'side',
     mouth: [1, 2, 3].includes(p.mouth) ? p.mouth : 2,
     spine: {
       lean: num(p.spine?.lean, 0),
@@ -436,6 +440,15 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
   const front = view === 'front';
   const pose = front ? normalizePose(frontOf(S, side).pose) : side;
   const { shapes, H, headRot, hair } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale);
+  // Which drawn face shows, from where the head looks (relative to the body)
+  // and the view. Side view (the near side is the body's left): front -> the
+  // side face, left (toward the viewer) -> the front face, right (away) ->
+  // the side face until a back of the head is drawn. Front view: front ->
+  // the front face, left -> the side face looking picture-right, right ->
+  // the side face mirrored, looking picture-left.
+  const L = side.look;
+  const face = front ? { view: L === 'front' ? 'front' : 'side', mirror: L === 'right' }
+    : { view: L === 'left' ? 'front' : 'side', mirror: false };
   const bb = bbox(shapes.map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];
@@ -443,7 +456,7 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
     s.pts = s.pts.map(mv);
     if (s.segs) { s.segs = s.segs.map((g) => g.map(mv)); s.d = dpSegD(s.segs); }
   }
-  return { shapes, sk: { pose, front }, headAnchor: { at: mv(H), rot: headRot }, hairAnchor: { ...hair, at: mv(hair.at) }, bbox: bbox(shapes.map((s) => s.pts)) };
+  return { shapes, sk: { pose, front }, headAnchor: { at: mv(H), rot: headRot, ...face }, hairAnchor: { ...hair, at: mv(hair.at) }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
 
 // Every body part as its own list of shapes, for inspection
@@ -505,8 +518,8 @@ export function renderFigure(species, pose, opts = {}) {
   // Drawn face (data/faces): replaces the guide head (every character has
   // one; the guide shows on species sheets only). Its layers are
   // copied unchanged, colours included, and placed with one transform.
-  const drawn = opts.face?.[sk.pose.headView === 'front' ? 'front' : 'side'];
-  const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})">${g}</g>`;
+  const drawn = opts.face?.[headAnchor.view ?? (sk.pose.headView === 'front' ? 'front' : 'side')];
+  const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})${headAnchor.mirror ? ' scale(-1 1)' : ''}">${g}</g>`;
   const faceHead = drawn && (drawn.head || '') + (drawn.mouth?.[sk.pose.mouth] || '');
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.

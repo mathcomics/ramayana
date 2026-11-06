@@ -90,7 +90,7 @@ Rules:
 - **Figure fields:**
   - `who`: a character id; a generic type such as `monkey1` can be repeated.
   - `pose`, `facing` (left|right).
-  - Optional overrides: `mouth` (1–3), `headView` and `hands`. They change
+  - Optional overrides: `mouth` (1–3), `look` and `hands`. They change
     only this instance, never the pose.
 - **Placement** is symbolic:
   - `at`: one of left, center-left, center, center-right, right; or a

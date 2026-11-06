@@ -1,9 +1,9 @@
 {
-  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle is the foot's angle from the ground, not the shin: 0 = flat with toes forward (side view) or outward (front view), + lifts the toes (-180..180). headView: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body) | point (like out, one long finger, shorter grouped fingers). mouth: 1 (slit), 2 (arch), 3 (wide shout). Poses are side view only; the front view is derived from them by the renderer (view: front): near = picture-right, far = picture-left. arm.out / leg.out (drawn parts): the whole arm or leg turned out of the paper, + = away from the body sideways (-90..90); side view shortens it by cos(out), front view shows its sideways reach.",
+  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle is the foot's angle from the ground, not the shin: 0 = flat with toes forward (side view) or outward (front view), + lifts the toes (-180..180). look: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body) | point (like out, one long finger, shorter grouped fingers). mouth: 1 (slit), 2 (arch), 3 (wide shout). Poses are side view only; the front view is derived from them by the renderer (view: front): near = picture-right, far = picture-left. arm.out / leg.out (drawn parts): the whole arm or leg turned out of the paper, + = away from the body sideways (-90..90); side view shortens it by cos(out), front view shows its sideways reach. look: where the head looks, relative to the body: front (the way the body faces), left (toward the near side), right (toward the far side).",
   "poses": [
     {
       "name": "bend-low",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 70,
@@ -48,7 +48,7 @@
     },
     {
       "name": "crawl",
-      "headView": "side",
+      "look": "front",
       "mouth": 1,
       "spine": {
         "chest": 46,
@@ -93,7 +93,7 @@
     },
     {
       "name": "crouch-arms-over-head",
-      "headView": "side",
+      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": 30,
@@ -138,7 +138,7 @@
     },
     {
       "name": "fall-back",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -70,
@@ -183,7 +183,7 @@
     },
     {
       "name": "fall-headlong",
-      "headView": "side",
+      "look": "front",
       "mouth": 2,
       "spine": {
         "chest": 43,
@@ -228,7 +228,7 @@
     },
     {
       "name": "kneel",
-      "headView": "side",
+      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": -2,
@@ -273,7 +273,7 @@
     },
     {
       "name": "leap",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": 23,
@@ -315,7 +315,7 @@
     },
     {
       "name": "leap-dive",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": -10,
@@ -360,7 +360,7 @@
     },
     {
       "name": "leap-reach",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": -20,
@@ -402,7 +402,7 @@
     },
     {
       "name": "lie-front",
-      "headView": "side",
+      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": 90,
@@ -443,7 +443,7 @@
     },
     {
       "name": "lunge",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 40,
@@ -484,7 +484,7 @@
     },
     {
       "name": "run",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": 0,
@@ -529,7 +529,7 @@
     },
     {
       "name": "run-arms-back",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 40,
@@ -570,7 +570,7 @@
     },
     {
       "name": "run-low",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": 39,
@@ -615,7 +615,7 @@
     },
     {
       "name": "sit",
-      "headView": "side",
+      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": -10,
@@ -656,7 +656,7 @@
     },
     {
       "name": "sit-lean-back",
-      "headView": "side",
+      "look": "front",
       "mouth": 2,
       "spine": {
         "lean": -35,
@@ -701,7 +701,7 @@
     },
     {
       "name": "stand",
-      "headView": "side",
+      "look": "front",
       "mouth": 1,
       "spine": {
         "chest": -18,
@@ -746,7 +746,7 @@
     },
     {
       "name": "stand-arm-over-face",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -20,
@@ -787,7 +787,7 @@
     },
     {
       "name": "stand-arms-up-knee-up",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -15,
@@ -832,7 +832,7 @@
     },
     {
       "name": "stand-guard",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": 25,
@@ -877,7 +877,7 @@
     },
     {
       "name": "stand-hand-on-head",
-      "headView": "side",
+      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 0,
@@ -918,7 +918,7 @@
     },
     {
       "name": "stand-hands-on-hips",
-      "headView": "side",
+      "look": "front",
       "mouth": 1,
       "spine": {
         "lean": 0,
@@ -959,7 +959,7 @@
     },
     {
       "name": "stand-lean-back",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": -10,
@@ -1001,7 +1001,7 @@
     },
     {
       "name": "stand-point",
-      "headView": "side",
+      "look": "front",
       "mouth": 2,
       "spine": {
         "chest": -4,
@@ -1046,7 +1046,7 @@
     },
     {
       "name": "stand-point-up",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -5,
@@ -1091,7 +1091,7 @@
     },
     {
       "name": "stand-stagger-back",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -25,
@@ -1136,7 +1136,7 @@
     },
     {
       "name": "stand-throw",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "chest": 15,
@@ -1181,7 +1181,7 @@
     },
     {
       "name": "stand-wind-up",
-      "headView": "side",
+      "look": "front",
       "mouth": 3,
       "spine": {
         "lean": -10,

@@ -264,6 +264,14 @@ male 0.88, female 0.74.
 - No foreshortening. Flat, as in Warli.
 - Joint limits per species prevent broken anatomy.
 
+- **Where the head looks is relative to the body** (2026-11-06): `look` is
+  `front` (the way the body faces), `left` (toward the near side) or
+  `right` (toward the far side). Side view: front = side face, left = front
+  face (toward the viewer), right = away (side face until a back of the
+  head is drawn). Front view: front = front face, left = side face looking
+  picture-right, right = side face looking picture-left. So a pose turns
+  its head the same way in both views.
+
 ## 7. Pose vocabulary and names
 
 Pose names read `<base>-<what the body does>`, so a pose can be found

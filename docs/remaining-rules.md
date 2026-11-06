@@ -14,7 +14,7 @@ in the poses themselves: `docs/problem-poses.md`.
 | The face's `back` layer (hair behind the head) is always behind the whole body (shows between the legs when the head is low) | head: hair back | The artist moving long hair into the new `hair-body` layer (moves with the upper body, behind the torso); what stays in `back` is small |
 | Body hair (`hair-body`) is pinned to the upper body and doesn't hang with gravity (upside down it stays on the back) | hair-body | A hang setting per character, or a drawn hanging version, if it looks wrong |
 | Front view: the foot is turned until its lowest point sits as far below the ankle as in the side view | feet (front view) | Toe direction from the `toe` / `side-toe` anchors (step 3), plus a toe-turn pose setting |
-| `headView` switch (front / side face) per pose; the front view always shows the front face | head | Head turn and tilt pose settings (step 4) |
+| `look` (front / left / right, relative to the body) picks a face drawing: a 90° switch, no in-between turn; side view looking right (away from the viewer) shows the side face | head | Head turn as an angle, a back-of-head layer and a three-quarter face (step 4) |
 | The face flips 180° when the head is upside down | head | Head turn and tilt (step 4) and a back-of-head layer in the face files |
 | Head centre fixed 0.21 head-units above the neck top | head | Use the `head` / `side-head` anchors (stored, not read yet) (step 4) |
 | Front-view neck: points straight up or down, keeps at least half its length | neck | Head turn and tilt (step 4); the minimum length is otherwise a style choice |

@@ -70,7 +70,7 @@ repeated inside the JSON.
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
-| `headView` | `front` · `side` | Overrides the pose (side view only). |
+| `look` | `front` · `left` · `right` | Where the head looks, relative to the body (left = toward the near side); overrides the pose. The older `headView` (`front` = left) still works. |
 | `hands` | `{ "near": "point", "far": "fist" }` (fist · out · in · point) | Overrides the pose. |
 | `adjust` | `{ "near.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json`. For one-off gestures; a gesture used twice becomes a pose. |
 | `scale` | number | This figure only (a child, a giant). |
