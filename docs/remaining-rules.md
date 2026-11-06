@@ -30,7 +30,11 @@ numbers were used before the list existed):
    faces without extra drawings. Vector version (merged 2026-11-06):
    `tools/face-turn.mjs` (turn data in `data/faces.json`), `src/headturn.js`,
    `node tools/head-turn-sheet.mjs`, pose lab Face tab; not yet used by
-   the figures.
+   the figures. Used by the figures since 2026-11-06 (replaces the face
+   switch, the face flip and the up / down faces). Turned heads: cards
+   switch front ↔ side at 45°; volumes are drawn as row slabs sorted by
+   depth with a layer bias (a painter's order, so close surfaces can
+   interleave).
 5. Wrist turn and end-on parts: a wrist-turn pose setting; the `end`
    layers (limbs, sole, hands) imported and blended with front / side by
    each part's own 3D direction; replaces the view-picked shapes, the
@@ -46,10 +50,7 @@ numbers were used before the list existed):
 |---|---|---|
 | Body hair (`hair-body`) is pinned to the upper body and doesn't hang with gravity (upside down it stays on the back) | hair-body | A hang setting per character, or a drawn hanging version, if it looks wrong |
 | Front view: the foot is not turned; it blends from the front drawing (toes at the viewer) toward the sole by sin² of the ankle angle; the leg's `out` doesn't turn the foot | feet | Toe direction from the `toe` / `side-toe` anchors and a toe-turn pose setting (step 3) |
-| `look` (front / left / right, relative to the body) picks a face drawing: a 90° switch, no in-between turn; side view looking right (away from the viewer) shows the side face | head | Head turn as an angle, a back-of-head layer and a three-quarter face (step 4) |
-| The face flips 180° when the head is upside down | head | Head turn and tilt (step 4) and a back-of-head layer in the face files |
-| Front view: a head raised / lowered 25° or more (lean + chest + neck + head, folded past level) switches to the base's `front-up` / `front-down` face: a switch, no in-between | head (front view) | The artist drawing the up / down versions (empty so far, so the level face shows); more versions or a blend if the switch shows |
-| In up / down, the character's parts (and eyes / mouths the version lacks) are moved and stretched vertically so the base's `top` and `chin` anchors land on the version's | hair, crown, marks | The character's own `front-up` / `front-down` layers where the stretch looks wrong |
+| `look` (front / left / right) is a head turn of 0 / 90 / −90°: no in-between turn in poses yet | head | A head-turn pose setting (the renderer takes any angle) |
 | Head centre fixed 0.21 head-units above the neck top | head | Use the `head` / `side-head` anchors (stored, not read yet) (step 4) |
 | Front-view neck: points straight up or down, keeps at least half its length | neck | Head turn and tilt (step 4); the minimum length is otherwise a style choice |
 | The point hand is mirrored across the forearm so the finger is toward the body | hands | A point hand drawn with the finger on the inside (the wrist turn, `arm.twist`, now exists but only blends front / side / end) |

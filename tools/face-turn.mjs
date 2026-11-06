@@ -149,7 +149,7 @@ const group = (e) => ({ skin: 'skin', eyes: 'eyes' }[e.layer] || (/^mouth-/.test
 export function turnData(views) {
   const names = ['back', 'under', 'skin', 'eyes', 'mouth-1', 'mouth-2', 'mouth-3', 'over'];
   const F = leaves(views.front.layers, names), S = leaves(views.side.layers, names);
-  const used = new Set(), volumes = [], cards = [];
+  const used = new Set(), volumes = [], cards = [], mismatch = [];
   let skinVol = null;
   const sideOf = new Map();
   for (const a of [...F].sort((p, q) => q.area - p.area)) {
@@ -164,10 +164,23 @@ export function turnData(views) {
     const vol = b && a.area > MIN_AREA && ((group(a) === 'skin' && !skinVol) || group(a) === 'char');
     if (best) used.add(best.j);
     if (vol) {
-      const rows = [];
-      for (let y = Math.max(a.y0, b.y0) + STEP / 2; y < Math.min(a.y1, b.y1); y += STEP) {
-        const fx = rowSpan(a.polys, y), sz = rowSpan(b.polys, y);
-        if (fx && sz) rows.push([r4(y), r4((fx[0] + fx[1]) / 2), r4((fx[1] - fx[0]) / 2), r4((sz[0] + sz[1]) / 2), r4((sz[1] - sz[0]) / 2)]);
+      // over the front drawing's height; where the side drawing ends
+      // sooner (heights that don't quite match), its nearest full row is
+      // used with the depth scaled to this row's width (a rounded cap)
+      const rows = [], side = [];
+      for (let y = a.y0 + STEP / 2; y < a.y1; y += STEP) { const fx = rowSpan(a.polys, y); if (fx) side.push([y, fx, rowSpan(b.polys, y)]); }
+      const full = side.filter((r) => r[2]);
+      if (Math.abs(a.y0 - b.y0) > 0.03 || Math.abs(a.y1 - b.y1) > 0.03) mismatch.push(`${a.layer}/${b.layer}: front ${a.y0.toFixed(2)}…${a.y1.toFixed(2)}, side ${b.y0.toFixed(2)}…${b.y1.toFixed(2)}`);
+      for (const [y, fx, sz0] of side) {
+        let sz = sz0;
+        if (!sz && full.length) {
+          // depth = this row's width × the volume's usual depth-to-width ratio, centred as the nearest full row
+          const n = full.reduce((p, q) => (Math.abs(q[0] - y) < Math.abs(p[0] - y) ? q : p));
+          const ratios = full.map((r) => (r[2][1] - r[2][0]) / (r[1][1] - r[1][0] || 1)).sort((p, q) => p - q);
+          const zc = (n[2][0] + n[2][1]) / 2, az = (fx[1] - fx[0]) / 2 * ratios[ratios.length >> 1];
+          sz = [zc - az, zc + az];
+        }
+        if (sz) rows.push([r4(y), r4((fx[0] + fx[1]) / 2), r4((fx[1] - fx[0]) / 2), r4((sz[0] + sz[1]) / 2), r4((sz[1] - sz[0]) / 2)]);
       }
       const v = { layer: a.layer, sideLayer: b.layer, fill: a.fill, rows };
       volumes.push(v);
@@ -192,5 +205,6 @@ export function turnData(views) {
     volumes,
     cards: cards.map(({ el, plane }) => ({ layer: el.layer, plane, at: el.c.map(r4), svg: el.svg, ...(plane === 'front' ? { depth: r4(surf(...el.c)) } : {}) })),
     side: r4(side),
+    ...(mismatch.length ? { mismatch } : {}),
   };
 }

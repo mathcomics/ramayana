@@ -149,7 +149,7 @@ pre {
 .stage-head .charsel { flex: 0 1 180px; }
 body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !important; }
 .faces { display: grid; gap: 8px; }
-.facegrid svg { display: block; width: 100%; max-width: 640px; height: auto; background: var(--paper); border-radius: 6px; }
+.facegrid svg { display: block; width: 100%; max-width: 768px; height: auto; background: var(--paper); border-radius: 6px; }
 @media (max-width: 420px) {
   .groups { gap: 6px; }
   fieldset { padding: 6px 6px 8px; }
@@ -185,6 +185,7 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
 
   <section class="faces face-only" id="facePane" aria-label="Head turned and tilted" hidden>
     <p class="hint">The head turned (0° front, 90° side, 180° back) and tilted up and down (to 90°), built only from the character's front and side face drawings. The 0° and 90° columns are the drawings themselves.</p>
+    <div class="field"><span>Mouth</span><div class="seg" id="faceMouth"></div></div>
     <div class="facegrid" id="faceGrid"></div>
   </section>
 
@@ -218,7 +219,7 @@ const STARTERS = /*__POSES__*/;
   const PAPER = '#f2ece1';
   // Character and facing change only the view: the pose is
   // shared by every species and saved without them.
-  const LOOK = new Set(['facing']);
+  const LOOK = new Set(['facing', 'faceMouth']);
   const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
   const look = () => { const c = charById(state.character); return characterLook(c, CAST.palette, FACES, c.cloth); };
 
@@ -323,7 +324,7 @@ const STARTERS = /*__POSES__*/;
   }
 
   function syncControls() {
-    for (const id of ['headView', 'mouth', 'facing', 'hand-near', 'hand-far']) $(id)._sync();
+    for (const id of ['headView', 'mouth', 'facing', 'hand-near', 'hand-far', 'faceMouth']) $(id)._sync();
     $('character').value = state.character;
     // tail controls only apply to species with a tail
     const hasTail = !!SPECIES[look().species].tail;
@@ -414,11 +415,13 @@ const STARTERS = /*__POSES__*/;
     PITCHES.forEach((p, i) => {
       body += `<text x="0.15" y="${T + i * C + C / 2 + 0.07}" font-size="0.2" fill="#000" fill-opacity="0.55" font-family="sans-serif">${p > 0 ? 'up ' + p + '°' : p < 0 ? 'down ' + -p + '°' : 'level'}</text>`;
       YAWS.forEach((y, j) => {
-        body += `<g transform="translate(${L + j * C + C / 2} ${T + i * C + C / 2})" color="${c.body}">${headTurn(turn, y, p, { id: `ft${i}-${j}` })}</g>`;
+        body += `<g transform="translate(${L + j * C + C / 2} ${T + i * C + C / 2})" color="${c.body}">${headTurn(turn, y, p, { id: `ft${i}-${j}`, mouth: state.faceMouth })}</g>`;
       });
     });
     $('faceGrid').innerHTML = `<svg viewBox="0 0 ${L + YAWS.length * C} ${T + PITCHES.length * C}" role="img" aria-label="${c.name}'s head turned and tilted">${body}</svg>`;
   }
+  state.faceMouth = 2;
+  seg('faceMouth', [['Small', 1], ['Medium', 2], ['Wide', 3]], () => state.faceMouth, (v) => { state.faceMouth = v; drawFaces(); });
   function setTab(t) {
     state.tab = t;
     $('tabPose').setAttribute('aria-selected', t === 'pose'); $('tabFace').setAttribute('aria-selected', t === 'face');

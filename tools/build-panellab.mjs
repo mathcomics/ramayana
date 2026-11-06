@@ -6,7 +6,7 @@ import { loadAssets, loadSections, rendererBundle, fillTemplate, writeOut } from
 
 const sections = loadSections().map(({ name, title, panels, backgrounds }) => ({ name, title, panels, backgrounds }));
 const html = fillTemplate('tools/panellab.template.html', {
-  RENDERER: rendererBundle(['src/geom.js', 'src/parts.js', 'src/figure.js', 'src/scene.js']),
+  RENDERER: rendererBundle(['src/geom.js', 'src/parts.js', 'src/headturn.js', 'src/figure.js', 'src/scene.js']),
   ASSETS: JSON.stringify(loadAssets()),
   SECTIONS: JSON.stringify(sections).replace(/<\/script/gi, '<\\/script'),
 });

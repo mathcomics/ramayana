@@ -189,14 +189,22 @@ parts (decided 2026-11-06):
 
 **Every character has both a front and a side face; there is no
 generated fallback** (decided 2026-11-04). Drawings are never edited by
-code: a face is placed whole on the head (moved, scaled, rotated with the
-head, mirrored for facing left). In the front view, a head raised or
-lowered 25° or more (as the viewer sees it: lean + chest + neck + head)
-uses the base's up / down version when drawn; the character's parts
-follow it by the base's `top` and `chin` anchors (moved and stretched
-vertically), unless the character draws its own up / down parts. The
-face is drawn over the neck and body (in side view the near arm still
-crosses in front); `mouth-1/2/3` follow the pose's mouth size.
+code. **The head is turned in 3D from its two drawings** (decided
+2026-11-06, `src/headturn.js`): matching front and side elements (the
+skin, hair masses, buns) become volumes, at each height an ellipse as
+wide as the front drawing and as deep as the side drawing; eyes, mouths,
+ears and marks are flat pieces on their surface (front ones up to a 45°
+turn, side ones past it). The head tilts with lean + chest + neck + head
+and turns with `look`, in both views, so the drawings show exactly in the
+straight front and side views and everything else (three-quarter, up,
+down, upside down, the back of the head) comes from them. Front and side
+drawings must agree on heights (the importer lists where they don't).
+Drawn layering wins near the front (`under` behind the face, `over` in
+front), depth toward the back of the head; a part in `back` (as drawn in
+the nearer view) goes behind the whole body. The face is drawn over the
+neck and body (in side view the near arm still crosses in front);
+`mouth-1/2/3` follow the pose's mouth size. The base's `front-up` /
+`front-down` versions are no longer used.
 
 **Size guide.** A species head is only `size` and `width` (decided
 2026-11-04): a plain rectangle `size` tall and `size × width` wide,
@@ -281,23 +289,21 @@ male 0.88, female 0.74.
   the face turns over when the head is upside down; feet keep their
   height below the ankle. Parts are drawn far to near by their depth
   toward the viewer (both views).
-  - **Planned (not yet built):** when the side pose bends far forward or
-    the head goes below the shoulders (e.g. `fall-headlong`), the front
-    view should turn to a **back view**: the back of the head instead of
-    the face. This needs a back layer per drawn face (e.g. a `back-head`
-    layer in `data/faces/`, or a plain head shape) and a draw order for
-    the back view (arms behind the torso, hair over the head).
+  - A head bent far forward or below the shoulders (e.g. `fall-headlong`)
+    shows its top and back in the front view, from the turned head (no
+    back-head drawing needed). A full back view of the body (arms behind
+    the torso) is still not built.
 - Foreshortening only by projection: a part turned out of the paper
   shortens (never widens); otherwise flat.
 - Joint limits per species prevent broken anatomy.
 
 - **Where the head looks is relative to the body** (2026-11-06): `look` is
   `front` (the way the body faces), `left` (toward the near side) or
-  `right` (toward the far side). Side view: front = side face, left = front
-  face (toward the viewer), right = away (side face until a back of the
-  head is drawn). Front view: front = front face, left = side face looking
-  picture-right, right = side face looking picture-left. So a pose turns
-  its head the same way in both views.
+  `right` (toward the far side): a head turn of 0°, 90° or −90°. Side
+  view: front = side face, left = front face (toward the viewer), right =
+  the back of the head. Front view: front = front face, left = side face
+  looking picture-right, right = side face looking picture-left. So a pose
+  turns its head the same way in both views.
 
 ## 7. Pose vocabulary and names
 

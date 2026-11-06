@@ -78,8 +78,12 @@ renderer or panel changes.
   Pose / Face tabs, character picker in the header, pattern picker
   removed; the Face tab shows the grid (turn 0–180°, up/down 20, 40, 90°;
   the 30° and 60° turns need drawing updates, decided better than the
-  rule-based switch). Not yet
-  used by figures (next: front view head tilt and the `look` switch).
+  rule-based switch). **Used by the figures** (2026-11-06): `headMatrix`
+  from lean + chest + neck + head and `look` (0 / ±90°), both views; the
+  `back` part (as drawn in the nearer view) behind the body. Replaces the
+  face switch, flip and up/down faces. Face tab: ±90° rows, mouth picker.
+  Import lists front/side height mismatches (every face has some; the
+  artist fixes the drawings; front-only rows get a rounded cap).
 - **End-on parts + toes-first front foot (2026-11-06):** both body files
   have an `end` layer (upper arm, forearm, thigh, shin end-on; sole of the
   foot; anchors end-shoulder/elbow/hip/knee/ankle, end-toe), used since step 5.

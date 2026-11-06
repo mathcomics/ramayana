@@ -11,6 +11,7 @@
 
 import { dir, add, mul, lerp, rot, quad, circlePts, pathD, bbox } from './geom.js';
 import { buildParts, dpSegD } from './parts.js';
+import { headTurn, headMatrix } from './headturn.js';
 
 const ELBOW = +1; // forearm rotates toward +θ when the elbow flexes
 const KNEE = -1;  // shin rotates toward -θ when the knee flexes
@@ -458,6 +459,12 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
     if (t > 90) t = 180 - t; else if (t < -90) t = -180 - t;
     if (t >= 25) face.nod = 'down'; else if (t <= -25) face.nod = 'up';
   }
+  // The head in 3D (faces with turn data, src/headturn.js): tilted in the
+  // side plane by lean + chest + neck + head, turned by where it looks
+  // (front 0, left 90 toward the near side, right -90). Replaces the face
+  // switch above, the up / down faces and the face turning over.
+  const sp0 = side.spine;
+  face.R = headMatrix(sp0.lean + sp0.chest + sp0.neck + sp0.head, { front: 0, left: 90, right: -90 }[L] ?? 0, front);
   const bb = bbox(shapes.map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];
@@ -532,14 +539,20 @@ export function renderFigure(species, pose, opts = {}) {
   // a raised / lowered head uses that version of the face when drawn
   const ver = (headAnchor.nod && drawn?.[headAnchor.nod]) || drawn;
   // the base face's skin is currentColor: the body colour
-  const faceHead = drawn && `<g color="${colors.body}">${ver.head || ''}${ver.mouth?.[sk.pose.mouth] || ''}</g>`;
+  const clipId0 = opts.id ?? `face${clipSeq + 1}`;
+  // a face with turn data is drawn in 3D (src/headturn.js) at the head's place
+  const turned = opts.face?.turn && headAnchor.R;
+  const at = `translate(${headAnchor.at[0]} ${headAnchor.at[1]})`;
+  const turnPart = (part) => `<g transform="${at}" color="${colors.body}">${headTurn(opts.face.turn, 0, 0, { R: headAnchor.R, part, mouth: sk.pose.mouth, id: `${clipId0}${part}` })}</g>`;
+  const faceHead = turned ? turnPart('head') : drawn && place(`<g color="${colors.body}">${ver.head || ''}${ver.mouth?.[sk.pose.mouth] || ''}</g>`);
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
   let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;
   const clipId = opts.id ?? `face${++clipSeq}`;
   let inBody = false;
   if (drawn?.defs) svg += `<defs>${drawn.defs}</defs>`;
-  if (drawn?.back) svg += place(drawn.back);            // behind the whole body
+  if (turned) svg += turnPart('back');                 // behind the whole body
+  else if (drawn?.back) svg += place(drawn.back);
   let headDone = false;
   for (const s of shapes) {
     if (s.hairBody) {                                   // the face's body hair, moved with the upper body
@@ -550,9 +563,9 @@ export function renderFigure(species, pose, opts = {}) {
       }
       continue;
     }
-    if (drawn && s.headPart) {                          // drawn face instead of the generated head
+    if (faceHead && s.headPart) {                       // drawn face instead of the generated head
       // placed where the guide head would go
-      if (!headDone) { if (inBody) { svg += '</g>'; inBody = false; } svg += place(faceHead); headDone = true; }
+      if (!headDone) { if (inBody) { svg += '</g>'; inBody = false; } svg += faceHead; headDone = true; }
       continue;
     }
     if (s.role === 'body') {

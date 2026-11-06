@@ -7,7 +7,7 @@ import { loadAssets, rendererBundle, fillTemplate, writeOut } from './lib.mjs';
 
 const A = loadAssets();
 const html = fillTemplate('tools/poselab.template.html', {
-  RENDERER: rendererBundle(['src/geom.js', 'src/parts.js', 'src/figure.js', 'src/headturn.js']),
+  RENDERER: rendererBundle(['src/geom.js', 'src/parts.js', 'src/headturn.js', 'src/figure.js']),
   SPECIES: JSON.stringify(A.species),
   POSES: JSON.stringify(A.poses),
   CHARACTERS: JSON.stringify(A.characters),

@@ -97,6 +97,7 @@ for (const c of cast) {
   if (X.front && X.side) {
     const lay = (v) => { const L = { ...B[v].layers, skin: B[v].layers.skin && paintSkin(B[v].layers.skin) }; for (const k of ['back', 'under', 'over', 'eyes', 'mouth-1', 'mouth-2', 'mouth-3']) if (X[v].layers[k]) L[k] = X[v].layers[k]; return { layers: L }; };
     faces[c.id].turn = turnData({ front: lay('front'), side: lay('side') });
+    if (faces[c.id].turn.mismatch) console.warn(`  ~ ${c.id}: front and side heights differ (turned heads): ${faces[c.id].turn.mismatch.join('; ')}`);
   }
   console.log(`${c.id}: ${['front', 'side'].map((v) => `${v} ${['under', 'over', 'back', 'hair-body', 'eyes', 'mouth-1'].filter((n) => X[v]?.layers[n]).join('/') || '-'}`).join('; ')}${faces[c.id]?.front?.up ? ' +up' : ''}${faces[c.id]?.front?.down ? ' +down' : ''}`);
 }

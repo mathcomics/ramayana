@@ -33,48 +33,69 @@ const htW = (R, p) => R[2][0] * p[0] + R[2][1] * p[1] + R[2][2] * p[2];
 // band joining its left- and rightmost points to the next row's, each with
 // the depth of its row's centre, so slabs of all volumes can be sorted.
 function htSlabs(v, R, bias) {
+  // the rows stack along the head's up axis as seen; each row's outermost
+  // points across that direction join up into bands
+  const up = htAp(R, [0, 1, 0]), ul = Math.hypot(up[0], up[1]);
+  const nrm = ul < 1e-3 ? [1, 0] : [-up[1] / ul, up[0] / ul];
   const rows = v.rows.map(([y, xc, ax, zc, az]) => {
     const c = htAp(R, [xc, y, zc]), p = htAp(R, [ax, 0, 0]), q = htAp(R, [0, 0, az]);
-    const e = Math.hypot(p[0], q[0]);
-    const d = e < 1e-6 ? [0, 0] : [(p[0] * p[0] + q[0] * q[0]) / e, (p[0] * p[1] + q[0] * q[1]) / e];
+    const pn = p[0] * nrm[0] + p[1] * nrm[1], qn = q[0] * nrm[0] + q[1] * nrm[1];
+    const e = Math.hypot(pn, qn);
+    const d = e < 1e-6 ? [0, 0] : [(p[0] * pn + q[0] * qn) / e, (p[1] * pn + q[1] * qn) / e];
     return { c, p, q, w: htW(R, [xc, y, zc]), r: [c[0] + d[0], c[1] + d[1]], l: [c[0] - d[0], c[1] - d[1]] };
   });
   const P = (p) => `${htF(p[0])} ${htF(p[1])}`;
+  // each band spans the rows on either side of its own, so neighbouring
+  // bands overlap and no seam shows
   return rows.map((o, i) => {
-    const n = rows[i + 1];
-    // the band gets a hairline stroke in its own colour, so neighbouring
-    // bands don't show a seam
-    const band = n ? `<path d="M${P(o.r)}L${P(n.r)}L${P(n.l)}L${P(o.l)}Z" stroke="${v.fill}" stroke-width="0.012" stroke-linejoin="round"/>` : '';
-    const shape = band + `<circle r="1" transform="matrix(${htF(o.p[0])} ${htF(o.p[1])} ${htF(o.q[0])} ${htF(o.q[1])} ${htF(o.c[0])} ${htF(o.c[1])})"/>`;
-    return { depth: o.w + bias, shape, r: o.r, l: o.l, svg: `<g fill="${v.fill}">${shape}</g>` };
+    const a = rows[i - 1] || o, b = rows[i + 1] || o;
+    const band = rows.length > 1 ? `<path d="M${P(a.r)}L${P(o.r)}L${P(b.r)}L${P(b.l)}L${P(o.l)}L${P(a.l)}Z"/>` : '';
+    // the row's ellipse, unless seen edge-on (a near-flat ellipse adds nothing
+    // and upsets clip paths)
+    const det = o.p[0] * o.q[1] - o.p[1] * o.q[0];
+    const ell = Math.abs(det) > 1e-3 ? `<circle r="1" transform="matrix(${htF(o.p[0])} ${htF(o.p[1])} ${htF(o.q[0])} ${htF(o.q[1])} ${htF(o.c[0])} ${htF(o.c[1])})"/>` : '';
+    const shape = band + ell;
+    return { depth: o.w + bias, shape, ell, det, r: o.r, l: o.l, svg: `<g fill="${v.fill}">${shape}</g>` };
   });
 }
-// the volume's outline alone (for a clip path)
+// the volume's outline alone (for a clip path): the outline down the right
+// side and up the left, plus the rows' ellipses seen well open (the top and
+// bottom of the head when tilted). Thin ellipses are left out: rsvg drops
+// coverage where many thin shapes overlap in a clip path.
 function htVolume(v, R) {
   const sl = htSlabs(v, R, 0);
-  // plus one outline down the right side and up the left, so the clip has no seams
   const pts = [...sl.map((s) => s.r), ...sl.map((s) => s.l).reverse()];
   const P = (p) => `${htF(p[0])} ${htF(p[1])}`;
-  return (pts.length > 2 ? `<path d="M${pts.map(P).join('L')}Z"/>` : '') + sl.map((s) => s.shape.replace(/ stroke="[^"]*" stroke-width="[^"]*" stroke-linejoin="round"/, '')).join('');
+  return (pts.length > 2 ? `<path d="M${pts.map(P).join('L')}Z"/>` : '') + sl.filter((s) => Math.abs(s.det) > 0.03).map((s) => s.ell).join('');
 }
 
-export function headTurn(turn, yaw, pitch, { mouth = 2, id = 'ht' } = {}) {
-  const R = htRot(yaw, pitch);
-  const cy = Math.cos(yaw * HT_RAD), sy = Math.sin(yaw * HT_RAD);
-  const frontish = Math.abs(cy) >= Math.abs(sy);
-  const facing = cy * Math.cos(pitch * HT_RAD);
+// opts: mouth (1–3), id (clip id prefix), R (a 3×3 matrix from head-local
+// to picture coordinates, instead of yaw / pitch: a figure's head), part
+// ('head': everything but the back layer; 'back': only it, drawn behind the
+// body; 'all').
+export function headTurn(turn, yaw, pitch, { mouth = 2, id = 'ht', R = null, part = 'all' } = {}) {
+  R = R || htRot(yaw, pitch);
+  // front drawings while the camera sees more of the face than of its side
+  const frontish = Math.abs(R[2][2]) >= Math.abs(R[2][0]);
+  const facing = R[2][2];                                     // +1 face toward the viewer, -1 the back of the head
   // drawn layering wins near the front (under behind the skin, over in
   // front), depth toward the back of the head
-  const bias = (layer) => ({ under: -0.15 * facing, back: -0.3 * facing, skin: 0, over: 0.15 }[layer] ?? 0);
+  const bias0 = (layer) => ({ under: -0.15 * facing, back: -0.3 * facing, skin: 0, over: 0.15 }[layer] ?? 0);
+  // a volume follows its front drawing's layer near the front and its side
+  // drawing's toward the side view (the side drawing's layering is exact at 90°)
+  const sw = (Math.abs(R[2][0]) / (Math.hypot(R[2][0], R[2][2]) || 1)) ** 4;
+  const bias = (layer, sideLayer = layer) => (1 - sw) * bias0(layer) + sw * bias0(sideLayer);
+  // the back layer (as drawn in the view it is closer to) goes behind the body
+  const want = (layer) => part === 'all' || (part === 'back') === (layer === 'back');
   const items = [];
   const skin = turn.volumes.find((v) => v.layer === 'skin');
   const skinShape = skin ? htVolume(skin, R) : '';
-  for (const v of turn.volumes) items.push(...htSlabs(v, R, bias(v.layer)));
+  for (const v of turn.volumes) if (want(frontish ? v.layer : v.sideLayer || v.layer)) items.push(...htSlabs(v, R, bias(v.layer, v.sideLayer)));
   // cards: front ones while the face is turned under 45°, side ones past it
-  const Xs = -turn.side * (sy < 0 ? -1 : 1);                  // the side toward the viewer
+  const Xs = turn.side * (R[2][0] >= 0 ? 1 : -1);             // the side toward the viewer
   for (const c of turn.cards) {
     if (/^mouth-/.test(c.layer) && c.layer !== `mouth-${mouth}`) continue;
-    if ((c.plane === 'front') !== frontish) continue;
+    if ((c.plane === 'front') !== frontish || !want(c.layer)) continue;
     let m, w;
     if (c.plane === 'front') {
       if (c.layer !== 'skin' && R[2][2] <= 0.02) continue;     // the face turned away
@@ -89,6 +110,25 @@ export function headTurn(turn, yaw, pitch, { mouth = 2, id = 'ht' } = {}) {
     // on the surface: just in front of the volume slab it sits on
     items.push({ depth: w + 0.3 + bias(c.layer), svg: clip && skin ? `<g clip-path="url(#${id}-skin)">${g}</g>` : g });
   }
+  if (!items.length) return '';
   items.sort((a, b) => a.depth - b.depth);
   return `<defs><clipPath id="${id}-skin">${skinShape}</clipPath></defs>` + items.map((i) => i.svg).join('');
+}
+
+// A figure's head: head-local -> picture, from the side pose. The head
+// tilts in the side plane by `tilt` (lean + chest + neck + head; + bows the
+// face) and turns about its own up axis by `turn` (+ toward the body's near
+// side). Front view: the camera looks at the body's front (picture-right =
+// the near side). Side view: the camera looks at the side (picture-right =
+// forward); the head is taken as symmetric, so the far side is shown, as in
+// the side drawing.
+export function headMatrix(tilt, turn, front) {
+  const t = tilt * HT_RAD, a = (front ? turn : -turn) * HT_RAD;
+  const ct = Math.cos(t), st = Math.sin(t), ca = Math.cos(a), sa = Math.sin(a);
+  // head-local (x, y, z = face) -> body (X near side, Y down, Z forward): turn about Y, then tilt about X
+  const turnM = [[ca, 0, sa], [0, 1, 0], [-sa, 0, ca]];
+  const tiltM = [[1, 0, 0], [0, ct, st], [0, -st, ct]];
+  const B = tiltM.map((r) => [0, 1, 2].map((j) => r[0] * turnM[0][j] + r[1] * turnM[1][j] + r[2] * turnM[2][j]));
+  // body -> picture (u, v, w toward the viewer)
+  return front ? [B[0], B[1], B[2]] : [B[2], B[1], B[0].map((v) => -v)];
 }
