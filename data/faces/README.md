@@ -12,9 +12,10 @@ missing.
 1. Start from the template for the character's species and view:
    `templates/<monkey|male|female>-<front|side>.svg`.
 2. Draw the face in the layers, or paste it in and scale it to fit the guide.
-   The guide (the species' head rectangle and neck at the figure's real
-   scale; drawing rules in style bible §5.6)
-   is locked and ignored on import.
+   The guide (the species' head rectangle and the drawn body standing
+   straight, at the figure's real scale; drawing rules in style bible §5.6)
+   is locked and ignored on import. Long hair that lies on the back goes
+   in `hair-body`, drawn over the body guide.
 3. Save as `<character-id>-<front|side>.svg` in this folder, using the ids in
    `data/characters.json`: `rama-front.svg`, `sita-side.svg`,
    `monkey1-front.svg`, `raxas_m1-side.svg` …
@@ -37,7 +38,9 @@ looks **right**.
 | Layer | Use |
 |---|---|
 | `head` | The face: skin, eyes, ears, mouth, crown, beard, earrings… Turns with the head. |
-| `back` | Optional. Drawn behind the whole body, e.g. long hair below the shoulders in front view. |
+| `back` | Optional. Hair behind the head: turns with the head, drawn behind the whole body. |
+| `hair-body` | Optional. Long hair on the back and shoulders: moves with the upper body, pinned at the `nape` anchor and turned with the chest; the front view sees its up-down part, like the torso. Drawn just behind the torso. |
+| `anchors` | `nape`: a small circle where the body hair joins the body. The templates put it at the neck base; move it only if the hair starts elsewhere. Needed when there is a `hair-body` layer. |
 | `mouth-1`, `mouth-2`, `mouth-3` | Optional. The pose's mouth size (1 small … 3 wide) picks one. If absent, the mouth drawn in `head` is used for every size. |
 
 Layers are matched by name (Inkscape layer label or group id). Hiding a

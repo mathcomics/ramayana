@@ -215,6 +215,14 @@ male 0.88, female 0.74.
   curving back above the eye, falling down the back as one mass with a
   rounded end, in the `head` layer (in front).
 
+- **Hair in two parts** (2026-11-05): hair that frames the head is drawn in
+  the face (`head`, or `back` for hair behind the head) and turns with the
+  head. Long hair that lies on the back and shoulders goes in the face's
+  `hair-body` layer: it is pinned at the `nape` anchor and moves with the
+  upper body (turns with the chest; in the front view shortens like the
+  torso), drawn just behind the torso. It stays in the face file because
+  the body is shared by characters with different hair.
+
 ## 6. Figure model (shared)
 
 - Skeleton: pelvis (root) → 2-segment spine → neck → head;

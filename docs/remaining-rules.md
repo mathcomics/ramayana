@@ -11,7 +11,8 @@ in the poses themselves: `docs/problem-poses.md`.
 
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
-| The drawn back hair layer is always behind the whole body (shows between the legs when the head is low) | head: hair back | The artist's hair-back layers (a hanging-forward or back-of-head drawing); then place it by depth like the other parts |
+| The face's `back` layer (hair behind the head) is always behind the whole body (shows between the legs when the head is low) | head: hair back | The artist moving long hair into the new `hair-body` layer (moves with the upper body, behind the torso); what stays in `back` is small |
+| Body hair (`hair-body`) is pinned to the upper body and doesn't hang with gravity (upside down it stays on the back) | hair-body | A hang setting per character, or a drawn hanging version, if it looks wrong |
 | Front view: the foot is turned until its lowest point sits as far below the ankle as in the side view | feet (front view) | Toe direction from the `toe` / `side-toe` anchors (step 3), plus a toe-turn pose setting |
 | `headView` switch (front / side face) per pose; the front view always shows the front face | head | Head turn and tilt pose settings (step 4) |
 | The face flips 180° when the head is upside down | head | Head turn and tilt (step 4) and a back-of-head layer in the face files |

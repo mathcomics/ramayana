@@ -448,10 +448,19 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   }
   const byDepth = (a, b) => a.depth - b.depth;
   for (const u of units.filter((u) => !u.over).sort(byDepth)) out.push(...u.items);
+  // body hair (a face's hair-body layer: long hair on the back) sits on
+  // the back, just behind the torso
+  out.push({ hairBody: true, part: 'hair-body', pts: [] });
   pushTorso();
   for (const u of units.filter((u) => u.over).sort(byDepth)) out.push(...u.items);
   for (const s of out) if (s.segs) { s.pts = dpFlat(s.segs); }
-  return { shapes: out, H, headRot, joints: { near: limbs.near.joints, far: limbs.far.joints } };
+  // Where body hair hangs from (the neck base) and how it turns: with the
+  // upper body (lean + chest). The front view sees its up-down part, like
+  // the torso (shorter as the upper body tips toward the viewer, turned
+  // over past level).
+  const tilt = sp.lean + sp.chest, ct = Math.cos(tilt * RAD);
+  const hair = { at: nb, rot: front ? 0 : tilt, sy: front ? Math.sign(ct || 1) * Math.max(Math.abs(ct), 0.25) : 1 };
+  return { shapes: out, H, headRot, hair, joints: { near: limbs.near.joints, far: limbs.far.joints } };
 }
 
 const dpF = (v) => (Math.round(v * 1000) / 1000).toString();

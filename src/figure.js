@@ -435,7 +435,7 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
   const side = normalizePose(poseIn);
   const front = view === 'front';
   const pose = front ? normalizePose(frontOf(S, side).pose) : side;
-  const { shapes, H, headRot } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale);
+  const { shapes, H, headRot, hair } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale);
   const bb = bbox(shapes.map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
   const mv = (q) => [q[0] + dx, q[1] + dy];
@@ -443,7 +443,7 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
     s.pts = s.pts.map(mv);
     if (s.segs) { s.segs = s.segs.map((g) => g.map(mv)); s.d = dpSegD(s.segs); }
   }
-  return { shapes, sk: { pose, front }, headAnchor: { at: mv(H), rot: headRot }, bbox: bbox(shapes.map((s) => s.pts)) };
+  return { shapes, sk: { pose, front }, headAnchor: { at: mv(H), rot: headRot }, hairAnchor: { ...hair, at: mv(hair.at) }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
 
 // Every body part as its own list of shapes, for inspection
@@ -501,7 +501,7 @@ let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
-  const { shapes, headAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.bodyScale ?? 1);
+  const { shapes, headAnchor, hairAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.bodyScale ?? 1);
   // Drawn face (data/faces): replaces the guide head (every character has
   // one; the guide shows on species sheets only). Its layers are
   // copied unchanged, colours included, and placed with one transform.
@@ -517,6 +517,14 @@ export function renderFigure(species, pose, opts = {}) {
   if (drawn?.back) svg += place(drawn.back);            // behind the whole body
   let headDone = false;
   for (const s of shapes) {
+    if (s.hairBody) {                                   // the face's body hair, moved with the upper body
+      if (drawn?.hairBody && hairAnchor) {
+        if (inBody) { svg += '</g>'; inBody = false; }
+        const [nx, ny] = drawn.nape || [0, 0.65];
+        svg += `<g transform="translate(${hairAnchor.at[0]} ${hairAnchor.at[1]}) rotate(${hairAnchor.rot}) scale(1 ${hairAnchor.sy}) translate(${-nx} ${-ny})">${drawn.hairBody}</g>`;
+      }
+      continue;
+    }
     if (drawn && s.headPart) {                          // drawn face instead of the generated head
       // placed where the guide head would go
       if (!headDone) { if (inBody) { svg += '</g>'; inBody = false; } svg += place(faceHead); headDone = true; }

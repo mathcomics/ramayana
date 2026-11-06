@@ -8,8 +8,9 @@
 // the transforms of the groups that contain them. Only element ids and
 // editor-only attributes are dropped, so several figures can share one SVG.
 //
-// Layers (by inkscape:label or id): head, back, mouth-1, mouth-2, mouth-3,
-// guide (ignored). A file with no recognised layer is treated as all "head".
+// Layers (by inkscape:label or id): head, back, hair-body, mouth-1,
+// mouth-2, mouth-3, anchors (a circle labelled nape), guide (ignored). A
+// file with no recognised layer is treated as all "head".
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -19,14 +20,14 @@ import { parse, serialize, label, esc, withoutDisplay } from './svg.mjs';
 const dir = process.argv[2] || join(root, 'data/faces');
 const outPath = process.argv[3] || join(root, 'data/faces.json');
 
-const LAYERS = ['head', 'back', 'mouth-1', 'mouth-2', 'mouth-3'];
+const LAYERS = ['head', 'back', 'hair-body', 'mouth-1', 'mouth-2', 'mouth-3'];
 
 // Find layers anywhere in the tree; keep the transforms of their ancestors.
 function findLayers(node, chain, found) {
   for (const c of node.children || []) {
     if (!c.tag) continue;
     const name = c.tag === 'g' ? label(c) : '';
-    if (name === 'guide' || name.startsWith('guide')) continue;
+    if (name === 'guide' || name.startsWith('guide') || name === 'anchors') continue;
     if (LAYERS.includes(name)) { found[name] = { chain, node: c }; continue; }   // own transform added below
     findLayers(c, c.tag === 'g' || c.tag === 'svg' ? [...chain, c.attrs.transform].filter(Boolean) : chain, found);
   }
@@ -75,7 +76,22 @@ for (const f of files) {
     const opacity = node.attrs.opacity;
     let g = `<g${[...chain, ...own].length ? ` transform="${[...chain, ...own].join(' ')}"` : ''}${style ? ` style="${esc(style)}"` : ''}${opacity ? ` opacity="${opacity}"` : ''}>${inner}</g>`;
     if (name.startsWith('mouth-')) (entry.mouth ||= {})[name.slice(6)] = g;
+    else if (name === 'hair-body') entry.hairBody = g;
     else entry[name] = g;
+  }
+  // nape: where the body hair joins the body (a circle labelled "nape")
+  const findNape = (n) => {
+    for (const c of n.children || []) {
+      if (!c.tag) continue;
+      if (c.tag === 'circle' && /(^|-)nape$/.test(label(c))) return [+c.attrs.cx, +c.attrs.cy];
+      const r = findNape(c); if (r) return r;
+    }
+    return null;
+  };
+  const nape = findNape(svg);
+  if (entry.hairBody) {
+    if (nape) entry.nape = nape.map((v) => Math.round(v * 1e4) / 1e4);
+    else console.error(`  ! ${f}: hair-body layer but no nape anchor (using 0, 0.65)`);
   }
   if (defs.trim()) entry.defs = defs;
   (faces[id.toLowerCase()] ||= {})[view.toLowerCase()] = entry;
