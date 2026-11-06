@@ -22,12 +22,20 @@
      shin, foot.
      anchors: shoulder, elbow, wrist, hip, knee, ankle, neck-base, neck-top,
      side-shoulder, side-shoulder-far, side-elbow, side-wrist, side-hip,
-     side-knee, side-ankle, side-neck-base; toe, side-toe (tip of each foot),
+     side-knee, side-ankle, side-neck-base; toe, side-toe (tip of each foot; the front foot points its toes at the viewer),
      head, side-head (centre of the head) (the circle centre counts).
+     end (DRAFT, not read by the renderer yet): upper-arm, forearm, thigh,
+     shin seen end-on (pointing at the viewer), and the foot with its sole
+     facing the viewer (heel on the left, toes to the right as in side view), as the hands' end layer.
+     Each sits on one anchor where its bone projects to a point:
+     end-shoulder, end-elbow, end-hip, end-knee, end-ankle; end-toe (toe tip
+     of the sole). Same edge count
+     (limbs 4, foot 5) as the
+     front / side partners. Inner side = picture-left (toward the body).
      100 px = 1 head-unit; ground at y = 0. -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-     width="548.18" height="574.02" viewBox="-97.62 -534.02 548.18 574.02">
-<line x1="-97.62" x2="450.56" y1="0" y2="0" stroke="#c9bfae" stroke-width="1"/>
+     width="828.18" height="574.02" viewBox="-97.62 -534.02 828.18 574.02">
+<line x1="-97.62" x2="730.56" y1="0" y2="0" stroke="#c9bfae" stroke-width="1"/>
   <g id="front" inkscape:groupmode="layer" inkscape:label="front">
     <path id="front-torso" inkscape:label="torso" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 59.06 -446.84 L 2.53 -464.37 L -54.58 -446.84 C -49.79 -416.97 -50.65 -394.43 -29.92 -371.24 L -30.19 -351.5 C -32.16 -344.55 -41.23 -330.24 -50.18 -314.97 C -34.18 -289.59 20.05 -273.54 50.19 -314.27 C 42.54 -334.34 35.4 -340.31 33.32 -351.76 L 34.6 -373.81 C 54.02 -389.39 52.86 -420.97 59.06 -446.84 Z"/>
     <path id="front-neck" inkscape:label="neck" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 12.34 -453.94 L 12.33 -494.02 L -7.85 -493.55 L -7.86 -454.21 L 12.34 -453.94 Z"/>
@@ -36,7 +44,7 @@
     <path id="front-hand" inkscape:label="hand" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 48.5 -259.6 C 46.01 -257.05 39.44 -237.82 38.72 -232.86 C 38.47 -231.18 43.8 -228.86 45.2 -232.11 L 49.34 -241.72 C 51.35 -241.95 55.93 -219.24 58.22 -218.66 C 65.01 -216.93 77.96 -225.12 78.16 -228.09 C 78.35 -231 62.65 -259.45 59.57 -261.58 C 51.34 -267.26 50.88 -262.05 48.5 -259.6 Z"/>
     <path id="front-thigh" inkscape:label="thigh" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 47.45 -322.89 C 88.72 -276.68 57.47 -212.63 49.02 -163.56 C 44.99 -140.23 23.24 -148.43 21.44 -158.1 L 1.53 -294.47 C 7.35 -319.28 29.34 -319.42 47.45 -322.89 Z"/>
     <path id="front-shin" inkscape:label="shin" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 47.1 -161.62 C 70.83 -112.45 50.96 -70.88 41.44 -28.05 C 38.54 -15.01 24.44 -22.53 24.4 -28.85 C 24.09 -72.15 17.73 -110.4 23.74 -158.96 C 23.67 -171.96 42.34 -171.46 47.1 -161.62 Z"/>
-    <path id="front-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 38.43 -26.8 C 42.16 -21.33 48.92 -17.01 59.72 -9.8 C 65.45 -10.06 69.96 -8.36 67.91 -0.98 L 22.05 0 L 25.93 -22.56 L 38.43 -26.8 Z"/>
+    <path id="front-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 24.34 -27.90 L 44.14 -27.90 C 45.53 -23.71 46.55 -17.86 48.46 -13.55 C 50.80 -8.28 57.49 -4.58 56.74 -0.00 L 35.14 -0.00 L 20.74 -0.00 C 14.84 -4.01 15.39 -7.94 20.25 -11.88 Z"/>
   </g>
   <g id="front-bend" inkscape:groupmode="layer" inkscape:label="front-bend">
     <path id="front-bend-torso" inkscape:label="torso" style="fill:#b06a6a;fill-opacity:0.2;stroke:#a03030;stroke-width:1;stroke-dasharray:5 3" d="M 61.3 -413.33 L 0.39 -424.09 L -56.71 -413.14 C -52.08 -390.63 -57.62 -365.42 -33.94 -350.23 L -33.67 -332.02 L -50.18 -314.97 C -23.34 -287.24 30.92 -281.75 50.19 -314.27 L 35.2 -331.26 L 35.4 -348.56 C 59.56 -361.83 56.74 -388.38 61.3 -413.33 Z"/>
@@ -49,11 +57,18 @@
     <path id="side-hand" inkscape:label="hand" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 265.96 -259.92 C 263.47 -257.37 256.9 -238.15 256.18 -233.18 C 255.93 -231.5 261.26 -229.18 262.66 -232.44 L 266.8 -242.05 C 268.81 -242.27 273.39 -219.56 275.68 -218.98 C 282.47 -217.26 295.42 -225.44 295.62 -228.42 C 295.81 -231.33 280.11 -259.78 277.03 -261.9 C 268.8 -267.59 268.34 -262.38 265.96 -259.92 Z"/>
     <path id="side-thigh" inkscape:label="thigh" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 300.57 -321.16 C 336.55 -271 299.1 -210.45 287.92 -162.43 C 281.54 -139.63 260.74 -150 259.93 -159.8 L 251.81 -297.25 C 260.12 -321.34 282.2 -319.54 300.57 -321.16 Z"/>
     <path id="side-shin" inkscape:label="shin" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 285.04 -158.96 L 284.38 -28.85 C 284.34 -22.53 270.24 -15.01 267.34 -28.05 C 257.82 -70.88 237.95 -112.45 261.68 -161.62 C 266.44 -171.46 285.11 -171.96 285.04 -158.96 Z"/>
-    <path id="side-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 280.8 -26.8 C 286.89 -21.33 297.91 -17.01 315.53 -9.8 C 324.88 -10.06 332.24 -8.36 328.89 -0.98 L 254.08 0 L 260.43 -22.56 L 280.8 -26.8 Z"/>
+    <path id="side-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 280.79 -26.80 C 286.89 -21.33 297.91 -17.01 315.53 -9.80 C 324.88 -10.06 332.24 -8.36 328.89 -0.98 L 291.49 -0.49 L 254.08 -0.00 C 252.04 -4.18 254.55 -11.21 260.94 -16.07 L 264.50 -25.78 Z"/>
   </g>
   <g id="side-bend" inkscape:groupmode="layer" inkscape:label="side-bend">
     <path id="side-bend-torso" inkscape:label="torso" style="fill:#b06a6a;fill-opacity:0.2;stroke:#a03030;stroke-width:1;stroke-dasharray:5 3" d="M 373.27 -381.88 L 375.1 -403.95 L 367.78 -418.82 C 368.23 -427.42 318.08 -428 274.51 -361.45 L 265.56 -344.84 C 260.42 -333.75 255.28 -327.66 250.14 -316.57 C 269.1 -302.4 282.27 -288.83 309.86 -312.67 C 310.99 -319.23 312.13 -320.79 313.26 -327.36 C 314.76 -328.93 328.77 -344.29 330.63 -345.52 C 356.45 -349.73 386.69 -356.44 373.27 -381.88 Z"/>
     <path id="side-bend-torso-2" inkscape:label="torso-2" style="fill:#b06a6a;fill-opacity:0.2;stroke:#a03030;stroke-width:1;stroke-dasharray:5 3" d="M 405.1 -304.43 L 410.56 -321.94 L 404.44 -338.34 C 409.48 -345.58 359.11 -394.07 287.3 -351.69 L 271.71 -339.22 C 263.64 -330.06 255.57 -325.9 247.5 -316.74 C 255.82 -294.44 279.68 -294.75 312.5 -312.5 C 318.46 -312.98 324.43 -308.47 330.39 -308.96 C 332.5 -309.47 349.61 -309.04 351.83 -309.07 C 363.93 -309.19 382.23 -271.92 405.1 -304.43 Z"/>
+  </g>
+  <g id="end" inkscape:groupmode="layer" inkscape:label="end">
+    <path id="end-upper-arm" inkscape:label="upper-arm" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 520.00 -451.15 C 529.23 -451.15 536.72 -443.66 536.72 -434.43 C 536.72 -426.65 529.23 -420.35 520.00 -420.35 C 512.71 -420.35 506.80 -426.65 506.80 -434.43 C 506.80 -443.66 512.71 -451.15 520.00 -451.15 Z"/>
+    <path id="end-forearm" inkscape:label="forearm" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 520.00 -353.24 C 527.78 -353.24 534.08 -347.33 534.08 -340.04 C 534.08 -333.24 527.78 -327.72 520.00 -327.72 C 513.68 -327.72 508.56 -333.24 508.56 -340.04 C 508.56 -347.33 513.68 -353.24 520.00 -353.24 Z"/>
+    <path id="end-thigh" inkscape:label="thigh" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 610.00 -322.47 C 626.02 -322.47 639.00 -310.83 639.00 -296.47 C 639.00 -283.21 626.02 -272.47 610.00 -272.47 C 596.74 -272.47 586.00 -283.21 586.00 -296.47 C 586.00 -310.83 596.74 -322.47 610.00 -322.47 Z"/>
+    <path id="end-shin" inkscape:label="shin" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 610.00 -176.00 C 620.50 -176.00 629.00 -168.34 629.00 -158.90 C 629.00 -150.50 620.50 -143.70 610.00 -143.70 C 601.60 -143.70 594.80 -150.50 594.80 -158.90 C 594.80 -168.34 601.60 -176.00 610.00 -176.00 Z"/>
+    <path id="end-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 655.33 -70.49 C 659.82 -74.43 680.00 -78.20 686.86 -75.01 C 696.86 -73.93 701.57 -57.97 700.16 -53.26 C 705.66 -55.03 714.90 -37.04 692.34 -41.98 C 687.55 -39.55 663.77 -40.93 651.27 -46.63 C 638.48 -44.10 621.77 -39.88 618.87 -57.12 C 618.71 -74.48 648.88 -71.31 655.33 -70.49 Z"/>
   </g>
   <g id="anchors" inkscape:groupmode="layer" inkscape:label="anchors">
     <circle id="anchor-shoulder" inkscape:label="shoulder" cx="53.97" cy="-434.43" r="4" style="fill:#d02020"/>
@@ -72,9 +87,15 @@
     <circle id="anchor-side-knee" inkscape:label="side-knee" cx="273.64" cy="-158.9" r="4" style="fill:#d02020"/>
     <circle id="anchor-side-ankle" inkscape:label="side-ankle" cx="273.64" cy="-23.69" r="4" style="fill:#d02020"/>
     <circle id="anchor-side-neck-base" inkscape:label="side-neck-base" cx="263.61" cy="-454.07" r="4" style="fill:#d02020"/>
-    <circle id="anchor-toe" inkscape:label="toe" cx="67.91" cy="-0.98" r="4" style="fill:#d02020"/>
+    <circle id="anchor-toe" inkscape:label="toe" cx="35.14" cy="-0.90" r="4" style="fill:#d02020"/>
     <circle id="anchor-side-toe" inkscape:label="side-toe" cx="328.89" cy="-0.98" r="4" style="fill:#d02020"/>
     <circle id="anchor-head" inkscape:label="head" cx="2.24" cy="-514.79" r="4" style="fill:#d02020"/>
     <circle id="anchor-side-head" inkscape:label="side-head" cx="259.61" cy="-514.79" r="4" style="fill:#d02020"/>
+      <circle id="anchor-end-shoulder" inkscape:label="end-shoulder" cx="520.00" cy="-434.43" r="4" style="fill:#d02020"/>
+    <circle id="anchor-end-elbow" inkscape:label="end-elbow" cx="520.00" cy="-340.04" r="4" style="fill:#d02020"/>
+    <circle id="anchor-end-hip" inkscape:label="end-hip" cx="610.00" cy="-296.47" r="4" style="fill:#d02020"/>
+    <circle id="anchor-end-knee" inkscape:label="end-knee" cx="610.00" cy="-158.90" r="4" style="fill:#d02020"/>
+    <circle id="anchor-end-ankle" inkscape:label="end-ankle" cx="640.00" cy="-55.00" r="4" style="fill:#d02020"/>
+    <circle id="anchor-end-toe" inkscape:label="end-toe" cx="694.90" cy="-56.80" r="4" style="fill:#d02020"/>
   </g>
 </svg>

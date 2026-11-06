@@ -247,8 +247,13 @@ male 0.88, female 0.74.
   view (side/front) + hand per arm. A pose says nothing about where the
   figure sits in a panel (height, ground colour): that is scene layout.
 - The ankle is the exception: it sets the foot's angle from the ground,
-  not from the shin (0 = flat, toes forward in side view or outward in
-  front view; + lifts the toes). A foot stays flat however the leg bends.
+  not from the shin (0 = flat, toes forward in side view, toward the
+  viewer in front view (2026-11-06); + lifts the toes). A foot stays flat
+  however the leg bends.
+- **End-on parts** (drawn 2026-11-06, not used yet): each body file has an
+  `end` layer with the upper arm, forearm, thigh and shin seen end-on and
+  the foot with its sole toward the viewer, so a limb can later be blended
+  by its own direction (`docs/remaining-rules.md`, step 5).
 - Side view: far limbs behind torso, near limbs in front.
   Each arm has its own shoulder anchor in side view: near arm toward the
   front of the chest, far arm just behind centre (`shoulder.side`).

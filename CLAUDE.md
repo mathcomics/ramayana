@@ -69,6 +69,12 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **End-on parts + toes-first front foot (2026-11-06):** both body files
+  have an `end` layer (upper arm, forearm, thigh, shin end-on; sole of the
+  foot; anchors end-shoulder/elbow/hip/knee/ankle, end-toe), not read yet.
+  The front foot is drawn toes at the viewer (artist's male, scaled 0.9
+  for the female); feet have 7 edges (end foot 6, to fix). Next: step 5
+  (import `end`, blend limb shapes by direction).
 - **Faces split into base + character (2026-11-06):** `data/faces/base/
   <species>.svg` (skin painted in the body colour, eyes, mouths, anchors
   top/chin; optional `front-up`/`front-down` versions, empty so far) and

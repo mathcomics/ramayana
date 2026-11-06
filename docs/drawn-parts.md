@@ -32,8 +32,9 @@ side (picture-right). `node tools/export-parts.mjs` writes it from
 |---|---|
 | `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand` (size guide, the "in" hand), `thigh`, `shin`, `foot` |
 | `side` | `torso`, `upper-arm`, `forearm`, `hand`, `thigh`, `shin`, `foot` |
+| `end` (draft, not read yet) | `upper-arm`, `forearm`, `thigh`, `shin` seen end-on (pointing at the viewer), each on one anchor `end-shoulder`, `end-elbow`, `end-hip`, `end-knee`; `foot` with its sole toward the viewer (heel left, toes right as in the side view) on `end-ankle`, tip `end-toe`. Same edge counts as the front / side partners (limbs 4, feet 7; the end foot still has 6) |
 | `front-bend`, `side-bend` | `torso`, bent forward |
-| `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base`; tips `toe`, `side-toe`; head centre `head`, `side-head` (tips and head stored, not used by the renderer yet) |
+| `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base`; tips `toe`, `side-toe` (the front foot points its toes at the viewer, 2026-11-06); head centre `head`, `side-head` (tips and head stored, not used by the renderer yet) |
 
 **Hands are shared** (2026-11-06): `data/parts/hands.svg` holds every hand
 shape at male size: layers `front`, `side`, `end` (seen end-on, pointing at
