@@ -51,12 +51,13 @@ const dpWaistMid = (T) => mul(DP_WAIST.reduce((a, i) => add(a, dpNode(T, i)), [0
 // Torso outline in the pelvis frame (hip mid at 0,0). turn: 0 front, 1
 // side; deg: the bend in degrees. The drawn keys are the straight torso
 // and the bent ones at M.bends degrees; between two keys the outline swings
-// round the waist (polar blend), before the first and past the last it
-// extrapolates (an arch back, a deeper bend).
+// round the waist (polar blend). Past the deepest drawn bend it stays at
+// that bend; below straight (an arch back) it extrapolates.
 export function partsTorso(M, turn, deg) {
   const keys = [dpLin(M.torso.front, M.torso.side, turn),
     ...M.torso.frontBend.map((fb, i) => dpLin(fb, M.torso.sideBend[i], turn))];
   const at = [0, ...M.bends];
+  deg = Math.min(deg, at[at.length - 1]);        // the deepest drawn bend is as far as it goes
   let k = 0;
   while (k < at.length - 2 && deg > at[k + 1]) k++;
   const t = (deg - at[k]) / (at[k + 1] - at[k]);
@@ -273,7 +274,16 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
       }
       return cache.get(key);
     };
-    T = F.map((s) => s.map((p) => [p[0], height(p[1])]));
+    // The deepest front-bend drawing is the thinnest the front torso gets:
+    // if the projection makes it shorter, its heights are stretched about
+    // the pelvis (joints with them) up to that drawing's height.
+    const ysOf = (S) => S.flat().map((p) => p[1]);
+    const deep = ysOf(M.torso.frontBend[M.torso.frontBend.length - 1]);
+    const hMin = Math.max(...deep) - Math.min(...deep);
+    const ys0 = F.flat().map((p) => height(p[1]));
+    const h0 = Math.max(...ys0) - Math.min(...ys0);
+    const kH = h0 < hMin ? hMin / h0 : 1;
+    T = F.map((s) => s.map((p) => [p[0], height(p[1]) * kH]));
     // joints: X from the front anchors, height from the side anchors
     const sideP = (which, far) => {
       const a = M.attachSide?.[far && which === 'shoulder' ? 'shoulderFar' : which];
@@ -282,7 +292,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     attachAt = (which, far) => {
       const x = dpMix(M.attach[which], F, far ? M.mirror : null)[0];
       const P = sideP(which, far);
-      return [x, P ? posed(P)[1] : height(dpMix(M.attach[which], F, far ? M.mirror : null)[1])];
+      return [x, (P ? posed(P)[1] : height(dpMix(M.attach[which], F, far ? M.mirror : null)[1])) * kH];
     };
   }
   // 3D joints for depth: the side view's place (Y, Z) and the front

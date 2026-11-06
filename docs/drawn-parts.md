@@ -44,8 +44,10 @@ more bent torsos (`torso`, `torso-2`, …); they are ordered by how far they
 bend (side: measured angle; front: height) and paired in that order. A
 torso drawn with the old 7 edges gets the lower waist nodes added on
 import. The bend goes through the keys (straight → each bend), swinging
-round the waist between two keys and extrapolating before the first and
-past the last. Hips hang on the hip edge only, so a folding waist doesn't
+round the waist between two keys; past the deepest bend it stays at that
+bend, below straight (arch back) it extrapolates. The deepest front-bend
+drawing is the thinnest the front torso gets (a shorter projection is
+stretched about the pelvis, joints with it). Hips hang on the hip edge only, so a folding waist doesn't
 move the legs.
 
 ## How a figure is built (`src/parts.js`)
