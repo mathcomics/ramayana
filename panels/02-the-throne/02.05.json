@@ -6,8 +6,6 @@
     { "prop": "palace", "at": 0.66, "row": "back" }
   ],
   "figures": [
-    { "who": "rama", "pose": "stand", "facing": "right", "at": 0.3, "mouth": 1,
-      "adjust": { "spine.lean": -4, "spine.head": -12 } }
-  ],
-  "needs": ["pose: look back (body walking left, head turned back)"]
+    { "who": "rama", "pose": "walk-passing", "facing": "left", "at": 0.3, "mouth": 1, "turn": 90 }
+  ]
 }

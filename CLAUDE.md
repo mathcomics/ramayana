@@ -137,8 +137,10 @@ renderer or panel changes.
   poses.json). Rules and names: `docs/design/pose-picking.md` (style bible
   §7 extended). Tools: `pose-catalogue.mjs` (thumbnails + tags by base),
   `pose-gaps.mjs` (→ `docs/issues/missing-poses.md`; `--scenes` gives
-  candidate poses per scene). Top gaps: shoot (21 scenes), walk (19),
-  ride/chariot (15), plead/palms joined (15). No renames yet (would orphan
+  candidate poses per scene). Shoot and walk now covered; moments
+  with no pose: ride/chariot (15 scenes), embrace (4); next wanted:
+  stand-palms-joined, kneel-bow. Section 02 panels use walk / walk-passing
+  (02.05 looks back with `turn` 90; 2026-11-06). No renames yet (would orphan
   lab saves); candidates if wanted: `stand-guard` → `stand-fists-up`.
   Next: pose picker in the panel lab (filter by moment, tap to insert).
 - **Steps 3 and 4 finished (2026-11-06):** pose settings `spine.turn`

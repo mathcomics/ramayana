@@ -3,9 +3,8 @@
   "size": 0.75,
   "ground": "off-white",
   "figures": [
-    { "who": "lakshman", "pose": "stand", "facing": "left", "at": 0.74, "mouth": 1 },
-    { "who": "sita", "pose": "stand", "facing": "left", "at": 0.5, "mouth": 1 },
-    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.27, "mouth": 1 }
-  ],
-  "needs": ["pose: walk"]
+    { "who": "lakshman", "pose": "walk", "facing": "left", "at": 0.74, "mouth": 1 },
+    { "who": "sita", "pose": "walk-passing", "facing": "left", "at": 0.5, "mouth": 1 },
+    { "who": "rama", "pose": "walk", "facing": "left", "at": 0.27, "mouth": 1 }
+  ]
 }

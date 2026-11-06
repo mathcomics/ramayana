@@ -61,11 +61,5 @@ Scenes = scene lines whose words call for the moment. Moments with no pose come 
 
 ## Asked for by panels
 
-- 02.01: walk (stride, arms swinging)
 - 02.02: pull (lean back, both arms forward): stand-lean-back with arms adjusted
 - 02.03: slump on the throne (sit) — stand-hand-on-head for now
-- 02.04: walk
-- 02.05: look back (body walking left, head turned back)
-- 02.06: walk
-- 02.07: walk
-- 02.08: walk

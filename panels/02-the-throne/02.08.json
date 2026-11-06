@@ -9,9 +9,9 @@
     { "prop": "tree", "at": 0.84, "row": "back" }
   ],
   "figures": [
-    { "who": "lakshman", "pose": "stand", "facing": "left", "at": 0.6, "mouth": 1 },
-    { "who": "sita", "pose": "stand", "facing": "left", "at": 0.5, "mouth": 1 },
-    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.4, "mouth": 1 }
+    { "who": "lakshman", "pose": "walk", "facing": "left", "at": 0.6, "mouth": 1 },
+    { "who": "sita", "pose": "walk-passing", "facing": "left", "at": 0.5, "mouth": 1 },
+    { "who": "rama", "pose": "walk", "facing": "left", "at": 0.4, "mouth": 1 }
   ],
-  "needs": ["pose: walk", "prop: tree"]
+  "needs": ["prop: tree"]
 }
