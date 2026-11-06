@@ -1,45 +1,20 @@
-# Remaining rules (drawn-parts renderer)
+# Rules to migrate
 
-The aim is a figure built only from the artist's drawn parts and projection.
-Lengths, joints, torso bending, the front torso (the front drawings,
-2026-11-06), body scale, the draw order (by depth), the tail's views and
-the faces (base face + character parts, 2026-11-06) already work that way.
-This list is what is still decided by a rule in `src/parts.js` /
-`src/figure.js` / `tools/import-faces.mjs`, and what has to exist before
-each rule can go. Updated 2026-11-06. Problems seen in the poses
-themselves: `docs/problem-poses.md`.
+The aim is a figure built only from the artist's drawings and projection.
+This list is what is still decided by a rule in the code (`src/parts.js`,
+`src/figure.js`, `src/headturn.js`, `tools/face-turn.mjs`) and what has
+to exist before each rule can go. How things work now: `docs/design/`.
+Problems seen in the poses: `docs/issues/problem-poses.md`.
 
-## Steps
+## Remaining steps
 
-The tables below refer to these steps (written down 2026-11-06; the
-numbers were used before the list existed):
+Larger pieces of work that several rows below wait for:
 
-1. Out of the paper: `out` on the shoulder and hip, front view as a
-   projection. Done.
-2. Draw order by depth. Done 2026-11-05.
-3. Feet by toe direction: a toe-turn pose setting (`leg.toe`) and the
-   front, side and sole drawings blended by where the foot points. Done
-   2026-11-06.
-4. Head turn and tilt: the head turned in 3D from its front and side
-   drawings (prototype `tools/proto/head-turn/`; renderer
-   `src/headturn.js`, turn data from `tools/face-turn.mjs` in
-   `data/faces.json`; sheet `node tools/head-turn-sheet.mjs`; pose lab
-   Face tab). Matching front / side elements become volumes (an ellipse
-   per height row, front width × side depth), the rest flat cards on the
-   surface. Used by the figures since 2026-11-06: tilt = lean + chest +
-   neck + head, turn from `look`. Replaced the face switch, the face flip,
-   the up / down faces and the need for a back-of-head drawing. Head-turn
-   angle in the pose (`spine.turn`), head centre from the `head` /
-   `side-head` anchors and the neck projected without a minimum: done
-   2026-11-06.
-5. Wrist turn and end-on parts: a wrist-turn pose setting; the `end`
-   layers (limbs, sole, hands) imported and blended with front / side by
-   each part's own 3D direction; replaces the view-picked shapes, the
-   0.8 × width end-on patch and the front hand ignoring the wrist. Done
-   2026-11-06 (`dpLook` / `dpShape` in `src/parts.js`, `arm.twist`); the
-   thigh fold and the mirrored point hand stay (see the table).
-6. Any view angle: the same blend with a camera turned between front
-   and side (not only 0° or 90°).
+- **Any view angle**: the camera turned anywhere between front and side
+  (not only 0° or 90°); each part already blends its drawings by
+  direction, so this is mostly the camera and the torso blend.
+- **Back view**: the body seen from behind (arms and legs behind the torso,
+  the back of the torso). The head already turns to show its back.
 
 ## To be replaced
 
@@ -57,14 +32,14 @@ numbers were used before the list existed):
 | Turned head: a `back` part (as drawn in the view the camera is nearer: the front layer under a 45° turn, else the side layer) goes behind the whole body; everything else is drawn with the head | hair | None: needed so front locks stay behind the shoulders |
 | Turned head: row ellipses seen nearly edge-on are left out, and the clip for eyes / mouths uses only the outline and well-open ellipses (rsvg loses coverage where many thin shapes overlap in a clip path) | head | None: a rendering workaround |
 | Head centre from the neck top: front x from the `head` anchor, depth from `side-head`, height the average of the two (they differ only where the drawings disagree) | head | None: matching anchor heights in the parts files |
-| The neck is one drawing (front) seen in both views, shortened by projection (no minimum length since 2026-11-06); it doesn't turn with the head | neck | A side neck drawing, and an end-on one, if a pose shows the difference |
+| The neck is one drawing (front) seen in both views, shortened by projection; it doesn't turn with the head | neck | A side neck drawing, and an end-on one, if a pose shows the difference |
 | The point hand is mirrored across the forearm so the finger is toward the body | hands | A point hand drawn with the finger on the inside (the wrist turn, `arm.twist`, now exists but only blends front / side / end) |
-| A part's turn between its front and side drawings uses \|c·side\| and \|c·front\| (no sign): a limb seen from its inner side or from behind shows the outer / front drawing, mirrored only by the view's far-limb rule | upper arm, forearm, thigh, shin, hands | Back / inner drawings, if a pose shows the difference (step 6 needs this too) |
+| A part's turn between its front and side drawings uses \|c·side\| and \|c·front\| (no sign): a limb seen from its inner side or from behind shows the outer / front drawing, mirrored only by the view's far-limb rule | upper arm, forearm, thigh, shin, hands | Back / inner drawings, if a pose shows the difference (any view angle needs this too) |
 | Toward end-on, a part blends to its end drawing linearly in 1 − (length seen); the end drawing sits on the upper joint | arms, legs, hands | None: tuning, if the end blob comes in too early or late |
-| Side view: the top of the thigh (above the hip) folds into the body, shortened by cos(angle between thigh and body), flat at 90° and beyond; not in the front view | thigh | Bent-hip thigh drawings; the end-on thigh (step 5) doesn't cover a thigh turned against a leaning body |
+| Side view: the top of the thigh (above the hip) folds into the body, shortened by cos(angle between thigh and body), flat at 90° and beyond; not in the front view | thigh | Bent-hip thigh drawings; the end-on thigh doesn't cover a thigh turned against a leaning body |
 | One set of hands for every body, scaled uniformly to the body's guide hand | hands | None: a body that needs different hands would need its own hand file |
 
-## Draw order (by depth, step 2 done 2026-11-05)
+## Draw order (by depth)
 
 Each limb, the head and the tail get a depth toward the viewer from the 3D
 pose and are drawn far to near; a limb goes over the torso when it is in
@@ -83,7 +58,7 @@ front of the torso there. Its thresholds:
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
 | Front torso = the front drawings picked by \|lean + chest\| folded at 90° (each drawing at its bend angle, the deepest at 90°; turned over past 90°); a torso tipped away from the viewer uses the same drawings | torso (front view) | A back-bend front drawing, if tipping away should look different |
-| Front-view heights (shoulders, neck, head) are the front drawings' own, so in bent poses they need not match the side view | torso, arms, head (front view) | None: a decision (2026-11-06); the artist adjusts the front-bend drawings where they should match |
+| Front-view heights (shoulders, neck, head) are the front drawings' own, so in bent poses they need not match the side view | torso, arms, head (front view) | None: a decision; the artist adjusts the front-bend drawings where they should match |
 | Side view: the torso shape stays between the drawings: an arch back (chest < 0) keeps the straight torso, a bend past the deepest drawn one keeps that one; the chest angle still turns the arms, neck and head | torso (side view) | An arch-back torso drawing, to let the shape arch |
 
 ## Style choices
@@ -91,6 +66,6 @@ front of the torso there. Its thresholds:
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
 | Side view: the far shoulder has its own anchor, set slightly back | arms (side view) | None: a convention for a slight three-quarter look |
-| A character's `back` layer is drawn behind the whole body; only a small part of the female front locks uses it now (long hair is in `hair-body`, done for sita and her five copies 2026-11-06) | head: hair back | None: draw hair in `hair-body` or `under` instead if it shows between the legs |
-| The base face's `skin` layer is painted in the character's body colour (everything else in the face files as drawn) | faces | None: a decision (2026-11-06) |
+| A character's `back` layer is drawn behind the whole body; long hair on the back is drawn in `hair-body` instead | head: hair back | None: draw hair in `hair-body` or `under` instead if it shows between the legs |
+| The base face's `skin` layer is painted in the character's body colour (everything else in the face files as drawn) | faces | None: a decision |
 | The tail's shape is generated (length, taper, lift, curl) in its own plane, turned by `tail.turn` (default 35°); each view is a projection | tail (monkey) | A drawn tail part with its own anchors |

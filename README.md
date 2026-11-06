@@ -32,12 +32,10 @@ scene spec (JSON) → layout → figure geometry → SVG
 ### Layout
 
 ```
-docs/style-bible.md      visual rules — read before changing the renderer
-docs/scene-spec.md       proposal: scene spec, props, layout
-docs/panels.md           the panel language (implemented), lab, publishing
-docs/drawn-parts.md      drawn-parts figures (branch drawn-parts)
-docs/remaining-rules.md  what is still rule-based in them, and the blockers
-docs/problem-poses.md    self-review of all poses: what to fix in poses or drawings
+docs/README.md           how the docs are organised
+docs/design/             how things work now (style bible, drawn parts, faces, panels)
+docs/proposals/          dated proposals, each with its status at the top
+docs/issues/             open problems: rules still to migrate, problem poses
 src/scene.js             panels and screens: definition in, SVG out
 panels/<NN-section>/     panel definitions: <id>.json (+ optional <id>.svg background)
 data/props.json          prop registry (sizes; placeholders until drawn)
@@ -122,7 +120,7 @@ real phone size (figures roughly 60–150 px tall).
   drawing guide.
 
 The full rules, with the reasoning behind each, are in
-[docs/style-bible.md](docs/style-bible.md).
+[docs/design/style-bible.md](docs/design/style-bible.md).
 
 ### Pose lab
 
@@ -142,7 +140,7 @@ Scenes in `manuscript/scenes.md` are guidance; **panel definitions** in
 `panels/` say what is drawn (JSON per panel, optional background SVG);
 the **site** is built from them into `_site/` and served by Cloudflare
 Pages. The language, the lab and the publishing setup are in
-[docs/panels.md](docs/panels.md).
+[docs/design/panels.md](docs/design/panels.md).
 
 **Panel lab** (published artifact; drafts saved to its database, collection
 `panels`, merged into `panels/` on request):
@@ -151,7 +149,7 @@ https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
 ## Working conventions
 
 - Every visual change needs three things: a render you have looked at, a
-  matching rule in `docs/style-bible.md`, and a commit to `main`.
+  matching rule in `docs/design/style-bible.md`, and a commit to `main`.
 - Never trace or copy third-party reference material. Derive the primitives
   from the style bible and the artist's own work.
 - `CLAUDE.md` holds the current status and next steps for AI-assisted

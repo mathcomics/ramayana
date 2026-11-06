@@ -1,6 +1,6 @@
 # Style Bible — Ramayana
 
-Draft v0.1, derived from the artist's own Ramayana friezes.
+Derived from the artist's own Ramayana friezes.
 This is the reference the renderer is judged against. When code and this
 document disagree, fix one of them deliberately.
 
@@ -58,7 +58,7 @@ from its silhouette alone.
 All species share one skeleton (see §6). They differ by proportions, parts
 and default posture. Measurements are in head-units (h = head diameter).
 
-**Body parts are the artist's drawings** (decided 2026-11-05): every part
+**Body parts are the artist's drawings**: every part
 (torso, neck, upper arm, forearm, hands, thigh, shin, foot) is drawn in
 `data/parts/male.svg` and `data/parts/female.svg`, front and side, with bent
 torsos (the hands once, in `data/parts/hands.svg`, scaled to each body's
@@ -66,9 +66,9 @@ guide hand), and placed on the skeleton as drawn (only moved, turned, mirrored,
 blended between its drawn views, and its length shortened when it turns out
 of the paper). The monkey uses the male parts plus a tail. The rules for
 limb curves, knots, hands and the torso curl below are drawing guidance
-for those files; the renderer no longer generates the shapes. See
-`docs/drawn-parts.md` and, for what is still rule-based,
-`docs/remaining-rules.md`. A character can have a body scale (torso, legs,
+for those files; the renderer doesn't generate the shapes. See
+`docs/design/drawn-parts.md` and, for what is still rule-based,
+`docs/issues/rules-to-migrate.md`. A character can have a body scale (torso, legs,
 feet and tail; head, neck and arms keep their size), e.g. 0.8 for a small
 generic monkey.
 
@@ -95,11 +95,10 @@ generic monkey.
     blunt end) on the side away from the body;
   - in: the same with the thumb on the side toward the body;
   - point: like out, but the single finger is longer (1.6 × the thumb)
-    and the grouped fingers shorter (0.6 × the paddle), for pointing
-    (added 2026-11-04).
+    and the grouped fingers shorter (0.6 × the paddle), for pointing.
 - Feet: elongated wedges.
 - Garment: the lower cloth covers the thighs only — the main identity
-  colour. There is no loincloth (retired 2026-11-05): the torso is drawn
+  colour. There is no loincloth: the torso is drawn
   over the tops of the thighs.
 - Default posture: leaning forward, knees bent.
 - Optional: mane of loose strokes around the head.
@@ -107,7 +106,7 @@ generic monkey.
 
 ### 5.2 Male
 
-Not in the reference work; first version, to be refined. Same parts and
+Not in the reference work. Same parts and
 rules as the monkey (hands, knotty limbs, torso curl), with its own
 proportions in `data/species/male.json`:
 
@@ -147,7 +146,7 @@ Outfit and colours are chosen when a figure is drawn; they are not part of
 the pose.
 
 - Bottom: the thighs, from hip to knee, in the cloth colour (`dhoti`;
-  `briefs` draws the same since the loincloth was retired).
+  `briefs` draws the same).
 - Top: `bare` or `full` (the whole torso in the cloth colour).
 - Body colour: a hex per character; it also paints the skin of the base
   face (no named body palette).
@@ -171,8 +170,10 @@ figures. Signature features (necklaces, crowns, top bun…) come later.
 
 ## 5.6 Drawn faces
 
+How the files are read and the head turned: `docs/design/faces.md`.
+
 Faces are drawn by the artist (`data/faces/`, see its README), in two
-parts (decided 2026-11-06):
+parts:
 
 - **Base face**, one per species (`data/faces/base/<species>.svg`): the
   face shape and ears (`skin`), `eyes` and three mouths, front and side,
@@ -188,9 +189,8 @@ parts (decided 2026-11-06):
   face.
 
 **Every character has both a front and a side face; there is no
-generated fallback** (decided 2026-11-04). Drawings are never edited by
-code. **The head is turned in 3D from its two drawings** (decided
-2026-11-06, `src/headturn.js`): matching front and side elements (the
+generated fallback**. Drawings are never edited by
+code. **The head is turned in 3D from its two drawings** (`src/headturn.js`): matching front and side elements (the
 skin, hair masses, buns) become volumes, at each height an ellipse as
 wide as the front drawing and as deep as the side drawing; eyes, mouths,
 ears and marks are flat pieces on their surface (front ones up to a 45°
@@ -204,15 +204,14 @@ front), depth toward the back of the head; a part in `back` (as drawn in
 the nearer view) goes behind the whole body. The face is drawn over the
 neck and body (in side view the near arm still crosses in front);
 `mouth-1/2/3` follow the pose's mouth size. The base's `front-up` /
-`front-down` versions are no longer used.
+`front-down` layers are not used.
 
-**Size guide.** A species head is only `size` and `width` (decided
-2026-11-04): a plain rectangle `size` tall and `size × width` wide,
+**Size guide.** A species head is only `size` and `width`: a plain rectangle `size` tall and `size × width` wide,
 centred where the face goes. It is the only head the renderer draws itself
 (on species views; contact sheets use a character). Widths: monkey 1,
 male 0.88, female 0.74.
 
-**Drawing guidance** (for the artist; the renderer no longer draws these):
+**Drawing guidance** (for the artist; the renderer doesn't draw these):
 
 - Two views only, front and side (no three-quarter); side faces look right.
 - Monkey head: a rounded square, top narrower than the bottom. Male head:
@@ -230,7 +229,7 @@ male 0.88, female 0.74.
   **wedge** (a V notch toward the back of the head; a triangle pointing
   down in front view). In side view the opening reaches the front edge of
   the face. No muzzle or snout.
-- Male mouths are white (artist's request, 2026-11-04); sage1's are light
+- Male mouths are white (artist's request); sage1's are light
   grey, against his white hair and beard.
 - Female hair (see `reference/sketch-female-hair.jpg`): near-black, a
   thick frame around the head that falls as broad wavy locks past the
@@ -239,7 +238,7 @@ male 0.88, female 0.74.
   curving back above the eye, falling down the back as one mass with a
   rounded end, in the `over` layer (in front).
 
-- **Hair in two parts** (2026-11-05): hair that frames the head is drawn in
+- **Hair in two parts**: hair that frames the head is drawn in
   the face (`over` / `under`, or `back` for hair behind the body) and turns with the
   head. Long hair that lies on the back and shoulders goes in the face's
   `hair-body` layer: it is pinned at the `nape` anchor and moves with the
@@ -254,14 +253,13 @@ male 0.88, female 0.74.
 - Pose = joint angles relative to parent + facing (left/right) +
   view (side/front) + hand per arm. A pose says nothing about where the
   figure sits in a panel (height, ground colour): that is scene layout.
-- **Toe turn** (`leg.toe`, degrees, + toes out away from the body;
-  2026-11-06): turns the foot about the vertical; the foot shows the
+- **Toe turn** (`leg.toe`, degrees, + toes out away from the body): turns the foot about the vertical; the foot shows the
   blend of its front, side and sole drawings that fits where it points.
 - The ankle is the exception: it sets the foot's angle from the ground,
   not from the shin (0 = flat, toes forward in side view, toward the
-  viewer in front view (2026-11-06); + lifts the toes). A foot stays flat
+  viewer in front view; + lifts the toes). A foot stays flat
   however the leg bends.
-- **End-on parts** (2026-11-06): each body file has an `end` layer with
+- **End-on parts**: each body file has an `end` layer with
   the upper arm, forearm, thigh and shin seen end-on and the foot with its
   sole toward the viewer. A part shows the blend of its front, side and
   end drawings that fits where it points, not the view's drawing: a limb
@@ -273,7 +271,7 @@ male 0.88, female 0.74.
   Each arm has its own shoulder anchor in side view: near arm toward the
   front of the chest, far arm just behind centre (`shoulder.side`).
   Front view: used for crouching / flexing / confronting.
-- **Out of the paper** (branch `drawn-parts`, 2026-11-04): the shoulder
+- **Out of the paper**: the shoulder
   and the hip have a second angle, `out` (degrees, + = away from the body
   sideways), turning the whole arm or leg out of the paper. A limb then
   points along (cos(out)·sin θ, cos(out)·cos θ, sin(out)) (forward, down,
@@ -282,12 +280,12 @@ male 0.88, female 0.74.
   never widths; hands and feet keep their size. With drawn parts this
   replaces the mirroring below for the front view's arms and legs.
 - **Poses are side view only; the front view is a projection** of the
-  same body (decided 2026-11-04, projection 2026-11-05): the front and
+  same body: the front and
   side drawings are two views of one body. The front torso is the
   artist's front drawings (straight and front-bend), picked by how far
   the upper body tips toward the viewer (lean + chest; the deepest
   drawing at 90°, turned over past 90°), with their own heights, which
-  need not match the side view (decided 2026-11-06); arms and legs are
+  need not match the side view; arms and legs are
   projected with their `out` angles; the neck shows its up-down part and
   the face turns over when the head is upside down; feet keep their
   height below the ankle. Parts are drawn far to near by their depth
@@ -300,10 +298,10 @@ male 0.88, female 0.74.
   shortens (never widens); otherwise flat.
 - Joint limits per species prevent broken anatomy.
 
-- **Where the head looks is relative to the body** (2026-11-06): `look` is
+- **Where the head looks is relative to the body**: `look` is
   `front` (the way the body faces), `left` (toward the near side) or
   `right` (toward the far side): a head turn of 0°, 90° or −90°. Any angle
-  is `spine.turn` (degrees, + toward the near side; 2026-11-06), with
+  is `spine.turn` (degrees, + toward the near side), with
   `look` as its shortcut. Side
   view: front = side face, left = front face (toward the viewer), right =
   the back of the head. Front view: front = front face, left = side face
@@ -322,7 +320,7 @@ from a scene description:
 - poses are side view; there are no front poses (the front view is
   derived, §6).
 
-28 poses (2026-11-04), many drawn from a pose reference sheet and still
+28 poses, many drawn from a pose reference sheet and still
 being refined. Poses are tuned visually in the pose lab and stored as data,
 alphabetically.
 

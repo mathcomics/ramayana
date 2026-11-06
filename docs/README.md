@@ -1,0 +1,25 @@
+# Docs
+
+| Folder | What goes in it |
+|---|---|
+| `design/` | How things work now. Current state only: no history, no dates, no plans. Updated in the same commit as the code or data it describes. |
+| `proposals/` | Ideas and plans not (fully) built. One file per proposal, named `YYYY-MM-DD-<topic>.md`, with its date and status (proposal, partly implemented, implemented, dropped) at the top. When a proposal is built, its working parts move into `design/` and its status says so. |
+| `issues/` | Open problems. `rules-to-migrate.md`: what the code still decides by a rule instead of from the drawings, what each rule waits for, and the larger steps still to do. `problem-poses.md`: what looks wrong in the poses and faces, and where to fix it (pose, drawing or code). Fixed problems are removed. |
+
+## Design
+
+- `design/style-bible.md` — the visual rules; the renderer is judged against them.
+- `design/drawn-parts.md` — bodies from the artist's part drawings: the parts files, how a figure is built.
+- `design/faces.md` — faces: the drawing files, and how a head is turned and tilted from its front and side drawings.
+- `design/panels.md` — the panel language, the panel lab and publishing.
+
+## Proposals
+
+- `proposals/2026-11-03-scene-spec.md` — scenes as specs or artist templates (spec route implemented as panels).
+
+## Issues
+
+- `issues/rules-to-migrate.md`
+- `issues/problem-poses.md`
+
+Related: `data/faces/README.md` (the face drawing workflow), `tools/proto/head-turn/README.md` (the raster head-turn study).

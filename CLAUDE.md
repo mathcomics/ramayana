@@ -17,14 +17,17 @@ scene spec (JSON) → layout → figure geometry → SVG
 
 - `README.md` — project overview, layout, commands, pose lab.
 
-- `docs/style-bible.md` — visual rules. Read it before changing the renderer.
-- `docs/scene-spec.md` — proposal for scenes (spec + template routes, props).
-- `docs/panels.md` — the panel language as implemented; lab; Cloudflare publishing.
+- `docs/README.md` — how the docs are organised: `docs/design/` (how things
+  work now, no history), `docs/proposals/` (dated, status at the top),
+  `docs/issues/` (`rules-to-migrate.md`, `problem-poses.md`). Log every
+  problem found in one of the two issue files.
+- `docs/design/style-bible.md` — visual rules. Read it before changing the renderer.
+- `docs/design/panels.md` — the panel language as implemented; lab; Cloudflare publishing.
 - `reference/` — the artist's original friezes. Output is judged against these.
 
 ## Layout
 
-    docs/        style bible, design notes
+    docs/        design/ (how it works), proposals/, issues/ (see docs/README.md)
     reference/   artist's reference images
     src/         renderer library (skeleton, species, parts, svg output)
     data/        species profiles, poses (JSON)
@@ -75,7 +78,7 @@ renderer or panel changes.
   drawings by direction (old front-view foot rule gone). Head centre from
   the `head` / `side-head` anchors (male side head 0.12 behind the neck
   top); neck projected without a minimum length. Steps list in
-  `docs/remaining-rules.md` (1–5 done; 6 any view angle left).
+  `docs/issues/rules-to-migrate.md` (remaining: any view angle, back view).
 - **Head turn (step 4, merged 2026-11-06 from branch `head-turn`):** heads at any turn and tilt
   from the front and side face drawings: `tools/face-turn.mjs` (import:
   volumes lofted per row from the paired front/side elements, other
@@ -102,7 +105,7 @@ renderer or panel changes.
   pose lab slider). Removed: the 0.8 × width end-on rule, the front hand
   ignoring the wrist, the front-view foot turn. Kept: thigh fold, mirrored
   point hand. `export-parts` writes the end layer back. Steps list:
-  `docs/remaining-rules.md`. Next: step 3 (feet by toe direction) or 4
+  `docs/issues/rules-to-migrate.md`. Next: step 3 (feet by toe direction) or 4
   (head turn/tilt).
 - **Faces split into base + character (2026-11-06):** `data/faces/base/
   <species>.svg` (skin painted in the body colour, eyes, mouths, anchors
@@ -133,13 +136,13 @@ renderer or panel changes.
 - **Drawn parts (merged into main 2026-11-05):** figures are built from the
   artist's drawn body parts (`data/parts/male.svg`, `female.svg` →
   `tools/import-parts.mjs` → `data/parts.json`; `tools/export-parts.mjs`
-  writes the SVG back; renderer `src/parts.js`; `docs/drawn-parts.md`).
+  writes the SVG back; renderer `src/parts.js`; `docs/design/drawn-parts.md`).
   9-node torsos with two bend keys; front view = projection with shared
   heights; limbs have `out` (out of the paper); draw order by depth;
   no loincloth; monkey = male parts + tail (`tail.turn`); characters can
   have a body `scale` (monkey1 0.8). What is still rule-based:
-  `docs/remaining-rules.md`; pose/face problems from the self-review:
-  `docs/problem-poses.md`. Next steps there: feet by toe direction (3),
+  `docs/issues/rules-to-migrate.md`; pose/face problems from the self-review:
+  `docs/issues/problem-poses.md`. Next steps there: feet by toe direction (3),
   head turn/tilt + back of head (4), wrist turn + end-on hands (5).
   `anatomy`/parts-sheet/face templates still use the rule-based shapes.
   Pose lab: wide layout on full screen.
@@ -207,7 +210,7 @@ renderer or panel changes.
   `red-diamond`, `red-stripe` on a full top; rakshasas only; a panel
   figure can override `cloth`; pose lab has a pattern menu, view only),
   not new characters.
-- **Panels (spec route) implemented 2026-11-03** (`docs/panels.md`,
+- **Panels (spec route) implemented 2026-11-03** (`docs/design/panels.md`,
   `src/scene.js`). Delivery is a vertical scroll of full-width panels;
   `size` is a share of a screen height (mostly 0.75, sometimes 0.5 or 1);
   the id is the file name (not in the JSON); `at` can be a number 0–1;
@@ -217,7 +220,7 @@ renderer or panel changes.
   are placeholder boxes (`data/props.json`). Poses are approximated with
   `adjust`; each panel's `needs` lists what's missing (walk, pull, slump,
   look back; throne, palace, tree). Site builder `tools/build-site.mjs` →
-  `_site/`; Cloudflare Pages not set up yet (steps in docs/panels.md).
+  `_site/`; Cloudflare Pages not set up yet (steps in docs/design/panels.md).
   Panel lab published.
 - **Pose lab saves merged 2026-11-04** (20 saves, 13 with changes: bend-low,
   crouch-arms-over-head, fall-back, fall-headlong, kneel, lie-front, run-low,

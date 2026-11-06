@@ -1,7 +1,7 @@
 # Panels: the modelling language
 
 How a panel is described, rendered and published. This implements the spec
-route of `docs/scene-spec.md`; the template route (figure markers in an
+route of `docs/proposals/2026-11-03-scene-spec.md`; the template route (figure markers in an
 artist's scene SVG) comes later.
 
 ## Three layers

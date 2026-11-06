@@ -1,8 +1,12 @@
-# Scenes: proposal (draft, 2026-11-03)
+# Scenes: proposal
 
-Status: **proposal**. The spec route is implemented (2026-11-03) as described
-in `docs/panels.md`, which supersedes §3 and §5 where they differ; the
-template route, prop import and hand anchors are still to do. It describes how a scene in
+Date: 2026-11-03.
+Status: **partly implemented.** The spec route is implemented as
+described in `docs/design/panels.md`, which supersedes §3 and §5 where
+they differ. Still to do: the template route, prop import and hand
+anchors.
+
+It describes how a scene in
 `manuscript/scenes.md` becomes an SVG panel, building on the figure renderer
 (`src/figure.js`), the shared poses, the characters and the artist's faces.
 

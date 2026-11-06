@@ -1,6 +1,6 @@
 // Panels: a panel definition (JSON, optional background SVG) in, SVG out.
 // Browser-safe: no file access; the caller passes the assets.
-// Language: docs/panels.md.
+// Language: docs/design/panels.md.
 //
 // Delivery is a vertical scroll of panels. Every panel is the full width
 // (360 units) and `size` × one screen height (720 units) tall.
