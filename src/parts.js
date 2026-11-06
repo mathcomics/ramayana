@@ -45,7 +45,6 @@ const dpLin = (A, B, t) => A.map((s, i) => s.map((p, j) => lerp(p, B[i][j], t)))
 // 3 far waist (upper), 4 far waist (lower), 5 far hip, 6 near hip,
 // 7 near waist (lower), 8 near waist (upper). Side view: near = front.
 const DP_WAIST = [3, 4, 7, 8];
-const DP_CAP = 0.12;          // head-units above a joint where a limb's top end turns with the body
 const dpWaistMid = (T) => mul(DP_WAIST.reduce((a, i) => add(a, dpNode(T, i)), [0, 0]), 1 / DP_WAIST.length);
 
 // Torso outline in the pelvis frame (hip mid at 0,0). turn: 0 front, 1
@@ -227,10 +226,6 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const q = rot([p[0], p[1] * f], -ang);
     return add(at, [m * q[0], q[1]]);
   });
-  // A limb's top end (above its joint: the shoulder cap, the top of the
-  // thigh) sits inside the body, so it turns with the body, not with the
-  // limb: fully above DP_CAP of the joint, blending into the limb below.
-  // The body's down direction: the chest for an arm, the pelvis for a leg.
   const placeCap = (segs, at, ang, m, f, bodyAng) => {
     // The more the limb turns away from the body, the more its top end
     // folds into the body: shortened by cos(angle between them), flat at
