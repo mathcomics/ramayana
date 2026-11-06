@@ -69,14 +69,16 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
-- **Branch `head-turn` (step 4, in progress):** heads at any turn and tilt
+- **Head turn (step 4, merged 2026-11-06 from branch `head-turn`):** heads at any turn and tilt
   from the front and side face drawings: `tools/face-turn.mjs` (import:
   volumes lofted per row from the paired front/side elements, other
   elements as cards on the surface; `turn` in `data/faces.json`),
   `src/headturn.js` (`headTurn(turn, yaw, pitch)`, slabs sorted by depth
   with a layer bias), `node tools/head-turn-sheet.mjs [ids]`. Pose lab:
   Pose / Face tabs, character picker in the header, pattern picker
-  removed; the Face tab shows the grid (turn 0–180°, up/down 40°). Not yet
+  removed; the Face tab shows the grid (turn 0–180°, up/down 20, 40, 90°;
+  the 30° and 60° turns need drawing updates, decided better than the
+  rule-based switch). Not yet
   used by figures (next: front view head tilt and the `look` switch).
 - **End-on parts + toes-first front foot (2026-11-06):** both body files
   have an `end` layer (upper arm, forearm, thigh, shin end-on; sole of the

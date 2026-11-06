@@ -4,7 +4,7 @@ import { headTurn } from '../src/headturn.js';
 import { loadAssets, writeOut, rsvg } from './lib.mjs';
 const A = loadAssets();
 const ids = process.argv.slice(2).length ? process.argv.slice(2) : A.characters.characters.map((c) => c.id);
-const yaws = [0, 30, 60, 90, 120, 150, 180], pitches = [40, 20, 0, -20, -40];
+const yaws = [0, 30, 60, 90, 120, 150, 180], pitches = [90, 40, 20, 0, -20, -40, -90];
 const C = 1.4, S = 60;                         // cell size (head-units), px per head-unit
 const W = (yaws.length * C + 1.2) * S, block = (pitches.length * C + 0.6) * S;
 let body = '', k = 0;

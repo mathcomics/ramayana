@@ -27,7 +27,7 @@ numbers were used before the list existed):
    the head as volumes lofted from the front and side drawings (exact in
    both, round in between) with eyes, mouth and marks as cards on its
    surface; this would also make the back of the head and the up / down
-   faces without extra drawings. Vector version on branch `head-turn`:
+   faces without extra drawings. Vector version (merged 2026-11-06):
    `tools/face-turn.mjs` (turn data in `data/faces.json`), `src/headturn.js`,
    `node tools/head-turn-sheet.mjs`, pose lab Face tab; not yet used by
    the figures.

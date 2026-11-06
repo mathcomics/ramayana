@@ -149,7 +149,7 @@ pre {
 .stage-head .charsel { flex: 0 1 180px; }
 body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !important; }
 .faces { display: grid; gap: 8px; }
-.facegrid svg { display: block; width: 100%; height: auto; background: var(--paper); border-radius: 6px; }
+.facegrid svg { display: block; width: 100%; max-width: 640px; height: auto; background: var(--paper); border-radius: 6px; }
 @media (max-width: 420px) {
   .groups { gap: 6px; }
   fieldset { padding: 6px 6px 8px; }
@@ -184,7 +184,7 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
   </section>
 
   <section class="faces face-only" id="facePane" aria-label="Head turned and tilted" hidden>
-    <p class="hint">The head turned (0° front, 90° side, 180° back) and tilted up and down, built only from the character's front and side face drawings. The 0° and 90° columns are the drawings themselves.</p>
+    <p class="hint">The head turned (0° front, 90° side, 180° back) and tilted up and down (to 90°), built only from the character's front and side face drawings. The 0° and 90° columns are the drawings themselves.</p>
     <div class="facegrid" id="faceGrid"></div>
   </section>
 
@@ -404,7 +404,7 @@ const STARTERS = /*__POSES__*/;
   $('character').innerHTML = CAST.characters.map((c) => `<option value="${c.id}">${c.name}</option>`).join('');
   $('character').addEventListener('change', (e) => { state.character = e.target.value; syncControls(); draw(); renderGallery(); if (state.tab === 'face') setTab('face'); });
   // ---------- tabs: Pose (the editor) and Face (the head turned, no controls)
-  const YAWS = [0, 30, 60, 90, 120, 150, 180], PITCHES = [40, 20, 0, -20, -40];
+  const YAWS = [0, 30, 60, 90, 120, 150, 180], PITCHES = [90, 40, 20, 0, -20, -40, -90];
   function drawFaces() {
     const c = charById(state.character), turn = FACES.faces?.[c.id]?.turn;
     if (!turn) { $('faceGrid').innerHTML = '<p class="hint">No face drawings for this character.</p>'; return; }
