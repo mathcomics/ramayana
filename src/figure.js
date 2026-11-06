@@ -31,7 +31,7 @@ export function normalizePose(p = {}) {
     arm: {
       shoulder: num(l.arm?.shoulder, 0), out: num(l.arm?.out, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0), twist: num(l.arm?.twist, 0),
       hand: HANDS.includes(l.arm?.hand) ? l.arm.hand : 'fist',
-      ...(l.arm?.prop && ['sword', 'bow'].includes(l.arm.prop.kind) ? { prop: { kind: l.arm.prop.kind, angle: num(l.arm.prop.angle, 0), out: num(l.arm.prop.out, 0), ...(l.arm.prop.draw ? { draw: true } : {}) } } : {}),
+      ...(l.arm?.prop && ['sword', 'club', 'bow'].includes(l.arm.prop.kind) ? { prop: { kind: l.arm.prop.kind, angle: num(l.arm.prop.angle, 0), out: num(l.arm.prop.out, 0), ...(l.arm.prop.draw ? { draw: true } : {}), ...(l.arm.prop.grip === 'both' ? { grip: 'both' } : {}) } } : {}),
     },
     leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0), toe: num(l.leg?.toe, 0) },
   });
@@ -461,6 +461,7 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1) {
   for (const s of shapes) {
     s.pts = s.pts.map(mv);
     if (s.segs) { s.segs = s.segs.map((g) => g.map(mv)); s.d = dpSegD(s.segs); }
+    if (s.mx) s.mx = [s.mx[0], s.mx[1], s.mx[2], s.mx[3], s.mx[4] + dx, s.mx[5] + dy];
   }
   return { shapes, sk: { pose, front }, headAnchor: { at: mv(H), rot: headRot, ...face }, hairAnchor: { ...hair, at: mv(hair.at) }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
@@ -556,6 +557,11 @@ export function renderFigure(species, pose, opts = {}) {
     if (faceHead && s.headPart) {                       // drawn face instead of the generated head
       // placed where the guide head would go
       if (!headDone) { if (inBody) { svg += '</g>'; inBody = false; } svg += faceHead; headDone = true; }
+      continue;
+    }
+    if (s.markup) {                                     // a held weapon drawing, placed along its line
+      if (inBody) { svg += '</g>'; inBody = false; }
+      svg += `<g transform="matrix(${s.mx.map((v) => Math.round(v * 1e4) / 1e4).join(' ')})">${s.markup}</g>`;
       continue;
     }
     if (s.role === 'body') {

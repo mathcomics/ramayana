@@ -1,5 +1,5 @@
 {
-  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle is the foot's angle from the ground, not the shin: 0 = flat with toes forward (side view) or outward (front view), + lifts the toes (-180..180). look: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body) | point (like out, one long finger, shorter grouped fingers). mouth: 1 (slit), 2 (arch), 3 (wide shout). Poses are side view only; the front view is derived from them by the renderer (view: front): near = picture-right, far = picture-left. arm.out / leg.out (drawn parts): the whole arm or leg turned out of the paper, + = away from the body sideways (-90..90); side view shortens it by cos(out), front view shows its sideways reach. look: where the head looks, relative to the body: front (the way the body faces), left (toward the near side), right (toward the far side). arm.prop (optional): a held sword or bow along a line through the grip; angle is added to the hand's angle, out to the arm's out; a bow with draw: true has its string pulled to the other hand.",
+  "_doc": "Angles in degrees. Absolute 0 = down, +90 = forward (side view) or outward (front view). spine.lean tilts the whole body forward; chest/neck/head are relative. arm.shoulder is relative to the torso's downward line, elbow flexes forward (0..160), knee flexes backward (0..160), ankle is the foot's angle from the ground, not the shin: 0 = flat with toes forward (side view) or outward (front view), + lifts the toes (-180..180). look: front | side. arm.hand: fist | out (thumb away from body) | in (thumb toward body) | point (like out, one long finger, shorter grouped fingers). mouth: 1 (slit), 2 (arch), 3 (wide shout). Poses are side view only; the front view is derived from them by the renderer (view: front): near = picture-right, far = picture-left. arm.out / leg.out (drawn parts): the whole arm or leg turned out of the paper, + = away from the body sideways (-90..90); side view shortens it by cos(out), front view shows its sideways reach. look: where the head looks, relative to the body: front (the way the body faces), left (toward the near side), right (toward the far side). arm.prop (optional): a held sword, club or bow (kind) along its reference line through the grip; angle is added to the hand's angle, out to the arm's out; a bow with draw: true has its string pulled to the other hand; grip: both puts the other hand on the hilt below this one (the other arm's angles are then ignored).",
   "poses": [
     {
       "name": "bend-low",
@@ -528,6 +528,56 @@
       },
       "tail": {
         "lift": 10,
+        "curl": 260
+      }
+    },
+    {
+      "name": "lunge-sword-strike",
+      "look": "front",
+      "mouth": 3,
+      "spine": {
+        "lean": 30,
+        "chest": 10,
+        "neck": 0,
+        "head": -30
+      },
+      "near": {
+        "arm": {
+          "shoulder": 55,
+          "elbow": 5,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 8,
+          "prop": {
+            "kind": "sword",
+            "angle": 45,
+            "grip": "both"
+          }
+        },
+        "leg": {
+          "hip": 80,
+          "knee": 75,
+          "ankle": 0,
+          "out": 8
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 0,
+          "elbow": 20,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 10
+        },
+        "leg": {
+          "hip": -30,
+          "knee": 10,
+          "ankle": -40,
+          "out": 8
+        }
+      },
+      "tail": {
+        "lift": 20,
         "curl": 260
       }
     },
@@ -1431,6 +1481,106 @@
       }
     },
     {
+      "name": "stand-sword-behind-head",
+      "look": "front",
+      "mouth": 3,
+      "spine": {
+        "lean": -2,
+        "chest": -8,
+        "neck": 8,
+        "head": -6
+      },
+      "near": {
+        "arm": {
+          "shoulder": 165,
+          "elbow": 105,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 12,
+          "prop": {
+            "kind": "sword",
+            "angle": 30,
+            "grip": "both"
+          }
+        },
+        "leg": {
+          "hip": 35,
+          "knee": 25,
+          "ankle": 0,
+          "out": 8
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 0,
+          "elbow": 20,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 10
+        },
+        "leg": {
+          "hip": -25,
+          "knee": 12,
+          "ankle": -10,
+          "out": 8
+        }
+      },
+      "tail": {
+        "lift": 0,
+        "curl": 240
+      }
+    },
+    {
+      "name": "stand-sword-forward",
+      "look": "front",
+      "mouth": 2,
+      "spine": {
+        "lean": 10,
+        "chest": 0,
+        "neck": 6,
+        "head": -14
+      },
+      "near": {
+        "arm": {
+          "shoulder": 80,
+          "elbow": 8,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 8,
+          "prop": {
+            "kind": "sword",
+            "angle": 5,
+            "grip": "both"
+          }
+        },
+        "leg": {
+          "hip": 35,
+          "knee": 25,
+          "ankle": 0,
+          "out": 8
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 0,
+          "elbow": 20,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 10
+        },
+        "leg": {
+          "hip": -25,
+          "knee": 12,
+          "ankle": -10,
+          "out": 8
+        }
+      },
+      "tail": {
+        "lift": 0,
+        "curl": 240
+      }
+    },
+    {
       "name": "stand-sword-guard",
       "look": "front",
       "mouth": 1,
@@ -1449,7 +1599,8 @@
           "out": 10,
           "prop": {
             "kind": "sword",
-            "angle": 30
+            "angle": 30,
+            "grip": "both"
           }
         },
         "leg": {
@@ -1480,6 +1631,106 @@
       }
     },
     {
+      "name": "stand-sword-high",
+      "look": "front",
+      "mouth": 1,
+      "spine": {
+        "lean": 6,
+        "chest": -4,
+        "neck": 8,
+        "head": -8
+      },
+      "near": {
+        "arm": {
+          "shoulder": 125,
+          "elbow": 85,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 10,
+          "prop": {
+            "kind": "sword",
+            "angle": -135,
+            "grip": "both"
+          }
+        },
+        "leg": {
+          "hip": 35,
+          "knee": 25,
+          "ankle": 0,
+          "out": 8
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 0,
+          "elbow": 20,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 10
+        },
+        "leg": {
+          "hip": -25,
+          "knee": 12,
+          "ankle": -10,
+          "out": 8
+        }
+      },
+      "tail": {
+        "lift": 0,
+        "curl": 240
+      }
+    },
+    {
+      "name": "stand-sword-hip",
+      "look": "front",
+      "mouth": 1,
+      "spine": {
+        "lean": 4,
+        "chest": 0,
+        "neck": 8,
+        "head": -6
+      },
+      "near": {
+        "arm": {
+          "shoulder": -15,
+          "elbow": 35,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 14,
+          "prop": {
+            "kind": "sword",
+            "angle": -150,
+            "grip": "both"
+          }
+        },
+        "leg": {
+          "hip": -20,
+          "knee": 20,
+          "ankle": -8,
+          "out": 8
+        }
+      },
+      "far": {
+        "arm": {
+          "shoulder": 0,
+          "elbow": 20,
+          "hand": "fist",
+          "wrist": 0,
+          "out": 10
+        },
+        "leg": {
+          "hip": 35,
+          "knee": 25,
+          "ankle": 0,
+          "out": 8
+        }
+      },
+      "tail": {
+        "lift": 0,
+        "curl": 240
+      }
+    },
+    {
       "name": "stand-sword-overhead",
       "look": "front",
       "mouth": 3,
@@ -1498,7 +1749,8 @@
           "out": 10,
           "prop": {
             "kind": "sword",
-            "angle": 0
+            "angle": 0,
+            "grip": "both"
           }
         },
         "leg": {
@@ -1547,7 +1799,8 @@
           "out": 12,
           "prop": {
             "kind": "sword",
-            "angle": 45
+            "angle": 45,
+            "grip": "both"
           }
         },
         "leg": {

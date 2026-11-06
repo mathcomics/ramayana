@@ -58,6 +58,7 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/build-poselab.mjs                   # out/poselab.html (published artifact)
     node tools/pose-catalogue.mjs                  # out/pose-catalogue.png (poses + story moments)
     node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
+    node tools/import-held.mjs                     # data/props/held/*.svg -> data/held.json (weapons)
 
 Pose lab (published artifact, saves poses to its database, collection
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
@@ -74,6 +75,16 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Weapons on reference lines + two-handed poses (2026-11-06):**
+  `data/props/held/lines.svg` (sword line straight, bow line an arch with
+  a grip; the line ends are the references), `weapons.svg` (sword, club
+  on the sword line, bow; each drawn with its own copy of the line),
+  `tools/import-held.mjs` → `data/held.json`; the renderer lays the
+  drawing along the pose's line. Bow doubled (≈5.8 head-units). `grip:
+  "both"` solves the other arm in 3D to the hilt. 44 poses: overhead /
+  shoulder / guard now two-handed, new `stand-sword-high`, `-hip`,
+  `-forward`, `-behind-head`, `lunge-sword-strike` (all usable for a
+  club). Pose lab: Club option, grip One hand / Both.
 - **New poses and held props (2026-11-06):** 11 poses from the artist's
   reference sheets (angles only, not traced): `walk`, `walk-passing`;
   `stand-shoot-bow`, `stand-shoot-bow-raise`, `stand-shoot-bow-release`;

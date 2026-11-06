@@ -314,13 +314,17 @@ const STARTERS = /*__POSES__*/;
         };
         fs.appendChild(row);
         if (path.endsWith('.arm.twist')) {
-          // a held prop (sword or bow, along a line through the grip) and, for a bow, whether the other hand draws the string
+          // a held prop (sword, club or bow, along its reference line through the grip); for a sword or club, one or both
+          // hands on the hilt (both: the other arm follows the hilt); for a bow, whether the other hand draws the string
           const pr = document.createElement('div'); pr.className = 'handrow';
           pr.innerHTML = `<span>prop</span><div class="seg" id="prop-${g.key}"></div>`;
           fs.appendChild(pr);
           const sr = document.createElement('div'); sr.className = 'handrow';
           sr.innerHTML = `<span>bow string</span><div class="seg" id="string-${g.key}"></div>`;
           fs.appendChild(sr);
+          const gr = document.createElement('div'); gr.className = 'handrow';
+          gr.innerHTML = `<span>grip</span><div class="seg" id="grip-${g.key}"></div>`;
+          fs.appendChild(gr);
         }
         if (path.endsWith('.arm.wrist')) {
           const hr = document.createElement('div'); hr.className = 'handrow';
@@ -333,7 +337,7 @@ const STARTERS = /*__POSES__*/;
   }
 
   function syncControls() {
-    for (const id of ['headView', 'mouth', 'facing', 'hand-near', 'hand-far', 'faceMouth', 'prop-near', 'prop-far', 'string-near', 'string-far']) $(id)._sync();
+    for (const id of ['headView', 'mouth', 'facing', 'hand-near', 'hand-far', 'faceMouth', 'prop-near', 'prop-far', 'string-near', 'string-far', 'grip-near', 'grip-far']) $(id)._sync();
     $('character').value = state.character;
     // tail controls only apply to species with a tail
     const hasTail = !!SPECIES[look().species].tail;
@@ -449,10 +453,12 @@ const STARTERS = /*__POSES__*/;
   buildSliders();
   for (const side of ['near', 'far']) {
     const arm = () => state.pose[side].arm;
-    seg('prop-' + side, [['None', ''], ['Sword', 'sword'], ['Bow', 'bow']], () => arm().prop?.kind || '',
+    seg('prop-' + side, [['None', ''], ['Sword', 'sword'], ['Club', 'club'], ['Bow', 'bow']], () => arm().prop?.kind || '',
       (v) => { if (!v) delete arm().prop; else arm().prop = { angle: 0, out: 0, ...(arm().prop || {}), kind: v }; });
     seg('string-' + side, [['Free', false], ['Drawn', true]], () => !!arm().prop?.draw,
       (v) => { if (arm().prop) { if (v) arm().prop.draw = true; else delete arm().prop.draw; } });
+    seg('grip-' + side, [['One hand', ''], ['Both', 'both']], () => arm().prop?.grip || '',
+      (v) => { if (arm().prop) { if (v) arm().prop.grip = v; else delete arm().prop.grip; } });
     seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in'], ['Point', 'point']],
       () => state.pose[side].arm.hand, (v) => { state.pose[side].arm.hand = v; });
   }

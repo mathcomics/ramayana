@@ -22,11 +22,11 @@ const MIN_AREA = 0.03;                 // smaller paired elements stay cards
 const r4 = (v) => Math.round(v * 1e4) / 1e4;
 
 // ---- transforms (2x3 matrices [a b c d e f])
-const mm = (A, B) => [A[0] * B[0] + A[2] * B[1], A[1] * B[0] + A[3] * B[1], A[0] * B[2] + A[2] * B[3], A[1] * B[2] + A[3] * B[3],
+export const mm = (A, B) => [A[0] * B[0] + A[2] * B[1], A[1] * B[0] + A[3] * B[1], A[0] * B[2] + A[2] * B[3], A[1] * B[2] + A[3] * B[3],
   A[0] * B[4] + A[2] * B[5] + A[4], A[1] * B[4] + A[3] * B[5] + A[5]];
-const ap = (M, [x, y]) => [M[0] * x + M[2] * y + M[4], M[1] * x + M[3] * y + M[5]];
+export const ap = (M, [x, y]) => [M[0] * x + M[2] * y + M[4], M[1] * x + M[3] * y + M[5]];
 const I = [1, 0, 0, 1, 0, 0];
-function parseTransform(s = '') {
+export function parseTransform(s = '') {
   let M = I;
   for (const [, fn, args] of s.matchAll(/(\w+)\s*\(([^)]*)\)/g)) {
     const a = args.split(/[\s,]+/).filter(Boolean).map(Number);
@@ -46,7 +46,7 @@ function parseTransform(s = '') {
 }
 
 // ---- outlines as polygons (sampled), any SVG path command
-function pathPolys(d) {
+export function pathPolys(d) {
   const toks = d.match(/[a-zA-Z]|-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?/gi) || [];
   let i = 0, cmd = null, cur = [0, 0], start = [0, 0], prevC = null, prevQ = null;
   const polys = []; let poly = null;

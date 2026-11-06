@@ -1,9 +1,9 @@
 # Held props: weapons along a reference line
 
 Date: 2026-11-06.
-Status: **partly implemented.** The reference line and the generic shapes
-are built (`docs/design/drawn-parts.md`, style bible §9). Still to do: the
-artist's prop drawings laid along the line, and two-handed grips.
+Status: **implemented** (reference lines, weapon drawings, import,
+two-handed grip: `docs/design/drawn-parts.md`, style bible §9). Open
+points below remain.
 
 ## Idea
 
@@ -17,25 +17,19 @@ carries the prop with it), `out` turns it out of the paper. The renderer
 projects the line like a limb. Whatever is drawn is laid along it, so the
 style of a weapon can change without touching any pose.
 
-## Drawings (to do)
+## Built
 
-One SVG per prop kind in `data/props/held/<kind>.svg`, imported like the
-body parts (curves kept, only moved, turned, scaled along the line):
-
-- **sword**: the outline drawn pointing straight up, with anchors `grip`
-  (where the hand closes) and `tip`. The line's length comes from them;
-  a character could have its own sword (`data/characters.json`:
-  `props.sword`).
-- **bow**: kept as a simple arch (decided with the artist): anchors
-  `grip`, `top`, `bottom` (the string ends) and the drawn arch; the string
-  and arrow stay generated, from the tips to the drawing hand.
-- Side and front drawings if the edge-on look (front view) needs one.
+- One file of reference lines (`data/props/held/lines.svg`: a straight
+  sword line, an arched bow line) whose ends are the references, and one
+  file of weapon drawings (`weapons.svg`: sword, club, bow), each drawn
+  with its own copy of the line. Clubs use the sword line and the sword
+  poses.
+- Two-handed grips: `grip: "both"` solves the other arm to the hilt.
 
 ## Open points
 
-- **Two-handed swords**: the other hand is posed by hand to sit on the
-  hilt; a `grip: "both"` setting could move it there automatically (the
-  other arm solved to reach the hilt).
+- **Per-character weapons**: a character's own sword drawing
+  (`data/characters.json`: `props.sword`).
 - **Props per figure**: a panel could swap or remove a held prop
   (`"prop": null`) for a figure without a new pose.
 - Arrows in flight and quivers are scene props.

@@ -113,11 +113,29 @@ move the legs.
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn
   over the legs.
 - The tail is generated, not drawn.
-- Held props (`arm.prop`: `kind` sword or bow, `angle`, `out`, `draw`):
-  the reference line starts at the grip (the middle of the hand) and
-  points along the hand's side-view angle + `angle`, with the arm's `out`
-  + `out`; each view is its projection (lengths shorten, widths stay).
-  The shapes are built along that line (style bible §9) and drawn with
-  their arm, at the hand's depth. A bow's belly faces away from the hip;
-  a drawn bow's string goes to the other hand's grip. Props don't move
-  the figure: it is centred on its body.
+- Held props (`arm.prop`: `kind` sword, club or bow, `angle`, `out`,
+  `draw`, `grip`):
+  - Files: `data/props/held/lines.svg` holds one reference line per
+    kind of line: `sword` (straight, grip end → tip) and `bow` (an arch
+    top → bottom, with a `grip` circle). `data/props/held/weapons.svg`
+    holds the drawings, one layer each (`sword`, `club` on the sword
+    line, `bow` on the bow line), each with a copy of its line (`line`
+    path, and `grip` for the bow) where the artist drew it.
+    `node tools/import-held.mjs` → `data/held.json`: each drawing moved
+    and scaled so its own line lands on the reference line, stored in
+    the line's frame (origin at the grip, +x along the line toward the
+    tip / top, +y the belly side; head-units). The line's length is the
+    weapon's length.
+  - In a figure: the line starts at the grip (the middle of the hand)
+    and points along the hand's side-view angle + `angle`, with the arm's
+    `out` + `out`; each view is its projection (lengths shorten, widths
+    stay). The drawing is laid along it by one affine transform and drawn
+    with its arm, at the hand's depth. A bow's belly faces away from the
+    hip; in the front view it is seen nearly edge-on (its width × 0.15).
+    The string (tip to tip, or through the other hand's grip when
+    `draw`) and the arrow are generated.
+  - `grip: both` (sword, club): the other arm is solved in 3D so its fist
+    closes on the hilt 0.42 below the holding hand's grip, along the
+    line; its own arm angles are ignored. Its `out` is set by the
+    sideways reach, the rest is a two-bone reach in the arm's plane.
+  - Props don't move the figure: it is centred on its body.

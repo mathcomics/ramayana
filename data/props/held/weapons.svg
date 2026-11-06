@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Held weapon drawings (tools/import-held.mjs). Each layer is one weapon
+     with a `line` path: a copy of its reference line (lines.svg: sword for
+     sword and club, bow for bow). The drawing is laid along the pose's
+     line so that its own line's ends land on the reference line's ends
+     (bow: also its `grip` anchor on the hand). Draw freely around the line;
+     keep the line's ends where the weapon is held and where it points.
+     The line and anchors are not drawn. 100 px = 1 head-unit. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="600" height="420" viewBox="-100 -320 600 640">
+  <g inkscape:groupmode="layer" inkscape:label="sword" transform="translate(0 0)">
+    <path inkscape:label="blade" d="M -3.5 -12 L -3 -192 L 0 -210 L 3 -192 L 3.5 -12 Z" style="fill:#241f1c"/>
+    <path inkscape:label="guard" d="M -17 -15 L 17 -15 L 17 -9 L -17 -9 Z" style="fill:#241f1c"/>
+    <path inkscape:label="hilt" d="M -3 -12 L 3 -12 L 3 32 L -3 32 Z" style="fill:#241f1c"/>
+    <path inkscape:label="line" d="M 0 0 L 0 -210" fill="none" stroke="#d02020" stroke-width="1"/>
+  </g>
+  <g inkscape:groupmode="layer" inkscape:label="club" transform="translate(150 0)">
+    <path inkscape:label="club" d="M -4 30 L -4 -110 C -16 -130 -20 -170 -14 -200 C -10 -214 10 -214 14 -200 C 20 -170 16 -130 4 -110 L 4 30 Z" style="fill:#241f1c"/>
+    <path inkscape:label="line" d="M 0 0 L 0 -210" fill="none" stroke="#d02020" stroke-width="1"/>
+  </g>
+  <g inkscape:groupmode="layer" inkscape:label="bow" transform="translate(300 0)">
+    <path inkscape:label="arch" d="M -66 -292 Q 64 -2.5 -66 292 L -61 286 Q 44 0 -61 -286 Z" style="fill:#241f1c"/>
+    <path inkscape:label="line" d="M -64 -290 Q 64 0 -64 290" fill="none" stroke="#d02020" stroke-width="1"/>
+    <circle inkscape:label="grip" cx="0" cy="0" r="4" fill="#2060d0"/>
+  </g>
+</svg>
