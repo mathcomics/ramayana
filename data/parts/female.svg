@@ -30,7 +30,7 @@
      Each sits on one anchor where its bone projects to a point:
      end-shoulder, end-elbow, end-hip, end-knee, end-ankle; end-toe (toe tip
      of the sole). Same edge count
-     (limbs 4, foot 5) as the
+     (limbs 4, feet 7) as the
      front / side partners. Inner side = picture-left (toward the body).
      100 px = 1 head-unit; ground at y = 0. -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -68,7 +68,7 @@
     <path id="end-forearm" inkscape:label="forearm" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 520.00 -353.24 C 527.78 -353.24 534.08 -347.33 534.08 -340.04 C 534.08 -333.24 527.78 -327.72 520.00 -327.72 C 513.68 -327.72 508.56 -333.24 508.56 -340.04 C 508.56 -347.33 513.68 -353.24 520.00 -353.24 Z"/>
     <path id="end-thigh" inkscape:label="thigh" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 610.00 -322.47 C 626.02 -322.47 639.00 -310.83 639.00 -296.47 C 639.00 -283.21 626.02 -272.47 610.00 -272.47 C 596.74 -272.47 586.00 -283.21 586.00 -296.47 C 586.00 -310.83 596.74 -322.47 610.00 -322.47 Z"/>
     <path id="end-shin" inkscape:label="shin" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 610.00 -176.00 C 620.50 -176.00 629.00 -168.34 629.00 -158.90 C 629.00 -150.50 620.50 -143.70 610.00 -143.70 C 601.60 -143.70 594.80 -150.50 594.80 -158.90 C 594.80 -168.34 601.60 -176.00 610.00 -176.00 Z"/>
-    <path id="end-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 655.33 -70.49 C 659.82 -74.43 680.00 -78.20 686.86 -75.01 C 696.86 -73.93 701.57 -57.97 700.16 -53.26 C 705.66 -55.03 714.90 -37.04 692.34 -41.98 C 687.55 -39.55 663.77 -40.93 651.27 -46.63 C 638.48 -44.10 621.77 -39.88 618.87 -57.12 C 618.71 -74.48 648.88 -71.31 655.33 -70.49 Z"/>
+    <path id="end-foot" inkscape:label="foot" style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1" d="M 655.33 -70.49 C 659.82 -74.43 680.00 -78.20 686.86 -75.01 C 696.86 -73.93 701.57 -57.97 700.16 -53.26 C 705.66 -55.03 714.90 -37.04 692.34 -41.98 C 687.55 -39.55 663.77 -40.93 651.27 -46.63 C 638.48 -44.10 621.77 -39.88 618.87 -57.12 C 618.79 -66.26 627.10 -69.71 635.93 -70.80 C 643.89 -71.79 652.27 -70.88 655.33 -70.49 Z"/>
   </g>
   <g id="anchors" inkscape:groupmode="layer" inkscape:label="anchors">
     <circle id="anchor-shoulder" inkscape:label="shoulder" cx="53.97" cy="-434.43" r="4" style="fill:#d02020"/>
@@ -96,6 +96,6 @@
     <circle id="anchor-end-hip" inkscape:label="end-hip" cx="610.00" cy="-296.47" r="4" style="fill:#d02020"/>
     <circle id="anchor-end-knee" inkscape:label="end-knee" cx="610.00" cy="-158.90" r="4" style="fill:#d02020"/>
     <circle id="anchor-end-ankle" inkscape:label="end-ankle" cx="640.00" cy="-55.00" r="4" style="fill:#d02020"/>
-    <circle id="anchor-end-toe" inkscape:label="end-toe" cx="694.90" cy="-56.80" r="4" style="fill:#d02020"/>
+    <circle id="anchor-end-toe" inkscape:label="end-toe" cx="704.11" cy="-48.17" r="4" style="fill:#d02020"/>
   </g>
 </svg>

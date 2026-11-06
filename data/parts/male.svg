@@ -31,7 +31,7 @@
      Each sits on one anchor where its bone projects to a point:
      end-shoulder, end-elbow, end-hip, end-knee, end-ankle; end-toe (toe tip
      of the sole). Same edge count
-     (limbs 4, foot 5) as the
+     (limbs 4, feet 7) as the
      front / side partners. Inner side = picture-left (toward the body).
      100 px = 1 head-unit; ground at y = 0. -->
 
@@ -42,8 +42,30 @@
    version="1.1"
    id="svg60"
    xml:space="preserve"
+   sodipodi:docname="male.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview61"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5636129"
+     inkscape:cx="368.05785"
+     inkscape:cy="306.02203"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="anchors" /><defs
      id="defs64" /><line
      x1="-143.42"
      x2="730.54"
@@ -128,7 +150,8 @@
        d="M 610.00 -188.16 C 621.05 -188.16 630.00 -180.10 630.00 -170.16 C 630.00 -161.32 621.05 -154.16 610.00 -154.16 C 601.16 -154.16 594.00 -161.32 594.00 -170.16 C 594.00 -180.10 601.16 -188.16 610.00 -188.16 Z" /><path
        id="end-foot"
        style="fill:#b08a6a;fill-opacity:0.35;stroke:#241f1c;stroke-width:1"
-       d="m 657.03462,-77.208729 c 4.98551,-4.378004 27.40633,-8.567065 35.02761,-5.019323 11.11328,1.196472 16.35106,18.930689 14.77909,24.161069 6.10877,-1.966509 16.37796,18.026824 -8.68321,12.537358 -5.32624,2.69578 -31.75067,1.162826 -45.63087,-5.172421 -14.21838,2.811565 -32.78753,7.501749 -36.00196,-11.65673 -0.17599,-19.289065 33.34077,-15.761501 40.50934,-14.849953 z" /></g><g
+       d="m 657.03462,-77.208729 c 4.98551,-4.378004 27.40633,-8.567065 35.02761,-5.019323 11.11328,1.196472 16.35106,18.930689 14.77909,24.161069 6.10877,-1.966509 16.37796,18.026824 -8.68321,12.537358 -5.32624,2.69578 -31.75067,1.162826 -45.63087,-5.172421 -14.21838,2.811565 -32.78753,7.501749 -36.00196,-11.65673 -0.0926,-10.147559 9.13958,-13.980424 18.95474,-15.201502 8.84207,-1.100018 18.15726,-0.08045 21.5546,0.351549 z"
+       sodipodi:nodetypes="cccccccc" /></g><g
      id="anchors"><circle
        id="anchor-shoulder"
        cx="67.92"
@@ -256,7 +279,7 @@
        r="4"
        style="fill:#d02020" /><circle
        id="anchor-end-toe"
-       cx="701"
-       cy="-62"
+       cx="711.23273"
+       cy="-52.406834"
        r="4"
        style="fill:#d02020" /></g></svg>
