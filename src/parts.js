@@ -402,7 +402,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const handSegs = dpShape(hands, look(sh_, a.out, a.twist));
     // the grip: the middle of the hand, for a held prop (arm.prop)
     const grip = add(Wr, mul(dirM(Hd.ang), 0.18 * Hd.f));
-    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A }, grip, held: { theta: sh_, out: a.out, prop: a.prop, m, dirM, d3: dH },
+    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A, grip }, grip, held: { theta: sh_, out: a.out, prop: a.prop, m, dirM, d3: dH },
       arm: [
         ['upper-arm', place(dpShape(M.upperArm, look(su, a.out)), sh, U.ang, m), dU],
         ['forearm', place(dpShape(M.forearm, look(sl, a.out)), E, Lo.ang, m), dL],
@@ -568,7 +568,10 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // over past level).
   const tilt = sp.lean + sp.chest, ct = Math.cos(tilt * RAD);
   const hair = { at: nb, rot: front ? 0 : tilt, sy: front ? Math.sign(ct || 1) * Math.max(Math.abs(ct), 0.25) : 1 };
-  return { shapes: out, H, headRot, headR, hair, joints: { near: limbs.near.joints, far: limbs.far.joints } };
+  // joints for the pose lab's handles: limbs, and the spine's pivots (the
+  // pelvis at the hip middle, the waist part way up, the neck base and top)
+  const spineJ = { pelvis: [0, 0], waist: lerp([0, 0], nb, 0.45), neck: nb, head: neckTop, H };
+  return { shapes: out, H, headRot, headR, hair, joints: { near: limbs.near.joints, far: limbs.far.joints, spine: spineJ } };
 }
 
 const dpF = (v) => (Math.round(v * 1000) / 1000).toString();

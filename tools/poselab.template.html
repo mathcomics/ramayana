@@ -59,6 +59,8 @@ h1 { font-family: var(--font-display); font-size: 1.15rem; margin: 0; letter-spa
 }
 .paper { border-radius: 6px; overflow: hidden; position: relative; min-width: 0; }
 .paper svg { display: block; width: 100%; height: 100%; }
+#big { touch-action: none; }
+#big .jdot { cursor: pointer; }
 .gallery {
   overflow-y: auto; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
   gap: 6px; align-content: start; padding: 2px;
@@ -270,9 +272,19 @@ const STARTERS = /*__POSES__*/;
     const opts = { ...L, y: 0, scale: 1, facing: state.facing };
     const side = renderFigure(SPECIES[L.species], p, { ...opts, x: -3.3 });
     const front = renderFigure(SPECIES[L.species], p, { ...opts, x: 3.3, view: 'front' });
+    state.J = { side: side.joints, front: front.joints };
+    // while turning a joint, its view is held so the pivot stays put (the
+    // figure is otherwise re-centred on its body as it changes)
+    state.off = { side: [0, 0], front: [0, 0] };
+    const hold = state.drag && state.sel && state.holdAt;
+    if (hold) {
+      const v = state.sel.view, q = toPic(v, state.sel.piv(state.J[v]));
+      state.off[v] = [state.holdAt[0] - q[0], state.holdAt[1] - q[1]];
+    }
+    const shift = (v, svg) => (state.off[v][0] || state.off[v][1] ? `<g transform="translate(${state.off[v][0]} ${state.off[v][1]})">${svg}</g>` : svg);
     const groundLine = `<line x1="-8" x2="8" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
     const cap = (x, t) => `<text x="${x}" y="0.55" font-size="0.36" fill="#000" fill-opacity="0.4" text-anchor="middle" font-family="sans-serif" letter-spacing="0.05">${t}</text>`;
-    $('big').innerHTML = `<svg viewBox="-6.6 -7.1 13.2 7.85" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pose preview, side and front"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${side.svg}${front.svg}${cap(-3.3, 'SIDE')}${cap(3.3, 'FRONT')}</svg>`;
+    $('big').innerHTML = `<svg viewBox="-6.6 -7.1 13.2 7.85" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pose preview, side and front"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${shift('side', side.svg)}${shift('front', front.svg)}${cap(-3.3, 'SIDE')}${cap(3.3, 'FRONT')}${handlesSvg()}</svg>`;
     if (state.tab !== 'face') $('meta').textContent = `${charById(state.character).name} · side + front · ${p.name}`;
     $('json').textContent = JSON.stringify(exportPose(), null, 2);
   }
@@ -284,6 +296,136 @@ const STARTERS = /*__POSES__*/;
     const out = { name: p.name, mouth: p.mouth };
     out.spine = p.spine; out.right = p.near; out.left = p.far; out.tail = p.tail;
     return out;
+  }
+
+  // ---------- handles on the figures
+  // Every joint shows a dot. Tap one and a ring with a knob appears; drag
+  // the knob (or anywhere on the ring) to turn the joint. Side view: the
+  // angles in the paper (lean, chest, neck, head, shoulder, elbow, wrist,
+  // hip, knee, ankle). Front view: shoulder and hip `out` (sideways). The
+  // angle shows only while turning. Each move solves the joint's value
+  // numerically so the part follows the pointer (works for any angle
+  // convention, and for `out`'s foreshortening in the front view).
+  const VIEWX = { side: -3.3, front: 3.3 };
+  const RING = 0.55;
+  const SIDE_NAME = { near: 'right', far: 'left' };
+  const ang = (a, b) => Math.atan2(b[0] - a[0], b[1] - a[1]) * 180 / Math.PI;   // 0 = down, 90 = picture-right (figure frame)
+  const wrapA = (v) => ((v + 540) % 360) - 180;
+  const rangeOf = (path) => { for (const g of SLIDERS) for (const r of g.rows) if (r[0] === path) return [r[2], r[3]]; return [-180, 180]; };
+  function controls(view) {
+    const out = [], P = state.pose;
+    const solved = (sd) => ['near', 'far'].some((h) => h !== sd && P[h].arm.prop?.grip === 'both');   // arm moved by a two-handed grip
+    if (view === 'side') {
+      const sp = (key, piv, child, label) => out.push({ view, path: 'spine.' + key, label, piv: (J) => J.spine[piv], dir: (J) => ang(J.spine[piv], J.spine[child]) });
+      sp('lean', 'pelvis', 'neck', 'lean'); sp('chest', 'waist', 'neck', 'chest'); sp('neck', 'neck', 'head', 'neck'); sp('head', 'head', 'H', 'head');
+      for (const sd of ['near', 'far']) {
+        const n = SIDE_NAME[sd], j = (k) => (J) => J[sd][k];
+        const lim = (part, key, piv, child, label) => out.push({ view, side: sd, path: `${sd}.${part}.${key}`, label: `${n} ${label}`, piv: j(piv), dir: (J) => ang(J[sd][piv], J[sd][child]) });
+        if (!solved(sd)) { lim('arm', 'shoulder', 'sh', 'E', 'shoulder'); lim('arm', 'elbow', 'E', 'Wr', 'elbow'); lim('arm', 'wrist', 'Wr', 'grip', 'wrist'); }
+        lim('leg', 'hip', 'hp', 'Kn', 'hip'); lim('leg', 'knee', 'Kn', 'A', 'knee');
+        // the foot: its angle from the ground (toes forward = 90° in this frame)
+        out.push({ view, side: sd, path: `${sd}.leg.ankle`, label: `${n} ankle`, piv: j('A'), dir: (J, p) => 90 + p[sd].leg.ankle });
+      }
+    } else {
+      for (const sd of ['near', 'far']) {
+        const n = SIDE_NAME[sd], j = (k) => (J) => J[sd][k];
+        if (!solved(sd)) out.push({ view, side: sd, path: `${sd}.arm.out`, label: `${n} shoulder out`, piv: j('sh'), dir: (J) => ang(J[sd].sh, J[sd].E) });
+        out.push({ view, side: sd, path: `${sd}.leg.out`, label: `${n} hip out`, piv: j('hp'), dir: (J) => ang(J[sd].hp, J[sd].Kn) });
+      }
+    }
+    return out;
+  }
+  // figure frame -> picture (the stage's svg units)
+  const toPic = (view, q) => { const o = state.off?.[view] || [0, 0]; return [VIEWX[view] + state.facing * q[0] + o[0], q[1] + o[1]]; };
+  const dirPic = (a) => [state.facing * Math.sin(a * Math.PI / 180), Math.cos(a * Math.PI / 180)];
+  function handlesSvg() {
+    if (!state.J) return '';
+    let s = '<g class="handles">';
+    const seen = [];
+    for (const view of ['side', 'front']) for (const c of controls(view)) {
+      const p = toPic(view, c.piv(state.J[view]));
+      if (seen.some((q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < 0.02)) continue;
+      seen.push(p);
+      const col = c.side === 'far' ? '#ffffff' : c.side === 'near' ? 'var(--accent)' : '#333';
+      s += `<circle class="jdot" cx="${p[0].toFixed(3)}" cy="${p[1].toFixed(3)}" r="0.065" fill="${col}" stroke="#222" stroke-width="0.018" opacity="0.85"/>`;
+    }
+    const sel = state.sel;
+    if (sel) {
+      const J = state.J[sel.view], p = toPic(sel.view, sel.piv(J)), d = dirPic(sel.dir(J, state.pose));
+      const k = [p[0] + d[0] * RING, p[1] + d[1] * RING];
+      s += `<circle cx="${p[0]}" cy="${p[1]}" r="${RING}" fill="none" stroke="var(--accent)" stroke-width="0.025" stroke-dasharray="0.06 0.05"/>` +
+        `<line x1="${p[0]}" y1="${p[1]}" x2="${k[0]}" y2="${k[1]}" stroke="var(--accent)" stroke-width="0.025"/>` +
+        `<circle cx="${k[0]}" cy="${k[1]}" r="0.11" fill="var(--accent)" stroke="#fff" stroke-width="0.025" style="cursor:grab"/>`;
+      if (state.drag) {
+        const v = get(state.pose, sel.path) ?? 0;
+        s += `<text x="${k[0] + 0.16}" y="${k[1] - 0.14}" font-size="0.26" font-family="sans-serif" font-weight="600" fill="#222" stroke="${PAPER}" stroke-width="0.06" paint-order="stroke">${sel.label} ${Math.round(v)}°</text>`;
+      }
+    }
+    return s + '</g>';
+  }
+  function picPoint(e) {
+    const svg = $('big').querySelector('svg'); if (!svg) return null;
+    const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    const q = pt.matrixTransform(svg.getScreenCTM().inverse());
+    return [q.x, q.y];
+  }
+  // the pointer's angle around the control's pivot, in the figure frame
+  const pointerAng = (c, m) => { const p = toPic(c.view, c.piv(state.J[c.view])); return Math.atan2(state.facing * (m[0] - p[0]), m[1] - p[1]) * 180 / Math.PI; };
+  function jointsFor(view, pose) {
+    const L = look();
+    return renderFigure(SPECIES[L.species], pose, { ...L, x: 0, y: 0, scale: 1, facing: 1, id: 'probe', ...(view === 'front' ? { view: 'front' } : {}) }).joints;
+  }
+  // move the control's value so its part points at angle `target`
+  function solveTo(c, target) {
+    const [lo, hi] = rangeOf(c.path);
+    for (let it = 0; it < 3; it++) {
+      const v = get(state.pose, c.path) ?? 0;
+      const a0 = c.dir(jointsFor(c.view, state.pose), state.pose);
+      const err = wrapA(target - a0);
+      if (Math.abs(err) < 0.3) break;
+      const probe = clone(state.pose), h = v + 2 <= hi ? 2 : -2;
+      set(probe, c.path, v + h);
+      const da = wrapA(c.dir(jointsFor(c.view, probe), probe) - a0);
+      if (Math.abs(da) < 0.05) break;                                   // this value doesn't move the part here
+      let dv = err * h / da;
+      dv = Math.max(-25, Math.min(25, dv));
+      set(state.pose, c.path, Math.max(lo, Math.min(hi, Math.round((v + dv) * 10) / 10)));
+    }
+    const el = $('s-' + c.path.replace(/\./g, '-'));
+    if (el) { el.value = get(state.pose, c.path); el.closest('.row')._sync(); }
+  }
+  {
+    const big = $('big');
+    big.addEventListener('pointerdown', (e) => {
+      const m = picPoint(e); if (!m || !state.J) return;
+      const sel = state.sel;
+      if (sel) {
+        const p = toPic(sel.view, sel.piv(state.J[sel.view])), r = Math.hypot(m[0] - p[0], m[1] - p[1]);
+        if (r > RING - 0.25 && r < RING + 0.25) {                       // on the ring or its knob: turn
+          state.drag = true; state.holdAt = p; big.setPointerCapture(e.pointerId);
+          solveTo(sel, pointerAng(sel, m)); markDirty(); draw(); e.preventDefault(); return;
+        }
+      }
+      // a dot: select it (tapping again where two dots meet picks the other)
+      const hits = [];
+      for (const view of ['side', 'front']) for (const c of controls(view)) {
+        const p = toPic(view, c.piv(state.J[view]));
+        if (Math.hypot(m[0] - p[0], m[1] - p[1]) < 0.16) hits.push(c);
+      }
+      if (hits.length) {
+        const i = sel ? hits.findIndex((c) => c.path === sel.path && c.view === sel.view) : -1;
+        state.sel = hits[(i + 1) % hits.length];
+      } else state.sel = null;
+      draw();
+    });
+    big.addEventListener('pointermove', (e) => {
+      if (!state.drag || !state.sel) return;
+      const m = picPoint(e); if (!m) return;
+      solveTo(state.sel, pointerAng(state.sel, m)); markDirty(); draw();
+    });
+    const end = () => { if (state.drag) { state.drag = false; state.holdAt = null; syncControls(); draw(); } };
+    big.addEventListener('pointerup', end);
+    big.addEventListener('pointercancel', end);
   }
 
   // ---------- controls
@@ -375,6 +517,7 @@ const STARTERS = /*__POSES__*/;
 
   function load(p) {
     state.pose = normalizePose(clone(p));
+    state.sel = null; state.drag = false;
     state.dirty = false;
     $('revertBtn').disabled = true;
     $('name').value = state.pose.name;

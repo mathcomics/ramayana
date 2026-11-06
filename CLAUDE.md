@@ -75,6 +75,15 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Joint handles in the pose lab (2026-11-06):** dots on every joint;
+  tap → ring + knob, drag to turn. Side view: lean, chest, neck, head,
+  shoulder, elbow, wrist, hip, knee, ankle; front view: shoulder / hip
+  `out`. Each move solves the value numerically (probe renders) so the part
+  follows the pointer; the view is held still while dragging (no
+  re-centring jump); angle label only while dragging; tapping where two
+  dots meet cycles them; the solved arm of a two-handed grip has none.
+  `renderFigure` / `buildShapes` return `joints` (figure frame: limbs
+  sh/E/Wr/grip/hp/Kn/A, spine pelvis/waist/neck/head/H).
 - **Right / left and head turn in degrees (2026-11-06):** poses name limbs
   `right` / `left` (the character's own; right = the side view's near
   side; `normalizePose` still reads near / far and maps them; the renderer

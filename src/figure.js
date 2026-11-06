@@ -457,7 +457,7 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1, who = null) {
   const side = normalizePose(poseIn);
   const front = view === 'front';
   const pose = front ? normalizePose(frontOf(S, side).pose) : side;
-  const { shapes, H, headRot, headR, hair } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale, who);
+  const { shapes, H, headRot, headR, hair, joints } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale, who);
   // The head is drawn turned in 3D (src/headturn.js) by headR from
   // buildParts. Which face drawing's body hair and defs go with it: the
   // drawing the camera sees more of (front view: the front drawing while
@@ -480,6 +480,7 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1, who = null) {
     }
   }
   const Hm = [F * H[0], H[1]], hairAt = [F * hair.at[0], hair.at[1]];
+  const jf = (q) => [F * q[0], q[1]];
   const face = { view: front !== sideish ? 'front' : 'side', mirror: front && sideish && Math.sin(tr) > 0, R };
   // centred on the body: held props don't move the figure
   const bb = bbox(shapes.filter((s) => s.role !== 'prop').map((s) => s.pts));
@@ -490,7 +491,10 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1, who = null) {
     if (s.segs) { s.segs = s.segs.map((g) => g.map(mv)); s.d = dpSegD(s.segs); }
     if (s.mx) s.mx = [s.mx[0], s.mx[1], s.mx[2], s.mx[3], s.mx[4] + dx, s.mx[5] + dy];
   }
-  return { shapes, sk: { pose, front }, headAnchor: { at: mv(Hm), rot: F * headRot, ...face }, hairAnchor: { ...hair, rot: F * hair.rot, at: mv(hairAt) }, bbox: bbox(shapes.map((s) => s.pts)) };
+  // joints in the figure's own frame (for the pose lab's handles)
+  const jm = (g) => Object.fromEntries(Object.entries(g).map(([k, q]) => [k, mv(jf(q))]));
+  const J = { near: jm(joints.near), far: jm(joints.far), spine: jm(joints.spine) };
+  return { shapes, joints: J, sk: { pose, front }, headAnchor: { at: mv(Hm), rot: F * headRot, ...face }, hairAnchor: { ...hair, rot: F * hair.rot, at: mv(hairAt) }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
 
 // Every body part as its own list of shapes, for inspection
@@ -560,7 +564,7 @@ let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
-  const { shapes, headAnchor, hairAnchor, sk, bbox: bb } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.bodyScale ?? 1, opts.who);
+  const { shapes, headAnchor, hairAnchor, sk, bbox: bb, joints } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.bodyScale ?? 1, opts.who);
   // Drawn face (data/faces): replaces the guide head (every character has
   // one; the guide shows on species sheets only). Its layers are
   // copied unchanged, colours included, and placed with one transform.
@@ -627,7 +631,7 @@ export function renderFigure(species, pose, opts = {}) {
   }
   if (inBody) svg += '</g>';
   svg += '</g>';
-  return { svg, bbox: bb };
+  return { svg, bbox: bb, joints };
 }
 
 // Look of a character from data/characters.json: species id plus the
