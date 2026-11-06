@@ -519,9 +519,9 @@ function patternDef(id, kind, ink) {
 // outfit, pattern, face, bodyScale (torso and legs; drawn parts only),
 // who (character id: its own held weapons, data/props/held/).
 // Shading (style bible §4): the far leg (thigh with its cloth, shin, foot)
-// and the torso (bare skin or a full top) are 5% darker than the body or
+// and the torso (bare skin or a full top) are 10% darker than the body or
 // cloth colour, so they separate from the near leg, the arms and the head.
-const SHADED = /^(far-(thigh|shin|foot)|torso)$/, SHADE = 0.95;
+const SHADED = /^(far-(thigh|shin|foot)|torso)$/, SHADE = 0.9;
 function shade(c, k) {
   const m = /^#([0-9a-f]{6})$/i.exec(c || '');
   if (!m) return c;

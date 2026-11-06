@@ -36,7 +36,7 @@ from its silhouette alone.
 
 - Bodies are **solid fills**. Overlapping parts merge into one silhouette.
 - **Two tones:** the far leg (thigh and its cloth, shin, foot) and the
-  torso (bare skin or a full top) are filled 5% darker than the body or
+  torso (bare skin or a full top) are filled 10% darker than the body or
   cloth colour, so the near leg, the arms and the head stand out against
   them. Faces, hands, arms, neck and props keep their colours.
 - Limbs are tapered: thicker at the body, thinner at hands and feet.
