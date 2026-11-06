@@ -77,10 +77,11 @@ move the legs.
   view shortens the limb by cos(out); the front view is the projection
   (sideways, down) of the same limb, replacing the old mirroring. A pose
   without `out` shows its forward/back reach foreshortened in front.
-- A limb's top end (the shoulder cap, the top of the thigh: above its
-  joint) turns with the body, not the limb (fully 0.12 above the joint,
-  blending below), so it stays inside the chest or the buttocks when the
-  body leans.
+- The top of the thigh (above the hip) folds into the body the more the
+  thigh turns away from it: shortened by cos(angle between them), flat at
+  90° and beyond, so it stays inside the buttocks when the body leans.
+  (Turning it with the body, as before 2026-11-06, folded the near thigh
+  in kneel.) Upper arms are placed as drawn.
 - Draw order by depth: each limb (and the head and tail) gets a depth
   toward the viewer from the 3D pose (front view: forward; side view:
   sideways) and is drawn far to near, as a unit (shin behind thigh); it

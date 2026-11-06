@@ -231,14 +231,17 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // thigh) sits inside the body, so it turns with the body, not with the
   // limb: fully above DP_CAP of the joint, blending into the limb below.
   // The body's down direction: the chest for an arm, the pelvis for a leg.
-  const placeCap = (segs, at, ang, m, f, bodyAng) => dpMap(segs, (p) => {
-    const q = rot([p[0], p[1] * f], -ang);
-    if (p[1] >= 0) return add(at, [m * q[0], q[1]]);
-    const w = Math.min(1, -p[1] / DP_CAP);
-    const r = rot(p, -bodyAng);
-    return add(at, [m * (q[0] + (r[0] - q[0]) * w), q[1] + (r[1] - q[1]) * w]);
-  });
-
+  const placeCap = (segs, at, ang, m, f, bodyAng) => {
+    // The more the limb turns away from the body, the more its top end
+    // folds into the body: shortened by cos(angle between them), flat at
+    // 90° and beyond. (Turning the cap with the body folded or twisted the
+    // outline at large angles.)
+    const k = Math.max(0, Math.cos((bodyAng - ang) * RAD));
+    return dpMap(segs, (p) => {
+      const q = rot([p[0], p[1] < 0 ? p[1] * k : p[1] * f], -ang);
+      return add(at, [m * q[0], q[1]]);
+    });
+  };
   // the posed side torso (both views need it) and the map onto it
   const TS = dpMap(partsTorso(M, 1, sp.chest), (p) => rot(p, sp.lean));
   const sideMap = dpSideMap(M.torso.side, TS);
@@ -358,7 +361,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const hands = { front: M.hands.front[a.hand] || M.hands.front.fist, side: M.hands.side[a.hand] || M.hands.side.fist };
     limbs[s] = { joints: { sh, E, Wr, hp, Kn, A },
       arm: [
-        ['upper-arm', placeCap(dpTurn(M.upperArm, turn), sh, U.ang, m, U.draw, front ? 0 : -(sp.lean + sp.chest)), dU],
+        ['upper-arm', place(dpTurn(M.upperArm, turn), sh, U.ang, m, U.draw), dU],
         ['forearm', place(dpTurn(M.forearm, turn), E, Lo.ang, m, Lo.draw), dL],
         // the pointing finger always goes on the side toward the body (the
         // drawn point hand has it outside, so it is mirrored across the forearm)
