@@ -112,22 +112,6 @@ function dpSideMap(T0, T1) {
     return add(add(mul(A, best.w[0]), mul(B, best.w[1])), mul(C, best.w[2]));
   };
 }
-// The straight side torso's depth at height y: centre and half-depth.
-function dpSlice(M, y) {
-  if (!M._side) Object.defineProperty(M, '_side', { value: dpFlat(M.torso.side, 16) });
-  const P = M._side, xs = [];
-  for (let i = 0; i < P.length; i++) {
-    const a = P[i], b = P[(i + 1) % P.length];
-    if ((a[1] - y) * (b[1] - y) <= 0 && a[1] !== b[1]) xs.push(a[0] + (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]));
-  }
-  if (!xs.length) {                                  // above or below the outline: the nearest end
-    const near = P.reduce((q, p) => (Math.abs(p[1] - y) < Math.abs(q[1] - y) ? p : q));
-    return { zc: near[0], d: 0 };
-  }
-  const z0 = Math.min(...xs), z1 = Math.max(...xs);
-  return { zc: (z0 + z1) / 2, d: (z1 - z0) / 2 };
-}
-
 // A limb part for this turn: its front and side shapes blended (each is
 // drawn in its bone frame, node for node).
 const dpTurn = (L, turn) => (turn <= 0 ? L.front : turn >= 1 ? L.side : dpLin(L.front, L.side, turn));
@@ -250,51 +234,20 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     T = TS;
     attachAt = (which, far) => dpAttach(M, T, which, far, 1);
   } else {
-    // Front torso: X from the front drawing (turning toward the front-bend
-    // drawing as the upper body tips toward the viewer), height from the
-    // side view of the same slice of the body. A slice tipped toward the
-    // viewer also shows its depth: the outline's top and bottom ends move
-    // apart by it, so a torso seen end-on keeps about its thickness.
-    const W = partsTorso(M, 0, Math.max(0, Math.min(M.bends[M.bends.length - 1], sp.lean + sp.chest)));
-    const F = M.torso.front.map((s, i) => s.map((p, j) => [W[i][j][0], p[1]]));
-    const ys = M.torso.front.map((s) => s[0][1]);
-    const yTop = Math.min(...ys), yBot = Math.max(...ys);
-    const yMid = (yTop + yBot) / 2, half = (yBot - yTop) / 2;
-    const proj = (y) => {
-      const { zc, d } = dpSlice(M, y);
-      const c = posed([zc, y]), f = posed([zc + d, y]), b = posed([zc - d, y]);
-      return { y: c[1], thick: Math.abs(f[1] - b[1]) / 2 };
-    };
-    const up = proj(yTop).y <= proj(yBot).y ? 1 : -1;     // top still above the hips?
-    const cache = new Map();
-    const height = (y) => {
-      const key = Math.round(y * 1000);
-      if (!cache.has(key)) {
-        const r = proj(y), t = Math.max(-1, Math.min(1, (y - yMid) / half));
-        cache.set(key, r.y + r.thick * t * up);
-      }
-      return cache.get(key);
-    };
-    // The deepest front-bend drawing is the thinnest the front torso gets:
-    // if the projection makes it shorter, its heights are stretched about
-    // the pelvis (joints with them) up to that drawing's height.
-    const ysOf = (S) => S.flat().map((p) => p[1]);
-    const deep = ysOf(M.torso.frontBend[M.torso.frontBend.length - 1]);
-    const hMin = Math.max(...deep) - Math.min(...deep);
-    const ys0 = F.flat().map((p) => height(p[1]));
-    const h0 = Math.max(...ys0) - Math.min(...ys0);
-    const kH = h0 < hMin ? hMin / h0 : 1;
-    T = F.map((s) => s.map((p) => [p[0], height(p[1]) * kH]));
-    // joints: X from the front anchors, height from the side anchors
-    const sideP = (which, far) => {
-      const a = M.attachSide?.[far && which === 'shoulder' ? 'shoulderFar' : which];
-      return a ? dpMix(a, M.torso.side, null) : null;
-    };
-    attachAt = (which, far) => {
-      const x = dpMix(M.attach[which], F, far ? M.mirror : null)[0];
-      const P = sideP(which, far);
-      return [x, (P ? posed(P)[1] : height(dpMix(M.attach[which], F, far ? M.mirror : null)[1])) * kH];
-    };
+    // Front torso: the artist's front drawings (straight and front-bend),
+    // picked by how far the upper body tips toward (or away from) the
+    // viewer, lean + chest, folded at 90° (pointing at the viewer); the
+    // deepest drawing is reached at 90°. Past 90° the upper body points
+    // down, so the drawing turns over about the pelvis. Heights are the
+    // drawings' own (they need not match the side view).
+    const tilt = Math.abs(sp.lean + sp.chest) % 360;
+    const t180 = tilt > 180 ? 360 - tilt : tilt;          // 0..180
+    const e = t180 > 90 ? 180 - t180 : t180;              // 0..90
+    const at = M.bends, last = at[at.length - 1], prev = at.length > 1 ? at[at.length - 2] : 0;
+    const deg = e <= prev ? e : prev + (e - prev) * (last - prev) / (90 - prev);
+    const flip = t180 > 90 ? -1 : 1;
+    T = dpMap(partsTorso(M, 0, deg), (p) => [p[0], p[1] * flip]);
+    attachAt = (which, far) => dpAttach(M, T, which, far, 0);
   }
   // 3D joints for depth: the side view's place (Y, Z) and the front
   // anchors' sideways offset (X). In the side view one hip point serves

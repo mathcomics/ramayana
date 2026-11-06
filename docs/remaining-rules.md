@@ -41,10 +41,8 @@ front of the torso there. Its thresholds:
 
 | Rule | Affected part | Blocker before it can be removed |
 |---|---|---|
-| Front torso width follows the front-bend drawings in proportion to (lean + chest) | torso (front view) | A decision on what the front-bend drawings mean (width only, or also height); the artist's torso-width review |
-| A torso tipped toward the viewer is spread evenly top to bottom by its thickness | torso (front view) | A true outline of the tipped body (slices as ellipses), only if the even spread looks wrong |
+| Front torso = the front drawings picked by \|lean + chest\| folded at 90° (deepest drawing at 90°, turned over past 90°); a torso tipped away from the viewer uses the same drawings | torso (front view) | A back-bend front drawing, if tipping away should look different |
 | The torso shape stays between the drawings: an arch back (chest < 0) keeps the straight torso, a bend past the deepest drawn one keeps that one; the chest angle still turns the arms, neck and head | torso | An arch-back torso drawing, to let the shape arch |
-| The deepest front-bend drawing is the thinnest the front torso gets: a shorter projection is stretched about the pelvis (joints with it) to its height | torso (front view) | None: a decision (2026-11-06) |
 | The top of the thigh (above the hip) folds into the body: shortened by cos(angle between thigh and body), flat at 90° and beyond; side view only (front view: no folding). Upper arms have no such rule | thigh | None needed; replaces the earlier skinning of the top 0.12 head-units, which folded the near thigh at large angles (kneel) |
 
 ## Style choices

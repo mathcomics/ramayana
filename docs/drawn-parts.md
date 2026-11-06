@@ -45,9 +45,7 @@ bend (side: measured angle; front: height) and paired in that order. A
 torso drawn with the old 7 edges gets the lower waist nodes added on
 import. The bend goes through the keys (straight → each bend), swinging
 round the waist between two keys; it never goes past the drawings (an arch
-back keeps the straight torso, a deeper bend keeps the deepest one). The deepest front-bend
-drawing is the thinnest the front torso gets (a shorter projection is
-stretched about the pelvis, joints with it). Hips hang on the hip edge only, so a folding waist doesn't
+back keeps the straight torso, a deeper bend keeps the deepest one). Hips hang on the hip edge only, so a folding waist doesn't
 move the legs.
 
 ## How a figure is built (`src/parts.js`)
@@ -57,16 +55,14 @@ move the legs.
   view are mirrored. A hand points along the forearm at wrist 0.
 - The torso blends four keys: front ↔ side (turn) and straight ↔ bent
   (bend). The bend swings round the waist (polar blend); `spine.chest`
-  sets it (the drawn bend ≈ 71°; beyond, or arching back, extrapolates).
-  Front view (one body, two drawings, shared heights): each point of the
-  front torso takes its height from where the side view puts the same
-  slice of the body (piecewise-affine on torso-node triangles), and the
-  slice's depth spreads the outline when it tips toward the viewer, so a
-  torso seen end-on keeps about its thickness and one tipped past level
-  turns over. Its width turns toward the front-bend drawing as the upper
-  body tips toward the viewer ((lean + chest) / the drawn bend).
-  Front-view joints: X from the front anchors, height from the posed side
-  anchors. The neck shows its up-down part; the face turns over when the
+  sets it in the side view (between straight and the deepest drawn bend).
+  Front view (decided 2026-11-06): the front drawings as drawn, picked
+  by how far the upper body tips toward or away from the viewer,
+  |lean + chest| folded at 90°: the keys at their bend angles, the
+  deepest reached at 90° (pointing at the viewer); past 90° the drawing
+  turns over about the pelvis. Shape, heights and joints are the front
+  drawings' own, so in bent poses front and side heights can differ;
+  adjust the front-bend drawings if they should match. The neck shows its up-down part; the face turns over when the
   head is upside down.
   The importer lists torso nodes and anchors whose heights differ between
   the front and side drawings (> 3 px); the two shoulder corners may

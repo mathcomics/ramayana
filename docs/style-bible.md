@@ -247,10 +247,11 @@ male 0.88, female 0.74.
   replaces the mirroring below for the front view's arms and legs.
 - **Poses are side view only; the front view is a projection** of the
   same body (decided 2026-11-04, projection 2026-11-05): the front and
-  side drawings are two views of one body with shared heights. Every
-  height in the front view comes from the posed side view (the torso
-  shortens and turns over by itself, a torso seen end-on keeps about its
-  thickness); widths come from the front drawings; arms and legs are
+  side drawings are two views of one body. The front torso is the
+  artist's front drawings (straight and front-bend), picked by how far
+  the upper body tips toward the viewer (lean + chest; the deepest
+  drawing at 90°, turned over past 90°), with their own heights, which
+  need not match the side view (decided 2026-11-06); arms and legs are
   projected with their `out` angles; the neck shows its up-down part and
   the face turns over when the head is upside down; feet keep their
   height below the ankle. Parts are drawn far to near by their depth
