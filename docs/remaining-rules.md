@@ -26,7 +26,8 @@ themselves: `docs/problem-poses.md`.
 | A limb's shape is picked by the view (front shape in front view, side shape in side view), not by where the limb points | upper arm, forearm, thigh, shin, hands | Blend front / side / end-on shapes by the limb's own direction (step 5; any view angle is step 6) |
 | A limb seen end-on keeps about its own width in length (0.8 × width); the extra length goes back over its upper joint, so it still ends at its lower joint | arms, legs | End-on limb drawings blended by the limb's direction (step 5) |
 | Side view: the top of the thigh (above the hip) folds into the body, shortened by cos(angle between thigh and body), flat at 90° and beyond; not in the front view; upper arms are placed as drawn | thigh | End-on / bent-hip thigh drawings (step 5); until then the fold keeps thigh tops inside the buttocks (bend-low) without folding the near thigh (kneel) |
-| End-on hands (layer `end`) stored but not used | hands | Step 5 |
+| End-on hands (layer `end` of `data/parts/hands.svg`) stored but not used | hands | Step 5 |
+| One set of hands for every body, scaled uniformly to the body's guide hand | hands | None: a body that needs different hands would need its own hand file |
 
 ## Draw order (by depth, step 2 done 2026-11-05)
 

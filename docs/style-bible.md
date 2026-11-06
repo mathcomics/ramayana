@@ -61,7 +61,8 @@ and default posture. Measurements are in head-units (h = head diameter).
 **Body parts are the artist's drawings** (decided 2026-11-05): every part
 (torso, neck, upper arm, forearm, hands, thigh, shin, foot) is drawn in
 `data/parts/male.svg` and `data/parts/female.svg`, front and side, with bent
-torsos, and placed on the skeleton as drawn (only moved, turned, mirrored,
+torsos (the hands once, in `data/parts/hands.svg`, scaled to each body's
+guide hand), and placed on the skeleton as drawn (only moved, turned, mirrored,
 blended between its drawn views, and its length shortened when it turns out
 of the paper). The monkey uses the male parts plus a tail. The rules for
 limb curves, knots, hands and the torso curl below are drawing guidance

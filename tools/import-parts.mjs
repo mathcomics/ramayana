@@ -9,10 +9,9 @@
 // are drawn at rotation 0 (limbs straight down, neck up, feet flat), and
 // parts that share a joint sit on the same anchor (tools/export-parts.mjs
 // writes it that way). By layer and label:
-//   front       torso, neck, upper-arm, forearm, hand-fist, hand-out,
-//               hand-in, hand-point (missing hands fall back), thigh,
-//               shin, foot
-//   side        torso, upper-arm, forearm, hand-*, thigh, shin, foot
+//   front       torso, neck, upper-arm, forearm, hand (size guide: the
+//               "in" hand), thigh, shin, foot
+//   side        torso, upper-arm, forearm, hand, thigh, shin, foot
 //               (each limb optional: else the front one is used)
 //   front-bend  torso, torso-2, … (bent forward, seen from the front)
 //   side-bend   torso, torso-2, … (bent forward, seen from the side)
@@ -20,11 +19,11 @@
 //               neck-base, neck-top; side view: side-shoulder,
 //               side-shoulder-far, side-elbow, side-wrist, side-hip
 //               (both legs), side-knee, side-ankle, side-neck-base;
-//               tips: toe, side-toe, hand-tip, side-hand-tip; head centre:
-//               head, side-head; end-wrist for the end layer
-//   end         hand-fist, hand-out, hand-in, hand-point seen end-on
-//               (pointing at the viewer), on end-wrist (optional)
-//               (optional wrist-<hand> for a hand drawn elsewhere)
+//               tips: toe, side-toe; head centre: head, side-head
+// The hands are shared: data/parts/hands.svg (layers front, side, end;
+// hand-fist, -out, -in, -point on wrist-<hand>, side-wrist-<hand>,
+// end-wrist-<hand>; tips hand-tip, side-hand-tip), scaled for each body to
+// the size of its guide hand.
 // Other layers are ignored. All torsos have the 9 edges of TN, in the same
 // order round the outline (any start node); a side limb, hand or
 // foot has the same number of edges as its front partner.
@@ -167,6 +166,55 @@ function upgrade7(g, front9, mem) {
   return [r[0], r[1], r[2], a3, b3, r[4], a5, b5, r[6]];
 }
 
+const reverse = (segs) => [...segs].reverse().map((s) => [...s].reverse());
+// reorder `segs` (start node and direction) to match `ref` node for node
+const match = (segs, ref, what) => {
+  if (segs.length !== ref.length) throw new Error(`${what}: ${segs.length} edges, front has ${ref.length}`);
+  let best = null;
+  for (const S of [segs, reverse(segs)]) for (let k = 0; k < S.length; k++) {
+    const r = S.slice(k).concat(S.slice(0, k));
+    const e = r.reduce((acc, s, i) => acc + Math.hypot(...sub(s[0], ref[i][0])), 0);
+    if (!best || e < best.e) best = { r, e };
+  }
+  return best.r;
+};
+
+// Hands: on the wrist, turned so each points straight down (wrist to the
+// hand's centre); wrist 0 in a pose = straight along the forearm.
+const handAng = (segs, w) => {
+  const pts = segs.flatMap((s) => s);
+  const c = mul(pts.reduce((acc, p) => add(acc, p), [0, 0]), 1 / pts.length);
+  return angleOf(sub(c, w));
+};
+const handFrame = (segs, w) => mapSegs(segs, (p) => rot(sub(p, w), handAng(segs, w)));
+const handExtent = (segs) => { const ys = segs.flat().map((p) => p[1]); return Math.max(...ys) - Math.min(...ys); };
+// the shared hands (male size), in each hand's own frame
+function importHands(file) {
+  const { items } = importParts(file);
+  const M = (p) => [p[0] / K, p[1] / K];
+  const segsOf = (g) => g.map((x) => x.s.map(M));
+  const A = Object.fromEntries(Object.entries(items('anchors')).map(([k, p]) => [k, M(p)]));
+  const out = {};
+  for (const [view, pre] of [['front', ''], ['side', 'side-'], ['end', 'end-']]) {
+    const L = items(view), H = {};
+    for (const h of HANDS) {
+      const w = A[`${pre}wrist-${h}`];
+      if (!L[`hand-${h}`] || !w) throw new Error(`${file}: ${view} needs hand-${h} and anchor ${pre}wrist-${h}`);
+      // end-on hands keep the turn of their front partner
+      const segs = segsOf(L[`hand-${h}`]);
+      H[h] = view === 'end' ? mapSegs(segs, (p) => sub(p, w)) : handFrame(segs, w);
+      if (view !== 'front') H[h] = match(H[h], out.front[h], `${view} hand-${h}`);
+    }
+    out[view] = H;
+  }
+  const tip = (name, pre) => {
+    const w = A[`${pre}wrist-fist`], t = A[name];
+    return t ? rot(sub(t, w), handAng(segsOf(items(pre ? 'side' : 'front')['hand-fist']), w)) : [0, 0.3];
+  };
+  out.handTip = { front: tip('hand-tip', ''), side: tip('side-hand-tip', 'side-') };
+  return out;
+}
+
 function importParts(file) {
   const root = parse(read(file));
   const layers = {};
@@ -196,10 +244,10 @@ function importParts(file) {
     go(layers[L].node, layers[L].off);
     return out;
   };
+  if (file.endsWith('hands.svg')) return { items, layers };
   const F = items('front'), Sd = items('side'), FB = items('front-bend'), SB = items('side-bend'), AN = items('anchors');
-  const EN = layers.end ? items('end') : {};
   const need = (o, k, where) => { if (!o[k]) throw new Error(`${file}: ${where} has no "${k}"`); return o[k]; };
-  for (const k of ['torso', 'neck', 'upper-arm', 'forearm', 'hand-fist', 'thigh', 'shin', 'foot']) need(F, k, 'front');
+  for (const k of ['torso', 'neck', 'upper-arm', 'forearm', 'thigh', 'shin', 'foot']) need(F, k, 'front');
   for (const k of ['shoulder', 'elbow', 'wrist', 'hip', 'knee', 'ankle', 'neck-base', 'neck-top']) need(AN, k, 'anchors');
 
   // The file is in the renderer's frame (facing right, front limbs on the
@@ -277,18 +325,6 @@ function importParts(file) {
   // front shape is used (mirrored across the bone where `flip`). Side
   // anchors default to the front bone laid from the side start joint.
   const toBone = (segs, a, b) => { const ang = angleOf(sub(b, a)); return mapSegs(segs, (p) => rot(sub(p, a), ang)); };
-  const reverse = (segs) => [...segs].reverse().map((s) => [...s].reverse());
-  // reorder `segs` (start node and direction) to match `ref` node for node
-  const match = (segs, ref, what) => {
-    if (segs.length !== ref.length) throw new Error(`${what}: ${segs.length} edges, front has ${ref.length}`);
-    let best = null;
-    for (const S of [segs, reverse(segs)]) for (let k = 0; k < S.length; k++) {
-      const r = S.slice(k).concat(S.slice(0, k));
-      const e = r.reduce((acc, s, i) => acc + Math.hypot(...sub(s[0], ref[i][0])), 0);
-      if (!best || e < best.e) best = { r, e };
-    }
-    return best.r;
-  };
   // side joints: the side anchor, else the front bone laid from the side joint above
   const SJ = {};
   SJ.shoulder = A['side-shoulder'] || A.shoulder;
@@ -305,46 +341,16 @@ function importParts(file) {
     return { front: pack(front), side: pack(side), len: r4(Math.hypot(...sub(A[j1], A[j0]))) };
   };
 
-  // Hands: on the wrist, turned so each points straight down (wrist to the
-  // hand's centre); wrist 0 in a pose = straight along the forearm.
-  const handAng = (segs, w) => {
-    const pts = segs.flatMap((s) => s);
-    const c = mul(pts.reduce((acc, p) => add(acc, p), [0, 0]), 1 / pts.length);
-    return angleOf(sub(c, w));
-  };
-  const handFrame = (segs, w) => mapSegs(segs, (p) => rot(sub(p, w), handAng(segs, w)));
-  const handsOf = (L, w, base) => {
-    const H = {};
-    for (const h of HANDS) if (L[`hand-${h}`]) H[h] = handFrame(segsOf(L[`hand-${h}`]), A[`wrist-${h}`] || w);
-    if (base) for (const h of HANDS) H[h] = H[h] ? match(H[h], base[h], `side hand-${h}`) : base[h];
-    H.out ||= H.fist; H.point ||= H.out;
-    H.in ||= mapSegs(H.out, (p) => [-p[0], p[1]]);     // thumb to the other side
-    return H;
-  };
-  const handsFront = handsOf(F, A.wrist);
-  const handsSide = handsOf(Sd, SJ.wrist, handsFront);
-  // End-on hands (pointing at the viewer), layer "end", on the end-wrist
-  // anchor; not drawn yet: the front hands squashed to a third of their
-  // length, as a first draft.
-  const endWrist = A['end-wrist'];
-  const handsEnd = {};
-  for (const h of HANDS) {
-    const g = EN[`hand-${h}`];
-    handsEnd[h] = g && endWrist ? match(mapSegs(segsOf(g), (p) => sub(p, endWrist)), handsFront[h], `end hand-${h}`)
-      : mapSegs(handsFront[h], (p) => [p[0] * 1.05, p[1] * 0.35]);
-  }
-  // Tips: the toe of each foot and the tip of each hand (anchors toe,
-  // side-toe, hand-tip, side-hand-tip), in the part's own frame; first
-  // guesses: the outline point farthest from the ankle, the fist's lowest
-  // point.
+  // Hands: the shared ones (data/parts/hands.svg), scaled to the size of
+  // this body's guide hand (front "hand", or "hand-in" in older files).
+  const guide = F.hand || F['hand-in'];
+  if (!guide) throw new Error(`${file}: front has no "hand" (the size guide)`);
+  const k = handExtent(handFrame(segsOf(guide), A.wrist)) / handExtent(HANDS_SHARED.front.in);
+  const scaleH = (H) => Object.fromEntries(Object.entries(H).map(([h, v]) => [h, mapSegs(v, (p) => mul(p, k))]));
+  const handsFront = scaleH(HANDS_SHARED.front), handsSide = scaleH(HANDS_SHARED.side), handsEnd = scaleH(HANDS_SHARED.end);
+  const handTip = { front: mul(HANDS_SHARED.handTip.front, k), side: mul(HANDS_SHARED.handTip.side, k) };
+  notes.push(`hands: ${k.toFixed(3)} × the shared hands`);
   const far = (segs) => segs.map((s) => s[0]).reduce((q, p) => (Math.hypot(...p) > Math.hypot(...q) ? p : q));
-  const low = (segs) => segs.map((s) => s[0]).reduce((q, p) => (p[1] > q[1] ? p : q));
-  const tip = (anchor, w, ang, segs, pick) => (anchor ? rot(sub(anchor, w), ang) : pick(segs));
-  const fistF = segsOf(F['hand-fist']), fistS = Sd['hand-fist'] ? segsOf(Sd['hand-fist']) : null;
-  const handTip = {
-    front: tip(A['hand-tip'], A.wrist, handAng(fistF, A.wrist), handsFront.fist, low),
-    side: tip(A['side-hand-tip'], SJ.wrist, fistS ? handAng(fistS, SJ.wrist) : 0, handsSide.fist, low),
-  };
   // Head centre (anchors head, side-head), from the neck top; first guess
   // 0.21 above it.
   const sideNeckTop = add(A['side-neck-base'] || A['neck-base'], sub(A['neck-top'], A['neck-base']));
@@ -393,11 +399,13 @@ function importParts(file) {
   };
 }
 
+const HANDS_SHARED = importHands('data/parts/hands.svg');
 const out = {};
-for (const f of readdirSync(new URL('../data/parts', import.meta.url)).filter((f) => f.endsWith('.svg')).sort()) {
+for (const f of readdirSync(new URL('../data/parts', import.meta.url)).filter((f) => f.endsWith('.svg') && f !== 'hands.svg').sort()) {
   const id = f.slice(0, -4);
   out[id] = importParts(`data/parts/${f}`);
   const m = out[id];
   console.log(`${id}: bends ${m.bends.map((b) => b.toFixed(0) + '°').join(' ')}, arm ${m.upperArm.len}+${m.forearm.len}, leg ${m.thigh.len}+${m.shin.len}, hands ${Object.keys(m.hands.front).join(' ')}`);
 }
-console.log(writeOut('data/parts.json', JSON.stringify({ note: 'generated by tools/import-parts.mjs from data/parts/*.svg; do not edit', parts: out })));
+const packAll = (H) => Object.fromEntries(Object.entries(H).map(([k, v]) => [k, k === 'handTip' ? { front: v.front.map(r4), side: v.side.map(r4) } : Object.fromEntries(Object.entries(v).map(([h, sg]) => [h, pack(sg)]))]));
+console.log(writeOut('data/parts.json', JSON.stringify({ note: 'generated by tools/import-parts.mjs from data/parts/*.svg; do not edit', parts: out, hands: packAll(HANDS_SHARED) })));

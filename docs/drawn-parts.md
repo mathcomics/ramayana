@@ -30,11 +30,19 @@ side (picture-right). `node tools/export-parts.mjs` writes it from
 
 | Layer | Parts |
 |---|---|
-| `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand-fist`, `hand-out`, `hand-in`, `hand-point`, `thigh`, `shin`, `foot` |
-| `side` | `torso`, `upper-arm`, `forearm`, `hand-*`, `thigh`, `shin`, `foot` |
+| `front` | `torso`, `neck`, `upper-arm`, `forearm`, `hand` (size guide, the "in" hand), `thigh`, `shin`, `foot` |
+| `side` | `torso`, `upper-arm`, `forearm`, `hand`, `thigh`, `shin`, `foot` |
 | `front-bend`, `side-bend` | `torso`, bent forward |
-| `end` | `hand-fist`, `hand-out`, `hand-in`, `hand-point` seen end-on (pointing at the viewer), on `end-wrist`; same edges as the front hands (not used by the renderer yet) |
-| `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base`; tips `toe`, `side-toe`, `hand-tip`, `side-hand-tip`; head centre `head`, `side-head`; `end-wrist` (tips and head stored, not used by the renderer yet) |
+| `anchors` | `shoulder`, `elbow`, `wrist`, `hip`, `knee`, `ankle`, `neck-base`, `neck-top`, `side-shoulder`, `side-shoulder-far`, `side-elbow`, `side-wrist`, `side-hip`, `side-knee`, `side-ankle`, `side-neck-base`; tips `toe`, `side-toe`; head centre `head`, `side-head` (tips and head stored, not used by the renderer yet) |
+
+**Hands are shared** (2026-11-06): `data/parts/hands.svg` holds every hand
+shape at male size: layers `front`, `side`, `end` (seen end-on, pointing at
+the viewer; not used by the renderer yet), labels `hand-fist`, `hand-out`,
+`hand-in`, `hand-point`, each on its own wrist anchor (`wrist-<hand>`,
+`side-wrist-<hand>`, `end-wrist-<hand>`), plus the fist's tips `hand-tip`,
+`side-hand-tip`. Each body gets them scaled to the height of its own guide
+`hand` (female 0.88). `node tools/export-parts.mjs hands` writes the file
+from `data/parts.json`.
 
 Torsos have 9 edges in the same order round the outline (start node and
 straight-vs-curved don't matter): near top, neck, far top, far waist

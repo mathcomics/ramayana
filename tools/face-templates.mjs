@@ -5,8 +5,9 @@
 //     -> refreshes the guide layer in data/faces/base/*.svg and data/faces/*.svg
 //
 // Run it after changing a base face or the body parts. The guide (locked,
-// ignored on import) shows the species' drawn body standing straight at the
-// figure's real scale (so body hair can be drawn over the back) and, in
+// ignored on import) shows the species' drawn torso and neck standing
+// straight at the figure's real scale (so body hair can be drawn over the
+// back) and, in
 // character files and the base's raised / lowered versions, the base face.
 // Units are head-units: head centre (0,0), y down; side faces look right.
 
@@ -20,7 +21,7 @@ import { readFile, replaceGuides } from './faces-lib.mjs';
 const STRAIGHT = { look: 'front', spine: { lean: 0, chest: 0, neck: 0, head: 0 },
   near: { arm: { shoulder: 0, elbow: 0 }, leg: { hip: 0, knee: 0 } },
   far: { arm: { shoulder: 0, elbow: 0 }, leg: { hip: 0, knee: 0 } } };
-const GUIDE = { body: '#ebe5dd', torso: '#d9cfc4', neck: '#e8e1d9', skin: '#d9c3b6' };
+const GUIDE = { torso: '#d9cfc4', neck: '#e8e1d9', skin: '#d9c3b6' };
 const OFFSET = 3;
 const all = loadSpecies();
 const dir = join(root, 'data/faces');
@@ -30,9 +31,8 @@ function bodyGuide(S, view) {
   const { shapes, headAnchor, hairAnchor } = buildShapes(S, STRAIGHT, { top: 'bare', bottom: 'dhoti' }, view);
   const [hx, hy] = headAnchor.at;
   const loc = (pts) => pts.map(([x, y]) => [x - hx, y - hy]);
-  const body = shapes.filter((s) => s.pts?.length && !s.headPart && s.part !== 'torso' && s.part !== 'neck');
+  // torso and neck only (no limbs)
   const markup = [
-    ...body.map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.body}"/>`),
     ...shapes.filter((s) => s.part === 'torso').map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.torso}"/>`),
     ...shapes.filter((s) => s.part === 'neck').map((s) => `<path d="${pathD(loc(s.pts))}" fill="${GUIDE.neck}"/>`),
     '<path d="M-0.08 0H0.08M0 -0.08V0.08" stroke="#b04040" stroke-width="0.01" fill="none"/>',

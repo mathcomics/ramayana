@@ -79,6 +79,10 @@ renderer or panel changes.
   removed. Front view picks up/down at ±25° head tilt. Face sheet fixed
   (front view, body scale). The five female copies (kaikeyi, raxas_f1,
   queen1, queen2, surpanakha) are now copies of the new sita (hair-body).
+  Face guides show torso and neck only.
+- **Hands shared (2026-11-06):** `data/parts/hands.svg` (fist/out/in/point,
+  front/side/end, male size); body files have one guide `hand` (the "in"
+  hand) and get the hands scaled to it (female 0.88).
 - **Front torso (2026-11-06):** the front drawings as drawn, picked by
   |lean + chest| folded at 90° (deepest at 90°, turned over past it); no
   projected heights, no minimum rule. Front and side heights can differ in

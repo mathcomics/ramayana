@@ -20,6 +20,8 @@ missing file or view.
 2. After changing a base face, run `node tools/face-templates.mjs`: it
    refreshes the guide (the base face) in every character file and in the
    templates.
+   The guide shows the species' torso and neck (no limbs) and, in
+   character files, the base face.
 3. Run `node tools/import-faces.mjs` (writes `data/faces.json`, used by the
    renderer and the labs), then `node tools/face-sheet.mjs` to check all
    characters on one page.
