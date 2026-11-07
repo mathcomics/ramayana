@@ -96,3 +96,8 @@ everything else is used exactly as drawn.
 faces: skin-coloured parts became the base's (from rama, sita, hanuman),
 eyes and mouths that differed from the base stayed with the character, and
 the rest went to `under` / `over` by drawing order.
+
+An element hidden in Inkscape (display:none on the element itself) is
+left out on import; a hidden layer still counts (hiding a layer is only an
+editing state). Layers are found by their Inkscape names, so save as
+Inkscape SVG (a plain SVG save drops the names).

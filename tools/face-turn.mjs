@@ -3,8 +3,8 @@
 // drawings alone (tools/proto/head-turn was the raster study).
 //
 // - Volumes: a front element paired with a side element (same kind, best
-//   overlap in height; a mirrored pair of front parts, like two earrings,
-//   shares one side element) becomes a lofted volume, stored as rows: at each
+//   overlap in height, same colour preferred; a mirrored pair of front
+//   parts, like two earrings or moustache halves, shares one side element) becomes a lofted volume, stored as rows: at each
 //   height y the front drawing's width (xc ± ax) and the side drawing's
 //   depth (zc ± az). Each row is an ellipse, so the two drawn views come
 //   out exact and the in-between angles round. One volume for the skin
@@ -159,14 +159,17 @@ export function turnData(views) {
     // A pair of mirrored front parts (two earrings, two ears) is one side
     // part seen from the side (the far one is hidden behind the head): the
     // second of the pair shares the first one's side element.
-    const twin = [...pairedTo.keys()].find((m) => m.layer === a.layer && m.fill === a.fill && Math.abs(m.c[0]) > 0.15
+    const twin = [...pairedTo.keys()].find((m) => m.layer === a.layer && m.fill === a.fill && Math.abs(m.c[0]) > 0.05
       && Math.abs(m.c[0] + a.c[0]) < 0.1 && Math.abs(m.c[1] - a.c[1]) < 0.08);
     if (twin) best = { iou: 1, j: pairedTo.get(twin) };
     else S.forEach((b, j) => {
       if (used.has(j) || group(b) !== group(a) || (/^mouth-/.test(a.layer) && b.layer !== a.layer)) return;
       const ov = Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0), un = Math.max(a.y1, b.y1) - Math.min(a.y0, b.y0);
       const iou = un > 0 ? ov / un : 0;
-      if (iou > 0.4 && (!best || iou > best.iou)) best = { iou, j };
+      // overlap in height decides; a part of the same colour is preferred
+      // (a moustache pairs with the moustache, not an earring at its height)
+      const score = iou + (b.fill === a.fill ? 0.5 : 0);
+      if (iou > 0.4 && (!best || score > best.score)) best = { iou, score, j };
     });
     const b = best ? S[best.j] : null;
     const vol = b && a.area > MIN_AREA && ((group(a) === 'skin' && !skinVol) || group(a) === 'char');
