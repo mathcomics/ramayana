@@ -5,7 +5,7 @@
 // Delivery is a vertical scroll of panels. Every panel is the full width
 // (360 units) and `size` × one screen height (720 units) tall.
 
-import { renderFigure, buildShapes, characterLook, normalizePose } from './figure.js';
+import { renderFigure, buildShapes, characterLook, normalizePose, parseCloth } from './figure.js';
 
 export const SCREEN = { w: 360, h: 720 };
 export const DEFAULT_SIZE = 0.75;
@@ -126,7 +126,21 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const r = row(p.row);
     const unit = r.unit * (p.scale ?? 1);
     const [w, h] = (def?.size || [2, 2]).map((v) => v * unit);
-    return { p, name: p.id || p.prop, def, groundY: r.y - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null, layer: p.layer || 'back',
+    // recolor: def.recolor names the drawing's role colours ({ body, cloth }).
+    // "who" takes a character's colours; "body" / "cloth" override (hex, or a
+    // cloth palette name; a pattern suffix keeps the base colour).
+    let svg = def?.svg;
+    if (svg && def.recolor && (p.who || p.body || p.cloth)) {
+      const c = p.who ? chars.find((x) => x.id === p.who) : null;
+      if (p.who && !c) issues.push(`prop "${p.prop}": unknown character "${p.who}"`);
+      const clothName = p.cloth ?? c?.cloth;
+      const want = { body: p.body ?? c?.body,
+        cloth: clothName && (parseCloth(clothName, assets.characters.palette.cloth).color ?? clothName) };
+      for (const [role, from] of Object.entries(def.recolor)) {
+        if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
+      }
+    }
+    return { p, name: p.id || p.prop, def, svg, groundY: r.y - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null, layer: p.layer || 'back',
       facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
   });
 
@@ -177,7 +191,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   if (background) s += `<g class="background">${background}</g>`;
   const drawProp = (o) => {
     const x = o.x - o.halfW, y = o.groundY - o.h;
-    if (o.def?.svg) return `<g transform="translate(${o.facing < 0 ? x + o.w : x} ${y}) scale(${o.facing * o.unit} ${o.unit})">${o.def.svg}</g>`;
+    if (o.svg) return `<g transform="translate(${o.facing < 0 ? x + o.w : x} ${y}) scale(${o.facing * o.unit} ${o.unit})">${o.svg}</g>`;
     return `<g class="placeholder"><rect x="${x}" y="${y}" width="${o.w}" height="${o.h}" fill="#000" fill-opacity="0.06" stroke="#7a6f62" stroke-width="1.2" stroke-dasharray="5 4"/>` +
       `<text x="${o.x}" y="${y + o.h / 2}" font-family="Helvetica, Arial, sans-serif" font-size="${Math.max(9, Math.min(16, o.w / 6))}" fill="#7a6f62" text-anchor="middle" dominant-baseline="middle">${esc(o.p.prop)}</text></g>`;
   };

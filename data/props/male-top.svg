@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A standing man seen from above (top view), the artist's drawing: head,
+     shoulders, one arm out, feet. For top-view panels (03.01, 04.01, the
+     line scene); any character by recolouring: body #a05a2c and cloth
+     #c8ab37 are swapped by the renderer (prop fields who / body / cloth);
+     held things (bow, begging bowl) are placed as their own top-view props.
+     Drawn in the throne template, scaled by the man seated on it.
+     100 px = 1 head-unit; the viewBox is tight around the figure.
+     The drawing is the artist's, unchanged: only placed and scaled. -->
+
+<svg
+   viewBox="247 236.5 110 76"
+   width="110"
+   height="76"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="male-top.svg"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs16" /><g
+     transform="scale(5.434783) translate(-124.32 -110.53)"
+     id="g8"><g
+       id="figure"
+       inkscape:label="figure"
+       transform="translate(0,56)"><path
+         style="fill:#a05a2c;fill-opacity:1;stroke-width:0.368"
+         d="m 172.85897,104.88918 c 0,0 -2.52807,4.75277 -2.27527,5.30895 0.25281,0.55617 1.01123,1.16291 1.01123,1.16291 1.8702,-1.52149 3.47226,-3.24408 3.74155,-5.96625"
+         id="arm"
+         sodipodi:nodetypes="cscc" /><g
+         id="legs"
+         transform="translate(113.66209,4.0449142)"><path
+           style="fill:#c8ab37;stroke-width:0.368"
+           d="m 61.472145,101.65325 c 0,0 0.202245,4.60109 1.82021,5.00558 1.617966,0.40449 3.286494,-3.84267 3.286494,-3.84267"
+           id="path1678" /><path
+           style="fill:#c8ab37;stroke-width:0.368"
+           d="m 69.00633,103.9343 c 0,0 4.124499,2.04926 5.261344,0.82901 1.136846,-1.22025 -1.772733,-4.73546 -1.772733,-4.73546"
+           id="path1678-8" /></g><path
+         style="fill:#a05a2c;stroke-width:0.368"
+         d="m 173.61739,102.66448 13.39878,-2.780878 2.45985,3.504208 -7.7688,5.14179 -9.30331,-2.98312 z"
+         id="body"
+         sodipodi:nodetypes="cccccc" /><circle
+         style="fill:#241f1c;stroke-width:0.368"
+         id="head"
+         cx="180.16808"
+         cy="102.29752"
+         r="3.6799998" /></g></g></svg>

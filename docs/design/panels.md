@@ -95,6 +95,12 @@ repeated inside the JSON.
   renders as a **labelled dashed box**.
 - `at`, `row`, `scale`, `lift`, `nudge`, `id` as for figures (`lift`: a bird on a branch).
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
+- Recolouring: a prop whose registry entry has `recolor` (the drawing's
+  role colours, e.g. `{ "body": "#a05a2c", "cloth": "#c8ab37" }`) takes
+  `who` (a character id: that character's body and cloth colours), or
+  explicit `body` / `cloth` (hex, or a cloth palette name; a pattern
+  suffix keeps the base colour). So one drawing serves many characters:
+  `{ "prop": "male-top", "who": "rama" }`.
 - Anchors: a group `id="anchors"` in the prop's SVG holds named circles
   (not drawn). `seat`: where a seated figure's hips rest (`on`).
   `stand`, `stand-left`, `stand-right`: where a standing figure's feet
@@ -104,7 +110,8 @@ repeated inside the JSON.
   `hut-top`, `trees-top`, `tree-top`, `lanka-island` (from the artist's
   scene layouts, `layouts/scenes/`), `vulture-fly`, `-swoop`, `-fall`,
   `-stand` (from the artist's Jatayu sheet, `data/props/sheets/`),
-  `ledge`, `kishkindha` (rocky; seeded-random outlines, stand anchors). How to arrange them:
+  `ledge`, `kishkindha` (rocky; seeded-random outlines, stand anchors),
+  `male-top` (the artist's standing man from above; recolours, see above). How to arrange them:
   `docs/design/composition.md`.
 
 ### Placement
