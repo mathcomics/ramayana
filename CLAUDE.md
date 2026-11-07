@@ -82,7 +82,8 @@ renderer or panel changes.
   earring for two front ones), so turned heads showed a red blob at the
   mouth and a half moustache. Now a mirrored pair of front parts shares
   one side part (`tools/face-turn.mjs`); only Ravana's turn data changed.
-  Pose lab save `chair` (new) not merged yet.
+  Orange crown + yellow jewel (a copy of Sugriva's) deleted from Ravana's
+  front face at the artist's request. Pose lab save `chair` (new) not merged yet.
 - **Elbow and knee out (2026-11-06):** pose settings `arm.elbowOut`,
   `leg.kneeOut` (degrees, + away from the body): the forearm + hand point
   out by out + elbowOut, the shin by out + kneeOut (`src/parts.js`; held
