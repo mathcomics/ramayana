@@ -180,13 +180,7 @@ export function turnData(views) {
       // sooner (heights that don't quite match), its nearest full row is
       // used with the depth scaled to this row's width (a rounded cap)
       const rows = [], side = [];
-      // A character's part (bun, crown, hair) drawn at slightly different
-      // heights in the two views is the same part: the side outline is
-      // moved and stretched to the front's height range, so it keeps its
-      // shape instead of being cut at one end and capped at the other.
-      const fit = group(a) === 'char' && b.y1 > b.y0;
-      const sy = (y) => (fit ? b.y0 + (y - a.y0) * (b.y1 - b.y0) / (a.y1 - a.y0) : y);
-      for (let y = a.y0 + STEP / 2; y < a.y1; y += STEP) { const fx = rowSpan(a.polys, y); if (fx) side.push([y, fx, rowSpan(b.polys, sy(y))]); }
+      for (let y = a.y0 + STEP / 2; y < a.y1; y += STEP) { const fx = rowSpan(a.polys, y); if (fx) side.push([y, fx, rowSpan(b.polys, y)]); }
       const full = side.filter((r) => r[2]);
       if (Math.abs(a.y0 - b.y0) > 0.03 || Math.abs(a.y1 - b.y1) > 0.03) mismatch.push(`${a.layer}/${b.layer}: front ${a.y0.toFixed(2)}…${a.y1.toFixed(2)}, side ${b.y0.toFixed(2)}…${b.y1.toFixed(2)}`);
       for (const [y, fx, sz0] of side) {
