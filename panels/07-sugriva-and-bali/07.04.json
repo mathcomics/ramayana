@@ -1,0 +1,50 @@
+{
+  "scene": "Hanuman carries both princes up the hill on his shoulders",
+  "size": 0.75,
+  "ground": "dry-grass",
+  "zoom": 0.8,
+  "props": [
+    {
+      "prop": "rocks",
+      "at": 0.85,
+      "scale": 1.2
+    }
+  ],
+  "figures": [
+    {
+      "who": "hanuman",
+      "pose": "stand-lean-back",
+      "facing": "right",
+      "at": 0.45,
+      "mouth": 2,
+      "scale": 1.1,
+      "adjust": {
+        "right.arm.shoulder": 160,
+        "right.arm.elbow": 40,
+        "left.arm.shoulder": 160,
+        "left.arm.elbow": 40,
+        "spine.lean": 15
+      }
+    },
+    {
+      "who": "lakshman",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.3,
+      "lift": 5.4,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.58,
+      "lift": 5.4,
+      "mouth": 1
+    }
+  ],
+  "needs": [
+    "pose: walk-carry-shoulder (a load on both shoulders): stand-lean-back with arms up for now",
+    "prop: rocks"
+  ]
+}

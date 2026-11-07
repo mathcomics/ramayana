@@ -1,0 +1,49 @@
+{
+  "scene": "Rama and Sugriva clasp hands over a fire; Hanuman watches",
+  "size": 0.75,
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "fire",
+      "at": 0.5
+    }
+  ],
+  "figures": [
+    {
+      "who": "hanuman",
+      "pose": "stand-hands-on-hips",
+      "facing": "left",
+      "at": 0.88,
+      "row": "mid",
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 80,
+        "right.arm.elbow": 15,
+        "right.arm.hand": "out"
+      }
+    },
+    {
+      "who": "sugriva",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 85,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out"
+      }
+    }
+  ],
+  "needs": [
+    "prop: fire",
+    "pose: stand-clasp-hands (two figures, hands joined): stand with the right arm forward for now"
+  ]
+}

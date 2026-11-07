@@ -82,8 +82,22 @@ Panel lab (published artifact, drafts in its database, collection
 Drafts are merged into `panels/` when asked; republish the lab after
 renderer or panel changes.
 
-## Status (2026-11-06)
+## Status (2026-11-07)
 
+- **Sections 07 "Sugriva and Bali" and 08 "Hanuman finds Sita"
+  (2026-11-07):** `panels/07-sugriva-and-bali/` 07.01–07.14,
+  `panels/08-hanuman-finds-sita/` 08.01–08.11. New openers 07.01 / 08.01
+  (hills on the horizon), so the manuscript's 07.01–07.13 → 07.02–07.14
+  and 08.01–08.10 → 08.02–08.11 (manuscript conversation needs the same
+  change). Bali = `monkey1` (id bali, white cloth, scale 1.1); Angad =
+  `monkey1` (scale 0.75); **Tara = `queen2` (red cloth)**, since there are
+  no female monkeys: artist to confirm. Ashoka grove (08.08–08.11)
+  follows 06.07 (geru). New placeholder props `hills`, `fire`,
+  `tree-uprooted`, `jar`, `umbrella`, `rain-cloud`, `ring`, `mountain`,
+  `lanka-wall`; night is a hex ground. Weakest: 07.04 (princes on
+  Hanuman's shoulders hide his head; wants walk-carry-shoulder), 07.08
+  (stand-pull). Needs also kneel-palms-joined, stand-palms-joined,
+  kneel-bow, lie-back, sit-hand-on-head, crouch-ready, clasp hands.
 - **Chapter openers, Lanka, Jatayu (2026-11-07):** each chapter starts
   with a location panel (table in `docs/design/composition.md`). New
   01-intro/01.01 (palace on the horizon); 04.01 = the forest hut from

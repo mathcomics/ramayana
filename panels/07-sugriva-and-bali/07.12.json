@@ -1,0 +1,57 @@
+{
+  "scene": "Water is poured over the crowned Sugriva; young Angad beside him",
+  "size": 0.75,
+  "ground": "off-white",
+  "props": [
+    {
+      "prop": "jar",
+      "at": 0.52,
+      "lift": 6.4
+    },
+    {
+      "prop": "umbrella",
+      "at": 0.34,
+      "lift": 4.8,
+      "layer": "front"
+    }
+  ],
+  "figures": [
+    {
+      "who": "sugriva",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.44,
+      "mouth": 1,
+      "adjust": {
+        "right.arm.shoulder": 45,
+        "right.arm.elbow": 105,
+        "right.arm.hand": "in",
+        "left.arm.shoulder": 45,
+        "left.arm.elbow": 105,
+        "left.arm.hand": "in"
+      }
+    },
+    {
+      "who": "hanuman",
+      "pose": "stand-arms-overhead",
+      "facing": "left",
+      "at": 0.64,
+      "mouth": 2
+    },
+    {
+      "who": "monkey1",
+      "id": "angad",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.14,
+      "mouth": 1,
+      "scale": 0.75
+    }
+  ],
+  "needs": [
+    "prop: jar (water)",
+    "prop: umbrella (royal)",
+    "Sugriva's crown (signature feature)",
+    "pose: sit-cross-legged: sit for now"
+  ]
+}

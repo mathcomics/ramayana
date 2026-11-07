@@ -1,0 +1,49 @@
+{
+  "scene": "Hanuman bounds down and greets the princes with joined palms",
+  "size": 0.75,
+  "ground": "dry-grass",
+  "props": [
+    {
+      "prop": "rocks",
+      "at": 0.86,
+      "layer": "back"
+    }
+  ],
+  "figures": [
+    {
+      "who": "lakshman",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.14,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.34,
+      "mouth": 2,
+      "turn": 0
+    },
+    {
+      "who": "hanuman",
+      "pose": "kneel",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 45,
+        "right.arm.elbow": 105,
+        "right.arm.hand": "in",
+        "left.arm.shoulder": 45,
+        "left.arm.elbow": 105,
+        "left.arm.hand": "in",
+        "spine.chest": 15
+      }
+    }
+  ],
+  "needs": [
+    "pose: kneel-palms-joined: kneel with both arms adjusted for now",
+    "prop: rocks"
+  ]
+}

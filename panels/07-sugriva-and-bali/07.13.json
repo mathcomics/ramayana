@@ -1,0 +1,49 @@
+{
+  "scene": "Monsoon: Rama and Lakshman shelter on a hill in the rain; Rama grieves",
+  "size": 0.5,
+  "ground": "stone-grey",
+  "sky": "#8a99a3",
+  "horizon": 0.5,
+  "props": [
+    {
+      "prop": "rain-cloud",
+      "at": 0.5,
+      "lift": 8,
+      "scale": 1.2
+    },
+    {
+      "prop": "rocks",
+      "at": 0.5,
+      "layer": "back",
+      "lift": -1.2
+    }
+  ],
+  "figures": [
+    {
+      "who": "rama",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.38,
+      "mouth": 1,
+      "lift": 0.8,
+      "adjust": {
+        "spine.chest": 30,
+        "right.arm.shoulder": 130,
+        "right.arm.elbow": 120
+      }
+    },
+    {
+      "who": "lakshman",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 1,
+      "lift": 0.8
+    }
+  ],
+  "needs": [
+    "prop: rain-cloud (with rain)",
+    "prop: rocks",
+    "pose: sit-hand-on-head"
+  ]
+}

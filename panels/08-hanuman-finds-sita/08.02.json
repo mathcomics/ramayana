@@ -1,0 +1,52 @@
+{
+  "scene": "Sugriva sends monkeys running in four directions",
+  "size": 0.75,
+  "ground": "dry-grass",
+  "zoom": 0.6,
+  "figures": [
+    {
+      "who": "monkey1",
+      "id": "m1",
+      "pose": "run",
+      "facing": "left",
+      "at": 0.22,
+      "row": "back",
+      "mouth": 2
+    },
+    {
+      "who": "monkey1",
+      "id": "m2",
+      "pose": "leap",
+      "facing": "right",
+      "at": 0.78,
+      "row": "back",
+      "mouth": 2,
+      "cloth": "red",
+      "lift": 1.5
+    },
+    {
+      "who": "sugriva",
+      "pose": "stand-point",
+      "facing": "right",
+      "at": 0.5,
+      "mouth": 3
+    },
+    {
+      "who": "monkey1",
+      "id": "m3",
+      "pose": "run-arms-back",
+      "facing": "left",
+      "at": 0.12,
+      "mouth": 2,
+      "cloth": "white"
+    },
+    {
+      "who": "monkey1",
+      "id": "m4",
+      "pose": "run",
+      "facing": "right",
+      "at": 0.88,
+      "mouth": 2
+    }
+  ]
+}

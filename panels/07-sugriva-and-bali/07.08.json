@@ -1,0 +1,41 @@
+{
+  "scene": "Tara pulls at Bali's arm; he shakes her off",
+  "size": 0.75,
+  "ground": "sage",
+  "figures": [
+    {
+      "who": "queen2",
+      "id": "tara",
+      "pose": "stand-lean-back",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 3,
+      "cloth": "red",
+      "adjust": {
+        "right.arm.shoulder": 75,
+        "right.arm.elbow": 10,
+        "left.arm.shoulder": 70,
+        "left.arm.elbow": 15
+      }
+    },
+    {
+      "who": "monkey1",
+      "id": "bali",
+      "pose": "walk",
+      "facing": "right",
+      "at": 0.64,
+      "mouth": 3,
+      "cloth": "white",
+      "scale": 1.1,
+      "adjust": {
+        "left.arm.shoulder": -60,
+        "left.arm.elbow": 10
+      }
+    }
+  ],
+  "needs": [
+    "character: Bali (monkey1, white cloth for now)",
+    "character: Tara (queen2, red cloth: there are no female monkeys)",
+    "pose: stand-pull: stand-lean-back with both arms forward for now"
+  ]
+}

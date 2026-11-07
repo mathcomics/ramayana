@@ -1,0 +1,17 @@
+{
+  "scene": "High: Hanuman leaps across the sky. Low: the ocean",
+  "size": 0.75,
+  "ground": "sea",
+  "sky": "sky",
+  "horizon": 0.3,
+  "figures": [
+    {
+      "who": "hanuman",
+      "pose": "leap-flat",
+      "facing": "right",
+      "at": 0.5,
+      "lift": 6.5,
+      "mouth": 2
+    }
+  ]
+}

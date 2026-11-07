@@ -1,0 +1,18 @@
+{
+  "scene": "Opening: the rocky hills of Kishkindha (as 07.01)",
+  "size": 0.5,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "props": [
+    {
+      "prop": "hills",
+      "at": 0.55,
+      "row": "horizon",
+      "scale": 1.4
+    }
+  ],
+  "figures": [],
+  "needs": [
+    "prop: hills (rocky hills, far)"
+  ]
+}

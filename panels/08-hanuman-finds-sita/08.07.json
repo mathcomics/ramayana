@@ -1,0 +1,28 @@
+{
+  "scene": "Night: Hanuman, small, creeps along the wall of Lanka",
+  "size": 0.5,
+  "ground": "#26303d",
+  "props": [
+    {
+      "prop": "lanka-wall",
+      "at": 0.5,
+      "row": "mid"
+    }
+  ],
+  "figures": [
+    {
+      "who": "hanuman",
+      "pose": "run-low",
+      "facing": "right",
+      "at": 0.42,
+      "row": "mid",
+      "lift": 7.3,
+      "scale": 0.55,
+      "mouth": 1
+    }
+  ],
+  "needs": [
+    "prop: lanka-wall",
+    "ground: night (a hex for now)"
+  ]
+}

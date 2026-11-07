@@ -1,0 +1,26 @@
+{
+  "scene": "Ravana threatens Sita with his sword; she turns away",
+  "size": 0.75,
+  "ground": "geru",
+  "figures": [
+    {
+      "who": "sita",
+      "pose": "sit",
+      "facing": "left",
+      "at": 0.34,
+      "mouth": 1,
+      "turn": -30
+    },
+    {
+      "who": "ravana",
+      "pose": "stand-sword-forward",
+      "facing": "left",
+      "at": 0.7,
+      "mouth": 3,
+      "scale": 1.1
+    }
+  ],
+  "needs": [
+    "Ravana's ten heads"
+  ]
+}

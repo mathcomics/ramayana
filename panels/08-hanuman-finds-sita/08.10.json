@@ -1,0 +1,41 @@
+{
+  "scene": "Hanuman kneels and gives Sita the ring",
+  "size": 0.75,
+  "ground": "geru",
+  "props": [
+    {
+      "prop": "ring",
+      "at": 0.5,
+      "lift": 3.4
+    }
+  ],
+  "figures": [
+    {
+      "who": "sita",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 60,
+        "right.arm.elbow": 20,
+        "right.arm.hand": "out"
+      }
+    },
+    {
+      "who": "hanuman",
+      "pose": "kneel",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 80,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out"
+      }
+    }
+  ],
+  "needs": [
+    "prop: ring"
+  ]
+}

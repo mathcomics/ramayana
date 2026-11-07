@@ -1,0 +1,55 @@
+{
+  "scene": "Back: the sea. Front: monkeys sit hopeless on the shore; Hanuman stands among them",
+  "size": 0.75,
+  "ground": "sand",
+  "sky": "sea",
+  "horizon": 0.55,
+  "zoom": 0.7,
+  "figures": [
+    {
+      "who": "monkey1",
+      "id": "m1",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.14,
+      "row": "mid",
+      "mouth": 1,
+      "adjust": {
+        "spine.chest": 35
+      }
+    },
+    {
+      "who": "monkey1",
+      "id": "m2",
+      "pose": "sit",
+      "facing": "left",
+      "at": 0.86,
+      "row": "mid",
+      "mouth": 1,
+      "cloth": "red",
+      "adjust": {
+        "spine.chest": 35
+      }
+    },
+    {
+      "who": "monkey1",
+      "id": "m3",
+      "pose": "sit",
+      "facing": "left",
+      "at": 0.28,
+      "mouth": 1,
+      "cloth": "white",
+      "adjust": {
+        "spine.chest": 30
+      }
+    },
+    {
+      "who": "hanuman",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.66,
+      "mouth": 1,
+      "turn": 0
+    }
+  ]
+}

@@ -67,3 +67,15 @@ Scenes = scene lines whose words call for the moment. Moments with no pose come 
 - 03.05: stand-palms-joined
 - 04.12: stand-embrace
 - 05.05: run-bow (running with the bow drawn)
+- 07.03: kneel-palms-joined: kneel with both arms adjusted for now
+- 07.04: walk-carry-shoulder (a load on both shoulders): stand-lean-back with arms up for now
+- 07.05: stand-clasp-hands (two figures, hands joined): stand with the right arm forward for now
+- 07.06: kneel-bow: kneel with spine.chest 35 for now
+- 07.08: stand-pull: stand-lean-back with both arms forward for now
+- 07.11: lie-back: lie-front for now
+- 07.11: kneel-bow: kneel with spine.chest 35 for now
+- 07.12: sit-cross-legged: sit for now
+- 07.13: sit-hand-on-head
+- 07.14: stand-palms-joined: walk with both arms adjusted for now
+- 08.05: crouch-ready (deep knees, arms back): bend-low for now
+- 08.11: kneel-palms-joined: kneel with both arms adjusted for now

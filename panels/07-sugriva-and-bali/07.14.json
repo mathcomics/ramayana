@@ -1,0 +1,42 @@
+{
+  "scene": "Lakshman strides in, bow raised; Sugriva hurries out, palms joined",
+  "size": 0.75,
+  "ground": "dusty-pink",
+  "figures": [
+    {
+      "who": "lakshman",
+      "pose": "walk",
+      "facing": "right",
+      "at": 0.24,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.shoulder": 140,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "fist",
+        "right.arm.prop": {
+          "kind": "bow",
+          "angle": 0
+        }
+      }
+    },
+    {
+      "who": "sugriva",
+      "pose": "walk",
+      "facing": "left",
+      "at": 0.76,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 45,
+        "right.arm.elbow": 105,
+        "right.arm.hand": "in",
+        "left.arm.shoulder": 45,
+        "left.arm.elbow": 105,
+        "left.arm.hand": "in",
+        "spine.lean": 20
+      }
+    }
+  ],
+  "needs": [
+    "pose: stand-palms-joined: walk with both arms adjusted for now"
+  ]
+}

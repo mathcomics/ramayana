@@ -1,0 +1,41 @@
+{
+  "scene": "Rama gives Hanuman his ring",
+  "size": 0.5,
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "ring",
+      "at": 0.52,
+      "lift": 4.6
+    }
+  ],
+  "figures": [
+    {
+      "who": "rama",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.34,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 70,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out"
+      }
+    },
+    {
+      "who": "hanuman",
+      "pose": "kneel",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 1,
+      "adjust": {
+        "right.arm.shoulder": 75,
+        "right.arm.elbow": 20,
+        "right.arm.hand": "out"
+      }
+    }
+  ],
+  "needs": [
+    "prop: ring"
+  ]
+}

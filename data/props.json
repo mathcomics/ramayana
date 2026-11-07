@@ -25,6 +25,15 @@
     "vulture-swoop": {"size": [8.83, 7.55]},
     "vulture-fall": {"size": [5.38, 6.75]},
     "vulture-stand": {"size": [2.48, 5]},
-    "lanka-island": {"size": [20.09, 3.42]}
+    "lanka-island": {"size": [20.09, 3.42]},
+    "hills": {"size": [14, 3]},
+    "fire": {"size": [1.4, 1.4]},
+    "tree-uprooted": {"size": [3, 5]},
+    "jar": {"size": [0.8, 1]},
+    "umbrella": {"size": [2.4, 1.4]},
+    "rain-cloud": {"size": [9, 2.5]},
+    "ring": {"size": [0.4, 0.4]},
+    "mountain": {"size": [9, 5]},
+    "lanka-wall": {"size": [16, 4]}
   }
 }

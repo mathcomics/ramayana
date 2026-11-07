@@ -1,0 +1,52 @@
+{
+  "scene": "Sugriva shows the jewels; Rama presses them to his chest and weeps",
+  "size": 0.75,
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "jewels",
+      "at": 0.64,
+      "lift": 2.6,
+      "scale": 0.8
+    }
+  ],
+  "figures": [
+    {
+      "who": "lakshman",
+      "pose": "stand-hand-on-head",
+      "facing": "right",
+      "at": 0.14,
+      "row": "mid",
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "kneel",
+      "facing": "right",
+      "at": 0.4,
+      "mouth": 3,
+      "adjust": {
+        "spine.chest": 35,
+        "right.arm.shoulder": 30,
+        "right.arm.elbow": 120,
+        "right.arm.hand": "fist"
+      }
+    },
+    {
+      "who": "sugriva",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.8,
+      "mouth": 1,
+      "adjust": {
+        "right.arm.shoulder": 60,
+        "right.arm.elbow": 20,
+        "right.arm.hand": "out"
+      }
+    }
+  ],
+  "needs": [
+    "pose: kneel-bow: kneel with spine.chest 35 for now",
+    "prop: jewels (bundle)"
+  ]
+}

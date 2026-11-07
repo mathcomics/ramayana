@@ -17,6 +17,8 @@ action. The same opener can return when the story comes back to a place.
 | 4 Surpanakha | the forest hut from above again (04.01), before she comes | done |
 | 5 The golden deer | Lanka on its island across the sea (05.01, `0.5-lanka`); then Surpanakha before Ravana (05.02) | done |
 | 6 Jatayu | — | to choose |
+| 7 Sugriva and Bali | the rocky hills of Rishyamukha / Kishkindha on the horizon, sky above (07.01; `hills` placeholder) | done |
+| 8 Hanuman finds Sita | the same hills again (08.01) | done |
 | 10 The war begins | Lanka across the sea, as 05.01 | when chapter 10 is made |
 
 ## Sky and distance
