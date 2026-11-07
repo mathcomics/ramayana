@@ -10,7 +10,7 @@ artist's scene SVG) comes later.
 |---|---|---|
 | Scenes | `manuscript/scenes.md` | The story, one row per intended panel. **Guidance**, not a definition: a panel may split, merge or reword a scene. |
 | Panel definitions | `panels/<NN-section>/<id>.json` (+ optional `<id>.svg`) | What the renderer draws. One file per panel. |
-| Rendered panels | `_site/` (not committed): one scrolling page per section | Built by `tools/build-site.mjs`; published to Cloudflare Pages by hand (GitHub Action). |
+| Rendered panels | `_site/` (not committed): an index of chapters (all `## N.` headings of `manuscript/scenes.md`; those without panels marked "to come") and one scrolling page per chapter with previous / next links | Built by `tools/build-site.mjs`; published to Cloudflare Pages by hand (GitHub Action). |
 
 The **panel lab** (`tools/build-panellab.mjs`, published artifact) shows any
 section as it will scroll on a phone while you edit a panel's JSON.

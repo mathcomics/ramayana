@@ -81,6 +81,8 @@ renderer or panel changes.
   site, private via Cloudflare Access (no drafts site). Owner setup still
   to do: API token + account ID as repo secrets, first run, access policy
   incl. the main hostname (docs/design/panels.md, Publishing).
+  Site = an index of all 15 chapters from scenes.md (those without panels
+  "to come") + one scrolling page per chapter, previous / next links.
 - **Sections 05 "The golden deer" and 06 "Jatayu" (2026-11-06):**
   `panels/05-the-golden-deer/` 05.01–05.09, `panels/06-jatayu/` 06.01–06.11.
   Maricha = `raxas_m1` (id maricha, white cloth); the ascetic = `sage1`
