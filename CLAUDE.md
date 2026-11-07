@@ -95,6 +95,22 @@ renderer or panel changes.
 
 ## Status (2026-11-07)
 
+- **Manuscript rewritten as chapter briefs (2026-11-07):**
+  `manuscript/scenes.md` v0.5 — no scene lines or panel ids anywhere;
+  one brief per chapter (arc, 3–6 beats, Must show / Not shown) plus a
+  **continuity-and-motifs list** (returning places, travelling objects,
+  mirrored compositions) that panel sessions must read before writing a
+  chapter. **Chapter 5 is the only artist-reviewed chapter and the
+  model; the drawn panels for 1–4 and 6–8 are to be revisited against
+  the briefs (too complex, artist 2026-11-07).** Cut for wordlessness /
+  simplicity: Tara's warning and Lakshman confronting Sugriva (7),
+  Vibhishana's plea for Hanuman (9), Sita shown the fallen brothers and
+  the second javelin (10), Sugriva seized (11), the false Sita (12),
+  Ravana rushing at Sita (13). Surpanakha promoted to identifiable
+  (12 named); `pending-changes.md` cleared. `tools/pose-gaps.mjs` now
+  mines the beats (ids = chapter numbers); missing-poses regenerated;
+  `manuscript/README.md`, `characters.md`, `panels.md`,
+  `panel-writing.md` updated to the brief format.
 - **Artist props: flowers, two thrones, Jatayu's wing (2026-11-07):**
   the artist's `flowers.svg` sheet lives in `data/props/sheets/` and is
   split into seven props with tight viewBoxes: `flower-droop`,

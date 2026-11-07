@@ -31,54 +31,59 @@ the "Outside Dutt" section of `scenes.md`.
 
 ```
 manuscript/
-  README.md            this file: canon and scene rules
-  scenes.md            the list of scenes, in story order, grouped in sections
+  README.md            this file: canon and brief rules
+  scenes.md            chapter briefs in story order, with the
+                       continuity-and-motifs list at the top
   characters.md        who is identifiable; their looks live in data/characters.json
   pending-changes.md   panel-side changes not yet applied here: read it first,
                        apply each entry to scenes.md / characters.md, delete it
 ```
 
-## Scene rules
+## Chapter briefs
 
-A scene is **one panel**. Scenes are grouped into **sections**: one chain
-of events, about 10–15 panels (not strict), the first usually setting the
-scene. A panel is `full` (a whole portrait screen) or `half`, or its size
-is decided later. Full panels use the height: **back (high)** and
-**front (low)**. Every scene must work without words.
+The manuscript writes one **brief** per chapter, not one line per
+panel. A brief is: a one-line arc, the chapter's visual narrative in
+**3–6 beats**, a "Must show" note (the objects and images the story
+cannot do without, especially ones that return in other chapters), and
+a "Not shown" note (what is deliberately left out, and why).
 
-- **One action.** A gesture readable from the silhouettes alone (point,
+A **beat** is one readable step of the story — a gesture or movement
+that works as a wordless image. The panel side (`panels/`) breaks
+beats into panels and owns panel ids, sizes, shots and order, judged
+against `docs/design/panel-writing.md` and the artist's reviews; a
+beat may become one panel or several (establishing a new place and its
+key figure is always a short sequence). The manuscript never writes
+panel ids, sizes or counts. Where a brief and accepted panels tell the
+story differently, the panels win and the brief is updated.
+
+Beat rules (the wordless test, at story level):
+
+- **One action per beat**, readable from the silhouettes alone (point,
   strike, bow at feet, run, lift, fall).
-- **Few figures.** 1–5 figures, about the density of the reference friezes.
-  A crowd is a short row of generic figures.
-- **Few props.** At most 2 props or effects per scene (fire, tree, hut,
-  water band, bow, chariot…).
-- **Setting as outline.** The ground colour is the main setting. A panel
-  may add a simple outline in the back (palace on the horizon, river and
-  boat, tree line, Lanka's towers). A top view is allowed for an
-  establishing panel (03.01).
+- **No orders, refusals, bargains or explanations.** No creature turns
+  into another on panel: a disguise thrown off is fine, a
+  transformation is not. The only allowed "word" is a pointed
+  direction.
+- **Few figures, few props.** 1–5 figures and at most 2 props or
+  effects per image, about the density of the reference friezes. A
+  crowd is a short row of generic figures.
+- **Setting as outline.** The ground colour is the main setting; a
+  simple outline in the back (palace on the horizon, river and boat,
+  tree line, Lanka's towers) or a top view for an establishing image.
 - **Three species.** Every figure is a monkey, male or female
-  (`data/species/`). Humans and rakshasas are both male or female figures;
-  a rakshasa is set apart by its character type (body colour, outfit).
-  Anything
-  else (deer, vulture, horse, a god in the flames) is listed as a
-  creature or one-off and needs its own art.
-- **Named only when it matters.** In `scenes.md`, **bold** names are
-  identifiable characters from `characters.md`. Anyone else is a generic
-  figure, described by role (sage, queen, charioteer, monkey, rakshasa),
-  drawn with a generic type from `data/characters.json` (`monkey1`,
-  `raxas_m1`, `raxas_f1`, …).
+  (`data/species/`). Humans and rakshasas are both male or female
+  figures; a rakshasa is set apart by its character type (body colour,
+  outfit). Anything else (deer, vulture, a giant, a god in the flames)
+  is a creature or one-off and needs its own art.
+- **Named only when it matters.** **Bold** names are identifiable
+  characters from `characters.md`; everyone else is a generic figure,
+  described by role (sage, queen, charioteer, monkey, rakshasa).
 
-## Scene line format
-
-`| id | size | what we see | cast | props |`
-
-- `id` = section number + panel number (`06.04`). Keep IDs stable once art
-  exists. Use suffixes such as `06.04a` to insert scenes.
-- `size` = `full`, `half`, or blank (decide later).
-- "What we see" is one short sentence in the present tense, about bodies
-  and gestures only; full panels say what is in the back and the front.
+**Continuity is the manuscript's job.** The panel writer works one
+chapter at a time; `scenes.md` opens with the continuity-and-motifs
+list — returning places, objects that travel, mirrored compositions —
+that every chapter must respect.
 
 ## Open questions
 
-- Size of the panels still left blank.
 - Ground colour per scene or per book.

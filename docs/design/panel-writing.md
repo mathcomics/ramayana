@@ -1,6 +1,6 @@
 # Writing a section's panels
 
-The checklist for turning a section of `manuscript/scenes.md` into
+The checklist for turning a chapter brief of `manuscript/scenes.md` into
 `panels/<NN-section>/`, with every direction and review the artist has
 given so far. Read it before writing panels; add to it whenever the artist
 corrects a panel or a review finds a mistake (the lesson, not the story of
@@ -10,9 +10,11 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 
 ## Before writing
 
-1. Read the section in `manuscript/scenes.md` and the cast in
-   `data/characters.json` (who is who: below).
-2. `node tools/pose-gaps.mjs --scenes NN`: candidate poses per scene.
+1. Read the chapter's brief in `manuscript/scenes.md` — the beats, the
+   "Must show" / "Not shown" notes **and the continuity-and-motifs list
+   at the top** (returning places, travelling objects, mirrors) — and
+   the cast in `data/characters.json` (who is who: below).
+2. `node tools/pose-gaps.mjs --scenes NN`: candidate poses per beat.
 3. Look in `layouts/scenes/README.md` for a layout of the same kind
    (a far place, a throne, a top view, something seen far off) and follow
    it; name it in the panel's `layout` field.
