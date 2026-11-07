@@ -19,7 +19,8 @@ action. The same opener can return when the story comes back to a place.
 | 6 Jatayu | — | to choose |
 | 7 Sugriva and Bali | the rocky hills of Rishyamukha / Kishkindha on the horizon, sky above (07.01; `hills` placeholder) | done |
 | 8 Hanuman finds Sita | the same hills again (08.01) | done |
-| 10 The war begins | Lanka across the sea, as 05.01 | when chapter 10 is made |
+| 10 The bridge | Lanka across the sea, as 05.01 | when chapter 10 is made |
+| 11 The war begins | — | to choose (before Lanka's walls?) |
 
 ## Sky and distance
 

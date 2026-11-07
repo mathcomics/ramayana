@@ -20,8 +20,9 @@ and the prose links count as canon.
 
 **Our telling is narrower than Dutt in the early books and wider in
 the war:** it starts with the princes' childhood, shrinks books I–V to a
-few sections, includes Surpanakha and Khara's army, gives the war four
-sections, and ends with the flight home (15.06).
+few chapters, includes Surpanakha and Khara's army, gives the war six
+chapters (the bridge, then five of fighting and rescue, 10–15), and
+ends with the flight home (chapter 16).
 
 Episodes Dutt leaves out (Tataka, Ahalya, Shabari, Kabandha, Hanuman's
 childhood, …) stay out unless we decide otherwise. Those decisions go in

@@ -16,11 +16,11 @@ this file only says who exists and where they appear in the story.
 | **Dasharatha** | `dasharatha` | male | chapters 1–2 |
 | **Kaikeyi** | `kaikeyi` | female | chapter 2 |
 | **Surpanakha** | `surpanakha` | female (rakshasi) | chapters 4–5; a rakshasi throughout, no fair form |
-| **Hanuman** | `hanuman` | monkey | chapters 7–15 |
-| **Sugriva** | `sugriva` | monkey | chapters 7–15 |
-| **Ravana** | `ravana` | male (rakshasa) | chapters 5–14 |
-| **Indrajit** | `indrajit` | male (rakshasa) | chapters 9–12 |
-| **Vibhishana** | `vibhishana` | male (rakshasa) | chapters 10–15 |
+| **Hanuman** | `hanuman` | monkey | chapters 7–16 |
+| **Sugriva** | `sugriva` | monkey | chapters 7–16 |
+| **Ravana** | `ravana` | male (rakshasa) | chapters 5–15 |
+| **Indrajit** | `indrajit` | male (rakshasa) | chapters 9–13 |
+| **Vibhishana** | `vibhishana` | male (rakshasa) | chapters 10–16 |
 
 ## Generic types
 
@@ -30,24 +30,25 @@ this file only says who exists and where they appear in the story.
 | `queen1`, `queen2` | female | queens (ch 1); Tara wears `queen2` (no female monkeys — artist to confirm) |
 | `sage1` | male | sages: the teacher (ch 3), Ravana's ascetic disguise (ch 5) |
 | `raxas_m1` | male | rakshasa warriors, Khara |
-| `raxas_f1` | female | rakshasis: the grove guards, the mourning queen (ch 14) |
+| `raxas_f1` | female | rakshasis: the grove guards, the mourning queen (ch 15) |
 
 Still needed as generic types: a plain human male and female (wedding
-guests, the charioteer in ch 14) and children (the four boys, ch 1).
+guests, the charioteer in ch 15) and children (the four boys, ch 1).
 
 ## Creatures and one-offs (not species models)
 
-- Kumbhakarna: a giant, much larger than the others (ch 11), whole
+- Kumbhakarna: a giant, much larger than the others (ch 12), whole
   or only partly in the panel (head, hand, arm).
 - The golden deer (ch 5): in canon it is Maricha in disguise; in this
   telling it is never shown as anything but a deer.
 - Forest deer and birds (ch 3).
 - Jatayu the vulture (ch 3, 6): drawn (`vulture-fly`, `-swoop`,
   `-fall`, `-stand`; lying still a placeholder).
-- Garuda the great eagle (ch 10): needs its own art, like Jatayu's.
-- Agni, rising from the flames carrying Sita (ch 15).
+- The Ocean, rising from the waves before Rama's bow (ch 10).
+- Garuda the great eagle (ch 11): needs its own art, like Jatayu's.
+- Agni, rising from the flames carrying Sita (ch 16).
 - Flying chariots: Ravana's (drawn by asses) and the Pushpaka, drawn by
-  swans (ch 15).
+  swans (ch 16).
 
 ## Props
 

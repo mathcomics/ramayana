@@ -110,7 +110,12 @@ renderer or panel changes.
   (12 named); `pending-changes.md` cleared. `tools/pose-gaps.mjs` now
   mines the beats (ids = chapter numbers); missing-poses regenerated;
   `manuscript/README.md`, `characters.md`, `panels.md`,
-  `panel-writing.md` updated to the brief format.
+  `panel-writing.md` updated to the brief format. Later the same day:
+  ten-headed Ravana skipped (single-headed throughout; the regrowing
+  head carries the myth) and **chapter 10 "The bridge" split out** (the
+  Ocean rises and points the way; Nala and the squirrel not shown) —
+  **16 chapters now**, old 11–15 renumbered 12–16; no drawn chapter
+  moved.
 - **Artist props: flowers, two thrones, Jatayu's wing (2026-11-07):**
   the artist's `flowers.svg` sheet lives in `data/props/sheets/` and is
   split into seven props with tight viewBoxes: `flower-droop`,
@@ -323,7 +328,7 @@ renderer or panel changes.
   (account members only). Later: turn automatic builds on and
   delete the workflow. Owner setup still to do (docs/design/panels.md,
   Publishing).
-  Site = an index of all 15 chapters from scenes.md (those without panels
+  Site = an index of all chapters from scenes.md (those without panels
   "to come") + one scrolling page per chapter, previous / next links.
 - **Sections 05 "The golden deer" and 06 "Jatayu" (2026-11-06):**
   `panels/05-the-golden-deer/` 05.01–05.09, `panels/06-jatayu/` 06.01–06.11.
