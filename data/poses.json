@@ -1607,11 +1607,11 @@
       },
       "right": {
         "arm": {
-          "shoulder": -90,
+          "shoulder": -77.3,
           "out": 20,
           "elbow": 246,
           "elbowOut": -20,
-          "wrist": 10,
+          "wrist": 31.8,
           "twist": 0,
           "hand": "out"
         },
@@ -1635,7 +1635,7 @@
           "hand": "fist",
           "prop": {
             "kind": "bow",
-            "angle": -10,
+            "angle": 48,
             "out": 0
           }
         },
