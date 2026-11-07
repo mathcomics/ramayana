@@ -16,6 +16,10 @@ scene spec (JSON) → layout → figure geometry → SVG
 ## Source of truth
 
 - `README.md` — project overview, layout, commands, pose lab.
+- `panels/CLAUDE.md`, `manuscript/CLAUDE.md`, `data/CLAUDE.md` — the role
+  contract for sessions working in that folder (what it owns, what to
+  read first, where to log); they load automatically when files there are
+  touched.
 
 - `docs/README.md` — how the docs are organised: `docs/design/` (how things
   work now, no history), `docs/proposals/` (dated, status at the top),

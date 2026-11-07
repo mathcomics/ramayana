@@ -43,6 +43,27 @@ Dropped scenes (the artist's wordless test):
   Maricha is out of this telling's chapter 05 unless named elsewhere.
   (A disguise thrown off is still fine: 05.19.)
 
+## 2026-11-07 · proposal: chapter briefs instead of scene lines (decide here)
+
+For the chapters that have no panels yet (09-15), the panel side proposes
+the manuscript stop writing one line per panel and write **chapter
+briefs** instead: per chapter, 3-6 beats, a short paragraph each — what
+happens, who appears (bold = named cast), the key items that must be
+shown (the ring, the line, the jewels falling), and canon notes including
+what must not be shown. No ids, no sizes, no panel counts: the panel
+session breaks beats into panels and owns ids, sizes, shots and order,
+judged against docs/design/panel-writing.md and the artist's reviews.
+
+Why: the artist's chapter 05 review rewrote 11 scene lines into 21
+panels and cut two scenes; panel-level decisions (pacing, shots,
+transitions, cuts) keep landing with the artist and the panel session,
+and a manuscript written at that granularity has to be re-synced after
+every review — this file is the symptom. Chapter boundaries, canon,
+casting and the wordless test at story level stay the manuscript's.
+Sections 01-08 keep their existing scene lines (panels exist); if
+accepted, 09-15 get briefs. pose-gaps mines words, so beat paragraphs
+feed it at least as well as table lines.
+
 ## 2026-11-07 · panel sizes
 
 The manuscript's `full` / `half` sizes map to 0.75 / 0.5, and the
