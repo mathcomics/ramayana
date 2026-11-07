@@ -95,6 +95,18 @@ renderer or panel changes.
 
 ## Status (2026-11-07)
 
+- **New sword set from the fencing-guard sheet (2026-11-07):** 14 new
+  two-handed sword poses (heavy blade / club, not rapier) built from a
+  historical guard reference (angles only): gestures `roof`, `ox`,
+  `crown`, `hanging`, `unicorn`, `wrath`, `longpoint`, `plow`, `middle`,
+  `key`, `fool`, `flank`, `barrier`, `change`, each one pose on an
+  existing base (step, stepwide, leanback, leanfront, lunge, stepback —
+  no new bases; recompose clean). Pose names `stand-sword-<guard>` /
+  `lunge-sword-point`. **Step 2 (open, panel sessions): deprecate the
+  old sword poses/gestures (swordup, swordacross, swordback, swordbehind,
+  sworddown, swordfront, swordhip, swordlevel, swordlow, swordshoulder,
+  swordwaist) in favour of these** — most war panels are
+  not drawn yet; swap the few existing uses when panels are revisited.
 - **Pose composition: bases, gestures, lab compose (2026-11-07):**
   `bases` (27) and `gestures` (42) in `data/pose-index.json` — the
   distinct lower / upper bodies, one-word names (bases named by the
