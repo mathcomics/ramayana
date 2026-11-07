@@ -15,34 +15,34 @@ Scenes = scene lines whose words call for the moment. Moments with no pose come 
 |---|---|---|---|
 | ride | 15 | **none** | sit-ride |
 | embrace | 4 | **none** | stand-embrace |
-| shoot | 21 | stand-shoot-bow, stand-shoot-bow-raise, stand-shoot-bow-release |  |
+| shoot | 21 | stand-bow-draw, stand-bow-draw-high, stand-bow-release |  |
 | walk | 19 | walk, walk-passing | walk-carry-shoulder |
 | point | 18 | stand-point, stand-point-up |  |
-| strike | 17 | lunge, lunge-sword-low, lunge-sword-strike, lunge-sword-thrust, stand-guard, stand-sword-back, stand-sword-behind-head, stand-sword-forward, stand-sword-high, stand-sword-overhead, stand-sword-shoulder, stand-wind-up |  |
+| strike | 17 | lunge, lunge-sword-down, lunge-sword-forward, lunge-sword-low, stand-arm-back, stand-fists-up, stand-sword-across-head, stand-sword-back, stand-sword-behind-head, stand-sword-forward, stand-sword-shoulder, stand-sword-up |  |
 | stand | 15 | stand, stand-hands-on-hips | stand-palms-joined |
 | run | 15 | leap, lunge, run, run-arms-back, run-low |  |
-| fall | 14 | fall-back, fall-headlong, sit-lean-back, stand-stagger-back |  |
-| leap | 13 | leap, leap-dive, leap-reach |  |
+| fall | 14 | fall-back, fall-forward, sit-lean-back, stand-step-back |  |
+| leap | 13 | leap, leap-flat, leap-reach |  |
 | hold | 13 | kneel, stand |  |
-| lift | 12 | bend-low, leap-reach, stand-throw | stand-carry-overhead |
+| lift | 12 | bend-low, leap-reach, stand-arms-overhead | stand-carry-overhead |
 | celebrate | 11 | leap-reach, stand-arms-up-knee-up |  |
-| fly | 9 | leap-dive |  |
+| fly | 9 | leap-flat |  |
 | grieve | 9 | sit, stand-arm-over-face, stand-hand-on-head | kneel-bow |
 | carry | 7 | stand-lean-back | stand-carry-overhead, stand-pull, walk-carry-shoulder |
 | sit | 7 | sit, sit-lean-back | sit-cross-legged |
-| threaten | 6 | stand-arms-up-knee-up, stand-guard, stand-hands-on-hips, stand-lean-back, stand-point, stand-point-up, stand-sword-behind-head, stand-sword-forward, stand-sword-guard, stand-sword-hip, stand-sword-overhead, stand-sword-shoulder |  |
+| threaten | 6 | stand-arms-up-knee-up, stand-fists-up, stand-hands-on-hips, stand-lean-back, stand-point, stand-point-up, stand-sword-behind-head, stand-sword-forward, stand-sword-hip, stand-sword-shoulder, stand-sword-up, stand-sword-waist |  |
 | kneel | 6 | kneel | kneel-bow, kneel-palms-joined |
 | plead | 6 | kneel, stand-point-up | stand-palms-joined, kneel-bow, kneel-palms-joined |
 | reach | 5 | bend-low, leap-reach, lunge |  |
-| fear | 5 | crouch-arms-over-head, stand-arm-over-face, stand-guard, stand-stagger-back |  |
-| throw | 4 | stand-throw, stand-wind-up |  |
+| fear | 5 | crouch-arms-over-head, stand-arm-over-face, stand-fists-up, stand-step-back |  |
+| throw | 4 | stand-arm-back, stand-arms-overhead |  |
 | lie | 4 | lie-front | lie-back |
 | search | 3 | bend-low, crawl, stand-hand-on-head |  |
 | sneak | 2 | bend-low, crawl, lie-front, run-low |  |
-| die | 1 | fall-back, fall-headlong, lie-front | lie-back |
-| shock | 1 | fall-back, sit-lean-back, stand-arm-over-face, stand-hand-on-head, stand-stagger-back |  |
+| die | 1 | fall-back, fall-forward, lie-front | lie-back |
+| shock | 1 | fall-back, sit-lean-back, stand-arm-over-face, stand-hand-on-head, stand-step-back |  |
 | proud | 1 | stand-hands-on-hips, stand-lean-back |  |
-| shield | 0 | crouch-arms-over-head, lunge-sword-low, stand-arm-over-face, stand-sword-forward, stand-sword-guard, stand-sword-high, stand-sword-hip |  |
+| shield | 0 | crouch-arms-over-head, lunge-sword-low, stand-arm-over-face, stand-sword-across-head, stand-sword-forward, stand-sword-hip, stand-sword-waist |  |
 
 ## Wanted poses, in order
 
@@ -50,14 +50,14 @@ Scenes = scene lines whose words call for the moment. Moments with no pose come 
 |---|---|---|---|
 | stand-palms-joined | standing, both forearms up, palms together in front of the chest | 15 | stand with both arms adjusted (shoulder ~50, elbow ~120, hand in) |
 | kneel-bow | kneeling with the body bowed forward, head low, palms joined or touching the ground | 9 | kneel with spine.chest ~60 |
-| stand-carry-overhead | standing, both arms straight up holding something above the head | 12 | stand-throw or leap-reach |
+| stand-carry-overhead | standing, both arms straight up holding something above the head | 12 | stand-arms-overhead or leap-reach |
 | stand-pull | leaning back, both arms forward gripping, as in pulling a rope or a person | 7 | stand-lean-back with both arms adjusted forward |
 | sit-cross-legged | seated upright, legs folded (throne, reading, teaching) | 7 | sit |
 | kneel-palms-joined | kneel with the palms together in front of the chest | 6 | kneel with both arms adjusted |
 | walk-carry-shoulder | walking with a load on the right shoulder, right hand up holding it | 19 | stand with the right arm adjusted |
 | stand-embrace | both arms forward and bent at chest height, to fold around another figure | 4 | stand with both arms forward (shoulder ~70, elbow ~70) |
 | lie-back | lying flat on the back, arms at the sides or one across the chest (sleep, death) | 4 | lie-front |
-| sit-ride | seated astride or on a chariot, legs down, arms forward holding reins or a bow | 15 | chariot scenes: stand or stand-shoot-bow on the chariot prop (on: chariot); sit for a horse |
+| sit-ride | seated astride or on a chariot, legs down, arms forward holding reins or a bow | 15 | chariot scenes: stand or stand-bow-draw on the chariot prop (on: chariot); sit for a horse |
 
 ## Asked for by panels
 

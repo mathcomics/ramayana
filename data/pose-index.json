@@ -56,13 +56,13 @@
       "desc": "falling onto the back: body tipped back, legs kicked up, arms flung out",
       "ground": "back", "hold": [],
       "use": ["fall", "die", "shock"],
-      "like": ["sit-lean-back", "stand-stagger-back"]
+      "like": ["sit-lean-back", "stand-step-back"]
     },
-    "fall-headlong": {
+    "fall-forward": {
       "desc": "pitching forward head first, arms thrown toward the ground, legs trailing",
       "ground": "feet-hands", "hold": [],
       "use": ["fall", "die"],
-      "like": ["leap-dive", "lie-front"]
+      "like": ["leap-flat", "lie-front"]
     },
     "kneel": {
       "desc": "one knee down, the other foot forward, body upright, arms bent low in front",
@@ -74,13 +74,13 @@
       "desc": "mid-air jump forward: front knee high, back leg trailing, arms forward",
       "ground": "air", "hold": ["right", "left"],
       "use": ["leap", "run"],
-      "like": ["leap-reach", "run", "leap-dive"]
+      "like": ["leap-reach", "run", "leap-flat"]
     },
-    "leap-dive": {
+    "leap-flat": {
       "desc": "flying flat, head first, both arms stretched ahead, legs straight behind",
       "ground": "air", "hold": [],
       "use": ["fly", "leap"],
-      "like": ["leap", "fall-headlong"]
+      "like": ["leap", "fall-forward"]
     },
     "leap-reach": {
       "desc": "jumping up with both arms raised high, legs tucked",
@@ -92,31 +92,31 @@
       "desc": "lying on the belly, head and chest raised on the arms",
       "ground": "front", "hold": [],
       "use": ["lie", "sneak", "die"],
-      "like": ["crawl", "fall-headlong"]
+      "like": ["crawl", "fall-forward"]
     },
     "lunge": {
       "desc": "very long stride, body driving forward, right arm thrust ahead, left arm back",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["strike", "reach", "run"],
-      "like": ["run", "stand-guard", "stand-point"]
+      "like": ["run", "stand-fists-up", "stand-point"]
     },
-    "lunge-sword-low": {
-      "desc": "lunge, right arm low and forward with the sword pointing down and forward, left arm back",
-      "ground": "feet", "hold": ["right"],
-      "use": ["strike", "shield"],
-      "like": ["lunge-sword-thrust", "lunge"]
-    },
-    "lunge-sword-strike": {
+    "lunge-sword-down": {
       "desc": "lunge, both hands on the hilt low and forward, sword cutting down ahead (also a club)",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["strike"],
       "like": ["lunge-sword-low", "stand-sword-hip"]
     },
-    "lunge-sword-thrust": {
+    "lunge-sword-forward": {
       "desc": "deep lunge, right arm straight forward with the sword pointing ahead, left arm back",
       "ground": "feet", "hold": ["right"],
       "use": ["strike"],
       "like": ["lunge", "lunge-sword-low"]
+    },
+    "lunge-sword-low": {
+      "desc": "lunge, right arm low and forward with the sword pointing down and forward, left arm back",
+      "ground": "feet", "hold": ["right"],
+      "use": ["strike", "shield"],
+      "like": ["lunge-sword-forward", "lunge"]
     },
     "run": {
       "desc": "running stride, body forward, fists swinging at the sides",
@@ -154,11 +154,23 @@
       "use": ["stand", "hold"],
       "like": ["stand-hands-on-hips", "stand-point"]
     },
+    "stand-arm-back": {
+      "desc": "wide stance, right arm swung back behind, left arm out forward",
+      "ground": "feet", "hold": ["right"],
+      "use": ["throw", "strike"],
+      "like": ["stand-arms-overhead", "stand-fists-up"]
+    },
     "stand-arm-over-face": {
       "desc": "stepping back, right arm raised across the face, left arm out",
       "ground": "feet", "hold": ["left"],
       "use": ["shield", "fear", "shock", "grieve"],
-      "like": ["stand-stagger-back", "crouch-arms-over-head"]
+      "like": ["stand-step-back", "crouch-arms-over-head"]
+    },
+    "stand-arms-overhead": {
+      "desc": "bent knees, both arms raised and bent back over the head, head tipped back",
+      "ground": "feet", "hold": ["right", "left"],
+      "use": ["throw", "lift"],
+      "like": ["stand-arm-back", "stand-arms-up-knee-up"]
     },
     "stand-arms-up-knee-up": {
       "desc": "both arms up and out, one knee lifted",
@@ -166,11 +178,29 @@
       "use": ["celebrate", "threaten"],
       "like": ["leap-reach", "stand-point-up"]
     },
-    "stand-guard": {
+    "stand-bow-draw": {
+      "desc": "side-on stance, left arm straight forward holding the bow upright, right hand drawing the string back to the cheek",
+      "ground": "feet", "hold": ["left"],
+      "use": ["shoot"],
+      "like": ["stand-bow-draw-high", "stand-bow-release"]
+    },
+    "stand-bow-draw-high": {
+      "desc": "standing, bow raised high in the left hand, right hand above the head drawing the string",
+      "ground": "feet", "hold": ["left"],
+      "use": ["shoot"],
+      "like": ["stand-bow-draw", "stand-point-up"]
+    },
+    "stand-bow-release": {
+      "desc": "standing, left arm forward with the bow tipped, right hand flung back open past the ear (arrow loosed)",
+      "ground": "feet", "hold": ["left"],
+      "use": ["shoot"],
+      "like": ["stand-bow-draw", "stand-point"]
+    },
+    "stand-fists-up": {
       "desc": "wide crouched stance, both fists up in front",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["strike", "threaten", "fear"],
-      "like": ["lunge", "stand-wind-up"]
+      "like": ["lunge", "stand-arm-back"]
     },
     "stand-hand-on-head": {
       "desc": "standing, right hand on top of the head, left arm down",
@@ -188,7 +218,7 @@
       "desc": "leaning back from the hips, arms straight down and back",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["proud", "threaten", "carry"],
-      "like": ["stand-hands-on-hips", "stand-stagger-back"]
+      "like": ["stand-hands-on-hips", "stand-step-back"]
     },
     "stand-point": {
       "desc": "standing, right arm straight out pointing forward, left fist down",
@@ -202,89 +232,59 @@
       "use": ["point", "threaten", "plead"],
       "like": ["stand-point", "stand-arms-up-knee-up"]
     },
-    "stand-shoot-bow": {
-      "desc": "side-on stance, left arm straight forward holding the bow upright, right hand drawing the string back to the cheek",
-      "ground": "feet", "hold": ["left"],
-      "use": ["shoot"],
-      "like": ["stand-shoot-bow-raise", "stand-shoot-bow-release"]
-    },
-    "stand-shoot-bow-raise": {
-      "desc": "standing, bow raised high in the left hand, right hand above the head drawing the string",
-      "ground": "feet", "hold": ["left"],
-      "use": ["shoot"],
-      "like": ["stand-shoot-bow", "stand-point-up"]
-    },
-    "stand-shoot-bow-release": {
-      "desc": "standing, left arm forward with the bow tipped, right hand flung back open past the ear (arrow loosed)",
-      "ground": "feet", "hold": ["left"],
-      "use": ["shoot"],
-      "like": ["stand-shoot-bow", "stand-point"]
-    },
-    "stand-stagger-back": {
+    "stand-step-back": {
       "desc": "stepping back on the left foot, body tipped back, arms out",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["shock", "fear", "fall"],
       "like": ["stand-arm-over-face", "fall-back"]
     },
+    "stand-sword-across-head": {
+      "desc": "stride, both hands above the head, sword level across the top as a guard (also a club)",
+      "ground": "feet", "hold": ["right", "left"],
+      "use": ["shield", "strike"],
+      "like": ["stand-sword-up", "stand-sword-behind-head"]
+    },
     "stand-sword-back": {
       "desc": "weight on the back leg, right arm swung far back with the sword, left arm forward",
       "ground": "feet", "hold": ["right"],
       "use": ["strike"],
-      "like": ["stand-throw", "stand-sword-overhead"]
+      "like": ["stand-arms-overhead", "stand-sword-up"]
     },
     "stand-sword-behind-head": {
       "desc": "wide stance, front knee bent, both hands above the head, sword held level over it pointing back (high guard; also a club)",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["strike", "threaten"],
-      "like": ["stand-sword-back", "stand-sword-overhead"]
+      "like": ["stand-sword-back", "stand-sword-up"]
     },
     "stand-sword-forward": {
       "desc": "stride, both arms straight forward, sword level at the opponent (also a club)",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["threaten", "strike", "shield"],
-      "like": ["lunge-sword-thrust", "stand-sword-guard"]
-    },
-    "stand-sword-guard": {
-      "desc": "knees bent, both hands at the waist, sword angled up toward the opponent (also a club)",
-      "ground": "feet", "hold": ["right", "left"],
-      "use": ["threaten", "shield"],
-      "like": ["stand-guard", "stand-sword-shoulder"]
-    },
-    "stand-sword-high": {
-      "desc": "stride, both hands above the head, sword level across the top as a guard (also a club)",
-      "ground": "feet", "hold": ["right", "left"],
-      "use": ["shield", "strike"],
-      "like": ["stand-sword-overhead", "stand-sword-behind-head"]
+      "like": ["lunge-sword-forward", "stand-sword-waist"]
     },
     "stand-sword-hip": {
       "desc": "stride, both hands at the right hip, sword pointing down and forward (also a club)",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["threaten", "shield"],
-      "like": ["stand-sword-guard", "lunge-sword-strike"]
-    },
-    "stand-sword-overhead": {
-      "desc": "standing in a stride, both hands above the head holding the sword up (also a club)",
-      "ground": "feet", "hold": ["right", "left"],
-      "use": ["strike", "threaten"],
-      "like": ["stand-sword-shoulder", "stand-throw"]
+      "like": ["stand-sword-waist", "lunge-sword-down"]
     },
     "stand-sword-shoulder": {
       "desc": "standing in a stride, both hands at the right shoulder, sword pointing up and back over it (also a club)",
       "ground": "feet", "hold": ["right", "left"],
       "use": ["strike", "threaten"],
-      "like": ["stand-sword-overhead", "stand-sword-guard"]
+      "like": ["stand-sword-up", "stand-sword-waist"]
     },
-    "stand-throw": {
-      "desc": "bent knees, both arms raised and bent back over the head, head tipped back",
+    "stand-sword-up": {
+      "desc": "standing in a stride, both hands above the head holding the sword up (also a club)",
       "ground": "feet", "hold": ["right", "left"],
-      "use": ["throw", "lift"],
-      "like": ["stand-wind-up", "stand-arms-up-knee-up"]
+      "use": ["strike", "threaten"],
+      "like": ["stand-sword-shoulder", "stand-arms-overhead"]
     },
-    "stand-wind-up": {
-      "desc": "wide stance, right arm swung back behind, left arm out forward",
-      "ground": "feet", "hold": ["right"],
-      "use": ["throw", "strike"],
-      "like": ["stand-throw", "stand-guard"]
+    "stand-sword-waist": {
+      "desc": "knees bent, both hands at the waist, sword angled up toward the opponent (also a club)",
+      "ground": "feet", "hold": ["right", "left"],
+      "use": ["threaten", "shield"],
+      "like": ["stand-fists-up", "stand-sword-shoulder"]
     },
     "walk": {
       "desc": "walking step: right leg forward, left leg back on its toes, arms swinging opposite to the legs",
@@ -313,7 +313,7 @@
     "stand-carry-overhead": {
       "desc": "standing, both arms straight up holding something above the head",
       "use": ["lift", "carry"],
-      "until": "stand-throw or leap-reach"
+      "until": "stand-arms-overhead or leap-reach"
     },
     "stand-pull": {
       "desc": "leaning back, both arms forward gripping, as in pulling a rope or a person",
@@ -348,7 +348,7 @@
     "sit-ride": {
       "desc": "seated astride or on a chariot, legs down, arms forward holding reins or a bow",
       "use": ["ride"],
-      "until": "chariot scenes: stand or stand-shoot-bow on the chariot prop (on: chariot); sit for a horse"
+      "until": "chariot scenes: stand or stand-bow-draw on the chariot prop (on: chariot); sit for a horse"
     }
   }
 }

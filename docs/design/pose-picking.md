@@ -59,9 +59,9 @@ entry changes in the same commit. A pose made from `wanted` moves from
    | Moment | First choice | Also |
    |---|---|---|
    | grief | stand-hand-on-head | sit, kneel-bow (wanted) |
-   | fear | stand-arm-over-face | crouch-arms-over-head, stand-stagger-back |
-   | shock | stand-stagger-back | sit-lean-back, fall-back |
-   | anger, threat | stand-point (mouth 3) | stand-guard, stand-hands-on-hips |
+   | fear | stand-arm-over-face | crouch-arms-over-head, stand-step-back |
+   | shock | stand-step-back | sit-lean-back, fall-back |
+   | anger, threat | stand-point (mouth 3) | stand-fists-up, stand-hands-on-hips |
    | pride, mockery | stand-hands-on-hips | stand-lean-back |
    | joy, victory | stand-arms-up-knee-up | leap-reach |
    | respect, pleading | kneel | stand-palms-joined (wanted) |
@@ -86,15 +86,22 @@ entry changes in the same commit. A pose made from `wanted` moves from
 
 ## Names
 
-Names stay as in style bible §7: `<base>-<what the body does>`, from the
-fixed base list, arms before legs, nothing about emotion, head or mouth.
-Additions:
+`<base>[-<prop>]-<what the arms do>[-<legs or variant>]` (style bible §7):
 
-- One arm: `arm` / `hand`; both: `arms` / `hands`.
-- A suffix for a variant of the same action: `-low` (crouched), `-back`
-  (weight or body back).
-- A prop names a pose only when the body's shape is made for it
-  (`stand-shoot-bow`, `walk-carry-shoulder`); the panel still places the
-  prop.
-- Renaming a pose orphans its pose lab saves (saved by name), so names
-  change only when the artist asks, together with the panels that use them.
+- **Base** from the fixed list; it says what carries the body (stand,
+  walk, run, leap, crouch, bend, crawl, kneel, lunge, sit, lie, fall).
+- **Prop** right after the base, only when the body's shape is made for a
+  held prop, so its poses sort together: `stand-bow-draw`,
+  `stand-sword-up`, `lunge-sword-down`. Sword poses also serve a club.
+- **Then what is visible**, arms before legs: `stand-arms-overhead`,
+  `stand-arms-up-knee-up`. One arm `arm` / `hand`, both `arms` / `hands`.
+  Directions say where a limb or the prop goes (`-up`, `-forward`,
+  `-down`, `-back`, `-across-head`, `-waist`).
+- **Variant suffixes:** `-low` (crouched), `-back` (weight or body back),
+  `-high`.
+- **Never** an emotion or intent (`guard`, `throw`, `stagger`, `strike`),
+  the head's direction or the mouth: those come from the scene, `turn` and
+  `mouth`.
+- A rename changes the poses, the index, the panels and the docs in one
+  commit. Pose lab saves keep the name they were saved under; a save under
+  an old name no longer matches a pose.

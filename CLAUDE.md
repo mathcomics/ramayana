@@ -75,6 +75,19 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Pose names revised (2026-11-06):** 14 poses renamed to name the
+  visible body, prop right after the base (style bible §7,
+  `docs/design/pose-picking.md`): stand-guard → stand-fists-up,
+  stand-throw → stand-arms-overhead, stand-wind-up → stand-arm-back,
+  stand-stagger-back → stand-step-back, leap-dive → leap-flat,
+  fall-headlong → fall-forward, stand-shoot-bow(-raise/-release) →
+  stand-bow-draw(-high) / stand-bow-release, stand-sword-overhead / -high /
+  -guard → stand-sword-up / -across-head / -waist, lunge-sword-thrust /
+  -strike → lunge-sword-forward / -down. No old-name mapping: lab saves
+  under the old names (stand-guard, stand-throw, stand-wind-up,
+  stand-stagger-back, leap-dive, fall-headlong) are left as they are and no
+  longer match a repo pose. Walk saves merged (`walk`, `walk-passing`
+  reworked); `stand-look-left` save deleted.
 - **Neck (2026-11-06):** always drawn behind the head (with the head's
   depth unit when the head is behind the torso); 1.5 × the drawn length
   (`NECK_STRETCH` in `src/parts.js`; style bible §6).
@@ -116,16 +129,16 @@ renderer or panel changes.
   reference file). `tools/import-held.mjs` → `data/held.json`; figures
   pick their character's version (`who` from `characterLook`), else base. Bow doubled (≈5.8 head-units). `grip:
   "both"` solves the other arm in 3D to the hilt. 44 poses: overhead /
-  shoulder / guard now two-handed, new `stand-sword-high`, `-hip`,
-  `-forward`, `-behind-head`, `lunge-sword-strike` (all usable for a
+  shoulder / guard now two-handed, new `stand-sword-across-head`, `-hip`,
+  `-forward`, `-behind-head`, `lunge-sword-down` (all usable for a
   club). Pose lab: a 4th panel "Prop" (holds None/Sword/Club/Bow, hand
   Near/Far, angle, out, grip, bow string; one prop at a time); the four
   panels side by side (2 columns under 640 px).
 - **New poses and held props (2026-11-06):** 11 poses from the artist's
   reference sheets (angles only, not traced): `walk`, `walk-passing`;
-  `stand-shoot-bow`, `stand-shoot-bow-raise`, `stand-shoot-bow-release`;
-  `stand-sword-overhead`, `stand-sword-shoulder`, `stand-sword-guard`,
-  `stand-sword-back`, `lunge-sword-thrust`, `lunge-sword-low` (39 poses;
+  `stand-bow-draw`, `stand-bow-draw-high`, `stand-bow-release`;
+  `stand-sword-up`, `stand-sword-shoulder`, `stand-sword-waist`,
+  `stand-sword-back`, `lunge-sword-forward`, `lunge-sword-low` (39 poses;
   index entries; walk / shoot gaps closed). Held props: `arm.prop`
   (`kind` sword | bow, `angle` from the hand, `out`, `draw` for the bow
   string to the other hand): generic shapes along a reference line
@@ -140,8 +153,7 @@ renderer or panel changes.
   candidate poses per scene). Shoot and walk now covered; moments
   with no pose: ride/chariot (15 scenes), embrace (4); next wanted:
   stand-palms-joined, kneel-bow. Section 02 panels use walk / walk-passing
-  (02.05 looks back with `turn` 90; 2026-11-06). No renames yet (would orphan
-  lab saves); candidates if wanted: `stand-guard` → `stand-fists-up`.
+  (02.05 looks back with `turn` 90; 2026-11-06).
   Next: pose picker in the panel lab (filter by moment, tap to insert).
 - **Steps 3 and 4 finished (2026-11-06):** pose settings `spine.turn`
   (head turn, any angle; `look` is its shortcut) and `leg.toe` (toe turn);
@@ -267,7 +279,7 @@ renderer or panel changes.
   `poses`); merge into the repo when asked. Contact sheets show side +
   front pairs.
   Section 2 panels use the new names (2026-11-04): 02.02 Kaikeyi
-  `stand-lean-back` + king `stand-stagger-back`; 02.03 `stand-point` and the
+  `stand-lean-back` + king `stand-step-back`; 02.03 `stand-point` and the
   king in front view, `stand-hand-on-head`.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
   Scene list v0.4 (15 sections, 145 panels; sizes full/half where
@@ -294,14 +306,14 @@ renderer or panel changes.
   `_site/`; Cloudflare Pages not set up yet (steps in docs/design/panels.md).
   Panel lab published.
 - **Pose lab saves merged 2026-11-04** (20 saves, 13 with changes: bend-low,
-  crouch-arms-over-head, fall-back, fall-headlong, kneel, lie-front, run-low,
+  crouch-arms-over-head, fall-back, fall-forward, kneel, lie-front, run-low,
   sit, sit-lean-back, stand, stand-hands-on-hips, stand-point,
   stand-point-up). The saves stay in the lab.
 - **Point hand** added 2026-11-04 (`hand: point`, like out with a 1.6×
   longer single finger and 0.6× grouped fingers; pose lab has a Point
   button). No pose uses it yet.
 - **Next:** keep refining poses in the lab;
-  **back view** for front poses that bend head-down, e.g. fall-headlong
+  **back view** for front poses that bend head-down, e.g. fall-forward
   (back of the head; needs a back-head layer in the face files and a back
   draw order; style bible §6); artist feedback on the sample; walk pose; props
   import (`data/props/<id>.svg`, like faces); template route (figure markers in an artist's scene SVG).

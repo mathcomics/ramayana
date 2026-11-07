@@ -302,7 +302,7 @@ male 0.88, female 0.74.
   toward the viewer (both views).
 - **The neck is always behind the head**, and is drawn 1.5 × the length
   of the drawn neck.
-  - A head bent far forward or below the shoulders (e.g. `fall-headlong`)
+  - A head bent far forward or below the shoulders (e.g. `fall-forward`)
     shows its top and back in the front view, from the turned head (no
     back-head drawing needed). A full back view of the body (arms behind
     the torso) is still not built.
@@ -320,8 +320,8 @@ male 0.88, female 0.74.
 
 ## 7. Pose vocabulary and names
 
-Pose names read `<base>-<what the body does>`, so a pose can be found
-from a scene description:
+Pose names read `<base>[-<prop>]-<what the body does>`, so a pose can be
+found from a scene description:
 
 - base: `stand`, `walk`, `run`, `leap`, `crouch`, `bend`, `crawl`, `kneel`, `lunge`, `sit`,
   `lie`, `fall`;
@@ -330,15 +330,16 @@ from a scene description:
 - poses are side view; there are no front poses (the front view is
   derived, §6);
 - one arm `arm`/`hand`, both `arms`/`hands`; variants as suffixes
-  (`-low`, `-back`); a prop in the name only when the body's shape is
-  made for it (`stand-shoot-bow`); head direction and mouth never (they
-  are set per figure).
+  (`-low`, `-back`, `-high`); a held prop right after the base, only when
+  the body's shape is made for it (`stand-bow-draw`, `stand-sword-up`);
+  no intent words (`guard`, `throw`, `strike`); head direction and mouth
+  never (they are set per figure).
 
 Every pose has an entry in `data/pose-index.json` (what it shows, what
 touches the ground, story moments, nearest poses); poses are picked by the
 rules in `docs/design/pose-picking.md`.
 
-39 poses, many drawn from pose reference sheets and still
+44 poses, many drawn from pose reference sheets and still
 being refined. Poses are tuned visually in the pose lab and stored as data,
 alphabetically.
 
