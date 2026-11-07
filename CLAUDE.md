@@ -83,10 +83,9 @@ renderer or panel changes.
   fall-headlong → fall-forward, stand-shoot-bow(-raise/-release) →
   stand-bow-draw(-high) / stand-bow-release, stand-sword-overhead / -high /
   -guard → stand-sword-up / -across-head / -waist, lunge-sword-thrust /
-  -strike → lunge-sword-forward / -down. No old-name mapping: lab saves
-  under the old names (stand-guard, stand-throw, stand-wind-up,
-  stand-stagger-back, leap-dive, fall-headlong) are left as they are and no
-  longer match a repo pose. Walk saves merged (`walk`, `walk-passing`
+  -strike → lunge-sword-forward / -down. No old-name mapping; the six lab saves
+  under old names were re-saved under the new ones (same angles, old
+  saves deleted). Walk saves merged (`walk`, `walk-passing`
   reworked); `stand-look-left` save deleted.
 - **Neck (2026-11-06):** always drawn behind the head (with the head's
   depth unit when the head is behind the torso); 1.5 × the drawn length
