@@ -22,8 +22,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Open the chapter with a location panel**: the place, empty or nearly,
   no action. Reuse an earlier opener when the story returns to a place
   (the forest hut 03.01 → 04.01; Lanka 05.01 → chapter 10).
-- **Size**: 0.75 mostly, 0.5 often, 0.3 for a strip. Never 1 (too tall).
-  The manuscript's "full" means 0.75.
+- **Size**: 0.5 and 0.3 mostly (artist, 2026-11-07); 0.75 **only when the
+  height is used in a particular way** — a fall or flight, looking far up
+  or down, sky-to-ground depth, a towering figure. A 0.75 panel whose
+  figures sit in the bottom half with empty ground above wants to be 0.5
+  or 0.3. Never 1 (too tall). The manuscript's "full" means at most 0.75,
+  and only if it earns the height.
 - **Shot**: `far` by default; `wide` for bigger whole figures, `mid` for
   close (front row cut at the thighs). Layout templates:
   `layouts/<size>-<shot>.svg`.
