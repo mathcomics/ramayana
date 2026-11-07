@@ -141,11 +141,13 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     }
   }
   const RELS = ['before', 'behind', 'beside', 'left-of', 'right-of'];
-  // "on": a figure sits on a prop's seat anchor, at the prop's scale
+  // "on": a figure sits or stands on a prop's anchor, at the prop's scale.
+  // "<prop>" uses the seat anchor; "<prop>#<anchor>" names another (e.g. stand).
   const seatOn = (o) => {
-    const t = props.find((x) => x.name === o.f.on);
-    const seat = t?.def?.anchors?.seat;
-    if (!seat) { issues.push(`${o.name}: "on" needs a prop with a seat in the panel ("${o.f.on}")`); o.f = { ...o.f, on: undefined }; return; }
+    const [tname, aname = 'seat'] = String(o.f.on).split('#');
+    const t = props.find((x) => x.name === tname);
+    const seat = t?.def?.anchors?.[aname];
+    if (!seat) { issues.push(`${o.name}: "on" needs a prop with a "${aname}" anchor in the panel ("${o.f.on}")`); o.f = { ...o.f, on: undefined }; return; }
     if (t.x == null) return;
     o.unit = t.unit * (o.f.scale ?? 1);
     o.halfW = o.halfW1 * o.unit;

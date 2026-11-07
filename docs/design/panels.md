@@ -71,7 +71,7 @@ repeated inside the JSON.
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `back` · `mid` · `front` · `horizon` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. `horizon`: far away, standing on the horizon (16 px per head-unit in a 0.75 panel). |
-| `on` | a prop's name (its `id`, else its `prop`) | Sits the figure on the prop's `seat` anchor, at the prop's scale (`at`, `row`, `lift` are ignored; `scale` still applies). E.g. `"pose": "sit", "on": "throne"`. |
+| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>` | Puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at`, `row`, `lift` are ignored; `scale` still applies). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
@@ -97,10 +97,14 @@ repeated inside the JSON.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
 - Anchors: a group `id="anchors"` in the prop's SVG holds named circles
   (not drawn). `seat`: where a seated figure's hips rest (`on`).
+  `stand`, `stand-left`, `stand-right`: where a standing figure's feet
+  rest (`on` with `#`, e.g. `"on": "kishkindha#stand"`; `ledge` and
+  `kishkindha` have them).
 - Drawn so far: `palace`, `throne`, `golden-deer`, `golden-deer-run`,
   `hut-top`, `trees-top`, `tree-top`, `lanka-island` (from the artist's
   scene layouts, `layouts/scenes/`), `vulture-fly`, `-swoop`, `-fall`,
-  `-stand` (from the artist's Jatayu sheet, `data/props/sheets/`). How to arrange them:
+  `-stand` (from the artist's Jatayu sheet, `data/props/sheets/`),
+  `ledge`, `kishkindha` (rocky; seeded-random outlines, stand anchors). How to arrange them:
   `docs/design/composition.md`.
 
 ### Placement

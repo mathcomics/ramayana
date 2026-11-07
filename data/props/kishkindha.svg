@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Kishkindha: the monkey city's palace on its hill, with the Rishyamukha
+     mountain in front - the flat-topped rock where Hanuman and the exiles
+     watch Sita carried over, and later meet Rama. Rock outlines perturbed
+     with seeded randomness (seed 11; the result is the drawing). Palace in
+     the palace sepia with rounded stupa domes; stone palette from the
+     artist's Lanka layout. 100 px = 1 head-unit; bottom edge on the ground.
+     Anchors: stand-left / stand / stand-right on the plateau (feet); use
+     "on": "kishkindha#stand" etc. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 650" width="1300" height="650">
+  <!-- the city hill -->
+  <path fill="#483737" d="M 380 650 L 419.4 589.7 L 461.5 530.2 L 508.2 467.9 L 522.6 406.7 L 575 345 L 659.8 343.5 L 740.9 347.4 L 823.1 344.4 L 910.4 337.4 L 985.5 337.9 L 1072.1 338.3 L 1158.2 334.4 L 1240 338 L 1300 365 L 1300 650 Z"/>
+  <!-- city wall with crenellations -->
+  <rect fill="#8f5f3f" x="610" y="302" width="640" height="40"/>
+  <path fill="#8f5f3f" d="M618 302v-14h30v14z M698 302v-14h30v14z M1106 302v-14h30v14z M1186 302v-14h30v14z"/>
+  <!-- flanking towers with stupa domes -->
+  <rect fill="#8f5f3f" x="688" y="238" width="72" height="104"/>
+  <path fill="#8f5f3f" d="M688 238 C688 204 706 192 724 192 C742 192 760 204 760 238 Z"/>
+  <path fill="#8f5f3f" d="M721 194 L724 174 L727 194 Z"/>
+  <rect fill="#8f5f3f" x="1080" y="238" width="72" height="104"/>
+  <path fill="#8f5f3f" d="M1080 238 C1080 204 1098 192 1116 192 C1134 192 1152 204 1152 238 Z"/>
+  <path fill="#8f5f3f" d="M1113 194 L1116 174 L1119 194 Z"/>
+  <!-- the palace block and its great dome -->
+  <rect fill="#8f5f3f" x="760" y="190" width="320" height="152"/>
+  <path fill="#8f5f3f" d="M800 190 C800 118 880 92 920 92 C960 92 1040 118 1040 190 Z"/>
+  <path fill="#8f5f3f" d="M916 94 L920 66 L924 94 Z"/>
+  <!-- the gate, dark -->
+  <path fill="#2b2200" d="M895 342 V272 A25 25 0 0 1 945 272 V342 Z"/>
+  <!-- Rishyamukha, in front -->
+  <path fill="#ac9393" d="M 0 650 L 22.8 584.7 L 36.8 524.8 L 68.9 455.2 L 73 383.7 L 90.6 300.4 L 126 258.8 L 138 178 L 177.3 171.3 L 224.4 173.6 L 263.9 176.2 L 309.1 168.3 L 350.9 178.1 L 387.1 164.4 L 425.2 176.5 L 472 170 L 496.2 239.3 L 512.3 307.2 L 553.3 364.2 L 574.3 431.5 L 591.4 516.6 L 635.2 579.4 L 642 650 Z"/>
+  <path fill="#8d7676" d="M 358 179.4 L 466 174.8 L 560 400 L 505 650 L 432 650 L 420 380 Z"/>
+  <path fill="#8d7676" d="M 180 175.4 L 255 179.6 L 235 262 Z"/>
+  <g id="anchors">
+    <circle id="stand-left" cx="172" cy="172.2" r="6" fill="none"/>
+    <circle id="stand" cx="310" cy="168.5" r="6" fill="none"/>
+    <circle id="stand-right" cx="448" cy="173.3" r="6" fill="none"/>
+  </g>
+</svg>
