@@ -1,6 +1,9 @@
 # Pose composition: bases and gestures
 
-2026-11-07 · status: proposal (artist to decide)
+2026-11-07 · status: in progress — the bases are named (`bases` in
+`data/pose-index.json`, 28, one word each, artist's names, 2026-11-07;
+the catalogue below draws them); gestures and the combine step are next;
+render-time composition still deferred.
 
 The three devotion poses were one upper body on three lower bodies:
 stand-palms-joined and kneel-palms-joined share their arms to the
@@ -71,12 +74,14 @@ but starting from the right place instead of from `stand`.
 
 ## The bases, drawn
 
-`node tools/base-catalogue.mjs` draws every distinct lower body with
-stand's upper body on it (48 poses → 32 bases: 0.2 head-units over the
-leg joints, plus the tool's `CURATED` merges where the artist's eye
-overrules the metric — all four lunges are one stance, 2026-11-07; the
-kneel family, the six sword stances, the archery stance and the narrow
-stands each collapse to one). Published:
+`node tools/base-catalogue.mjs` draws every base from the index with
+stand's upper body on it, alphabetically (48 poses → 28 bases). The
+grouping began as a distance measure (0.2 head-units over the rendered
+leg joints) and was finished by the artist's eye, which overruled it
+both ways: the four lunges are one stance though plain lunge sits
+0.56–0.70 from the sword lunges, and walk ≠ stand though they measure
+closer — a stance of its own needs a real lean or a different ground
+contact, not a slight stride or turn. Published:
 https://claude.ai/artifact/9VH3oVabnkmaxNHcwDFLzz — republish the page
 after pose changes.
 

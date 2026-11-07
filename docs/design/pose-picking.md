@@ -24,6 +24,15 @@ like a tag word but aren't (Sita, ready). `wanted` lists poses the scenes
 need that don't exist yet, in the order to make them, each with `until`:
 what to use meanwhile.
 
+`bases` names the distinct lower bodies (legs + `spine.lean` + tail):
+one-word names set by the artist (stand, step, stepback, stepwide,
+stepturn, leanback, leanfront, kneel, lunge …), each with a one-line
+`desc` and the poses that carry it; the first listed is drawn in the
+base catalogue (`node tools/base-catalogue.mjs`, published page in the
+root CLAUDE.md). Every pose belongs to exactly one base (`npm test`
+checks). The bases are the lower axis of pose composition
+(`docs/proposals/2026-11-07-pose-composition.md`).
+
 When a pose is added, renamed or retuned so its meaning changes, its index
 entry changes in the same commit. A pose made from `wanted` moves from
 `wanted` to `poses`.

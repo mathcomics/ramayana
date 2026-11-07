@@ -1,5 +1,5 @@
 {
-  "_doc": "How to find a pose for a scene (docs/design/pose-picking.md). poses: one entry per pose in data/poses.json (same names): desc = what the body does, as seen; ground = what touches the ground (feet, one-knee, seat, front, back, air, feet-hands); hold = hands (right, left) that can carry a prop as the pose stands; use = story moments (tags below); like = nearest other poses. tags: the story moments, each with the words that call for it in a scene line (word stems, matched at the start of a word). notWords: words that start like a tag word but aren't (Sita, ready …). wanted: poses the scenes ask for that don't exist yet, in the order to make them; until = what to use meanwhile. Angles stay in data/poses.json; this file is only for finding.",
+  "_doc": "How to find a pose for a scene (docs/design/pose-picking.md). poses: one entry per pose in data/poses.json (same names): desc = what the body does, as seen; ground = what touches the ground (feet, one-knee, seat, front, back, air, feet-hands); hold = hands (right, left) that can carry a prop as the pose stands; use = story moments (tags below); like = nearest other poses. tags: the story moments, each with the words that call for it in a scene line (word stems, matched at the start of a word). notWords: words that start like a tag word but aren't (Sita, ready …). wanted: poses the scenes ask for that don't exist yet, in the order to make them; until = what to use meanwhile. bases: the distinct lower bodies (legs + lean + tail), one-word names set by the artist, each with desc and the poses that carry it (the first is drawn in the base catalogue); every pose belongs to exactly one base (a test checks). Angles stay in data/poses.json; this file is only for finding.",
   "notWords": [
     "going",
     "gods",
@@ -17,6 +17,36 @@
     "island",
     "standard"
   ],
+  "bases": {
+    "arch": { "desc": "a slight arch back, knees bent", "poses": ["stand-arms-overhead"] },
+    "bend": { "desc": "deep bend from the hips, knees bent", "poses": ["bend-low"] },
+    "chair": { "desc": "seated on a chair or throne, legs down", "poses": ["sit-chair"] },
+    "crawl": { "desc": "low on hands and feet", "poses": ["crawl"] },
+    "crouch": { "desc": "a deep squat", "poses": ["crouch-arms-over-head"] },
+    "fallback": { "desc": "tipped onto the back, legs kicked up", "poses": ["fall-back"] },
+    "fallfront": { "desc": "pitched forward head first", "poses": ["fall-forward"] },
+    "fly": { "desc": "flat in the air, head first", "poses": ["leap-flat"] },
+    "kneel": { "desc": "one knee down, the other foot forward", "poses": ["kneel", "kneel-bow", "kneel-palms-joined"] },
+    "kneeup": { "desc": "upright, one knee lifted", "poses": ["stand-arms-up-knee-up"] },
+    "leanback": { "desc": "leaning far back from the hips, legs braced", "poses": ["stand-lean-back"] },
+    "leanfront": { "desc": "leaning forward, front knee deep in a stride", "poses": ["stand-fists-up"] },
+    "leap": { "desc": "mid-air jump forward, front knee high, back leg trailing", "poses": ["leap"] },
+    "leapup": { "desc": "in the air, legs tucked", "poses": ["leap-reach"] },
+    "lie": { "desc": "flat on the belly", "poses": ["lie-front"] },
+    "lunge": { "desc": "a very long stride, front knee bent deep", "poses": ["lunge", "lunge-sword-down", "lunge-sword-low", "lunge-sword-forward"] },
+    "pass": { "desc": "walking, one leg passing the other", "poses": ["walk-passing"] },
+    "run": { "desc": "a long running stride", "poses": ["run"] },
+    "runlow": { "desc": "a crouched running stride", "poses": ["run-low"] },
+    "runwide": { "desc": "a running stride, the back shin swung high", "poses": ["run-arms-back"] },
+    "sit": { "desc": "on the ground, one knee up, one leg out", "poses": ["sit"] },
+    "sitback": { "desc": "seated leaning back on the hands, legs out", "poses": ["sit-lean-back"] },
+    "stand": { "desc": "upright, feet together", "poses": ["stand-point-up"] },
+    "step": { "desc": "a small open stance, one foot a little ahead", "poses": ["stand", "stand-sword-up", "stand-sword-waist", "stand-sword-forward", "stand-sword-shoulder", "stand-sword-across-head", "stand-sword-behind-head", "stand-sword-hip", "stand-point", "stand-bow-draw", "stand-bow-release", "stand-bow-draw-high", "stand-hand-on-head", "stand-hands-on-hips", "stand-palms-joined"] },
+    "stepback": { "desc": "weight back, one leg stretched behind", "poses": ["stand-step-back", "stand-arm-back"] },
+    "stepturn": { "desc": "stepping back, the body leaning away", "poses": ["stand-arm-over-face"] },
+    "stepwide": { "desc": "a wide stride, weight on the back leg", "poses": ["stand-sword-back"] },
+    "walk": { "desc": "a walking step, back heel up", "poses": ["walk"] }
+  },
   "tags": {
     "stand": {
       "words": [

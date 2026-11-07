@@ -48,6 +48,13 @@ test('pose index: every pose and only those, known tags and neighbours', () => {
     assert.ok(BASES.includes(name.split('-')[0]), `wanted ${name}: base`);
     for (const t of w.use) assert.ok(index.tags[t], `wanted ${name}: unknown tag ${t}`);
   }
+  // bases: single-word names, a desc each, and every pose in exactly one
+  const claimed = Object.entries(index.bases).flatMap(([b, e]) => {
+    assert.match(b, /^[a-z]+$/, `base ${b}: one word`);
+    assert.ok(e.desc, `base ${b}: desc`);
+    return e.poses;
+  });
+  assert.deepEqual([...claimed].sort(), [...names].sort(), 'every pose must belong to exactly one base');
 });
 
 test('characters: known species, hex body, known outfit and cloth', () => {
