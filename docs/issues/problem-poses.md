@@ -30,3 +30,18 @@ these: `docs/issues/rules-to-migrate.md`.
 | two-handed sword poses (front) | all | The other arm is solved to the hilt, so it can cross the chest or bend sharply where the hilt is far to the holding side | Pose lab: holding arm's out / angle so the hilt sits nearer the middle |
 | stand-bow-release (side) | all | With the bow twice as long, the loose string runs far from the body and the arms look short against it | Pose lab: release arm; or a shorter bow (`data/props/held/bow.svg`) |
 | new walk, shoot and sword poses (front) | all | First drafts from reference sheets: legs reaching forward and back have little hip out, so the stride overlaps in front | Pose lab: hip out on the stepping legs |
+
+## From the panel self-review of sections 07–08 (2026-11-07)
+
+Problems seen when the poses are used in panels (renders:
+`node tools/render-panels.mjs 07` / `08`), beyond the missing poses the
+panels already list in `needs`:
+
+| Where | What looks wrong | Where to fix |
+|---|---|---|
+| 07.12, 08.04 (sit with nothing underneath) | The lean-back `sit` on bare ground reads as sliding / reclining, not sitting; with `spine.chest` 30–35 (the "hopeless slump") it reads as collapsing forward or lying | A seat (`on:` a prop) where there is one; a `sit-slump` or `sit-knees-up` pose for sitting on the ground |
+| 07.04 (carried on shoulders) | The two `sit` riders at lift 5.4 cover the carrier's head completely; their stretched legs read as floating | Carried-rider pose (legs hanging, hands on the carrier); place riders so the carrier's head shows between them; already in wanted: walk-carry-shoulder |
+| 07.12 (sit next to stand) | Sugriva's stretched sit legs run through Hanuman's legs: `at` 0.44 and 0.64 are too close for sit's ~2 head-units of leg reach | Panel writing: count a seated figure's reach when spacing `at`; a lint that flags overlapping figure bboxes would catch it |
+| 07.12, 08.03, 08.10 (held / poured props) | Placeholder props placed by `at` + `lift` float near, not in, the hands (jar above the pourer, ring off the palm, umbrella with no bearer) | A `held-by` placement (prop at a figure's hand anchor), like `on:` for seats; until then, read the hand position off the render before setting lift |
+| 08.05 (ready to leap) | The bent-over pose on the mountain reads as searching the ground, not gathering to jump; the gaze points at the feet, not across the sea | Wanted pose crouch-ready (head up, looking out) |
+| Dialogue panels (08.08, 08.10, 08.11) | Figures face each other but no gaze lands: heads stay at the pose's default pitch, so a seated figure looks through a kneeling figure's waist and nobody looks up / down at the one they talk to | Panel writing: adjust `spine.neck` / `spine.head` toward the partner's head; better, a `lookAt` field solved by the renderer |
