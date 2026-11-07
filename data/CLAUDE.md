@@ -17,7 +17,10 @@ wrong: `docs/issues/problem-poses.md`.
   (`import-faces`, `import-parts`, `import-held`); they report
   mismatches for the artist to fix in the drawings.
 - **Props**: art in `data/props/<id>.svg`, 100 px = 1 head-unit, size
-  from the viewBox, anchors (e.g. `seat`) in a group `id="anchors"`.
+  from the viewBox, anchors (`seat` for hips, `stand`/`stand-left`/
+  `stand-right` for feet) in a group `id="anchors"`. A prop that should
+  recolour per use (e.g. `male-top`) names its role colours in its
+  `data/props.json` entry: `"recolor": { "body": "#…", "cloth": "#…" }`.
   Held props (sword, club, bow) in `data/props/held/` with a reference
   `line`, imported by `tools/import-held.mjs`.
 - After any change: regenerate the relevant sheet (contact, parts, face,

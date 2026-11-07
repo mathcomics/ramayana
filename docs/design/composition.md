@@ -17,7 +17,7 @@ action. The same opener can return when the story comes back to a place.
 | 4 Surpanakha | the forest hut from above again (04.01), before she comes | done |
 | 5 The golden deer | Lanka on its island across the sea (05.01, `0.5-lanka`); then Surpanakha before Ravana (05.02) | done |
 | 6 Jatayu | — | to choose |
-| 7 Sugriva and Bali | the rocky hills of Rishyamukha / Kishkindha on the horizon, sky above (07.01; `hills` placeholder) | done |
+| 7 Sugriva and Bali | the rocky hills of Rishyamukha / Kishkindha on the horizon, sky above (07.01; `hills` placeholder — the drawn `kishkindha` prop can take its place in the revisit pass) | done |
 | 8 Hanuman finds Sita | the same hills again (08.01) | done |
 | 10 The bridge | Lanka across the sea, as 05.01 | when chapter 10 is made |
 | 11 The war begins | — | to choose (before Lanka's walls?) |
@@ -61,6 +61,23 @@ action. The same opener can return when the story comes back to a place.
   (0.5-forest)
 - Top-view props are drawn obliquely (roof and one wall, tree canopy above
   its trunk); place them with `lift` (the rows mean little from above).
+- People from above: `male-top` (the artist's standing man — head,
+  shoulders, one arm out, feet). One drawing serves everyone: recolour an
+  instance with `who` (a character id) or `body` / `cloth`
+  (docs/design/panels.md, Recolouring). Held things (bow, begging bowl)
+  will be separate top-view props placed beside it — not drawn yet.
+
+## Kishkindha and rocks
+
+- `kishkindha`: the monkey city's domed palace on its dark hill, with the
+  flat-topped Rishyamukha mountain in front — where the exiles watch Sita
+  carried over (08.05) and later meet Rama. Figures stand on the plateau
+  with `on`: `"kishkindha#stand"` (also `#stand-left`, `#stand-right`).
+  A figure on an anchor takes the prop's scale: for small figures on a
+  big mountain, scale the prop up and give the figure a `scale` below 1.
+- `ledge`: a flat-topped rock for any rocky scene (stand anchors as
+  above; `seat` near its right edge for sitting). Mirror (`facing`) and
+  `scale` it for variety when it repeats.
 
 ## Jatayu
 
@@ -74,4 +91,9 @@ action. The same opener can return when the story comes back to a place.
 
 - Props face right as drawn; `facing: "left"` mirrors them.
 - A prop drawing can carry named points in a group `id="anchors"` (circles):
-  `seat` is where a seated figure's hips rest. They are not drawn.
+  `seat` is where a seated figure's hips rest; `stand`, `stand-left`,
+  `stand-right` are where a standing figure's feet rest (`on`:
+  `"<prop>"` means the seat, `"<prop>#<anchor>"` names another). They
+  are not drawn.
+- A prop registered with `recolor` takes a character's colours (`who`) or
+  explicit `body` / `cloth` per instance (docs/design/panels.md).

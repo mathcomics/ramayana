@@ -95,6 +95,26 @@ renderer or panel changes.
 
 ## Status (2026-11-07)
 
+- **Scene props: Lanka redrawn; ledge, kishkindha, male-top; stand
+  anchors and prop recolouring (2026-11-07):** `lanka-island` redrawn as
+  a small domed palace on its dark mountain (same palette and viewBox;
+  05.01 placement unchanged, snapshot updated). New rocky props with
+  seeded-random outlines: `ledge` (6.2 × 2.3, flat standing top, any
+  rocky scene) and `kishkindha` (13 × 6.5: the monkey city's stupa-domed
+  palace on its hill, flat-topped Rishyamukha in front — the abduction
+  watch and the meeting with Rama). Both carry **stand anchors**
+  (`stand-left` / `stand` / `stand-right`; the ledge also `seat`), and
+  figure `on` now takes `"<prop>#<anchor>"` (default stays `seat`; a
+  figure on an anchor takes the prop's scale). `male-top` = the artist's
+  standing man from above (tight viewBox 1.1 × 0.76), and props can
+  **recolour per use**: a `recolor` map in `data/props.json` (role →
+  drawn colour) + prop fields `who` / `body` / `cloth` (palette names
+  resolve; a pattern suffix keeps the base colour). Panel writers:
+  07.01 / 07.07 / 08.01 (`hills`) and 08.05 (`mountain`) can swap to
+  `kishkindha` in the revisit pass; top-view bow / begging-bowl props
+  and a female/monkey top view are still to draw. Rules:
+  `docs/design/composition.md` (Kishkindha and rocks, Top view),
+  `docs/design/panels.md` (Recolouring, anchors).
 - **Manuscript rewritten as chapter briefs (2026-11-07):**
   `manuscript/scenes.md` v0.5 — no scene lines or panel ids anywhere;
   one brief per chapter (arc, 3–6 beats, Must show / Not shown) plus a
