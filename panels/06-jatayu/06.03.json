@@ -11,10 +11,10 @@
       "layer": "front"
     },
     {
-      "prop": "vulture",
+      "prop": "vulture-fall",
       "at": 0.24,
       "lift": 0.5,
-      "scale": 1.4
+      "scale": 0.7
     }
   ],
   "figures": [
@@ -41,7 +41,7 @@
     }
   ],
   "needs": [
-    "prop: vulture (falling, one wing cut)",
-    "prop: flying chariot"
+    "prop: flying chariot",
+    "prop: vulture with one wing cut (vulture-fall for now)"
   ]
 }

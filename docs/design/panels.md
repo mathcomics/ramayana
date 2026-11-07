@@ -98,8 +98,9 @@ repeated inside the JSON.
 - Anchors: a group `id="anchors"` in the prop's SVG holds named circles
   (not drawn). `seat`: where a seated figure's hips rest (`on`).
 - Drawn so far: `palace`, `throne`, `golden-deer`, `golden-deer-run`,
-  `hut-top`, `trees-top`, `tree-top` (the last five from the artist's scene
-  layouts, `layouts/scenes/`). How to arrange them:
+  `hut-top`, `trees-top`, `tree-top`, `lanka-island` (from the artist's
+  scene layouts, `layouts/scenes/`), `vulture-fly`, `-swoop`, `-fall`,
+  `-stand` (from the artist's Jatayu sheet, `data/props/sheets/`). How to arrange them:
   `docs/design/composition.md`.
 
 ### Placement

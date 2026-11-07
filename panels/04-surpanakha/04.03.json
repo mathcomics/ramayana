@@ -1,10 +1,11 @@
 {
-  "scene": "Lakshman points back to Rama; she looks from one to the other",
+  "scene": "Surpanakha reaches out to Rama; Rama laughs and points to Lakshman",
   "size": 0.75,
   "ground": "sand",
   "figures": [
-    { "who": "rama", "pose": "stand-hands-on-hips", "facing": "right", "at": 0.15, "mouth": 3 },
-    { "who": "surpanakha", "pose": "stand", "facing": "right", "at": 0.47, "mouth": 2, "turn": 90 },
-    { "who": "lakshman", "pose": "stand-point", "facing": "left", "at": 0.82, "mouth": 2 }
+    { "who": "lakshman", "pose": "stand", "facing": "right", "at": 0.16, "mouth": 1 },
+    { "who": "rama", "pose": "stand-point", "facing": "left", "at": 0.48, "mouth": 3, "turn": 90 },
+    { "who": "surpanakha", "pose": "stand-point", "facing": "left", "at": 0.86, "mouth": 2,
+      "hands": { "right": "out" }, "adjust": { "right.arm.shoulder": 75, "spine.lean": 12 } }
   ]
 }

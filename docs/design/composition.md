@@ -4,6 +4,21 @@ How things are arranged in a panel, learned from the artist's scene
 layouts (`layouts/scenes/`, indexed in its README). Each new layout adds
 what it teaches here. Rows, shots and sizes: `docs/design/panels.md`.
 
+## Chapter openers
+
+Each chapter starts with a location panel: the place, empty or nearly, no
+action. The same opener can return when the story comes back to a place.
+
+| Chapter | Opener | Status |
+|---|---|---|
+| 1 Intro | the palace of Ayodhya on the horizon, sky above (01.01) | done |
+| 2 The throne | — | to choose (the throne hall?) |
+| 3 The forest | the forest hut from above (03.01) | done |
+| 4 Surpanakha | the forest hut from above again (04.01), before she comes | done |
+| 5 The golden deer | Lanka on its island across the sea (05.01, `0.5-lanka`); then Surpanakha before Ravana (05.02) | done |
+| 6 Jatayu | — | to choose |
+| 10 The war begins | Lanka across the sea, as 05.01 | when chapter 10 is made |
+
 ## Sky and distance
 
 - An outdoor panel can have a band of sky: panel field `sky` (a colour
@@ -18,6 +33,10 @@ what it teaches here. Rows, shots and sizes: `docs/design/panels.md`.
   "getting away". (0.5-deer-running)
 - A big figure close in front, cut by the panel's edge, with the subject
   small and far: the reader looks with the figure. (0.5-deer)
+
+- A place far away is a small prop on the horizon with nothing else: the
+  sea and the sky are the panel (0.5-lanka; `lanka-island` on row
+  `horizon` is as drawn in a 0.5 panel).
 
 ## Throne and hall
 
@@ -37,6 +56,14 @@ what it teaches here. Rows, shots and sizes: `docs/design/panels.md`.
   (0.5-forest)
 - Top-view props are drawn obliquely (roof and one wall, tree canopy above
   its trunk); place them with `lift` (the rows mean little from above).
+
+## Jatayu
+
+- Four drawn poses (`vulture-fly`, `-swoop`, `-fall`, `-stand`), black
+  silhouettes. The flying ones share a scale (9 head-units wingspan
+  soaring); standing he is 5 head-units, perched in a tree about half
+  that (`scale` 0.5). In the air beside the chariot use `scale` 0.6–0.7.
+  Lying (06.10, 06.11) is not drawn yet (`vulture-lie` placeholder).
 
 ## Props and anchors
 

@@ -1,39 +1,42 @@
 {
-  "scene": "Ravana drags Sita by the hair into his flying chariot",
+  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
   "size": 0.75,
   "ground": "sand",
-  "props": [
-    {
-      "prop": "chariot",
-      "at": 0.84,
-      "layer": "front"
-    }
-  ],
   "figures": [
     {
       "who": "sita",
-      "pose": "stand-step-back",
-      "facing": "left",
-      "at": 0.28,
-      "mouth": 3
-    },
-    {
-      "who": "ravana",
-      "pose": "walk",
+      "pose": "stand-point",
       "facing": "right",
-      "at": 0.52,
-      "mouth": 3,
+      "at": 0.3,
+      "mouth": 2,
       "hands": {
-        "left": "fist"
+        "right": "in"
       },
       "adjust": {
-        "left.arm.shoulder": -75,
-        "left.arm.elbow": 5
+        "right.arm.shoulder": 60,
+        "right.arm.elbow": 30
+      }
+    },
+    {
+      "who": "sage1",
+      "pose": "walk",
+      "facing": "left",
+      "at": 0.72,
+      "id": "ascetic",
+      "mouth": 1,
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "club",
+          "angle": 175
+        },
+        "right.arm.shoulder": 20,
+        "right.arm.elbow": 40
       }
     }
   ],
   "needs": [
-    "prop: flying chariot",
-    "relation: hand in hair"
+    "prop: staff and pot (held)",
+    "prop: fruit",
+    "Ravana's ascetic disguise (sage1 for now)"
   ]
 }

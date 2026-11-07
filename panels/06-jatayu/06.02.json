@@ -11,10 +11,10 @@
       "layer": "front"
     },
     {
-      "prop": "vulture",
+      "prop": "vulture-swoop",
       "at": 0.24,
       "lift": 3,
-      "scale": 1.4
+      "scale": 0.6
     }
   ],
   "figures": [
@@ -36,7 +36,6 @@
     }
   ],
   "needs": [
-    "prop: vulture (claws out)",
     "prop: flying chariot"
   ]
 }

@@ -11,10 +11,10 @@
       "row": "back"
     },
     {
-      "prop": "vulture",
+      "prop": "vulture-fly",
       "at": 0.3,
       "lift": 4,
-      "scale": 1.2
+      "scale": 0.6
     }
   ],
   "figures": [
@@ -41,7 +41,6 @@
     }
   ],
   "needs": [
-    "prop: vulture (wings spread)",
     "prop: flying chariot"
   ]
 }

@@ -8,10 +8,9 @@
       "at": 0.7
     },
     {
-      "prop": "vulture",
+      "prop": "vulture-lie",
       "at": 0.7,
-      "lift": 1.5,
-      "scale": 1.2
+      "lift": 1.5
     }
   ],
   "figures": [
@@ -44,6 +43,6 @@
   ],
   "needs": [
     "prop: pyre",
-    "prop: vulture (lying)"
+    "prop: vulture-lie (lying)"
   ]
 }

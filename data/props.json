@@ -12,7 +12,6 @@
     "hut-top": {"size": [5, 5]},
     "trees-top": {"size": [6, 5]},
     "deer": {"size": [3, 3]},
-    "vulture": {"size": [2.4, 2.4]},
     "golden-deer": {"size": [3, 3]},
     "chariot": {"size": [7, 3]},
     "lanka": {"size": [10, 8]},
@@ -20,6 +19,12 @@
     "jewels": {"size": [0.8, 0.8]},
     "pyre": {"size": [5, 1.5]},
     "golden-deer-run": {"size": [4.7, 5.56]},
-    "tree-top": {"size": [2.54, 3.26]}
+    "tree-top": {"size": [2.54, 3.26]},
+    "vulture-lie": {"size": [5, 2.4]},
+    "vulture-fly": {"size": [9, 7.76]},
+    "vulture-swoop": {"size": [8.83, 7.55]},
+    "vulture-fall": {"size": [5.38, 6.75]},
+    "vulture-stand": {"size": [2.48, 5]},
+    "lanka-island": {"size": [20.09, 3.42]}
   }
 }

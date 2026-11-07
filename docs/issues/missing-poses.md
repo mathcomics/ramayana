@@ -65,5 +65,5 @@ Scenes = scene lines whose words call for the moment. Moments with no pose come 
 - 02.03: sit-hand-on-head (slumped on the throne, hand to the head): sit for now
 - 03.04: sit-cross-legged (sage teaching, raised hand)
 - 03.05: stand-palms-joined
-- 04.11: stand-embrace
-- 05.03: run-bow (running with the bow drawn)
+- 04.12: stand-embrace
+- 05.05: run-bow (running with the bow drawn)

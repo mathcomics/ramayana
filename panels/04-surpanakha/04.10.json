@@ -1,13 +1,16 @@
 {
-  "scene": "A fan of arrows; rakshasas tumble in rows",
+  "scene": "Back: rows of rakshasas charge with spears and maces. Front: Rama alone, bow drawn",
   "size": 0.75,
   "ground": "sand",
   "figures": [
-    { "who": "raxas_m1", "id": "r1", "pose": "fall-back", "facing": "left", "at": 0.6, "row": "back", "mouth": 3, "cloth": "red-diamond" },
-    { "who": "raxas_m1", "id": "r2", "pose": "fall-forward", "facing": "left", "at": 0.86, "row": "back", "mouth": 3, "cloth": "red" },
-    { "who": "raxas_m1", "id": "r3", "pose": "stand-step-back", "facing": "left", "at": 0.62, "row": "mid", "mouth": 3, "cloth": "red-check" },
-    { "who": "raxas_m1", "id": "r4", "pose": "fall-back", "facing": "left", "at": 0.84, "row": "mid", "mouth": 3, "cloth": "red-stripe" },
-    { "who": "rama", "pose": "stand-bow-release", "facing": "right", "at": 0.22, "mouth": 1 }
+    { "who": "raxas_m1", "id": "r1", "pose": "lunge-sword-forward", "facing": "left", "at": 0.6, "row": "back", "mouth": 3, "cloth": "red-check" },
+    { "who": "raxas_m1", "id": "r2", "pose": "run", "facing": "left", "at": 0.76, "row": "back", "mouth": 3, "cloth": "red-diamond",
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": 150 } } },
+    { "who": "raxas_m1", "id": "r3", "pose": "lunge-sword-forward", "facing": "left", "at": 0.92, "row": "back", "mouth": 3, "cloth": "red" },
+    { "who": "raxas_m1", "id": "r4", "pose": "run", "facing": "left", "at": 0.7, "row": "mid", "mouth": 3, "cloth": "red-stripe",
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": 150 } } },
+    { "who": "raxas_m1", "id": "r5", "pose": "lunge-sword-forward", "facing": "left", "at": 0.9, "row": "mid", "mouth": 3, "cloth": "red-check" },
+    { "who": "rama", "pose": "stand-bow-draw", "facing": "right", "at": 0.22, "mouth": 1 }
   ],
-  "needs": ["effect: fan of arrows"]
+  "needs": ["prop: spear (held)"]
 }

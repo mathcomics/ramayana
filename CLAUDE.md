@@ -77,6 +77,18 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Chapter openers, Lanka, Jatayu (2026-11-07):** each chapter starts
+  with a location panel (table in `docs/design/composition.md`). New
+  01-intro/01.01 (palace on the horizon); 04.01 = the forest hut from
+  above (as 03.01); 05.01 = Lanka across the sea (artist's
+  `layouts/scenes/0.5-lanka.svg`, prop `lanka-island`, grounds `sea`,
+  `mist`). Renumbered: 04.01–04.11 → 04.02–04.12; 04.12 (Surpanakha
+  before Ravana) → 05.02; 05.01–05.09 → 05.03–05.11. Chapter 10 opens
+  with the same Lanka when made. Jatayu sheet
+  (`data/props/sheets/jatayu.svg`) → props `vulture-fly`, `-swoop`,
+  `-fall` (mirrored to face right), `-stand`; used in 03.05, 06.01–06.03;
+  `vulture` placeholder → `vulture-lie` (06.10, 06.11). The manuscript
+  (separate conversation) needs the same openers and renumbering.
 - **Scene layouts, prop art, sky, seat (2026-11-07):** the artist's four
   compositions kept as drawn in `layouts/scenes/` (0.5-forest,
   0.5-lanka-throne, 0.5-deer, 0.5-deer-running; index with what each suits

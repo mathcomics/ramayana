@@ -4,9 +4,8 @@
   "ground": "sand",
   "props": [
     {
-      "prop": "vulture",
-      "at": 0.76,
-      "scale": 1.3
+      "prop": "vulture-lie",
+      "at": 0.76
     }
   ],
   "figures": [
@@ -30,6 +29,6 @@
     }
   ],
   "needs": [
-    "prop: vulture (lying, one wing raised)"
+    "prop: vulture-lie (lying, one wing raised)"
   ]
 }

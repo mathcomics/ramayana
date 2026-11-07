@@ -1,14 +1,13 @@
 {
-  "scene": "Rama stands among the fallen; Sita runs out and embraces him",
+  "scene": "A fan of arrows; rakshasas tumble in rows",
   "size": 0.75,
   "ground": "sand",
   "figures": [
-    { "who": "raxas_m1", "id": "f1", "pose": "lie-front", "facing": "right", "at": 0.82, "mouth": 1, "cloth": "red-check", "scale": 0.9 },
-    { "who": "lakshman", "pose": "walk", "facing": "right", "at": 0.16, "mouth": 1 },
-    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.56, "mouth": 2 },
-    { "who": "sita", "pose": "stand", "facing": "right", "at": 0.41, "mouth": 2,
-      "hands": { "right": "in", "left": "in" },
-      "adjust": { "spine.lean": 10, "right.arm.shoulder": 75, "right.arm.elbow": 60, "left.arm.shoulder": 75, "left.arm.elbow": 60 } }
+    { "who": "raxas_m1", "id": "r1", "pose": "fall-back", "facing": "left", "at": 0.6, "row": "back", "mouth": 3, "cloth": "red-diamond" },
+    { "who": "raxas_m1", "id": "r2", "pose": "fall-forward", "facing": "left", "at": 0.86, "row": "back", "mouth": 3, "cloth": "red" },
+    { "who": "raxas_m1", "id": "r3", "pose": "stand-step-back", "facing": "left", "at": 0.62, "row": "mid", "mouth": 3, "cloth": "red-check" },
+    { "who": "raxas_m1", "id": "r4", "pose": "fall-back", "facing": "left", "at": 0.84, "row": "mid", "mouth": 3, "cloth": "red-stripe" },
+    { "who": "rama", "pose": "stand-bow-release", "facing": "right", "at": 0.22, "mouth": 1 }
   ],
-  "needs": ["pose: stand-embrace"]
+  "needs": ["effect: fan of arrows"]
 }

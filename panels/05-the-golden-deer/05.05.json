@@ -1,32 +1,27 @@
 {
-  "scene": "Sita pushes Lakshman to go; he goes, looking back",
+  "scene": "Back: the deer leaps away. Front: Rama runs after it, bow in hand",
   "size": 0.75,
-  "ground": "sand",
+  "ground": "dry-grass",
   "props": [
     {
-      "prop": "hut",
-      "at": 0.2,
-      "row": "back"
+      "prop": "golden-deer-run",
+      "at": 0.8,
+      "row": "horizon"
     }
   ],
   "figures": [
     {
-      "who": "sita",
-      "pose": "stand-point",
+      "who": "rama",
+      "pose": "run",
       "facing": "right",
-      "at": 0.3,
-      "mouth": 3
-    },
-    {
-      "who": "lakshman",
-      "pose": "walk",
-      "facing": "right",
-      "at": 0.72,
-      "mouth": 2,
-      "turn": 90
+      "at": 0.42,
+      "mouth": 2
     }
   ],
   "needs": [
-    "prop: hut"
-  ]
+    "pose: run-bow (running with the bow drawn)",
+    "prop: bow in hand while running"
+  ],
+  "sky": "sky",
+  "layout": "scenes/0.5-deer-running"
 }

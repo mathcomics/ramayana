@@ -1,10 +1,10 @@
 {
-  "scene": "She falls at the feet of a rakshasa lord (Khara), pointing back",
-  "size": 0.75,
-  "ground": "geru",
+  "scene": "She runs off, arms in the air, mouth wide",
+  "size": 0.5,
+  "ground": "sand",
   "figures": [
-    { "who": "raxas_m1", "id": "khara", "pose": "stand-hands-on-hips", "facing": "left", "at": 0.72, "mouth": 2, "scale": 1.1, "cloth": "red-diamond" },
-    { "who": "surpanakha", "pose": "kneel", "facing": "right", "at": 0.36, "mouth": 3,
-      "hands": { "left": "point" }, "adjust": { "left.arm.shoulder": -70, "left.arm.elbow": 0 } }
+    { "who": "surpanakha", "pose": "run", "facing": "left", "at": 0.45, "mouth": 3,
+      "hands": { "right": "out", "left": "out" },
+      "adjust": { "right.arm.shoulder": 165, "right.arm.elbow": 20, "left.arm.shoulder": 150, "left.arm.elbow": 30 } }
   ]
 }

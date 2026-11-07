@@ -1,16 +1,12 @@
 {
-  "scene": "Back: the hut and the three. Front: Surpanakha watches them from behind a tree",
+  "scene": "Opening: the forest hut from above (as 03.01), before Surpanakha comes",
   "size": 0.75,
-  "ground": "sand",
+  "ground": "sage",
+  "layout": "scenes/0.5-forest",
   "props": [
-    { "prop": "hut", "at": 0.7, "row": "back" },
-    { "prop": "tree", "at": 0.2, "layer": "front", "nudge": 0.6 }
+    { "prop": "trees-top", "id": "trees-nw", "at": 0.257, "scale": 0.4, "lift": 20 },
+    { "prop": "hut-top", "at": 0.505, "scale": 0.4, "lift": 11.35 },
+    { "prop": "trees-top", "id": "trees-se", "at": 0.743, "scale": 0.4, "lift": 0.45 }
   ],
-  "figures": [
-    { "who": "lakshman", "pose": "stand-hands-on-hips", "facing": "right", "at": 0.36, "row": "back", "mouth": 1 },
-    { "who": "sita", "pose": "stand", "facing": "right", "at": 0.47, "row": "back", "mouth": 1 },
-    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.57, "row": "back", "mouth": 1 },
-    { "who": "surpanakha", "pose": "bend-low", "facing": "right", "at": 0.2, "mouth": 1, "turn": 0 }
-  ],
-  "needs": ["prop: hut", "prop: tree"]
+  "figures": []
 }

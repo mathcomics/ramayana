@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lanka: the golden city on its dark island, seen far off across the sea; from the artist's layout layouts/scenes/0.5-lanka.svg.
+     Sized for the horizon row (as drawn in a 0.5 panel).
+     100 px = 1 head-unit; the bottom edge sits on the ground line.
+     The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="0 0 2009.34 342.38" width="2009.34" height="342.38">
+<g transform="scale(9.375) translate(-108.3 -190.77)">
+<rect
+     style="fill:#ac9393;stroke-width:0.999996"
+     id="rect608-2-6-0"
+     width="59.300846"
+     height="10.105932"
+     x="172.46822"
+     y="193.25214" />
+<rect
+     style="fill:#d4aa00;stroke-width:1"
+     id="rect608-2"
+     width="19.258474"
+     height="13.919492"
+     x="154.63985"
+     y="194.68219" />
+<rect
+     style="fill:#d4aa00;stroke-width:1"
+     id="rect608-2-3"
+     width="19.258474"
+     height="19.067797"
+     x="188.10382"
+     y="190.77332" />
+<rect
+     style="fill:#ac9393;stroke-width:1"
+     id="rect608-2-6"
+     width="9.3432198"
+     height="13.919492"
+     x="193.82416"
+     y="196.68433" />
+<rect
+     style="fill:#1a1a1a;fill-opacity:1;stroke-width:1"
+     id="rect608-2-6-5"
+     width="5.5296602"
+     height="11.059322"
+     x="195.73094"
+     y="200.11653" />
+<rect
+     style="fill:#ffd42a;stroke-width:1"
+     id="rect608"
+     width="54.152542"
+     height="9.9152546"
+     x="138.05086"
+     y="200.21187" />
+<rect
+     style="fill:#d4aa00;stroke-width:1"
+     id="rect608-6-2"
+     width="38.135593"
+     height="13.156779"
+     x="209.36441"
+     y="195.25421" />
+<rect
+     style="fill:#ffd42a;stroke-width:1"
+     id="rect608-6"
+     width="54.152542"
+     height="9.1525421"
+     x="204.78813"
+     y="200.40253" />
+<path
+     style="fill:#1a1a1a"
+     d="m 108.30509,227.28814 214.32203,-0.38136 -63.68644,-18.30508 c 0,0 -121.27119,-0.38136 -123.55932,0.38135 -2.28814,0.76271 -27.07627,18.30509 -27.07627,18.30509 z"
+     id="path347" />
+</g>
+</svg>

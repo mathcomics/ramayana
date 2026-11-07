@@ -1,26 +1,43 @@
 {
-  "scene": "The arrow hits; the deer turns back into a rakshasa, falling and shouting",
+  "scene": "Back: the hut. Front: a golden deer steps out of the trees; Sita points at it",
   "size": 0.75,
   "ground": "sand",
+  "zoom": 0.75,
+  "props": [
+    {
+      "prop": "hut",
+      "at": 0.72,
+      "row": "back"
+    },
+    {
+      "prop": "tree",
+      "at": 0.08,
+      "layer": "front"
+    },
+    {
+      "prop": "golden-deer",
+      "at": 0.3,
+      "scale": 0.7
+    }
+  ],
   "figures": [
     {
       "who": "rama",
-      "pose": "stand-bow-release",
-      "facing": "right",
-      "at": 0.22,
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.82,
       "mouth": 1
     },
     {
-      "who": "raxas_m1",
-      "pose": "fall-back",
+      "who": "sita",
+      "pose": "stand-point",
       "facing": "left",
-      "at": 0.68,
-      "id": "maricha",
-      "cloth": "white",
-      "mouth": 3
+      "at": 0.64,
+      "mouth": 2
     }
   ],
   "needs": [
-    "effect: arrow in flight"
+    "prop: hut",
+    "prop: tree"
   ]
 }

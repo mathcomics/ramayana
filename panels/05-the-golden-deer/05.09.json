@@ -1,47 +1,25 @@
 {
-  "scene": "Back: the chariot rises into the sky, Sita reaching down. Front: the empty hut",
+  "scene": "The ascetic becomes Ravana; Sita recoils",
   "size": 0.75,
-  "ground": "sky-blue",
-  "props": [
-    {
-      "prop": "hut",
-      "at": 0.5,
-      "scale": 0.6
-    },
-    {
-      "prop": "chariot",
-      "at": 0.5,
-      "lift": 8,
-      "layer": "front",
-      "row": "back"
-    }
-  ],
+  "ground": "sand",
   "figures": [
     {
-      "who": "ravana",
-      "pose": "stand",
+      "who": "sita",
+      "pose": "stand-arm-over-face",
       "facing": "right",
-      "at": 0.58,
-      "mouth": 3,
-      "lift": 8.6,
-      "row": "back"
+      "at": 0.24,
+      "mouth": 3
     },
     {
-      "who": "sita",
-      "pose": "stand-point",
+      "who": "ravana",
+      "pose": "stand-arms-up-knee-up",
       "facing": "left",
-      "at": 0.42,
+      "at": 0.68,
       "mouth": 3,
-      "adjust": {
-        "right.arm.shoulder": 30,
-        "right.arm.elbow": 0
-      },
-      "lift": 8.6,
-      "row": "back"
+      "scale": 1.1
     }
   ],
   "needs": [
-    "prop: flying chariot",
-    "prop: hut"
+    "Ravana's ten heads"
   ]
 }

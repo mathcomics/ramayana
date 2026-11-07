@@ -1,27 +1,34 @@
 {
-  "scene": "Back: the deer leaps away. Front: Rama runs after it, bow in hand",
+  "scene": "Ravana orders the rakshasa hermit Maricha; Maricha raises his hands, refusing; Ravana lifts his sword",
   "size": 0.75,
-  "ground": "dry-grass",
-  "props": [
-    {
-      "prop": "golden-deer-run",
-      "at": 0.8,
-      "row": "horizon"
-    }
-  ],
+  "ground": "dusty-pink",
   "figures": [
     {
-      "who": "rama",
-      "pose": "run",
+      "who": "raxas_m1",
+      "pose": "stand-step-back",
+      "facing": "left",
+      "at": 0.74,
+      "id": "maricha",
+      "cloth": "white",
+      "mouth": 2,
+      "hands": {
+        "right": "out",
+        "left": "out"
+      },
+      "adjust": {
+        "right.arm.shoulder": 130,
+        "right.arm.elbow": 40,
+        "left.arm.shoulder": 110,
+        "left.arm.elbow": 40
+      }
+    },
+    {
+      "who": "ravana",
+      "pose": "stand-sword-shoulder",
       "facing": "right",
-      "at": 0.42,
-      "mouth": 2
+      "at": 0.3,
+      "mouth": 3,
+      "scale": 1.05
     }
-  ],
-  "needs": [
-    "pose: run-bow (running with the bow drawn)",
-    "prop: bow in hand while running"
-  ],
-  "sky": "sky",
-  "layout": "scenes/0.5-deer-running"
+  ]
 }

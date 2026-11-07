@@ -1,15 +1,10 @@
 {
-  "scene": "Rama sends Lakshman and Sita into a cave and strings his bow",
+  "scene": "She falls at the feet of a rakshasa lord (Khara), pointing back",
   "size": 0.75,
-  "ground": "sand",
-  "props": [
-    { "prop": "cave", "at": 0.2 }
-  ],
+  "ground": "geru",
   "figures": [
-    { "who": "sita", "pose": "walk", "facing": "left", "at": 0.33, "mouth": 1 },
-    { "who": "lakshman", "pose": "walk-passing", "facing": "left", "at": 0.5, "mouth": 1 },
-    { "who": "rama", "pose": "stand-point", "facing": "left", "at": 0.8, "mouth": 2,
-      "adjust": { "left.arm.prop": { "kind": "bow", "angle": 90 }, "left.arm.shoulder": 60, "left.arm.elbow": 20 } }
-  ],
-  "needs": ["prop: cave"]
+    { "who": "raxas_m1", "id": "khara", "pose": "stand-hands-on-hips", "facing": "left", "at": 0.72, "mouth": 2, "scale": 1.1, "cloth": "red-diamond" },
+    { "who": "surpanakha", "pose": "kneel", "facing": "right", "at": 0.36, "mouth": 3,
+      "hands": { "left": "point" }, "adjust": { "left.arm.shoulder": -70, "left.arm.elbow": 0 } }
+  ]
 }

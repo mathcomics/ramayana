@@ -1,42 +1,26 @@
 {
-  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
+  "scene": "The arrow hits; the deer turns back into a rakshasa, falling and shouting",
   "size": 0.75,
   "ground": "sand",
   "figures": [
     {
-      "who": "sita",
-      "pose": "stand-point",
+      "who": "rama",
+      "pose": "stand-bow-release",
       "facing": "right",
-      "at": 0.3,
-      "mouth": 2,
-      "hands": {
-        "right": "in"
-      },
-      "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 30
-      }
+      "at": 0.22,
+      "mouth": 1
     },
     {
-      "who": "sage1",
-      "pose": "walk",
+      "who": "raxas_m1",
+      "pose": "fall-back",
       "facing": "left",
-      "at": 0.72,
-      "id": "ascetic",
-      "mouth": 1,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club",
-          "angle": 175
-        },
-        "right.arm.shoulder": 20,
-        "right.arm.elbow": 40
-      }
+      "at": 0.68,
+      "id": "maricha",
+      "cloth": "white",
+      "mouth": 3
     }
   ],
   "needs": [
-    "prop: staff and pot (held)",
-    "prop: fruit",
-    "Ravana's ascetic disguise (sage1 for now)"
+    "effect: arrow in flight"
   ]
 }

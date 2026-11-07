@@ -1,11 +1,16 @@
 {
-  "scene": "Surpanakha reaches out to Rama; Rama laughs and points to Lakshman",
+  "scene": "Back: the hut and the three. Front: Surpanakha watches them from behind a tree",
   "size": 0.75,
   "ground": "sand",
+  "props": [
+    { "prop": "hut", "at": 0.7, "row": "back" },
+    { "prop": "tree", "at": 0.2, "layer": "front", "nudge": 0.6 }
+  ],
   "figures": [
-    { "who": "lakshman", "pose": "stand", "facing": "right", "at": 0.16, "mouth": 1 },
-    { "who": "rama", "pose": "stand-point", "facing": "left", "at": 0.48, "mouth": 3, "turn": 90 },
-    { "who": "surpanakha", "pose": "stand-point", "facing": "left", "at": 0.86, "mouth": 2,
-      "hands": { "right": "out" }, "adjust": { "right.arm.shoulder": 75, "spine.lean": 12 } }
-  ]
+    { "who": "lakshman", "pose": "stand-hands-on-hips", "facing": "right", "at": 0.36, "row": "back", "mouth": 1 },
+    { "who": "sita", "pose": "stand", "facing": "right", "at": 0.47, "row": "back", "mouth": 1 },
+    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.57, "row": "back", "mouth": 1 },
+    { "who": "surpanakha", "pose": "bend-low", "facing": "right", "at": 0.2, "mouth": 1, "turn": 0 }
+  ],
+  "needs": ["prop: hut", "prop: tree"]
 }

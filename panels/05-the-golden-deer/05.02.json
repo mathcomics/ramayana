@@ -1,43 +1,37 @@
 {
-  "scene": "Back: the hut. Front: a golden deer steps out of the trees; Sita points at it",
+  "scene": "In Lanka, Surpanakha shows Ravana her face; he rises from his throne in rage",
   "size": 0.75,
-  "ground": "sand",
-  "zoom": 0.75,
+  "ground": "geru",
   "props": [
     {
-      "prop": "hut",
-      "at": 0.72,
-      "row": "back"
-    },
-    {
-      "prop": "tree",
-      "at": 0.08,
-      "layer": "front"
-    },
-    {
-      "prop": "golden-deer",
-      "at": 0.3,
-      "scale": 0.7
+      "prop": "throne",
+      "at": 0.84,
+      "row": "mid"
     }
   ],
   "figures": [
     {
-      "who": "rama",
-      "pose": "stand",
-      "facing": "left",
-      "at": 0.82,
-      "mouth": 1
+      "who": "surpanakha",
+      "pose": "kneel",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 3,
+      "turn": 0,
+      "hands": {
+        "right": "out"
+      },
+      "adjust": {
+        "right.arm.shoulder": 120,
+        "right.arm.elbow": 120
+      }
     },
     {
-      "who": "sita",
+      "who": "ravana",
       "pose": "stand-point",
       "facing": "left",
-      "at": 0.64,
-      "mouth": 2
+      "at": 0.68,
+      "mouth": 3,
+      "scale": 1.05
     }
-  ],
-  "needs": [
-    "prop: hut",
-    "prop: tree"
   ]
 }
