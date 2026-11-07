@@ -57,7 +57,20 @@ export function loadProps() {
     const text = readFileSync(f, 'utf8');
     const vb = text.match(/viewBox="([^"]+)"/)[1].split(/[\s,]+/).map(Number);
     def.size = [vb[2] / 100, vb[3] / 100];
-    def.svg = `<g transform="scale(0.01) translate(${-vb[0]} ${-vb[1]})">${backgroundInner(text)}</g>`;
+    // a group id="anchors" holds named points (circles), e.g. seat; not drawn
+    const anch = text.match(/<g\b[^>]*id="anchors"[^>]*>([\s\S]*?)<\/g>/);
+    if (anch) {
+      def.anchors = {};
+      for (const c of anch[1].matchAll(/<circle\b[^>]*>/g)) {
+        const a = (k) => c[0].match(new RegExp(`\\b${k}="([^"]+)"`))?.[1];
+        if (a('id')) def.anchors[a('id')] = [(Number(a('cx')) - vb[0]) / 100, (Number(a('cy')) - vb[1]) / 100];
+      }
+    }
+    const drawing = text.replace(/<g\b[^>]*id="anchors"[^>]*>[\s\S]*?<\/g>/, '');
+    // a prop can appear many times on a page: drop its ids unless something refers to them
+    let inner = backgroundInner(drawing);
+    if (!/url\(#|href=/.test(inner)) inner = inner.replace(/\s+id="[^"]*"/g, '');
+    def.svg = `<g transform="scale(0.01) translate(${-vb[0]} ${-vb[1]})">${inner}</g>`;
   }
   return reg;
 }

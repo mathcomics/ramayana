@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Clump of five trees seen from above, from the artist's layout layouts/scenes/0.5-forest.svg (top-left clump; the bottom-right one is the same).
+     100 px = 1 head-unit; the bottom edge sits on the ground line.
+     The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="0 0 917.88 640.96" width="917.88" height="640.96">
+<g transform="scale(6.501951) translate(-22.11 -5.43)">
+<rect
+       style="fill:#484537;stroke:none"
+       id="rect4370"
+       width="9.1684189"
+       height="17.2582"
+       x="36.673676"
+       y="83.055084" />
+<circle
+       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+       id="path4040"
+       cx="41.612061"
+       cy="69.656654"
+       r="19.5" />
+<rect
+       style="fill:#484537;stroke:none"
+       id="rect4370-8"
+       width="9.1684189"
+       height="17.2582"
+       x="109.14301"
+       y="38.326382" />
+<rect
+       style="fill:#484537;stroke:none"
+       id="rect4370-4"
+       width="9.1684189"
+       height="17.2582"
+       x="86.968407"
+       y="51.67606" />
+<circle
+       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+       id="path4040-8"
+       cx="114.08139"
+       cy="24.927954"
+       r="19.5" />
+<circle
+       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+       id="path4040-5"
+       cx="91.906784"
+       cy="38.277622"
+       r="19.5" />
+<rect
+       style="fill:#484537;stroke:none"
+       id="rect4370-2"
+       width="9.1684189"
+       height="17.2582"
+       x="66.375175"
+       y="86.760796" />
+<circle
+       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+       id="path4040-0"
+       cx="71.31356"
+       cy="73.362366"
+       r="19.5" />
+<rect
+       style="fill:#484537;stroke:none"
+       id="rect4370-2-2"
+       width="9.1684189"
+       height="17.2582"
+       x="138.84451"
+       y="42.032093" />
+<circle
+       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+       id="path4040-0-9"
+       cx="143.7829"
+       cy="28.633665"
+       r="19.5" />
+</g>
+</svg>

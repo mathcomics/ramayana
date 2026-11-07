@@ -77,6 +77,21 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Scene layouts, prop art, sky, seat (2026-11-07):** the artist's four
+  compositions kept as drawn in `layouts/scenes/` (0.5-forest,
+  0.5-lanka-throne, 0.5-deer, 0.5-deer-running; index with what each suits
+  in its README; panel field `layout` names the one followed). Props
+  extracted unchanged (outer scale only) into `data/props/`: `throne`
+  (seat anchor), `golden-deer`, `golden-deer-run`, `hut-top`, `trees-top`,
+  `tree-top`. Arranging rules: `docs/design/composition.md` (grows with
+  each new layout). Renderer: panel `sky` + `horizon` (default 0.37), row
+  `horizon` (16 px/head-unit at 0.75), figure `on: "<prop>"` (sits on its
+  `seat`), prop `facing: left`; prop anchors in a group `id="anchors"`;
+  prop ids stripped. New grounds sage, dry-grass, dark-green, stone-grey,
+  sky. Panels: 03.01 from the forest layout, 05.03 sky + leaping deer on
+  the horizon, 05.02 deer art, thrones in the mid row (02.01–02.03,
+  04.12), 02.03 king seated on the throne (`sit`; wants
+  sit-hand-on-head). His gold crown vanishes against the gold throne back.
 - **Panel sizes 0.75 / 0.5 / 0.3 (2026-11-07):** no full-screen panels
   (too tall); `SIZES` in `src/scene.js`, any other size is an issue. The
   eleven size-1 panels (02.05, 03.01, 04.01, 04.09, 05.02, 05.03, 05.09,

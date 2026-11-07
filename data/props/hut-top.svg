@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hut seen from above (oblique), from the artist's layout layouts/scenes/0.5-forest.svg.
+     100 px = 1 head-unit; the bottom edge sits on the ground line.
+     The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="0 0 500 406.37" width="500" height="406.37">
+<g transform="scale(6.501951) translate(-143.2 -147.4)">
+<g
+       id="g3701"><path
+         style="fill:#552200;stroke:#241f1c;stroke-width:1"
+         d="m 203.72765,158.61121 16.31439,18.6338 -16.71888,3.08658 -8.49427,-20.69152 z"
+         id="path3647" /><path
+         style="fill:#fff6d5;stroke:#241f1c;stroke-width:1"
+         d="m 184.58184,175.53024 0.67414,34.40965 28.44907,-15.89017 -0.40449,-18.97676 -15.9099,-15.20425 z"
+         id="path3380" /><path
+         style="fill:#fff6d5;stroke:#241f1c;stroke-width:1"
+         d="m 149.66095,175.18728 -0.26966,21.37743 c 12.69828,2.14835 24.18288,7.38385 35.46021,13.14655 l 0.40448,-30.63717 z"
+         id="path3378"
+         sodipodi:nodetypes="ccccc" /><path
+         style="fill:#aa4400;stroke:#241f1c;stroke-width:1"
+         d="m 172.17751,147.40806 -28.98839,27.6649 c 15.09456,0.78109 28.77996,3.65306 38.1568,12.91792 l 23.05588,-29.72263 z"
+         id="path3376"
+         sodipodi:nodetypes="ccccc" /><path
+         style="fill:#552200;stroke:#241f1c;stroke-width:1"
+         d="m 194.28957,204.32656 c 0.13483,-0.45726 -0.40449,-17.4513 -0.40449,-17.4513 l 6.20217,-2.62932 0.4719,16.6511 z"
+         id="path3382"
+         sodipodi:nodetypes="ccccc" /><path
+         style="fill:#552200;stroke:#241f1c;stroke-width:1"
+         d="m 156.53725,189.93428 -0.13482,-7.31634 6.74148,1.44511 -0.13483,7.24304 z"
+         id="path3384"
+         sodipodi:nodetypes="ccccc" /><path
+         style="fill:#552200;stroke:#241f1c;stroke-width:1"
+         d="m 172.65474,194.67004 0.26967,-7.04667 5.52801,1.98443 v 6.97338 z"
+         id="path3384-2"
+         sodipodi:nodetypes="ccccc" /><path
+         style="fill:#552200;stroke:#241f1c;stroke-width:1"
+         d="m 210.52954,187.42423 -0.26967,-7.04667 -5.52801,2.79341 v 6.97338 z"
+         id="path3384-2-8"
+         sodipodi:nodetypes="ccccc" /></g>
+</g>
+</svg>

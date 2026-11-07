@@ -1,11 +1,16 @@
 {
-  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex.",
+  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex. A panel's \"sky\" (above the horizon) takes the same names.",
   "default": "off-white",
   "grounds": {
     "off-white": "#f2ece1",
     "dusty-pink": "#e9cfc4",
     "sky-blue": "#cfe0e6",
     "sand": "#e8dcc0",
-    "geru": "#9c4a2f"
+    "geru": "#9c4a2f",
+    "sage": "#9dac93",
+    "dry-grass": "#a7ac93",
+    "dark-green": "#5d6c53",
+    "stone-grey": "#b3b3b3",
+    "sky": "#00aad4"
   }
 }

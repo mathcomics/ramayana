@@ -24,8 +24,13 @@ from its silhouette alone.
 ## 3. Surface
 
 - Grounds: flat paper colours (off-white, dusty pink, sky blue; geru
-  red-brown as an optional traditional theme). Ground colour is a scene
-  parameter.
+  red-brown as an optional traditional theme; from the artist's scene
+  layouts: sage, dry grass, dark green, stone grey). Ground colour is a
+  scene parameter.
+- Sky: an outdoor panel may have a flat band of sky (`sky`, a saturated
+  blue) above a straight horizon a little above a third of the way up.
+  Things far away are small and stand on the horizon. Arranging panels:
+  `docs/design/composition.md` (from the artist's `layouts/scenes/`).
 - Edges: slightly irregular; a torn or wavy paper edge is allowed as a panel
   treatment.
 - No gradients, no outlines around filled shapes (a faint pencil-like halo
@@ -381,10 +386,14 @@ alphabetically.
     hilt just below the holding hand.
 - Scene props (throne, chariot, trees) are placed by the panel, not the
   pose (`docs/design/panels.md`).
-  A scene prop is a flat drawing in one colour, no outlines, its openings
+  A scene prop is a flat drawing in a few flat colours, its openings
   (arches, windows) cut out so the ground shows through; only the main
   masses, readable at phone size (`data/props/<id>.svg`, 100 px = 1
-  head-unit, bottom edge on the ground).
+  head-unit, bottom edge on the ground). The artist's props are used as
+  drawn (the top-view hut has thin dark edges; the throne is a gold back
+  on dark steps; the golden deer is one yellow silhouette). Props face
+  right; a panel can mirror them. A seat is marked in the drawing
+  (`anchors`), and a figure sits on it.
 - Later: fire (layered yellow/orange/red flame curls with black strokes),
   mace, stones, banners.
 

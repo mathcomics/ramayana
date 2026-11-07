@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Throne with steps, from the artist's layout layouts/scenes/0.5-lanka-throne.svg (scaled by the man seated on it).
+     anchors: seat = where a seated figure's hips rest (figure "on": "throne").
+     100 px = 1 head-unit; the bottom edge sits on the ground line.
+     The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="0 0 545.11 733.7" width="545.11" height="733.7">
+<g transform="scale(5.434783) translate(-124.32 -110.53)">
+<g
+       id="throne"
+       inkscape:label="throne"
+       transform="translate(0,56)">
+      <rect
+         style="fill:#2b2200;stroke-width:0.999998"
+         id="rect6254"
+         width="46.144066"
+         height="24.788136"
+         x="149.11018"
+         y="134.61864" />
+      <rect
+         style="fill:#ffcc00;stroke-width:1"
+         id="rect6254-1"
+         width="46.144066"
+         height="80.084747"
+         x="148.91948"
+         y="54.533901" />
+      <rect
+         style="fill:#2b2200;stroke-width:0.999998"
+         id="rect6254-0"
+         width="69.406776"
+         height="8.3898306"
+         x="138.24152"
+         y="160.93221" />
+      <rect
+         style="fill:#2b2200;stroke-width:0.999998"
+         id="rect6254-0-1"
+         width="85.805077"
+         height="8.3898306"
+         x="130.42374"
+         y="171.22881" />
+      <rect
+         style="fill:#2b2200;stroke-width:0.999998"
+         id="rect6254-0-4"
+         width="100.29661"
+         height="8.3898306"
+         x="124.32204"
+         y="181.14407" />
+    </g>
+</g>
+<g id="anchors">
+<circle id="seat" cx="262.66" cy="569.95" r="12" fill="#e0457b"/>
+</g>
+</svg>

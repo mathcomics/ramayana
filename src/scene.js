@@ -42,6 +42,12 @@ export const SHOTS = {
   },
 };
 export const ROWS = SHOTS.far;
+// The horizon (panel field `horizon`, default HORIZON): height above the
+// bottom edge as a share of the panel. Row "horizon" stands things on it,
+// far away: HORIZON_UNIT px per head-unit in a 0.75 panel (from the
+// artist's 0.5-deer-running layout); `scale` for nearer things.
+export const HORIZON = 0.37;
+export const HORIZON_UNIT = 16;
 const REF_H = 540;
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -67,9 +73,16 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   const ground = grounds[panel.ground] || panel.ground || grounds[assets.grounds?.default] || '#efe8db';
   if (panel.ground && !grounds[panel.ground] && !/^#/.test(panel.ground)) issues.push(`ground "${panel.ground}" not in data/grounds.json`);
 
+  // sky: a colour above the horizon (a ground name or a hex); horizon = its
+  // height above the panel's bottom edge, as a share of the panel height
+  const sky = panel.sky ? (grounds[panel.sky] || panel.sky) : null;
+  if (panel.sky && !grounds[panel.sky] && !/^#/.test(panel.sky)) issues.push(`sky "${panel.sky}" not in data/grounds.json`);
+  const horizonY = H * (1 - (panel.horizon ?? HORIZON));
+
   const shot = SHOTS[panel.shot ?? 'far'] || SHOTS.far;
   if (panel.shot && !SHOTS[panel.shot]) issues.push(`shot "${panel.shot}" unknown (${Object.keys(SHOTS).join(' | ')})`);
   const row = (r = 'front') => {
+    if (r === 'horizon') return { y: horizonY, unit: HORIZON_UNIT * H / REF_H };
     if (!shot[r]) issues.push(`row "${r}" unknown (back | mid | front)`);
     const R = shot[r] || shot.front;
     return { y: H * (1 - R.ground), unit: R.unit * H / REF_H };
@@ -96,11 +109,12 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const unit = r.unit * zoom * (f.scale ?? 1);
     const view = f.view === 'front' ? 'front' : 'side';
     // every character has a drawn face; there is no generated fallback
-    const { bbox, headAnchor } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
+    const { bbox, headAnchor, joints } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
     const headView = headAnchor.view ?? (view === 'front' ? 'front' : normalizePose(pose).headView);
     if (!look.face?.[headView]?.head) issues.push(`figure ${i + 1} (${f.who}): no drawn ${headView} face (the ${headView} layer of data/faces/${f.who}.svg)`);
     return { f, name: f.id || f.who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
-      halfW: ((bbox.x1 - bbox.x0) / 2) * unit, facing: f.facing === 'left' ? -1 : 1, x: null };
+      halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0,
+      facing: f.facing === 'left' ? -1 : 1, x: null };
   }).filter(Boolean);
 
   // -- props (placeholders until the artist's SVG exists) -----------------------
@@ -112,7 +126,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const r = row(p.row);
     const unit = r.unit * (p.scale ?? 1);
     const [w, h] = (def?.size || [2, 2]).map((v) => v * unit);
-    return { p, name: p.id || p.prop, def, groundY: r.y - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null, layer: p.layer || 'back' };
+    return { p, name: p.id || p.prop, def, groundY: r.y - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null, layer: p.layer || 'back',
+      facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
   });
 
   // -- placement: number or slot first, then relations --------------------------
@@ -126,8 +141,20 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     }
   }
   const RELS = ['before', 'behind', 'beside', 'left-of', 'right-of'];
+  // "on": a figure sits on a prop's seat anchor, at the prop's scale
+  const seatOn = (o) => {
+    const t = props.find((x) => x.name === o.f.on);
+    const seat = t?.def?.anchors?.seat;
+    if (!seat) { issues.push(`${o.name}: "on" needs a prop with a seat in the panel ("${o.f.on}")`); o.f = { ...o.f, on: undefined }; return; }
+    if (t.x == null) return;
+    o.unit = t.unit * (o.f.scale ?? 1);
+    o.halfW = o.halfW1 * o.unit;
+    o.groundY = t.groundY - t.h + seat[1] * t.unit;
+    o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - o.pelvisX * o.unit * o.facing;
+  };
   for (let pass = 0; pass < 3; pass++) {
     for (const o of all) {
+      if (o.f?.on) { seatOn(o); continue; }
       const at = (o.f || o.p).at;
       if (!at || typeof at !== 'object') continue;
       const [rel, target] = Object.entries(at).find(([k]) => RELS.includes(k)) || [];
@@ -140,14 +167,15 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       o.x = t.x + sign * d;
     }
   }
-  for (const o of all) o.x += ((o.f || o.p).nudge ?? 0) * o.unit;
+  for (const o of all) { o.x ??= W / 2; o.x += ((o.f || o.p).nudge ?? 0) * o.unit; }
 
   // -- draw: ground, background, back props, figures in list order, front props
   let s = `<rect width="${W}" height="${H}" fill="${esc(ground)}"/>`;
+  if (sky) s += `<rect width="${W}" height="${Math.max(0, horizonY)}" fill="${esc(sky)}"/>`;
   if (background) s += `<g class="background">${background}</g>`;
   const drawProp = (o) => {
     const x = o.x - o.halfW, y = o.groundY - o.h;
-    if (o.def?.svg) return `<g transform="translate(${x} ${y}) scale(${o.unit})">${o.def.svg}</g>`;
+    if (o.def?.svg) return `<g transform="translate(${o.facing < 0 ? x + o.w : x} ${y}) scale(${o.facing * o.unit} ${o.unit})">${o.def.svg}</g>`;
     return `<g class="placeholder"><rect x="${x}" y="${y}" width="${o.w}" height="${o.h}" fill="#000" fill-opacity="0.06" stroke="#7a6f62" stroke-width="1.2" stroke-dasharray="5 4"/>` +
       `<text x="${o.x}" y="${y + o.h / 2}" font-family="Helvetica, Arial, sans-serif" font-size="${Math.max(9, Math.min(16, o.w / 6))}" fill="#7a6f62" text-anchor="middle" dominant-baseline="middle">${esc(o.p.prop)}</text></g>`;
   };

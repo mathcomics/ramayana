@@ -62,7 +62,7 @@ Scenes = scene lines whose words call for the moment. Moments with no pose come 
 ## Asked for by panels
 
 - 02.02: pull (lean back, both arms forward): stand-lean-back with arms adjusted
-- 02.03: slump on the throne (sit) — stand-hand-on-head for now
+- 02.03: sit-hand-on-head (slumped on the throne, hand to the head): sit for now
 - 03.04: sit-cross-legged (sage teaching, raised hand)
 - 03.05: stand-palms-joined
 - 04.11: stand-embrace

@@ -16,7 +16,8 @@
     },
     {
       "prop": "golden-deer",
-      "at": 0.33
+      "at": 0.3,
+      "scale": 0.7
     }
   ],
   "figures": [
@@ -36,7 +37,6 @@
     }
   ],
   "needs": [
-    "prop: golden deer",
     "prop: hut",
     "prop: tree"
   ]

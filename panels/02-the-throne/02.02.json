@@ -5,7 +5,8 @@
   "props": [
     {
       "prop": "throne",
-      "at": 0.9
+      "at": 0.86,
+      "row": "mid"
     }
   ],
   "figures": [

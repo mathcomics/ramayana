@@ -5,16 +5,17 @@
   "props": [
     {
       "prop": "throne",
-      "at": 0.88
+      "at": 0.8,
+      "row": "mid"
     }
   ],
   "figures": [
     {
       "who": "dasharatha",
-      "pose": "stand-hand-on-head",
-      "at": 0.8,
-      "mouth": 2,
-      "view": "front"
+      "pose": "sit",
+      "facing": "left",
+      "on": "throne",
+      "mouth": 2
     },
     {
       "who": "rama",
@@ -32,6 +33,6 @@
     }
   ],
   "needs": [
-    "pose: slump on the throne (sit) — stand-hand-on-head for now"
+    "pose: sit-hand-on-head (slumped on the throne, hand to the head): sit for now"
   ]
 }

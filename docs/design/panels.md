@@ -52,6 +52,9 @@ repeated inside the JSON.
 | `scene` | text | The scene line it draws, for reference only. |
 | `size` | `0.75` · `0.5` · `0.3` | Share of a screen height. Default 0.75. Anything else is an issue. |
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. |
+| `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
+| `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
+| `layout` | `scenes/<name>` | The scene layout the panel follows (`layouts/scenes/`), for reference only. |
 | `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.45). |
 | `shot` | `far` · `wide` · `mid` | Which rows (below). Default `far`. Layouts: `layouts/<size>-<shot>.svg`. |
 | `props` | list | See below. |
@@ -67,7 +70,8 @@ repeated inside the JSON.
 | `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
-| `row` | `back` · `mid` · `front` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. |
+| `row` | `back` · `mid` · `front` · `horizon` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. `horizon`: far away, standing on the horizon (16 px per head-unit in a 0.75 panel). |
+| `on` | a prop's name (its `id`, else its `prop`) | Sits the figure on the prop's `seat` anchor, at the prop's scale (`at`, `row`, `lift` are ignored; `scale` still applies). E.g. `"pose": "sit", "on": "throne"`. |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
@@ -90,6 +94,13 @@ repeated inside the JSON.
   ground; its viewBox sets the prop's size. A prop with no artwork yet
   renders as a **labelled dashed box**.
 - `at`, `row`, `scale`, `lift`, `nudge`, `id` as for figures (`lift`: a bird on a branch).
+- `facing`: drawings face right; `left` mirrors the prop (and its anchors).
+- Anchors: a group `id="anchors"` in the prop's SVG holds named circles
+  (not drawn). `seat`: where a seated figure's hips rest (`on`).
+- Drawn so far: `palace`, `throne`, `golden-deer`, `golden-deer-run`,
+  `hut-top`, `trees-top`, `tree-top` (the last five from the artist's scene
+  layouts, `layouts/scenes/`). How to arrange them:
+  `docs/design/composition.md`.
 
 ### Placement
 

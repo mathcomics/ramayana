@@ -3,13 +3,37 @@
   "size": 0.75,
   "ground": "dusty-pink",
   "props": [
-    { "prop": "throne", "at": 0.86 }
+    {
+      "prop": "throne",
+      "at": 0.84,
+      "row": "mid"
+    }
   ],
   "figures": [
-    { "who": "rama", "pose": "walk-passing", "facing": "right", "at": 0.3, "mouth": 1,
-      "adjust": { "right.arm.shoulder": 55, "right.arm.elbow": 5 } },
-    { "who": "dasharatha", "pose": "walk", "facing": "right", "at": 0.56, "mouth": 1,
-      "adjust": { "left.arm.shoulder": -70, "left.arm.elbow": 10 } }
+    {
+      "who": "rama",
+      "pose": "walk-passing",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 1,
+      "adjust": {
+        "right.arm.shoulder": 55,
+        "right.arm.elbow": 5
+      }
+    },
+    {
+      "who": "dasharatha",
+      "pose": "walk",
+      "facing": "right",
+      "at": 0.56,
+      "mouth": 1,
+      "adjust": {
+        "left.arm.shoulder": -70,
+        "left.arm.elbow": 10
+      }
+    }
   ],
-  "needs": ["relation: hand in hand"]
+  "needs": [
+    "relation: hand in hand"
+  ]
 }

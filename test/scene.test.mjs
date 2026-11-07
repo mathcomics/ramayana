@@ -54,8 +54,29 @@ test('rows: back figures stand higher and smaller', () => {
 });
 
 test('missing props draw a labelled placeholder', () => {
-  const r = renderPanel({ props: [{ prop: 'throne' }] }, assets);
-  assert.match(r.svg, /class="placeholder"[\s\S]*>throne</);
+  const r = renderPanel({ props: [{ prop: 'cave' }] }, assets);
+  assert.match(r.svg, /class="placeholder"[\s\S]*>cave</);
+});
+
+test('sky: a colour above the horizon; row "horizon" stands things on it', () => {
+  const r = renderPanel({ size: 0.5, sky: 'sky', horizon: 0.25, props: [{ prop: 'golden-deer-run', row: 'horizon' }] }, assets);
+  assert.match(r.svg, /<rect width="360" height="270" fill="#00aad4"\/>/);
+  const y = +r.svg.match(/<g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(/)?.[1];
+  assert.ok(Math.abs(y + 5.557 * 16 * 360 / 540 - 270) < 0.01, `deer bottom on the horizon (${y})`);
+  assert.equal(renderPanel({ sky: 'nope' }, assets).issues.length, 1);
+});
+
+test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirror the seat', () => {
+  const seat = assets.props.props.throne.anchors.seat;
+  for (const facing of ['right', 'left']) {
+    const r = renderPanel({ props: [{ prop: 'throne', at: 0.5, row: 'mid', facing }], figures: [{ who: 'dasharatha', pose: 'sit', on: 'throne' }] }, assets);
+    assert.deepEqual(r.issues.filter((i) => !/placeholder/.test(i)), []);
+    const [, fy, fs] = r.svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/) || [];
+    const unit = 34, top = 540 * (1 - 0.17) - assets.props.props.throne.size[1] * unit;
+    assert.ok(Math.abs(+fy - (top + seat[1] * unit)) < 0.01, `${facing}: seat height`);
+    assert.equal(Math.abs(+fs), unit);
+  }
+  assert.equal(renderPanel({ figures: [{ who: 'rama', pose: 'sit', on: 'throne' }] }, assets).issues.length, 1);
 });
 
 test('two panels on one page never share an id', () => {

@@ -25,3 +25,12 @@ Add variants as `<size>-<shot>-2.svg` …
 
 A new shot is a new row set in `SHOTS` (`src/scene.js`), measured from a
 layout drawn here.
+
+## Scene layouts (`scenes/`)
+
+Whole compositions drawn by the artist: ground, sky, props and men for
+scale. Named `<size>-<subject>.svg`; kept as drawn. Each is indexed in
+`scenes/README.md` (what it shows, how it's arranged, which scenes it
+suits); the props in it are extracted into `data/props/` and the arranging
+rules go into `docs/design/composition.md`. A panel built from one names it
+in its `layout` field.
