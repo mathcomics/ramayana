@@ -31,9 +31,11 @@ the "Outside Dutt" section of `scenes.md`.
 
 ```
 manuscript/
-  README.md        this file: canon and scene rules
-  scenes.md        the list of scenes, in story order, grouped in sections
-  characters.md    who is identifiable; their looks live in data/characters.json
+  README.md            this file: canon and scene rules
+  scenes.md            the list of scenes, in story order, grouped in sections
+  characters.md        who is identifiable; their looks live in data/characters.json
+  pending-changes.md   panel-side changes not yet applied here: read it first,
+                       apply each entry to scenes.md / characters.md, delete it
 ```
 
 ## Scene rules

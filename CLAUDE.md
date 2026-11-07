@@ -426,6 +426,9 @@ renderer or panel changes.
   `stand-lean-back` + king `stand-step-back`; 02.03 `stand-point` and the
   king in front view, `stand-hand-on-head`.
 - Manuscript is maintained in a separate conversation (`manuscript/`).
+  Panel-side changes the manuscript hasn't caught up with go in
+  `manuscript/pending-changes.md` (written by panel sessions, applied and
+  deleted by the manuscript session) — not into chat notes.
   Scene list v0.4 (15 sections, 145 panels; sizes full/half where
   decided; full panels use back/front; early books shrunk, war in four
   sections). `manuscript/characters.md` lists who is
