@@ -1,69 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Lanka: the golden city on its dark island, seen far off across the sea; from the artist's layout layouts/scenes/0.5-lanka.svg.
-     Sized for the horizon row (as drawn in a 0.5 panel).
-     100 px = 1 head-unit; the bottom edge sits on the ground line.
-     The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="0 0 2009.34 342.38" width="2009.34" height="342.38">
-<g transform="scale(9.375) translate(-108.3 -190.77)">
-<rect
-     style="fill:#ac9393;stroke-width:0.999996"
-     id="rect608-2-6-0"
-     width="59.300846"
-     height="10.105932"
-     x="172.46822"
-     y="193.25214" />
-<rect
-     style="fill:#d4aa00;stroke-width:1"
-     id="rect608-2"
-     width="19.258474"
-     height="13.919492"
-     x="154.63985"
-     y="194.68219" />
-<rect
-     style="fill:#d4aa00;stroke-width:1"
-     id="rect608-2-3"
-     width="19.258474"
-     height="19.067797"
-     x="188.10382"
-     y="190.77332" />
-<rect
-     style="fill:#ac9393;stroke-width:1"
-     id="rect608-2-6"
-     width="9.3432198"
-     height="13.919492"
-     x="193.82416"
-     y="196.68433" />
-<rect
-     style="fill:#1a1a1a;fill-opacity:1;stroke-width:1"
-     id="rect608-2-6-5"
-     width="5.5296602"
-     height="11.059322"
-     x="195.73094"
-     y="200.11653" />
-<rect
-     style="fill:#ffd42a;stroke-width:1"
-     id="rect608"
-     width="54.152542"
-     height="9.9152546"
-     x="138.05086"
-     y="200.21187" />
-<rect
-     style="fill:#d4aa00;stroke-width:1"
-     id="rect608-6-2"
-     width="38.135593"
-     height="13.156779"
-     x="209.36441"
-     y="195.25421" />
-<rect
-     style="fill:#ffd42a;stroke-width:1"
-     id="rect608-6"
-     width="54.152542"
-     height="9.1525421"
-     x="204.78813"
-     y="200.40253" />
-<path
-     style="fill:#1a1a1a"
-     d="m 108.30509,227.28814 214.32203,-0.38136 -63.68644,-18.30508 c 0,0 -121.27119,-0.38136 -123.55932,0.38135 -2.28814,0.76271 -27.07627,18.30509 -27.07627,18.30509 z"
-     id="path347" />
-</g>
+<!-- Lanka: the golden city on its dark mountain island, seen far off across
+     the sea. Redrawn 2026-11-07 from the artist's block layout
+     (layouts/scenes/0.5-lanka.svg) with a small palace silhouette: central
+     dome, two side domes, gate arch, crenellated wall with stone end towers.
+     Same palette as the layout (golds d4aa00 / ffd42a, dark 1a1a1a island,
+     ac9393 stone); palace.svg-level simplicity, smaller since it sits on the
+     mountain. Sized for the horizon row (as drawn in a 0.5 panel).
+     100 px = 1 head-unit; the bottom edge sits on the sea line. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2009.34 342.38" width="2009.34" height="342.38">
+  <!-- the island: a dark mountain rising from the sea, flat where the city sits -->
+  <path fill="#1a1a1a" d="M 0 342.4 L 150 314 L 380 206 L 430 180 L 560 174 L 1000 177 L 1450 174 L 1580 180 L 1680 212 L 1860 300 L 2009.3 336 L 2009.3 342.4 Z"/>
+  <!-- palace body behind the wall -->
+  <rect fill="#d4aa00" x="840" y="82" width="320" height="100"/>
+  <!-- drum under the central dome -->
+  <rect fill="#d4aa00" x="932" y="46" width="136" height="40"/>
+  <!-- city wall with crenellations -->
+  <rect fill="#ffd42a" x="420" y="148" width="1160" height="34"/>
+  <path fill="#ffd42a" d="M438 148v-14h36v14z M534 148v-14h36v14z M630 148v-14h36v14z M726 148v-14h36v14z M1238 148v-14h36v14z M1334 148v-14h36v14z M1430 148v-14h36v14z M1526 148v-14h36v14z"/>
+  <!-- stone towers at the wall ends -->
+  <rect fill="#ac9393" x="414" y="96" width="56" height="86"/>
+  <path fill="#ac9393" d="M408 98 L442 62 L476 98 Z"/>
+  <rect fill="#ac9393" x="1530" y="96" width="56" height="86"/>
+  <path fill="#ac9393" d="M1524 98 L1558 62 L1592 98 Z"/>
+  <!-- side domes with finials -->
+  <path fill="#d4aa00" d="M852 82 C845 58 874 46 884 36 C894 46 923 58 916 82 Z"/>
+  <path fill="#d4aa00" d="M880 40 L884 20 L888 40 Z"/>
+  <path fill="#d4aa00" d="M1084 82 C1077 58 1106 46 1116 36 C1126 46 1155 58 1148 82 Z"/>
+  <path fill="#d4aa00" d="M1112 40 L1116 20 L1120 40 Z"/>
+  <!-- central dome with finial -->
+  <path fill="#ffd42a" d="M945 52 C936 28 985 20 1000 12 C1015 20 1064 28 1055 52 Z"/>
+  <path fill="#ffd42a" d="M996 15 L1000 0 L1004 15 Z"/>
+  <!-- gate arch, the island dark showing through -->
+  <path fill="#1a1a1a" d="M974 182 V134 A26 26 0 0 1 1026 134 V182 Z"/>
 </svg>
