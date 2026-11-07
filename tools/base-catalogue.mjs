@@ -41,12 +41,18 @@ const bases = A.poses.map((p) => {
 });
 const dist = (a, b) => a.pts.reduce((s, p, i) => s + Math.hypot(p[0] - b.pts[i][0], p[1] - b.pts[i][1]), 0) / a.pts.length;
 // Merges the artist has called, beyond what the distance sees (a deeper
-// stride is still the same stance): each list becomes one cell.
+// stride is still the same stance): each entry becomes one cell, named
+// `name` (the base's own one-word name) and drawn from its first pose.
 const CURATED = [
-  ['lunge', 'lunge-sword-down', 'lunge-sword-low', 'lunge-sword-forward'],   // 2026-11-07
+  { name: 'lunge', poses: ['lunge', 'lunge-sword-down', 'lunge-sword-low', 'lunge-sword-forward'] },   // 2026-11-07
+  { name: 'stepback', poses: ['stand-step-back', 'stand-arm-back'] },                                  // 2026-11-07
 ];
-const groups = CURATED.map((names) => bases.filter((b) => names.includes(b.name)));
-const curatedNames = new Set(CURATED.flat());
+const groups = CURATED.map((c) => {
+  const g = c.poses.map((n) => bases.find((b) => b.name === n)).filter(Boolean);
+  g.label = c.name;
+  return g;
+});
+const curatedNames = new Set(CURATED.flatMap((c) => c.poses));
 for (const b of bases) {
   if (curatedNames.has(b.name)) continue;
   const g = groups.find((g) => g.some((m) => dist(m, b) < TH));
@@ -56,11 +62,15 @@ for (const b of bases) {
 // cell name: a plain base word if a member is one, else the shortest name
 const BASE_ORDER = ['stand', 'walk', 'run', 'leap', 'crouch', 'bend', 'crawl', 'kneel', 'lunge', 'sit', 'lie', 'fall'];
 const baseWord = (n) => n.split('-')[0];
-for (const g of groups) g.sort((a, b) => a.name.length - b.name.length || a.name.localeCompare(b.name));
+for (const g of groups) if (!g.label) g.sort((a, b) => a.name.length - b.name.length || a.name.localeCompare(b.name));
 groups.sort((a, b) => BASE_ORDER.indexOf(baseWord(a[0].name)) - BASE_ORDER.indexOf(baseWord(b[0].name)) || a[0].name.localeCompare(b[0].name));
+// a named (curated) cell lists every member pose; an automatic one is
+// named by its first member and lists the rest
+const cellName = (g) => g.label || g[0].name;
+const members = (g) => (g.label ? g : g.slice(1));
 
 console.log(`${bases.length} poses -> ${groups.length} bases (threshold ${TH})`);
-for (const g of groups) console.log('  ' + g[0].name + (g.length > 1 ? `  <- ${g.slice(1).map((m) => m.name).join(', ')}` : ''));
+for (const g of groups) console.log('  ' + cellName(g) + (members(g).length ? `  <- ${members(g).map((m) => m.name).join(', ')}` : ''));
 
 const scale = 20, cols = 4;
 const cellW = scale * 13, cellH = scale * 9.6;
@@ -75,9 +85,9 @@ groups.forEach((g, i) => {
   body += renderFigure(species, g[0].pose, { ...look, id: `b${i}f`, x: cx + cellW * 0.73, y: groundY, scale, view: 'front' }).svg;
   const text = (y, t, size, weight = 400) =>
     `<text x="${cx + cellW / 2}" y="${y}" font-family="sans-serif" font-size="${size}" font-weight="${weight}" fill="#7a6e5e" text-anchor="middle">${t}</text>`;
-  body += text(cy + cellH - scale * 1.8, g[0].name + (g.length > 1 ? ` (+${g.length - 1})` : ''), scale * 0.55, 600);
-  // the other members, a line of up to three names at a time
-  g.slice(1).reduce((lines, m) => {
+  body += text(cy + cellH - scale * 1.8, cellName(g) + (g.length > 1 ? ` (+${g.length - 1})` : ''), scale * 0.55, 600);
+  // the member poses, a line of up to three names at a time
+  members(g).reduce((lines, m) => {
     if (!lines.length || lines[lines.length - 1].length === 3) lines.push([]);
     lines[lines.length - 1].push(m.name);
     return lines;
