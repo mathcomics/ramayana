@@ -35,6 +35,7 @@ scene spec (JSON) → layout → figure geometry → SVG
     test/        npm test (node:test): unit, data integrity, render snapshot
     manuscript/  story text and scene breakdown (own README)
     panels/      panel definitions, one folder per section
+    layouts/     templates for sketching panel layouts (page + figures for scale)
     out/, _site/ generated (not committed)
 
 ## Conventions
@@ -67,6 +68,7 @@ Saved poses are reviewed and then merged into `data/poses.json`.
     node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
     node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
+    node tools/layout-template.mjs 1               # layouts/template-1.svg (or 0.75, 0.5)
 
 Panel lab (published artifact, drafts in its database, collection
 `panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
@@ -75,6 +77,10 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Layout templates (2026-11-06):** `layouts/` with `template-1.svg`,
+  `-0.75.svg`, `-0.5.svg` (page rectangle, row ground lines with scale, a
+  man standing in each row, empty `sketch` layer) from
+  `tools/layout-template.mjs`; `layouts/README.md`.
 - **First prop art: palace (2026-11-06):** `data/props/palace.svg`, a
   one-colour silhouette (sepia, openings cut out) simplified from the
   artist's palace reference; 10 × 4 head-units. `tools/lib.mjs`
