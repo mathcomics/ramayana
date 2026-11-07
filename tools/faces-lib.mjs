@@ -49,7 +49,7 @@ function readView(v, where) {
   if (loose.length) console.error(`  ! ${where}: ${loose.length} element(s) outside a layer, put in "over"`);
   const layers = {};
   for (const [name, { chain: chain0, node }] of Object.entries(found)) {
-    const inner = node.children.filter((c) => !hidden(c)).map((c) => serialize(dropHidden(c))).join('');
+    const inner = node.children.map((c) => serialize(shown(c))).join('');
     if (!inner.trim()) continue;
     const t = [...shift, ...chain0, ...(node.attrs.transform ? [node.attrs.transform] : [])];
     const style = withoutDisplay(node.attrs.style);
@@ -61,10 +61,15 @@ function readView(v, where) {
   const defs = v.children.filter((c) => c.tag === 'defs').map((d) => d.children.map(serialize).join('')).join('');
   return { layers, anchors, defs };
 }
-// An element hidden in the editor (display:none on the element itself, not
-// on a layer) is not drawn: it was put aside, not meant for the face.
-const hidden = (n) => n.tag && (/(^|;)\s*display\s*:\s*none/.test(n.attrs?.style || '') || n.attrs?.display === 'none');
-const dropHidden = (n) => (n.children ? { ...n, children: n.children.filter((c) => !hidden(c)).map(dropHidden) } : n);
+// Hiding something in the editor (a layer or a single element) is only an
+// editing state: it is still drawn.
+const shown = (n) => {
+  if (!n.tag) return n;
+  const attrs = { ...n.attrs };
+  delete attrs.display;
+  if (attrs.style) attrs.style = withoutDisplay(attrs.style);
+  return { ...n, attrs, children: (n.children || []).map(shown) };
+};
 const contains = (a, b) => a === b || (a.children || []).some((c) => c.tag && contains(c, b));
 export function readFile(file) {
   const svg = parse(readFileSync(file, 'utf8')).children.find((c) => c.tag === 'svg');

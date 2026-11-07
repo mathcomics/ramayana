@@ -79,10 +79,11 @@ renderer or panel changes.
 
 - **Artist's Ravana and Rama faces (2026-11-06):** Ravana with fixed
   earrings; Rama with the hair split (front: bun + front hair in `over`,
-  old back hair hidden; side: back piece in `back`). Rama's file came as a
+  back hair in `back`; side: back piece in `back`). Rama's file came as a
   plain SVG (no layer names); the names were restored by layer order.
-  Import: elements hidden in Inkscape are left out (hidden layers still
-  count; `tools/faces-lib.mjs`). Face turn pairing prefers a side part of
+  Import: anything hidden in Inkscape (layer or single shape) still
+  counts (`tools/faces-lib.mjs`); Rama's front back hair was hidden in the
+  file and is drawn. Face turn pairing prefers a side part of
   the same colour, and mirrored front parts (earrings, moustache halves)
   share one side part (`tools/face-turn.mjs`); only rama and ravana changed.
 - **Ravana's turned head fixed (2026-11-06):** the face-turn import paired
