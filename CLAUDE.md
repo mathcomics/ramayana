@@ -73,6 +73,8 @@ scene spec (JSON) → layout → figure geometry → SVG
                                                    # page: https://claude.ai/artifact/9VH3oVabnkmaxNHcwDFLzz
     node tools/gesture-catalogue.mjs               # out/gesture-catalogue.{png,html}: distinct upper bodies
                                                    # page: https://claude.ai/artifact/RmiwkAFe1gBtRkHFpHzUm5
+    node tools/recompose.mjs --all --dry           # drift report: what per-pose tuning remains
+    node tools/recompose.mjs --base kneel          # re-derive a base's poses from the grid (then look + snapshot)
     node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
     node tools/prop-gaps.mjs                       # docs/issues/missing-props.md; placeholder props per panel
     node tools/import-held.mjs                     # data/props/held/{sword,club,bow}.svg -> data/held.json
@@ -106,6 +108,19 @@ renderer or panel changes.
   poses.json and panels keep referencing them** — the index is the
   mapping layer; no reference migration.
   `docs/proposals/2026-11-07-pose-composition.md`.
+  **All 48 poses recomposed from the grid (2026-11-07,
+  `tools/recompose.mjs`, shared solves in `tools/compose-lib.mjs`):**
+  legs + lean + arms + chest are now derived from each pose's base ×
+  gesture (editing a reference pose then `recompose --base/--gesture`
+  propagates); gaze (neck/head), mouth, tail and turn stay the pose's
+  own. The artist-approved merges became real: sword/bow/hand stands on
+  step's legs, sword lunges on lunge's stride, walk-passing with
+  walk's arms, leap-flat = the lying body flying. The sword-lunge arms
+  were raised to keep the blade above the ground on the deeper stride
+  (a buildShapes ground test guards all species). Gesture splits while
+  recomposing: propback (sit-lean-back props on its hands, not
+  armsback), swordlevel (stand-sword-forward's level blade, not
+  swordwaist's angled one); 44 gestures.
 - **Pin feet and Join hands in the pose lab (2026-11-07):** "Pin feet"
   toggle (on by default, next to Joints): while lean or chest is dragged,
   every foot touching the ground keeps its place under the body — that

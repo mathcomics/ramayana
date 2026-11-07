@@ -24,6 +24,16 @@ Render-time composition still deferred. Gesture merging also respects
 the held prop and its angle: hands can match while the sword points
 elsewhere.
 
+Per-pose tuning retired (2026-11-07): `tools/recompose.mjs` re-derives
+any pose from its coordinates (`--base x` / `--gesture x` / `--all`,
+`--dry` for the drift report; solves shared in `tools/compose-lib.mjs`),
+and all 48 poses are now exactly what the grid derives, so editing a
+reference pose and recomposing propagates to its family. What stays a
+pose's own: gaze (neck/head — rule 3), mouth, tail (expressive, not
+stance) and turn. The composer pins a base's feet with a generous 0.4
+threshold so a hovering foot (kneel's forward foot) still keeps its
+place.
+
 The three devotion poses were one upper body on three lower bodies:
 stand-palms-joined and kneel-palms-joined share their arms to the
 degree, and kneel-bow carries the same gesture on a bowed spine. The

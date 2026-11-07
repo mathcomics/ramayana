@@ -53,11 +53,11 @@
     "armfront": { "desc": "right arm thrust straight ahead, left arm back", "poses": ["lunge"] },
     "armknee": { "desc": "right forearm resting on the raised knee", "poses": ["sit"] },
     "armrest": { "desc": "forearms resting wide, as on armrests", "poses": ["sit-chair"] },
-    "armsback": { "desc": "both arms straight down and back", "poses": ["stand-lean-back", "sit-lean-back"] },
+    "armsback": { "desc": "both arms straight down and back", "poses": ["stand-lean-back"] },
     "armsdown": { "desc": "both arms thrown toward the ground", "poses": ["fall-forward"] },
     "armsout": { "desc": "both arms out to the front, elbows bent", "poses": ["stand-step-back"] },
     "armsup": { "desc": "both arms up and out", "poses": ["stand-arms-up-knee-up"] },
-    "bow": { "desc": "chest bowed forward, palms together, head low", "lean": 24, "poses": ["kneel-bow"] },
+    "bow": { "desc": "chest bowed forward, palms together, head low", "lean": 24, "join": true, "poses": ["kneel-bow"] },
     "bowdraw": { "desc": "bow held level forward, string drawn to the cheek", "poses": ["stand-bow-draw"] },
     "bowhigh": { "desc": "bow raised high, the drawing hand above the head", "poses": ["stand-bow-draw-high"] },
     "bowloose": { "desc": "bow forward, right hand flung open past the ear", "poses": ["stand-bow-release"] },
@@ -71,9 +71,10 @@
     "onarms": { "desc": "the chest raised on the forearms", "poses": ["lie-front"] },
     "onhands": { "desc": "arms reaching to the ground, hands planted", "poses": ["crawl"] },
     "overhead": { "desc": "both arms bent back over the head", "poses": ["stand-arms-overhead"] },
-    "palms": { "desc": "both forearms up, palms together at the chest", "poses": ["stand-palms-joined", "kneel-palms-joined"] },
+    "palms": { "desc": "both forearms up, palms together at the chest", "join": true, "poses": ["stand-palms-joined", "kneel-palms-joined"] },
     "point": { "desc": "right arm straight out, pointing finger", "poses": ["stand-point"] },
     "pointup": { "desc": "right arm straight up, pointing finger", "poses": ["stand-point-up"] },
+    "propback": { "desc": "leaning back on straight arms, the hands propped behind", "poses": ["sit-lean-back"] },
     "pump": { "desc": "fists swinging, elbows deep", "poses": ["run"] },
     "pumplow": { "desc": "fists swinging, head down in the stride", "poses": ["run-low"] },
     "reach": { "desc": "both arms reaching forward and down", "poses": ["bend-low", "leap"] },
@@ -85,10 +86,11 @@
     "sworddown": { "desc": "both hands low and forward, the sword cutting down ahead", "poses": ["lunge-sword-down"] },
     "swordfront": { "desc": "right arm straight ahead with the sword", "poses": ["lunge-sword-forward"] },
     "swordhip": { "desc": "both hands at the right hip, the sword down and forward", "poses": ["stand-sword-hip"] },
+    "swordlevel": { "desc": "both hands forward, the sword level at the opponent", "poses": ["stand-sword-forward"] },
     "swordlow": { "desc": "right arm low, the sword down and forward", "poses": ["lunge-sword-low"] },
     "swordshoulder": { "desc": "both hands at the right shoulder, the sword up over it", "poses": ["stand-sword-shoulder"] },
     "swordup": { "desc": "both hands overhead, the sword straight up", "poses": ["stand-sword-up"] },
-    "swordwaist": { "desc": "both hands at the waist, the sword at the opponent", "poses": ["stand-sword-waist", "stand-sword-forward"] }
+    "swordwaist": { "desc": "both hands at the waist, the sword angled up toward the opponent", "poses": ["stand-sword-waist"] }
   },
   "tags": {
     "stand": {
