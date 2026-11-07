@@ -21,8 +21,19 @@ export function writeOut(p, text) {
   return full;
 }
 
-// SVG -> PNG (or PDF with ['-f', 'pdf']) with rsvg-convert.
-export const rsvg = (svgPath, outPath, args = []) => execFileSync('rsvg-convert', [...args, '-o', outPath, svgPath]);
+// SVG -> PNG (or PDF with ['-f', 'pdf']) with rsvg-convert. On a machine
+// without it, resvg renders the PNGs instead ($RESVG as the binary's path,
+// or `resvg` on PATH): the -z / -w flags are the same, but resvg writes
+// only PNG, so PDF output still needs rsvg-convert.
+let noRsvgConvert = false;
+export function rsvg(svgPath, outPath, args = []) {
+  if (!noRsvgConvert) {
+    try { return execFileSync('rsvg-convert', [...args, '-o', outPath, svgPath]); }
+    catch (e) { if (e.code !== 'ENOENT') throw e; noRsvgConvert = true; }
+  }
+  if (args.includes('pdf')) throw new Error(`${outPath}: PDF output needs rsvg-convert (resvg writes only PNG)`);
+  return execFileSync(process.env.RESVG || 'resvg', [...args, svgPath, outPath]);
+}
 
 // Every species in data/species: monkey, male, female first, then any others.
 const ORDER = ['monkey', 'male', 'female'];

@@ -1,0 +1,5 @@
+# The artist's SVG drawings are embedded verbatim in rendered panels, and
+# the render snapshot hashes them; keep them byte-identical on every
+# platform (core.autocrlf would give them CRLF on Windows).
+*.svg text eol=lf
+*.json text eol=lf
