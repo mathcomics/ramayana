@@ -66,6 +66,7 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/build-poselab.mjs                   # out/poselab.html (published artifact)
     node tools/pose-catalogue.mjs                  # out/pose-catalogue.png (poses + story moments)
     node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
+    node tools/prop-gaps.mjs                       # docs/issues/missing-props.md; placeholder props per panel
     node tools/import-held.mjs                     # data/props/held/{sword,club,bow}.svg -> data/held.json
 
 Pose lab (published artifact, saves poses to its database, collection

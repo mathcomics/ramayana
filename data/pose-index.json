@@ -1142,6 +1142,57 @@
         "ride"
       ],
       "until": "chariot scenes: stand or stand-bow-draw on the chariot prop (on: chariot); sit for a horse"
+    },
+    "crouch-ready": {
+      "desc": "deep crouch, knees bent, body gathered, arms back, about to leap",
+      "use": [
+        "leap",
+        "sneak"
+      ],
+      "until": "bend-low (reads as searching the ground, not gathering: 08.05)"
+    },
+    "sit-hand-on-head": {
+      "desc": "sitting, one hand on the head (despair, heavy thought)",
+      "use": [
+        "sit",
+        "grieve"
+      ],
+      "until": "sit with the right arm adjusted (shoulder ~170, elbow ~140)"
+    },
+    "stand-clasp-hands": {
+      "desc": "two figures standing, right hands clasped (alliance, friendship)",
+      "use": [
+        "stand",
+        "hold"
+      ],
+      "until": "stand with the right arm forward (07.05)"
+    },
+    "stand-arms-out": {
+      "desc": "standing, both arms thrown out, palms open (wailing, a complaint, grief)",
+      "use": [
+        "grieve",
+        "plead",
+        "shock"
+      ],
+      "until": "stand with both arms adjusted (05.05)"
+    },
+    "sit-slump": {
+      "desc": "sitting on the ground, knees up, shoulders fallen, head low (hopeless)",
+      "use": [
+        "sit",
+        "grieve",
+        "fear"
+      ],
+      "until": "sit with spine.chest 30-35, which reads as collapsing (08.04; problem-poses)"
+    },
+    "sit-carried": {
+      "desc": "carried on a shoulder or back: seated high, legs hanging, one hand holding on",
+      "use": [
+        "ride",
+        "carry",
+        "sit"
+      ],
+      "until": "sit with lift over the carrier, placed so the carrier's head stays visible (07.04)"
     }
   }
 }
