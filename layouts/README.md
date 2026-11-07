@@ -12,8 +12,8 @@ Reference layouts for planning panels, named `<size>-<shot>.svg`:
 | `wide` | whole figures, bigger, rows close together | from the artist's `0.75-wide.svg` |
 | `mid` | close: the front man cut at the thighs, ground below the panel; the panel crops the figures | from the artist's `0.75-mid.svg` |
 
-Each file has one locked layer, `page` (the panel rectangle and the rows'
-ground lines that fall inside it), and simple men as plain groups
+Each file has no layers: a locked group `page` (the panel rectangle and the
+rows' ground lines that fall inside it) and simple men as plain groups
 (`man-front`, `man-mid`, `man-back`), each the height of a man in that row.
 Add variants as `<size>-<shot>-2.svg` …
 

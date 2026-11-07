@@ -120,8 +120,8 @@ renderer or panel changes.
   handles "elbow out" / "knee out". Style bible §6. Existing poses
   unchanged (default 0).
 - **Layouts and shots (2026-11-07):** `layouts/<size>-<shot>.svg`
-  (`layouts/README.md`): one locked `page` layer (rectangle + row ground
-  lines), simple men as plain groups. Shots = row sets in `SHOTS`
+  (`layouts/README.md`): no layers (artist's wish): a locked group `page`
+  (rectangle + row ground lines), simple men as plain groups. Shots = row sets in `SHOTS`
   (`src/scene.js`), panel field `shot`: `far` (default, the old rows),
   `wide` (bigger whole figures) and `mid` (front row cut at the thighs,
   ground below the panel; the panel crops) measured from the artist's

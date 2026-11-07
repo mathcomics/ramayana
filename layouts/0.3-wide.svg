@@ -6,7 +6,7 @@
      xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
      width="360" height="216" viewBox="0 0 360 216">
-  <g inkscape:label="page" inkscape:groupmode="layer" id="page" sodipodi:insensitive="true">
+  <g inkscape:label="page" id="page" sodipodi:insensitive="true">
     <rect x="0" y="0" width="360" height="216" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
     <line x1="0" x2="360" y1="186.6" y2="186.6" stroke="#c9c4bc" stroke-width="0.8" stroke-dasharray="4 3"/>
     <line x1="0" x2="360" y1="197.6" y2="197.6" stroke="#c9c4bc" stroke-width="0.8" stroke-dasharray="4 3"/>

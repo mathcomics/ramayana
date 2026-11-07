@@ -9,7 +9,8 @@
 // man). The artist's own 0.75-wide and 0.75-mid are the originals of
 // those rows; don't overwrite them.
 //
-// One layer, `page` (the rectangle and the rows' ground lines, locked).
+// No layers: a locked group `page` (the rectangle and the rows' ground
+// lines).
 // Each man is a plain group (head, body, legs) outside any layer, so it
 // can be moved, copied and scaled freely. Sizes and rows as in
 // docs/design/panels.md.
@@ -56,7 +57,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
      xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
      width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <g inkscape:label="page" inkscape:groupmode="layer" id="page" sodipodi:insensitive="true">
+  <g inkscape:label="page" id="page" sodipodi:insensitive="true">
     <rect x="0" y="0" width="${W}" height="${H}" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
     ${lines.join('\n    ')}
   </g>

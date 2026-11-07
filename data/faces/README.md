@@ -100,3 +100,7 @@ the rest went to `under` / `over` by drawing order.
 Anything hidden in Inkscape (a layer or a single shape) still counts:
 hiding is only an editing state. Delete what should not be drawn. Layers are found by their Inkscape names, so save as
 Inkscape SVG (a plain SVG save drops the names).
+
+Layers are optional: the import finds each part by its name, so a plain
+group named `over`, `under` … (Inkscape label or id) works as well as a
+layer.
