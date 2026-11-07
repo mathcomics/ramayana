@@ -55,6 +55,10 @@ const CURATED = [
     'stand-sword-shoulder', 'stand-sword-across-head', 'stand-sword-behind-head', 'stand-sword-hip',
     'stand-point', 'stand-bow-draw', 'stand-bow-release', 'stand-bow-draw-high'] },
   { name: 'stand', poses: ['stand-point-up'] },
+  // 2026-11-07, artist's base names for the leaned stances
+  { name: 'stepwide', poses: ['stand-sword-back'] },
+  { name: 'leanback', poses: ['stand-lean-back'] },
+  { name: 'leanfront', poses: ['stand-fists-up'] },
 ];
 const groups = CURATED.map((c) => {
   const g = c.poses.map((n) => bases.find((b) => b.name === n)).filter(Boolean);
