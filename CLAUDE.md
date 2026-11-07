@@ -71,6 +71,8 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/pose-catalogue.mjs                  # out/pose-catalogue.png (poses + story moments)
     node tools/base-catalogue.mjs                  # out/base-catalogue.{png,html}: distinct lower bodies
                                                    # page: https://claude.ai/artifact/9VH3oVabnkmaxNHcwDFLzz
+    node tools/gesture-catalogue.mjs               # out/gesture-catalogue.{png,html}: distinct upper bodies
+                                                   # page: https://claude.ai/artifact/RmiwkAFe1gBtRkHFpHzUm5
     node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
     node tools/prop-gaps.mjs                       # docs/issues/missing-props.md; placeholder props per panel
     node tools/import-held.mjs                     # data/props/held/{sword,club,bow}.svg -> data/held.json

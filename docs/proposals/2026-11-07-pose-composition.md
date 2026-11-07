@@ -1,9 +1,14 @@
 # Pose composition: bases and gestures
 
-2026-11-07 · status: in progress — the bases are named (`bases` in
-`data/pose-index.json`, 28, one word each, artist's names, 2026-11-07;
-the catalogue below draws them); gestures and the combine step are next;
-render-time composition still deferred.
+2026-11-07 · status: in progress — bases and gestures are named
+(`bases` and `gestures` in `data/pose-index.json`: 27 bases with the
+artist's names; 42 gestures, first-draft names for the artist to
+revise; every pose is in exactly one of each, tested). Catalogues:
+bases https://claude.ai/artifact/9VH3oVabnkmaxNHcwDFLzz, gestures
+https://claude.ai/artifact/RmiwkAFe1gBtRkHFpHzUm5 (each drawn on the
+step base). The combine step is next; render-time composition still
+deferred. Gesture merging also respects the held prop and its angle:
+hands can match while the sword points elsewhere.
 
 The three devotion poses were one upper body on three lower bodies:
 stand-palms-joined and kneel-palms-joined share their arms to the
