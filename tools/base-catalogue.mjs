@@ -46,10 +46,15 @@ const dist = (a, b) => a.pts.reduce((s, p, i) => s + Math.hypot(p[0] - b.pts[i][
 const CURATED = [
   { name: 'lunge', poses: ['lunge', 'lunge-sword-down', 'lunge-sword-low', 'lunge-sword-forward'] },   // 2026-11-07
   { name: 'stepback', poses: ['stand-step-back', 'stand-arm-back'] },                                  // 2026-11-07
-  // the sword stances' slight stride/turn doesn't earn a base: a stance
-  // apart from stand needs a real lean (as stand-arm-over-face has) — 2026-11-07
-  { name: 'stand', poses: ['stand', 'stand-sword-up', 'stand-sword-waist', 'stand-sword-forward',
-    'stand-sword-shoulder', 'stand-sword-across-head', 'stand-sword-behind-head', 'stand-sword-hip'] },
+  // 2026-11-07, artist: "step" is the small open stance — the stand pose's
+  // own legs, the sword stances (their slight stride/turn doesn't earn a
+  // base; a stance apart needs a real lean, as stand-arm-over-face has)
+  // and the archery stance; "stand" is the true neutral, feet together
+  // (stand-point-up's legs).
+  { name: 'step', poses: ['stand', 'stand-sword-up', 'stand-sword-waist', 'stand-sword-forward',
+    'stand-sword-shoulder', 'stand-sword-across-head', 'stand-sword-behind-head', 'stand-sword-hip',
+    'stand-point', 'stand-bow-draw', 'stand-bow-release', 'stand-bow-draw-high'] },
+  { name: 'stand', poses: ['stand-point-up'] },
 ];
 const groups = CURATED.map((c) => {
   const g = c.poses.map((n) => bases.find((b) => b.name === n)).filter(Boolean);
@@ -89,7 +94,7 @@ groups.forEach((g, i) => {
   body += renderFigure(species, g[0].pose, { ...look, id: `b${i}f`, x: cx + cellW * 0.73, y: groundY, scale, view: 'front' }).svg;
   const text = (y, t, size, weight = 400) =>
     `<text x="${cx + cellW / 2}" y="${y}" font-family="sans-serif" font-size="${size}" font-weight="${weight}" fill="#7a6e5e" text-anchor="middle">${t}</text>`;
-  body += text(cy + cellH - scale * 1.8, cellName(g) + (g.length > 1 ? ` (+${g.length - 1})` : ''), scale * 0.55, 600);
+  body += text(cy + cellH - scale * 1.8, cellName(g) + (members(g).length ? ` (+${members(g).length})` : ''), scale * 0.55, 600);
   // the member poses, a line of up to three names at a time
   members(g).reduce((lines, m) => {
     if (!lines.length || lines[lines.length - 1].length === 3) lines.push([]);
