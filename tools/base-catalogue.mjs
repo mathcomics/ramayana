@@ -59,6 +59,7 @@ const CURATED = [
   { name: 'stepwide', poses: ['stand-sword-back'] },
   { name: 'leanback', poses: ['stand-lean-back'] },
   { name: 'leanfront', poses: ['stand-fists-up'] },
+  { name: 'stepturn', poses: ['stand-arm-over-face'] },
 ];
 const groups = CURATED.map((c) => {
   const g = c.poses.map((n) => bases.find((b) => b.name === n)).filter(Boolean);
