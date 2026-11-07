@@ -93,6 +93,19 @@ renderer or panel changes.
 
 ## Status (2026-11-07)
 
+- **Pose composition: bases, gestures, lab compose (2026-11-07):**
+  `bases` (27) and `gestures` (42) in `data/pose-index.json` — the
+  distinct lower / upper bodies, one-word names (bases named by the
+  artist; gesture names first drafts), each with a desc and its poses;
+  a test keeps every pose in exactly one of each. Catalogues:
+  `tools/base-catalogue.mjs`, `tools/gesture-catalogue.mjs` (published
+  pages, URLs under Commands). The pose lab has Base and Gesture
+  pickers that compose a draft (`<base>-<gesture>`; a bowing gesture
+  carries `lean` in the index; the base's feet are kept by the leg
+  solve); tune and save as a whole pose. **Decided: poses stay whole in
+  poses.json and panels keep referencing them** — the index is the
+  mapping layer; no reference migration.
+  `docs/proposals/2026-11-07-pose-composition.md`.
 - **Pin feet and Join hands in the pose lab (2026-11-07):** "Pin feet"
   toggle (on by default, next to Joints): while lean or chest is dragged,
   every foot touching the ground keeps its place under the body — that

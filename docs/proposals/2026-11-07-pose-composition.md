@@ -6,9 +6,23 @@ artist's names; 42 gestures, first-draft names for the artist to
 revise; every pose is in exactly one of each, tested). Catalogues:
 bases https://claude.ai/artifact/9VH3oVabnkmaxNHcwDFLzz, gestures
 https://claude.ai/artifact/RmiwkAFe1gBtRkHFpHzUm5 (each drawn on the
-step base). The combine step is next; render-time composition still
-deferred. Gesture merging also respects the held prop and its angle:
-hands can match while the sword points elsewhere.
+step base). The combine step is built in the pose lab (2026-11-07): Base and
+Gesture pickers compose a draft from the index's reference poses —
+legs, tail and lean from the base; arms, chest/neck/head and mouth from
+the gesture; a gesture that tips the whole body carries `lean` in the
+index (the bow: 24), added to the base's lean with the base's planted
+feet kept by the leg solve. The draft is named `<base>-<gesture>`,
+tuned and saved as a whole pose. **Decided (2026-11-07): poses stay
+whole in poses.json under their names, and panels keep referencing
+them** — the index is the mapping layer (each pose carries tuning a
+pure reference pair would lose: kneel-bow's compensated arms, the
+solved hand overlaps); renaming references to grid names waits until
+the grid is the daily language, if ever. Known seam: a gesture's
+`chest` is tuned against its home base's lean, so on a reclined base
+(sit) the pitches add — the artist tunes chest after composing.
+Render-time composition still deferred. Gesture merging also respects
+the held prop and its angle: hands can match while the sword points
+elsewhere.
 
 The three devotion poses were one upper body on three lower bodies:
 stand-palms-joined and kneel-palms-joined share their arms to the
