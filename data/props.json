@@ -6,6 +6,7 @@
     "boat":    { "size": [5, 1.6] },
     "tree":    { "size": [3, 6] },
     "hut":     { "size": [5, 4.5] },
+    "cave":    { "size": [6, 4.5] },
     "bow":     { "size": [1, 4] },
     "garland": { "size": [1.2, 1.2] },
     "hut-top": { "size": [5, 5] },

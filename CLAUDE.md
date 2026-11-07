@@ -75,6 +75,16 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Section 04 "Surpanakha" panels (2026-11-06):** `panels/04-surpanakha/`
+  04.01–04.12. Artist's direction: 04.01 is Surpanakha watching the three
+  from behind a tree (replaces "a fair woman comes up to Rama"); she stays
+  a rakshasi throughout (no fair form, no transformation in 04.04), always
+  the `surpanakha` character, whose cloth is now `red-check`. Khara =
+  `raxas_m1` (id khara, red-diamond). Held props set by `adjust`
+  (04.08 bow, 04.09 clubs). New placeholder prop `cave`. Needs: hut, tree,
+  cave, throne art; held spear; fan of arrows effect; stand-embrace.
+  The manuscript (separate conversation) still has the fair form in
+  04.01 / 04.04 and `raxas_f1` for her rakshasi form in characters.md.
 - **Section 03 "The forest" panels (2026-11-06):** `panels/03-the-forest/`
   03.01–03.06 (03.01 top view, size 1, green hex ground, placeholder
   `hut-top` / `trees-top`; 03.02 lake + birds placeholder background

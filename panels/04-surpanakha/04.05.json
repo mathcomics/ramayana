@@ -1,0 +1,9 @@
+{
+  "scene": "Lakshman swings his sword; Surpanakha clutches her face",
+  "size": 0.75,
+  "ground": "sand",
+  "figures": [
+    { "who": "lakshman", "pose": "stand-sword-up", "facing": "right", "at": 0.32, "mouth": 3 },
+    { "who": "surpanakha", "pose": "stand-arm-over-face", "facing": "left", "at": 0.74, "mouth": 3 }
+  ]
+}

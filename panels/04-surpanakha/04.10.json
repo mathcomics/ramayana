@@ -1,0 +1,13 @@
+{
+  "scene": "A fan of arrows; rakshasas tumble in rows",
+  "size": 0.75,
+  "ground": "sand",
+  "figures": [
+    { "who": "raxas_m1", "id": "r1", "pose": "fall-back", "facing": "left", "at": 0.6, "row": "back", "mouth": 3, "cloth": "red-diamond" },
+    { "who": "raxas_m1", "id": "r2", "pose": "fall-forward", "facing": "left", "at": 0.86, "row": "back", "mouth": 3, "cloth": "red" },
+    { "who": "raxas_m1", "id": "r3", "pose": "stand-step-back", "facing": "left", "at": 0.62, "row": "mid", "mouth": 3, "cloth": "red-check" },
+    { "who": "raxas_m1", "id": "r4", "pose": "fall-back", "facing": "left", "at": 0.84, "row": "mid", "mouth": 3, "cloth": "red-stripe" },
+    { "who": "rama", "pose": "stand-bow-release", "facing": "right", "at": 0.22, "mouth": 1 }
+  ],
+  "needs": ["effect: fan of arrows"]
+}

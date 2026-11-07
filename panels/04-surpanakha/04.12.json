@@ -1,0 +1,14 @@
+{
+  "scene": "In Lanka, Surpanakha shows Ravana her face; he rises from his throne in rage",
+  "size": 0.75,
+  "ground": "geru",
+  "props": [
+    { "prop": "throne", "at": 0.86 }
+  ],
+  "figures": [
+    { "who": "surpanakha", "pose": "kneel", "facing": "right", "at": 0.3, "mouth": 3, "turn": 0,
+      "hands": { "right": "out" }, "adjust": { "right.arm.shoulder": 120, "right.arm.elbow": 120 } },
+    { "who": "ravana", "pose": "stand-point", "facing": "left", "at": 0.68, "mouth": 3, "scale": 1.05 }
+  ],
+  "needs": ["prop: throne"]
+}

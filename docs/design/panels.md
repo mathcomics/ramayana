@@ -72,7 +72,7 @@ repeated inside the JSON.
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
 | `turn` | degrees, −90 … 90 | Head turn from the body's own front, + to its right; overrides the pose's `spine.turn`. |
 | `hands` | `{ "right": "point", "left": "fist" }` (fist · out · in · point) | Overrides the pose. |
-| `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. |
+| `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. Can also give a hand a held prop: `"left.arm.prop": { "kind": "bow", "angle": 90 }`, or swap one (`"right.arm.prop.kind": "club"`). |
 | `scale` | number | This figure only (a child, a giant). |
 | `lift` | head-units | Off the ground (leap, flight). |
 | `nudge` | head-units | Small horizontal shift after placement. |
