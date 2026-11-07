@@ -78,8 +78,9 @@ renderer or panel changes.
 ## Status (2026-11-06)
 
 - **Layout templates (2026-11-06):** `layouts/` with `template-1.svg`,
-  `-0.75.svg`, `-0.5.svg` (page rectangle, row ground lines with scale, a
-  man standing in each row, empty `sketch` layer) from
+  `-0.75.svg`, `-0.5.svg` (one locked `page` layer: rectangle + row
+  ground lines; three simple men as plain groups, one per row, at that
+  row's height) from
   `tools/layout-template.mjs`; `layouts/README.md`.
 - **First prop art: palace (2026-11-06):** `data/props/palace.svg`, a
   one-colour silhouette (sepia, openings cut out) simplified from the
