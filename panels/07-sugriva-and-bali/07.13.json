@@ -8,8 +8,8 @@
     {
       "prop": "rain-cloud",
       "at": 0.5,
-      "lift": 8,
-      "scale": 1.2
+      "lift": 5.5,
+      "scale": 1
     },
     {
       "prop": "rocks",

@@ -32,7 +32,10 @@
       "at": 0.18,
       "id": "m1",
       "mouth": 1,
-      "lift": 0.6
+      "lift": 0.6,
+      "adjust": {
+        "spine.head": -25
+      }
     },
     {
       "who": "sugriva",
@@ -40,7 +43,10 @@
       "facing": "right",
       "at": 0.38,
       "mouth": 2,
-      "lift": 0.6
+      "lift": 0.6,
+      "adjust": {
+        "spine.head": -25
+      }
     },
     {
       "who": "hanuman",
@@ -58,7 +64,10 @@
       "id": "m2",
       "mouth": 2,
       "lift": 0.6,
-      "cloth": "red"
+      "cloth": "red",
+      "adjust": {
+        "spine.head": -25
+      }
     },
     {
       "who": "ravana",
@@ -87,7 +96,6 @@
     "background: hill",
     "prop: rocks",
     "prop: jewels (bundle)",
-    "prop: flying chariot",
-    "heads looking up (head tilt)"
+    "prop: flying chariot"
   ]
 }

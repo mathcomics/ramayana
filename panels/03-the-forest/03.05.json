@@ -20,7 +20,10 @@
       "pose": "stand",
       "facing": "right",
       "at": 0.18,
-      "mouth": 1
+      "mouth": 1,
+      "adjust": {
+        "spine.head": -15
+      }
     },
     {
       "who": "rama",

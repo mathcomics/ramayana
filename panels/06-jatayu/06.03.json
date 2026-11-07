@@ -24,7 +24,10 @@
       "facing": "left",
       "at": 0.76,
       "mouth": 2,
-      "lift": 5.1
+      "lift": 5.1,
+      "adjust": {
+        "spine.head": 10
+      }
     },
     {
       "who": "sita",

@@ -1,6 +1,6 @@
 {
   "scene": "Back: the sea. Front: monkeys sit hopeless on the shore; Hanuman stands among them",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "sand",
   "sky": "sea",
   "horizon": 0.55,
@@ -23,7 +23,7 @@
       "id": "m2",
       "pose": "sit",
       "facing": "left",
-      "at": 0.86,
+      "at": 0.9,
       "row": "mid",
       "mouth": 1,
       "cloth": "red",
@@ -47,9 +47,12 @@
       "who": "hanuman",
       "pose": "stand",
       "facing": "right",
-      "at": 0.66,
+      "at": 0.6,
       "mouth": 1,
       "turn": 0
     }
+  ],
+  "needs": [
+    "pose: sit-slump (hopeless, on the ground): sit with spine.chest for now"
   ]
 }

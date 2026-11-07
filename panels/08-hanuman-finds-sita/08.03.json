@@ -19,7 +19,8 @@
       "adjust": {
         "right.arm.shoulder": 70,
         "right.arm.elbow": 10,
-        "right.arm.hand": "out"
+        "right.arm.hand": "out",
+        "spine.head": 10
       }
     },
     {
@@ -31,7 +32,8 @@
       "adjust": {
         "right.arm.shoulder": 75,
         "right.arm.elbow": 20,
-        "right.arm.hand": "out"
+        "right.arm.hand": "out",
+        "spine.head": -15
       }
     }
   ],

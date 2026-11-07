@@ -48,7 +48,7 @@ for (const s of scenes) for (const tag of tagsOf(s.what)) {
 // --- panel needs that ask for a pose
 const needs = [];
 const pdir = join(root, 'panels');
-if (existsSync(pdir)) for (const sec of readdirSync(pdir)) {
+if (existsSync(pdir)) for (const sec of readdirSync(pdir, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name)) {
   for (const f of readdirSync(join(pdir, sec)).filter((x) => x.endsWith('.json'))) {
     const p = JSON.parse(readFileSync(join(pdir, sec, f), 'utf8'));
     for (const n of p.needs || []) if (/^pose:/i.test(n)) needs.push(`${f.replace('.json', '')}: ${n.replace(/^pose:\s*/i, '')}`);

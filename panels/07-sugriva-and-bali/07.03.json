@@ -1,6 +1,6 @@
 {
   "scene": "Hanuman bounds down and greets the princes with joined palms",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "dry-grass",
   "props": [
     {
@@ -23,7 +23,10 @@
       "facing": "right",
       "at": 0.34,
       "mouth": 2,
-      "turn": 0
+      "turn": 0,
+      "adjust": {
+        "spine.head": 12
+      }
     },
     {
       "who": "hanuman",
@@ -38,7 +41,8 @@
         "left.arm.shoulder": 45,
         "left.arm.elbow": 105,
         "left.arm.hand": "in",
-        "spine.chest": 15
+        "spine.chest": 15,
+        "spine.head": -20
       }
     }
   ],

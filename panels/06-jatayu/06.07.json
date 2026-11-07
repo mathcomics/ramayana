@@ -1,6 +1,6 @@
 {
   "scene": "Back: the towers of Lanka. Front: Sita sits under a tree, two rakshasis guarding her",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "geru",
   "zoom": 0.72,
   "props": [
@@ -49,6 +49,7 @@
   ],
   "needs": [
     "prop: Lanka towers",
-    "prop: tree"
+    "prop: tree",
+    "pose: sit-slump (Sita captive under the tree): sit for now"
   ]
 }

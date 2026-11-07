@@ -71,6 +71,13 @@ artist's rule is now: **0.5 and 0.3 mostly; 0.75 only when the height is
 used** (a fall, flight, looking far up or down, sky-to-ground depth).
 Scene lines need not fix sizes, but where they do, follow that rule.
 
+This was applied across all drawn chapters (01-08) on the panel side:
+most 0.75 panels are now 0.5, some 0.3; only the sky, flight and
+looking-up panels keep 0.75 (03.05, 05.21, 06.01-06.04, 06.06, 07.07,
+08.06). No ids changed outside chapter 05, so `scenes.md` needs no
+renumbering for this — treat its size column for 01-08 as historical;
+the panels carry the real sizes.
+
 ## Earlier, still unapplied (from CLAUDE.md status notes)
 
 - **Chapter openers and renumbering (2026-11-07):** every chapter opens

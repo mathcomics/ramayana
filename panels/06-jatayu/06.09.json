@@ -1,6 +1,6 @@
 {
   "scene": "Rama, head in hands, searches among the trees; Lakshman follows",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "sand",
   "props": [
     {
@@ -37,13 +37,14 @@
         "right": "in"
       },
       "adjust": {
-        "right.arm.shoulder": 140,
-        "right.arm.elbow": 160,
-        "spine.chest": 15
+        "right.arm.shoulder": 170,
+        "right.arm.elbow": 145,
+        "spine.head": 10
       }
     }
   ],
   "needs": [
-    "prop: tree"
+    "prop: tree",
+    "pose: walk-hand-on-head (searching in grief): walk with the right arm adjusted for now"
   ]
 }

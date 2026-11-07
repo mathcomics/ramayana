@@ -1,10 +1,15 @@
 {
   "scene": "Opening: the palace of Ayodhya on the horizon; open ground in front",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "sand",
   "sky": "sky",
   "props": [
-    { "prop": "palace", "at": 0.5, "row": "horizon", "scale": 1.6 }
+    {
+      "prop": "palace",
+      "at": 0.5,
+      "row": "horizon",
+      "scale": 1.6
+    }
   ],
   "figures": []
 }

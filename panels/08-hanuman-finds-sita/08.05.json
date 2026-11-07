@@ -16,7 +16,11 @@
       "facing": "right",
       "at": 0.5,
       "lift": 4.8,
-      "mouth": 2
+      "mouth": 2,
+      "adjust": {
+        "spine.neck": -15,
+        "spine.head": -30
+      }
     }
   ],
   "needs": [

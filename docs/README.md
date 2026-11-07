@@ -14,6 +14,7 @@
 - `design/panels.md` — the panel language, the panel lab and publishing.
 - `design/panel-writing.md` — the checklist for writing a section's panels: the artist's directions and the lessons from reviews. Read before writing panels; add every new lesson.
 - `design/composition.md` — how things are arranged in a panel (sky and horizon, throne, top view), learned from the artist's scene layouts (`layouts/scenes/`).
+- `design/sequential-grammar.md` — wordless storytelling principles (the clear-line school): camera discipline, cause and effect across the gutter, repetition as time, direction grammar (proposed).
 - `design/pose-picking.md` — the pose index, catalogue and gap report, and the rules for picking a pose.
 
 ## Proposals

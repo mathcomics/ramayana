@@ -1193,6 +1193,15 @@
         "sit"
       ],
       "until": "sit with lift over the carrier, placed so the carrier's head stays visible (07.04)"
+    },
+    "walk-hand-on-head": {
+      "desc": "walking with one hand pressed to the head (searching in grief)",
+      "use": [
+        "walk",
+        "grieve",
+        "search"
+      ],
+      "until": "walk with the right arm adjusted (06.09)"
     }
   }
 }

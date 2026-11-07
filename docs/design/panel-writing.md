@@ -5,7 +5,8 @@ The checklist for turning a section of `manuscript/scenes.md` into
 given so far. Read it before writing panels; add to it whenever the artist
 corrects a panel or a review finds a mistake (the lesson, not the story of
 it). The language itself: `panels.md`; arranging: `composition.md`; poses:
-`pose-picking.md`.
+`pose-picking.md`; the storytelling principles behind these rules:
+`sequential-grammar.md`.
 
 ## Before writing
 

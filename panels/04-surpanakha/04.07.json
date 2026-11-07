@@ -1,10 +1,24 @@
 {
   "scene": "She runs off, arms in the air, mouth wide",
-  "size": 0.5,
+  "size": 0.3,
   "ground": "sand",
   "figures": [
-    { "who": "surpanakha", "pose": "run", "facing": "left", "at": 0.45, "mouth": 3,
-      "hands": { "right": "out", "left": "out" },
-      "adjust": { "right.arm.shoulder": 165, "right.arm.elbow": 20, "left.arm.shoulder": 150, "left.arm.elbow": 30 } }
+    {
+      "who": "surpanakha",
+      "pose": "run",
+      "facing": "left",
+      "at": 0.45,
+      "mouth": 3,
+      "hands": {
+        "right": "out",
+        "left": "out"
+      },
+      "adjust": {
+        "right.arm.shoulder": 165,
+        "right.arm.elbow": 20,
+        "left.arm.shoulder": 150,
+        "left.arm.elbow": 30
+      }
+    }
   ]
 }

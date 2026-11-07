@@ -1,11 +1,22 @@
 {
   "scene": "Rama looks back over his shoulder",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "off-white",
   "props": [
-    { "prop": "palace", "at": 0.55, "row": "back" }
+    {
+      "prop": "palace",
+      "at": 0.55,
+      "row": "back"
+    }
   ],
   "figures": [
-    { "who": "rama", "pose": "walk-passing", "facing": "left", "at": 0.3, "mouth": 1, "turn": 90 }
+    {
+      "who": "rama",
+      "pose": "walk-passing",
+      "facing": "left",
+      "at": 0.3,
+      "mouth": 1,
+      "turn": 90
+    }
   ]
 }

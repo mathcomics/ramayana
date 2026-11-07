@@ -1,6 +1,6 @@
 {
   "scene": "At the empty hut, Rama flings his arms wide; Lakshman behind",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "sand",
   "props": [
     {
@@ -30,16 +30,18 @@
         "left": "out"
       },
       "adjust": {
-        "right.arm.out": 75,
-        "right.arm.shoulder": 0,
-        "right.arm.elbow": 10,
-        "left.arm.out": 75,
-        "left.arm.shoulder": 0,
-        "left.arm.elbow": 10
+        "right.arm.shoulder": 115,
+        "right.arm.elbow": 15,
+        "right.arm.hand": "out",
+        "left.arm.shoulder": 55,
+        "left.arm.elbow": 10,
+        "left.arm.hand": "out",
+        "spine.head": -10
       }
     }
   ],
   "needs": [
-    "prop: hut"
+    "prop: hut",
+    "pose: stand-arms-out (grief): stand with both arms adjusted for now"
   ]
 }

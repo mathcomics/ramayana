@@ -1,15 +1,45 @@
 {
   "scene": "Rama sends Lakshman and Sita into a cave and strings his bow",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "sand",
   "props": [
-    { "prop": "cave", "at": 0.2 }
+    {
+      "prop": "cave",
+      "at": 0.2
+    }
   ],
   "figures": [
-    { "who": "sita", "pose": "walk", "facing": "left", "at": 0.33, "mouth": 1 },
-    { "who": "lakshman", "pose": "walk-passing", "facing": "left", "at": 0.5, "mouth": 1 },
-    { "who": "rama", "pose": "stand-point", "facing": "left", "at": 0.8, "mouth": 2,
-      "adjust": { "left.arm.prop": { "kind": "bow", "angle": 90 }, "left.arm.shoulder": 60, "left.arm.elbow": 20 } }
+    {
+      "who": "sita",
+      "pose": "walk",
+      "facing": "left",
+      "at": 0.33,
+      "mouth": 1
+    },
+    {
+      "who": "lakshman",
+      "pose": "walk-passing",
+      "facing": "left",
+      "at": 0.5,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 0.8,
+      "mouth": 2,
+      "adjust": {
+        "left.arm.prop": {
+          "kind": "bow",
+          "angle": 90
+        },
+        "left.arm.shoulder": 60,
+        "left.arm.elbow": 20
+      }
+    }
   ],
-  "needs": ["prop: cave"]
+  "needs": [
+    "prop: cave"
+  ]
 }

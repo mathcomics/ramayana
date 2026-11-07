@@ -1,15 +1,47 @@
 {
   "scene": "A sage teaches; the three sit before him",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "off-white",
-  "zoom": 0.62,
+  "zoom": 0.8,
   "figures": [
-    { "who": "lakshman", "pose": "sit", "facing": "right", "at": 0.18, "mouth": 1 },
-    { "who": "sita", "pose": "sit", "facing": "right", "at": 0.37, "mouth": 1 },
-    { "who": "rama", "pose": "sit", "facing": "right", "at": 0.56, "mouth": 1 },
-    { "who": "sage1", "pose": "sit", "facing": "left", "at": 0.8, "mouth": 2,
-      "hands": { "right": "out" },
-      "adjust": { "spine.lean": 0, "right.arm.shoulder": 120, "right.arm.elbow": 40 } }
+    {
+      "who": "lakshman",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.18,
+      "mouth": 1
+    },
+    {
+      "who": "sita",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.37,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.56,
+      "mouth": 1
+    },
+    {
+      "who": "sage1",
+      "pose": "sit",
+      "facing": "left",
+      "at": 0.8,
+      "mouth": 2,
+      "hands": {
+        "right": "out"
+      },
+      "adjust": {
+        "spine.lean": 0,
+        "right.arm.shoulder": 120,
+        "right.arm.elbow": 40
+      }
+    }
   ],
-  "needs": ["pose: sit-cross-legged (sage teaching, raised hand)"]
+  "needs": [
+    "pose: sit-cross-legged (sage teaching, raised hand)"
+  ]
 }

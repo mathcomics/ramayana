@@ -1,11 +1,32 @@
 {
   "scene": "Surpanakha lunges at Sita; Sita shrinks behind Rama",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "sand",
   "figures": [
-    { "who": "sita", "pose": "stand-arm-over-face", "facing": "right", "at": 0.17, "mouth": 3 },
-    { "who": "rama", "pose": "stand-fists-up", "facing": "right", "at": 0.38, "mouth": 2 },
-    { "who": "surpanakha", "pose": "lunge", "facing": "left", "at": 0.84, "mouth": 3,
-      "hands": { "right": "out" } }
-  ]
+    {
+      "who": "sita",
+      "pose": "stand-arm-over-face",
+      "facing": "right",
+      "at": 0.17,
+      "mouth": 3
+    },
+    {
+      "who": "rama",
+      "pose": "stand-fists-up",
+      "facing": "right",
+      "at": 0.38,
+      "mouth": 2
+    },
+    {
+      "who": "surpanakha",
+      "pose": "lunge",
+      "facing": "left",
+      "at": 0.74,
+      "mouth": 3,
+      "hands": {
+        "right": "out"
+      }
+    }
+  ],
+  "shot": "wide"
 }

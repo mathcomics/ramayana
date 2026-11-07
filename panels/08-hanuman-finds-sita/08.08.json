@@ -1,6 +1,6 @@
 {
   "scene": "Back: Hanuman hides in a tree. Front: Sita sits below, guarded by rakshasis",
-  "size": 0.75,
+  "size": 0.5,
   "ground": "geru",
   "zoom": 0.72,
   "props": [
@@ -26,7 +26,8 @@
       "at": 0.36,
       "mouth": 1,
       "adjust": {
-        "spine.chest": 25
+        "spine.chest": 25,
+        "spine.head": 15
       }
     },
     {
@@ -54,6 +55,7 @@
     }
   ],
   "needs": [
-    "prop: tree"
+    "prop: tree",
+    "pose: sit-slump (Sita captive): sit for now"
   ]
 }
