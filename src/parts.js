@@ -409,7 +409,10 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const handSegs = dpShape(hands, look(sh_, ao, a.twist));
     // the grip: the middle of the hand, for a held prop (arm.prop)
     const grip = add(Wr, mul(dirM(Hd.ang), 0.18 * Hd.f));
-    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A, grip }, grip, held: { theta: sh_, out: ao, prop: a.prop, m, dirM, d3: dH },
+    const footPlaced = dpMap(footSegs, (p) => add(A, [m * p[0], p[1]]));
+    // the foot's lowest point (control nodes): tells whether it touches the ground
+    const low = footPlaced.flat().reduce((q, p) => (p[1] > q[1] ? p : q), A);
+    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A, grip, low }, grip, held: { theta: sh_, out: ao, prop: a.prop, m, dirM, d3: dH },
       arm: [
         ['upper-arm', place(dpShape(M.upperArm, look(su, a.out)), sh, U.ang, m), dU],
         ['forearm', place(dpShape(M.forearm, look(sl, ao)), E, Lo.ang, m), dL],
@@ -419,7 +422,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
       leg: [
         ['shin', place(dpShape(M.shin, look(ss, lo)), Kn, Sh.ang, m), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
-        ['foot', dpMap(footSegs, (p) => add(A, [m * p[0], p[1]])), dF],
+        ['foot', footPlaced, dF],
         ['thigh', placeCap(dpShape(M.thigh, look(st, l.out)), hp, Th.ang, m, 1, front ? null : -sp.lean), dT],
       ],
     };

@@ -1,6 +1,6 @@
 # Contact constraints: pin feet, lookAt, held-by
 
-2026-11-07 · status: proposal
+2026-11-07 · status: pin feet built (pose lab, 2026-11-07); lookAt and held-by open
 
 Three constraints that make contact explicit instead of eyeballed. They
 came out of the panel reviews of sections 05, 07 and 08 (the artist's
@@ -30,6 +30,20 @@ from the ground up.
   solve pointed at a leg.
 - The saved pose is unchanged in form: the solver only writes the same
   angle fields the sliders do.
+
+As built (2026-11-07): the toggle re-solves on **lean and chest** drags
+(dragging a hip or knee is the artist moving that leg on purpose). A foot
+counts planted when its lowest drawn node is within 0.06 head-units of
+the ground (`joints.<side>.low`, added to the renderer's joints). Targets
+are pinned **relative to the pelvis** — the figure frame re-centres on
+the body every render, and the drag already holds the pelvis still on
+screen, so pelvis-relative is what "stays put" means there. The solve is
+closed-form two-bone IK on a probe render's own joints (side view keeps
+angles exact, lengths carry the `out` foreshortening), always on the
+knee-flexes-backward branch, 3 passes. A **Join hands** button was added
+at the same time (not in this proposal): it solves each arm's `elbowOut`
+so both hands land on the body's midline in the front view, for joined
+palms and clasped hands.
 
 ## 2. lookAt (panels)
 

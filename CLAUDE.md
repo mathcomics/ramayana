@@ -89,6 +89,19 @@ renderer or panel changes.
 
 ## Status (2026-11-07)
 
+- **Pin feet and Join hands in the pose lab (2026-11-07):** "Pin feet"
+  toggle (on by default, next to Joints): while lean or chest is dragged,
+  every foot touching the ground keeps its place under the body — that
+  leg's hip and knee are re-solved by closed-form two-bone IK on the
+  probe render's joints, targets pelvis-relative, always the
+  knee-bends-backward branch. Planted = the foot's lowest node within
+  0.06 of the ground: `joints.<side>.low` added to the renderer's joints
+  (`src/parts.js`; renders unchanged). "Join" button (Hands field):
+  solves each arm's `elbowOut` so both hands land on the body's midline
+  in the front view (joined palms, clasped hands). Proposal updated
+  (`docs/proposals/2026-11-07-contact-constraints.md`; lookAt, held-by
+  still open). Found via `low`: kneel's forward foot and sit's stretched
+  heel hover above the ground (problem-poses).
 - **Devotion poses (2026-11-07):** `stand-palms-joined`,
   `kneel-palms-joined`, `kneel-bow` added to `data/poses.json` as first
   drafts (written directly, not lab saves); index entries moved out of
