@@ -1487,10 +1487,10 @@
       },
       "right": {
         "arm": {
-          "shoulder": 95,
-          "out": 10,
-          "elbow": 145,
-          "elbowOut": 0,
+          "shoulder": -93,
+          "out": 12,
+          "elbow": 218,
+          "elbowOut": -12,
           "wrist": 0,
           "twist": 0,
           "hand": "fist"
@@ -1506,7 +1506,7 @@
       },
       "left": {
         "arm": {
-          "shoulder": 90,
+          "shoulder": 106,
           "out": 6,
           "elbow": 0,
           "elbowOut": 0,
@@ -1515,7 +1515,7 @@
           "hand": "fist",
           "prop": {
             "kind": "bow",
-            "angle": 90,
+            "angle": 83,
             "out": 0,
             "draw": true
           }
@@ -1540,17 +1540,17 @@
       "mouth": 1,
       "spine": {
         "lean": 8,
-        "chest": -10,
-        "neck": 0,
-        "head": -20,
+        "chest": -30,
+        "neck": 10,
+        "head": -6,
         "turn": 0
       },
       "right": {
         "arm": {
-          "shoulder": 150,
-          "out": 10,
-          "elbow": 110,
-          "elbowOut": 0,
+          "shoulder": -93,
+          "out": 12,
+          "elbow": 218,
+          "elbowOut": -12,
           "wrist": 0,
           "twist": 0,
           "hand": "fist"
@@ -1566,7 +1566,7 @@
       },
       "left": {
         "arm": {
-          "shoulder": 140,
+          "shoulder": 106,
           "out": 6,
           "elbow": 0,
           "elbowOut": 0,
@@ -1575,7 +1575,7 @@
           "hand": "fist",
           "prop": {
             "kind": "bow",
-            "angle": 90,
+            "angle": 83,
             "out": 0,
             "draw": true
           }
@@ -1607,11 +1607,11 @@
       },
       "right": {
         "arm": {
-          "shoulder": 75,
+          "shoulder": -90,
           "out": 20,
-          "elbow": 170,
-          "elbowOut": 0,
-          "wrist": 20,
+          "elbow": 246,
+          "elbowOut": -20,
+          "wrist": 10,
           "twist": 0,
           "hand": "out"
         },
@@ -1626,7 +1626,7 @@
       },
       "left": {
         "arm": {
-          "shoulder": 88,
+          "shoulder": 92,
           "out": 6,
           "elbow": 0,
           "elbowOut": 0,
@@ -1635,7 +1635,7 @@
           "hand": "fist",
           "prop": {
             "kind": "bow",
-            "angle": 60,
+            "angle": -10,
             "out": 0
           }
         },

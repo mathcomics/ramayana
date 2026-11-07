@@ -58,9 +58,9 @@
     "armsout": { "desc": "both arms out to the front, elbows bent", "poses": ["stand-step-back"] },
     "armsup": { "desc": "both arms up and out", "poses": ["stand-arms-up-knee-up"] },
     "bow": { "desc": "chest bowed forward, palms together, head low", "lean": 24, "join": true, "poses": ["kneel-bow"] },
-    "bowdraw": { "desc": "bow held level forward, string drawn to the cheek", "poses": ["stand-bow-draw"] },
-    "bowhigh": { "desc": "bow raised high, the drawing hand above the head", "poses": ["stand-bow-draw-high"] },
-    "bowloose": { "desc": "bow forward, right hand flung open past the ear", "poses": ["stand-bow-release"] },
+    "bowdraw": { "desc": "bow held forward, string drawn back to the ear, the draw elbow behind", "poses": ["stand-bow-draw"] },
+    "bowhigh": { "desc": "the full draw tipped back from the chest, bow aimed high", "poses": ["stand-bow-draw-high"] },
+    "bowloose": { "desc": "bow tipped level forward, right hand flung open past the ear", "poses": ["stand-bow-release"] },
     "cross": { "desc": "both arms crossed over the head", "poses": ["crouch-arms-over-head"] },
     "dive": { "desc": "both arms stretched straight ahead past the head", "poses": ["leap-flat"] },
     "fists": { "desc": "both fists up in front", "poses": ["stand-fists-up"] },
@@ -860,7 +860,7 @@
       ]
     },
     "stand-bow-draw": {
-      "desc": "side-on stance, left arm straight forward holding the bow upright, right hand drawing the string back to the cheek",
+      "desc": "side-on stance, left arm straight forward holding the bow upright, right hand drawing the string back to the ear, elbow behind",
       "ground": "feet",
       "hold": [
         "left"
@@ -874,7 +874,7 @@
       ]
     },
     "stand-bow-draw-high": {
-      "desc": "standing, bow raised high in the left hand, right hand above the head drawing the string",
+      "desc": "the full draw tipped back from the chest, bow aimed high for a long shot",
       "ground": "feet",
       "hold": [
         "left"

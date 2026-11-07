@@ -28,9 +28,7 @@ these: `docs/issues/rules-to-migrate.md`.
 | front poses with the head turned away (`look: right`, side view) | all | The back of the head shows the skin colour where no hair is drawn behind | Face files: hair or a cap drawn to cover the back, if wanted |
 | kneel, kneel-bow, kneel-palms-joined (side) | all | The forward foot hovers ~0.35 head-units above the ground (the back shin and foot carry the ground contact); seen from the new `joints.low` measurements | Pose lab: forward leg's hip / knee so the foot lands; the pin-feet toggle will then keep it there |
 | sit (side) | all | The stretched left foot's heel hovers ~0.65 above the ground | Pose lab: left knee / ankle so the heel rests |
-| stand-bow-draw, stand-bow-draw-high (side) | all | The drawing hand sits over the face; the string crosses the face | Pose lab: the right elbow a little lower / further back so the hand rests at the cheek |
 | two-handed sword poses (front) | all | The other arm is solved to the hilt, so it can cross the chest or bend sharply where the hilt is far to the holding side | Pose lab: holding arm's out / angle so the hilt sits nearer the middle |
-| stand-bow-release (side) | all | With the bow twice as long, the loose string runs far from the body and the arms look short against it | Pose lab: release arm; or a shorter bow (`data/props/held/bow.svg`) |
 | new walk, shoot and sword poses (front) | all | First drafts from reference sheets: legs reaching forward and back have little hip out, so the stride overlaps in front | Pose lab: hip out on the stepping legs |
 
 ## From the panel self-review of sections 07–08 (2026-11-07)
