@@ -40,8 +40,15 @@ const bases = A.poses.map((p) => {
   return { name: p.name, pose, pts: ['near', 'far'].flatMap((s) => [J[s].hp, J[s].Kn, J[s].A, J[s].low]) };
 });
 const dist = (a, b) => a.pts.reduce((s, p, i) => s + Math.hypot(p[0] - b.pts[i][0], p[1] - b.pts[i][1]), 0) / a.pts.length;
-const groups = [];
+// Merges the artist has called, beyond what the distance sees (a deeper
+// stride is still the same stance): each list becomes one cell.
+const CURATED = [
+  ['lunge', 'lunge-sword-down', 'lunge-sword-low', 'lunge-sword-forward'],   // 2026-11-07
+];
+const groups = CURATED.map((names) => bases.filter((b) => names.includes(b.name)));
+const curatedNames = new Set(CURATED.flat());
 for (const b of bases) {
+  if (curatedNames.has(b.name)) continue;
   const g = groups.find((g) => g.some((m) => dist(m, b) < TH));
   if (g) g.push(b); else groups.push([b]);
 }

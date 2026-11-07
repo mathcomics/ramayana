@@ -72,9 +72,11 @@ but starting from the right place instead of from `stand`.
 ## The bases, drawn
 
 `node tools/base-catalogue.mjs` draws every distinct lower body with
-stand's upper body on it (48 poses → 34 bases at 0.2 head-units over
-the leg joints; the kneel family, the six sword stances, the archery
-stance and the narrow stands each collapse to one). Published:
+stand's upper body on it (48 poses → 32 bases: 0.2 head-units over the
+leg joints, plus the tool's `CURATED` merges where the artist's eye
+overrules the metric — all four lunges are one stance, 2026-11-07; the
+kneel family, the six sword stances, the archery stance and the narrow
+stands each collapse to one). Published:
 https://claude.ai/artifact/9VH3oVabnkmaxNHcwDFLzz — republish the page
 after pose changes.
 
