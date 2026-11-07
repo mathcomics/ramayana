@@ -1,39 +1,41 @@
 {
-  "scene": "Ravana drags Sita by the hair into his flying chariot",
-  "size": 0.75,
+  "scene": "Before he goes, Lakshman bends and draws a line round the hut",
+  "size": 0.5,
   "ground": "sand",
   "props": [
     {
-      "prop": "chariot",
-      "at": 0.84,
-      "layer": "front"
+      "prop": "hut",
+      "at": 0.82,
+      "row": "back"
+    },
+    {
+      "prop": "line",
+      "at": 0.32,
+      "lift": -0.1
     }
   ],
   "figures": [
     {
-      "who": "sita",
-      "pose": "stand-step-back",
+      "who": "lakshman",
+      "pose": "bend-low",
       "facing": "left",
-      "at": 0.28,
-      "mouth": 3
+      "at": 0.5,
+      "mouth": 1
     },
     {
-      "who": "ravana",
-      "pose": "walk",
-      "facing": "right",
-      "at": 0.52,
-      "mouth": 3,
-      "hands": {
-        "left": "fist"
-      },
+      "who": "sita",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.78,
+      "mouth": 1,
       "adjust": {
-        "left.arm.shoulder": -75,
-        "left.arm.elbow": 5
+        "spine.head": 10
       }
     }
   ],
   "needs": [
-    "prop: flying chariot",
-    "relation: hand in hair"
+    "prop: hut",
+    "prop: line (scratched in the earth, under his hand)",
+    "effect: arrow or stick in Lakshman's drawing hand"
   ]
 }

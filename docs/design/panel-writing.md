@@ -58,6 +58,19 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   approximated. The Ravana-orders-Maricha scene was dropped for this; the
   golden deer simply appears. Ask of every scene: does the action alone
   tell it?
+- **Transformations fail the wordless test too** (artist, 2026-11-07): a
+  creature becoming someone else reads as a new character, so it is cut —
+  the shot deer just dies (05.12). A disguise thrown off is different:
+  the same figure, revealed (05.19).
+- **Sound travels as a picture**: a cry is a bubble with the shouter's
+  face, repeated across consecutive panels as it crosses the land — from
+  the dying deer (05.12), over the forest (05.13), to the hut (05.14).
+  The same device can carry any far-off sound.
+- **Action panels need action poses** (artist: the abduction was "too low
+  action"): two figures standing near each other is a conversation, not a
+  struggle. Use the falling, lunging and leaning poses (fall-back, lunge,
+  stand-lean-back), opposed diagonals, a scale step for menace, mouth 3
+  (05.19-05.21).
 - **Shots are the zoom**: consecutive panels step far → wide → mid like a
   camera move (05.02 → 05.03). In a mid shot, the second party of a
   dialogue goes in the `back` row for depth (05.04); `mid` row is nearly

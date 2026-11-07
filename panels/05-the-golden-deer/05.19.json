@@ -1,0 +1,29 @@
+{
+  "scene": "The ascetic becomes Ravana, rearing up; Sita is knocked back",
+  "size": 0.5,
+  "shot": "wide",
+  "ground": "sand",
+  "figures": [
+    {
+      "who": "sita",
+      "pose": "fall-back",
+      "facing": "right",
+      "at": 0.29,
+      "mouth": 3
+    },
+    {
+      "who": "ravana",
+      "pose": "stand-arms-up-knee-up",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 3,
+      "scale": 1.15,
+      "adjust": {
+        "spine.head": 12
+      }
+    }
+  ],
+  "needs": [
+    "Ravana's ten heads"
+  ]
+}

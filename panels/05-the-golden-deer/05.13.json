@@ -1,32 +1,29 @@
 {
-  "scene": "Sita pushes Lakshman to go; he goes, looking back",
-  "size": 0.75,
-  "ground": "sand",
+  "scene": "The cry travels across the forest",
+  "size": 0.3,
+  "ground": "dark-green",
   "props": [
     {
-      "prop": "hut",
-      "at": 0.2,
-      "row": "back"
-    }
-  ],
-  "figures": [
-    {
-      "who": "sita",
-      "pose": "stand-point",
-      "facing": "right",
-      "at": 0.3,
-      "mouth": 3
+      "prop": "tree",
+      "id": "tree1",
+      "at": 0.14,
+      "scale": 0.8
     },
     {
-      "who": "lakshman",
-      "pose": "walk",
-      "facing": "right",
-      "at": 0.72,
-      "mouth": 2,
-      "turn": 90
+      "prop": "tree",
+      "id": "tree2",
+      "at": 0.85,
+      "scale": 0.7
+    },
+    {
+      "prop": "shout-bubble",
+      "at": 0.5,
+      "lift": 2.6
     }
   ],
+  "figures": [],
   "needs": [
-    "prop: hut"
+    "prop: tree",
+    "effect: shout-bubble (traveling, 05.12-05.14)"
   ]
 }

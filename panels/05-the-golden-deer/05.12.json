@@ -1,26 +1,21 @@
 {
-  "scene": "The arrow hits; the deer turns back into a rakshasa, falling and shouting",
-  "size": 0.75,
-  "ground": "sand",
-  "figures": [
+  "scene": "The golden deer falls, dying; a cry goes up with Rama's shouting face",
+  "size": 0.5,
+  "ground": "dry-grass",
+  "props": [
     {
-      "who": "rama",
-      "pose": "stand-bow-release",
-      "facing": "right",
-      "at": 0.22,
-      "mouth": 1
+      "prop": "golden-deer-fallen",
+      "at": 0.42
     },
     {
-      "who": "raxas_m1",
-      "pose": "fall-back",
-      "facing": "left",
-      "at": 0.68,
-      "id": "maricha",
-      "cloth": "white",
-      "mouth": 3
+      "prop": "shout-bubble",
+      "at": 0.56,
+      "lift": 3.2
     }
   ],
+  "figures": [],
   "needs": [
-    "effect: arrow in flight"
+    "prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank)",
+    "effect: shout-bubble (a speech bubble with Rama's face shouting; it travels 05.12-05.14)"
   ]
 }

@@ -1,25 +1,32 @@
 {
-  "scene": "The ascetic becomes Ravana; Sita recoils",
+  "scene": "Sita pushes Lakshman to go; he goes, looking back",
   "size": 0.75,
   "ground": "sand",
+  "props": [
+    {
+      "prop": "hut",
+      "at": 0.2,
+      "row": "back"
+    }
+  ],
   "figures": [
     {
       "who": "sita",
-      "pose": "stand-arm-over-face",
+      "pose": "stand-point",
       "facing": "right",
-      "at": 0.24,
+      "at": 0.3,
       "mouth": 3
     },
     {
-      "who": "ravana",
-      "pose": "stand-arms-up-knee-up",
-      "facing": "left",
-      "at": 0.68,
-      "mouth": 3,
-      "scale": 1.1
+      "who": "lakshman",
+      "pose": "walk",
+      "facing": "right",
+      "at": 0.72,
+      "mouth": 2,
+      "turn": 90
     }
   ],
   "needs": [
-    "Ravana's ten heads"
+    "prop: hut"
   ]
 }

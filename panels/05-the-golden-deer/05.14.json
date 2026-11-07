@@ -1,42 +1,43 @@
 {
-  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
-  "size": 0.75,
+  "scene": "The cry reaches the hut: Sita starts up; Lakshman stands unmoved",
+  "size": 0.5,
   "ground": "sand",
+  "props": [
+    {
+      "prop": "hut",
+      "at": 0.82,
+      "row": "back"
+    },
+    {
+      "prop": "shout-bubble",
+      "at": 0.12,
+      "lift": 4.2
+    }
+  ],
   "figures": [
     {
       "who": "sita",
-      "pose": "stand-point",
-      "facing": "right",
-      "at": 0.3,
-      "mouth": 2,
-      "hands": {
-        "right": "in"
-      },
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.42,
+      "mouth": 3,
       "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 30
+        "spine.head": -8,
+        "right.arm.shoulder": 95,
+        "right.arm.elbow": 55,
+        "right.arm.hand": "out"
       }
     },
     {
-      "who": "sage1",
-      "pose": "walk",
+      "who": "lakshman",
+      "pose": "stand",
       "facing": "left",
-      "at": 0.72,
-      "id": "ascetic",
-      "mouth": 1,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club",
-          "angle": 175
-        },
-        "right.arm.shoulder": 20,
-        "right.arm.elbow": 40
-      }
+      "at": 0.66,
+      "mouth": 1
     }
   ],
   "needs": [
-    "prop: staff and pot (held)",
-    "prop: fruit",
-    "Ravana's ascetic disguise (sage1 for now)"
+    "prop: hut",
+    "effect: shout-bubble (arriving, 05.12-05.14)"
   ]
 }

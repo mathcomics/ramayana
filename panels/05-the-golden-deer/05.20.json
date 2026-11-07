@@ -1,0 +1,48 @@
+{
+  "scene": "Ravana drags Sita toward the chariot; she pulls against him",
+  "size": 0.5,
+  "shot": "wide",
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "chariot",
+      "at": 0.88,
+      "layer": "front"
+    }
+  ],
+  "figures": [
+    {
+      "who": "sita",
+      "pose": "stand-lean-back",
+      "facing": "right",
+      "at": 0.28,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.shoulder": 80,
+        "right.arm.elbow": 5,
+        "right.arm.hand": "fist",
+        "left.arm.shoulder": 70,
+        "left.arm.elbow": 10,
+        "left.arm.hand": "fist"
+      }
+    },
+    {
+      "who": "ravana",
+      "pose": "lunge",
+      "facing": "right",
+      "at": 0.56,
+      "mouth": 3,
+      "scale": 1.1,
+      "adjust": {
+        "left.arm.shoulder": -65,
+        "left.arm.elbow": 10,
+        "left.arm.hand": "fist",
+        "spine.head": 8
+      }
+    }
+  ],
+  "needs": [
+    "prop: flying chariot",
+    "relation: his hand closed on her wrists"
+  ]
+}

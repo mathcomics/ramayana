@@ -34,6 +34,10 @@
     "rain-cloud": {"size": [9, 2.5]},
     "ring": {"size": [0.4, 0.4]},
     "mountain": {"size": [9, 5]},
-    "lanka-wall": {"size": [16, 4]}
+    "lanka-wall": {"size": [16, 4]},
+    "golden-deer-fallen": {"size": [4, 1.8]},
+    "shout-bubble": {"size": [2.6, 2]},
+    "line": {"size": [5, 0.3]},
+    "line-top": {"size": [10, 8]}
   }
 }
