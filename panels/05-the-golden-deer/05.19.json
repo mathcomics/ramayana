@@ -23,7 +23,5 @@
       }
     }
   ],
-  "needs": [
-    "Ravana's ten heads"
-  ]
+  "needs": []
 }

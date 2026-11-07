@@ -23,8 +23,6 @@
       }
     }
   ],
-  "needs": [
-    "Ravana's ten heads"
-  ],
+  "needs": [],
   "shot": "wide"
 }

@@ -332,7 +332,7 @@ renderer or panel changes.
   placeholder prop in the front layer with its riders lifted into it.
   New placeholder props `golden-deer`, `chariot`, `lanka`, `rocks`,
   `jewels`, `pyre`; placeholder backgrounds 06.04 (hill), 06.06 (waves).
-  Needs: run with bow, staff/pot, Ravana's ten heads, vulture states
+  Needs: run with bow, staff/pot, vulture states
   (wings spread, falling, lying), heads looking up, all prop art.
 - **Section 04 "Surpanakha" panels (2026-11-06):** `panels/04-surpanakha/`
   04.01–04.12. Artist's direction: 04.01 is Surpanakha watching the three
