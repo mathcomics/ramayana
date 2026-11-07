@@ -1,13 +1,14 @@
 {
-  "scene": "Rama walks away alone",
+  "scene": "Kaikeyi comes in, close to the viewer, facing the throne",
   "size": 0.3,
-  "ground": "off-white",
+  "shot": "mid",
+  "ground": "dusty-pink",
   "figures": [
     {
-      "who": "rama",
-      "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.4,
+      "who": "kaikeyi",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.35,
       "mouth": 1
     }
   ]

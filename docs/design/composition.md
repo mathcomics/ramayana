@@ -12,12 +12,12 @@ action. The same opener can return when the story comes back to a place.
 | Chapter | Opener | Status |
 |---|---|---|
 | 1 Intro | the palace of Ayodhya on the horizon, sky above (01.01) | done |
-| 2 The throne | — | to choose (the throne hall?) |
+| 2 The throne | the throne of Ayodhya, empty, in its hall (02.01) | done |
 | 3 The forest | the forest hut from above (03.01) | done |
 | 4 Surpanakha | the forest hut from above again (04.01), before she comes | done |
 | 5 The golden deer | Lanka on its island across the sea (05.01, `0.5-lanka`); then Surpanakha before Ravana (05.02) | done |
 | 6 Jatayu | — | to choose |
-| 7 Sugriva and Bali | the rocky hills of Rishyamukha / Kishkindha on the horizon, sky above (07.01; `hills` placeholder — the drawn `kishkindha` prop can take its place in the revisit pass) | done |
+| 7 Sugriva and Bali | Kishkindha on the horizon, sky above (07.01, the drawn `kishkindha`) | done |
 | 8 Hanuman finds Sita | the same hills again (08.01) | done |
 | 10 The bridge | Lanka across the sea, as 05.01 | when chapter 10 is made |
 | 11 The war begins | — | to choose (before Lanka's walls?) |

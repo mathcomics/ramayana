@@ -95,6 +95,13 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   them often.
 - **A chase is one distance**: put the chaser on the horizon row with the
   chased (05.09), not big in front running parallel to a far-off quarry.
+- **No far props in a `mid`-shot strip**: a back-row prop's ground is far
+  below a mid shot's bottom edge, so only its top shows — the Ayodhya
+  throne reduced to its red disc, a stray ball (02.04 rework). Let the
+  previous panel carry the geography.
+- **A lone full-body action in a 0.3 strip wants `wide`, not `mid`**:
+  `mid` crops a single walker to a floating chest (02.07 rework); `mid`
+  strips are for chest-up reactions of one or two faces.
 
 - **The throne goes in the `mid` row**, a row behind the people in front:
   in the front row it is as tall as the men and runs off the edge.

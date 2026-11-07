@@ -1,18 +1,15 @@
 {
-  "scene": "Opening: the rocky hills of Rishyamukha, near Kishkindha",
+  "scene": "Opening: Kishkindha, the monkey city on its hill; Rishyamukha before it",
   "size": 0.5,
   "ground": "dry-grass",
   "sky": "sky",
   "props": [
     {
-      "prop": "hills",
+      "prop": "kishkindha",
       "at": 0.55,
       "row": "horizon",
-      "scale": 1.4
+      "scale": 1.3
     }
   ],
-  "figures": [],
-  "needs": [
-    "prop: hills (rocky hills, far)"
-  ]
+  "figures": []
 }

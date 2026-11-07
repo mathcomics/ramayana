@@ -1,5 +1,5 @@
 {
-  "scene": "Back: Bali and Sugriva grapple. Front: Rama, behind a tree, shoots; Bali falls",
+  "scene": "Back: the brothers grapple. Front: Rama, behind a tree, shoots",
   "size": 0.5,
   "ground": "sage",
   "zoom": 0.85,
@@ -22,7 +22,7 @@
     {
       "who": "monkey1",
       "id": "bali",
-      "pose": "fallback-flung",
+      "pose": "leanfront-fists",
       "facing": "left",
       "at": 0.78,
       "row": "back",

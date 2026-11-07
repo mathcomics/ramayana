@@ -1,50 +1,31 @@
 {
-  "scene": "Hanuman carries both princes up the hill on his shoulders",
+  "scene": "Hanuman greets the princes with joined palms",
   "size": 0.5,
   "ground": "dry-grass",
-  "zoom": 0.8,
-  "props": [
-    {
-      "prop": "rocks",
-      "at": 0.85,
-      "scale": 1.2
-    }
-  ],
   "figures": [
     {
       "who": "lakshman",
-      "pose": "sit-armknee",
+      "pose": "step-hang",
       "facing": "right",
-      "at": 0.28,
-      "lift": 5.8,
+      "at": 0.14,
       "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "sit-armknee",
+      "pose": "step-hang",
       "facing": "right",
-      "at": 0.62,
-      "lift": 5.8,
-      "mouth": 1
+      "at": 0.34,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 12
+      }
     },
     {
       "who": "hanuman",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.45,
-      "mouth": 2,
-      "scale": 1.2,
-      "adjust": {
-        "right.arm.shoulder": 160,
-        "right.arm.elbow": 40,
-        "left.arm.shoulder": 160,
-        "left.arm.elbow": 40,
-        "spine.head": -12
-      }
+      "pose": "kneel-palms",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 2
     }
-  ],
-  "needs": [
-    "pose: walk-carry-shoulder (a load on both shoulders): stand-lean-back with arms up for now",
-    "prop: rocks"
   ]
 }

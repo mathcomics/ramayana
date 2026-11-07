@@ -1,49 +1,65 @@
 {
-  "scene": "Monsoon: Rama and Lakshman shelter on a hill in the rain; Rama grieves",
+  "scene": "Water is poured over the crowned Sugriva; young Angad beside him",
   "size": 0.5,
-  "ground": "stone-grey",
-  "sky": "#8a99a3",
-  "horizon": 0.5,
+  "ground": "off-white",
   "props": [
     {
-      "prop": "rain-cloud",
-      "at": 0.5,
-      "lift": 5.5,
-      "scale": 1
+      "prop": "throne-lanka",
+      "at": 0.44,
+      "row": "mid"
     },
     {
-      "prop": "rocks",
-      "at": 0.5,
-      "layer": "back",
-      "lift": -1.2
+      "prop": "jar",
+      "at": 0.56,
+      "lift": 6.2
+    },
+    {
+      "prop": "umbrella",
+      "at": 0.42,
+      "lift": 6.3,
+      "layer": "front"
     }
   ],
   "figures": [
     {
-      "who": "rama",
-      "pose": "sit-armknee",
+      "who": "sugriva",
+      "pose": "chair-armrest",
       "facing": "right",
-      "at": 0.38,
       "mouth": 1,
-      "lift": 0.8,
       "adjust": {
-        "spine.chest": 30,
-        "right.arm.shoulder": 130,
-        "right.arm.elbow": 120
+        "right.arm.shoulder": 45,
+        "right.arm.elbow": 105,
+        "right.arm.hand": "in",
+        "left.arm.shoulder": 45,
+        "left.arm.elbow": 105,
+        "left.arm.hand": "in"
+      },
+      "on": "throne-lanka"
+    },
+    {
+      "who": "hanuman",
+      "pose": "arch-overhead",
+      "facing": "left",
+      "at": 0.64,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 15
       }
     },
     {
-      "who": "lakshman",
+      "who": "monkey1",
+      "id": "angad",
       "pose": "step-hang",
-      "facing": "left",
-      "at": 0.66,
+      "facing": "right",
+      "at": 0.14,
       "mouth": 1,
-      "lift": 0.8
+      "scale": 0.75
     }
   ],
   "needs": [
-    "prop: rain-cloud (with rain)",
-    "prop: rocks",
-    "pose: sit-hand-on-head"
+    "prop: jar (water)",
+    "prop: umbrella (royal)",
+    "Sugriva's crown (signature feature)",
+    "a monkey-king seat (the gold throne for now)"
   ]
 }

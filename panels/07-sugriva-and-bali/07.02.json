@@ -1,45 +1,41 @@
 {
-  "scene": "Back: Sugriva and monkeys watch from a high rock. Front: Rama and Lakshman walk below",
+  "scene": "Sugriva and monkeys watch from the plateau; Rama and Lakshman walk below",
   "size": 0.5,
   "ground": "dry-grass",
   "zoom": 0.6,
   "props": [
     {
-      "prop": "rocks",
-      "id": "rock",
-      "at": 0.72,
+      "prop": "kishkindha",
+      "at": 0.68,
       "row": "back",
-      "scale": 1.4
+      "scale": 1.5
     }
   ],
   "figures": [
+    {
+      "who": "sugriva",
+      "pose": "step-point",
+      "facing": "left",
+      "on": "kishkindha#stand-left",
+      "scale": 0.55,
+      "mouth": 2
+    },
     {
       "who": "monkey1",
       "id": "m1",
       "pose": "step-hang",
       "facing": "left",
-      "at": 0.6,
-      "row": "back",
-      "lift": 3.5,
+      "on": "kishkindha#stand",
+      "scale": 0.55,
       "mouth": 1
-    },
-    {
-      "who": "sugriva",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.74,
-      "row": "back",
-      "lift": 3.5,
-      "mouth": 2
     },
     {
       "who": "monkey1",
       "id": "m2",
       "pose": "step-akimbo",
       "facing": "left",
-      "at": 0.88,
-      "row": "back",
-      "lift": 3.5,
+      "on": "kishkindha#stand-right",
+      "scale": 0.55,
       "mouth": 1,
       "cloth": "red"
     },
@@ -57,8 +53,5 @@
       "at": 0.36,
       "mouth": 1
     }
-  ],
-  "needs": [
-    "prop: rocks"
   ]
 }

@@ -1,43 +1,22 @@
 {
-  "scene": "Kaikeyi pulls the king back by the arm",
+  "scene": "Dasharatha on his throne, from the front, far",
   "size": 0.5,
   "ground": "dusty-pink",
+  "layout": "scenes/0.5-lanka-throne",
   "props": [
     {
       "prop": "throne-ayodhya",
-      "at": 0.86,
+      "at": 0.5,
       "row": "mid"
     }
   ],
   "figures": [
     {
-      "who": "rama",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.83,
-      "mouth": 1
-    },
-    {
       "who": "dasharatha",
-      "pose": "stepback-armsout",
-      "facing": "right",
-      "at": 0.56,
-      "mouth": 2
-    },
-    {
-      "who": "kaikeyi",
-      "pose": "leanback-armsback",
-      "facing": "right",
-      "at": 0.27,
-      "mouth": 2,
-      "adjust": {
-        "right.arm.shoulder": 85,
-        "right.arm.elbow": 10,
-        "left.arm.shoulder": 70
-      }
+      "pose": "chair-armrest",
+      "view": "front",
+      "on": "throne-ayodhya",
+      "mouth": 1
     }
-  ],
-  "needs": [
-    "pose: pull (lean back, both arms forward): stand-lean-back with arms adjusted"
   ]
 }

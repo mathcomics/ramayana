@@ -15,25 +15,25 @@ box from `data/props.json`. Held props (sword, club, bow) live in
 | cave | 04.09 |
 | chariot | 05.20, 05.21, 06.01, 06.02, 06.03, 06.04, 06.06 |
 | deer | 03.03 |
-| fire | 07.05 |
+| fire | 07.06 |
 | golden-deer-fallen | 05.12 |
-| hills | 07.01, 07.07, 08.01 |
+| hills | 08.01 |
 | hut | 04.02, 05.14, 05.15, 05.16, 05.21, 06.08 |
-| jar | 07.12 |
-| jewels | 06.04, 06.05, 07.06, 08.11 |
+| jar | 07.13 |
+| jewels | 06.04, 06.05, 07.07, 08.11 |
 | lanka | 06.07 |
 | lanka-wall | 08.07 |
 | line | 05.16 |
 | line-top | 05.17 |
 | mountain | 08.05 |
 | pyre | 06.11 |
-| rain-cloud | 07.13 |
+| rain-cloud | 07.14 |
 | ring | 08.03, 08.10 |
-| rocks | 06.04, 06.05, 07.02, 07.03, 07.04, 07.13 |
+| rocks | 06.04, 06.05 |
 | shout-bubble | 05.12, 05.13, 05.14 |
-| tree | 02.08, 03.05, 03.06, 04.02, 05.13, 06.07, 06.09, 07.10, 08.08 |
+| tree | 02.11, 03.05, 03.06, 04.02, 05.13, 06.07, 06.09, 07.10, 08.08 |
 | tree-uprooted | 07.09 |
-| umbrella | 07.12 |
+| umbrella | 07.13 |
 | vulture-lie | 06.10, 06.11 |
 
 ## Prop wishes from the panels' needs
@@ -46,36 +46,35 @@ docs/design/panel-writing.md, Lessons).
 | prop: bow in hand while running | 05.10 |
 | prop: cave | 04.09 |
 | prop: deer (creature art) | 03.03 |
-| prop: fire | 07.05 |
+| prop: fire | 07.06 |
 | prop: flying chariot | 05.20, 05.21, 06.01, 06.02, 06.03, 06.04, 06.06 |
 | prop: fruit | 05.18 |
 | prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank) | 05.12 |
-| prop: hills (Kishkindha, far) | 07.07 |
-| prop: hills (rocky hills, far) | 07.01, 08.01 |
+| prop: hills (rocky hills, far) | 08.01 |
 | prop: hut | 04.02, 05.14, 05.15, 05.16, 05.21, 06.08 |
-| prop: jar (water) | 07.12 |
+| prop: jar (water) | 07.13 |
 | prop: jewel (Sita's hair jewel) | 08.11 |
-| prop: jewels (bundle) | 06.04, 06.05, 07.06 |
+| prop: jewels (bundle) | 06.04, 06.05, 07.07 |
 | prop: Lanka towers | 06.07 |
 | prop: lanka-wall | 08.07 |
 | prop: line (scratched in the earth, under his hand) | 05.16 |
 | prop: line-top (the line as a closed ring round the hut, seen from above) | 05.17 |
 | prop: mountain | 08.05 |
 | prop: pyre | 06.11 |
-| prop: rain-cloud (with rain) | 07.13 |
+| prop: rain-cloud (with rain) | 07.14 |
 | prop: ring | 08.03, 08.10 |
-| prop: rocks | 06.04, 06.05, 07.02, 07.03, 07.04, 07.13 |
+| prop: rocks | 06.04, 06.05 |
 | prop: spear (held) | 04.10 |
 | prop: staff and pot (held) | 05.18 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.17 |
-| prop: tree | 02.08, 03.05, 04.02, 05.13, 06.07, 06.09, 07.10, 08.08 |
+| prop: tree | 02.11, 03.05, 04.02, 05.13, 06.07, 06.09, 07.10, 08.08 |
 | prop: tree with thirteen tally marks | 03.06 |
 | prop: tree-uprooted (held overhead) | 07.09 |
-| prop: umbrella (royal) | 07.12 |
+| prop: umbrella (royal) | 07.13 |
 | prop: vulture with one wing cut (vulture-fall for now) | 06.03 |
 | prop: vulture-lie (lying, one wing raised) | 06.10 |
 | prop: vulture-lie (lying) | 06.11 |
 
 ## Drawn props in use
 
-golden-deer, golden-deer-run, hut-top, lanka-island, palace, throne-ayodhya, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop
+golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, palace, throne-ayodhya, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop

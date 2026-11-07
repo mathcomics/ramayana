@@ -1,49 +1,51 @@
 {
-  "scene": "Rama and Sugriva clasp hands over a fire; Hanuman watches",
+  "scene": "Hanuman carries both princes up the hill on his shoulders",
   "size": 0.5,
-  "ground": "sand",
+  "ground": "dry-grass",
+  "zoom": 0.8,
   "props": [
     {
-      "prop": "fire",
-      "at": 0.5
+      "prop": "ledge",
+      "at": 0.85,
+      "layer": "back",
+      "scale": 1.2
     }
   ],
   "figures": [
     {
-      "who": "hanuman",
-      "pose": "step-akimbo",
-      "facing": "left",
-      "at": 0.88,
-      "row": "mid",
+      "who": "lakshman",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.36,
+      "lift": 5.2,
       "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "step-hang",
+      "pose": "sit-armknee",
       "facing": "right",
-      "at": 0.3,
-      "mouth": 2,
-      "adjust": {
-        "right.arm.shoulder": 80,
-        "right.arm.elbow": 15,
-        "right.arm.hand": "out"
-      }
+      "at": 0.56,
+      "lift": 5.2,
+      "mouth": 1
     },
     {
-      "who": "sugriva",
+      "who": "hanuman",
       "pose": "step-hang",
-      "facing": "left",
-      "at": 0.66,
+      "facing": "right",
+      "at": 0.45,
       "mouth": 2,
+      "scale": 1.2,
       "adjust": {
-        "right.arm.shoulder": 85,
-        "right.arm.elbow": 10,
-        "right.arm.hand": "out"
+        "right.arm.shoulder": 160,
+        "right.arm.elbow": 40,
+        "left.arm.shoulder": 160,
+        "left.arm.elbow": 40,
+        "spine.head": -12
       }
     }
   ],
   "needs": [
-    "prop: fire",
-    "pose: stand-clasp-hands (two figures, hands joined): stand with the right arm forward for now"
+    "pose: walk-carry-shoulder (a load on both shoulders): step-hang with arms up for now",
+    "pose: sit-carried (seated high, legs hanging): sit-armknee with lift for now"
   ]
 }

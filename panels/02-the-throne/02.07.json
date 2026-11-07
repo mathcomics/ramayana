@@ -1,32 +1,18 @@
 {
-  "scene": "Still walking, small in the panel. Back: outline of a river and a boat",
-  "size": 0.5,
-  "ground": "sky-blue",
-  "zoom": 0.45,
+  "scene": "Rama turns and walks away alone, head low",
+  "size": 0.3,
+  "shot": "wide",
+  "ground": "dusty-pink",
   "figures": [
     {
-      "who": "lakshman",
-      "pose": "pass-swing",
-      "facing": "left",
-      "at": 0.6,
-      "mouth": 1
-    },
-    {
-      "who": "sita",
+      "who": "rama",
       "pose": "walk-swing",
       "facing": "left",
-      "at": 0.5,
-      "mouth": 1
-    },
-    {
-      "who": "rama",
-      "pose": "pass-swing",
-      "facing": "left",
-      "at": 0.4,
-      "mouth": 1
+      "at": 0.45,
+      "mouth": 1,
+      "adjust": {
+        "spine.head": 18
+      }
     }
-  ],
-  "needs": [
-    "background: river and boat (02.07.svg is a placeholder)"
   ]
 }

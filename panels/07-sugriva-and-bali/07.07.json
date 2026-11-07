@@ -1,39 +1,42 @@
 {
-  "scene": "Sugriva points toward Kishkindha; Rama raises his bow, vowing",
-  "size": 0.75,
-  "ground": "dry-grass",
-  "sky": "sky",
+  "scene": "Sugriva shows the jewels; Rama presses them to his chest and weeps",
+  "size": 0.5,
+  "ground": "sand",
   "props": [
     {
-      "prop": "hills",
-      "at": 0.12,
-      "row": "horizon",
-      "scale": 1
+      "prop": "jewels",
+      "at": 0.62,
+      "lift": 2.6,
+      "scale": 0.8
     }
   ],
   "figures": [
     {
-      "who": "sugriva",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.36,
-      "mouth": 2
-    },
-    {
       "who": "rama",
-      "pose": "stand-pointup",
-      "facing": "left",
-      "at": 0.7,
+      "pose": "kneel-bow",
+      "facing": "right",
+      "at": 0.38,
       "mouth": 3,
       "adjust": {
-        "right.arm.prop": {
-          "kind": "bow",
-          "angle": 0
-        }
+        "right.arm.shoulder": 30,
+        "right.arm.elbow": 120,
+        "right.arm.hand": "fist"
+      }
+    },
+    {
+      "who": "sugriva",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.78,
+      "mouth": 1,
+      "adjust": {
+        "right.arm.shoulder": 60,
+        "right.arm.elbow": 20,
+        "right.arm.hand": "out"
       }
     }
   ],
   "needs": [
-    "prop: hills (Kishkindha, far)"
+    "prop: jewels (bundle)"
   ]
 }

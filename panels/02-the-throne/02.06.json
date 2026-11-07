@@ -1,28 +1,42 @@
 {
-  "scene": "Lakshman and Sita join him; the three walk on",
+  "scene": "Kaikeyi points Rama away; the king slumps on the throne",
   "size": 0.5,
-  "ground": "off-white",
+  "shot": "wide",
+  "ground": "dusty-pink",
+  "props": [
+    {
+      "prop": "throne-ayodhya",
+      "at": 0.82,
+      "row": "mid"
+    }
+  ],
   "figures": [
     {
-      "who": "lakshman",
-      "pose": "walk-swing",
+      "who": "dasharatha",
+      "pose": "chair-armrest",
       "facing": "left",
-      "at": 0.74,
-      "mouth": 1
-    },
-    {
-      "who": "sita",
-      "pose": "pass-swing",
-      "facing": "left",
-      "at": 0.5,
-      "mouth": 1
+      "on": "throne-ayodhya",
+      "mouth": 2
     },
     {
       "who": "rama",
-      "pose": "walk-swing",
+      "pose": "step-hang",
       "facing": "left",
-      "at": 0.27,
-      "mouth": 1
+      "at": 0.12,
+      "mouth": 1,
+      "adjust": {
+        "spine.head": 12
+      }
+    },
+    {
+      "who": "kaikeyi",
+      "pose": "step-point",
+      "facing": "left",
+      "at": 0.4,
+      "mouth": 3
     }
+  ],
+  "needs": [
+    "pose: sit-hand-on-head (slumped on the throne, hand to the head): sit for now"
   ]
 }

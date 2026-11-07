@@ -1,22 +1,44 @@
 {
-  "scene": "Rama looks back over his shoulder",
+  "scene": "Kaikeyi pulls the king back by the arm",
   "size": 0.5,
-  "ground": "off-white",
+  "shot": "wide",
+  "ground": "dusty-pink",
   "props": [
     {
-      "prop": "palace",
-      "at": 0.55,
-      "row": "back"
+      "prop": "throne-ayodhya",
+      "at": 0.88,
+      "row": "mid"
     }
   ],
   "figures": [
     {
       "who": "rama",
-      "pose": "pass-swing",
+      "pose": "step-hang",
       "facing": "left",
-      "at": 0.3,
-      "mouth": 1,
-      "turn": 90
+      "at": 0.85,
+      "mouth": 1
+    },
+    {
+      "who": "dasharatha",
+      "pose": "stepback-armsout",
+      "facing": "right",
+      "at": 0.56,
+      "mouth": 2
+    },
+    {
+      "who": "kaikeyi",
+      "pose": "leanback-armsback",
+      "facing": "right",
+      "at": 0.26,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 85,
+        "right.arm.elbow": 10,
+        "left.arm.shoulder": 70
+      }
     }
+  ],
+  "needs": [
+    "pose: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now"
   ]
 }

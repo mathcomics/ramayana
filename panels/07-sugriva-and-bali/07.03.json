@@ -1,53 +1,22 @@
 {
-  "scene": "Hanuman bounds down and greets the princes with joined palms",
-  "size": 0.5,
+  "scene": "Hanuman bounds down from the rocks",
+  "size": 0.3,
   "ground": "dry-grass",
   "props": [
     {
-      "prop": "rocks",
-      "at": 0.86,
+      "prop": "ledge",
+      "at": 0.85,
       "layer": "back"
     }
   ],
   "figures": [
     {
-      "who": "lakshman",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.14,
-      "mouth": 1
-    },
-    {
-      "who": "rama",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.34,
-      "mouth": 2,
-      "turn": 0,
-      "adjust": {
-        "spine.head": 12
-      }
-    },
-    {
       "who": "hanuman",
-      "pose": "kneel-handslow",
+      "pose": "leap-reach",
       "facing": "left",
-      "at": 0.66,
-      "mouth": 2,
-      "adjust": {
-        "right.arm.shoulder": 45,
-        "right.arm.elbow": 105,
-        "right.arm.hand": "in",
-        "left.arm.shoulder": 45,
-        "left.arm.elbow": 105,
-        "left.arm.hand": "in",
-        "spine.chest": 15,
-        "spine.head": -20
-      }
+      "at": 0.42,
+      "lift": 2,
+      "mouth": 2
     }
-  ],
-  "needs": [
-    "pose: kneel-palms-joined: kneel with both arms adjusted for now",
-    "prop: rocks"
   ]
 }

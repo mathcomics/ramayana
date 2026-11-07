@@ -1,42 +1,20 @@
 {
-  "scene": "Tara and a young monkey (Angad) mourn over Bali",
-  "size": 0.5,
+  "scene": "Bali falls",
+  "size": 0.3,
   "ground": "sage",
   "figures": [
     {
       "who": "monkey1",
       "id": "bali",
-      "pose": "liefront-onarms",
-      "facing": "right",
+      "pose": "fallback-flung",
+      "facing": "left",
       "at": 0.5,
-      "mouth": 1,
+      "mouth": 3,
       "cloth": "white",
       "scale": 1.1
-    },
-    {
-      "who": "queen2",
-      "id": "tara",
-      "pose": "kneel-handslow",
-      "facing": "right",
-      "at": 0.2,
-      "mouth": 3,
-      "cloth": "red",
-      "adjust": {
-        "spine.chest": 35
-      }
-    },
-    {
-      "who": "monkey1",
-      "id": "angad",
-      "pose": "step-holdhead",
-      "facing": "left",
-      "at": 0.86,
-      "mouth": 3,
-      "scale": 0.75
     }
   ],
   "needs": [
-    "pose: lie-back: lie-front for now",
-    "pose: kneel-bow: kneel with spine.chest 35 for now"
+    "effect: the arrow in his chest"
   ]
 }

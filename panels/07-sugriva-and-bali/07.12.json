@@ -1,65 +1,39 @@
 {
-  "scene": "Water is poured over the crowned Sugriva; young Angad beside him",
+  "scene": "Monkeys mourn over Bali",
   "size": 0.5,
-  "ground": "off-white",
-  "props": [
-    {
-      "prop": "throne-lanka",
-      "at": 0.44,
-      "row": "mid"
-    },
-    {
-      "prop": "jar",
-      "at": 0.56,
-      "lift": 6.2
-    },
-    {
-      "prop": "umbrella",
-      "at": 0.42,
-      "lift": 6.3,
-      "layer": "front"
-    }
-  ],
+  "ground": "sage",
   "figures": [
     {
-      "who": "sugriva",
-      "pose": "chair-armrest",
+      "who": "monkey1",
+      "id": "bali",
+      "pose": "liefront-onarms",
       "facing": "right",
+      "at": 0.5,
       "mouth": 1,
-      "adjust": {
-        "right.arm.shoulder": 45,
-        "right.arm.elbow": 105,
-        "right.arm.hand": "in",
-        "left.arm.shoulder": 45,
-        "left.arm.elbow": 105,
-        "left.arm.hand": "in"
-      },
-      "on": "throne-lanka"
+      "cloth": "white",
+      "scale": 1.1
     },
     {
-      "who": "hanuman",
-      "pose": "arch-overhead",
-      "facing": "left",
-      "at": 0.64,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": 15
-      }
+      "who": "queen2",
+      "id": "tara",
+      "pose": "kneel-bow",
+      "facing": "right",
+      "at": 0.2,
+      "mouth": 3,
+      "cloth": "red"
     },
     {
       "who": "monkey1",
       "id": "angad",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.14,
-      "mouth": 1,
+      "pose": "step-holdhead",
+      "facing": "left",
+      "at": 0.86,
+      "mouth": 3,
       "scale": 0.75
     }
   ],
   "needs": [
-    "prop: jar (water)",
-    "prop: umbrella (royal)",
-    "Sugriva's crown (signature feature)",
-    "a monkey-king seat (the gold throne for now)"
+    "pose: lie-back: liefront-onarms for now",
+    "character: Tara (queen2, red cloth: there are no female monkeys)"
   ]
 }

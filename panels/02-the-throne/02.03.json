@@ -1,41 +1,39 @@
 {
-  "scene": "Kaikeyi points Rama away; the king slumps",
+  "scene": "Dasharatha leads Rama by the hand toward the throne",
   "size": 0.5,
   "ground": "dusty-pink",
   "props": [
     {
       "prop": "throne-ayodhya",
-      "at": 0.8,
+      "at": 0.84,
       "row": "mid"
     }
   ],
   "figures": [
     {
-      "who": "dasharatha",
-      "pose": "chair-armrest",
-      "facing": "left",
-      "on": "throne-ayodhya",
-      "mouth": 2
-    },
-    {
       "who": "rama",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.14,
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.34,
       "mouth": 1,
       "adjust": {
-        "spine.head": 12
+        "right.arm.shoulder": 55,
+        "right.arm.elbow": 5
       }
     },
     {
-      "who": "kaikeyi",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.42,
-      "mouth": 3
+      "who": "dasharatha",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.56,
+      "mouth": 1,
+      "adjust": {
+        "left.arm.shoulder": -70,
+        "left.arm.elbow": 10
+      }
     }
   ],
   "needs": [
-    "pose: sit-hand-on-head (slumped on the throne, hand to the head): sit for now"
+    "relation: hand in hand"
   ]
 }
