@@ -349,10 +349,10 @@ const INDEX = /*__INDEX__*/;
     } else {
       for (const sd of ['near', 'far']) {
         const n = SIDE_NAME[sd], j = (k) => (J) => J[sd][k];
-        if (!solved(sd)) {
-          out.push({ view, side: sd, path: `${sd}.arm.out`, label: `${n} shoulder out`, piv: j('sh'), dir: (J) => ang(J[sd].sh, J[sd].E) });
-          out.push({ view, side: sd, path: `${sd}.arm.elbowOut`, label: `${n} elbow out`, piv: j('E'), dir: (J) => ang(J[sd].E, J[sd].Wr) });
-        }
+        if (!solved(sd)) out.push({ view, side: sd, path: `${sd}.arm.out`, label: `${n} shoulder out`, piv: j('sh'), dir: (J) => ang(J[sd].sh, J[sd].E) });
+        // elbow out stays even on a two-handed grip's solved arm: it is the
+        // elbow's free swivel (the hand is pinned to the hilt)
+        out.push({ view, side: sd, path: `${sd}.arm.elbowOut`, label: `${n} elbow out`, piv: j('E'), dir: (J) => ang(J[sd].E, J[sd].Wr) });
         out.push({ view, side: sd, path: `${sd}.leg.out`, label: `${n} hip out`, piv: j('hp'), dir: (J) => ang(J[sd].hp, J[sd].Kn) });
         out.push({ view, side: sd, path: `${sd}.leg.kneeOut`, label: `${n} knee out`, piv: j('Kn'), dir: (J) => ang(J[sd].Kn, J[sd].A) });
       }

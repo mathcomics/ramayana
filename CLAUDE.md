@@ -107,6 +107,10 @@ renderer or panel changes.
   sworddown, swordfront, swordhip, swordlevel, swordlow, swordshoulder,
   swordwaist) in favour of these** — most war panels are
   not drawn yet; swap the few existing uses when panels are revisited.
+  **The solved arm of a two-handed grip now keeps its stored `elbowOut`
+  as the elbow's free swivel** (hand pinned to the hilt, upper arm swings
+  out, forearm compensates; both bones kept within ±75° of the paper;
+  `src/parts.js`), and the pose lab keeps that arm's "elbow out" handle.
 - **Pose composition: bases, gestures, lab compose (2026-11-07):**
   `bases` (27) and `gestures` (42) in `data/pose-index.json` — the
   distinct lower / upper bodies, one-word names (bases named by the

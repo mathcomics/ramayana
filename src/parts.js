@@ -311,9 +311,12 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   };
   // Two-handed grip (prop.grip 'both'): the other arm is solved in 3D so
   // its hand closes on the hilt just below the holding hand, pointing the
-  // same way; its own pose angles are ignored. An arm keeps one `out` for
-  // both bones, so its hand's sideways reach is (upper + forearm) × sin out:
-  // that fixes out, and the rest is a two-bone reach in the arm's plane.
+  // same way; its own pose angles are ignored — except `elbowOut`, the
+  // elbow's free swivel about the pinned hand: it swings the upper arm
+  // further out and the forearm's out compensates, so the hand stays on
+  // the hilt. An arm keeps one `out` for both bones, so its hand's
+  // sideways reach is (upper + forearm) × sin out: that fixes out, and
+  // the rest is a two-bone reach in the arm's plane.
   const armOf = { near: pose.near.arm, far: pose.far.arm };
   for (const hs of ['near', 'far']) {
     const A = armOf[hs], P = A.prop;
@@ -330,13 +333,31 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const pd = v3(tp, oL + (P.out ?? 0), sg1);
     const W2 = add3(grip, pd, -0.42);                               // the other wrist: below the hand, along the hilt
     const L1 = M.upperArm.len, L2 = M.forearm.len, D = [W2[0] - S2[0], W2[1] - S2[1], W2[2] - S2[2]];
-    const so = Math.max(-1, Math.min(1, sg2 * D[0] / (L1 + L2))), o2 = Math.asin(so) / RAD, co = Math.cos(o2 * RAD) || 1e-6;
-    const y = D[1] / co, z = D[2] / co, a = L1, b = L2;           // in the arm's plane
-    const d = Math.min(Math.hypot(y, z), a + b - 1e-6);
-    const e = Math.acos(Math.max(-1, Math.min(1, (d * d - a * a - b * b) / (2 * a * b)))) / RAD;
-    const al = Math.acos(Math.max(-1, Math.min(1, (a * a + d * d - b * b) / (2 * a * d)))) / RAD;
-    const phi = Math.atan2(z, y) / RAD, su2 = phi - al;
-    armOf[os] = { ...pose[os].arm, shoulder: su2 - t0, elbow: e, wrist: tp - (su2 + e), out: o2, elbowOut: 0, twist: 0, hand: 'fist' };
+    const so = Math.max(-1, Math.min(1, sg2 * D[0] / (L1 + L2))), o2 = Math.asin(so) / RAD;
+    const cl = (v) => Math.max(-1, Math.min(1, v));
+    const sw = pose[os].arm.elbowOut || 0;                         // the elbow's swivel (+ away from the body)
+    // the swivel keeps both bones within ±75° of the paper, so neither
+    // collapses edge-on; past that the hand could no longer stay on the hilt
+    const sM = Math.sin(75 * RAD);
+    const lo = Math.max(-sM, (so * (L1 + L2) - L2 * sM) / L1), hi = Math.min(sM, (so * (L1 + L2) + L2 * sM) / L1);
+    if (sw && lo <= hi) {
+      const oU = Math.asin(Math.max(lo, Math.min(hi, Math.sin((o2 + sw) * RAD)))) / RAD;
+      const oF = Math.asin(cl((so * (L1 + L2) - L1 * Math.sin(oU * RAD)) / L2)) / RAD;
+      const a = L1 * Math.cos(oU * RAD) || 1e-6, b = L2 * Math.cos(oF * RAD) || 1e-6;
+      const d = Math.min(Math.hypot(D[1], D[2]), a + b - 1e-6);
+      const e = Math.acos(cl((d * d - a * a - b * b) / (2 * a * b))) / RAD;
+      const al = Math.acos(cl((a * a + d * d - b * b) / (2 * a * d))) / RAD;
+      const phi = Math.atan2(D[2], D[1]) / RAD, su2 = phi - al;
+      armOf[os] = { ...pose[os].arm, shoulder: su2 - t0, elbow: e, wrist: tp - (su2 + e), out: oU, elbowOut: oF - oU, twist: 0, hand: 'fist' };
+    } else {
+      const co = Math.cos(o2 * RAD) || 1e-6;
+      const y = D[1] / co, z = D[2] / co, a = L1, b = L2;         // in the arm's plane
+      const d = Math.min(Math.hypot(y, z), a + b - 1e-6);
+      const e = Math.acos(cl((d * d - a * a - b * b) / (2 * a * b))) / RAD;
+      const al = Math.acos(cl((a * a + d * d - b * b) / (2 * a * d))) / RAD;
+      const phi = Math.atan2(z, y) / RAD, su2 = phi - al;
+      armOf[os] = { ...pose[os].arm, shoulder: su2 - t0, elbow: e, wrist: tp - (su2 + e), out: o2, elbowOut: 0, twist: 0, hand: 'fist' };
+    }
     delete armOf[os].prop;
   }
   const limbs = {};

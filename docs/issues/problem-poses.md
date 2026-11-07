@@ -28,7 +28,7 @@ these: `docs/issues/rules-to-migrate.md`.
 | front poses with the head turned away (`look: right`, side view) | all | The back of the head shows the skin colour where no hair is drawn behind | Face files: hair or a cap drawn to cover the back, if wanted |
 | kneel, kneel-bow, kneel-palms-joined (side) | all | The forward foot hovers ~0.35 head-units above the ground (the back shin and foot carry the ground contact); seen from the new `joints.low` measurements | Pose lab: forward leg's hip / knee so the foot lands; the pin-feet toggle will then keep it there |
 | sit (side) | all | The stretched left foot's heel hovers ~0.65 above the ground | Pose lab: left knee / ankle so the heel rests |
-| two-handed sword poses (front) | all | The other arm is solved to the hilt, so it can cross the chest or bend sharply where the hilt is far to the holding side | Pose lab: holding arm's out / angle so the hilt sits nearer the middle |
+| two-handed sword poses (front) | all | The other arm is solved to the hilt, so it can cross the chest or bend sharply where the hilt is far to the holding side | Pose lab: the solved arm's "elbow out" (its free swivel, kept since 2026-11-07) moves its elbow; or the holding arm's out / angle so the hilt sits nearer the middle |
 | new walk, shoot and sword poses (front) | all | First drafts from reference sheets: legs reaching forward and back have little hip out, so the stride overlaps in front | Pose lab: hip out on the stepping legs |
 
 ## From the panel self-review of sections 07–08 (2026-11-07)
