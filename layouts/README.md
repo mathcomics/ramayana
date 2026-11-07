@@ -2,8 +2,8 @@
 
 Reference layouts for planning panels, named `<size>-<shot>.svg`:
 
-- size: `0.75` (the usual panel, 360 × 540), `0.5` (half screen, 360 × 360),
-  `1` (full screen, 360 × 720, rarely).
+- size: `0.75` (the usual panel, 360 × 540), `0.5` (360 × 360), `0.3` (a
+  strip, 360 × 216). No full screen (1): too tall.
 - shot: how close the camera is.
 
 | Shot | What | Rows (`shot` in a panel) |
@@ -18,7 +18,8 @@ ground lines that fall inside it), and simple men as plain groups
 Add variants as `<size>-<shot>-2.svg` …
 
 `0.75-wide.svg` and `0.75-mid.svg` are the artist's own (the rows in
-`src/scene.js` were measured from them). The others are generated:
+`src/scene.js` were measured from them). The others are generated
+(0.75-far, 0.5-far/-wide/-mid, 0.3-far/-wide/-mid):
 
     node tools/layout-template.mjs 0.5 wide      # layouts/0.5-wide.svg
 

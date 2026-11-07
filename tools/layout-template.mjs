@@ -16,10 +16,11 @@
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { panelHeight, SHOTS, SCREEN } from '../src/scene.js';
+import { panelHeight, SHOTS, SCREEN, SIZES } from '../src/scene.js';
 import { root } from './lib.mjs';
 
 const size = Number(process.argv[2] ?? 0.75);
+if (!SIZES.includes(size)) throw new Error(`size ${size}: one of ${SIZES.join(', ')}`);
 const shotName = process.argv[3] ?? 'far';
 const ROWS = SHOTS[shotName];
 if (!ROWS) throw new Error(`shot ${shotName}: one of ${Object.keys(SHOTS).join(', ')}`);

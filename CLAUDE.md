@@ -68,7 +68,7 @@ Saved poses are reviewed and then merged into `data/poses.json`.
     node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
     node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
-    node tools/layout-template.mjs 0.5 wide        # layouts/0.5-wide.svg (size: 1, 0.75, 0.5; shot: far, wide, mid)
+    node tools/layout-template.mjs 0.5 wide        # layouts/0.5-wide.svg (size: 0.75, 0.5, 0.3; shot: far, wide, mid)
 
 Panel lab (published artifact, drafts in its database, collection
 `panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
@@ -77,6 +77,13 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Panel sizes 0.75 / 0.5 / 0.3 (2026-11-07):** no full-screen panels
+  (too tall); `SIZES` in `src/scene.js`, any other size is an issue. The
+  eleven size-1 panels (02.05, 03.01, 04.01, 04.09, 05.02, 05.03, 05.09,
+  06.01, 06.04, 06.06, 06.07) are now 0.75 (06.04 / 06.06 backgrounds
+  scaled to 540). New 0.3 strip; layouts 0.3-far/-wide/-mid, 1-far
+  removed. The manuscript's "full" sizes (separate conversation) need
+  updating.
 - **Drawn faces at the drawn angles (2026-11-07):** `headTurn(..., {
   drawn })` uses the artist's front drawing when the face looks straight
   at the viewer and the side drawing when the head is seen exactly from

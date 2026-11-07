@@ -1,6 +1,6 @@
 {
   "scene": "Back: rows of rakshasas charge with spears and maces. Front: Rama alone, bow drawn",
-  "size": 1,
+  "size": 0.75,
   "ground": "sand",
   "figures": [
     { "who": "raxas_m1", "id": "r1", "pose": "lunge-sword-forward", "facing": "left", "at": 0.6, "row": "back", "mouth": 3, "cloth": "red-check" },

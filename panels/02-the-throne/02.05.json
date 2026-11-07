@@ -1,6 +1,6 @@
 {
   "scene": "Rama looks back over his shoulder",
-  "size": 1,
+  "size": 0.75,
   "ground": "off-white",
   "props": [
     { "prop": "palace", "at": 0.55, "row": "back" }

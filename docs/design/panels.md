@@ -18,8 +18,8 @@ section as it will scroll on a phone while you edit a panel's JSON.
 ## Delivery: a scroll of panels
 
 The reader scrolls one long column. Every panel is the full width (360
-units) and `size` × one phone screen (720 units) tall: mostly **0.75**,
-sometimes 0.5, now and then 1. Panels follow each other in id order; there
+units) and `size` × one phone screen (720 units) tall: **0.75** (most
+panels), **0.5** or **0.3** (a strip). No full-screen panels (1): too tall. Panels follow each other in id order; there
 are no screens or pages to fill.
 
 ## Panel definition
@@ -50,7 +50,7 @@ repeated inside the JSON.
 | Field | Values | Notes |
 |---|---|---|
 | `scene` | text | The scene line it draws, for reference only. |
-| `size` | number | Share of a screen height. Default 0.75. |
+| `size` | `0.75` · `0.5` · `0.3` | Share of a screen height. Default 0.75. Anything else is an issue. |
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. |
 | `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.45). |
 | `shot` | `far` · `wide` · `mid` | Which rows (below). Default `far`. Layouts: `layouts/<size>-<shot>.svg`. |
@@ -115,7 +115,7 @@ thirds of its panel whatever the size.
 | mid | 34 | 17 % |
 | back | 24 | 34 % |
 
-Other sizes scale in proportion (a 0.5 panel: × 2/3).
+Other sizes scale in proportion (a 0.5 panel: × 2/3, a 0.3 panel: × 0.4).
 
 That table is the `far` shot. A panel's `shot` picks another row set
 (head-unit in a 0.75 panel; ground as a share of the panel height above

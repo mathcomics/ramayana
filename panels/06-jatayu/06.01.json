@@ -1,6 +1,6 @@
 {
   "scene": "Back: the flying chariot. Front: Jatayu rises toward it, wings spread",
-  "size": 1,
+  "size": 0.75,
   "ground": "sky-blue",
   "props": [
     {

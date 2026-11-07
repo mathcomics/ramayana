@@ -1,6 +1,6 @@
 {
   "scene": "Top view: a small hut in the middle of green ground, clumps of trees in two corners",
-  "size": 1,
+  "size": 0.75,
   "ground": "#c9d4ad",
   "props": [
     { "prop": "trees-top", "id": "trees-nw", "at": 0.2, "scale": 0.45, "lift": 18 },

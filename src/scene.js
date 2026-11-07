@@ -48,7 +48,10 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 const setPath = (o, path, v) => { const k = path.split('.'); let t = o; while (k.length > 1) { const p = k.shift(); t = t[p] ??= {}; } t[k[0]] = v; };
 const clone = (o) => JSON.parse(JSON.stringify(o));
 
-const validSize = (panel) => { const s = Number(panel.size ?? DEFAULT_SIZE); return s > 0 && s <= 2 ? s : null; };
+// Panel sizes, as a share of a phone screen's height: 0.75 (the usual
+// panel), 0.5 and 0.3 (a strip). A full screen (1) is too tall.
+export const SIZES = [0.3, 0.5, 0.75];
+const validSize = (panel) => { const s = Number(panel.size ?? DEFAULT_SIZE); return SIZES.includes(s) ? s : null; };
 export const panelHeight = (panel) => Math.round(SCREEN.h * (validSize(panel) ?? DEFAULT_SIZE));
 
 // assets: { species, poses, characters, faces, props, grounds }
@@ -59,7 +62,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   const W = SCREEN.w, H = panelHeight(panel);
   const zoom = panel.zoom ?? 1;           // figures only: "small in the panel"
   const issues = [];
-  if (validSize(panel) == null) issues.push(`size ${JSON.stringify(panel.size)}: use a number such as 0.75, 0.5 or 1`);
+  if (validSize(panel) == null) issues.push(`size ${JSON.stringify(panel.size)}: use ${SIZES.join(', ')}`);
   const grounds = assets.grounds?.grounds || {};
   const ground = grounds[panel.ground] || panel.ground || grounds[assets.grounds?.default] || '#efe8db';
   if (panel.ground && !grounds[panel.ground] && !/^#/.test(panel.ground)) issues.push(`ground "${panel.ground}" not in data/grounds.json`);
