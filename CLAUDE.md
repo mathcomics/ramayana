@@ -77,6 +77,12 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Ravana's turned head fixed (2026-11-06):** the face-turn import paired
+  his second front earring with the side drawing's red lips (one side
+  earring for two front ones), so turned heads showed a red blob at the
+  mouth and a half moustache. Now a mirrored pair of front parts shares
+  one side part (`tools/face-turn.mjs`); only Ravana's turn data changed.
+  Pose lab save `chair` (new) not merged yet.
 - **Elbow and knee out (2026-11-06):** pose settings `arm.elbowOut`,
   `leg.kneeOut` (degrees, + away from the body): the forearm + hand point
   out by out + elbowOut, the shin by out + kneeOut (`src/parts.js`; held
