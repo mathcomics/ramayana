@@ -98,7 +98,9 @@ renderer or panel changes.
   0.06 of the ground: `joints.<side>.low` added to the renderer's joints
   (`src/parts.js`; renders unchanged). "Join" button (Hands field):
   solves each arm's `elbowOut` so both hands land on the body's midline
-  in the front view (joined palms, clasped hands). Proposal updated
+  in the front view (joined palms, clasped hands; the forearm is kept
+  within 40° of the paper — past that the side-view hand foreshortens
+  into a splayed fan instead of the drawn hand). Proposal updated
   (`docs/proposals/2026-11-07-contact-constraints.md`; lookAt, held-by
   still open). Found via `low`: kneel's forward foot and sit's stretched
   heel hover above the ground (problem-poses).
@@ -106,8 +108,10 @@ renderer or panel changes.
   `kneel-palms-joined`, `kneel-bow` added to `data/poses.json` as first
   drafts (written directly, not lab saves); index entries moved out of
   `wanted` (14 left). Both arms identical (artist's direction: the hands
-  overlap completely in the side view); palms meet at the chest midline
-  in the front view with arm `out` ~12 and `elbowOut` ~-70 (solved);
+  overlap in the side view); upper arms hang straight (`out` 0), only
+  the forearms converge (`elbowOut` ~-38, solved) so the palms meet at
+  the chest midline in the front view — never more than ~40° of forearm
+  out, past which the side-view hand foreshortens into a splayed fan;
   heads bowed (total pitch ~22°, kneel-bow ~54°). kneel-bow bows with
   lean 22 + chest 42 and the hips raised by Δlean so the legs stay
   planted (the manual version of the proposed pin-feet solve). Pose lab

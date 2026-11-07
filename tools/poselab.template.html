@@ -717,7 +717,10 @@ const STARTERS = /*__POSES__*/;
   }
   // ---------- join hands: both hands to the body's midline in the front
   // view, as for joined palms, solving each arm's elbowOut (a secant step
-  // per pass, like the drag solve); heights and the side view stay.
+  // per pass, like the drag solve); heights and the side view stay. The
+  // forearm is kept within 40° of the paper: past that the hand
+  // foreshortens into a splayed fan instead of the drawn hand, and the
+  // last fraction of convergence isn't worth it (hands touch well before).
   function joinHands() {
     const solvedBy = (sd) => ['near', 'far'].some((h) => h !== sd && state.pose[h].arm.prop?.grip === 'both');
     let touched = false;
@@ -728,7 +731,7 @@ const STARTERS = /*__POSES__*/;
       for (const sd of ['near', 'far']) {
         if (solvedBy(sd)) continue;
         const err = J[sd].grip[0] - mid;
-        if (Math.abs(err) < 0.03) continue;
+        if (Math.abs(err) < 0.05) continue;
         done = false;
         const a = state.pose[sd].arm, v = a.elbowOut ?? 0;
         const probe = clone(state.pose), h = v + 4 <= 90 ? 4 : -4;
@@ -737,7 +740,8 @@ const STARTERS = /*__POSES__*/;
         if (Math.abs(dx) < 1e-3) continue;             // elbow out can't move this hand here
         let dv = -err * h / dx;
         dv = Math.max(-40, Math.min(40, dv));
-        const [lo, hi] = rangeOf('arm.elbowOut');
+        const ao = a.out ?? 0;
+        const lo = Math.max(-90, -40 - ao), hi = Math.min(90, 40 - ao);
         a.elbowOut = Math.max(lo, Math.min(hi, Math.round((v + dv) * 10) / 10));
         touched = true;
       }

@@ -43,7 +43,10 @@ angles exact, lengths carry the `out` foreshortening), always on the
 knee-flexes-backward branch, 3 passes. A **Join hands** button was added
 at the same time (not in this proposal): it solves each arm's `elbowOut`
 so both hands land on the body's midline in the front view, for joined
-palms and clasped hands.
+palms and clasped hands. The forearm is kept within 40° of the paper:
+past that the side-view hand foreshortens into a splayed fan instead of
+the drawn hand (found on the first devotion drafts), and hands touch
+well before exact convergence, so the solve also stops at 0.05.
 
 ## 2. lookAt (panels)
 
