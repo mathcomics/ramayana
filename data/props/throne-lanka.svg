@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Throne with steps, from the artist's layout layouts/scenes/0.5-lanka-throne.svg (scaled by the man seated on it).
-     anchors: seat = where a seated figure's hips rest (figure "on": "throne").
+<!-- The Lanka throne (Ravana's court; also Kishkindha's stand-in), gold back and steps, from the artist's layout layouts/scenes/0.5-lanka-throne.svg (scaled by the man seated on it).
+     anchors: seat = where a seated figure's hips rest (figure "on": "throne-lanka").
      100 px = 1 head-unit; the bottom edge sits on the ground line.
      The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="0 0 545.11 733.7" width="545.11" height="733.7">

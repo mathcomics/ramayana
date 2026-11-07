@@ -67,16 +67,16 @@ test('sky: a colour above the horizon; row "horizon" stands things on it', () =>
 });
 
 test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirror the seat', () => {
-  const seat = assets.props.props.throne.anchors.seat;
+  const seat = assets.props.props['throne-ayodhya'].anchors.seat;
   for (const facing of ['right', 'left']) {
-    const r = renderPanel({ props: [{ prop: 'throne', at: 0.5, row: 'mid', facing }], figures: [{ who: 'dasharatha', pose: 'sit-armknee', on: 'throne' }] }, assets);
+    const r = renderPanel({ props: [{ prop: 'throne-ayodhya', at: 0.5, row: 'mid', facing }], figures: [{ who: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets);
     assert.deepEqual(r.issues.filter((i) => !/placeholder/.test(i)), []);
     const [, fy, fs] = r.svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/) || [];
-    const unit = 34, top = 540 * (1 - 0.17) - assets.props.props.throne.size[1] * unit;
+    const unit = 34, top = 540 * (1 - 0.17) - assets.props.props['throne-ayodhya'].size[1] * unit;
     assert.ok(Math.abs(+fy - (top + seat[1] * unit)) < 0.01, `${facing}: seat height`);
     assert.equal(Math.abs(+fs), unit);
   }
-  assert.equal(renderPanel({ figures: [{ who: 'rama', pose: 'sit-armknee', on: 'throne' }] }, assets).issues.length, 1);
+  assert.equal(renderPanel({ figures: [{ who: 'rama', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets).issues.length, 1);
 });
 
 test('two panels on one page never share an id', () => {

@@ -78,4 +78,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-golden-deer, golden-deer-run, hut-top, lanka-island, palace, throne, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop
+golden-deer, golden-deer-run, hut-top, lanka-island, palace, throne-ayodhya, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- lotus-bud, from the artist's flowers sheet (data/props/sheets/flowers.svg).
+     100 px = 1 head-unit; the drawing is the artist's, unchanged: the viewBox only crops to it. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="266 155 30 160" width="30" height="160">
+<g
+     id="lotus_group"
+     transform="translate(584.75395,70.34634)"><g
+       id="lotus-bud"
+       transform="matrix(5.434783,0,0,5.434783,-675.65222,-296.35872)"><path
+         style="fill:#ffaaaa;fill-opacity:1;stroke:#ff5555;stroke-width:0.368;stroke-dasharray:none;stroke-opacity:1"
+         d="m 68.711938,79.598922 c 0,0 -0.294613,4.55634 -0.294613,5.503444"
+         id="path2895-7-9"
+         sodipodi:nodetypes="cc" /><path
+         style="fill:#ffaaaa;fill-opacity:1;stroke:#916f6f;stroke-width:0.368;stroke-dasharray:none;stroke-opacity:1"
+         d="m 68.698147,90.582736 c 0,0 -0.294613,-4.556341 -0.294613,-5.503444"
+         id="path2895-7-9-7"
+         sodipodi:nodetypes="cc" /><path
+         style="fill:#ffffff;stroke:#ffffff;stroke-width:0.184;stroke-opacity:1"
+         d="m 68.674854,79.782201 c 0.465312,-0.756415 2.675548,-4.235922 1.628595,-6.253026 -1.046954,-2.017107 -1.570432,-2.622238 -1.570432,-2.622238 0,0 -2.093909,3.42908 -1.861252,4.790629 0.232657,1.36155 1.803089,4.084635 1.803089,4.084635 z"
+         id="path3032-5"
+         sodipodi:nodetypes="cscsc" /><path
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:0.184;stroke-opacity:1"
+         d="m 67.477651,77.483133 c 0.293021,-0.536467 1.684873,-3.004214 1.025575,-4.434791 -0.659299,-1.430579 -0.988947,-1.859752 -0.988947,-1.859752 0,0 -1.318598,2.431982 -1.172086,3.397625 0.146511,0.965643 1.135458,2.896918 1.135458,2.896918 z"
+         id="path3032-5-5"
+         sodipodi:nodetypes="cscsc" /><path
+         id="path3032-5-50"
+         style="fill:#916f6f;fill-opacity:1;stroke:none;stroke-width:0.184;stroke-opacity:1"
+         d="m 68.718093,90.149255 c 0,0 -0.659142,1.143019 -1.186656,2.318328 -0.0031,-0.0057 -0.0075,-0.01412 -0.01042,-0.01941 0,0 -0.989114,1.93128 -1.135625,2.896922 -0.146512,0.965642 1.172281,3.397531 1.172281,3.397531 0,0 0.179894,-0.234977 0.538703,-0.93186 0.368828,0.703668 0.679938,1.21361 0.679938,1.21361 0,0 0.523515,-0.605254 1.570468,-2.622359 1.046952,-2.017102 -1.163375,-5.496351 -1.628687,-6.252766 z" /></g></g>
+</svg>

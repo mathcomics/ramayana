@@ -4,7 +4,7 @@
   "ground": "off-white",
   "props": [
     {
-      "prop": "throne",
+      "prop": "throne-lanka",
       "at": 0.44,
       "row": "mid"
     },
@@ -34,7 +34,7 @@
         "left.arm.elbow": 105,
         "left.arm.hand": "in"
       },
-      "on": "throne"
+      "on": "throne-lanka"
     },
     {
       "who": "hanuman",

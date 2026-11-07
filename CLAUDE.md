@@ -95,6 +95,18 @@ renderer or panel changes.
 
 ## Status (2026-11-07)
 
+- **Artist props: flowers, two thrones, Jatayu's wing (2026-11-07):**
+  the artist's `flowers.svg` sheet lives in `data/props/sheets/` and is
+  split into seven props with tight viewBoxes: `flower-droop`,
+  `flower-white`, `flower-pink`, `flower-yellow`, `flower-orange` (small
+  standing flowers, 1.8–2.6 head-units) and `lotus-bud` / `lotus-full`
+  (drawn hanging with falling petals — for flower-rain, placed with
+  `lift`). `throne` split in two: **`throne-ayodhya`** (gold seat and
+  steps under the red sun disc; ch 02 — the king's gold crown now reads
+  against the red) and **`throne-lanka`** (the old gold-backed one;
+  Ravana's court 05.02–05.06 and, as a stand-in, Sugriva's 07.12).
+  `vulture-wing` (5.8 × 5.7, the wing Ravana cuts) ready for the Jatayu
+  battle panels — not yet placed.
 - **Composite names everywhere; bases shared in the lab (2026-11-07):**
   every pose is now named `<base>-<gesture>` — in poses.json, the index,
   the panels (183 references rewritten) and the docs; the old

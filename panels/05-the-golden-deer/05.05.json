@@ -5,7 +5,7 @@
   "ground": "geru",
   "props": [
     {
-      "prop": "throne",
+      "prop": "throne-lanka",
       "at": 0.76,
       "row": "mid",
       "facing": "left"
@@ -16,7 +16,7 @@
       "who": "ravana",
       "pose": "chair-armrest",
       "facing": "left",
-      "on": "throne",
+      "on": "throne-lanka",
       "mouth": 2,
       "adjust": {
         "spine.chest": 10
