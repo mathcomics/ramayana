@@ -2,7 +2,7 @@
   "_doc": "Prop registry. size = [width, height] in head-units, so a prop scales with its row like the figures. A prop without artwork renders as a labelled placeholder box; the artist's file will go in data/props/<id>.svg (import tool to come).",
   "props": {
     "throne":  { "size": [2.6, 3.4] },
-    "palace":  { "size": [9, 7] },
+    "palace":  { "size": [10, 4] },
     "boat":    { "size": [5, 1.6] },
     "tree":    { "size": [3, 6] },
     "hut":     { "size": [5, 4.5] },

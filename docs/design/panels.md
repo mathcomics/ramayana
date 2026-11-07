@@ -85,7 +85,9 @@ repeated inside the JSON.
 - `prop`: id from `data/props.json`, whose `size` is `[width, height]` in
   head-units, so a prop scales with its row.
 - `layer`: `back` (default, behind figures of its row) or `front`.
-- A prop with no artwork yet renders as a **labelled dashed box**.
+- Artwork: `data/props/<id>.svg`, 100 px = 1 head-unit, bottom edge on the
+  ground; its viewBox sets the prop's size. A prop with no artwork yet
+  renders as a **labelled dashed box**.
 - `at`, `row`, `scale`, `lift`, `nudge`, `id` as for figures (`lift`: a bird on a branch).
 
 ### Placement

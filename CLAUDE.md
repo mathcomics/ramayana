@@ -75,6 +75,11 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **First prop art: palace (2026-11-06):** `data/props/palace.svg`, a
+  one-colour silhouette (sepia, openings cut out) simplified from the
+  artist's palace reference; 10 × 4 head-units. `tools/lib.mjs`
+  `loadProps` reads `data/props/<id>.svg` (100 px = 1 head-unit, size from
+  the viewBox). Used in 02.05 (moved to at 0.55 so it fits).
 - **Reader site publishing (2026-11-06):** `.github/workflows/publish-site.yml`,
   manual dispatch only: builds `_site/` and uploads it with wrangler to the
   Cloudflare Pages Direct Upload project `ramayana` (branch main). One

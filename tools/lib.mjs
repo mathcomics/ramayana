@@ -46,13 +46,29 @@ export function loadSpecies() {
   }));
 }
 
+// data/props.json + the artist's drawings data/props/<id>.svg (100 px = 1
+// head-unit, bottom edge on the ground). A drawing sets the prop's size
+// from its viewBox; a prop without one stays a placeholder box.
+export function loadProps() {
+  const reg = json('data/props.json');
+  for (const [id, def] of Object.entries(reg.props)) {
+    const f = join(root, 'data/props', `${id}.svg`);
+    if (!existsSync(f)) continue;
+    const text = readFileSync(f, 'utf8');
+    const vb = text.match(/viewBox="([^"]+)"/)[1].split(/[\s,]+/).map(Number);
+    def.size = [vb[2] / 100, vb[3] / 100];
+    def.svg = `<g transform="scale(0.01) translate(${-vb[0]} ${-vb[1]})">${backgroundInner(text)}</g>`;
+  }
+  return reg;
+}
+
 export function loadAssets() {
   return {
     species: loadSpecies(),
     poses: json('data/poses.json').poses,
     characters: json('data/characters.json'),
     faces: json('data/faces.json'),
-    props: json('data/props.json'),
+    props: loadProps(),
     grounds: json('data/grounds.json'),
   };
 }

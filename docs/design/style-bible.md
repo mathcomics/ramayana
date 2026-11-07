@@ -377,6 +377,10 @@ alphabetically.
     hilt just below the holding hand.
 - Scene props (throne, chariot, trees) are placed by the panel, not the
   pose (`docs/design/panels.md`).
+  A scene prop is a flat drawing in one colour, no outlines, its openings
+  (arches, windows) cut out so the ground shows through; only the main
+  masses, readable at phone size (`data/props/<id>.svg`, 100 px = 1
+  head-unit, bottom edge on the ground).
 - Later: fire (layered yellow/orange/red flame curls with black strokes),
   mace, stones, banners.
 
