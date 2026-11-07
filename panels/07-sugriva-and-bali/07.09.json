@@ -13,7 +13,7 @@
   "figures": [
     {
       "who": "sugriva",
-      "pose": "stand-arms-overhead",
+      "pose": "arch-overhead",
       "facing": "right",
       "at": 0.3,
       "mouth": 3
@@ -21,7 +21,7 @@
     {
       "who": "monkey1",
       "id": "bali",
-      "pose": "stand-fists-up",
+      "pose": "leanfront-fists",
       "facing": "left",
       "at": 0.7,
       "mouth": 3,

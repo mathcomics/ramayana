@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { normalizePose, solve, frontOf, buildShapes, renderFigure, parseCloth, characterLook, anatomy } from '../src/figure.js';
 import { SPECIES, POSES, CAST, FACES, allFinite, stableIds } from './helpers.mjs';
 
-const stand = POSES.find((p) => p.name === 'stand');
+const stand = POSES.find((p) => p.name === 'step-hang');
 
 test('normalizePose fills defaults and rejects bad values', () => {
   const p = normalizePose({ mouth: 7, view: 'top', near: { arm: { hand: 'claw', shoulder: 'x' } } });

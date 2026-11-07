@@ -7,7 +7,7 @@
     {
       "who": "monkey1",
       "id": "m1",
-      "pose": "run",
+      "pose": "run-pump",
       "facing": "left",
       "at": 0.22,
       "row": "back",
@@ -16,7 +16,7 @@
     {
       "who": "monkey1",
       "id": "m2",
-      "pose": "leap",
+      "pose": "leap-reach",
       "facing": "right",
       "at": 0.78,
       "row": "back",
@@ -26,7 +26,7 @@
     },
     {
       "who": "sugriva",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "right",
       "at": 0.5,
       "mouth": 3
@@ -34,7 +34,7 @@
     {
       "who": "monkey1",
       "id": "m3",
-      "pose": "run-arms-back",
+      "pose": "runwide-hang",
       "facing": "left",
       "at": 0.12,
       "mouth": 2,
@@ -43,7 +43,7 @@
     {
       "who": "monkey1",
       "id": "m4",
-      "pose": "run",
+      "pose": "run-pump",
       "facing": "right",
       "at": 0.88,
       "mouth": 2

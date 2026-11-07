@@ -14,7 +14,7 @@
   "figures": [
     {
       "who": "ravana",
-      "pose": "sit-chair",
+      "pose": "chair-armrest",
       "facing": "left",
       "on": "throne",
       "mouth": 2,
@@ -24,7 +24,7 @@
     },
     {
       "who": "surpanakha",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.3,
       "mouth": 3,

@@ -25,14 +25,14 @@
   "figures": [
     {
       "who": "rama",
-      "pose": "stand-hands-on-hips",
+      "pose": "step-akimbo",
       "facing": "right",
       "at": 0.17,
       "mouth": 1
     },
     {
       "who": "sita",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "right",
       "at": 0.38,
       "mouth": 2

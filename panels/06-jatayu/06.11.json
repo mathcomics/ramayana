@@ -16,7 +16,7 @@
   "figures": [
     {
       "who": "lakshman",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.14,
       "mouth": 1,
@@ -35,7 +35,7 @@
     },
     {
       "who": "rama",
-      "pose": "bend-low",
+      "pose": "bend-reach",
       "facing": "right",
       "at": 0.4,
       "mouth": 1

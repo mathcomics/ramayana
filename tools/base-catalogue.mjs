@@ -23,7 +23,7 @@ const look = characterLook(who, A.characters.palette, A.faces);
 const species = A.species[who.species];
 
 const clone = (o) => JSON.parse(JSON.stringify(o));
-const stand = A.poses.find((p) => p.name === 'stand');
+const stand = A.poses.find((p) => p.name === 'step-hang');
 const composeBase = (src) => ({
   name: src.name, mouth: stand.mouth,
   spine: { ...clone(stand.spine), lean: src.spine.lean },

@@ -5,7 +5,7 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "right",
       "at": 0.3,
       "mouth": 2,
@@ -19,7 +19,7 @@
     },
     {
       "who": "sage1",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "left",
       "at": 0.72,
       "id": "ascetic",

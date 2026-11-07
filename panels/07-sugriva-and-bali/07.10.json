@@ -13,7 +13,7 @@
   "figures": [
     {
       "who": "sugriva",
-      "pose": "lunge",
+      "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.58,
       "row": "back",
@@ -22,7 +22,7 @@
     {
       "who": "monkey1",
       "id": "bali",
-      "pose": "fall-back",
+      "pose": "fallback-flung",
       "facing": "left",
       "at": 0.78,
       "row": "back",
@@ -32,7 +32,7 @@
     },
     {
       "who": "rama",
-      "pose": "stand-bow-release",
+      "pose": "step-bowloose",
       "facing": "right",
       "at": 0.22,
       "mouth": 1

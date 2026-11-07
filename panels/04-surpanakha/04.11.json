@@ -6,7 +6,7 @@
     {
       "who": "raxas_m1",
       "id": "r1",
-      "pose": "fall-back",
+      "pose": "fallback-flung",
       "facing": "left",
       "at": 0.6,
       "row": "back",
@@ -16,7 +16,7 @@
     {
       "who": "raxas_m1",
       "id": "r2",
-      "pose": "fall-forward",
+      "pose": "fallfront-armsdown",
       "facing": "left",
       "at": 0.86,
       "row": "back",
@@ -26,7 +26,7 @@
     {
       "who": "raxas_m1",
       "id": "r3",
-      "pose": "stand-step-back",
+      "pose": "stepback-armsout",
       "facing": "left",
       "at": 0.62,
       "row": "mid",
@@ -36,7 +36,7 @@
     {
       "who": "raxas_m1",
       "id": "r4",
-      "pose": "fall-back",
+      "pose": "fallback-flung",
       "facing": "left",
       "at": 0.84,
       "row": "mid",
@@ -45,7 +45,7 @@
     },
     {
       "who": "rama",
-      "pose": "stand-bow-release",
+      "pose": "step-bowloose",
       "facing": "right",
       "at": 0.22,
       "mouth": 1

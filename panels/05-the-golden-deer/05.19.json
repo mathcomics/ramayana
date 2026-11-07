@@ -6,14 +6,14 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "fall-back",
+      "pose": "fallback-flung",
       "facing": "right",
       "at": 0.29,
       "mouth": 3
     },
     {
       "who": "ravana",
-      "pose": "stand-arms-up-knee-up",
+      "pose": "kneeup-armsup",
       "facing": "left",
       "at": 0.66,
       "mouth": 3,

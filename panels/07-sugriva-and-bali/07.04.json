@@ -13,7 +13,7 @@
   "figures": [
     {
       "who": "lakshman",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.28,
       "lift": 5.8,
@@ -21,7 +21,7 @@
     },
     {
       "who": "rama",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.62,
       "lift": 5.8,
@@ -29,7 +29,7 @@
     },
     {
       "who": "hanuman",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.45,
       "mouth": 2,

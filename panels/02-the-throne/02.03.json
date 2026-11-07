@@ -12,14 +12,14 @@
   "figures": [
     {
       "who": "dasharatha",
-      "pose": "sit-chair",
+      "pose": "chair-armrest",
       "facing": "left",
       "on": "throne",
       "mouth": 2
     },
     {
       "who": "rama",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.14,
       "mouth": 1,
@@ -29,7 +29,7 @@
     },
     {
       "who": "kaikeyi",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "left",
       "at": 0.42,
       "mouth": 3

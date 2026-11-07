@@ -95,6 +95,20 @@ renderer or panel changes.
 
 ## Status (2026-11-07)
 
+- **Composite names everywhere; bases shared in the lab (2026-11-07):**
+  every pose is now named `<base>-<gesture>` — in poses.json, the index,
+  the panels (183 references rewritten) and the docs; the old
+  descriptive names are gone (stand → `step-hang`, walk → `walk-swing`,
+  stand-bow-draw → `step-bowdraw`, stand-sword-up → `step-swordup` …;
+  the renderer's fallback pose is `step-hang`). The name test now checks
+  name = base + gesture. **Panel-lab drafts in its database still hold
+  old pose names** — fix them when drafts are merged. **Pose lab: the
+  lower body belongs to the base** ("no deviations", the artist's call):
+  editing legs, lean or tail on any pose updates the session's base and
+  every pose of that base loads with it (a gesture's `lean` still adds
+  on top, feet kept by the leg solve); merging such a save = apply to
+  the base reference + `recompose --base`. Per-pose lower-body
+  deviations are not entertained until the bases are refined.
 - **New sword set from the fencing-guard sheet (2026-11-07):** 14 new
   two-handed sword poses (heavy blade / club, not rapier) built from a
   historical guard reference (angles only): gestures `roof`, `ox`,

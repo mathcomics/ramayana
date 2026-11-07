@@ -5,7 +5,7 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "left",
       "at": 0.34,
       "mouth": 1,
@@ -13,7 +13,7 @@
     },
     {
       "who": "ravana",
-      "pose": "stand-sword-forward",
+      "pose": "step-swordlevel",
       "facing": "left",
       "at": 0.7,
       "mouth": 3,

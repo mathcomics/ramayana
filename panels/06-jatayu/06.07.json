@@ -17,7 +17,7 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.3,
       "mouth": 1,
@@ -25,7 +25,7 @@
     },
     {
       "who": "raxas_f1",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.58,
       "id": "g1",
@@ -39,7 +39,7 @@
     },
     {
       "who": "raxas_f1",
-      "pose": "stand-hands-on-hips",
+      "pose": "step-akimbo",
       "facing": "left",
       "at": 0.8,
       "id": "g2",

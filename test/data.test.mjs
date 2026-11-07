@@ -23,15 +23,18 @@ test('species heads are only a size guide (faces are drawn)', () => {
   }
 });
 
-test('poses: unique, alphabetical, <base>-<action> names, side view only', () => {
+test('poses: unique, alphabetical, named <base>-<gesture>, side view only', () => {
   const names = POSES.map((p) => p.name);
   assert.equal(new Set(names).size, names.length, 'duplicate pose name');
   assert.deepEqual(names, [...names].sort(), 'poses.json is not alphabetical');
+  const baseOf = {}, gestOf = {};
+  for (const [b, e] of Object.entries(INDEX.bases)) for (const p of e.poses) baseOf[p] = b;
+  for (const [g, e] of Object.entries(INDEX.gestures)) for (const p of e.poses) gestOf[p] = g;
   for (const p of POSES) {
-    assert.ok(BASES.includes(p.name.split('-')[0]), `${p.name}: base not in style bible §7`);
+    assert.equal(p.name, `${baseOf[p.name]}-${gestOf[p.name]}`, `${p.name}: a pose is named <base>-<gesture>`);
     assert.notEqual(p.view, 'front', `${p.name}: poses are side view only`);
   }
-  assert.ok(names.includes('stand'), 'the fallback pose "stand" is missing');
+  assert.ok(names.includes('step-hang'), 'the fallback pose "step-hang" is missing');
 });
 
 test('pose index: every pose and only those, known tags and neighbours', () => {

@@ -11,21 +11,21 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "left",
       "at": 0.33,
       "mouth": 1
     },
     {
       "who": "lakshman",
-      "pose": "walk-passing",
+      "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
       "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "left",
       "at": 0.8,
       "mouth": 2,

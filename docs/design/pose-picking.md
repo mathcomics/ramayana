@@ -67,19 +67,19 @@ entry changes in the same commit. A pose made from `wanted` moves from
 4. **Emotion through the body, not the name.** Use the `use` tags:
    | Moment | First choice | Also |
    |---|---|---|
-   | grief | stand-hand-on-head | sit, kneel-bow |
-   | fear | stand-arm-over-face | crouch-arms-over-head, stand-step-back |
-   | shock | stand-step-back | sit-lean-back, fall-back |
-   | anger, threat | stand-point (mouth 3) | stand-fists-up, stand-hands-on-hips |
-   | pride, mockery | stand-hands-on-hips | stand-lean-back |
-   | joy, victory | stand-arms-up-knee-up | leap-reach |
-   | respect, pleading | kneel | stand-palms-joined, kneel-palms-joined |
+   | grief | step-holdhead | sit, kneel-bow |
+   | fear | stepturn-armface | crouch-cross, stepback-armsout |
+   | shock | stepback-armsout | sitback-propback, fallback-flung |
+   | anger, threat | step-point (mouth 3) | leanfront-fists, step-akimbo |
+   | pride, mockery | step-akimbo | leanback-armsback |
+   | joy, victory | kneeup-armsup | leapup-reachup |
+   | respect, pleading | kneel | step-palms, kneel-palms |
 5. **Adjust a little, then make a pose.** `adjust` is for one-off changes
    of two or three joints. A gesture adjusted the same way twice becomes a
    pose (in the pose lab), with an index entry.
 6. **No silent stand.** If nothing fits, use the nearest pose (`like`, or
    the wanted pose's `until`) and add a `needs` entry naming the missing
-   pose. `stand` is only right when the figure really just stands.
+   pose. `step-hang` is only right when the figure really just stands.
 7. **Vary the main figure, repeat the crowd.** The figure the panel is
    about gets the most telling pose; panels next to each other avoid giving
    it the same one. Background crowds may repeat a pose (mirrored by
@@ -95,27 +95,23 @@ entry changes in the same commit. A pose made from `wanted` moves from
 
 ## Names
 
-`<base>[-<prop>]-<what the arms do>[-<legs or variant>]` (style bible §7):
+**Every pose is named `<base>-<gesture>`** — the composite name, its one
+name everywhere: poses.json, the index, the panels, the labs (decided
+2026-11-07; no friendly-name layer, no mapping). `step-hang` is standing
+at ease, `step-bowdraw` the full draw, `lunge-sworddown` the lunging
+cut, `kneel-bow` the kneeling bow. `npm test` checks the name equals the
+pose's base and gesture in the index.
 
-- **Base** from the fixed list; it says what carries the body (stand,
-  walk, run, leap, crouch, bend, crawl, kneel, lunge, sit, lie, fall).
-- **A pose composed from the grid is named `<base>-<gesture>`** with the
-  index's own base and gesture names, as the pose lab's compose drafts
-  come named (decided 2026-11-07): `step-roof`, `stepwide-ox`,
-  `leanback-bowhigh`, `lunge-longpoint`. The older descriptive names
-  stay as they are.
-- **Prop** right after the base, only when the body's shape is made for a
-  held prop, so its poses sort together: `stand-bow-draw`,
-  `stand-sword-up`, `lunge-sword-down`. Sword poses also serve a club.
-- **Then what is visible**, arms before legs: `stand-arms-overhead`,
-  `stand-arms-up-knee-up`. One arm `arm` / `hand`, both `arms` / `hands`.
-  Directions say where a limb or the prop goes (`-up`, `-forward`,
-  `-down`, `-back`, `-across-head`, `-waist`).
-- **Variant suffixes:** `-low` (crouched), `-back` (weight or body back),
-  `-high`.
-- **Never** an emotion or intent (`guard`, `throw`, `stagger`, `strike`),
-  the head's direction or the mouth: those come from the scene, `turn` and
-  `mouth`.
+- **Base and gesture names** are single words (the test checks); the
+  base says what carries the body, the gesture what the upper body does.
+  New one-word names follow the artist's style: plain (`step`, `swing`,
+  `palms`), or an image for a stance (`roof`, `ox`, `fool` from the
+  fencing guards).
+- **Never** an emotion or intent (`guard`, `throw`, `stagger`,
+  `strike`), the head's direction or the mouth: those come from the
+  scene, `turn` and `mouth`.
 - A rename changes the poses, the index, the panels and the docs in one
-  commit. Pose lab saves keep the name they were saved under; a save under
-  an old name no longer matches a pose.
+  commit. Pose lab saves keep the name they were saved under; a save
+  under an old name no longer matches a pose.
+- `wanted` entries still carry older descriptive names; a wanted pose is
+  named `<base>-<gesture>` when it is actually made.

@@ -84,6 +84,6 @@ if (showScenes) {
     const want = [...new Set(tags.flatMap(wantedFor))];
     console.log(`${s.id}  ${s.what.replace(/\*\*/g, '').slice(0, 90)}`);
     console.log(`       moments: ${tags.join(', ') || '-'}`);
-    console.log(`       poses:   ${cands.join(', ') || 'stand'}${want.length ? `   (wanted: ${want.join(', ')})` : ''}`);
+    console.log(`       poses:   ${cands.join(', ') || 'step-hang'}${want.length ? `   (wanted: ${want.join(', ')})` : ''}`);
   }
 }

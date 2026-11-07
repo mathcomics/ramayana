@@ -14,7 +14,7 @@
   "figures": [
     {
       "who": "rama",
-      "pose": "run",
+      "pose": "run-pump",
       "facing": "right",
       "at": 0.55,
       "row": "horizon",

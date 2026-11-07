@@ -36,7 +36,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   close (front row cut at the thighs). Layout templates:
   `layouts/<size>-<shot>.svg`.
 - **Poses**: legs first, arms from the verb; head direction (`turn`) and
-  mouth are not poses; no silent `stand` (pose-picking rules). A missing
+  mouth are not poses; no silent `step-hang` (pose-picking rules). A missing
   pose goes in `needs` as `pose: <wanted name> (...): <stand-in> for now`.
 - **Props**: use the drawn ones (`panels.md`, Props). Placeholders stay
   boxes and get a `needs` entry `prop: ...`.
@@ -69,8 +69,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   The same device can carry any far-off sound.
 - **Action panels need action poses** (artist: the abduction was "too low
   action"): two figures standing near each other is a conversation, not a
-  struggle. Use the falling, lunging and leaning poses (fall-back, lunge,
-  stand-lean-back), opposed diagonals, a scale step for menace, mouth 3
+  struggle. Use the falling, lunging and leaning poses (fallback-flung, lunge,
+  leanback-armsback), opposed diagonals, a scale step for menace, mouth 3
   (05.19-05.21).
 - **Shots are the zoom**: consecutive panels step far → wide → mid like a
   camera move (05.02 → 05.03). In a mid shot, the second party of a

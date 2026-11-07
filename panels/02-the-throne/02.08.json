@@ -23,21 +23,21 @@
   "figures": [
     {
       "who": "lakshman",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "left",
       "at": 0.6,
       "mouth": 1
     },
     {
       "who": "sita",
-      "pose": "walk-passing",
+      "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
       "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "left",
       "at": 0.4,
       "mouth": 1

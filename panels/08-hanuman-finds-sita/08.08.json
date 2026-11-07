@@ -12,7 +12,7 @@
   "figures": [
     {
       "who": "hanuman",
-      "pose": "bend-low",
+      "pose": "bend-reach",
       "facing": "right",
       "at": 0.18,
       "lift": 10,
@@ -21,7 +21,7 @@
     },
     {
       "who": "sita",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.36,
       "mouth": 1,
@@ -33,7 +33,7 @@
     {
       "who": "raxas_f1",
       "id": "g1",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.62,
       "mouth": 2,
@@ -47,7 +47,7 @@
     {
       "who": "raxas_f1",
       "id": "g2",
-      "pose": "stand-hands-on-hips",
+      "pose": "step-akimbo",
       "facing": "left",
       "at": 0.84,
       "mouth": 2,

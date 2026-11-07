@@ -4,9 +4,29 @@
   "ground": "sky-blue",
   "zoom": 0.45,
   "figures": [
-    { "who": "lakshman", "pose": "walk-passing", "facing": "left", "at": 0.6, "mouth": 1 },
-    { "who": "sita", "pose": "walk", "facing": "left", "at": 0.5, "mouth": 1 },
-    { "who": "rama", "pose": "walk-passing", "facing": "left", "at": 0.4, "mouth": 1 }
+    {
+      "who": "lakshman",
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.6,
+      "mouth": 1
+    },
+    {
+      "who": "sita",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.5,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.4,
+      "mouth": 1
+    }
   ],
-  "needs": ["background: river and boat (02.07.svg is a placeholder)"]
+  "needs": [
+    "background: river and boat (02.07.svg is a placeholder)"
+  ]
 }

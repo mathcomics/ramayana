@@ -14,14 +14,14 @@
   "figures": [
     {
       "who": "sugriva",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "left",
       "at": 0.36,
       "mouth": 2
     },
     {
       "who": "rama",
-      "pose": "stand-point-up",
+      "pose": "stand-pointup",
       "facing": "left",
       "at": 0.7,
       "mouth": 3,

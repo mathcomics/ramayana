@@ -12,7 +12,7 @@
   "figures": [
     {
       "who": "rama",
-      "pose": "walk-passing",
+      "pose": "pass-swing",
       "facing": "right",
       "at": 0.34,
       "mouth": 1,
@@ -23,7 +23,7 @@
     },
     {
       "who": "dasharatha",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "right",
       "at": 0.56,
       "mouth": 1,

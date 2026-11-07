@@ -16,7 +16,7 @@
     {
       "who": "monkey1",
       "id": "m1",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.6,
       "row": "back",
@@ -25,7 +25,7 @@
     },
     {
       "who": "sugriva",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "left",
       "at": 0.74,
       "row": "back",
@@ -35,7 +35,7 @@
     {
       "who": "monkey1",
       "id": "m2",
-      "pose": "stand-hands-on-hips",
+      "pose": "step-akimbo",
       "facing": "left",
       "at": 0.88,
       "row": "back",
@@ -45,14 +45,14 @@
     },
     {
       "who": "lakshman",
-      "pose": "walk-passing",
+      "pose": "pass-swing",
       "facing": "right",
       "at": 0.14,
       "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "right",
       "at": 0.36,
       "mouth": 1

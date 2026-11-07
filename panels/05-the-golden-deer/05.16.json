@@ -17,14 +17,14 @@
   "figures": [
     {
       "who": "lakshman",
-      "pose": "bend-low",
+      "pose": "bend-reach",
       "facing": "left",
       "at": 0.5,
       "mouth": 1
     },
     {
       "who": "sita",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.78,
       "mouth": 1,

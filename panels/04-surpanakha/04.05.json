@@ -5,21 +5,21 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "stand-arm-over-face",
+      "pose": "stepturn-armface",
       "facing": "right",
       "at": 0.17,
       "mouth": 3
     },
     {
       "who": "rama",
-      "pose": "stand-fists-up",
+      "pose": "leanfront-fists",
       "facing": "right",
       "at": 0.38,
       "mouth": 2
     },
     {
       "who": "surpanakha",
-      "pose": "lunge",
+      "pose": "lunge-armfront",
       "facing": "left",
       "at": 0.74,
       "mouth": 3,

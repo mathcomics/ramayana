@@ -6,7 +6,7 @@
   "figures": [
     {
       "who": "rama",
-      "pose": "stand-bow-draw",
+      "pose": "step-bowdraw",
       "facing": "right",
       "at": 0.42,
       "mouth": 1

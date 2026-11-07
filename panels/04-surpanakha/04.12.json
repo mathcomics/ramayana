@@ -6,7 +6,7 @@
     {
       "who": "raxas_m1",
       "id": "f1",
-      "pose": "lie-front",
+      "pose": "liefront-onarms",
       "facing": "right",
       "at": 0.82,
       "mouth": 1,
@@ -15,21 +15,21 @@
     },
     {
       "who": "lakshman",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "right",
       "at": 0.16,
       "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.56,
       "mouth": 2
     },
     {
       "who": "sita",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.41,
       "mouth": 2,

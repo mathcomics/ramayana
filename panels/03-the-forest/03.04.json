@@ -6,28 +6,28 @@
   "figures": [
     {
       "who": "lakshman",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.18,
       "mouth": 1
     },
     {
       "who": "sita",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.37,
       "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.56,
       "mouth": 1
     },
     {
       "who": "sage1",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "left",
       "at": 0.8,
       "mouth": 2,

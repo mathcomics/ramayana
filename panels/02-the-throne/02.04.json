@@ -5,7 +5,7 @@
   "figures": [
     {
       "who": "rama",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "left",
       "at": 0.4,
       "mouth": 1

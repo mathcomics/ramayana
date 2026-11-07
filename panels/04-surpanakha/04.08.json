@@ -6,7 +6,7 @@
     {
       "who": "raxas_m1",
       "id": "khara",
-      "pose": "stand-hands-on-hips",
+      "pose": "step-akimbo",
       "facing": "left",
       "at": 0.72,
       "mouth": 2,
@@ -18,7 +18,7 @@
     },
     {
       "who": "surpanakha",
-      "pose": "kneel",
+      "pose": "kneel-handslow",
       "facing": "right",
       "at": 0.36,
       "mouth": 3,

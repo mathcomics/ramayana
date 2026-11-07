@@ -6,7 +6,7 @@
     {
       "who": "queen2",
       "id": "tara",
-      "pose": "stand-lean-back",
+      "pose": "leanback-armsback",
       "facing": "right",
       "at": 0.3,
       "mouth": 3,
@@ -21,7 +21,7 @@
     {
       "who": "monkey1",
       "id": "bali",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "right",
       "at": 0.64,
       "mouth": 3,

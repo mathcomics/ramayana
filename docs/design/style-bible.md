@@ -311,7 +311,7 @@ male 0.88, female 0.74.
   toward the viewer (both views).
 - **The neck is always behind the head**, and is drawn 1.5 × the length
   of the drawn neck.
-  - A head bent far forward or below the shoulders (e.g. `fall-forward`)
+  - A head bent far forward or below the shoulders (e.g. `fallfront-armsdown`)
     shows its top and back in the front view, from the turned head (no
     back-head drawing needed). A full back view of the body (arms behind
     the torso) is still not built.
@@ -332,7 +332,7 @@ male 0.88, female 0.74.
 Pose names read `<base>[-<prop>]-<what the body does>`, so a pose can be
 found from a scene description:
 
-- base: `stand`, `walk`, `run`, `leap`, `crouch`, `bend`, `crawl`, `kneel`, `lunge`, `sit`,
+- base: `step-hang`, `walk-swing`, `run-pump`, `leap-reach`, `crouch`, `bend`, `crawl-onhands`, `kneel-handslow`, `lunge-armfront`, `sit-armknee`,
   `lie`, `fall`;
 - the rest names what is visible (arms, then legs), never an emotion:
   `stand-hands-to-face`, not `fear`;
@@ -340,7 +340,7 @@ found from a scene description:
   derived, §6);
 - one arm `arm`/`hand`, both `arms`/`hands`; variants as suffixes
   (`-low`, `-back`, `-high`); a held prop right after the base, only when
-  the body's shape is made for it (`stand-bow-draw`, `stand-sword-up`);
+  the body's shape is made for it (`step-bowdraw`, `step-swordup`);
   no intent words (`guard`, `throw`, `strike`); head direction and mouth
   never (they are set per figure).
 

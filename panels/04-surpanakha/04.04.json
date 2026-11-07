@@ -5,14 +5,14 @@
   "figures": [
     {
       "who": "rama",
-      "pose": "stand-hands-on-hips",
+      "pose": "step-akimbo",
       "facing": "right",
       "at": 0.15,
       "mouth": 3
     },
     {
       "who": "surpanakha",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.47,
       "mouth": 2,
@@ -20,7 +20,7 @@
     },
     {
       "who": "lakshman",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "left",
       "at": 0.82,
       "mouth": 2

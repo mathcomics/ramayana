@@ -17,7 +17,7 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.42,
       "mouth": 3,
@@ -30,7 +30,7 @@
     },
     {
       "who": "lakshman",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.66,
       "mouth": 1

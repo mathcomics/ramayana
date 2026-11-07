@@ -12,14 +12,14 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "right",
       "at": 0.3,
       "mouth": 3
     },
     {
       "who": "lakshman",
-      "pose": "walk",
+      "pose": "walk-swing",
       "facing": "right",
       "at": 0.72,
       "mouth": 2,

@@ -27,7 +27,7 @@
   "figures": [
     {
       "who": "monkey1",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.18,
       "id": "m1",
@@ -39,7 +39,7 @@
     },
     {
       "who": "sugriva",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.38,
       "mouth": 2,
@@ -50,7 +50,7 @@
     },
     {
       "who": "hanuman",
-      "pose": "stand-point-up",
+      "pose": "stand-pointup",
       "facing": "right",
       "at": 0.6,
       "mouth": 2,
@@ -58,7 +58,7 @@
     },
     {
       "who": "monkey1",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.82,
       "id": "m2",
@@ -71,7 +71,7 @@
     },
     {
       "who": "ravana",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.74,
       "mouth": 2,
@@ -80,7 +80,7 @@
     },
     {
       "who": "sita",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "left",
       "at": 0.58,
       "mouth": 2,

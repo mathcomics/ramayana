@@ -18,7 +18,7 @@
   "figures": [
     {
       "who": "lakshman",
-      "pose": "stand-hands-on-hips",
+      "pose": "step-akimbo",
       "facing": "right",
       "at": 0.36,
       "row": "back",
@@ -26,7 +26,7 @@
     },
     {
       "who": "sita",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.47,
       "row": "back",
@@ -34,7 +34,7 @@
     },
     {
       "who": "rama",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.57,
       "row": "back",
@@ -42,7 +42,7 @@
     },
     {
       "who": "surpanakha",
-      "pose": "bend-low",
+      "pose": "bend-reach",
       "facing": "right",
       "at": 0.2,
       "mouth": 1,

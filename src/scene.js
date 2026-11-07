@@ -94,8 +94,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const c = chars.find((x) => x.id === f.who);
     if (!c) { issues.push(`figure ${i + 1}: unknown character "${f.who}"`); return null; }
     const base = assets.poses.find((p) => p.name === f.pose);
-    if (!base) issues.push(`figure ${i + 1} (${f.who}): unknown pose "${f.pose}", using stand`);
-    const pose = clone(base || assets.poses.find((p) => p.name === 'stand') || {});
+    if (!base) issues.push(`figure ${i + 1} (${f.who}): unknown pose "${f.pose}", using step-hang`);
+    const pose = clone(base || assets.poses.find((p) => p.name === 'step-hang') || {});
     if (f.mouth) pose.mouth = f.mouth;
     if (typeof f.turn === 'number') setPath(pose, 'spine.turn', f.turn);   // head turn, degrees, + to its right
     // limbs are right / left (older panels: near = right, far = left)

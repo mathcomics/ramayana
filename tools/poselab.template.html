@@ -515,7 +515,7 @@ const INDEX = /*__INDEX__*/;
         if (r > RING - 0.25 && r < RING + 0.25) {                       // on the ring or its knob: turn
           state.drag = true; state.holdAt = p; big.setPointerCapture(e.pointerId);
           startPin(sel);
-          solveTo(sel, pointerAng(sel, m)); settleFeet(); markDirty(); draw(); e.preventDefault(); return;
+          solveTo(sel, pointerAng(sel, m)); settleFeet(); markDirty(); if (LOWER_PATH(sel.path)) captureLower(); draw(); e.preventDefault(); return;
         }
       }
       // a dot: select it (tapping again where two dots meet picks the other)
@@ -533,7 +533,7 @@ const INDEX = /*__INDEX__*/;
     big.addEventListener('pointermove', (e) => {
       if (!state.drag || !state.sel) return;
       const m = picPoint(e); if (!m) return;
-      solveTo(state.sel, pointerAng(state.sel, m)); settleFeet(); markDirty(); draw();
+      solveTo(state.sel, pointerAng(state.sel, m)); settleFeet(); markDirty(); if (LOWER_PATH(state.sel.path)) captureLower(); draw();
     });
     const end = () => { if (state.drag) { state.drag = false; state.holdAt = null; state.pin = null; syncControls(); draw(); } };
     big.addEventListener('pointerup', end);
@@ -571,7 +571,9 @@ const INDEX = /*__INDEX__*/;
           if (path.startsWith('prop.') && !state.pose[propSide()].arm.prop) { row._sync(); return; }   // no prop held
           set(state.pose, rp(path), v);
           out.textContent = step < 1 ? v.toFixed(2) : v + '°';
-          markDirty(); draw();
+          markDirty();
+          if (LOWER_PATH(rp(path))) captureLower();
+          draw();
         });
         row._sync = () => {
           const v = get(state.pose, rp(path)) ?? 0;
@@ -627,8 +629,42 @@ const INDEX = /*__INDEX__*/;
   }
   function setStatus(t) { $('status').textContent = t; }
 
+  // ---------- shared bases (decided 2026-11-07): the lower body (legs,
+  // lean, tail) belongs to the BASE, not the pose — no per-pose
+  // deviations while the bases are being refined. Editing it on any pose
+  // updates the session's base, and every pose of that base loads with
+  // it. A gesture's own lean (a bow) still adds on top, with the base's
+  // planted feet kept by the leg solve. Saves hold whole poses as
+  // always; merging spreads a changed base with recompose.
+  state.baseEdit = {};                      // base -> { lean, tail, legs }
+  const baseNameOf = (n) => coordOf('bases', n) || n.split('-')[0];
+  const gestLeanOf = (n) => INDEX.gestures[coordOf('gestures', n) || n.split('-').slice(1).join('-')]?.lean ?? 0;
+  const LOWER_PATH = (path) => /(^|\.)leg\.|^spine\.lean$|^tail\./.test(path);
+  function captureLower() {
+    const p = state.pose, b = baseNameOf(p.name);
+    if (!INDEX.bases[b]) return;
+    state.baseEdit[b] = { lean: p.spine.lean - gestLeanOf(p.name), tail: clone(p.tail), legs: { near: clone(p.near.leg), far: clone(p.far.leg) } };
+    setStatus(`${b} base updated: all ${b} poses take these legs, lean and tail (merge spreads it with recompose).`);
+  }
+  function applyLower(pose) {
+    const b = baseNameOf(pose.name), E = state.baseEdit[b];
+    if (!E) return pose;
+    const dLean = gestLeanOf(pose.name);
+    pose.spine.lean = E.lean + dLean;
+    pose.tail = clone(E.tail);
+    pose.near.leg = clone(E.legs.near); pose.far.leg = clone(E.legs.far);
+    if (dLean) {
+      // pin the base's grounded feet under the tipped body (as when composing)
+      const probe = clone(pose); probe.spine.lean = E.lean;
+      const J = jointsFor('side', probe), P = J.spine.pelvis, pin = {};
+      for (const sd of ['near', 'far']) if (J[sd].low[1] > -0.06) pin[sd] = [J[sd].A[0] - P[0], J[sd].A[1] - P[1]];
+      if (Object.keys(pin).length) settleLegs(pose, pin);
+    }
+    return pose;
+  }
+
   function load(p) {
-    state.pose = normalizePose(clone(p));
+    state.pose = applyLower(normalizePose(clone(p)));
     state.sel = null; state.drag = false;
     state.dirty = false;
     $('revertBtn').disabled = true;
@@ -755,7 +791,7 @@ const INDEX = /*__INDEX__*/;
     const pin = {};
     for (const sd of ['near', 'far']) if (JB[sd].low[1] > -0.06) pin[sd] = [JB[sd].A[0] - PB[0], JB[sd].A[1] - PB[1]];
     if (Object.keys(pin).length) settleLegs(pose, pin);
-    return pose;
+    return applyLower(pose);                 // a session base edit wins over the stored reference
   }
   {
     const fill = (el, kind) => { el.innerHTML = '<option value=""></option>' + Object.keys(INDEX[kind]).sort().map((k) => `<option>${k}</option>`).join(''); };

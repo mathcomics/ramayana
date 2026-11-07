@@ -6,14 +6,14 @@
   "figures": [
     {
       "who": "rama",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.25,
       "mouth": 1
     },
     {
       "who": "sita",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "right",
       "at": 0.68,
       "mouth": 2

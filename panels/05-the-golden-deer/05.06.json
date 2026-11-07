@@ -14,7 +14,7 @@
   "figures": [
     {
       "who": "surpanakha",
-      "pose": "kneel",
+      "pose": "kneel-handslow",
       "facing": "right",
       "at": 0.18,
       "mouth": 2,
@@ -25,7 +25,7 @@
     },
     {
       "who": "ravana",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "left",
       "at": 0.48,
       "mouth": 3,

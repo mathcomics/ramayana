@@ -19,7 +19,7 @@ const A = loadAssets();
 const c = A.characters.characters.find((x) => x.id === who);
 if (!c) throw new Error(`unknown character "${who}"`);
 const pose = flag('--pose-file') ? JSON.parse(readFileSync(flag('--pose-file'), 'utf8'))
-  : A.poses.find((p) => p.name === (flag('--pose') || 'stand'));
+  : A.poses.find((p) => p.name === (flag('--pose') || 'step-hang'));
 if (!pose) throw new Error(`unknown pose "${flag('--pose')}"`);
 const views = (flag('--view') || 'both') === 'both' ? ['side', 'front'] : [flag('--view')];
 const look = characterLook(c, A.characters.palette, A.faces);

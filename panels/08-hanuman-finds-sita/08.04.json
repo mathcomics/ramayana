@@ -9,7 +9,7 @@
     {
       "who": "monkey1",
       "id": "m1",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.14,
       "row": "mid",
@@ -21,7 +21,7 @@
     {
       "who": "monkey1",
       "id": "m2",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "left",
       "at": 0.9,
       "row": "mid",
@@ -34,7 +34,7 @@
     {
       "who": "monkey1",
       "id": "m3",
-      "pose": "sit",
+      "pose": "sit-armknee",
       "facing": "left",
       "at": 0.28,
       "mouth": 1,
@@ -45,7 +45,7 @@
     },
     {
       "who": "hanuman",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.6,
       "mouth": 1,

@@ -14,7 +14,7 @@
   "figures": [
     {
       "who": "ravana",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "left",
       "at": 0.44,
       "mouth": 2,
@@ -23,7 +23,7 @@
     },
     {
       "who": "sita",
-      "pose": "stand-point",
+      "pose": "step-point",
       "facing": "right",
       "at": 0.58,
       "mouth": 3,

@@ -18,7 +18,7 @@
   "figures": [
     {
       "who": "monkey1",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.16,
       "id": "m1",
@@ -27,7 +27,7 @@
     },
     {
       "who": "monkey1",
-      "pose": "bend-low",
+      "pose": "bend-reach",
       "facing": "left",
       "at": 0.84,
       "id": "m2",
@@ -37,14 +37,14 @@
     },
     {
       "who": "sugriva",
-      "pose": "stand-hands-on-hips",
+      "pose": "step-akimbo",
       "facing": "right",
       "at": 0.3,
       "mouth": 2
     },
     {
       "who": "hanuman",
-      "pose": "bend-low",
+      "pose": "bend-reach",
       "facing": "right",
       "at": 0.5,
       "mouth": 2

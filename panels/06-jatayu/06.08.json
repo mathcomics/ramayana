@@ -12,7 +12,7 @@
   "figures": [
     {
       "who": "lakshman",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.22,
       "row": "mid",
@@ -20,7 +20,7 @@
     },
     {
       "who": "rama",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.5,
       "view": "front",

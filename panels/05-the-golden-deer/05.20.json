@@ -13,7 +13,7 @@
   "figures": [
     {
       "who": "sita",
-      "pose": "stand-lean-back",
+      "pose": "leanback-armsback",
       "facing": "right",
       "at": 0.28,
       "mouth": 3,
@@ -28,7 +28,7 @@
     },
     {
       "who": "ravana",
-      "pose": "lunge",
+      "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.56,
       "mouth": 3,

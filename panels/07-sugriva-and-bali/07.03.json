@@ -12,14 +12,14 @@
   "figures": [
     {
       "who": "lakshman",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.14,
       "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "stand",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.34,
       "mouth": 2,
@@ -30,7 +30,7 @@
     },
     {
       "who": "hanuman",
-      "pose": "kneel",
+      "pose": "kneel-handslow",
       "facing": "left",
       "at": 0.66,
       "mouth": 2,
