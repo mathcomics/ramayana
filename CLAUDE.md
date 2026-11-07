@@ -77,6 +77,13 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Face turn: parts fitted by height (2026-11-06):** a character's part
+  (bun, crown, hair) drawn at slightly different heights in front and
+  side is now one part: the side outline is moved and stretched to the
+  front's height range (`tools/face-turn.mjs`), instead of being cut at
+  one end and capped at the other. Fixes Rama's bun at turn 90 (front
+  −0.86…−0.51, side −0.78…−0.43). Skin unchanged; all faces with hair or
+  crowns change slightly.
 - **Artist's Ravana and Rama faces (2026-11-06):** Ravana with fixed
   earrings; Rama with the hair split (front: bun + front hair in `over`,
   back hair in `back`; side: back piece in `back`). Rama's file came as a
