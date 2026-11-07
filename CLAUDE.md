@@ -65,7 +65,7 @@ Pose lab (published artifact, saves poses to its database, collection
 Saved poses are reviewed and then merged into `data/poses.json`.
 
     node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
-    node tools/build-site.mjs                      # _site/ (published by .github/workflows/publish-site.yml)
+    node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
     node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
 
 Panel lab (published artifact, drafts in its database, collection
@@ -80,12 +80,13 @@ renderer or panel changes.
   artist's palace reference; 10 × 4 head-units. `tools/lib.mjs`
   `loadProps` reads `data/props/<id>.svg` (100 px = 1 head-unit, size from
   the viewBox). Used in 02.05 (moved to at 0.55 so it fits).
-- **Reader site publishing (2026-11-06):** `.github/workflows/publish-site.yml`,
-  manual dispatch only: builds `_site/` and uploads it with wrangler to the
-  Cloudflare Pages Direct Upload project `ramayana` (branch main). One
-  site, private via Cloudflare Access (no drafts site). Owner setup still
-  to do: API token + account ID as repo secrets, first run, access policy
-  incl. the main hostname (docs/design/panels.md, Publishing).
+- **Reader site publishing (2026-11-06):** Cloudflare Pages project
+  `ramayana` connected to GitHub as in kena (Cloudflare builds), with
+  automatic builds off; `.github/workflows/publish-site.yml` (manual
+  dispatch) calls the deploy hook (secret `CLOUDFLARE_DEPLOY_HOOK`). One
+  site, private via Cloudflare Access. Later: turn automatic builds on and
+  delete the workflow. Owner setup still to do (docs/design/panels.md,
+  Publishing).
   Site = an index of all 15 chapters from scenes.md (those without panels
   "to come") + one scrolling page per chapter, previous / next links.
 - **Sections 05 "The golden deer" and 06 "Jatayu" (2026-11-06):**
@@ -343,7 +344,7 @@ renderer or panel changes.
   are placeholder boxes (`data/props.json`). Poses are approximated with
   `adjust`; each panel's `needs` lists what's missing (walk, pull, slump,
   look back; throne, palace, tree). Site builder `tools/build-site.mjs` →
-  `_site/`; published by the manual GitHub Action (docs/design/panels.md).
+  `_site/`; published via Cloudflare Pages (docs/design/panels.md).
   Panel lab published.
 - **Pose lab saves merged 2026-11-04** (20 saves, 13 with changes: bend-low,
   crouch-arms-over-head, fall-back, fall-forward, kneel, lie-front, run-low,
