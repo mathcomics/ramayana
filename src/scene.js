@@ -16,11 +16,32 @@ export const SLOTS = { left: 0.14, 'center-left': 0.32, center: 0.5, 'center-rig
 // ~7.5 head-units, so the front row is ~2/3 of the panel height.
 // ground = height of the ground line above the panel's bottom edge, as a
 // share of the panel height.
-export const ROWS = {
-  front: { unit: 46, ground: 0.03 },
-  mid:   { unit: 34, ground: 0.17 },
-  back:  { unit: 24, ground: 0.34 },
+//
+// A panel's `shot` picks a set of rows (from the artist's layouts in
+// layouts/<size>-<shot>.svg; docs/design/panels.md):
+// - far:  small figures, deep rows (the default)
+// - wide: whole figures, bigger, rows close together (layouts/0.75-wide.svg)
+// - mid:  close; the front row is cut at the thighs, the ground lines are
+//         below the panel (negative), the panel crops the figures
+//         (layouts/0.75-mid.svg)
+export const SHOTS = {
+  far: {
+    front: { unit: 46, ground: 0.03 },
+    mid:   { unit: 34, ground: 0.17 },
+    back:  { unit: 24, ground: 0.34 },
+  },
+  wide: {
+    front: { unit: 55.2, ground: 0.031 },
+    mid:   { unit: 40.8, ground: 0.085 },
+    back:  { unit: 28.8, ground: 0.136 },
+  },
+  mid: {
+    front: { unit: 110.4, ground: -0.735 },
+    mid:   { unit: 81.6, ground: -0.568 },
+    back:  { unit: 57.6, ground: -0.429 },
+  },
 };
+export const ROWS = SHOTS.far;
 const REF_H = 540;
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -43,9 +64,11 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   const ground = grounds[panel.ground] || panel.ground || grounds[assets.grounds?.default] || '#efe8db';
   if (panel.ground && !grounds[panel.ground] && !/^#/.test(panel.ground)) issues.push(`ground "${panel.ground}" not in data/grounds.json`);
 
+  const shot = SHOTS[panel.shot ?? 'far'] || SHOTS.far;
+  if (panel.shot && !SHOTS[panel.shot]) issues.push(`shot "${panel.shot}" unknown (${Object.keys(SHOTS).join(' | ')})`);
   const row = (r = 'front') => {
-    if (!ROWS[r]) issues.push(`row "${r}" unknown (back | mid | front)`);
-    const R = ROWS[r] || ROWS.front;
+    if (!shot[r]) issues.push(`row "${r}" unknown (back | mid | front)`);
+    const R = shot[r] || shot.front;
     return { y: H * (1 - R.ground), unit: R.unit * H / REF_H };
   };
 

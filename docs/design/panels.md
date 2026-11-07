@@ -53,6 +53,7 @@ repeated inside the JSON.
 | `size` | number | Share of a screen height. Default 0.75. |
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. |
 | `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.45). |
+| `shot` | `far` · `wide` · `mid` | Which rows (below). Default `far`. Layouts: `layouts/<size>-<shot>.svg`. |
 | `props` | list | See below. |
 | `figures` | list | **Overlap order: later figures are drawn over earlier ones.** |
 | `needs` | list of text | Missing poses, props, art. Collected into the to-do list. |
@@ -115,6 +116,19 @@ thirds of its panel whatever the size.
 | back | 24 | 34 % |
 
 Other sizes scale in proportion (a 0.5 panel: × 2/3).
+
+That table is the `far` shot. A panel's `shot` picks another row set
+(head-unit in a 0.75 panel; ground as a share of the panel height above
+its bottom, negative = below it, so the panel crops the figures):
+
+| Shot | front | mid | back |
+|---|---|---|---|
+| `far` | 46 · 0.03 | 34 · 0.17 | 24 · 0.34 |
+| `wide` | 55.2 · 0.031 | 40.8 · 0.085 | 28.8 · 0.136 |
+| `mid` | 110.4 · −0.735 | 81.6 · −0.568 | 57.6 · −0.429 |
+
+`wide` and `mid` are measured from the artist's layouts `layouts/0.75-wide.svg`
+and `0.75-mid.svg` (the `mid` back row is extrapolated from the other two).
 
 ## Background SVG
 

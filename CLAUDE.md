@@ -68,7 +68,7 @@ Saved poses are reviewed and then merged into `data/poses.json`.
     node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
     node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
-    node tools/layout-template.mjs 1               # layouts/template-1.svg (or 0.75, 0.5)
+    node tools/layout-template.mjs 0.5 wide        # layouts/0.5-wide.svg (size: 1, 0.75, 0.5; shot: far, wide, mid)
 
 Panel lab (published artifact, drafts in its database, collection
 `panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
@@ -112,11 +112,15 @@ renderer or panel changes.
   props and the two-handed grip follow the forearm). Pose lab: front-view
   handles "elbow out" / "knee out". Style bible §6. Existing poses
   unchanged (default 0).
-- **Layout templates (2026-11-06):** `layouts/` with `template-1.svg`,
-  `-0.75.svg`, `-0.5.svg` (one locked `page` layer: rectangle + row
-  ground lines; three simple men as plain groups, one per row, at that
-  row's height) from
-  `tools/layout-template.mjs`; `layouts/README.md`.
+- **Layouts and shots (2026-11-07):** `layouts/<size>-<shot>.svg`
+  (`layouts/README.md`): one locked `page` layer (rectangle + row ground
+  lines), simple men as plain groups. Shots = row sets in `SHOTS`
+  (`src/scene.js`), panel field `shot`: `far` (default, the old rows),
+  `wide` (bigger whole figures) and `mid` (front row cut at the thighs,
+  ground below the panel; the panel crops) measured from the artist's
+  `0.75-wide.svg` / `0.75-mid.svg`. Generated: 1-far, 0.75-far, 0.5-far,
+  0.5-wide, 0.5-mid (`node tools/layout-template.mjs 0.5 wide`). Mostly
+  0.75 and 0.5 panels from now on, 1 rarely.
 - **First prop art: palace (2026-11-06):** `data/props/palace.svg`, a
   one-colour silhouette (sepia, openings cut out) simplified from the
   artist's palace reference; 10 × 4 head-units. `tools/lib.mjs`
