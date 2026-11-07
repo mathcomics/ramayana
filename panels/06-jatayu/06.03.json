@@ -1,0 +1,47 @@
+{
+  "scene": "Jatayu falls, one wing cut; Sita reaches down from the chariot",
+  "size": 0.75,
+  "ground": "sky-blue",
+  "zoom": 0.8,
+  "props": [
+    {
+      "prop": "chariot",
+      "at": 0.66,
+      "lift": 4.5,
+      "layer": "front"
+    },
+    {
+      "prop": "vulture",
+      "at": 0.24,
+      "lift": 0.5,
+      "scale": 1.4
+    }
+  ],
+  "figures": [
+    {
+      "who": "ravana",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.76,
+      "mouth": 2,
+      "lift": 5.1
+    },
+    {
+      "who": "sita",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 0.58,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.shoulder": 25,
+        "right.arm.elbow": 0,
+        "spine.lean": 15
+      },
+      "lift": 5.1
+    }
+  ],
+  "needs": [
+    "prop: vulture (falling, one wing cut)",
+    "prop: flying chariot"
+  ]
+}

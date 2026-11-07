@@ -1,0 +1,26 @@
+{
+  "scene": "The arrow hits; the deer turns back into a rakshasa, falling and shouting",
+  "size": 0.75,
+  "ground": "sand",
+  "figures": [
+    {
+      "who": "rama",
+      "pose": "stand-bow-release",
+      "facing": "right",
+      "at": 0.22,
+      "mouth": 1
+    },
+    {
+      "who": "raxas_m1",
+      "pose": "fall-back",
+      "facing": "left",
+      "at": 0.68,
+      "id": "maricha",
+      "cloth": "white",
+      "mouth": 3
+    }
+  ],
+  "needs": [
+    "effect: arrow in flight"
+  ]
+}

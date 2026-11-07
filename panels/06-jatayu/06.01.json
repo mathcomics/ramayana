@@ -1,0 +1,47 @@
+{
+  "scene": "Back: the flying chariot. Front: Jatayu rises toward it, wings spread",
+  "size": 1,
+  "ground": "sky-blue",
+  "props": [
+    {
+      "prop": "chariot",
+      "at": 0.66,
+      "lift": 5,
+      "layer": "front",
+      "row": "back"
+    },
+    {
+      "prop": "vulture",
+      "at": 0.3,
+      "lift": 4,
+      "scale": 1.2
+    }
+  ],
+  "figures": [
+    {
+      "who": "sita",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 0.62,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.shoulder": 40
+      },
+      "lift": 5.6,
+      "row": "back"
+    },
+    {
+      "who": "ravana",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.74,
+      "mouth": 2,
+      "lift": 5.6,
+      "row": "back"
+    }
+  ],
+  "needs": [
+    "prop: vulture (wings spread)",
+    "prop: flying chariot"
+  ]
+}

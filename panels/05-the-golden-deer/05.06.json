@@ -1,0 +1,42 @@
+{
+  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
+  "size": 0.75,
+  "ground": "sand",
+  "figures": [
+    {
+      "who": "sita",
+      "pose": "stand-point",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 2,
+      "hands": {
+        "right": "in"
+      },
+      "adjust": {
+        "right.arm.shoulder": 60,
+        "right.arm.elbow": 30
+      }
+    },
+    {
+      "who": "sage1",
+      "pose": "walk",
+      "facing": "left",
+      "at": 0.72,
+      "id": "ascetic",
+      "mouth": 1,
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "club",
+          "angle": 175
+        },
+        "right.arm.shoulder": 20,
+        "right.arm.elbow": 40
+      }
+    }
+  ],
+  "needs": [
+    "prop: staff and pot (held)",
+    "prop: fruit",
+    "Ravana's ascetic disguise (sage1 for now)"
+  ]
+}

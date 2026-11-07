@@ -1,0 +1,49 @@
+{
+  "scene": "Rama, head in hands, searches among the trees; Lakshman follows",
+  "size": 0.75,
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "tree",
+      "at": 0.12,
+      "row": "back"
+    },
+    {
+      "prop": "tree",
+      "at": 0.86,
+      "row": "back"
+    },
+    {
+      "prop": "tree",
+      "at": 0.55,
+      "row": "back"
+    }
+  ],
+  "figures": [
+    {
+      "who": "lakshman",
+      "pose": "walk-passing",
+      "facing": "right",
+      "at": 0.24,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "walk",
+      "facing": "right",
+      "at": 0.6,
+      "mouth": 2,
+      "hands": {
+        "right": "in"
+      },
+      "adjust": {
+        "right.arm.shoulder": 140,
+        "right.arm.elbow": 160,
+        "spine.chest": 15
+      }
+    }
+  ],
+  "needs": [
+    "prop: tree"
+  ]
+}

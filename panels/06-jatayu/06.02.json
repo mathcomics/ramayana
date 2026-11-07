@@ -1,0 +1,42 @@
+{
+  "scene": "Jatayu claws at Ravana; Ravana strikes back with his sword",
+  "size": 0.75,
+  "ground": "sky-blue",
+  "zoom": 0.8,
+  "props": [
+    {
+      "prop": "chariot",
+      "at": 0.68,
+      "lift": 3.5,
+      "layer": "front"
+    },
+    {
+      "prop": "vulture",
+      "at": 0.24,
+      "lift": 3,
+      "scale": 1.4
+    }
+  ],
+  "figures": [
+    {
+      "who": "sita",
+      "pose": "stand-arm-over-face",
+      "facing": "left",
+      "at": 0.8,
+      "mouth": 3,
+      "lift": 4.1
+    },
+    {
+      "who": "ravana",
+      "pose": "stand-sword-up",
+      "facing": "left",
+      "at": 0.62,
+      "mouth": 3,
+      "lift": 4.1
+    }
+  ],
+  "needs": [
+    "prop: vulture (claws out)",
+    "prop: flying chariot"
+  ]
+}

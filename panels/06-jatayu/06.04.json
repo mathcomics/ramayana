@@ -1,0 +1,93 @@
+{
+  "scene": "Back: the chariot passes a hill; Sita drops a bundle of jewels. Front: monkeys on the rocks look up; one points",
+  "size": 1,
+  "ground": "sand",
+  "zoom": 0.62,
+  "props": [
+    {
+      "prop": "chariot",
+      "at": 0.66,
+      "lift": 6,
+      "layer": "front",
+      "row": "back"
+    },
+    {
+      "prop": "jewels",
+      "at": 0.52,
+      "row": "back",
+      "lift": 6
+    },
+    {
+      "prop": "rocks",
+      "at": 0.5,
+      "layer": "front",
+      "lift": -1.3
+    }
+  ],
+  "figures": [
+    {
+      "who": "monkey1",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.18,
+      "id": "m1",
+      "mouth": 1,
+      "lift": 0.6
+    },
+    {
+      "who": "sugriva",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.38,
+      "mouth": 2,
+      "lift": 0.6
+    },
+    {
+      "who": "hanuman",
+      "pose": "stand-point-up",
+      "facing": "right",
+      "at": 0.6,
+      "mouth": 2,
+      "lift": 0.6
+    },
+    {
+      "who": "monkey1",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.82,
+      "id": "m2",
+      "mouth": 2,
+      "lift": 0.6,
+      "cloth": "red"
+    },
+    {
+      "who": "ravana",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.74,
+      "mouth": 2,
+      "lift": 6.6,
+      "row": "back"
+    },
+    {
+      "who": "sita",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 0.58,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 20,
+        "right.arm.elbow": 0
+      },
+      "lift": 6.6,
+      "row": "back"
+    }
+  ],
+  "needs": [
+    "background: hill",
+    "prop: rocks",
+    "prop: jewels (bundle)",
+    "prop: flying chariot",
+    "heads looking up (head tilt)"
+  ]
+}

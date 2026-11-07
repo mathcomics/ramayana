@@ -1,0 +1,34 @@
+{
+  "scene": "Ravana orders the rakshasa hermit Maricha; Maricha raises his hands, refusing; Ravana lifts his sword",
+  "size": 0.75,
+  "ground": "dusty-pink",
+  "figures": [
+    {
+      "who": "raxas_m1",
+      "pose": "stand-step-back",
+      "facing": "left",
+      "at": 0.74,
+      "id": "maricha",
+      "cloth": "white",
+      "mouth": 2,
+      "hands": {
+        "right": "out",
+        "left": "out"
+      },
+      "adjust": {
+        "right.arm.shoulder": 130,
+        "right.arm.elbow": 40,
+        "left.arm.shoulder": 110,
+        "left.arm.elbow": 40
+      }
+    },
+    {
+      "who": "ravana",
+      "pose": "stand-sword-shoulder",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 3,
+      "scale": 1.05
+    }
+  ]
+}

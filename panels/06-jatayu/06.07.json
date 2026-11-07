@@ -1,0 +1,54 @@
+{
+  "scene": "Back: the towers of Lanka. Front: Sita sits under a tree, two rakshasis guarding her",
+  "size": 1,
+  "ground": "geru",
+  "zoom": 0.72,
+  "props": [
+    {
+      "prop": "lanka",
+      "at": 0.5,
+      "row": "back"
+    },
+    {
+      "prop": "tree",
+      "at": 0.16
+    }
+  ],
+  "figures": [
+    {
+      "who": "sita",
+      "pose": "sit",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 1,
+      "turn": 0
+    },
+    {
+      "who": "raxas_f1",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.58,
+      "id": "g1",
+      "mouth": 2,
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "club",
+          "angle": 160
+        }
+      }
+    },
+    {
+      "who": "raxas_f1",
+      "pose": "stand-hands-on-hips",
+      "facing": "left",
+      "at": 0.8,
+      "id": "g2",
+      "mouth": 2,
+      "cloth": "red-diamond"
+    }
+  ],
+  "needs": [
+    "prop: Lanka towers",
+    "prop: tree"
+  ]
+}

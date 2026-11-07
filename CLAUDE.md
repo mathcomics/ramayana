@@ -75,6 +75,15 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Sections 05 "The golden deer" and 06 "Jatayu" (2026-11-06):**
+  `panels/05-the-golden-deer/` 05.01–05.09, `panels/06-jatayu/` 06.01–06.11.
+  Maricha = `raxas_m1` (id maricha, white cloth); the ascetic = `sage1`
+  (id ascetic, club as a stand-in staff); the flying chariot is a
+  placeholder prop in the front layer with its riders lifted into it.
+  New placeholder props `golden-deer`, `chariot`, `lanka`, `rocks`,
+  `jewels`, `pyre`; placeholder backgrounds 06.04 (hill), 06.06 (waves).
+  Needs: run with bow, staff/pot, Ravana's ten heads, vulture states
+  (wings spread, falling, lying), heads looking up, all prop art.
 - **Section 04 "Surpanakha" panels (2026-11-06):** `panels/04-surpanakha/`
   04.01–04.12. Artist's direction: 04.01 is Surpanakha watching the three
   from behind a tree (replaces "a fair woman comes up to Rama"); she stays

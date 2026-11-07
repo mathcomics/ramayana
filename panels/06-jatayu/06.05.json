@@ -1,0 +1,57 @@
+{
+  "scene": "A monkey picks up the bundle; the others crowd round",
+  "size": 0.75,
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "rocks",
+      "at": 0.5,
+      "layer": "front",
+      "lift": -1.6
+    },
+    {
+      "prop": "jewels",
+      "at": 0.6,
+      "lift": 0.4
+    }
+  ],
+  "figures": [
+    {
+      "who": "monkey1",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.16,
+      "id": "m1",
+      "mouth": 2,
+      "row": "mid"
+    },
+    {
+      "who": "monkey1",
+      "pose": "bend-low",
+      "facing": "left",
+      "at": 0.84,
+      "id": "m2",
+      "mouth": 2,
+      "row": "mid",
+      "cloth": "red"
+    },
+    {
+      "who": "sugriva",
+      "pose": "stand-hands-on-hips",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 2
+    },
+    {
+      "who": "hanuman",
+      "pose": "bend-low",
+      "facing": "right",
+      "at": 0.5,
+      "mouth": 2
+    }
+  ],
+  "needs": [
+    "prop: jewels (bundle)",
+    "prop: rocks"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scene": "Back: the deer leaps away. Front: Rama runs after it, bow in hand",
+  "size": 1,
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "golden-deer",
+      "at": 0.76,
+      "row": "back",
+      "lift": 4
+    }
+  ],
+  "figures": [
+    {
+      "who": "rama",
+      "pose": "run",
+      "facing": "right",
+      "at": 0.42,
+      "mouth": 2
+    }
+  ],
+  "needs": [
+    "prop: golden deer (leaping)",
+    "pose: run-bow (running with the bow drawn)",
+    "prop: bow in hand while running"
+  ]
+}

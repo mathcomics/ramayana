@@ -66,3 +66,4 @@ Scenes = scene lines whose words call for the moment. Moments with no pose come 
 - 03.04: sit-cross-legged (sage teaching, raised hand)
 - 03.05: stand-palms-joined
 - 04.11: stand-embrace
+- 05.03: run-bow (running with the bow drawn)
