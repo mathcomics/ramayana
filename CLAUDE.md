@@ -89,6 +89,16 @@ renderer or panel changes.
 
 ## Status (2026-11-07)
 
+- **Devotion poses (2026-11-07):** `stand-palms-joined`,
+  `kneel-palms-joined`, `kneel-bow` added to `data/poses.json` as first
+  drafts (written directly, not lab saves); index entries moved out of
+  `wanted` (14 left). Palms meet at the chest midline in the front view
+  with arm `out` ~12 and `elbowOut` ~-46; kneel-bow bows with
+  lean 22 + chest 42 and the hips raised by Δlean so the legs stay
+  planted (the manual version of the proposed pin-feet solve). Pose lab
+  republished. Panels using the old `adjust` workarounds (03.05, 07.03,
+  07.06, 07.11, 07.14, 08.11, 02.02…) swap to the real poses in the
+  panel-revisit pass, not here.
 - **Sections 07 "Sugriva and Bali" and 08 "Hanuman finds Sita"
   (2026-11-07):** `panels/07-sugriva-and-bali/` 07.01–07.14,
   `panels/08-hanuman-finds-sita/` 08.01–08.11. New openers 07.01 / 08.01

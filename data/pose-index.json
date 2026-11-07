@@ -453,7 +453,38 @@
       ],
       "like": [
         "sit",
-        "stand"
+        "stand",
+        "kneel-palms-joined",
+        "kneel-bow"
+      ]
+    },
+    "kneel-bow": {
+      "desc": "kneeling with the body bowed forward, head low, palms joined in front of the chest",
+      "ground": "one-knee",
+      "hold": [],
+      "use": [
+        "kneel",
+        "plead",
+        "grieve"
+      ],
+      "like": [
+        "kneel",
+        "kneel-palms-joined",
+        "bend-low"
+      ]
+    },
+    "kneel-palms-joined": {
+      "desc": "kneeling on one knee, palms together in front of the chest",
+      "ground": "one-knee",
+      "hold": [],
+      "use": [
+        "plead",
+        "kneel"
+      ],
+      "like": [
+        "kneel",
+        "stand-palms-joined",
+        "kneel-bow"
       ]
     },
     "leap": {
@@ -859,6 +890,19 @@
         "stand-step-back"
       ]
     },
+    "stand-palms-joined": {
+      "desc": "standing, both forearms up, palms together in front of the chest",
+      "ground": "feet",
+      "hold": [],
+      "use": [
+        "plead",
+        "stand"
+      ],
+      "like": [
+        "stand",
+        "kneel-palms-joined"
+      ]
+    },
     "stand-point": {
       "desc": "standing, right arm straight out pointing forward, left fist down",
       "ground": "feet",
@@ -1066,23 +1110,6 @@
     }
   },
   "wanted": {
-    "stand-palms-joined": {
-      "desc": "standing, both forearms up, palms together in front of the chest",
-      "use": [
-        "plead",
-        "stand"
-      ],
-      "until": "stand with both arms adjusted (shoulder ~50, elbow ~120, hand in)"
-    },
-    "kneel-bow": {
-      "desc": "kneeling with the body bowed forward, head low, palms joined or touching the ground",
-      "use": [
-        "kneel",
-        "plead",
-        "grieve"
-      ],
-      "until": "kneel with spine.chest ~60"
-    },
     "stand-carry-overhead": {
       "desc": "standing, both arms straight up holding something above the head",
       "use": [
@@ -1104,14 +1131,6 @@
         "sit"
       ],
       "until": "sit"
-    },
-    "kneel-palms-joined": {
-      "desc": "kneel with the palms together in front of the chest",
-      "use": [
-        "plead",
-        "kneel"
-      ],
-      "until": "kneel with both arms adjusted"
     },
     "walk-carry-shoulder": {
       "desc": "walking with a load on the right shoulder, right hand up holding it",

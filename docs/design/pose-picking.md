@@ -58,13 +58,13 @@ entry changes in the same commit. A pose made from `wanted` moves from
 4. **Emotion through the body, not the name.** Use the `use` tags:
    | Moment | First choice | Also |
    |---|---|---|
-   | grief | stand-hand-on-head | sit, kneel-bow (wanted) |
+   | grief | stand-hand-on-head | sit, kneel-bow |
    | fear | stand-arm-over-face | crouch-arms-over-head, stand-step-back |
    | shock | stand-step-back | sit-lean-back, fall-back |
    | anger, threat | stand-point (mouth 3) | stand-fists-up, stand-hands-on-hips |
    | pride, mockery | stand-hands-on-hips | stand-lean-back |
    | joy, victory | stand-arms-up-knee-up | leap-reach |
-   | respect, pleading | kneel | stand-palms-joined (wanted) |
+   | respect, pleading | kneel | stand-palms-joined, kneel-palms-joined |
 5. **Adjust a little, then make a pose.** `adjust` is for one-off changes
    of two or three joints. A gesture adjusted the same way twice becomes a
    pose (in the pose lab), with an index entry.
