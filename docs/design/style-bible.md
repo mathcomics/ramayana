@@ -289,6 +289,10 @@ male 0.88, female 0.74.
   cos(out); the front view shows (sideways, down). Only lengths change,
   never widths; hands and feet keep their size. With drawn parts this
   replaces the mirroring below for the front view's arms and legs.
+  The elbow and the knee have their own out (`arm.elbowOut`,
+  `leg.kneeOut`): the forearm (with the hand) then points out by
+  out + elbowOut, the shin by out + kneeOut, so a forearm or shin can turn
+  toward or away from the body while the upper part stays. Default 0.
 - **Poses are side view only; the front view is a projection** of the
   same body: the front and
   side drawings are two views of one body. The front torso is the

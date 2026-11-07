@@ -125,6 +125,10 @@ const dpTurn = (L, turn) => (turn <= 0 ? L.front : turn >= 1 ? L.side : dpLin(L.
 // is a flat projection of that: the side view keeps (forward, down), so the
 // limb shortens by cos(out); the front view keeps (sideways, down). Only
 // lengths change, never widths; hands and feet keep their size.
+// The elbow and the knee turn the lower part further out of the paper
+// (`arm.elbowOut`, `leg.kneeOut`, degrees, + away from the body): the
+// forearm (and hand) points out by out + elbowOut, the shin by out +
+// kneeOut. The upper part and the joint between them don't move.
 function dpProject(theta, out, front) {
   const c = Math.cos(out * RAD);
   if (!front) return { ang: theta, f: c };
@@ -320,9 +324,10 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const sg1 = hs === 'far' ? -1 : 1, sg2 = -sg1;
     const t0 = -(sp.lean + sp.chest), su = t0 + A.shoulder, sl = su + A.elbow, sh = sl + A.wrist, tp = sh + (P.angle ?? 0);
     const S1 = joint3('shoulder', hs === 'far'), S2 = joint3('shoulder', os === 'far');
-    const E1 = add3(S1, v3(su, A.out, sg1), M.upperArm.len), W1 = add3(E1, v3(sl, A.out, sg1), M.forearm.len);
-    const grip = add3(W1, v3(sh, A.out, sg1), 0.18);
-    const pd = v3(tp, A.out + (P.out ?? 0), sg1);
+    const oL = A.out + (A.elbowOut ?? 0);                          // the forearm's own out
+    const E1 = add3(S1, v3(su, A.out, sg1), M.upperArm.len), W1 = add3(E1, v3(sl, oL, sg1), M.forearm.len);
+    const grip = add3(W1, v3(sh, oL, sg1), 0.18);
+    const pd = v3(tp, oL + (P.out ?? 0), sg1);
     const W2 = add3(grip, pd, -0.42);                               // the other wrist: below the hand, along the hilt
     const L1 = M.upperArm.len, L2 = M.forearm.len, D = [W2[0] - S2[0], W2[1] - S2[1], W2[2] - S2[2]];
     const so = Math.max(-1, Math.min(1, sg2 * D[0] / (L1 + L2))), o2 = Math.asin(so) / RAD, co = Math.cos(o2 * RAD) || 1e-6;
@@ -331,7 +336,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const e = Math.acos(Math.max(-1, Math.min(1, (d * d - a * a - b * b) / (2 * a * b)))) / RAD;
     const al = Math.acos(Math.max(-1, Math.min(1, (a * a + d * d - b * b) / (2 * a * d)))) / RAD;
     const phi = Math.atan2(z, y) / RAD, su2 = phi - al;
-    armOf[os] = { ...pose[os].arm, shoulder: su2 - t0, elbow: e, wrist: tp - (su2 + e), out: o2, twist: 0, hand: 'fist' };
+    armOf[os] = { ...pose[os].arm, shoulder: su2 - t0, elbow: e, wrist: tp - (su2 + e), out: o2, elbowOut: 0, twist: 0, hand: 'fist' };
     delete armOf[os].prop;
   }
   const limbs = {};
@@ -345,18 +350,19 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const su = -(sp.lean + sp.chest) + a.shoulder, sl = su + a.elbow;
     const st = -sp.lean + l.hip, ss = st - l.knee;
     const pj = (theta, o) => dpProject(theta, o, front);
-    const U = pj(su, a.out), Lo = pj(sl, a.out);
-    const Th = pj(st, l.out), Sh = pj(ss, l.out);
+    const ao = a.out + (a.elbowOut ?? 0), lo = l.out + (l.kneeOut ?? 0);   // forearm / shin out
+    const U = pj(su, a.out), Lo = pj(sl, ao);
+    const Th = pj(st, l.out), Sh = pj(ss, lo);
     // the hand: its own direction (forearm + wrist), turned about its axis
     // by arm.twist
-    const sh_ = sl + a.wrist, Hd = pj(sh_, a.out);
+    const sh_ = sl + a.wrist, Hd = pj(sh_, ao);
     const sgn = far ? -1 : 1;
     const look = (theta, o, tw = 0) => dpLook(theta, o, sgn, tw, front);
     const v3 = (theta, o) => [sgn * Math.sin(o * RAD), Math.cos(o * RAD) * Math.cos(theta * RAD), Math.cos(o * RAD) * Math.sin(theta * RAD)];
     const add3 = (p, d, L) => [p[0] + d[0] * L, p[1] + d[1] * L, p[2] + d[2] * L];
     const sh3 = joint3('shoulder', far), hp3 = joint3('hip', far);
-    const E3 = add3(sh3, v3(su, a.out), M.upperArm.len), W3 = add3(E3, v3(sl, a.out), M.forearm.len);
-    const K3 = add3(hp3, v3(st, l.out), M.thigh.len), A3 = add3(K3, v3(ss, l.out), M.shin.len);
+    const E3 = add3(sh3, v3(su, a.out), M.upperArm.len), W3 = add3(E3, v3(sl, ao), M.forearm.len);
+    const K3 = add3(hp3, v3(st, l.out), M.thigh.len), A3 = add3(K3, v3(ss, lo), M.shin.len);
     const mid3 = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2, (p[2] + q[2]) / 2];
     const dU = mid3(sh3, E3), dL = mid3(E3, W3), dH = W3, dT = mid3(hp3, K3), dS = mid3(K3, A3), dF = A3;
     // Foot (keeps its size, drawn flat on the ankle; step 3): a blend of
@@ -400,18 +406,18 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
       end: (M.hands.end && (M.hands.end[a.hand] || M.hands.end.fist)) || undefined };
     // the pointing finger always goes on the side toward the body (the
     // drawn point hand has it outside, so it is mirrored across the forearm)
-    const handSegs = dpShape(hands, look(sh_, a.out, a.twist));
+    const handSegs = dpShape(hands, look(sh_, ao, a.twist));
     // the grip: the middle of the hand, for a held prop (arm.prop)
     const grip = add(Wr, mul(dirM(Hd.ang), 0.18 * Hd.f));
-    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A, grip }, grip, held: { theta: sh_, out: a.out, prop: a.prop, m, dirM, d3: dH },
+    limbs[s] = { joints: { sh, E, Wr, hp, Kn, A, grip }, grip, held: { theta: sh_, out: ao, prop: a.prop, m, dirM, d3: dH },
       arm: [
         ['upper-arm', place(dpShape(M.upperArm, look(su, a.out)), sh, U.ang, m), dU],
-        ['forearm', place(dpShape(M.forearm, look(sl, a.out)), E, Lo.ang, m), dL],
+        ['forearm', place(dpShape(M.forearm, look(sl, ao)), E, Lo.ang, m), dL],
         ['hand', place(a.hand === 'point' ? dpMap(handSegs, (p) => [-p[0], p[1]]) : handSegs, Wr, Hd.ang, m), dH],
       ],
       // the shin goes behind the thigh (drawn first), in every view
       leg: [
-        ['shin', place(dpShape(M.shin, look(ss, l.out)), Kn, Sh.ang, m), dS],
+        ['shin', place(dpShape(M.shin, look(ss, lo)), Kn, Sh.ang, m), dS],
         // the foot keeps its angle from the ground; drawn flat = ankle 0
         ['foot', dpMap(footSegs, (p) => add(A, [m * p[0], p[1]])), dF],
         ['thigh', placeCap(dpShape(M.thigh, look(st, l.out)), hp, Th.ang, m, 1, front ? null : -sp.lean), dT],

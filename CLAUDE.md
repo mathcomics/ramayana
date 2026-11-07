@@ -77,6 +77,12 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Elbow and knee out (2026-11-06):** pose settings `arm.elbowOut`,
+  `leg.kneeOut` (degrees, + away from the body): the forearm + hand point
+  out by out + elbowOut, the shin by out + kneeOut (`src/parts.js`; held
+  props and the two-handed grip follow the forearm). Pose lab: front-view
+  handles "elbow out" / "knee out". Style bible §6. Existing poses
+  unchanged (default 0).
 - **Layout templates (2026-11-06):** `layouts/` with `template-1.svg`,
   `-0.75.svg`, `-0.5.svg` (one locked `page` layer: rectangle + row
   ground lines; three simple men as plain groups, one per row, at that

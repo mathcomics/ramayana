@@ -36,11 +36,11 @@ const num = (v, d) => (typeof v === 'number' && isFinite(v) ? v : d);
 export function normalizePose(p = {}) {
   const limb = (l = {}) => ({
     arm: {
-      shoulder: num(l.arm?.shoulder, 0), out: num(l.arm?.out, 0), elbow: num(l.arm?.elbow, 10), wrist: num(l.arm?.wrist, 0), twist: num(l.arm?.twist, 0),
+      shoulder: num(l.arm?.shoulder, 0), out: num(l.arm?.out, 0), elbow: num(l.arm?.elbow, 10), elbowOut: num(l.arm?.elbowOut, 0), wrist: num(l.arm?.wrist, 0), twist: num(l.arm?.twist, 0),
       hand: HANDS.includes(l.arm?.hand) ? l.arm.hand : 'fist',
       ...(l.arm?.prop && ['sword', 'club', 'bow'].includes(l.arm.prop.kind) ? { prop: { kind: l.arm.prop.kind, angle: num(l.arm.prop.angle, 0), out: num(l.arm.prop.out, 0), ...(l.arm.prop.draw ? { draw: true } : {}), ...(l.arm.prop.grip === 'both' ? { grip: 'both' } : {}) } } : {}),
     },
-    leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), ankle: num(l.leg?.ankle, 0), toe: num(l.leg?.toe, 0) },
+    leg: { hip: num(l.leg?.hip, 0), out: num(l.leg?.out, 0), knee: num(l.leg?.knee, 5), kneeOut: num(l.leg?.kneeOut, 0), ankle: num(l.leg?.ankle, 0), toe: num(l.leg?.toe, 0) },
   });
   const lookIn = ['front', 'left', 'right'].includes(p.look) ? p.look : (p.headView || p.view) === 'front' ? 'left' : 'front';
   const turn = num(p.spine?.turn, { front: 0, left: 90, right: -90 }[lookIn]);

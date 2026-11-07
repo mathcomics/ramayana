@@ -236,8 +236,8 @@ const STARTERS = /*__POSES__*/;
   // ranges live here. The panels keep only what has no handle.
   const RANGES = {
     'spine.lean': [-60, 180], 'spine.chest': [-60, 100], 'spine.neck': [-60, 90], 'spine.head': [-90, 90],
-    'arm.shoulder': [-90, 230], 'arm.out': [-90, 90], 'arm.elbow': [0, 160], 'arm.wrist': [-90, 90],
-    'leg.hip': [-90, 150], 'leg.out': [-90, 90], 'leg.knee': [0, 160], 'leg.ankle': [-180, 180],
+    'arm.shoulder': [-90, 230], 'arm.out': [-90, 90], 'arm.elbow': [0, 160], 'arm.elbowOut': [-90, 90], 'arm.wrist': [-90, 90],
+    'leg.hip': [-90, 150], 'leg.out': [-90, 90], 'leg.knee': [0, 160], 'leg.kneeOut': [-90, 90], 'leg.ankle': [-180, 180],
   };
   const SLIDERS = [
     { key: 'spine', title: 'Body & tail', rows: [
@@ -309,7 +309,8 @@ const STARTERS = /*__POSES__*/;
   // Every joint shows a dot. Tap one and a ring with a knob appears; drag
   // the knob (or anywhere on the ring) to turn the joint. Side view: the
   // angles in the paper (lean, chest, neck, head, shoulder, elbow, wrist,
-  // hip, knee, ankle). Front view: shoulder and hip `out` (sideways). The
+  // hip, knee, ankle). Front view: shoulder, elbow, hip and knee `out`
+  // (sideways; elbow / knee turn the forearm / shin further out). The
   // angle shows while a joint is selected. Each move solves the joint's value
   // numerically so the part follows the pointer (works for any angle
   // convention, and for `out`'s foreshortening in the front view).
@@ -336,8 +337,12 @@ const STARTERS = /*__POSES__*/;
     } else {
       for (const sd of ['near', 'far']) {
         const n = SIDE_NAME[sd], j = (k) => (J) => J[sd][k];
-        if (!solved(sd)) out.push({ view, side: sd, path: `${sd}.arm.out`, label: `${n} shoulder out`, piv: j('sh'), dir: (J) => ang(J[sd].sh, J[sd].E) });
+        if (!solved(sd)) {
+          out.push({ view, side: sd, path: `${sd}.arm.out`, label: `${n} shoulder out`, piv: j('sh'), dir: (J) => ang(J[sd].sh, J[sd].E) });
+          out.push({ view, side: sd, path: `${sd}.arm.elbowOut`, label: `${n} elbow out`, piv: j('E'), dir: (J) => ang(J[sd].E, J[sd].Wr) });
+        }
         out.push({ view, side: sd, path: `${sd}.leg.out`, label: `${n} hip out`, piv: j('hp'), dir: (J) => ang(J[sd].hp, J[sd].Kn) });
+        out.push({ view, side: sd, path: `${sd}.leg.kneeOut`, label: `${n} knee out`, piv: j('Kn'), dir: (J) => ang(J[sd].Kn, J[sd].A) });
       }
     }
     return out;
