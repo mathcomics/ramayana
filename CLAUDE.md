@@ -23,6 +23,13 @@ scene spec (JSON) → layout → figure geometry → SVG
   problem found in one of the two issue files.
 - `docs/design/style-bible.md` — visual rules. Read it before changing the renderer.
 - `docs/design/panels.md` — the panel language as implemented; lab; Cloudflare publishing.
+- `docs/design/panel-writing.md` — **read before writing panels**: the
+  checklist, the artist's directions and review lessons. When the artist
+  corrects a panel or a review finds a mistake, add the lesson there in
+  the same commit.
+- `docs/design/composition.md` + `layouts/scenes/` — how panels are
+  arranged (chapter openers, sky and horizon, throne, top view), from the
+  artist's scene layouts.
 - `reference/` — the artist's original friezes. Output is judged against these.
 
 ## Layout
