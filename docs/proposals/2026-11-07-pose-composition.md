@@ -69,6 +69,15 @@ but starting from the right place instead of from `stand`.
    110 vs 104) shows the products are not free. If most combined drafts
    ship untouched, revisit.
 
+## The bases, drawn
+
+`node tools/base-catalogue.mjs` draws every distinct lower body with
+stand's upper body on it (48 poses → 34 bases at 0.2 head-units over
+the leg joints; the kneel family, the six sword stances, the archery
+stance and the narrow stands each collapse to one). Published:
+https://claude.ai/artifact/9VH3oVabnkmaxNHcwDFLzz — republish the page
+after pose changes.
+
 ## What it buys now
 
 Drafts in minutes for the products still on the wanted list
