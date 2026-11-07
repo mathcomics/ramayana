@@ -112,6 +112,7 @@ legend { font-weight: 600; font-size: 13px; padding: 0 4px; }
 .row output { font-family: var(--font-mono); font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; }
 input[type="range"] { width: 100%; accent-color: var(--accent); }
 .check { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; }
+.refmark { font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--accent-fg); background: var(--accent); border-radius: 999px; padding: 1px 5px; text-transform: none; }
 
 .save { display: grid; gap: 10px; }
 .posebar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
@@ -204,8 +205,8 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
   </section>
 
   <div class="bar pose-only">
-    <div class="field"><span>Base</span><select id="baseSel" title="Lower body (legs, lean, tail): pick with a gesture to compose a draft"></select></div>
-    <div class="field"><span>Gesture</span><select id="gestSel" title="Upper body (arms, chest, head): pick with a base to compose a draft"></select></div>
+    <div class="field"><span>Base <b class="refmark" id="baseRef" hidden>ref</b></span><select id="baseSel" title="Lower body (legs, lean, tail): pick with a gesture to compose a draft"></select></div>
+    <div class="field"><span>Gesture <b class="refmark" id="gestRef" hidden>ref</b></span><select id="gestSel" title="Upper body (arms, chest, head): pick with a base to compose a draft"></select></div>
     <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
     <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
     <div class="field"><span>Hands</span><button class="btn ghost" id="joinBtn" type="button" title="Join the palms: both hands to the body's midline (each arm's elbow out), then the left hand laid exactly on the right (its shoulder and elbow)">Join</button></div>
@@ -767,13 +768,25 @@ const INDEX = /*__INDEX__*/;
       $('name').value = state.pose.name;
       markDirty(); syncControls(); draw(); updateSaveLabel(); markSelected();
       $('baseSel').value = b; $('gestSel').value = g;
+      $('baseRef').hidden = $('gestRef').hidden = true;      // a draft is not a reference
       setStatus(`Composed ${b} × ${g}: tune it, then Save.`);
     };
     $('baseSel').addEventListener('change', onPick);
     $('gestSel').addEventListener('change', onPick);
+    // "ref" badge: this pose is the reference of its base / gesture —
+    // the pose the family is derived from (tools/recompose.mjs spreads
+    // edits to it across the family after merging)
+    const mark = (el, kind, half) => {
+      const coord = coordOf(kind, state.pose.name);
+      const isRef = !!coord && INDEX[kind][coord].poses[0] === state.pose.name;
+      el.hidden = !isRef;
+      if (isRef) el.title = `This pose is the ${coord} reference: its ${half} define the ${kind === 'bases' ? 'base' : 'gesture'}. After merging an edit, recompose spreads it to the family.`;
+    };
     state.syncCoords = () => {
       $('baseSel').value = coordOf('bases', state.pose.name);
       $('gestSel').value = coordOf('gestures', state.pose.name);
+      mark($('baseRef'), 'bases', 'legs, lean and tail');
+      mark($('gestRef'), 'gestures', 'arms, chest and mouth');
     };
   }
 
