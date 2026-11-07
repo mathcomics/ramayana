@@ -20,6 +20,7 @@
 
 - `proposals/2026-11-03-scene-spec.md` — scenes as specs or artist templates (spec route implemented as panels).
 - `proposals/2026-11-06-held-props.md` — swords and bows along a reference line in the hand (implemented: `data/props/held/{sword,club,bow}.svg` with base + per-character layers, `tools/import-held.mjs`).
+- `proposals/2026-11-07-contact-constraints.md` — pin feet while editing in the pose lab, `lookAt` to aim gazes, `held-by` to put a prop in a hand.
 
 ## Issues
 
