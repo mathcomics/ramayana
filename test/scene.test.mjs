@@ -6,12 +6,14 @@ import { loadAssets, loadSections } from '../tools/lib.mjs';
 const assets = loadAssets();
 const xOf = (svg, n) => [...svg.matchAll(/<g transform="translate\(([-\d.e]+) ([-\d.e]+)\) scale\(/g)].map((m) => +m[1])[n];
 
-test('panel height is size × screen height, with a fallback', () => {
+test('panel height is size × screen height (0.75, 0.5, 0.3), with a fallback', () => {
   assert.equal(panelHeight({}), 540);
   assert.equal(panelHeight({ size: 0.5 }), 360);
-  assert.equal(panelHeight({ size: 1 }), SCREEN.h);
+  assert.equal(panelHeight({ size: 0.3 }), Math.round(0.3 * SCREEN.h));
+  assert.equal(panelHeight({ size: 1 }), 540);            // no full-screen panels
   assert.equal(panelHeight({ size: -1 }), 540);
   assert.equal(renderPanel({ size: 'big' }, assets).issues.length, 1);
+  assert.equal(renderPanel({ size: 1 }, assets).issues.length, 1);
 });
 
 test('every committed panel renders without issues (placeholders aside)', () => {
