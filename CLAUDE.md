@@ -84,7 +84,8 @@ renderer or panel changes.
   `ramayana` connected to GitHub as in kena (Cloudflare builds), with
   automatic builds off; `.github/workflows/publish-site.yml` (manual
   dispatch) calls the deploy hook (secret `CLOUDFLARE_DEPLOY_HOOK`). One
-  site, private via Cloudflare Access. Later: turn automatic builds on and
+  site, `https://ramayana-7fw.pages.dev`, private via Cloudflare Access
+  (account members only). Later: turn automatic builds on and
   delete the workflow. Owner setup still to do (docs/design/panels.md,
   Publishing).
   Site = an index of all 15 chapters from scenes.md (those without panels

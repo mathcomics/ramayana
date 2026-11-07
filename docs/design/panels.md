@@ -150,8 +150,8 @@ the site itself, but automatic builds are off. To publish: GitHub →
 **Actions → Publish the reader site → Run workflow**. The workflow
 (`.github/workflows/publish-site.yml`) only calls the project's deploy
 hook; follow the build in Cloudflare under Deployments. The site is at
-`https://ramayana.pages.dev` (Cloudflare adds a suffix if the name is
-taken).
+`https://ramayana-7fw.pages.dev`, open to members of the Cloudflare
+account only (the default Access policy).
 
 One-time setup by the repo owner:
 
@@ -171,7 +171,7 @@ One-time setup by the repo owner:
 5. **Make it private:** Settings → General → **Enable access policy**.
    This protects `*.ramayana.pages.dev` only, so also protect the main
    address: Zero Trust → Access → Applications → the `ramayana`
-   application → edit → add the hostname `ramayana.pages.dev` → save. In
+   application → edit → add the hostname `ramayana-7fw.pages.dev` → save. In
    its policy, list the email addresses allowed in (they sign in with a
    one-time code). Check in a private window that the site asks for a
    sign-in.
