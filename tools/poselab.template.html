@@ -568,7 +568,7 @@ const INDEX = /*__INDEX__*/;
         const input = row.querySelector('input'), out = row.querySelector('output');
         input.addEventListener('input', () => {
           const v = Number(input.value);
-          if (path.startsWith('prop.') && !get(state.pose, rp('prop'))) { row._sync(); return; }   // no prop held
+          if (path.startsWith('prop.') && !state.pose[propSide()].arm.prop) { row._sync(); return; }   // no prop held
           set(state.pose, rp(path), v);
           out.textContent = step < 1 ? v.toFixed(2) : v + '°';
           markDirty(); draw();

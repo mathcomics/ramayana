@@ -1488,9 +1488,9 @@
       "right": {
         "arm": {
           "shoulder": -93,
-          "out": 12,
+          "out": -5.2,
           "elbow": 203.3,
-          "elbowOut": -12,
+          "elbowOut": 1.4,
           "wrist": 0,
           "twist": 0,
           "hand": "fist"
@@ -1507,7 +1507,7 @@
       "left": {
         "arm": {
           "shoulder": 106,
-          "out": 6,
+          "out": -8.8,
           "elbow": 0,
           "elbowOut": 0,
           "wrist": 0,
@@ -1548,9 +1548,9 @@
       "right": {
         "arm": {
           "shoulder": -93,
-          "out": 12,
+          "out": -8.1,
           "elbow": 203.3,
-          "elbowOut": -12,
+          "elbowOut": -1,
           "wrist": 0,
           "twist": 0,
           "hand": "fist"
@@ -1567,7 +1567,7 @@
       "left": {
         "arm": {
           "shoulder": 106,
-          "out": 6,
+          "out": -16.2,
           "elbow": 0,
           "elbowOut": 0,
           "wrist": 0,
