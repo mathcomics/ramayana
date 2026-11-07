@@ -153,9 +153,10 @@ if the name is taken; the first run prints the address).
 
 One-time setup by the repo owner:
 
-1. **API token:** Cloudflare dashboard → My Profile → **API Tokens →
-   Create Token → Custom token**, permission *Account · Cloudflare Pages ·
-   Edit*, for your account.
+1. **API token:** Cloudflare dashboard → Manage Account → **Account API
+   Tokens → Create Token → Custom token**, permission *Account · Cloudflare
+   Pages · Edit*. (An account token, not a user token under My Profile, so
+   publishing doesn't depend on one person's login.)
 2. **Account ID:** shown on the Workers & Pages overview (right side).
 3. GitHub → repo **Settings → Secrets and variables → Actions**: add
    `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.

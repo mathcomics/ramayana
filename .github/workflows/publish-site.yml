@@ -6,7 +6,7 @@ name: Publish the reader site
 # Run workflow. The site is private behind Cloudflare Access; setup steps are
 # in docs/design/panels.md (Publishing).
 #
-# Needs repo secrets CLOUDFLARE_API_TOKEN (Account: Cloudflare Pages: Edit)
+# Needs repo secrets CLOUDFLARE_API_TOKEN (an Account API Token, Cloudflare Pages: Edit)
 # and CLOUDFLARE_ACCOUNT_ID.
 
 on:
