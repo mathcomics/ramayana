@@ -96,22 +96,28 @@ renderer or panel changes.
 ## Status (2026-11-07)
 
 - **Chapters 02 and 07 reworked against the briefs (2026-11-07):** the
-  first two of the revisit pass (only ch 05 is artist-reviewed).
-  Ch 02 (11 panels): new opener — the **empty Ayodhya throne** (opener
-  chosen, composition.md) — then the king on it front-view far, the
-  lead-by-hand, a 0.3-mid **Kaikeyi arrival strip** (the 05.04
-  pattern), pull and point at `wide`, a 0.3 walking-away strip, the
-  look back, a 0.3 three-walking strip, river, forest (02.07.svg →
-  02.10.svg). Ch 07 (14 panels): `kishkindha` replaces `hills`
-  (opener + the vow, now 0.5), monkeys watch from the plateau on
-  `kishkindha#stand-*` anchors, `ledge` replaces `rocks`, new 0.3
-  strips (Hanuman bounds down; **Bali falls** alone), real
-  `kneel-palms` / `kneel-bow` poses replace adjust stand-ins, the
-  brief's cuts applied (no Tara warning, no Lakshman-confronts-
-  Sugriva; fire clasp is two figures), monsoon figures sit/stand on
-  the ledge's anchors. Two new lessons in panel-writing.md (no far
-  props in mid-shot strips; lone full-body action wants `wide`).
-  Snapshot updated after looking; lab republished.
+  first two of the revisit pass (only ch 05 is artist-reviewed); then
+  expanded further at the artist's direction — **more, simpler panels;
+  context carries between panels** (sequential art, not single
+  paintings). Ch 02 = **17 panels** (0.3 × 8): empty-throne opener,
+  the king on it far then `wide`, lead-by-hand, Rama-looks-up strip,
+  Kaikeyi arrival strip (the 05.04 pattern), the pull, king-torn
+  strip, the point, point-close strip, Rama-takes-it strip, walking
+  away, the look back, the-two-hurry-after strip, three walk on,
+  river (02.16.svg), forest. Ch 07 = **22 panels** (0.3 × 7):
+  kishkindha opener, princes walk in, the watch from the plateau
+  (`kishkindha#stand-*`), Sugriva-wary strip, Hanuman bounds down,
+  kneel-palms greet, Rama-answers-palms strip, the carry, fire clasp,
+  clasped-hands-close strip, the bundle shown, Rama-knows-them strip,
+  pressing them to his chest, the vow (kishkindha on the horizon),
+  face-off, tree swing, hidden shot, Bali-falls strip, mourning,
+  coronation, monsoon-comes strip (no figures), the two in the rain
+  on the `ledge`. The brief's cuts applied; `ledge` replaces `rocks`,
+  real kneel-palms / kneel-bow / step-palms replace adjust stand-ins.
+  Lessons in panel-writing.md: no far props in mid-shot strips; a
+  lone full-body action in a strip wants `wide`, not `mid` (`mid`
+  also loses a backless throne: the Ayodhya king-closer step uses
+  `wide`). Snapshot updated after looking; lab republished.
 - **Scene props: Lanka redrawn; ledge, kishkindha, male-top; stand
   anchors and prop recolouring (2026-11-07):** `lanka-island` redrawn as
   a small domed palace on its dark mountain (same palette and viewBox;

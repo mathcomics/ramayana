@@ -1,0 +1,24 @@
+{
+  "scene": "Bali and Sugriva face each other",
+  "size": 0.5,
+  "ground": "sage",
+  "figures": [
+    {
+      "who": "sugriva",
+      "pose": "leanfront-fists",
+      "facing": "right",
+      "at": 0.32,
+      "mouth": 3
+    },
+    {
+      "who": "monkey1",
+      "id": "bali",
+      "pose": "leanfront-fists",
+      "facing": "left",
+      "at": 0.68,
+      "mouth": 3,
+      "cloth": "white",
+      "scale": 1.1
+    }
+  ]
+}

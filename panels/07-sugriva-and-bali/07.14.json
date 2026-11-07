@@ -1,47 +1,35 @@
 {
-  "scene": "Monsoon: Rama and Lakshman shelter on a rock in the rain; Rama grieves",
+  "scene": "Sugriva points toward Kishkindha; Rama raises his bow, vowing",
   "size": 0.5,
-  "ground": "stone-grey",
-  "sky": "#8a99a3",
-  "horizon": 0.5,
+  "ground": "dry-grass",
+  "sky": "sky",
   "props": [
     {
-      "prop": "rain-cloud",
-      "at": 0.5,
-      "lift": 7,
-      "scale": 1
-    },
-    {
-      "prop": "ledge",
-      "at": 0.5,
-      "layer": "back",
-      "scale": 1.1
+      "prop": "kishkindha",
+      "at": 0.12,
+      "row": "horizon"
     }
   ],
   "figures": [
     {
-      "who": "rama",
-      "pose": "sit-armknee",
+      "who": "sugriva",
+      "pose": "step-point",
       "facing": "left",
-      "on": "ledge",
-      "mouth": 1,
-      "adjust": {
-        "spine.chest": 30,
-        "right.arm.shoulder": 130,
-        "right.arm.elbow": 120
-      }
+      "at": 0.36,
+      "mouth": 2
     },
     {
-      "who": "lakshman",
-      "pose": "step-hang",
+      "who": "rama",
+      "pose": "stand-pointup",
       "facing": "left",
-      "on": "ledge#stand-left",
-      "nudge": -0.6,
-      "mouth": 1
+      "at": 0.7,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "bow",
+          "angle": 0
+        }
+      }
     }
-  ],
-  "needs": [
-    "prop: rain-cloud (with rain)",
-    "pose: sit-hand-on-head"
   ]
 }

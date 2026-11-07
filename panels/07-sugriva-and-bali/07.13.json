@@ -1,65 +1,40 @@
 {
-  "scene": "Water is poured over the crowned Sugriva; young Angad beside him",
+  "scene": "Rama presses the jewels to his chest and weeps",
   "size": 0.5,
-  "ground": "off-white",
+  "ground": "sand",
   "props": [
     {
-      "prop": "throne-lanka",
-      "at": 0.44,
-      "row": "mid"
-    },
-    {
-      "prop": "jar",
-      "at": 0.56,
-      "lift": 6.2
-    },
-    {
-      "prop": "umbrella",
-      "at": 0.42,
-      "lift": 6.3,
-      "layer": "front"
+      "prop": "jewels",
+      "at": 0.41,
+      "lift": 2.1,
+      "scale": 0.7
     }
   ],
   "figures": [
     {
-      "who": "sugriva",
-      "pose": "chair-armrest",
+      "who": "rama",
+      "pose": "kneel-bow",
       "facing": "right",
-      "mouth": 1,
+      "at": 0.38,
+      "mouth": 3,
       "adjust": {
-        "right.arm.shoulder": 45,
-        "right.arm.elbow": 105,
-        "right.arm.hand": "in",
-        "left.arm.shoulder": 45,
-        "left.arm.elbow": 105,
-        "left.arm.hand": "in"
-      },
-      "on": "throne-lanka"
-    },
-    {
-      "who": "hanuman",
-      "pose": "arch-overhead",
-      "facing": "left",
-      "at": 0.64,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": 15
+        "right.arm.shoulder": 30,
+        "right.arm.elbow": 120,
+        "right.arm.hand": "fist"
       }
     },
     {
-      "who": "monkey1",
-      "id": "angad",
+      "who": "sugriva",
       "pose": "step-hang",
-      "facing": "right",
-      "at": 0.14,
+      "facing": "left",
+      "at": 0.76,
       "mouth": 1,
-      "scale": 0.75
+      "adjust": {
+        "spine.head": 15
+      }
     }
   ],
   "needs": [
-    "prop: jar (water)",
-    "prop: umbrella (royal)",
-    "Sugriva's crown (signature feature)",
-    "a monkey-king seat (the gold throne for now)"
+    "prop: jewels (bundle)"
   ]
 }

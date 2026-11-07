@@ -1,0 +1,21 @@
+{
+  "scene": "Lakshman and Sita hurry after him",
+  "size": 0.3,
+  "ground": "off-white",
+  "figures": [
+    {
+      "who": "lakshman",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.72,
+      "mouth": 1
+    },
+    {
+      "who": "sita",
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.45,
+      "mouth": 1
+    }
+  ]
+}

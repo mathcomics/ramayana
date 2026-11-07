@@ -1,0 +1,35 @@
+{
+  "scene": "Bali and Sugriva fight; Sugriva swings an uprooted tree",
+  "size": 0.5,
+  "ground": "sage",
+  "props": [
+    {
+      "prop": "tree-uprooted",
+      "at": 0.28,
+      "lift": 5,
+      "layer": "front"
+    }
+  ],
+  "figures": [
+    {
+      "who": "sugriva",
+      "pose": "arch-overhead",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 3
+    },
+    {
+      "who": "monkey1",
+      "id": "bali",
+      "pose": "leanfront-fists",
+      "facing": "left",
+      "at": 0.7,
+      "mouth": 3,
+      "cloth": "white",
+      "scale": 1.1
+    }
+  ],
+  "needs": [
+    "prop: tree-uprooted (held overhead)"
+  ]
+}

@@ -1,42 +1,15 @@
 {
-  "scene": "Kaikeyi points Rama away; the king slumps on the throne",
-  "size": 0.5,
-  "shot": "wide",
+  "scene": "Kaikeyi comes in, close to the viewer, facing the throne",
+  "size": 0.3,
+  "shot": "mid",
   "ground": "dusty-pink",
-  "props": [
-    {
-      "prop": "throne-ayodhya",
-      "at": 0.82,
-      "row": "mid"
-    }
-  ],
   "figures": [
     {
-      "who": "dasharatha",
-      "pose": "chair-armrest",
-      "facing": "left",
-      "on": "throne-ayodhya",
-      "mouth": 2
-    },
-    {
-      "who": "rama",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.12,
-      "mouth": 1,
-      "adjust": {
-        "spine.head": 12
-      }
-    },
-    {
       "who": "kaikeyi",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.4,
-      "mouth": 3
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.35,
+      "mouth": 1
     }
-  ],
-  "needs": [
-    "pose: sit-hand-on-head (slumped on the throne, hand to the head): sit for now"
   ]
 }

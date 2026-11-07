@@ -1,45 +1,35 @@
 {
-  "scene": "Back: the brothers grapple. Front: Rama, behind a tree, shoots",
-  "size": 0.5,
-  "ground": "sage",
-  "zoom": 0.85,
-  "props": [
-    {
-      "prop": "tree",
-      "at": 0.08,
-      "layer": "front"
-    }
-  ],
+  "scene": "The clasped hands, close",
+  "size": 0.3,
+  "shot": "mid",
+  "ground": "sand",
   "figures": [
     {
-      "who": "sugriva",
-      "pose": "lunge-armfront",
-      "facing": "right",
-      "at": 0.58,
-      "row": "back",
-      "mouth": 3
-    },
-    {
-      "who": "monkey1",
-      "id": "bali",
-      "pose": "leanfront-fists",
-      "facing": "left",
-      "at": 0.78,
-      "row": "back",
-      "mouth": 3,
-      "cloth": "white",
-      "scale": 1.1
-    },
-    {
       "who": "rama",
-      "pose": "step-bowloose",
+      "pose": "step-hang",
       "facing": "right",
-      "at": 0.22,
-      "mouth": 1
+      "at": 0.28,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 75,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out"
+      }
+    },
+    {
+      "who": "sugriva",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.72,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 80,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out"
+      }
     }
   ],
   "needs": [
-    "prop: tree",
-    "effect: arrow in flight"
+    "pose: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now"
   ]
 }

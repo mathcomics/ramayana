@@ -1,39 +1,22 @@
 {
-  "scene": "Dasharatha leads Rama by the hand toward the throne",
+  "scene": "The king closer: Dasharatha on the throne of Ayodhya",
   "size": 0.5,
+  "shot": "wide",
   "ground": "dusty-pink",
   "props": [
     {
       "prop": "throne-ayodhya",
-      "at": 0.84,
+      "at": 0.5,
       "row": "mid"
     }
   ],
   "figures": [
     {
-      "who": "rama",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.34,
-      "mouth": 1,
-      "adjust": {
-        "right.arm.shoulder": 55,
-        "right.arm.elbow": 5
-      }
-    },
-    {
       "who": "dasharatha",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.56,
-      "mouth": 1,
-      "adjust": {
-        "left.arm.shoulder": -70,
-        "left.arm.elbow": 10
-      }
+      "pose": "chair-armrest",
+      "view": "front",
+      "on": "throne-ayodhya",
+      "mouth": 1
     }
-  ],
-  "needs": [
-    "relation: hand in hand"
   ]
 }

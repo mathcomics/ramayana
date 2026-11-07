@@ -1,0 +1,49 @@
+{
+  "scene": "Still walking, small. Back: outline of a forest",
+  "size": 0.5,
+  "ground": "sand",
+  "zoom": 0.45,
+  "props": [
+    {
+      "prop": "tree",
+      "at": 0.14,
+      "row": "back"
+    },
+    {
+      "prop": "tree",
+      "at": 0.34,
+      "row": "back"
+    },
+    {
+      "prop": "tree",
+      "at": 0.84,
+      "row": "back"
+    }
+  ],
+  "figures": [
+    {
+      "who": "lakshman",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.6,
+      "mouth": 1
+    },
+    {
+      "who": "sita",
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.5,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.4,
+      "mouth": 1
+    }
+  ],
+  "needs": [
+    "prop: tree"
+  ]
+}

@@ -1,35 +1,51 @@
 {
-  "scene": "Sugriva points toward Kishkindha; Rama raises his bow, vowing",
+  "scene": "Hanuman carries both princes up the hill on his shoulders",
   "size": 0.5,
   "ground": "dry-grass",
-  "sky": "sky",
+  "zoom": 0.8,
   "props": [
     {
-      "prop": "kishkindha",
-      "at": 0.12,
-      "row": "horizon"
+      "prop": "ledge",
+      "at": 0.85,
+      "layer": "back",
+      "scale": 1.2
     }
   ],
   "figures": [
     {
-      "who": "sugriva",
-      "pose": "step-point",
-      "facing": "left",
+      "who": "lakshman",
+      "pose": "sit-armknee",
+      "facing": "right",
       "at": 0.36,
-      "mouth": 2
+      "lift": 5.2,
+      "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "stand-pointup",
-      "facing": "left",
-      "at": 0.7,
-      "mouth": 3,
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.56,
+      "lift": 5.2,
+      "mouth": 1
+    },
+    {
+      "who": "hanuman",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.45,
+      "mouth": 2,
+      "scale": 1.2,
       "adjust": {
-        "right.arm.prop": {
-          "kind": "bow",
-          "angle": 0
-        }
+        "right.arm.shoulder": 160,
+        "right.arm.elbow": 40,
+        "left.arm.shoulder": 160,
+        "left.arm.elbow": 40,
+        "spine.head": -12
       }
     }
+  ],
+  "needs": [
+    "pose: walk-carry-shoulder (a load on both shoulders): step-hang with arms up for now",
+    "pose: sit-carried (seated high, legs hanging): sit-armknee with lift for now"
   ]
 }

@@ -1,41 +1,31 @@
 {
-  "scene": "Rama and Sugriva clasp hands over a fire",
+  "scene": "Hanuman greets the princes with joined palms",
   "size": 0.5,
-  "ground": "sand",
-  "props": [
-    {
-      "prop": "fire",
-      "at": 0.5
-    }
-  ],
+  "ground": "dry-grass",
   "figures": [
+    {
+      "who": "lakshman",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.14,
+      "mouth": 1
+    },
     {
       "who": "rama",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.3,
+      "at": 0.34,
       "mouth": 2,
       "adjust": {
-        "right.arm.shoulder": 80,
-        "right.arm.elbow": 15,
-        "right.arm.hand": "out"
+        "spine.head": 12
       }
     },
     {
-      "who": "sugriva",
-      "pose": "step-hang",
+      "who": "hanuman",
+      "pose": "kneel-palms",
       "facing": "left",
       "at": 0.66,
-      "mouth": 2,
-      "adjust": {
-        "right.arm.shoulder": 85,
-        "right.arm.elbow": 10,
-        "right.arm.hand": "out"
-      }
+      "mouth": 2
     }
-  ],
-  "needs": [
-    "prop: fire",
-    "pose: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now"
   ]
 }

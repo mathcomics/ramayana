@@ -1,20 +1,37 @@
 {
-  "scene": "Bali falls",
-  "size": 0.3,
-  "ground": "sage",
+  "scene": "Sugriva brings out the bundle of jewels",
+  "size": 0.5,
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "jewels",
+      "at": 0.56,
+      "lift": 2.4,
+      "scale": 0.8
+    }
+  ],
   "figures": [
     {
-      "who": "monkey1",
-      "id": "bali",
-      "pose": "fallback-flung",
+      "who": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.28,
+      "mouth": 2
+    },
+    {
+      "who": "sugriva",
+      "pose": "step-hang",
       "facing": "left",
-      "at": 0.5,
-      "mouth": 3,
-      "cloth": "white",
-      "scale": 1.1
+      "at": 0.72,
+      "mouth": 1,
+      "adjust": {
+        "right.arm.shoulder": 60,
+        "right.arm.elbow": 20,
+        "right.arm.hand": "out"
+      }
     }
   ],
   "needs": [
-    "effect: the arrow in his chest"
+    "prop: jewels (bundle)"
   ]
 }

@@ -1,35 +1,41 @@
 {
-  "scene": "Bali and Sugriva fight; Sugriva swings an uprooted tree",
+  "scene": "Rama and Sugriva clasp hands over a fire",
   "size": 0.5,
-  "ground": "sage",
+  "ground": "sand",
   "props": [
     {
-      "prop": "tree-uprooted",
-      "at": 0.28,
-      "lift": 5,
-      "layer": "front"
+      "prop": "fire",
+      "at": 0.5
     }
   ],
   "figures": [
     {
-      "who": "sugriva",
-      "pose": "arch-overhead",
+      "who": "rama",
+      "pose": "step-hang",
       "facing": "right",
       "at": 0.3,
-      "mouth": 3
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 80,
+        "right.arm.elbow": 15,
+        "right.arm.hand": "out"
+      }
     },
     {
-      "who": "monkey1",
-      "id": "bali",
-      "pose": "leanfront-fists",
+      "who": "sugriva",
+      "pose": "step-hang",
       "facing": "left",
-      "at": 0.7,
-      "mouth": 3,
-      "cloth": "white",
-      "scale": 1.1
+      "at": 0.66,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 85,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out"
+      }
     }
   ],
   "needs": [
-    "prop: tree-uprooted (held overhead)"
+    "prop: fire",
+    "pose: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now"
   ]
 }

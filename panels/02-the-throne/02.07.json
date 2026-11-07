@@ -1,18 +1,44 @@
 {
-  "scene": "Rama turns and walks away alone, head low",
-  "size": 0.3,
+  "scene": "Kaikeyi pulls the king back by the arm",
+  "size": 0.5,
   "shot": "wide",
   "ground": "dusty-pink",
+  "props": [
+    {
+      "prop": "throne-ayodhya",
+      "at": 0.88,
+      "row": "mid"
+    }
+  ],
   "figures": [
     {
       "who": "rama",
-      "pose": "walk-swing",
+      "pose": "step-hang",
       "facing": "left",
-      "at": 0.45,
-      "mouth": 1,
+      "at": 0.85,
+      "mouth": 1
+    },
+    {
+      "who": "dasharatha",
+      "pose": "stepback-armsout",
+      "facing": "right",
+      "at": 0.56,
+      "mouth": 2
+    },
+    {
+      "who": "kaikeyi",
+      "pose": "leanback-armsback",
+      "facing": "right",
+      "at": 0.26,
+      "mouth": 2,
       "adjust": {
-        "spine.head": 18
+        "right.arm.shoulder": 85,
+        "right.arm.elbow": 10,
+        "left.arm.shoulder": 70
       }
     }
+  ],
+  "needs": [
+    "pose: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now"
   ]
 }

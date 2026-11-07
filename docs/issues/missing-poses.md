@@ -66,8 +66,8 @@ chapter). Moments with no pose come first.
 
 ## Asked for by panels
 
-- 02.05: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
-- 02.06: sit-hand-on-head (slumped on the throne, hand to the head): sit for now
+- 02.07: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
+- 02.09: sit-hand-on-head (slumped on the throne, hand to the head): sit for now
 - 03.04: sit-cross-legged (sage teaching, raised hand)
 - 03.05: stand-palms-joined
 - 04.12: stand-embrace
@@ -75,11 +75,12 @@ chapter). Moments with no pose come first.
 - 06.07: sit-slump (Sita captive under the tree): sit for now
 - 06.08: stand-arms-out (grief): stand with both arms adjusted for now
 - 06.09: walk-hand-on-head (searching in grief): walk with the right arm adjusted for now
-- 07.05: walk-carry-shoulder (a load on both shoulders): step-hang with arms up for now
-- 07.05: sit-carried (seated high, legs hanging): sit-armknee with lift for now
-- 07.06: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now
-- 07.12: lie-back: liefront-onarms for now
-- 07.14: sit-hand-on-head
+- 07.08: walk-carry-shoulder (a load on both shoulders): step-hang with arms up for now
+- 07.08: sit-carried (seated high, legs hanging): sit-armknee with lift for now
+- 07.09: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now
+- 07.10: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now
+- 07.19: lie-back: liefront-onarms for now
+- 07.22: sit-hand-on-head
 - 08.04: sit-slump (hopeless, on the ground): sit with spine.chest for now
 - 08.05: crouch-ready (deep knees, arms back): bend-low for now
 - 08.08: sit-slump (Sita captive): sit for now

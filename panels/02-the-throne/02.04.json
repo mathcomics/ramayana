@@ -1,15 +1,39 @@
 {
-  "scene": "Kaikeyi comes in, close to the viewer, facing the throne",
-  "size": 0.3,
-  "shot": "mid",
+  "scene": "Dasharatha leads Rama by the hand toward the throne",
+  "size": 0.5,
   "ground": "dusty-pink",
+  "props": [
+    {
+      "prop": "throne-ayodhya",
+      "at": 0.84,
+      "row": "mid"
+    }
+  ],
   "figures": [
     {
-      "who": "kaikeyi",
-      "pose": "step-hang",
+      "who": "rama",
+      "pose": "pass-swing",
       "facing": "right",
-      "at": 0.35,
-      "mouth": 1
+      "at": 0.34,
+      "mouth": 1,
+      "adjust": {
+        "right.arm.shoulder": 55,
+        "right.arm.elbow": 5
+      }
+    },
+    {
+      "who": "dasharatha",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.56,
+      "mouth": 1,
+      "adjust": {
+        "left.arm.shoulder": -70,
+        "left.arm.elbow": 10
+      }
     }
+  ],
+  "needs": [
+    "relation: hand in hand"
   ]
 }

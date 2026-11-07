@@ -1,42 +1,15 @@
 {
-  "scene": "Sugriva shows the jewels; Rama presses them to his chest and weeps",
-  "size": 0.5,
-  "ground": "sand",
-  "props": [
-    {
-      "prop": "jewels",
-      "at": 0.62,
-      "lift": 2.6,
-      "scale": 0.8
-    }
-  ],
+  "scene": "Rama answers with joined palms",
+  "size": 0.3,
+  "shot": "wide",
+  "ground": "dry-grass",
   "figures": [
     {
       "who": "rama",
-      "pose": "kneel-bow",
+      "pose": "step-palms",
       "facing": "right",
-      "at": 0.38,
-      "mouth": 3,
-      "adjust": {
-        "right.arm.shoulder": 30,
-        "right.arm.elbow": 120,
-        "right.arm.hand": "fist"
-      }
-    },
-    {
-      "who": "sugriva",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.78,
-      "mouth": 1,
-      "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 20,
-        "right.arm.hand": "out"
-      }
+      "at": 0.45,
+      "mouth": 2
     }
-  ],
-  "needs": [
-    "prop: jewels (bundle)"
   ]
 }

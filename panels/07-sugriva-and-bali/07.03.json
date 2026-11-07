@@ -1,22 +1,57 @@
 {
-  "scene": "Hanuman bounds down from the rocks",
-  "size": 0.3,
+  "scene": "Sugriva and monkeys watch from the plateau; Rama and Lakshman walk below",
+  "size": 0.5,
   "ground": "dry-grass",
+  "zoom": 0.6,
   "props": [
     {
-      "prop": "ledge",
-      "at": 0.85,
-      "layer": "back"
+      "prop": "kishkindha",
+      "at": 0.68,
+      "row": "back",
+      "scale": 1.5
     }
   ],
   "figures": [
     {
-      "who": "hanuman",
-      "pose": "leap-reach",
+      "who": "sugriva",
+      "pose": "step-point",
       "facing": "left",
-      "at": 0.42,
-      "lift": 2,
+      "on": "kishkindha#stand-left",
+      "scale": 0.55,
       "mouth": 2
+    },
+    {
+      "who": "monkey1",
+      "id": "m1",
+      "pose": "step-hang",
+      "facing": "left",
+      "on": "kishkindha#stand",
+      "scale": 0.55,
+      "mouth": 1
+    },
+    {
+      "who": "monkey1",
+      "id": "m2",
+      "pose": "step-akimbo",
+      "facing": "left",
+      "on": "kishkindha#stand-right",
+      "scale": 0.55,
+      "mouth": 1,
+      "cloth": "red"
+    },
+    {
+      "who": "lakshman",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.14,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.36,
+      "mouth": 1
     }
   ]
 }

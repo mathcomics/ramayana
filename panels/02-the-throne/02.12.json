@@ -1,0 +1,18 @@
+{
+  "scene": "Rama turns and walks away alone, head low",
+  "size": 0.3,
+  "shot": "wide",
+  "ground": "dusty-pink",
+  "figures": [
+    {
+      "who": "rama",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.45,
+      "mouth": 1,
+      "adjust": {
+        "spine.head": 18
+      }
+    }
+  ]
+}
