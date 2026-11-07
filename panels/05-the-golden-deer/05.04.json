@@ -1,43 +1,33 @@
 {
-  "scene": "Back: the hut. Front: a golden deer steps out of the trees; Sita points at it",
-  "size": 0.75,
-  "ground": "sand",
-  "zoom": 0.75,
+  "scene": "Surpanakha comes before the throne, close to the viewer, waist up, facing him",
+  "size": 0.5,
+  "shot": "mid",
+  "ground": "geru",
   "props": [
     {
-      "prop": "hut",
-      "at": 0.72,
-      "row": "back"
-    },
-    {
-      "prop": "tree",
-      "at": 0.08,
-      "layer": "front"
-    },
-    {
-      "prop": "golden-deer",
-      "at": 0.3,
-      "scale": 0.7
+      "prop": "throne",
+      "at": 0.78,
+      "row": "back",
+      "facing": "left"
     }
   ],
   "figures": [
     {
-      "who": "rama",
-      "pose": "stand",
+      "who": "ravana",
+      "pose": "sit-chair",
       "facing": "left",
-      "at": 0.82,
+      "on": "throne",
       "mouth": 1
     },
     {
-      "who": "sita",
-      "pose": "stand-point",
-      "facing": "left",
-      "at": 0.64,
-      "mouth": 2
+      "who": "surpanakha",
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.26,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": -12
+      }
     }
-  ],
-  "needs": [
-    "prop: hut",
-    "prop: tree"
   ]
 }

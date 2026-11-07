@@ -1,27 +1,42 @@
 {
-  "scene": "Back: the deer leaps away. Front: Rama runs after it, bow in hand",
-  "size": 0.75,
-  "ground": "dry-grass",
+  "scene": "She shows him her face and wails her complaint",
+  "size": 0.5,
+  "shot": "wide",
+  "ground": "geru",
   "props": [
     {
-      "prop": "golden-deer-run",
-      "at": 0.8,
-      "row": "horizon"
+      "prop": "throne",
+      "at": 0.76,
+      "row": "mid",
+      "facing": "left"
     }
   ],
   "figures": [
     {
-      "who": "rama",
-      "pose": "run",
+      "who": "ravana",
+      "pose": "sit-chair",
+      "facing": "left",
+      "on": "throne",
+      "mouth": 2,
+      "adjust": {
+        "spine.chest": 10
+      }
+    },
+    {
+      "who": "surpanakha",
+      "pose": "stand",
       "facing": "right",
-      "at": 0.42,
-      "mouth": 2
+      "at": 0.3,
+      "mouth": 3,
+      "adjust": {
+        "spine.head": -10,
+        "right.arm.shoulder": 115,
+        "right.arm.elbow": 20,
+        "right.arm.hand": "out",
+        "left.arm.shoulder": 50,
+        "left.arm.elbow": 15,
+        "left.arm.hand": "out"
+      }
     }
-  ],
-  "needs": [
-    "pose: run-bow (running with the bow drawn)",
-    "prop: bow in hand while running"
-  ],
-  "sky": "sky",
-  "layout": "scenes/0.5-deer-running"
+  ]
 }

@@ -1,26 +1,38 @@
 {
-  "scene": "The arrow hits; the deer turns back into a rakshasa, falling and shouting",
-  "size": 0.75,
-  "ground": "sand",
-  "figures": [
+  "scene": "Ravana rises from the throne in rage",
+  "size": 0.5,
+  "shot": "wide",
+  "ground": "geru",
+  "props": [
     {
-      "who": "rama",
-      "pose": "stand-bow-release",
-      "facing": "right",
-      "at": 0.22,
-      "mouth": 1
-    },
-    {
-      "who": "raxas_m1",
-      "pose": "fall-back",
-      "facing": "left",
-      "at": 0.68,
-      "id": "maricha",
-      "cloth": "white",
-      "mouth": 3
+      "prop": "throne",
+      "at": 0.74,
+      "row": "mid",
+      "facing": "left"
     }
   ],
-  "needs": [
-    "effect: arrow in flight"
+  "figures": [
+    {
+      "who": "surpanakha",
+      "pose": "kneel",
+      "facing": "right",
+      "at": 0.18,
+      "mouth": 2,
+      "adjust": {
+        "spine.chest": 25,
+        "spine.head": -25
+      }
+    },
+    {
+      "who": "ravana",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 0.48,
+      "mouth": 3,
+      "scale": 1.05,
+      "adjust": {
+        "spine.head": 10
+      }
+    }
   ]
 }

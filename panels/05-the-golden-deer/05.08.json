@@ -1,42 +1,27 @@
 {
-  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
+  "scene": "Back: the deer leaps away. Front: Rama runs after it, bow in hand",
   "size": 0.75,
-  "ground": "sand",
+  "ground": "dry-grass",
+  "props": [
+    {
+      "prop": "golden-deer-run",
+      "at": 0.8,
+      "row": "horizon"
+    }
+  ],
   "figures": [
     {
-      "who": "sita",
-      "pose": "stand-point",
+      "who": "rama",
+      "pose": "run",
       "facing": "right",
-      "at": 0.3,
-      "mouth": 2,
-      "hands": {
-        "right": "in"
-      },
-      "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 30
-      }
-    },
-    {
-      "who": "sage1",
-      "pose": "walk",
-      "facing": "left",
-      "at": 0.72,
-      "id": "ascetic",
-      "mouth": 1,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club",
-          "angle": 175
-        },
-        "right.arm.shoulder": 20,
-        "right.arm.elbow": 40
-      }
+      "at": 0.42,
+      "mouth": 2
     }
   ],
   "needs": [
-    "prop: staff and pot (held)",
-    "prop: fruit",
-    "Ravana's ascetic disguise (sage1 for now)"
-  ]
+    "pose: run-bow (running with the bow drawn)",
+    "prop: bow in hand while running"
+  ],
+  "sky": "sky",
+  "layout": "scenes/0.5-deer-running"
 }

@@ -1,32 +1,43 @@
 {
-  "scene": "Sita pushes Lakshman to go; he goes, looking back",
+  "scene": "Back: the hut. Front: a golden deer steps out of the trees; Sita points at it",
   "size": 0.75,
   "ground": "sand",
+  "zoom": 0.75,
   "props": [
     {
       "prop": "hut",
-      "at": 0.2,
+      "at": 0.72,
       "row": "back"
+    },
+    {
+      "prop": "tree",
+      "at": 0.08,
+      "layer": "front"
+    },
+    {
+      "prop": "golden-deer",
+      "at": 0.3,
+      "scale": 0.7
     }
   ],
   "figures": [
     {
-      "who": "sita",
-      "pose": "stand-point",
-      "facing": "right",
-      "at": 0.3,
-      "mouth": 3
+      "who": "rama",
+      "pose": "stand",
+      "facing": "left",
+      "at": 0.82,
+      "mouth": 1
     },
     {
-      "who": "lakshman",
-      "pose": "walk",
-      "facing": "right",
-      "at": 0.72,
-      "mouth": 2,
-      "turn": 90
+      "who": "sita",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 0.64,
+      "mouth": 2
     }
   ],
   "needs": [
-    "prop: hut"
+    "prop: hut",
+    "prop: tree"
   ]
 }

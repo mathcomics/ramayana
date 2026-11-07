@@ -1,33 +1,22 @@
 {
-  "scene": "Ravana orders the rakshasa hermit Maricha; Maricha raises his hands, refusing; Ravana lifts his sword",
-  "size": 0.75,
-  "ground": "dusty-pink",
+  "scene": "Ravana alone, closer: the king of Lanka",
+  "size": 0.5,
+  "shot": "mid",
+  "ground": "geru",
+  "props": [
+    {
+      "prop": "throne",
+      "at": 0.5,
+      "row": "mid"
+    }
+  ],
   "figures": [
     {
-      "who": "raxas_m1",
-      "pose": "stand-step-back",
-      "facing": "left",
-      "at": 0.74,
-      "id": "maricha",
-      "cloth": "white",
-      "mouth": 2,
-      "hands": {
-        "right": "out",
-        "left": "out"
-      },
-      "adjust": {
-        "right.arm.shoulder": 130,
-        "right.arm.elbow": 40,
-        "left.arm.shoulder": 110,
-        "left.arm.elbow": 40
-      }
-    },
-    {
       "who": "ravana",
-      "pose": "stand-sword-shoulder",
-      "facing": "right",
-      "at": 0.3,
-      "mouth": 3,
+      "pose": "sit-chair",
+      "view": "front",
+      "on": "throne",
+      "mouth": 1,
       "scale": 1.05
     }
   ]

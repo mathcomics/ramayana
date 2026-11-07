@@ -43,9 +43,11 @@ action. The same opener can return when the story comes back to a place.
 ## Throne and hall
 
 - The throne stands in the middle with its steps; the king sits on it, not
-  in front of it (figure `on: "throne"`, pose `sit` until a throne pose
-  exists). Courtiers stand at different depths on either side: one small
-  (further back), one bigger (nearer). (0.5-lanka-throne)
+  in front of it (figure `on: "throne"`, pose `sit-chair` — the artist's
+  lab save, merged 2026-11-07; it works front view and in profile, and the
+  throne drawing reads front-on too: 05.02–05.03). Courtiers stand at
+  different depths on either side: one small (further back), one bigger
+  (nearer). (0.5-lanka-throne)
 - The throne sits a row behind the people talking in front of it (`row:
   "mid"`), so it reads as the room's centre, not as one of them.
 - Watch the colours: a gold crown disappears against the gold throne back.

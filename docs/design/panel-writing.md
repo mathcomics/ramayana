@@ -43,6 +43,30 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 
 ## Lessons from reviews
 
+- **Establish a new place and its key figure as a sequence, not one
+  panel** (artist, 2026-11-07, chapter 05): location from far; the figure
+  in their place, far (a king on his throne, front view); the same
+  closer (step the shot far → mid); the arriving character near the
+  viewer, waist up, facing them; then the exchange in 2–3 more panels
+  (gesture, reaction, decision). The old single panel crammed arrival,
+  complaint and rage into one image.
+- **The wordless test** (artist, 2026-11-07): a scene that cannot be
+  understood without words — an order, a refusal, a bargain — is cut, not
+  approximated. The Ravana-orders-Maricha scene was dropped for this; the
+  golden deer simply appears. Ask of every scene: does the action alone
+  tell it?
+- **Shots are the zoom**: consecutive panels step far → wide → mid like a
+  camera move (05.02 → 05.03). In a mid shot, the second party of a
+  dialogue goes in the `back` row for depth (05.04); `mid` row is nearly
+  as big as `front` and kills the depth.
+- **Aim the gazes**: `spine.head` adjust, + looks down, − looks up. A
+  kneeling figure looks up at the one standing over them (05.06); seated
+  and kneeling figures otherwise stare level through their partner's
+  waist.
+- **A raised arm hides the face**: a gesture toward the own face (showing
+  a wound) reads as hiding it; throw the arms out instead and leave the
+  face clear (05.05).
+
 - **The throne goes in the `mid` row**, a row behind the people in front:
   in the front row it is as tall as the men and runs off the edge.
 - **`zoom` scales figures only**: a prop next to zoomed figures needs its

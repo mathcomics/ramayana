@@ -783,6 +783,55 @@
       }
     },
     {
+      "name": "sit-chair",
+      "mouth": 1,
+      "spine": {
+        "lean": 8,
+        "chest": -18,
+        "neck": 24,
+        "head": -10
+      },
+      "right": {
+        "arm": {
+          "shoulder": -18,
+          "elbow": 22,
+          "hand": "in",
+          "wrist": 5,
+          "out": 39.6,
+          "elbowOut": -32.8
+        },
+        "leg": {
+          "hip": 89,
+          "knee": 42.8,
+          "ankle": -1,
+          "out": 46.4,
+          "kneeOut": -49.9
+        }
+      },
+      "left": {
+        "arm": {
+          "shoulder": -6.9,
+          "elbow": 27,
+          "hand": "out",
+          "wrist": 2,
+          "out": 42.3,
+          "elbowOut": -31.7
+        },
+        "leg": {
+          "hip": 99.5,
+          "knee": 114.7,
+          "ankle": -1,
+          "out": 48.7,
+          "kneeOut": -54.4
+        }
+      },
+      "tail": {
+        "lift": -29,
+        "curl": 194,
+        "turn": 35
+      }
+    },
+    {
       "name": "sit-lean-back",
       "mouth": 2,
       "spine": {
