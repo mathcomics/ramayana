@@ -49,6 +49,16 @@ head-units around the head centre. The orientation is a 3×3 matrix R
 (head-local → picture, with depth toward the viewer); `headMatrix(tilt,
 turn, front)` builds it for a figure, yaw / pitch for the sheets.
 
+- **At the drawn angles the drawings are used as drawn** (`drawn`: the
+  face's front / side markup): the front drawing when the face looks
+  straight at the viewer (R's depth row is the face direction; any roll
+  is a turn in the picture), the side drawing when the head is seen
+  exactly from the side (any tilt is then a turn in the picture: every
+  side-view figure looking ahead). The slices below are only for the
+  angles between (turned heads, front faces tilted up or down). The
+  slices can't reproduce shapes with hollows, separate pieces at one
+  height or parts that wrap round the head.
+
 - Each volume row is an ellipse (front width × side depth) seen through
   R, plus a band joining its outermost points to the rows on either side
   (across the head's own up axis as seen). Rows seen nearly edge-on

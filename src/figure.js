@@ -577,7 +577,7 @@ export function renderFigure(species, pose, opts = {}) {
   // a face with turn data is drawn in 3D (src/headturn.js) at the head's place
   const turned = opts.face?.turn && headAnchor.R;
   const at = `translate(${headAnchor.at[0]} ${headAnchor.at[1]})`;
-  const turnPart = (part) => `<g transform="${at}" color="${colors.body}">${headTurn(opts.face.turn, 0, 0, { R: headAnchor.R, part, mouth: sk.pose.mouth, id: `${clipId0}${part}` })}</g>`;
+  const turnPart = (part) => `<g transform="${at}" color="${colors.body}">${headTurn(opts.face.turn, 0, 0, { R: headAnchor.R, part, mouth: sk.pose.mouth, id: `${clipId0}${part}`, drawn: opts.face })}</g>`;
   const faceHead = turned ? turnPart('head') : drawn && place(`<g color="${colors.body}">${ver.head || ''}${ver.mouth?.[sk.pose.mouth] || ''}</g>`);
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.

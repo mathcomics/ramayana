@@ -3,7 +3,7 @@
 // volumes lofted from the front and side drawings, and flat cards (eyes,
 // mouths, ears, marks) on their surface.
 //
-//   headTurn(turn, yaw, pitch, { mouth, id })  ->  SVG markup
+//   headTurn(turn, yaw, pitch, { mouth, id, drawn })  ->  SVG markup
 //
 // yaw (degrees): 0 = the face toward the viewer, 90 = looking
 // picture-right (the side drawing), 180 = the back of the head. pitch: +
@@ -73,8 +73,23 @@ function htVolume(v, R) {
 // to picture coordinates, instead of yaw / pitch: a figure's head), part
 // ('head': everything but the back layer; 'back': only it, drawn behind the
 // body; 'all').
-export function headTurn(turn, yaw, pitch, { mouth = 2, id = 'ht', R = null, part = 'all' } = {}) {
+// drawn: the face's own drawings ({ front, side }: head, mouth, back). At
+// the drawn angles they are used as drawn: the front drawing when the face
+// looks straight at the viewer (any roll in the picture), the side drawing
+// when the head is seen exactly from the side (any tilt, which is then a
+// turn in the picture). Slices are only for the angles between.
+const HT_EXACT = 0.9995;
+export function headTurn(turn, yaw, pitch, { mouth = 2, id = 'ht', R = null, part = 'all', drawn = null } = {}) {
   R = R || htRot(yaw, pitch);
+  const view = drawn && (R[2][2] > HT_EXACT ? 'front' : Math.abs(R[2][0]) > HT_EXACT ? 'side' : null);
+  if (view && drawn[view]) {
+    const d = drawn[view];
+    // drawing coordinates -> picture: front (x right, y down); side (x forward = the face's direction, y down)
+    const m = view === 'front' ? [R[0][0], R[1][0], R[0][1], R[1][1], 0, 0] : [R[0][2], R[1][2], R[0][1], R[1][1], 0, 0];
+    const back = part !== 'head' ? d.back || '' : '';
+    const head = part !== 'back' ? (d.head || '') + (d.mouth?.[mouth] || '') : '';
+    return back || head ? `<g transform="matrix(${m.map(htF).join(' ')})">${back}${head}</g>` : '';
+  }
   // front drawings while the camera sees more of the face than of its side
   const frontish = Math.abs(R[2][2]) >= Math.abs(R[2][0]);
   const facing = R[2][2];                                     // +1 face toward the viewer, -1 the back of the head

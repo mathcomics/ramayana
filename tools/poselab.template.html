@@ -618,7 +618,7 @@ const STARTERS = /*__POSES__*/;
     PITCHES.forEach((p, i) => {
       body += `<text x="0.15" y="${T + i * C + C / 2 + 0.07}" font-size="0.2" fill="#000" fill-opacity="0.55" font-family="sans-serif">${p > 0 ? 'up ' + p + '°' : p < 0 ? 'down ' + -p + '°' : 'level'}</text>`;
       YAWS.forEach((y, j) => {
-        body += `<g transform="translate(${L + j * C + C / 2} ${T + i * C + C / 2})" color="${c.body}">${headTurn(turn, y, p, { id: `ft${i}-${j}`, mouth: state.faceMouth })}</g>`;
+        body += `<g transform="translate(${L + j * C + C / 2} ${T + i * C + C / 2})" color="${c.body}">${headTurn(turn, y, p, { id: `ft${i}-${j}`, mouth: state.faceMouth, drawn: FACES.faces[c.id] })}</g>`;
       });
     });
     $('faceGrid').innerHTML = `<svg viewBox="0 0 ${L + YAWS.length * C} ${T + PITCHES.length * C}" role="img" aria-label="${c.name}'s head turned and tilted">${body}</svg>`;

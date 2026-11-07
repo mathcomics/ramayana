@@ -18,7 +18,7 @@ for (const id of ids) {
     body += `<text x="8" y="${y0 + (0.6 + i * C + C / 2) * S}" font-size="12" font-family="sans-serif">${p > 0 ? 'up ' + p : p < 0 ? 'down ' + -p : 'level'}</text>`;
     yaws.forEach((yw, j) => {
       const x = (1.2 + j * C + C / 2) * S, y = y0 + (0.6 + i * C + C / 2) * S;
-      body += `<g transform="translate(${x} ${y}) scale(${S})" color="${ch.body}">${headTurn(f.turn, yw, p, { id: `h${k}-${i}-${j}` })}</g>`;
+      body += `<g transform="translate(${x} ${y}) scale(${S})" color="${ch.body}">${headTurn(f.turn, yw, p, { id: `h${k}-${i}-${j}`, drawn: f })}</g>`;
     });
   });
 }

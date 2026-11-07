@@ -77,6 +77,14 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Drawn faces at the drawn angles (2026-11-07):** `headTurn(..., {
+  drawn })` uses the artist's front drawing when the face looks straight
+  at the viewer and the side drawing when the head is seen exactly from
+  the side (tilt = a turn in the picture), so every side-view figure
+  looking ahead shows the side face exactly as drawn (Rama's hair, Ravana's
+  maroon side hair). Slices (volumes) only for the angles between.
+  Figures, head-turn sheet and pose lab Face tab pass the drawings.
+  `docs/design/faces.md`.
 - **Rama's side bun moved (2026-11-06):** moved up 0.084 head-units (a
   translate only, curves unchanged) so it spans the same heights as the
   front bun; round at turn 90. The "fit side parts by height" rule was
