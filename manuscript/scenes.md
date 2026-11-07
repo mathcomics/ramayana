@@ -357,8 +357,8 @@ side scene).
 The last duel, chariot against chariot: heads regrow until the one
 great arrow finds his chest, and the bow is laid down.
 
-- **Ravana** mounts his chariot in his full form — ten heads, arms
-  full of weapons. A charioteer brings **Rama** a chariot; he mounts.
+- **Ravana** mounts his chariot, arms full of weapons. A charioteer
+  brings **Rama** a chariot; he mounts.
 - The chariots face each other; arrows cross; Ravana's rain of weapons
   breaks in the air.
 - **Rama**'s arrow cuts off a head; a new head grows in its place.
@@ -367,9 +367,10 @@ great arrow finds his chest, and the bow is laid down.
 - A rakshasi queen mourns over him; **Vibhishana** lights the pyre;
   **Rama** lays down his bow.
 
-Must show: the ten heads — the only chapter where Ravana's full form
-appears (it needs its own art); the regrowing head as a visible loop;
-the laid-down bow ends the war.
+Must show: the regrowing head as a visible loop (cut off, grown back —
+why only the one great arrow, aimed at the chest, can end him); the
+laid-down bow ends the war. Not shown: the ten-headed form — Ravana
+keeps his drawn look throughout the story.
 
 ## 15. Return
 
@@ -422,4 +423,6 @@ Maricha is out of this telling); Surpanakha's fair form (4); Tara
 holding Bali back and Lakshman confronting Sugriva (7); Vibhishana's
 plea for Hanuman's life (9); Sita shown the fallen brothers, Trijata
 (10); Lakshman felled twice (10 — kept once, in 13); Sugriva seized by
-the giant (11); the false Sita (12); Ravana rushing at Sita (13).
+the giant (11); the false Sita (12); Ravana rushing at Sita (13);
+Ravana's ten-headed form (14) — he keeps his drawn single-headed look
+throughout, and the regrowing head carries the myth.

@@ -45,7 +45,6 @@ guests, the charioteer in ch 14) and children (the four boys, ch 1).
 - Jatayu the vulture (ch 3, 6): drawn (`vulture-fly`, `-swoop`,
   `-fall`, `-stand`; lying still a placeholder).
 - Garuda the great eagle (ch 10): needs its own art, like Jatayu's.
-- Ravana's ten-headed full form (ch 14 only): needs its own art.
 - Agni, rising from the flames carrying Sita (ch 15).
 - Flying chariots: Ravana's (drawn by asses) and the Pushpaka, drawn by
   swans (ch 15).
