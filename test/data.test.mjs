@@ -6,7 +6,11 @@ import { join } from 'node:path';
 import { parseCloth } from '../src/figure.js';
 import { root, SPECIES, POSES, CAST, FACES } from './helpers.mjs';
 
-const BASES = ['stand', 'walk', 'run', 'leap', 'crouch', 'bend', 'crawl', 'kneel', 'lunge', 'sit', 'lie', 'fall'];
+// A pose name starts with a style bible §7 base word, or — for a pose
+// composed in the lab (named <base>-<gesture>) — with its base's name
+// from the pose index.
+const INDEX = JSON.parse(readFileSync(join(root, 'data/pose-index.json'), 'utf8'));
+const BASES = ['stand', 'walk', 'run', 'leap', 'crouch', 'bend', 'crawl', 'kneel', 'lunge', 'sit', 'lie', 'fall', ...Object.keys(INDEX.bases)];
 
 test('only three species', () => {
   assert.deepEqual(Object.keys(SPECIES).sort(), ['female', 'male', 'monkey']);

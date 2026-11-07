@@ -99,6 +99,11 @@ entry changes in the same commit. A pose made from `wanted` moves from
 
 - **Base** from the fixed list; it says what carries the body (stand,
   walk, run, leap, crouch, bend, crawl, kneel, lunge, sit, lie, fall).
+- **A pose composed from the grid is named `<base>-<gesture>`** with the
+  index's own base and gesture names, as the pose lab's compose drafts
+  come named (decided 2026-11-07): `step-roof`, `stepwide-ox`,
+  `leanback-bowhigh`, `lunge-longpoint`. The older descriptive names
+  stay as they are.
 - **Prop** right after the base, only when the body's shape is made for a
   held prop, so its poses sort together: `stand-bow-draw`,
   `stand-sword-up`, `lunge-sword-down`. Sword poses also serve a club.

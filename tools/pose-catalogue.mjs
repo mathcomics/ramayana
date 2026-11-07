@@ -26,8 +26,10 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const cols = 3, cellW = scale * 13, figH = scale * 8.2, textH = scale * 1.9, headH = scale * 1.6;
 const font = 'font-family="sans-serif"';
 
-// group by base, in the style bible's base order
+// group by base, in the style bible's base order; composed poses
+// (named <base>-<gesture>) group under their index base's name
 const BASES = ['stand', 'walk', 'run', 'leap', 'crouch', 'bend', 'crawl', 'kneel', 'lunge', 'sit', 'lie', 'fall'];
+for (const b of Object.keys(index.bases)) if (!BASES.includes(b)) BASES.push(b);
 const wanted = Object.entries(index.wanted);
 const groups = BASES.map((b) => [b, A.poses.filter((p) => p.name.split('-')[0] === b)]).filter(([b, ps]) => ps.length || wanted.some(([n]) => n.split('-')[0] === b));
 

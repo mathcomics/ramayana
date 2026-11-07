@@ -101,8 +101,15 @@ renderer or panel changes.
   `crown`, `hanging`, `unicorn`, `wrath`, `longpoint`, `plow`, `middle`,
   `key`, `fool`, `flank`, `barrier`, `change`, each one pose on an
   existing base (step, stepwide, leanback, leanfront, lunge, stepback —
-  no new bases; recompose clean). Pose names `stand-sword-<guard>` /
-  `lunge-sword-point`. **Step 2 (open, panel sessions): deprecate the
+  no new bases; recompose clean). **Composed poses are named
+  `<base>-<gesture>`** (decided 2026-11-07, pose-picking.md): step-roof,
+  stepwide-ox, step-crown, leanfront-hanging, leanback-unicorn,
+  leanback-wrath, lunge-longpoint, stepwide-plow, stepwide-middle,
+  step-key, step-fool, stepwide-flank, leanfront-barrier,
+  stepback-change; artist composes leanback-roof and leanback-bowhigh
+  merged from the lab, with the artist's retuned `lunge` base
+  (recomposed through the lunge sword poses).
+  **Step 2 (open, panel sessions): deprecate the
   old sword poses/gestures (swordup, swordacross, swordback, swordbehind,
   sworddown, swordfront, swordhip, swordlevel, swordlow, swordshoulder,
   swordwaist) in favour of these** — most war panels are
