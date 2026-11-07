@@ -46,7 +46,11 @@ so both hands land on the body's midline in the front view, for joined
 palms and clasped hands. The forearm is kept within 40° of the paper:
 past that the side-view hand foreshortens into a splayed fan instead of
 the drawn hand (found on the first devotion drafts), and hands touch
-well before exact convergence, so the solve also stops at 0.05.
+well before exact convergence, so the solve also stops at 0.05. It then
+lays the left hand exactly on the right in the side view (two-bone IK
+on the left shoulder/elbow): the far shoulder is drawn ~0.27 behind the
+near one, so identical angles leave the hands offset, and the overlap
+is the point of joined palms. Other poses keep that natural shift.
 
 ## 2. lookAt (panels)
 

@@ -206,7 +206,7 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
   <div class="bar pose-only">
     <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
     <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
-    <div class="field"><span>Hands</span><button class="btn ghost" id="joinBtn" type="button" title="Bring both hands together on the body's midline, as for joined palms (solves each arm's elbow out; the side view stays)">Join</button></div>
+    <div class="field"><span>Hands</span><button class="btn ghost" id="joinBtn" type="button" title="Join the palms: both hands to the body's midline (each arm's elbow out), then the left hand laid exactly on the right (its shoulder and elbow)">Join</button></div>
   </div>
 
 
@@ -747,8 +747,32 @@ const STARTERS = /*__POSES__*/;
       }
       if (done) break;
     }
-    if (touched) { markDirty(); syncControls(); draw(); setStatus('Hands brought to the middle (elbow out).'); }
-    else setStatus('Hands are already at the middle, or elbow out can’t reach it.');
+    // then the far hand exactly onto the near hand in the side view (the
+    // far shoulder is drawn a little behind the near one, so identical
+    // angles leave the hands offset; the overlap is the point of joined
+    // palms — other poses keep that natural shift): the far arm's
+    // shoulder and elbow are solved by two-bone IK on the probe's joints.
+    if (!solvedBy('far')) for (let pass = 0; pass < 4; pass++) {
+      const J = jointsFor('side', state.pose);
+      const T = J.near.grip, { sh, E, grip } = J.far;
+      if (Math.hypot(grip[0] - T[0], grip[1] - T[1]) < 0.01) break;
+      touched = true;
+      const L1 = Math.hypot(E[0] - sh[0], E[1] - sh[1]) || 1e-6;
+      const L2 = Math.hypot(grip[0] - E[0], grip[1] - E[1]) || 1e-6;
+      const D = [T[0] - sh[0], T[1] - sh[1]];
+      const d = Math.max(Math.abs(L1 - L2) + 1e-4, Math.min(Math.hypot(D[0], D[1]), L1 + L2 - 1e-4));
+      const phi = Math.atan2(D[0], D[1]) * D2;
+      const alpha = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d)))) * D2;
+      const upT = phi - alpha;                       // the elbow flexes forward: upper arm behind the chord
+      const ET = [sh[0] + Math.sin(upT / D2) * L1, sh[1] + Math.cos(upT / D2) * L1];
+      const foT = Math.atan2(T[0] - ET[0], T[1] - ET[1]) * D2;
+      const arm = state.pose.far.arm;
+      const clampTo = (path, v) => { const [lo, hi] = rangeOf(path); return Math.max(lo, Math.min(hi, Math.round(v * 10) / 10)); };
+      arm.shoulder = clampTo('arm.shoulder', arm.shoulder + wrapA(upT - ang(sh, E)));
+      arm.elbow = clampTo('arm.elbow', arm.elbow + wrapA(foT - upT) - wrapA(ang(E, grip) - ang(sh, E)));
+    }
+    if (touched) { markDirty(); syncControls(); draw(); setStatus('Hands joined: middle of the body, laid on each other.'); }
+    else setStatus('Hands are already joined, or elbow out can’t reach the middle.');
   }
   $('joinBtn').addEventListener('click', joinHands);
   renderGallery();

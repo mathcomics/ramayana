@@ -107,11 +107,14 @@ renderer or panel changes.
 - **Devotion poses (2026-11-07):** `stand-palms-joined`,
   `kneel-palms-joined`, `kneel-bow` added to `data/poses.json` as first
   drafts (written directly, not lab saves); index entries moved out of
-  `wanted` (14 left). Both arms identical (artist's direction: the hands
-  overlap in the side view); upper arms hang straight (`out` 0), only
-  the forearms converge (`elbowOut` ~-38, solved) so the palms meet at
-  the chest midline in the front view — never more than ~40° of forearm
-  out, past which the side-view hand foreshortens into a splayed fan;
+  `wanted` (14 left). Artist's direction: the overlap is the crux of
+  joined palms — the hands lie exactly on each other in the side view
+  (the far arm's shoulder/elbow solved to cancel the drawn 0.27 far-
+  shoulder depth offset; other poses keep that natural shift). Upper
+  arms hang straight (`out` 0), only the forearms converge (`elbowOut`
+  ~-38, solved) so the palms meet at the chest midline in the front
+  view — never more than ~40° of forearm out, past which the side-view
+  hand foreshortens into a splayed fan;
   heads bowed (total pitch ~22°, kneel-bow ~54°). kneel-bow bows with
   lean 22 + chest 42 and the hips raised by Δlean so the legs stay
   planted (the manual version of the proposed pin-feet solve). Pose lab

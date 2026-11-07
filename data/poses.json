@@ -292,8 +292,8 @@
       },
       "left": {
         "arm": {
-          "shoulder": 62,
-          "elbow": 110,
+          "shoulder": 66.6,
+          "elbow": 92.3,
           "hand": "in",
           "wrist": 0,
           "out": 0,
@@ -338,8 +338,8 @@
       },
       "left": {
         "arm": {
-          "shoulder": 38,
-          "elbow": 104,
+          "shoulder": 48.3,
+          "elbow": 79.6,
           "hand": "in",
           "wrist": 0,
           "out": 0,
@@ -1520,8 +1520,8 @@
       },
       "left": {
         "arm": {
-          "shoulder": 38,
-          "elbow": 104,
+          "shoulder": 47.1,
+          "elbow": 79.6,
           "hand": "in",
           "wrist": 0,
           "out": 0,
