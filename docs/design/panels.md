@@ -10,7 +10,7 @@ artist's scene SVG) comes later.
 |---|---|---|
 | Scenes | `manuscript/scenes.md` | The story, one row per intended panel. **Guidance**, not a definition: a panel may split, merge or reword a scene. |
 | Panel definitions | `panels/<NN-section>/<id>.json` (+ optional `<id>.svg`) | What the renderer draws. One file per panel. |
-| Rendered panels | `_site/` (not committed): one scrolling page per section | Built by `tools/build-site.mjs`; Cloudflare Pages runs it on every push. |
+| Rendered panels | `_site/` (not committed): one scrolling page per section | Built by `tools/build-site.mjs`; published to Cloudflare Pages by hand (GitHub Action). |
 
 The **panel lab** (`tools/build-panellab.mjs`, published artifact) shows any
 section as it will scroll on a phone while you edit a panel's JSON.
@@ -142,15 +142,31 @@ drafts show with a dot and survive reloads. Claude merges drafts into
 
 ## Publishing (Cloudflare Pages)
 
-One-time setup by the repo owner, as in the sister project `kena`:
+One site, private, published by hand. Cloudflare never builds on push: the
+GitHub Action `.github/workflows/publish-site.yml` builds `_site/` and
+uploads it to the Pages project `ramayana` (Direct Upload). To publish:
+GitHub → **Actions → Publish the reader site → Run workflow** (on `main`).
+The site is at `https://ramayana.pages.dev` (Cloudflare may add a suffix
+if the name is taken; the first run prints the address).
 
-1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to
-   Git** → GitHub → allow only `mathcomics/ramayana`.
-2. Build settings: framework preset **None**; build command
-   `node tools/build-site.mjs`; output directory `_site`; production branch
-   `main`. Node version comes from `.node-version`.
-3. Save and deploy. Every other branch and PR gets a preview link;
-   **Settings → General → Enable access policy** keeps previews private.
+One-time setup by the repo owner:
+
+1. **API token:** Cloudflare dashboard → My Profile → **API Tokens →
+   Create Token → Custom token**, permission *Account · Cloudflare Pages ·
+   Edit*, for your account.
+2. **Account ID:** shown on the Workers & Pages overview (right side).
+3. GitHub → repo **Settings → Secrets and variables → Actions**: add
+   `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+4. Run the workflow once. It creates the project `ramayana` (production
+   branch `main`) if it doesn't exist.
+5. **Make it private:** Workers & Pages → `ramayana` → Settings →
+   General → **Enable access policy**. This protects
+   `*.ramayana.pages.dev` only, so also protect the main address: Zero
+   Trust → Access → Applications → the new `ramayana` application →
+   edit → add the public hostname `ramayana.pages.dev` → save. In its
+   policy, list the email addresses allowed in (they sign in with a
+   one-time code). Check in a private window that the site asks for a
+   sign-in.
 
 The build needs no npm packages and no `rsvg-convert` (the site uses inline
 SVG).

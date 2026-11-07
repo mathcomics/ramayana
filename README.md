@@ -145,8 +145,8 @@ is reviewed after each merge. Republishing keeps the same URL.
 
 Scenes in `manuscript/scenes.md` are guidance; **panel definitions** in
 `panels/` say what is drawn (JSON per panel, optional background SVG);
-the **site** is built from them into `_site/` and served by Cloudflare
-Pages. The language, the lab and the publishing setup are in
+the **site** is built from them into `_site/` and published by hand
+(GitHub Action) to a private Cloudflare Pages site. The language, the lab and the publishing setup are in
 [docs/design/panels.md](docs/design/panels.md).
 
 **Panel lab** (published artifact; drafts saved to its database, collection
