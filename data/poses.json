@@ -272,16 +272,16 @@
         "lean": 22,
         "chest": 42,
         "neck": 2,
-        "head": -28
+        "head": -12
       },
       "right": {
         "arm": {
-          "shoulder": 66,
-          "elbow": 120,
+          "shoulder": 63,
+          "elbow": 118,
           "hand": "in",
           "wrist": 0,
           "out": 10,
-          "elbowOut": -40
+          "elbowOut": -65.4
         },
         "leg": {
           "hip": 122,
@@ -292,12 +292,12 @@
       },
       "left": {
         "arm": {
-          "shoulder": 60,
-          "elbow": 126,
+          "shoulder": 63,
+          "elbow": 118,
           "hand": "in",
           "wrist": 0,
           "out": 10,
-          "elbowOut": -40
+          "elbowOut": -65.4
         },
         "leg": {
           "hip": 19,
@@ -317,17 +317,17 @@
       "spine": {
         "lean": 2,
         "chest": -4,
-        "neck": 8,
-        "head": -16
+        "neck": 12,
+        "head": 12
       },
       "right": {
         "arm": {
-          "shoulder": 42,
-          "elbow": 112,
+          "shoulder": 40,
+          "elbow": 115,
           "hand": "in",
           "wrist": 0,
           "out": 12,
-          "elbowOut": -46
+          "elbowOut": -70.4
         },
         "leg": {
           "hip": 102,
@@ -338,12 +338,12 @@
       },
       "left": {
         "arm": {
-          "shoulder": 36,
-          "elbow": 118,
+          "shoulder": 40,
+          "elbow": 115,
           "hand": "in",
           "wrist": 0,
           "out": 12,
-          "elbowOut": -46
+          "elbowOut": -70.4
         },
         "leg": {
           "hip": -1,
@@ -1499,17 +1499,17 @@
       "spine": {
         "lean": 6,
         "chest": -10,
-        "neck": 16,
-        "head": -18
+        "neck": 18,
+        "head": 8
       },
       "right": {
         "arm": {
-          "shoulder": 42,
-          "elbow": 112,
+          "shoulder": 40,
+          "elbow": 115,
           "hand": "in",
           "wrist": 0,
           "out": 12,
-          "elbowOut": -46
+          "elbowOut": -70.7
         },
         "leg": {
           "hip": 20,
@@ -1520,12 +1520,12 @@
       },
       "left": {
         "arm": {
-          "shoulder": 36,
-          "elbow": 118,
+          "shoulder": 40,
+          "elbow": 115,
           "hand": "in",
           "wrist": 0,
           "out": 12,
-          "elbowOut": -46
+          "elbowOut": -70.7
         },
         "leg": {
           "hip": -5,
