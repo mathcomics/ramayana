@@ -77,6 +77,12 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Rama's side bun moved (2026-11-06):** moved up 0.084 head-units (a
+  translate only, curves unchanged) so it spans the same heights as the
+  front bun; round at turn 90. The "fit side parts by height" rule was
+  reverted: mismatches are fixed in the drawings (the import lists them).
+  Rama's front-hair piece still differs (front −0.58…−0.31, side
+  −0.53…−0.27).
 - **Artist's Ravana and Rama faces (2026-11-06):** Ravana with fixed
   earrings; Rama with the hair split (front: bun + front hair in `over`,
   back hair in `back`; side: back piece in `back`). Rama's file came as a
