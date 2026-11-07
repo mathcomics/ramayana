@@ -465,8 +465,12 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
       const other = limbs[s === 'near' ? 'far' : 'near'].grip;
       if (P.draw) {
         limbs[s].arm.push(['prop', band([T1, other, T2], 0.025), H.d3]);
-        const d = sub(g, other), dl = Math.hypot(d[0], d[1]) || 1, ad = mul(d, 1 / dl), ap = [-ad[1], ad[0]];
-        const tip = add(g, mul(ad, 0.35));
+        // the shaft rests on top of the bow fist, not through its middle:
+        // nock at the string hand, pass point the grip lifted a half-fist
+        const d0 = sub(g, other), l0 = Math.hypot(d0[0], d0[1]) || 1, a0 = mul(d0, 1 / l0), n0 = [-a0[1], a0[0]];
+        const rest = add(g, mul(n0, n0[1] > 0 ? -0.08 : 0.08));
+        const d = sub(rest, other), dl = Math.hypot(d[0], d[1]) || 1, ad = mul(d, 1 / dl), ap = [-ad[1], ad[0]];
+        const tip = add(rest, mul(ad, 0.35));
         limbs[s].arm.push(['prop', band([other, tip], 0.03), H.d3]);
         limbs[s].arm.push(['prop', poly([add(tip, mul(ad, 0.14)), add(tip, mul(ap, 0.06)), add(tip, mul(ap, -0.06))]), H.d3]);
       } else limbs[s].arm.push(['prop', band([T1, T2], 0.025), H.d3]);

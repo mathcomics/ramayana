@@ -1481,7 +1481,7 @@
       "spine": {
         "lean": 8,
         "chest": -4,
-        "neck": 10,
+        "neck": -0.1,
         "head": -6,
         "turn": 0
       },
@@ -1489,7 +1489,7 @@
         "arm": {
           "shoulder": -93,
           "out": 12,
-          "elbow": 218,
+          "elbow": 203.3,
           "elbowOut": -12,
           "wrist": 0,
           "twist": 0,
@@ -1541,7 +1541,7 @@
       "spine": {
         "lean": 8,
         "chest": -30,
-        "neck": 10,
+        "neck": -0.1,
         "head": -6,
         "turn": 0
       },
@@ -1549,7 +1549,7 @@
         "arm": {
           "shoulder": -93,
           "out": 12,
-          "elbow": 218,
+          "elbow": 203.3,
           "elbowOut": -12,
           "wrist": 0,
           "twist": 0,
