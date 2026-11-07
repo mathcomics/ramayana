@@ -1,42 +1,32 @@
 {
-  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
+  "scene": "Sita pushes Lakshman to go; he goes, looking back",
   "size": 0.75,
   "ground": "sand",
+  "props": [
+    {
+      "prop": "hut",
+      "at": 0.2,
+      "row": "back"
+    }
+  ],
   "figures": [
     {
       "who": "sita",
       "pose": "stand-point",
       "facing": "right",
       "at": 0.3,
-      "mouth": 2,
-      "hands": {
-        "right": "in"
-      },
-      "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 30
-      }
+      "mouth": 3
     },
     {
-      "who": "sage1",
+      "who": "lakshman",
       "pose": "walk",
-      "facing": "left",
+      "facing": "right",
       "at": 0.72,
-      "id": "ascetic",
-      "mouth": 1,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club",
-          "angle": 175
-        },
-        "right.arm.shoulder": 20,
-        "right.arm.elbow": 40
-      }
+      "mouth": 2,
+      "turn": 90
     }
   ],
   "needs": [
-    "prop: staff and pot (held)",
-    "prop: fruit",
-    "Ravana's ascetic disguise (sage1 for now)"
+    "prop: hut"
   ]
 }

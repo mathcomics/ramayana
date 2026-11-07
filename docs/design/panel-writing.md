@@ -21,7 +21,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 
 - **Open the chapter with a location panel**: the place, empty or nearly,
   no action. Reuse an earlier opener when the story returns to a place
-  (the forest hut 03.01 → 04.01; Lanka 05.01 → chapter 10).
+  (the forest hut 03.01 → 04.01; Lanka 05.01 → chapter 10). A scene
+  change **within** a chapter gets the same beat, smaller (0.5): Lanka →
+  forest in 05.07 shows the hut again before the deer appears (artist,
+  2026-11-07).
 - **Size**: 0.5 and 0.3 mostly (artist, 2026-11-07); 0.75 **only when the
   height is used in a particular way** — a fall or flight, looking far up
   or down, sky-to-ground depth, a towering figure. A 0.75 panel whose

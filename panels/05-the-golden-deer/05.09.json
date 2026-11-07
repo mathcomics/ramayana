@@ -1,28 +1,22 @@
 {
-  "scene": "Far off on the horizon, Rama chases the fleeing deer",
-  "size": 0.5,
-  "ground": "dry-grass",
-  "sky": "sky",
-  "layout": "scenes/0.5-deer-running",
-  "props": [
-    {
-      "prop": "golden-deer-run",
-      "at": 0.86,
-      "row": "horizon"
-    }
-  ],
+  "scene": "Sita points after it; Rama looks. The deer is off-panel, far away",
+  "size": 0.3,
+  "shot": "mid",
+  "ground": "dark-green",
   "figures": [
     {
       "who": "rama",
-      "pose": "run",
+      "pose": "stand",
       "facing": "right",
-      "at": 0.55,
-      "row": "horizon",
+      "at": 0.25,
+      "mouth": 1
+    },
+    {
+      "who": "sita",
+      "pose": "stand-point",
+      "facing": "right",
+      "at": 0.68,
       "mouth": 2
     }
-  ],
-  "needs": [
-    "pose: run-bow (running with the bow drawn)",
-    "prop: bow in hand while running"
   ]
 }

@@ -1,47 +1,39 @@
 {
-  "scene": "Back: the chariot rises into the sky, Sita reaching down. Front: the empty hut",
+  "scene": "Ravana drags Sita by the hair into his flying chariot",
   "size": 0.75,
-  "ground": "sky-blue",
+  "ground": "sand",
   "props": [
     {
-      "prop": "hut",
-      "at": 0.5,
-      "scale": 0.6
-    },
-    {
       "prop": "chariot",
-      "at": 0.5,
-      "lift": 8,
-      "layer": "front",
-      "row": "back"
+      "at": 0.84,
+      "layer": "front"
     }
   ],
   "figures": [
     {
-      "who": "ravana",
-      "pose": "stand",
-      "facing": "right",
-      "at": 0.58,
-      "mouth": 3,
-      "lift": 8.6,
-      "row": "back"
+      "who": "sita",
+      "pose": "stand-step-back",
+      "facing": "left",
+      "at": 0.28,
+      "mouth": 3
     },
     {
-      "who": "sita",
-      "pose": "stand-point",
-      "facing": "left",
-      "at": 0.42,
+      "who": "ravana",
+      "pose": "walk",
+      "facing": "right",
+      "at": 0.52,
       "mouth": 3,
-      "adjust": {
-        "right.arm.shoulder": 30,
-        "right.arm.elbow": 0
+      "hands": {
+        "left": "fist"
       },
-      "lift": 8.6,
-      "row": "back"
+      "adjust": {
+        "left.arm.shoulder": -75,
+        "left.arm.elbow": 5
+      }
     }
   ],
   "needs": [
     "prop: flying chariot",
-    "prop: hut"
+    "relation: hand in hair"
   ]
 }
