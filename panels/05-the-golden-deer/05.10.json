@@ -1,32 +1,15 @@
 {
-  "scene": "Sita pushes Lakshman to go; he goes, looking back",
-  "size": 0.75,
-  "ground": "sand",
-  "props": [
-    {
-      "prop": "hut",
-      "at": 0.2,
-      "row": "back"
-    }
-  ],
+  "scene": "Rama draws his bow",
+  "size": 0.3,
+  "shot": "mid",
+  "ground": "dry-grass",
   "figures": [
     {
-      "who": "sita",
-      "pose": "stand-point",
+      "who": "rama",
+      "pose": "stand-bow-draw",
       "facing": "right",
-      "at": 0.3,
-      "mouth": 3
-    },
-    {
-      "who": "lakshman",
-      "pose": "walk",
-      "facing": "right",
-      "at": 0.72,
-      "mouth": 2,
-      "turn": 90
+      "at": 0.42,
+      "mouth": 1
     }
-  ],
-  "needs": [
-    "prop: hut"
   ]
 }

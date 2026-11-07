@@ -66,6 +66,16 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **A raised arm hides the face**: a gesture toward the own face (showing
   a wound) reads as hiding it; throw the arms out instead and leave the
   face clear (05.05).
+- **Not every character in every panel** (artist, 2026-11-07, golden
+  deer): once the geography is set, show only whose beat it is. A pointed-at
+  target can stay off-panel (05.08: Sita points past the edge, the deer
+  is not shown); more, smaller panels beat one crowded one, as long as
+  each panel's transition from the last is clear.
+- **0.3 strips for reactions and partial views**: a `mid` shot in a 0.3
+  panel gives chest-up figures that fill the strip (05.08, 05.10); use
+  them often.
+- **A chase is one distance**: put the chaser on the horizon row with the
+  chased (05.09), not big in front running parallel to a far-off quarry.
 
 - **The throne goes in the `mid` row**, a row behind the people in front:
   in the front row it is as tall as the men and runs off the edge.

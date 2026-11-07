@@ -1,26 +1,28 @@
 {
-  "scene": "The arrow hits; the deer turns back into a rakshasa, falling and shouting",
-  "size": 0.75,
-  "ground": "sand",
+  "scene": "Far off on the horizon, Rama chases the fleeing deer",
+  "size": 0.5,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "layout": "scenes/0.5-deer-running",
+  "props": [
+    {
+      "prop": "golden-deer-run",
+      "at": 0.86,
+      "row": "horizon"
+    }
+  ],
   "figures": [
     {
       "who": "rama",
-      "pose": "stand-bow-release",
+      "pose": "run",
       "facing": "right",
-      "at": 0.22,
-      "mouth": 1
-    },
-    {
-      "who": "raxas_m1",
-      "pose": "fall-back",
-      "facing": "left",
-      "at": 0.68,
-      "id": "maricha",
-      "cloth": "white",
-      "mouth": 3
+      "at": 0.55,
+      "row": "horizon",
+      "mouth": 2
     }
   ],
   "needs": [
-    "effect: arrow in flight"
+    "pose: run-bow (running with the bow drawn)",
+    "prop: bow in hand while running"
   ]
 }

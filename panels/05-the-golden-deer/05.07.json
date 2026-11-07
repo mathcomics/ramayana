@@ -1,43 +1,30 @@
 {
-  "scene": "Back: the hut. Front: a golden deer steps out of the trees; Sita points at it",
-  "size": 0.75,
-  "ground": "sand",
-  "zoom": 0.75,
+  "scene": "Sita, large in front, sees the golden deer far off on the horizon",
+  "size": 0.5,
+  "ground": "dark-green",
+  "sky": "sky",
+  "layout": "scenes/0.5-deer",
+  "shot": "wide",
   "props": [
     {
-      "prop": "hut",
-      "at": 0.72,
-      "row": "back"
-    },
-    {
-      "prop": "tree",
-      "at": 0.08,
-      "layer": "front"
-    },
-    {
       "prop": "golden-deer",
-      "at": 0.3,
-      "scale": 0.7
+      "at": 0.78,
+      "row": "horizon",
+      "facing": "left"
     }
   ],
   "figures": [
     {
-      "who": "rama",
-      "pose": "stand",
-      "facing": "left",
-      "at": 0.82,
-      "mouth": 1
-    },
-    {
       "who": "sita",
-      "pose": "stand-point",
-      "facing": "left",
-      "at": 0.64,
-      "mouth": 2
+      "pose": "stand",
+      "facing": "right",
+      "at": 0.2,
+      "scale": 1.5,
+      "lift": -1.5,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 8
+      }
     }
-  ],
-  "needs": [
-    "prop: hut",
-    "prop: tree"
   ]
 }
