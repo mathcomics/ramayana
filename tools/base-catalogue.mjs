@@ -46,6 +46,10 @@ const dist = (a, b) => a.pts.reduce((s, p, i) => s + Math.hypot(p[0] - b.pts[i][
 const CURATED = [
   { name: 'lunge', poses: ['lunge', 'lunge-sword-down', 'lunge-sword-low', 'lunge-sword-forward'] },   // 2026-11-07
   { name: 'stepback', poses: ['stand-step-back', 'stand-arm-back'] },                                  // 2026-11-07
+  // the sword stances' slight stride/turn doesn't earn a base: a stance
+  // apart from stand needs a real lean (as stand-arm-over-face has) — 2026-11-07
+  { name: 'stand', poses: ['stand', 'stand-sword-up', 'stand-sword-waist', 'stand-sword-forward',
+    'stand-sword-shoulder', 'stand-sword-across-head', 'stand-sword-behind-head', 'stand-sword-hip'] },
 ];
 const groups = CURATED.map((c) => {
   const g = c.poses.map((n) => bases.find((b) => b.name === n)).filter(Boolean);
@@ -67,7 +71,7 @@ groups.sort((a, b) => BASE_ORDER.indexOf(baseWord(a[0].name)) - BASE_ORDER.index
 // a named (curated) cell lists every member pose; an automatic one is
 // named by its first member and lists the rest
 const cellName = (g) => g.label || g[0].name;
-const members = (g) => (g.label ? g : g.slice(1));
+const members = (g) => (g.label ? g.filter((m) => m.name !== g.label) : g.slice(1));
 
 console.log(`${bases.length} poses -> ${groups.length} bases (threshold ${TH})`);
 for (const g of groups) console.log('  ' + cellName(g) + (members(g).length ? `  <- ${members(g).map((m) => m.name).join(', ')}` : ''));
