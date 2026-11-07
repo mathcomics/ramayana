@@ -7,6 +7,10 @@
     "tree":    { "size": [3, 6] },
     "hut":     { "size": [5, 4.5] },
     "bow":     { "size": [1, 4] },
-    "garland": { "size": [1.2, 1.2] }
+    "garland": { "size": [1.2, 1.2] },
+    "hut-top": { "size": [5, 5] },
+    "trees-top": { "size": [6, 5] },
+    "deer":    { "size": [3, 3] },
+    "vulture": { "size": [2.4, 2.4] }
   }
 }

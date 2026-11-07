@@ -1,0 +1,12 @@
+{
+  "scene": "Back: birds fly over a lake. Front: the three sit at the shore",
+  "size": 0.75,
+  "ground": "off-white",
+  "zoom": 0.8,
+  "figures": [
+    { "who": "lakshman", "pose": "sit-lean-back", "facing": "right", "at": 0.24, "mouth": 1 },
+    { "who": "rama", "pose": "sit", "facing": "right", "at": 0.5, "mouth": 1 },
+    { "who": "sita", "pose": "sit", "facing": "left", "at": 0.76, "mouth": 2 }
+  ],
+  "needs": ["background: lake and birds (03.02.svg is a placeholder)"]
+}

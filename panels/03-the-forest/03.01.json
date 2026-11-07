@@ -1,0 +1,12 @@
+{
+  "scene": "Top view: a small hut in the middle of green ground, clumps of trees in two corners",
+  "size": 1,
+  "ground": "#c9d4ad",
+  "props": [
+    { "prop": "trees-top", "id": "trees-nw", "at": 0.2, "scale": 0.45, "lift": 18 },
+    { "prop": "hut-top", "at": 0.5, "scale": 0.4, "lift": 11.5 },
+    { "prop": "trees-top", "id": "trees-se", "at": 0.8, "scale": 0.45 }
+  ],
+  "figures": [],
+  "needs": ["prop: hut-top (hut seen from above)", "prop: trees-top (clump of trees seen from above)"]
+}

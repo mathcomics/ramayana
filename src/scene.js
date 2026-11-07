@@ -86,7 +86,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const r = row(p.row);
     const unit = r.unit * (p.scale ?? 1);
     const [w, h] = (def?.size || [2, 2]).map((v) => v * unit);
-    return { p, name: p.id || p.prop, def, groundY: r.y, unit, w, h, halfW: w / 2, x: null, layer: p.layer || 'back' };
+    return { p, name: p.id || p.prop, def, groundY: r.y - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null, layer: p.layer || 'back' };
   });
 
   // -- placement: number or slot first, then relations --------------------------

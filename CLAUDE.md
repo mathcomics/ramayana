@@ -75,6 +75,15 @@ renderer or panel changes.
 
 ## Status (2026-11-06)
 
+- **Section 03 "The forest" panels (2026-11-06):** `panels/03-the-forest/`
+  03.01–03.06 (03.01 top view, size 1, green hex ground, placeholder
+  `hut-top` / `trees-top`; 03.02 lake + birds placeholder background
+  `03.02.svg`; 03.03 deer ×3 placeholders; 03.04 sage seated, raised hand
+  by `adjust`; 03.05 joined palms by `adjust` until `stand-palms-joined`,
+  vulture placeholder on the tree; 03.06 Sita reaching to the tree). New
+  placeholder props `hut-top`, `trees-top`, `deer`, `vulture`; props take
+  `lift` (`src/scene.js`). Needs: sit-cross-legged, stand-palms-joined;
+  deer, vulture, tree, top-view hut/trees art; tally marks.
 - **Pose names revised (2026-11-06):** 14 poses renamed to name the
   visible body, prop right after the base (style bible §7,
   `docs/design/pose-picking.md`): stand-guard → stand-fists-up,

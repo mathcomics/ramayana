@@ -1,0 +1,15 @@
+{
+  "scene": "Deer walk past; Sita watches, Rama beside her",
+  "size": 0.75,
+  "ground": "sand",
+  "props": [
+    { "prop": "deer", "id": "deer1", "at": 0.56, "row": "back" },
+    { "prop": "deer", "id": "deer2", "at": 0.72, "row": "back" },
+    { "prop": "deer", "id": "deer3", "at": 0.88, "row": "back" }
+  ],
+  "figures": [
+    { "who": "rama", "pose": "stand-hands-on-hips", "facing": "right", "at": 0.17, "mouth": 1 },
+    { "who": "sita", "pose": "stand-point", "facing": "right", "at": 0.38, "mouth": 2 }
+  ],
+  "needs": ["prop: deer (creature art)"]
+}

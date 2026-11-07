@@ -86,7 +86,7 @@ repeated inside the JSON.
   head-units, so a prop scales with its row.
 - `layer`: `back` (default, behind figures of its row) or `front`.
 - A prop with no artwork yet renders as a **labelled dashed box**.
-- `at`, `row`, `scale`, `nudge`, `id` as for figures.
+- `at`, `row`, `scale`, `lift`, `nudge`, `id` as for figures (`lift`: a bird on a branch).
 
 ### Placement
 
