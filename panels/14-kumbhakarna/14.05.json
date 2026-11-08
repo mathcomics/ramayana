@@ -1,18 +1,20 @@
 {
-  "scene": "The monkeys turn and flee under Kumbhakarna's stride; only his legs fit the panel",
+  "scene": "The monkeys turn and flee under Kumbhakarna's reaching fingers; only his hand fits the panel",
   "reference": "frieze-vanaras-running.jpg",
   "size": 0.3,
   "shot": "wide",
   "ground": "off-white",
+  "props": [
+    { "prop": "giant-fingers", "at": 0.72, "lift": 5, "facing": "left" }
+  ],
   "figures": [
     { "who": "monkey1", "id": "fallen", "pose": "crawl-onhands", "facing": "left", "at": 0.08, "mouth": 3 },
     { "who": "monkey1", "id": "flee1", "pose": "run-pump", "facing": "left", "at": 0.27, "mouth": 3 },
     { "who": "monkey1", "id": "flee2", "pose": "runwide-hang", "facing": "left", "at": 0.45, "mouth": 3,
       "adjust": { "spine.head": -25 } },
-    { "who": "raxas_m1", "id": "kumbhakarna", "pose": "runwide-hang", "facing": "left", "at": 0.72, "scale": 4, "lift": 0.6 },
     { "who": "monkey1", "id": "flee3", "pose": "run-pump", "facing": "right", "at": 0.93, "mouth": 3 }
   ],
   "needs": [
-    "art: Kumbhakarna's own look (the frieze's near-black giant): raxas_m1 scaled for now"
+    "prop: giant-fingers (Kumbhakarna's hand reaching into the panel from above; placeholder box)"
   ]
 }

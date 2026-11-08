@@ -16,6 +16,7 @@ box from `data/props.json`. Held props (sword, club, bow) live in
 | chariot | 05.20, 05.21, 06.01, 06.02, 06.03, 06.04, 06.06 |
 | deer | 03.03 |
 | fire | 07.09, 11.08 |
+| giant-fingers | 14.05 |
 | golden-deer-fallen | 05.12 |
 | hills | 08.01 |
 | hut | 04.02, 05.14, 05.15, 05.16, 05.21, 06.08 |
@@ -50,6 +51,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: flames (fire is a placeholder box; the frieze's tongues of flame, figure-high) | 11.08 |
 | prop: flying chariot | 05.20, 05.21, 06.01, 06.02, 06.03, 06.04, 06.06 |
 | prop: fruit | 05.18 |
+| prop: giant-fingers (Kumbhakarna's hand reaching into the panel from above; placeholder box) | 14.05 |
 | prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank) | 05.12 |
 | prop: hills (rocky hills, far) | 08.01 |
 | prop: hut | 04.02, 05.14, 05.15, 05.16, 05.21, 06.08 |

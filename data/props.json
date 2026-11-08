@@ -1,6 +1,12 @@
 {
   "_doc": "Prop registry. size = [width, height] in head-units, so a prop scales with its row like the figures. A prop without artwork renders as a labelled placeholder box. Art: data/props/<id>.svg (100 px = 1 head-unit; the size then comes from its viewBox; a group id=\"anchors\" holds named points such as seat).",
   "props": {
+    "giant-fingers": {
+      "size": [
+        6,
+        5
+      ]
+    },
     "palace": {
       "size": [
         10,
