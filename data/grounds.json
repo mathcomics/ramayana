@@ -1,8 +1,10 @@
 {
-  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex. A panel's \"sky\" (above the horizon) takes the same names.",
+  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex. A panel's \"sky\" (above the horizon) takes the same names. Artist's rule (2026-11-08): backgrounds are light — off-white (light beige), light-grey, even white; greens only for top views (03.01) and the land strip under a sky/horizon (05.10); dusty-pink never.",
   "default": "off-white",
   "grounds": {
     "off-white": "#f2ece1",
+    "light-grey": "#dedede",
+    "white": "#ffffff",
     "dusty-pink": "#e9cfc4",
     "sky-blue": "#cfe0e6",
     "sand": "#e8dcc0",

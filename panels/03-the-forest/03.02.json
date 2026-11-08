@@ -1,7 +1,8 @@
 {
   "scene": "The three walk toward the reader behind a rising fold of ground; the farther, the deeper behind it",
+  "tags": ["travel"],
   "size": 0.5,
-  "ground": "sage",
+  "ground": "off-white",
   "figures": [
     {
       "character": "lakshman",
@@ -14,14 +15,10 @@
       "character": "sita",
       "pose": "walk-swing",
       "view": "front",
-      "at": 0.5,
-      "scale": 0.8
-    },
-    {
-      "character": "rama",
-      "pose": "walk-swing",
-      "view": "front",
-      "at": 0.28
+      "facing": "left",
+      "at": 0.4,
+      "scale": 0.8,
+      "lift": 1.2
     },
     {
       "prop": "forest-ridge",
@@ -29,9 +26,23 @@
       "row": "floor"
     },
     {
+      "character": "rama",
+      "pose": "walk-swing",
+      "view": "front",
+      "at": 0.28,
+      "scale": 1.2,
+      "lift": 0.4
+    },
+    {
       "prop": "flower-yellow",
       "at": 0.9,
-      "lift": 1.65
+      "lift": 1.5
+    },
+    {
+      "prop": "flower-yellow",
+      "at": 0.85,
+      "scale": 1.5,
+      "lift": 0.8
     }
   ]
 }

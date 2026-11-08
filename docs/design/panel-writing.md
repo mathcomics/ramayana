@@ -44,6 +44,11 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Shot**: `far` by default; `wide` for bigger whole figures, `mid` for
   close (front row cut at the thighs). Layout templates:
   `layouts/<size>-<shot>.svg`.
+- **Backgrounds are light** (artist, 2026-11-08): `off-white` (light
+  beige), `light-grey`, even `white`. Green grounds only for top views
+  (03.01) and the land strip under a `sky` horizon (05.10's dry-grass);
+  `dusty-pink` never. Panels still on dusty-pink or green swap in the
+  revisit pass.
 - **Poses**: legs first, arms from the verb; head direction (`turn`) and
   mouth are not poses; no silent `step-hang` (pose-picking rules). A missing
   pose goes in `needs` as `pose: <wanted name> (...): <stand-in> for now`.
