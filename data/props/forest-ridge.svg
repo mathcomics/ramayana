@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- A tilted fold of forest ground, rising to the right: a foreground band
      walkers stand on or sink behind (front layer; farther figures lower and
      more hidden). Outline perturbed with seeded randomness (seed 11;
@@ -6,14 +6,100 @@
      palette from the ground colours (sage / dark-green). 100 px = 1
      head-unit; bottom edge on the ground. Anchors: stand-left / stand /
      stand-right on the top. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
-  <path fill="#667456" d="M 0 300 L 0 212 L 95 206 L 190 197 L 300 190 L 395 177 L 500 172 L 610 159 L 700 149 L 810 141 L 900 127 L 1010 117 L 1100 95 L 1200 87 L 1200 300 Z"/>
-  <path fill="#5d6c53" d="M 150 201 L 260 193 L 300 300 L 180 300 Z"/>
-  <path fill="#5d6c53" d="M 660 153 L 790 143 L 850 300 L 710 300 Z"/>
-  <path fill="#5d6c53" d="M 1040 112 L 1150 92 L 1200 130 L 1200 300 L 1080 300 Z"/>
-  <g id="anchors">
-    <circle id="stand-left" cx="300" cy="190" r="6" fill="none"/>
-    <circle id="stand" cx="610" cy="159" r="6" fill="none"/>
-    <circle id="stand-right" cx="1010" cy="117" r="6" fill="none"/>
+
+<svg
+   viewBox="0 0 1200 300"
+   width="1200"
+   height="300"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="forest-ridge.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.1125147"
+     inkscape:cx="668.30579"
+     inkscape:cy="151.45868"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <path
+     style="fill:#536c53;stroke:#0b2817;stroke-width:4"
+     d="M 42.69975,228.23801 20.16213,206.7984"
+     id="path1063-8-0" />
+  <path
+     style="fill:#536c53;stroke:#0b2817;stroke-width:4"
+     d="M 45.00604,224.04528 30.29565,194.80078"
+     id="path1063-3-58-8" />
+  <path
+     style="fill:#536c53;stroke:#0b2817;stroke-width:4"
+     d="M 45.76635,224.00286 40.93482,198.14291"
+     id="path1063-3-5-5-9" />
+  <path
+     fill="#667456"
+     d="M 0 300 L 0 212 L 95 206 L 190 197 L 300 190 L 395 177 L 500 172 L 610 159 L 700 149 L 810 141 L 900 127 L 1010 117 L 1100 95 L 1200 87 L 1200 300 Z"
+     id="path2"
+     style="fill:#536c53" />
+  <g
+     id="anchors">
+    <circle
+       id="stand-left"
+       cx="300"
+       cy="190"
+       r="6"
+       fill="none" />
+    <circle
+       id="stand"
+       cx="610"
+       cy="159"
+       r="6"
+       fill="none" />
+    <circle
+       id="stand-right"
+       cx="1010"
+       cy="117"
+       r="6"
+       fill="none" />
   </g>
+  <path
+     style="fill:#536c53;stroke-width:4;stroke:#0b2817"
+     d="M 881.78613,231.00819 867.40429,192.35701"
+     id="path1063" />
+  <path
+     style="fill:#536c53;stroke:#0b2817;stroke-width:4"
+     d="m 887.18454,228.25779 -0.0104,-41.24016"
+     id="path1063-3" />
+  <path
+     style="fill:#536c53;stroke:#0b2817;stroke-width:4"
+     d="m 888.14049,228.75777 9.99054,-30.61159"
+     id="path1063-3-5" />
+  <path
+     style="fill:#536c53;stroke:#0b2817;stroke-width:4"
+     d="M 573.3027,263.69387 550.76508,242.25426"
+     id="path1063-8" />
+  <path
+     style="fill:#536c53;stroke:#0b2817;stroke-width:4"
+     d="M 575.60899,259.50114 560.8986,230.25664"
+     id="path1063-3-58" />
+  <path
+     style="fill:#536c53;stroke:#0b2817;stroke-width:4"
+     d="m 576.3693,259.45872 -4.83153,-25.85995"
+     id="path1063-3-5-5" />
 </svg>
