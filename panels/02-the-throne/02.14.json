@@ -1,20 +1,36 @@
 {
-  "scene": "Lakshman and Sita hurry after him",
+  "scene": "Rama looks back; Lakshman and Sita hurry after him, the palace behind",
   "size": 0.3,
   "ground": "off-white",
   "figures": [
     {
+      "prop": "palace-ayodhya",
+      "at": 0.25,
+      "row": "mid"
+    },
+    {
       "character": "lakshman",
-      "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.72,
+      "pose": "run-pump",
+      "view": "front",
+      "at": 0.7,
+      "lift": 0.5,
       "mouth": 1
     },
     {
       "character": "sita",
-      "pose": "pass-swing",
-      "facing": "left",
-      "at": 0.45,
+      "pose": "run-pump",
+      "view": "front",
+      "at": 0.5,
+      "lift": 0.6,
+      "mouth": 1
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "view": "front",
+      "at": 0.3,
+      "scale": 1.5,
+      "turn": -120,
       "mouth": 1
     }
   ]

@@ -1,18 +1,15 @@
 {
-  "scene": "Rakshasas flee through the burning streets, fire at both ends",
-  "tags": [
-    "panic",
-    "crowd",
-    "flee"
-  ],
+  "scene": "Rakshasas flee through the burning streets, the fire behind them",
+  "tags": ["panic", "crowd", "flee"],
   "size": 0.3,
   "shot": "wide",
   "ground": "#7e2f22",
   "figures": [
     {
       "prop": "fire",
-      "at": 0.05,
-      "scale": 1.8
+      "at": 0.95,
+      "lift": 0.6,
+      "scale": 4.8
     },
     {
       "prop": "fire",
@@ -73,6 +70,6 @@
     }
   ],
   "needs": [
-    "prop: flames (fire is a placeholder box; the frieze's tongues of flame, figure-high)"
+    "prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now)"
   ]
 }

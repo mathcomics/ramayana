@@ -41,7 +41,8 @@ action. The same opener can return when the story comes back to a place.
 
 - A place far away is a small prop on the horizon with nothing else: the
   sea and the sky are the panel (0.5-lanka; `lanka-island` on row
-  `horizon` is as drawn in a 0.5 panel).
+  `horizon` is as drawn in a 0.5 panel, with `palace-lanka` stood small
+  on its `stand` anchor — `"on": "lanka-island#stand"`, scale 0.5).
 
 ## Throne and hall
 
@@ -53,13 +54,14 @@ action. The same opener can return when the story comes back to a place.
   (nearer). (0.5-lanka-throne)
 - The throne sits a row behind the people talking in front of it (`row:
   "mid"`), so it reads as the room's centre, not as one of them.
-- Watch the colours: a gold crown disappears against the gold throne back.
-  The redrawn `throne-ayodhya` (2026-11-08) is dark with a dark centre in
-  its red sun disc for exactly this: the king's gold crown reads against
-  it. Three thrones now: `throne-ayodhya`, `throne-lanka` (Ravana's,
-  gold-backed) and `throne-kishkindha` (gold stupa dome echoing the
-  `kishkindha` palace — Sugriva's coronation; ends `throne-lanka`'s
-  stand-in use there when the chapter is revisited).
+- Watch the colours: a gold crown disappears against the gold throne back;
+  check heads against what's behind them. Three thrones:
+  `throne-ayodhya` (gold-backed, Dasharatha's), `throne-lanka` (dark seat
+  and steps under the red disc, its centre dark, Ravana's) and
+  `throne-kishkindha` (gold stupa dome echoing the `kishkindha` palace —
+  Sugriva's coronation). The ayodhya and lanka drawings were
+  interchanged by the artist 2026-11-08 — that assignment is deliberate;
+  don't swap them back.
 
 ## Top view
 

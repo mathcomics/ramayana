@@ -5,7 +5,7 @@
   "zoom": 0.5,
   "figures": [
     {
-      "prop": "palace",
+      "prop": "palace-lanka",
       "at": 0.4,
       "scale": 0.55
     },
@@ -17,8 +17,5 @@
       "lift": 4.2,
       "mouth": 1
     }
-  ],
-  "needs": [
-    "prop: lanka palaces (Ayodhya's palace as a stand-in)"
   ]
 }

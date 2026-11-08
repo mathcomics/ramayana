@@ -1,35 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Lanka: the golden city on its dark mountain island, seen far off across
-     the sea. Redrawn 2026-11-07 from the artist's block layout
-     (layouts/scenes/0.5-lanka.svg) with a small palace silhouette: central
-     dome, two side domes, gate arch, crenellated wall with stone end towers.
-     Same palette as the layout (golds d4aa00 / ffd42a, dark 1a1a1a island,
-     ac9393 stone); palace.svg-level simplicity, smaller since it sits on the
-     mountain. Sized for the horizon row (as drawn in a 0.5 panel).
-     100 px = 1 head-unit; the bottom edge sits on the sea line. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2009.34 342.38" width="2009.34" height="342.38">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Lanka's island alone: the dark mountain rising from the sea, flat where
+     the city sits (split 2026-11-08 from the old island-with-city drawing;
+     the city is now the separate prop palace-lanka, stood on this island's
+     "stand" anchor). Sized for the horizon row (as drawn in a 0.5 panel).
+     100 px = 1 head-unit; the bottom edge sits on the sea line.
+     Anchors: stand = where the palace's bottom centre rests. -->
+
+<svg
+   viewBox="0 0 2009.3001 168.39999"
+   width="2009.3"
+   height="168.39999"
+   version="1.1"
+   id="svg34"
+   sodipodi:docname="lanka-island.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs38" />
+  <sodipodi:namedview
+     id="namedview36"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.34464629"
+     inkscape:cx="1870.0332"
+     inkscape:cy="-152.33009"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg34" />
   <!-- the island: a dark mountain rising from the sea, flat where the city sits -->
-  <path fill="#1a1a1a" d="M 0 342.4 L 150 314 L 380 206 L 430 180 L 560 174 L 1000 177 L 1450 174 L 1580 180 L 1680 212 L 1860 300 L 2009.3 336 L 2009.3 342.4 Z"/>
-  <!-- palace body behind the wall -->
-  <rect fill="#d4aa00" x="840" y="82" width="320" height="100"/>
-  <!-- drum under the central dome -->
-  <rect fill="#d4aa00" x="932" y="46" width="136" height="40"/>
-  <!-- city wall with crenellations -->
-  <rect fill="#ffd42a" x="420" y="148" width="1160" height="34"/>
-  <path fill="#ffd42a" d="M438 148v-14h36v14z M534 148v-14h36v14z M630 148v-14h36v14z M726 148v-14h36v14z M1238 148v-14h36v14z M1334 148v-14h36v14z M1430 148v-14h36v14z M1526 148v-14h36v14z"/>
-  <!-- stone towers at the wall ends -->
-  <rect fill="#ac9393" x="414" y="96" width="56" height="86"/>
-  <path fill="#ac9393" d="M408 98 L442 62 L476 98 Z"/>
-  <rect fill="#ac9393" x="1530" y="96" width="56" height="86"/>
-  <path fill="#ac9393" d="M1524 98 L1558 62 L1592 98 Z"/>
-  <!-- side domes with finials -->
-  <path fill="#d4aa00" d="M852 82 C845 58 874 46 884 36 C894 46 923 58 916 82 Z"/>
-  <path fill="#d4aa00" d="M880 40 L884 20 L888 40 Z"/>
-  <path fill="#d4aa00" d="M1084 82 C1077 58 1106 46 1116 36 C1126 46 1155 58 1148 82 Z"/>
-  <path fill="#d4aa00" d="M1112 40 L1116 20 L1120 40 Z"/>
-  <!-- central dome with finial -->
-  <path fill="#ffd42a" d="M945 52 C936 28 985 20 1000 12 C1015 20 1064 28 1055 52 Z"/>
-  <path fill="#ffd42a" d="M996 15 L1000 0 L1004 15 Z"/>
-  <!-- gate arch, the island dark showing through -->
-  <path fill="#1a1a1a" d="M974 182 V134 A26 26 0 0 1 1026 134 V182 Z"/>
+  <path
+     fill="#1a1a1a"
+     d="M 0,168.4 150,140 380,32 430,6 560,0 l 440,3 450,-3 130,6 100,32 180,88 149.3,36 v 6.4 z"
+     id="path2" />
+  <g id="anchors">
+    <circle
+       style="fill:#64bed4;stroke:#0b2817;stroke-width:4"
+       id="stand"
+       cx="1061.9583"
+       cy="-8.1137199"
+       r="18" />
+  </g>
 </svg>

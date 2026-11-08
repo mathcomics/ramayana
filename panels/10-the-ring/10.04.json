@@ -5,12 +5,12 @@
   "zoom": 0.5,
   "figures": [
     {
-      "prop": "palace",
+      "prop": "palace-lanka",
       "at": 0.15,
       "scale": 0.5
     },
     {
-      "prop": "palace",
+      "prop": "palace-lanka",
       "at": 0.9,
       "scale": 0.5
     },

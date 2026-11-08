@@ -9,6 +9,11 @@
       "prop": "lanka-island",
       "at": 0.598,
       "row": "horizon"
+    },
+    {
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand",
+      "scale": 0.5
     }
   ]
 }

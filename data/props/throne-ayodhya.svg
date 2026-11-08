@@ -1,100 +1,53 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- The Ayodhya throne: dark seat and steps under the red sun disc of the solar line,
-     the disc's centre dark so the king's gold crown reads against it (Dasharatha scenes).
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The Ayodhya throne (Dasharatha's court), gold back and steps, from the artist's layout layouts/scenes/0.5-lanka-throne.svg (scaled by the man seated on it).
+     This drawing and the red-disc one were interchanged between the two throne files by the artist, 2026-11-08, deliberately.
      anchors: seat = where a seated figure's hips rest (figure "on": "throne-ayodhya").
      100 px = 1 head-unit; the bottom edge sits on the ground line.
      The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
-
-<svg
-   viewBox="0 0 545.11 733.7"
-   width="545.11"
-   height="733.7"
-   version="1.1"
-   id="svg1386"
-   sodipodi:docname="throne-ayodhya.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1390" />
-  <sodipodi:namedview
-     id="namedview1388"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     showgrid="false"
-     inkscape:zoom="0.90978437"
-     inkscape:cx="211.5886"
-     inkscape:cy="322.60392"
-     inkscape:window-width="2560"
-     inkscape:window-height="1494"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="throne" />
-  <g
-     transform="scale(5.434783) translate(-124.32 -110.53)"
-     id="g1382">
-    <g
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="0 0 545.11 733.7" width="545.11" height="733.7">
+<g transform="scale(5.434783) translate(-124.32 -110.53)">
+<g
        id="throne"
        inkscape:label="throne"
        transform="translate(0,56)">
-      <ellipse
-         style="fill:#ff0000;stroke-width:0.184"
-         id="path1561"
-         cx="173.05685"
-         cy="120.45774"
-         ry="18.4"
-         rx="18.399998" />
-      <circle
-         style="fill:#28170b;fill-opacity:1;stroke-width:0.184"
-         id="path1561-5"
-         cx="172.91063"
-         cy="120.10925"
-         r="13.799999" />
       <rect
-         style="fill:#28170b;stroke-width:0.999998"
+         style="fill:#2b2200;stroke-width:0.999998"
          id="rect6254"
          width="46.144066"
          height="24.788136"
          x="149.11018"
          y="134.61864" />
       <rect
-         style="fill:#28170b;stroke-width:0.999998"
+         style="fill:#ffcc00;stroke-width:1"
+         id="rect6254-1"
+         width="46.144066"
+         height="80.084747"
+         x="148.91948"
+         y="54.533901" />
+      <rect
+         style="fill:#2b2200;stroke-width:0.999998"
          id="rect6254-0"
          width="69.406776"
          height="8.3898306"
          x="138.24152"
          y="160.93221" />
       <rect
-         style="fill:#28170b;stroke-width:0.999998"
+         style="fill:#2b2200;stroke-width:0.999998"
          id="rect6254-0-1"
          width="85.805077"
          height="8.3898306"
          x="130.42374"
          y="171.22881" />
       <rect
-         style="fill:#28170b;stroke-width:0.999998"
+         style="fill:#2b2200;stroke-width:0.999998"
          id="rect6254-0-4"
          width="100.29661"
          height="8.3898306"
          x="124.32204"
          y="181.14407" />
     </g>
-  </g>
-  <g
-     id="anchors">
-    <circle
-       id="seat"
-       cx="262.66"
-       cy="569.95"
-       r="12"
-       fill="#e0457b" />
-  </g>
+</g>
+<g id="anchors">
+<circle id="seat" cx="262.66" cy="569.95" r="12" fill="#e0457b"/>
+</g>
 </svg>

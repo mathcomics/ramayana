@@ -1,9 +1,6 @@
 {
   "scene": "Far off on the horizon, Rama chases the fleeing deer",
-  "tags": [
-    "chase",
-    "far"
-  ],
+  "tags": ["chase", "far"],
   "size": 0.5,
   "ground": "dry-grass",
   "sky": "sky",
@@ -18,7 +15,7 @@
       "character": "rama",
       "pose": "run-pump",
       "facing": "right",
-      "at": 0.55,
+      "at": 0.25,
       "row": "horizon",
       "mouth": 2
     }

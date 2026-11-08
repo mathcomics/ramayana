@@ -104,14 +104,20 @@ behind them, after = in front; the retired `layer` field is an issue).
   (not drawn). `seat`: where a seated figure's hips rest (`on`).
   `stand`, `stand-left`, `stand-right`: where a standing figure's feet
   rest (`on` with `#`, e.g. `"on": "kishkindha#stand"`; `ledge` and
-  `kishkindha` have them).
-- Drawn so far: `palace`, `golden-deer`, `golden-deer-run`,
-  `hut-top`, `trees-top`, `tree-top`, `lanka-island` (from the artist's
-  scene layouts, `layouts/scenes/`), `vulture-fly`, `-swoop`, `-fall`,
+  `kishkindha` have them). A prop can stand `on` another prop's anchor
+  too — its bottom centre lands there, at the carrying prop's scale
+  (`palace-lanka` on `"lanka-island#stand"`).
+- Drawn so far: `palace-ayodhya`, `palace-lanka` (the golden rework,
+  Lanka's palaces; also small on `lanka-island`'s `stand` anchor),
+  `golden-deer`, `golden-deer-run`,
+  `hut-top`, `trees-top`, `tree-top`, `lanka-island` (the bare island —
+  the city split off into `palace-lanka`, 2026-11-08),
+  `vulture-fly`, `-swoop`, `-fall`,
   `-stand`, `vulture-wing` (from the artist's Jatayu sheet,
-  `data/props/sheets/`), the thrones `throne-ayodhya` (dark, under the
-  red sun disc with a dark centre the gold crown reads against),
-  `throne-lanka` (gold-backed, Ravana's) and `throne-kishkindha` (gold
+  `data/props/sheets/`), the thrones `throne-ayodhya` (gold-backed,
+  Dasharatha's — the two throne drawings were interchanged by the artist
+  2026-11-08), `throne-lanka` (dark, under the red disc with a dark
+  centre, Ravana's) and `throne-kishkindha` (gold
   stupa dome on a dark post, Sugriva's coronation),
   `ledge`, `kishkindha` (rocky; seeded-random outlines, stand anchors),
   the flowers `flower-droop`, `-white`, `-pink`, `-yellow`, `-orange`,

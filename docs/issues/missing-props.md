@@ -23,7 +23,7 @@ box from `data/props.json`. Held props (sword, club, bow) live in
 | lanka-wall | 10.01, 10.02 |
 | line | 05.16 |
 | line-top | 05.17 |
-| mountain | 09.06, 09.10 |
+| mountain | 09.06, 09.11 |
 | pyre | 06.11 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
 | rocks | 06.04, 06.05 |
@@ -41,7 +41,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: bow in hand while running | 05.10 |
 | prop: cave | 04.09 |
 | prop: deer (creature art) | 03.04 |
-| prop: flames (fire is a placeholder box; the frieze's tongues of flame, figure-high) | 11.08 |
+| prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
 | prop: flying chariot | 05.20, 05.21, 06.01, 06.02, 06.03, 06.04, 06.06 |
 | prop: fruit | 05.18 |
 | prop: giant-fingers (Kumbhakarna's hand reaching into the panel from above; placeholder box) | 14.05 |
@@ -51,13 +51,12 @@ docs/design/panel-writing.md, Lessons).
 | prop: jewels (bundle) | 06.04, 06.05 |
 | prop: jewels (held to the chest) | 07.12 |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
-| prop: lanka palaces (Ayodhya's palace as a stand-in) | 10.03 |
 | prop: Lanka towers | 06.07 |
 | prop: lanka-wall | 10.02 |
 | prop: lanka-wall (the city wall by night) | 10.01 |
 | prop: line (scratched in the earth, under his hand) | 05.16 |
 | prop: line-top (the line as a closed ring round the hut, seen from above) | 05.17 |
-| prop: mountain | 09.06, 09.10 |
+| prop: mountain | 09.06, 09.11 |
 | prop: pyre | 06.11 |
 | prop: ring | 09.04, 10.09, 10.10 |
 | prop: ring (Rama's ring; it reaches Sita in 10) | 09.03 |
@@ -74,4 +73,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-fire, flower-yellow, forest-ridge, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, monkey-top, palace, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop, wave-top
+fire, flower-yellow, forest-ridge, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, monkey-top, palace-ayodhya, palace-lanka, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop, wave-top

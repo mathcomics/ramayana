@@ -179,22 +179,25 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     }
   }
   const RELS = ['before', 'behind', 'beside', 'left-of', 'right-of'];
-  // "on": a figure sits or stands on a prop's anchor, at the prop's scale.
-  // "<prop>" uses the seat anchor; "<prop>#<anchor>" names another (e.g. stand).
+  // "on": a figure (or another prop) sits or stands on a prop's anchor, at
+  // the prop's scale. "<prop>" uses the seat anchor; "<prop>#<anchor>"
+  // names another (e.g. stand). A prop stands with its bottom centre on it.
   const seatOn = (o) => {
-    const [tname, aname = 'seat'] = String(o.f.on).split('#');
-    const t = props.find((x) => x.name === tname);
+    const e = o.f || o.p;
+    const [tname, aname = 'seat'] = String(e.on).split('#');
+    const t = props.find((x) => x !== o && x.name === tname);
     const seat = t?.def?.anchors?.[aname];
-    if (!seat) { issues.push(`${o.name}: "on" needs a prop with a "${aname}" anchor in the panel ("${o.f.on}")`); o.f = { ...o.f, on: undefined }; return; }
+    if (!seat) { issues.push(`${o.name}: "on" needs a prop with a "${aname}" anchor in the panel ("${e.on}")`); if (o.f) o.f = { ...o.f, on: undefined }; else o.p = { ...o.p, on: undefined }; return; }
     if (t.x == null) return;
-    o.unit = t.unit * (o.f.scale ?? 1);
-    o.halfW = o.halfW1 * o.unit;
+    o.unit = t.unit * (e.scale ?? 1);
+    if (o.f) o.halfW = o.halfW1 * o.unit;
+    else { [o.w, o.h] = (o.def?.size || [2, 2]).map((v) => v * o.unit); o.halfW = o.w / 2; }
     o.groundY = t.groundY - t.h + seat[1] * t.unit;
-    o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - o.pelvisX * o.unit * o.facing;
+    o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - (o.f ? o.pelvisX * o.unit * o.facing : 0);
   };
   for (let pass = 0; pass < 3; pass++) {
     for (const o of all) {
-      if (o.f?.on) { seatOn(o); continue; }
+      if ((o.f || o.p).on) { seatOn(o); continue; }
       const at = (o.f || o.p).at;
       if (!at || typeof at !== 'object') continue;
       const [rel, target] = Object.entries(at).find(([k]) => RELS.includes(k)) || [];

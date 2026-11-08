@@ -14,7 +14,7 @@ extract any new props, and add what it teaches to the composition notes.
 | `0.5-lanka-throne` | a king on his throne with courtiers | grey hall (`stone-grey`); throne with steps in the middle, the king seated on it (smaller: further back); one courtier further back on the left, one nearer (1.2×) on the right | `throne` (seat anchor) | 05.02–05.06; Ravana's court (ch 9, 10, 12, 13); Ayodhya's throne (01.02, 02.01–02.06) |
 | `0.5-deer` | someone watches a creature far off | sky `sky` above a horizon at 0.37; ground `dark-green`; a big figure in front on the left, cut by the bottom edge (1.5× the wide front man); the deer standing on the horizon on the right | `golden-deer` | 05.04, 05.05 (the moment before the chase); any "sees something in the distance" |
 | `0.5-deer-running` | a creature flees into the distance | same sky and horizon; ground `dry-grass`; empty; a small leaping deer on the horizon at the right edge | `golden-deer-run` | 05.05 (with the runner in front); any chase or escape |
-| `0.5-lanka` | Lanka from far off | no figures; sky `mist`, the sea (`sea`) below a horizon at 0.37; the island with its golden city small on the horizon, a little right of centre | `lanka-island` | 05.01 (chapter opener), chapter 10's opener; any arrival at Lanka |
+| `0.5-lanka` | Lanka from far off | no figures; sky `mist`, the sea (`sea`) below a horizon at 0.37; the island with its golden city small on the horizon, a little right of centre | `lanka-island` + `palace-lanka` on its `stand` anchor | 05.01 (chapter opener), chapter 10's opener; any arrival at Lanka |
 
 Not a layout: the artist's sheet of four Jatayu poses is a props source,
 `data/props/sheets/jatayu.svg` → `vulture-fly`, `vulture-swoop`,

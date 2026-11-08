@@ -29,7 +29,13 @@
         5
       ]
     },
-    "palace": {
+    "palace-ayodhya": {
+      "size": [
+        10,
+        4
+      ]
+    },
+    "palace-lanka": {
       "size": [
         10,
         4
@@ -170,7 +176,7 @@
     "lanka-island": {
       "size": [
         20.09,
-        3.42
+        1.68
       ]
     },
     "hills": {

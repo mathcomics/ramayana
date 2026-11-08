@@ -15,10 +15,10 @@
     {
       "character": "sita",
       "pose": "step-hang",
-      "facing": "right",
       "at": 0.2,
       "scale": 1.5,
       "lift": -1.5,
+      "turn": -90,
       "mouth": 2,
       "adjust": {
         "spine.head": 8
