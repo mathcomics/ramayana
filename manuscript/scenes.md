@@ -303,18 +303,20 @@ threatening Sita in the grove (the guards are peril enough).
 Hanuman caught becomes Hanuman the torch: he leaves Lanka burning and
 brings Sita's jewel home.
 
-- **Hanuman** wrecks the grove, uprooting trees; **Indrajit**'s
-  arrow-ropes bind him, and he is carried bound before **Ravana** on
-  his throne.
+- About to leave with the jewel, **Hanuman** pauses on the wall and
+  looks back at the grove, a hand at his chin — pondering.
+- He wrecks the grove, uprooting trees; **Indrajit**'s arrow-ropes
+  bind him, and he is carried bound before **Ravana** on his throne.
 - Rakshasas set his tail on fire; he leaps over the roofs, tail
   aflame, Lanka's towers burning behind him, and dips his tail in the
   sea.
 - Home: Hanuman gives **Rama** the jewel; Rama presses it to his
   heart.
 
-Must show: **Indrajit** introduced as the binder (his own chapter is
-15); the burning leap is the chapter's height image; the jewel answers
-the ring. Not shown: Vibhishana pleading for Hanuman's life (a plea
+Must show: the pause and look back before the wrecking — the havoc is
+his own idea, told by a posture, not an order; **Indrajit** introduced
+as the binder (his own chapter is 15); the burning leap is the
+chapter's height image; the jewel answers the ring. Not shown: Vibhishana pleading for Hanuman's life (a plea
 for mercy needs words; Vibhishana's story starts in 12).
 
 ## 12. The bridge
