@@ -26,7 +26,7 @@
     {
       "prop": "forest-ridge",
       "at": 0.5,
-      "lift": -0.35
+      "row": "floor"
     },
     {
       "prop": "flower-yellow",

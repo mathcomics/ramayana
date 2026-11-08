@@ -68,7 +68,7 @@ repeated inside the JSON.
 | `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
-| `row` | `back` · `mid` · `front` · `horizon` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. `horizon`: far away, standing on the horizon (16 px per head-unit in a 0.75 panel). |
+| `row` | `back` · `mid` · `front` · `horizon` · `floor` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. `horizon`: far away, standing on the horizon (16 px per head-unit in a 0.75 panel). `floor`: the panel's bottom edge at the front row's scale — a foreground band sits flush, whatever the shot (03.02's ridge). |
 | `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>` | Puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at`, `row`, `lift` are ignored; `scale` still applies). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |

@@ -83,7 +83,10 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   if (panel.shot && !SHOTS[panel.shot]) issues.push(`shot "${panel.shot}" unknown (${Object.keys(SHOTS).join(' | ')})`);
   const row = (r = 'front') => {
     if (r === 'horizon') return { y: horizonY, unit: HORIZON_UNIT * H / REF_H };
-    if (!shot[r]) issues.push(`row "${r}" unknown (back | mid | front)`);
+    // floor: the panel's bottom edge, at the front row's scale (a
+    // foreground band sits flush, whatever the shot)
+    if (r === 'floor') return { y: H, unit: shot.front.unit * H / REF_H };
+    if (!shot[r]) issues.push(`row "${r}" unknown (back | mid | front | horizon | floor)`);
     const R = shot[r] || shot.front;
     return { y: H * (1 - R.ground), unit: R.unit * H / REF_H };
   };

@@ -109,11 +109,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **A lone full-body action in a 0.3 strip wants `wide`, not `mid`**:
   `mid` crops a single walker to a floating chest (02.07 rework); `mid`
   strips are for chest-up reactions of one or two faces.
-- **A foreground band sits flush to the panel bottom** (artist, 2026-11-08,
+- **A foreground band stands on `row: "floor"`** (artist, 2026-11-08,
   03.02): a foreground strip of ground (after the figures in the list)
-  on the front row leaves a 3%-of-
-  panel gap below it; `lift: -0.35` (far shot, front row) drops its bottom
-  onto the panel edge. And figures behind a rising band don't need
+  on the front row leaves a 3%-of-panel gap below it; `floor` is the
+  panel's bottom edge at the front row's scale, flush under any shot
+  (a hand-tuned negative `lift` broke when the shot changed). And
+  figures behind a rising band don't need
   per-figure `lift`s: full-size on the front row, the band's own slope
   staggers how deep each one sinks (the farther, the deeper). Walkers
   toward the reader (`view: front`) read larger and more alive there than
