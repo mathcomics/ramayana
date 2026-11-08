@@ -20,8 +20,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
    it; name it in the panel's `layout` field.
 4. Check the chapter opener (`composition.md`, Chapter openers).
 5. Look for **approved reference panels** whose `tags` cover the
-   chapter's kinds of scene (`grep -rl '"tags"' panels/`, e.g. `panic`,
-   `crowd`, `giant`) and follow their composition. Tagged panels are
+   chapter's kinds of scene, and follow their composition:
+   `grep -rl '"tags"' panels/` lists them all,
+   `grep -rl '"tags".*panic' panels/` narrows to one tag (so far:
+   `panic`, `crowd`, `flee`, `giant`, `chase`, `far`). Tagged panels are
    artist-reviewed and locked: never rework one without the artist's
    consent (`panels/CLAUDE.md`).
 
