@@ -246,7 +246,9 @@ hidden arrow decides it, and the crown changes heads.
   chest and roars; Bali comes out; **Rama** steps behind a tree.
 - The brothers grapple; from the tree Rama's arrow flies; Bali falls;
   monkeys crowd and mourn over him.
-- **Sugriva** stands crowned beneath the royal umbrella.
+- **Sugriva** stands crowned beneath the royal umbrella, at
+  Kishkindha's own throne (to be drawn — panel writer: not the
+  gold-backed Lanka throne, which is Ravana's continuity image).
 
 Must show: the challenge as pure posture — feet planted, chest
 beaten, mouth wide, no parley; Rama shooting from hiding, exactly as

@@ -108,6 +108,9 @@ renderer or panel changes.
   pouring (crown + umbrella only, both 8 and 18) and chapter 3's tally
   marks become **season icons** (to be drawn) for the thirteen years.
   All motif numbers updated. `panels/08-*` now spans briefs 9–10.
+  **Wanted from the panel side: a Kishkindha throne** for Sugriva's
+  coronation (brief 8) — `throne-lanka` stays Ravana's; 07.12's
+  stand-in use ends with the revisit.
 - **Chapter 7 split into 7 "Sugriva" and 8 "Bali"; 17 chapters
   (2026-11-08):** the artist: the old chapter had more than wordless
   panels can carry. Ch 7 = finding the monkeys (one beat, the
