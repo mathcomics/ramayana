@@ -33,7 +33,7 @@ this file only says who exists and where they appear in the story.
 | `raxas_f1` | female | rakshasis: the grove guards |
 
 Still needed as generic types: a plain human male and female (wedding
-guests, the charioteer in ch 17) and children (the four boys, ch 1).
+guests) and children (the four boys, ch 1).
 
 ## Creatures and one-offs (not species models)
 

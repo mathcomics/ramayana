@@ -349,7 +349,7 @@ one after another — the war starts going against Ravana.
 - From a cloud, **Indrajit**'s serpent arrows bind **Rama** and
   **Lakshman**; they fall — until the serpents loosen, slither away,
   and the brothers rise.
-- The battle turns: rakshasa chiefs ride out one after another and
+- The battle turns: rakshasa chiefs stride out one after another and
   fall — to **Rama**'s arrows, to **Hanuman**'s blows — the field
   before the walls strewn with Lanka's dead.
 
@@ -391,22 +391,23 @@ falls to Lakshman in a duel across the sky.
   inside a cloud, he shoots unseen, and monkeys fall in rows.
 - **Vibhishana** leads **Lakshman** and monkeys to the fire shrine;
   Indrajit is caught at his rite.
-- The duel: Indrajit shoots from his chariot in the sky, Lakshman from
-  the ground; arrows cross; Lakshman's arrow strikes him down.
+- The duel: Indrajit rises into the sky and shoots down, Lakshman
+  shoots from the ground; arrows cross; Lakshman's arrow strikes him
+  down.
 
 Must show: the fire rite before the cloud (his invisibility has a
 visible source, and losing the fire is losing it); Vibhishana leading
 the way — he knows Lanka. Not shown: the false Sita killed before
 Hanuman — an illusion reads as the real Sita or as a stranger, and
 either needs words; Ravana's grief at the news — the next chapter
-opens with him riding out.
+opens with him striding out.
 
 ## 16. The mountain of herbs
 
 Ravana's javelin fells Lakshman; Hanuman flies north and, rather than
 choose a herb, brings back the whole mountain.
 
-- **Ravana** rides out; his javelin strikes **Lakshman** down;
+- **Ravana** strides out; his javelin strikes **Lakshman** down;
   **Rama** holds him in his lap, and an old monkey healer points
   north.
 - **Hanuman** leaps north over sea and land; on the mountain of
@@ -423,16 +424,15 @@ side scene).
 
 ## 17. Ravana's fall
 
-The last duel, chariot against chariot: heads regrow until the one
+The last duel, face to face on the field: heads regrow until the one
 great arrow finds his chest, and the bow is laid down.
 
-- **Ravana** mounts his chariot, arms full of weapons; a charioteer
-  brings **Rama** a chariot; the chariots face each other, and arrows
-  cross.
+- **Ravana** strides out of Lanka, arms full of weapons; **Rama**
+  stands to meet him; arrows cross.
 - **Rama**'s arrow cuts off a head; a new head grows in its place.
 - Rama bends his bow full with one great arrow; it pierces
-  **Ravana**'s chest; he falls from the chariot. **Vibhishana** lights
-  the pyre; Rama lays down his bow.
+  **Ravana**'s chest; he falls. **Vibhishana** lights the pyre; Rama
+  lays down his bow.
 
 Must show: the regrowing head as a visible loop (cut off, grown back —
 why only the one great arrow, aimed at the chest, can end him); the
@@ -520,4 +520,8 @@ a second great bird reads as Jatayu back from the dead; the serpents
 simply slither away); Rama shooting away Ravana's crown and bow, and
 the bare-headed walk (13 — a detail too fine for wordless panels; the
 first battle instead ends in Lanka's champions fallen, which is why
-the giant is woken).
+the giant is woken); the war chariots and horses (13, 15–17 — nothing
+rides on the ground, artist 2026-11-08: the chiefs and Ravana stride
+out, Indrajit rises into the sky himself, the last duel is on foot;
+only the flying chariots remain — Ravana's, drawn by asses, 5–6, and
+the swan Pushpaka, 18).
