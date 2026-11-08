@@ -341,22 +341,26 @@ monkey); the squirrel helping (a later telling).
 
 ## 13. The war begins
 
-The first battle breaks against Indrajit's serpent arrows — until the
-serpents let go, and Rama sends Ravana home bare-headed.
+The first battle: the serpent arrows fail, and Lanka's champions fall
+one after another — the war starts going against Ravana.
 
 - Before Lanka's walls the armies meet: monkeys hurl rocks and trees,
   rakshasas fall in rows.
 - From a cloud, **Indrajit**'s serpent arrows bind **Rama** and
   **Lakshman**; they fall — until the serpents loosen, slither away,
   and the brothers rise.
-- **Rama**, on **Hanuman**'s shoulders, shoots away **Ravana**'s crown
-  and bow; Ravana walks back into Lanka bare-headed, head bowed.
+- The battle turns: rakshasa chiefs ride out one after another and
+  fall — to **Rama**'s arrows, to **Hanuman**'s blows — the field
+  before the walls strewn with Lanka's dead.
 
-Must show: the humbled walk is the chapter's last image. Not shown:
-Garuda freeing the brothers (a second great bird reads as Jatayu back
-from the dead — the serpents simply slither away); Sita shown the
-fallen brothers (a side scene); Ravana's javelin felling Lakshman (he
-falls once, in 16).
+Must show: the mounting deaths on Ravana's side — they are why the
+giant is woken in 14; the fallen field is the chapter's last image.
+Not shown: Garuda freeing the brothers (a second great bird reads as
+Jatayu back from the dead — the serpents simply slither away); Rama
+shooting away Ravana's crown and bow, and the bare-headed walk (a
+detail too fine for wordless panels); Sita shown the fallen brothers
+(a side scene); Ravana's javelin felling Lakshman (he falls once,
+in 16).
 
 ## 14. Kumbhakarna
 
@@ -462,9 +466,9 @@ Valmiki has them).
 - Tataka slain, Ahalya freed, Shabari, Kabandha: **no**
 - Surpanakha and Khara's army (ch 4): **yes**
 - Sita drops her jewels; Sugriva shows them to Rama (6, 7): **yes**
-- Rama on **Hanuman**'s shoulders over the bridge and in battle
-  (12, 13): **yes** (Valmiki); Hanuman carrying both princes up the
-  hill is Valmiki too but dropped in v0.6
+- Rama on **Hanuman**'s shoulders over the bridge (12): **yes**
+  (Valmiki); Hanuman carrying both princes up the hill is Valmiki too
+  but dropped in v0.6
 - Hanuman's tail set on fire (11): **yes**
 - The Ocean rising before Rama's bow and showing the way (12):
   **yes**, check Dutt (Valmiki has it)
@@ -513,4 +517,7 @@ chapter 16 opens with him riding out); the rakshasi queen mourning
 over Ravana (17 — a side scene); Ravana threatening Sita in the grove
 (10 — the guards are peril enough); Garuda freeing the brothers (13 —
 a second great bird reads as Jatayu back from the dead; the serpents
-simply slither away).
+simply slither away); Rama shooting away Ravana's crown and bow, and
+the bare-headed walk (13 — a detail too fine for wordless panels; the
+first battle instead ends in Lanka's champions fallen, which is why
+the giant is woken).
