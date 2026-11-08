@@ -50,6 +50,9 @@ body::before {
   background: var(--bg); padding-block: 10px 8px;
   display: grid; gap: 8px;
 }
+/* A short window: scrolling must reach the sliders, so the stage scrolls
+   away with the page instead of sticking over them */
+@media (max-height: 679px) { .stage { position: static; } }
 .stage-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 h1 { font-family: var(--font-display); font-size: 1.15rem; margin: 0; letter-spacing: -0.01em; }
 .stage-head .meta { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
