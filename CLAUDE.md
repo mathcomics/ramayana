@@ -105,8 +105,12 @@ renderer or panel changes.
   grieving at Indrajit's fall, the rakshasi queen mourning Ravana,
   plus the standalone Lanka-far opener bullets (the places table
   mandates openers). Earlier the same day: coronations lose the water
-  pouring (crown + umbrella only, both 8 and 18) and chapter 3's tally
-  marks become **season icons** (to be drawn) for the thirteen years.
+  pouring, then the umbrella too — the crown and the throne carry it
+  (Sugriva at Kishkindha's, Vibhishana at Lanka's, 8 / 18) — and
+  chapter 3's tally marks become **season icons** (to be drawn) for
+  the thirteen years. The story no longer closes on Ayodhya: chapter
+  18 ends with the two in the swan chariot **waving back at the
+  reader**.
   All motif numbers updated. `panels/08-*` now spans briefs 9–10.
   **Wanted from the panel side: a Kishkindha throne** for Sugriva's
   coronation (brief 8) — `throne-lanka` stays Ravana's; 07.12's

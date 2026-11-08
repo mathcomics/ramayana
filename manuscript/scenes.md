@@ -37,12 +37,12 @@ when the story comes back to a place, the same image returns.
 
 | Place | Image | Where |
 |---|---|---|
-| Ayodhya | the palace on the horizon | opens 1; closes 18, the chariot flying toward it |
+| Ayodhya | the palace on the horizon | opens 1 |
 | The hut | the forest hut from above | opens 3, 4 and 5's forest half; again in 5 with the line closed round it |
 | Lanka, far | the island across the sea | opens 5 and 12 |
 | Kishkindha | rocky hills on the horizon | opens 7 and 9; 8 stands before its gates, near |
 | The ashoka grove | **Sita** under a tree, rakshasis guarding her | first seen in 10, when Hanuman finds her — the reader discovers it with him; wrecked in 11 |
-| The Lanka throne | **Ravana** enthroned (the gold-backed Lanka throne, never Ayodhya's) | 5, 11, 12 |
+| The Lanka throne | **Ravana** enthroned (the gold-backed Lanka throne, never Ayodhya's) | 5, 11, 12; **Vibhishana** crowned at it, 18 |
 
 **Objects that travel.** Drawn the same every time they appear:
 
@@ -63,8 +63,9 @@ when the story comes back to a place, the same image returns.
 - The exile's gaze: **Rama**'s one look back at Ayodhya (2);
   **Sugriva** on his rock, gazing at the Kishkindha he is shut out
   of (7).
-- Two coronations: **Sugriva** crowned beneath the royal umbrella (8)
-  and **Vibhishana** the same (18) — same crown, same umbrella.
+- Two coronations: **Sugriva** crowned at Kishkindha's throne (8),
+  **Vibhishana** at Lanka's (18) — the same crown, each king at his
+  own throne.
 - Over the sea: **Hanuman** crosses it out in the leap (9) and home
   with the jewel (11), the army walks it on the bridge (12), and
   **Sita** flies home beside **Rama** (18) — her crossing away is
@@ -97,8 +98,7 @@ Ayodhya, the four princes growing up, and Rama wedded to Sita.
 - Older still, the four sit reading.
 - **Rama** and **Sita** exchange garlands; guests raise their arms.
 
-Must show: the palace opener exactly as it will return to close the
-story (18); the growing-up ladder (play, bow, books) reads as years
+Must show: the growing-up ladder (play, bow, books) reads as years
 passing. Not shown: the bow contest (dropped) — the wedding is one
 image.
 
@@ -244,9 +244,9 @@ hidden arrow decides it, and the crown changes heads.
   chest and roars; Bali comes out; **Rama** steps behind a tree.
 - The brothers grapple; from the tree Rama's arrow flies; Bali falls;
   monkeys crowd and mourn over him.
-- **Sugriva** stands crowned beneath the royal umbrella, at
-  Kishkindha's own throne (to be drawn — panel writer: not the
-  gold-backed Lanka throne, which is Ravana's continuity image).
+- **Sugriva** stands crowned at Kishkindha's own throne (to be
+  drawn — panel writer: not the gold-backed Lanka throne, which
+  stays Ravana's until Vibhishana is crowned at it in 18).
 
 Must show: the challenge as pure posture — feet planted, chest
 beaten, mouth wide, no parley; Rama shooting from hiding, exactly as
@@ -442,19 +442,22 @@ mourning (a side scene).
 
 ## 18. Return
 
-Fire gives Sita back, and the swan chariot carries them home to the
-palace of the first panel.
+Fire gives Sita back, and the swan chariot carries them home — waving
+to the reader.
 
-- The crowned **Vibhishana** beneath the umbrella — as Sugriva stood.
+- The crowned **Vibhishana** at the Lanka throne — as Sugriva stood at
+  his.
 - **Sita** stands before **Rama**; he looks away; she steps into the
   fire — and the fire god rises from the flames carrying her,
   unharmed; Rama embraces her.
-- The swan-drawn chariot flies them home; the palace of Ayodhya on the
-  horizon, as the story began.
+- The swan-drawn chariot flies them home; **Rama** and **Sita** wave
+  back at the reader.
 
-Must show: the coronation mirror (same crown, same umbrella); the palace
-exactly as in chapter 1's opener; Sita crossing the sea again, forward
-this time.
+Must show: the coronation mirror (the same crown, each king at his own
+throne — the Lanka throne here, whichever way the artist draws it);
+Sita crossing the sea again, forward this time; the wave to the reader
+is the story's last image. Not shown: Ayodhya's return — the story
+ends on the flight itself.
 
 **The story ends here.**
 
@@ -524,4 +527,7 @@ the giant is woken); the war chariots and horses (13, 15–17 — nothing
 rides on the ground, artist 2026-11-08: the chiefs and Ravana stride
 out, Indrajit rises into the sky himself, the last duel is on foot;
 only the flying chariots remain — Ravana's, drawn by asses, 5–6, and
-the swan Pushpaka, 18).
+the swan Pushpaka, 18); the royal umbrella at the coronations (8, 18 —
+the crown and the throne carry it); Ayodhya's return at the close
+(18 — the story ends on the flight itself, **Rama** and **Sita**
+waving back at the reader).
