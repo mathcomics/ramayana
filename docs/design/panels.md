@@ -107,13 +107,19 @@ repeated inside the JSON.
   `stand`, `stand-left`, `stand-right`: where a standing figure's feet
   rest (`on` with `#`, e.g. `"on": "kishkindha#stand"`; `ledge` and
   `kishkindha` have them).
-- Drawn so far: `palace`, `throne`, `golden-deer`, `golden-deer-run`,
+- Drawn so far: `palace`, `golden-deer`, `golden-deer-run`,
   `hut-top`, `trees-top`, `tree-top`, `lanka-island` (from the artist's
   scene layouts, `layouts/scenes/`), `vulture-fly`, `-swoop`, `-fall`,
-  `-stand` (from the artist's Jatayu sheet, `data/props/sheets/`),
+  `-stand`, `vulture-wing` (from the artist's Jatayu sheet,
+  `data/props/sheets/`), the thrones `throne-ayodhya` (dark, under the
+  red sun disc with a dark centre the gold crown reads against),
+  `throne-lanka` (gold-backed, Ravana's) and `throne-kishkindha` (gold
+  stupa dome on a dark post, Sugriva's coronation),
   `ledge`, `kishkindha` (rocky; seeded-random outlines, stand anchors),
-  `male-top` (the artist's standing man from above; recolours, see above). How to arrange them:
-  `docs/design/composition.md`.
+  the flowers `flower-droop`, `-white`, `-pink`, `-yellow`, `-orange`,
+  `lotus-bud`, `lotus-full`, `fire`, `vine`, and the top-view people
+  `male-top`, `male-top-back`, `female-top` (recolour, see above). How to
+  arrange them: `docs/design/composition.md`.
 
 ### Placement
 

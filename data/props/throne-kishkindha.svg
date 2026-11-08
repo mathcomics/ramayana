@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- The Kishkindha throne (Sugriva's coronation): a gold stupa dome on a dark post,
+     echoing the kishkindha palace, over dark seat and steps.
+     anchors: seat = where a seated figure's hips rest (figure "on": "throne-kishkindha").
+     100 px = 1 head-unit; the bottom edge sits on the ground line.
+     The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
+
+<svg
+   viewBox="0 0 545.11 733.7"
+   width="545.11"
+   height="733.7"
+   version="1.1"
+   id="svg1386"
+   sodipodi:docname="throne-kishkindha.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1390" />
+  <sodipodi:namedview
+     id="namedview1388"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.90978437"
+     inkscape:cx="211.5886"
+     inkscape:cy="322.60392"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="throne" />
+  <g
+     transform="scale(5.434783) translate(-124.32 -110.53)"
+     id="g1382">
+    <g
+       id="throne"
+       inkscape:label="throne"
+       transform="translate(0,56)">
+      <rect
+         style="fill:#28170b;stroke-width:0.999995"
+         id="rect6254-0-8"
+         width="69.406776"
+         height="3.9404249"
+         x="-145.05319"
+         y="171.69772"
+         transform="rotate(-90)" />
+      <path
+         id="path1040"
+         style="fill:#ffcc00;stroke-width:0.184"
+         d="m 141.66385,85.935086 h 62.18209 a 31.700597,18.4 0 0 0 -31.09321,-14.82098 31.700597,18.4 0 0 0 -31.08888,14.82098 z" />
+      <rect
+         style="fill:#28170b;stroke-width:0.999998"
+         id="rect6254"
+         width="46.144066"
+         height="24.788136"
+         x="149.11018"
+         y="134.61864" />
+      <rect
+         style="fill:#28170b;stroke-width:0.999998"
+         id="rect6254-0"
+         width="69.406776"
+         height="8.3898306"
+         x="138.24152"
+         y="160.93221" />
+      <rect
+         style="fill:#28170b;stroke-width:0.999998"
+         id="rect6254-0-1"
+         width="85.805077"
+         height="8.3898306"
+         x="130.42374"
+         y="171.22881" />
+      <rect
+         style="fill:#28170b;stroke-width:0.999998"
+         id="rect6254-0-4"
+         width="100.29661"
+         height="8.3898306"
+         x="124.32204"
+         y="181.14407" />
+    </g>
+  </g>
+  <g
+     id="anchors">
+    <circle
+       id="seat"
+       cx="262.66"
+       cy="569.95"
+       r="12"
+       fill="#e0457b" />
+  </g>
+</svg>

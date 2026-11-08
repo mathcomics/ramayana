@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A fire, the artist's drawing: red flame curls under yellow ones (the pact
+     fire 07.09; Lanka burns, scaled up, 11.08).
+     100 px = 1 head-unit; the drawing is the artist's, unchanged: the viewBox only crops to it. -->
+
+<svg
+   viewBox="151 386 100.00243 52.974892"
+   width="100.00243"
+   height="52.974892"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="fire.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="3.1786133"
+     inkscape:cx="26.269317"
+     inkscape:cy="69.999078"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <path
+     style="fill:#ffff00;stroke:none;stroke-width:4"
+     d="m 250.09982,402.8325 c -0.65853,2.37072 -32.96619,11.07106 -44.67357,-0.3146 C 192.41845,389.86755 151,403.46171 151,403.46171 l 99.72902,12.5841 c -25.8753,4.03558 -52.27913,7.30774 -85.5719,0.6292 0.50288,-2.01153 35.36652,-8.12799 44.67357,11.9549 6.498,14.02149 44.76236,13.45969 40.89833,0.31461"
+     id="path293"
+     sodipodi:nodetypes="cscccsc" />
+  <path
+     style="fill:#ff5555;stroke:none;stroke-width:4"
+     d="m 249.577,392.43112 c -0.36642,2.67373 -18.34309,12.48607 -24.85732,-0.35481 -7.23782,-14.26721 -30.28392,1.06444 -30.28392,1.06444 l 55.49134,14.1925 c -14.39757,4.55137 -29.08922,8.24175 -47.61401,0.70962 0.27981,-2.26863 19.67867,-9.16684 24.85731,13.48288 3.61563,15.8136 24.90672,15.17999 22.7567,0.35482"
+     id="path293-4"
+     sodipodi:nodetypes="cscccsc" />
+</svg>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A standing man seen from above and behind (top view, facing away), the
+     artist's drawing: head, back and shoulders, arms. For top-view panels;
+     any character by recolouring: body #a05a2c and cloth
+     #c8ab37 are swapped by the renderer (prop fields who / body / cloth);
+     held things (bow, begging bowl) are placed as their own top-view props.
+     Drawn in the throne template, scaled by the man seated on it.
+     100 px = 1 head-unit; the viewBox is tight around the figure.
+     The drawing is the artist's, unchanged: only placed and scaled. -->
+
+<svg
+   viewBox="245.5 236.4 97.1 75.9"
+   width="97.1"
+   height="75.9"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="male-top-back.svg"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.3915053"
+     inkscape:cx="-3.0741168"
+     inkscape:cy="75.258933"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="figure" /><defs
+     id="defs16" /><g
+     transform="scale(5.434783) translate(-124.32 -110.53)"
+     id="g8"><g
+       id="figure"
+       inkscape:label="figure"
+       transform="translate(0,56)"><path
+         style="fill:#a05a2c;fill-opacity:1;stroke-width:0.368"
+         d="m 185.99319,106.25778 c 0,0 0.36596,-5.23919 -0.0708,-5.66641 -0.43673,-0.42721 -1.36317,-0.718826 -1.36317,-0.718826 -1.19388,2.094576 -2.06507,4.279746 -1.33231,6.915226"
+         id="arm"
+         sodipodi:nodetypes="cscc" /><path
+         style="fill:#a05a2c;fill-opacity:1;stroke-width:2"
+         d="m 184.68389,98.042876 -0.32028,2.190154 1.65127,0.6546 1.32601,-2.065436"
+         id="arm-0"
+         sodipodi:nodetypes="cccc" /><path
+         style="fill:#c8ab37;stroke-width:0.368"
+         d="m 173.24845,110.831 c 5.25477,2.40715 7.91468,0.77405 10.70098,-2.3201"
+         id="path1678-8"
+         sodipodi:nodetypes="cc" /><path
+         style="fill:#a05a2c;stroke-width:0.368"
+         d="m 184.85598,108.78605 c -4.12156,1.96105 -8.72614,2.47307 -13.39878,2.78088 -1.91403,-0.54309 -2.26605,-1.97037 -1.74757,-3.50421 l 7.05652,-5.14179 9.30331,2.98312 c 0.0251,1.12175 -0.34496,2.09534 -1.21348,2.882 z"
+         id="body"
+         sodipodi:nodetypes="cccccc" /><circle
+         style="fill:#241f1c;stroke-width:0.368"
+         id="head"
+         cx="-176.88072"
+         cy="-103.62233"
+         r="3.6799998"
+         transform="scale(-1)" /></g></g></svg>

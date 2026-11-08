@@ -165,8 +165,14 @@
     },
     "fire": {
       "size": [
-        1.4,
-        1.4
+        1,
+        0.53
+      ]
+    },
+    "vine": {
+      "size": [
+        0.5,
+        2.08
       ]
     },
     "tree-uprooted": {
@@ -247,6 +253,12 @@
         7.34
       ]
     },
+    "throne-kishkindha": {
+      "size": [
+        5.45,
+        7.34
+      ]
+    },
     "flower-droop": {
       "size": [
         1.11,
@@ -309,8 +321,28 @@
     },
     "male-top": {
       "size": [
-        1.1,
+        1.11,
+        0.77
+      ],
+      "recolor": {
+        "body": "#a05a2c",
+        "cloth": "#c8ab37"
+      }
+    },
+    "male-top-back": {
+      "size": [
+        0.97,
         0.76
+      ],
+      "recolor": {
+        "body": "#a05a2c",
+        "cloth": "#c8ab37"
+      }
+    },
+    "female-top": {
+      "size": [
+        1.06,
+        0.8
       ],
       "recolor": {
         "body": "#a05a2c",

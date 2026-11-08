@@ -52,6 +52,12 @@ action. The same opener can return when the story comes back to a place.
 - The throne sits a row behind the people talking in front of it (`row:
   "mid"`), so it reads as the room's centre, not as one of them.
 - Watch the colours: a gold crown disappears against the gold throne back.
+  The redrawn `throne-ayodhya` (2026-11-08) is dark with a dark centre in
+  its red sun disc for exactly this: the king's gold crown reads against
+  it. Three thrones now: `throne-ayodhya`, `throne-lanka` (Ravana's,
+  gold-backed) and `throne-kishkindha` (gold stupa dome echoing the
+  `kishkindha` palace — Sugriva's coronation; ends `throne-lanka`'s
+  stand-in use there when the chapter is revisited).
 
 ## Top view
 
@@ -62,7 +68,9 @@ action. The same opener can return when the story comes back to a place.
 - Top-view props are drawn obliquely (roof and one wall, tree canopy above
   its trunk); place them with `lift` (the rows mean little from above).
 - People from above: `male-top` (the artist's standing man — head,
-  shoulders, one arm out, feet). One drawing serves everyone: recolour an
+  shoulders, arms, feet), `male-top-back` (the same man seen from
+  behind, facing away) and `female-top` (the woman, her hair showing).
+  One drawing serves everyone: recolour an
   instance with `who` (a character id) or `body` / `cloth`
   (docs/design/panels.md, Recolouring). Held things (bow, begging bowl)
   will be separate top-view props placed beside it — not drawn yet.

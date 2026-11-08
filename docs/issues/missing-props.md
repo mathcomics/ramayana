@@ -15,7 +15,6 @@ box from `data/props.json`. Held props (sword, club, bow) live in
 | cave | 04.09 |
 | chariot | 05.20, 05.21, 06.01, 06.02, 06.03, 06.04, 06.06 |
 | deer | 03.04 |
-| fire | 07.09, 11.08 |
 | giant-fingers | 14.05 |
 | golden-deer-fallen | 05.12 |
 | hills | 08.01 |
@@ -80,4 +79,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-flower-yellow, forest-ridge, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, palace, throne-ayodhya, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop
+fire, flower-yellow, forest-ridge, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, palace, throne-ayodhya, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop

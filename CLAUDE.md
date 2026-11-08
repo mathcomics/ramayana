@@ -97,7 +97,25 @@ renderer or panel changes.
 
 ## Status (2026-11-08)
 
-- **Chapter 9 split; whole book on the 2–3-beat rule; 18 chapters
+- **Artist props: three thrones, fire, vine, top-view people
+  (2026-11-08):** the two throne files arrived cross-saved (each file's
+  comment and docname described the other) and were swapped back.
+  `throne-ayodhya` redrawn: dark seat and steps, and a dark centre in the
+  red sun disc so the seated king's gold crown reads against it (checked
+  in 02.02–02.03). New **`throne-kishkindha`** — the wanted
+  Sugriva-coronation throne: gold stupa dome on a dark post, echoing the
+  `kishkindha` palace; 07.20 still shows the `throne-lanka` stand-in
+  until the chapter revisit. `throne-lanka` itself unchanged. New drawn
+  **`fire`** (1 × 0.53, replaces the placeholder box in 07.09 and 11.08;
+  11.08's wish for figure-high frieze flames stands), **`vine`**
+  (0.5 × 2.08, flowering, grove dressing), **`female-top`** and
+  **`male-top-back`** (top views; recolour like `male-top`). `male-top`
+  gained its second forearm; all three top-view viewBoxes re-measured
+  exactly and tightened. props.json entries added (a drawing only loads
+  if registered), stale copied comments fixed, docs (panels.md Drawn so
+  far, composition.md Top view / Throne and hall) updated, missing-props
+  regenerated, snapshot updated after looking at the 8 changed renders,
+  panel lab republished.
   (2026-11-08):** scenes.md v0.7 — old 9 split into **9 "The leap"**
   (search sent out + ring given, the hopeless shore, the leap) and
   **10 "The ring"** (night wall, the grove found — Ravana's threat
