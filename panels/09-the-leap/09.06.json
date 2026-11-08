@@ -1,35 +1,40 @@
 {
-  "scene": "The search: over the mountains",
-  "size": 0.3,
-  "ground": "off-white",
-  "zoom": 0.55,
+  "scene": "The search: over the mountains, the other way",
+  "size": 0.5,
+  "ground": "stone-grey",
+  "sky": "sky",
+  "horizon": 0.25,
   "figures": [
     {
       "prop": "mountain",
-      "at": 0.5,
-      "scale": 0.55
+      "at": 0.6,
+      "row": "horizon",
+      "scale": 1.5
     },
     {
       "character": "monkey1",
-      "pose": "runlow-pumplow",
-      "facing": "right",
+      "pose": "pass-swing",
+      "facing": "left",
       "at": 0.2,
+      "row": "horizon",
       "mouth": 1
     },
     {
       "character": "monkey1",
-      "pose": "leap-reach",
-      "facing": "right",
-      "at": 0.45,
-      "lift": 2.4,
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.36,
+      "row": "horizon",
+      "cloth": "white",
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.8,
+      "row": "horizon",
       "cloth": "red",
-      "mouth": 1
-    },
-    {
-      "character": "monkey1",
-      "pose": "run-pump",
-      "facing": "right",
-      "at": 0.78,
       "mouth": 1
     }
   ],

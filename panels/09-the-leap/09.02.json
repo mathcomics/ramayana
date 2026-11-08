@@ -3,10 +3,47 @@
   "size": 0.5,
   "ground": "off-white",
   "figures": [
-    { "character": "monkey1", "pose": "walk-swing", "facing": "left", "at": 0.12, "mouth": 1 },
-    { "character": "monkey1", "pose": "pass-swing", "facing": "left", "at": 0.3, "cloth": "red", "mouth": 1 },
-    { "character": "sugriva", "pose": "step-point", "facing": "right", "at": 0.52, "mouth": 2 },
-    { "character": "monkey1", "pose": "pass-swing", "facing": "right", "at": 0.76, "mouth": 1 },
-    { "character": "monkey1", "pose": "walk-swing", "facing": "right", "at": 0.92, "cloth": "white", "mouth": 1 }
+    {
+      "prop": "throne-kishkindha",
+      "at": 0.52,
+      "row": "mid"
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.12,
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.3,
+      "cloth": "red",
+      "mouth": 1
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-point",
+      "facing": "right",
+      "at": 0.52,
+      "mouth": 2
+    },
+    {
+      "character": "monkey1",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.76,
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.92,
+      "cloth": "white",
+      "mouth": 1
+    }
   ]
 }

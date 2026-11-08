@@ -1,40 +1,45 @@
 {
-  "scene": "The search: a band of monkeys crosses the forest",
-  "size": 0.3,
-  "ground": "off-white",
-  "zoom": 0.55,
+  "scene": "The search: a band crosses the forest",
+  "size": 0.5,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "horizon": 0.25,
   "figures": [
     {
       "prop": "tree",
-      "at": 0.2,
-      "scale": 0.8
+      "at": 0.14,
+      "row": "horizon",
+      "scale": 1.4
     },
     {
       "prop": "tree",
-      "at": 0.85,
-      "scale": 0.9
+      "at": 0.88,
+      "row": "horizon",
+      "scale": 1.6
     },
     {
       "character": "monkey1",
-      "pose": "run-pump",
+      "pose": "walk-swing",
       "facing": "right",
-      "at": 0.38,
+      "at": 0.34,
+      "row": "horizon",
       "mouth": 1
     },
     {
       "character": "monkey1",
-      "pose": "runwide-hang",
+      "pose": "pass-swing",
       "facing": "right",
-      "at": 0.55,
+      "at": 0.5,
+      "row": "horizon",
       "cloth": "red",
       "mouth": 1
     },
     {
       "character": "monkey1",
-      "pose": "leap-reach",
+      "pose": "walk-swing",
       "facing": "right",
-      "at": 0.7,
-      "lift": 0.8,
+      "at": 0.66,
+      "row": "horizon",
       "mouth": 1
     }
   ],

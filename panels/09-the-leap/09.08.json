@@ -1,13 +1,26 @@
 {
-  "scene": "From above: the land runs out — monkeys at the water's edge, the sea below",
-  "tags": ["travel", "topview"],
-  "size": 0.75,
+  "scene": "The search: the dry plain, emptier",
+  "size": 0.5,
   "ground": "sand",
+  "sky": "sky",
+  "horizon": 0.25,
   "figures": [
-    { "prop": "monkey-top", "character": "monkey1", "at": 0.3, "lift": 8.4, "scale": 0.9 },
-    { "prop": "monkey-top", "character": "monkey1", "at": 0.4, "lift": 9.4, "scale": 0.9 },
-    { "prop": "monkey-top", "character": "monkey1", "cloth": "red", "at": 0.5, "lift": 8.2, "scale": 0.9 },
-    { "prop": "monkey-top", "character": "hanuman", "at": 0.8, "lift": 4.4, "scale": 1 },
-    { "prop": "wave-top", "at": 0.5, "row": "floor" }
+    {
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.3,
+      "row": "horizon",
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.72,
+      "row": "horizon",
+      "cloth": "red",
+      "mouth": 1
+    }
   ]
 }

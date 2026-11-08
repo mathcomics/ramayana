@@ -1,22 +1,38 @@
 {
-  "scene": "The search: the dry plain, emptier",
-  "size": 0.3,
-  "ground": "sand",
-  "zoom": 0.55,
+  "scene": "The search comes on toward the reader, over a fold of ground",
+  "size": 0.5,
+  "ground": "off-white",
   "figures": [
     {
       "character": "monkey1",
-      "pose": "run-pump",
-      "facing": "right",
-      "at": 0.3,
+      "pose": "pass-swing",
+      "view": "front",
+      "at": 0.66,
+      "scale": 0.6,
+      "cloth": "white",
       "mouth": 1
     },
     {
       "character": "monkey1",
-      "pose": "runwide-hang",
-      "facing": "right",
-      "at": 0.75,
+      "pose": "walk-swing",
+      "view": "front",
+      "at": 0.46,
+      "scale": 0.8,
       "cloth": "red",
+      "mouth": 1
+    },
+    {
+      "prop": "forest-ridge",
+      "at": 0.5,
+      "row": "floor"
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "view": "front",
+      "at": 0.28,
+      "scale": 1.05,
+      "lift": 0.35,
       "mouth": 1
     }
   ]
