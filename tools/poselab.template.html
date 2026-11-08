@@ -66,6 +66,9 @@ h1 { font-family: var(--font-display); font-size: 1.15rem; margin: 0; letter-spa
 .paper svg { display: block; width: 100%; height: 100%; }
 #big { touch-action: none; }
 #big .jdot { cursor: pointer; }
+.gallerycol { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 6px; min-width: 0; }
+.gtoggles { display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 2px 0; }
+.gtoggles .seg button { padding: 3px 8px; font-size: 11.5px; }
 .gallery {
   overflow-y: auto; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
   gap: 6px; align-content: start; padding: 2px;
@@ -185,7 +188,19 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
         <button type="button" class="jtoggle" id="jtoggle" aria-pressed="true" title="Show or hide the joint handles">Joints</button>
         <button type="button" class="jtoggle" id="pintoggle" aria-pressed="true" title="Keep feet that touch the ground in place while dragging lean or chest (re-solves their hips and knees)">Pin feet</button>
       </div>
-      <div class="gallery" id="gallery" role="listbox" aria-label="Poses"></div>
+      <div class="gallerycol">
+        <div class="gtoggles">
+          <div class="seg" id="gview" role="group" aria-label="Thumbnail view">
+            <button type="button" data-v="side" aria-pressed="true" title="Thumbnails in side view (as edited)">Side</button>
+            <button type="button" data-v="front" aria-pressed="false" title="Thumbnails in the derived front view">Front</button>
+          </div>
+          <div class="seg" id="gsort" role="group" aria-label="Sort poses">
+            <button type="button" data-v="base" aria-pressed="true" title="Group poses by their base (lower body)">By base</button>
+            <button type="button" data-v="gesture" aria-pressed="false" title="Group poses by their gesture (upper body)">By gesture</button>
+          </div>
+        </div>
+        <div class="gallery" id="gallery" role="listbox" aria-label="Poses"></div>
+      </div>
     </div>
     <div class="posebar pose-only">
       <div class="pick">
@@ -272,6 +287,8 @@ const INDEX = /*__INDEX__*/;
     character: (CAST.characters.find((c) => c.species === 'monkey') || CAST.characters[0]).id,
     saved: [],
     dirty: false,
+    galleryView: 'side',
+    gallerySort: 'base',
   };
   const $ = (id) => document.getElementById(id);
   let db = null;
@@ -501,6 +518,21 @@ const INDEX = /*__INDEX__*/;
     try { localStorage.setItem('poselab-joints', state.showJ ? 'on' : 'off'); } catch {}
     draw();
   });
+  // gallery toggles: thumbnail view (side / front) and sort (by base /
+  // by gesture), remembered per browser
+  try { if (localStorage.getItem('poselab-gview') === 'front') state.galleryView = 'front'; } catch {}
+  try { if (localStorage.getItem('poselab-gsort') === 'gesture') state.gallerySort = 'gesture'; } catch {}
+  for (const [id, key, store] of [['gview', 'galleryView', 'poselab-gview'], ['gsort', 'gallerySort', 'poselab-gsort']]) {
+    const el = $(id);
+    const sync = () => { for (const b of el.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.v === state[key])); };
+    sync();
+    el.addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b || b.dataset.v === state[key]) return;
+      state[key] = b.dataset.v; sync();
+      try { localStorage.setItem(store, state[key]); } catch {}
+      renderGallery();
+    });
+  }
   {
     const big = $('big');
     big.addEventListener('pointerdown', (e) => {
@@ -690,14 +722,20 @@ const INDEX = /*__INDEX__*/;
   // ---------- gallery: every pose as a thumbnail; tap to edit it
   function thumbSvg(pose) {
     const L = look();
-    const r = renderFigure(SPECIES[L.species], pose, { ...L, x: 0, y: 0, scale: 1, facing: state.facing });
+    const r = renderFigure(SPECIES[L.species], pose, { ...L, x: 0, y: 0, scale: 1, facing: state.facing, view: state.galleryView });
     const b = r.bbox, w = b.x1 - b.x0, h = b.y1 - b.y0, side = Math.max(w, h) + 0.6;
     const cx = (b.x0 + b.x1) / 2 * state.facing, cy = (b.y0 + b.y1) / 2;
     return `<svg viewBox="${cx - side / 2} ${cy - side / 2} ${side} ${side}" aria-hidden="true">${r.svg}</svg>`;
   }
   function renderGallery() {
     const host = $('gallery'); host.innerHTML = '';
-    for (const { pose } of allPoses()) {
+    // sort by base (the alphabetical composite order) or by gesture: the
+    // chosen half first, so its families sit together
+    const key = state.gallerySort === 'gesture'
+      ? (n) => `${gestNameOf(n)} ${baseNameOf(n)}`
+      : (n) => `${baseNameOf(n)} ${gestNameOf(n)}`;
+    const list = [...allPoses()].sort((a, b) => key(a.pose.name).localeCompare(key(b.pose.name)));
+    for (const { pose } of list) {
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'thumb'; b.setAttribute('role', 'option');
       b.dataset.name = pose.name;
