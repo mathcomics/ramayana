@@ -265,14 +265,17 @@ The search sent out narrows to one monkey, and the sea to one leap.
 
 - **Sugriva** sends monkeys running in four directions; **Rama**
   gives **Hanuman** his ring.
-- At the shore the monkeys sit hopeless before the sea; Hanuman
-  stands up among them.
+- The search travels: bands of monkeys cross forests, mountains, dry
+  plains — one landscape per panel, the figures small — until the
+  land runs out at the ocean, and they sit hopeless before the sea;
+  **Hanuman** stands up among them.
 - He crouches on a mountaintop and leaps — across the whole sky, the
   ocean far below.
 
 Must show: the ring passing from Rama's hand to Hanuman's (it reaches
-Sita in 10); the hopeless shore (it returns before the bridge in 12);
-the leap using the sky's full height.
+Sita in 10); the search as a run of landscapes, the world growing
+emptier until only water is left; the hopeless shore (it returns
+before the bridge in 12); the leap using the sky's full height.
 
 ## 10. The ring
 
