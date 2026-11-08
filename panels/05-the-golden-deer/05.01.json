@@ -3,7 +3,6 @@
   "size": 0.5,
   "ground": "sea",
   "sky": "mist",
-  "layout": "scenes/0.5-lanka",
   "figures": [
     {
       "prop": "lanka-island",

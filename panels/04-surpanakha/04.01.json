@@ -2,7 +2,6 @@
   "scene": "Opening: the forest hut from above (as 03.01), before Surpanakha comes",
   "size": 0.5,
   "ground": "sage",
-  "layout": "scenes/0.5-forest",
   "figures": [
     {
       "prop": "trees-top",

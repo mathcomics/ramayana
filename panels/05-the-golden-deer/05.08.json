@@ -3,7 +3,6 @@
   "size": 0.5,
   "ground": "dark-green",
   "sky": "sky",
-  "layout": "scenes/0.5-deer",
   "shot": "wide",
   "figures": [
     {

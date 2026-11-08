@@ -17,13 +17,12 @@ export const SLOTS = { left: 0.14, 'center-left': 0.32, center: 0.5, 'center-rig
 // ground = height of the ground line above the panel's bottom edge, as a
 // share of the panel height.
 //
-// A panel's `shot` picks a set of rows (from the artist's layouts in
-// layouts/<size>-<shot>.svg; docs/design/panels.md):
+// A panel's `shot` picks a set of rows (measured from the artist's layout
+// drawings, folder retired — panels/layouts.md; docs/design/panels.md):
 // - far:  small figures, deep rows (the default)
-// - wide: whole figures, bigger, rows close together (layouts/0.75-wide.svg)
+// - wide: whole figures, bigger, rows close together
 // - mid:  close; the front row is cut at the thighs, the ground lines are
 //         below the panel (negative), the panel crops the figures
-//         (layouts/0.75-mid.svg)
 export const SHOTS = {
   far: {
     front: { unit: 46, ground: 0.03 },

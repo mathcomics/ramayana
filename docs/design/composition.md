@@ -1,8 +1,10 @@
 # Composition
 
 How things are arranged in a panel, learned from the artist's scene
-layouts (`layouts/scenes/`, indexed in its README). Each new layout adds
-what it teaches here. Rows, shots and sizes: `docs/design/panels.md`.
+layouts (the folder is retired: `panels/layouts.md` maps each one to the
+model panels that embody it; approved reference panels — `tags` — carry
+composition now). A new composition the artist approves adds what it
+teaches here. Rows, shots and sizes: `docs/design/panels.md`.
 
 ## Chapter openers
 
@@ -15,7 +17,7 @@ action. The same opener can return when the story comes back to a place.
 | 2 The throne | the throne of Ayodhya, empty, in its hall (02.01) | done |
 | 3 The forest | the forest hut from above (03.01) | done |
 | 4 Surpanakha | the forest hut from above again (04.01), before she comes | done |
-| 5 The golden deer | Lanka on its island across the sea (05.01, `0.5-lanka`); then Surpanakha before Ravana (05.02) | done |
+| 5 The golden deer | Lanka on its island across the sea (05.01); then Surpanakha before Ravana (05.02) | done |
 | 6 Jatayu | — | to choose |
 | 7 Sugriva | Kishkindha on the horizon, sky above (07.01, the drawn `kishkindha`) | done |
 | 8 Bali | Kishkindha's gates, near (08.01) | done |
@@ -29,18 +31,17 @@ action. The same opener can return when the story comes back to a place.
 - An outdoor panel can have a band of sky: panel field `sky` (a colour
   name from `data/grounds.json`, e.g. `sky`) above the horizon. The
   horizon sits a little above a third of the way up (`horizon`, default
-  0.37 of the panel height above the bottom edge). (0.5-deer,
-  0.5-deer-running)
+  0.37 of the panel height above the bottom edge). (05.08, 05.10)
 - Something far away stands on the horizon and is small: `row: "horizon"`
   (16 px per head-unit in a 0.75 panel; `scale` brings it nearer).
 - Distance needs nothing in between: the horizon and the size do the work.
   An empty ground with a small figure at its edge reads as "far away" and
-  "getting away". (0.5-deer-running)
+  "getting away". (05.10)
 - A big figure close in front, cut by the panel's edge, with the subject
-  small and far: the reader looks with the figure. (0.5-deer)
+  small and far: the reader looks with the figure. (05.08)
 
 - A place far away is a small prop on the horizon with nothing else: the
-  sea and the sky are the panel (0.5-lanka; `lanka-island` on row
+  sea and the sky are the panel (05.01: `lanka-island` on row
   `horizon` is as drawn in a 0.5 panel, with `palace-lanka` stood small
   on its `stand` anchor — `"on": "lanka-island#stand"`, scale 0.5).
 
@@ -51,7 +52,7 @@ action. The same opener can return when the story comes back to a place.
   lab save, merged 2026-11-07; it works front view and in profile, and the
   throne drawing reads front-on too: 05.02–05.03). Courtiers stand at
   different depths on either side: one small (further back), one bigger
-  (nearer). (0.5-lanka-throne)
+  (nearer). (05.02–05.03)
 - The throne sits a row behind the people talking in front of it (`row:
   "mid"`), so it reads as the room's centre, not as one of them.
 - Watch the colours: a gold crown disappears against the gold throne back;
@@ -68,7 +69,7 @@ action. The same opener can return when the story comes back to a place.
 - The establishing view of a place: no horizon, no sky, the ground fills
   the panel. The main building in the middle, small; clumps of trees in
   opposite corners frame it, leaving the other two corners open.
-  (0.5-forest)
+  (03.01)
 - Top-view props are drawn obliquely (roof and one wall, tree canopy above
   its trunk); place them with `lift` (the rows mean little from above).
 - People from above: `male-top` (the artist's standing man — head,

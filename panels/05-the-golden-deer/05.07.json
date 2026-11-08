@@ -2,7 +2,6 @@
   "scene": "Back in the forest: the hut from above (as 03.01), all quiet",
   "size": 0.5,
   "ground": "sage",
-  "layout": "scenes/0.5-forest",
   "figures": [
     {
       "prop": "trees-top",

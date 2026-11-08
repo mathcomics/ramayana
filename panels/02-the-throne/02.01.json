@@ -2,7 +2,6 @@
   "scene": "Opening: the throne of Ayodhya, empty, in its hall",
   "size": 0.5,
   "ground": "dusty-pink",
-  "layout": "scenes/0.5-lanka-throne",
   "figures": [
     {
       "prop": "throne-ayodhya",

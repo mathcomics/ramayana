@@ -2,7 +2,6 @@
   "scene": "From above: the line closed round the hut; Lakshman gone into the trees",
   "size": 0.5,
   "ground": "sage",
-  "layout": "scenes/0.5-forest",
   "figures": [
     {
       "prop": "trees-top",

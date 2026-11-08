@@ -5,8 +5,9 @@ definitions here.
 
 **Read first:** `docs/design/panel-writing.md` (the checklist and the
 artist's lessons — binding). The language: `docs/design/panels.md`;
-arranging: `docs/design/composition.md` + `layouts/scenes/README.md`;
-poses: `docs/design/pose-picking.md`.
+arranging: `docs/design/composition.md` + the tagged reference panels
+(`panels/layouts.md` maps the retired artist layouts to their model
+panels); poses: `docs/design/pose-picking.md`.
 
 **You own** panel ids, sizes, shots, order and composition. The
 manuscript owns story, canon and cast naming.

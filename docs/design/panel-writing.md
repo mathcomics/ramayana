@@ -15,9 +15,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
    at the top** (returning places, travelling objects, mirrors) — and
    the cast in `data/characters.json` (who is who: below).
 2. `node tools/pose-gaps.mjs --scenes NN`: candidate poses per beat.
-3. Look in `layouts/scenes/README.md` for a layout of the same kind
-   (a far place, a throne, a top view, something seen far off) and follow
-   it; name it in the panel's `layout` field.
+3. For a scene of a known kind (a far place, a throne, a top view,
+   something seen far off) follow the model panels in `panels/layouts.md`
+   and its section in `composition.md`.
 4. Check the chapter opener (`composition.md`, Chapter openers).
 5. Look for **approved reference panels** whose `tags` cover the
    chapter's kinds of scene, and follow their composition:
@@ -42,8 +42,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   or 0.3. Never 1 (too tall). The manuscript's "full" means at most 0.75,
   and only if it earns the height.
 - **Shot**: `far` by default; `wide` for bigger whole figures, `mid` for
-  close (front row cut at the thighs). Layout templates:
-  `layouts/<size>-<shot>.svg`.
+  close (front row cut at the thighs).
 - **Backgrounds are light** (artist, 2026-11-08): `off-white` (light
   beige), `light-grey`, even `white`. Green grounds only for top views
   (03.01) and the land strip under a `sky` horizon (05.10's dry-grass);

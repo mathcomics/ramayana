@@ -4,7 +4,6 @@
   "ground": "sand",
   "sky": "sky",
   "horizon": 0.4,
-  "layout": "scenes/0.5-lanka",
   "figures": [
     {
       "prop": "kishkindha",

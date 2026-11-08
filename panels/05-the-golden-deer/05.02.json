@@ -2,7 +2,6 @@
   "scene": "Lanka: Ravana on his throne, from the front, far",
   "size": 0.5,
   "ground": "geru",
-  "layout": "scenes/0.5-lanka-throne",
   "figures": [
     {
       "prop": "throne-lanka",

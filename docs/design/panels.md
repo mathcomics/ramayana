@@ -52,10 +52,9 @@ repeated inside the JSON.
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. |
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
-| `layout` | `scenes/<name>` | The scene layout the panel follows (`layouts/scenes/`), for reference only. |
 | `tags` | list of words (`panic`, `crowd`, `flee`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
 | `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.45). |
-| `shot` | `far` · `wide` · `mid` | Which rows (below). Default `far`. Layouts: `layouts/<size>-<shot>.svg`. |
+| `shot` | `far` · `wide` · `mid` | Which rows (below). Default `far`. |
 | `figures` | one list of figures **and** props | An entry with `character` is a figure, with `prop` a prop. **One overlap rule: later entries draw over earlier ones** — a prop before the figures is scenery, after them a foreground that hides them (03.02's ridge), and props and figures interleave freely. (The old separate `props` list with `layer` back/front still renders, folded in around the figures — old lab drafts only; migrate on merge.) |
 | `needs` | list of text | Missing poses, props, art. Collected into the to-do list. |
 | `background` | file name | Optional; default `<id>.svg` next to the JSON. |
@@ -161,8 +160,9 @@ its bottom, negative = below it, so the panel crops the figures):
 | `wide` | 55.2 · 0.031 | 40.8 · 0.085 | 28.8 · 0.136 |
 | `mid` | 110.4 · −0.735 | 81.6 · −0.568 | 57.6 · −0.429 |
 
-`wide` and `mid` are measured from the artist's layouts `layouts/0.75-wide.svg`
-and `0.75-mid.svg` (the `mid` back row is extrapolated from the other two).
+`wide` and `mid` were measured from the artist's own layout drawings (the
+retired `layouts/` folder: `panels/layouts.md`, which also says how to
+measure a new shot; the `mid` back row is extrapolated from the other two).
 
 ## Background SVG
 

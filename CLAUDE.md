@@ -31,9 +31,10 @@ scene spec (JSON) → layout → figure geometry → SVG
   checklist, the artist's directions and review lessons. When the artist
   corrects a panel or a review finds a mistake, add the lesson there in
   the same commit.
-- `docs/design/composition.md` + `layouts/scenes/` — how panels are
-  arranged (chapter openers, sky and horizon, throne, top view), from the
-  artist's scene layouts.
+- `docs/design/composition.md` — how panels are arranged (chapter
+  openers, sky and horizon, throne, top view), from the artist's scene
+  layouts (folder retired 2026-11-08; `panels/layouts.md` maps each
+  layout to its model panels).
 - **Approved reference panels** — panels carrying `tags` (e.g. `panic`,
   `crowd`, `giant`): artist-reviewed models that output is judged
   against; locked without the artist's consent (`docs/design/panels.md`,
@@ -48,7 +49,6 @@ scene spec (JSON) → layout → figure geometry → SVG
     test/        npm test (node:test): unit, data integrity, render snapshot
     manuscript/  story text and scene breakdown (own README)
     panels/      panel definitions, one folder per section
-    layouts/     templates for sketching panel layouts (page + figures for scale)
     out/, _site/ generated (not committed)
 
 ## Conventions
@@ -88,7 +88,6 @@ Saved poses are reviewed and then merged into `data/poses.json`.
     node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
     node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
-    node tools/layout-template.mjs 0.5 wide        # layouts/0.5-wide.svg (size: 0.75, 0.5, 0.3; shot: far, wide, mid)
 
 Panel lab (published artifact, drafts in its database, collection
 `panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
