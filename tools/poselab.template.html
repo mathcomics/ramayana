@@ -511,7 +511,7 @@ const INDEX = /*__INDEX__*/;
         if (r > RING - 0.25 && r < RING + 0.25) {                       // on the ring or its knob: turn
           state.drag = true; state.holdAt = p; big.setPointerCapture(e.pointerId);
           startPin(sel);
-          solveTo(sel, pointerAng(sel, m)); settleFeet(); markDirty(); if (LOWER_PATH(sel.path)) captureLower(); draw(); e.preventDefault(); return;
+          solveTo(sel, pointerAng(sel, m)); settleFeet(); markDirty(); if (LOWER_PATH(sel.path)) captureLower(); else if (UPPER_PATH(sel.path)) captureUpper(); draw(); e.preventDefault(); return;
         }
       }
       // a dot: select it (tapping again where two dots meet picks the other)
@@ -529,7 +529,7 @@ const INDEX = /*__INDEX__*/;
     big.addEventListener('pointermove', (e) => {
       if (!state.drag || !state.sel) return;
       const m = picPoint(e); if (!m) return;
-      solveTo(state.sel, pointerAng(state.sel, m)); settleFeet(); markDirty(); if (LOWER_PATH(state.sel.path)) captureLower(); draw();
+      solveTo(state.sel, pointerAng(state.sel, m)); settleFeet(); markDirty(); if (LOWER_PATH(state.sel.path)) captureLower(); else if (UPPER_PATH(state.sel.path)) captureUpper(); draw();
     });
     const end = () => { if (state.drag) { state.drag = false; state.holdAt = null; state.pin = null; syncControls(); draw(); } };
     big.addEventListener('pointerup', end);
@@ -568,7 +568,7 @@ const INDEX = /*__INDEX__*/;
           set(state.pose, rp(path), v);
           out.textContent = step < 1 ? v.toFixed(2) : v + '°';
           markDirty();
-          if (LOWER_PATH(rp(path))) captureLower();
+          if (LOWER_PATH(rp(path))) captureLower(); else if (UPPER_PATH(rp(path))) captureUpper();
           draw();
         });
         row._sync = () => {
@@ -625,14 +625,17 @@ const INDEX = /*__INDEX__*/;
   }
   function setStatus(t) { $('status').textContent = t; }
 
-  // ---------- shared bases (decided 2026-11-07): the lower body (legs,
-  // lean, tail) belongs to the BASE, not the pose — no per-pose
-  // deviations while the bases are being refined. Editing it on any pose
-  // updates the session's base, and every pose of that base loads with
-  // it. A gesture's own lean (a bow) still adds on top, with the base's
-  // planted feet kept by the leg solve. Saves hold whole poses as
-  // always; merging spreads a changed base with recompose.
+  // ---------- shared bases and gestures (decided 2026-11-07 / 08): the
+  // lower body (legs, lean, tail) belongs to the BASE and the upper body
+  // (arms, chest) to the GESTURE, not the pose — no per-pose deviations
+  // while they are being refined. Editing either half on any pose updates
+  // the session's base / gesture, and every pose of that family loads
+  // with it. Gaze (neck, head), mouth, turn stay the pose's own (as in
+  // recompose). A gesture's own lean (a bow) still adds on top, with the
+  // base's planted feet kept by the leg solve. Saves hold whole poses as
+  // always; merging spreads a changed base or gesture with recompose.
   state.baseEdit = {};                      // base -> { lean, tail, legs }
+  state.gestEdit = {};                      // gesture -> { chest, arms }
   const baseNameOf = (n) => coordOf('bases', n) || n.split('-')[0];
   const gestLeanOf = (n) => INDEX.gestures[coordOf('gestures', n) || n.split('-').slice(1).join('-')]?.lean ?? 0;
   const LOWER_PATH = (path) => /(^|\.)leg\.|^spine\.lean$|^tail\./.test(path);
@@ -641,6 +644,21 @@ const INDEX = /*__INDEX__*/;
     if (!INDEX.bases[b]) return;
     state.baseEdit[b] = { lean: p.spine.lean - gestLeanOf(p.name), tail: clone(p.tail), legs: { near: clone(p.near.leg), far: clone(p.far.leg) } };
     setStatus(`${b} base updated: all ${b} poses take these legs, lean and tail (merge spreads it with recompose).`);
+  }
+  const gestNameOf = (n) => coordOf('gestures', n) || n.split('-').slice(1).join('-');
+  const UPPER_PATH = (path) => /(^|\.)arm\.|^spine\.chest$/.test(path);
+  function captureUpper() {
+    const p = state.pose, g = gestNameOf(p.name);
+    if (!INDEX.gestures[g]) return;
+    state.gestEdit[g] = { chest: p.spine.chest, arms: { near: clone(p.near.arm), far: clone(p.far.arm) } };
+    setStatus(`${g} gesture updated: all ${g} poses take these arms and chest (merge spreads it with recompose).`);
+  }
+  function applyUpper(pose) {
+    const g = gestNameOf(pose.name), E = state.gestEdit[g];
+    if (!E) return pose;
+    pose.spine.chest = E.chest;
+    pose.near.arm = clone(E.arms.near); pose.far.arm = clone(E.arms.far);
+    return pose;
   }
   function applyLower(pose) {
     const b = baseNameOf(pose.name), E = state.baseEdit[b];
@@ -660,7 +678,7 @@ const INDEX = /*__INDEX__*/;
   }
 
   function load(p) {
-    state.pose = applyLower(normalizePose(clone(p)));
+    state.pose = applyLower(applyUpper(normalizePose(clone(p))));
     state.sel = null; state.drag = false;
     state.dirty = false;
     $('revertBtn').disabled = true;
@@ -743,22 +761,24 @@ const INDEX = /*__INDEX__*/;
   for (const side of ['near', 'far']) {
     const arm = () => state.pose[side].arm;
     seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in'], ['Point', 'point']],
-      () => state.pose[side].arm.hand, (v) => { state.pose[side].arm.hand = v; });
+      () => state.pose[side].arm.hand, (v) => { state.pose[side].arm.hand = v; captureUpper(); });
   }
   {
     const prop = () => state.pose[propSide()].arm.prop;
     seg('propKind', [['None', ''], ['Sword', 'sword'], ['Club', 'club'], ['Bow', 'bow']], () => prop()?.kind || '', (v) => {
       const arm = state.pose[propSide()].arm;
       if (!v) { state.propHand = propSide(); delete arm.prop; } else arm.prop = { angle: 0, out: 0, ...(arm.prop || {}), kind: v };
+      captureUpper();
     });
     seg('propHand', [['Right', 'near'], ['Left', 'far']], propSide, (v) => {
       const from = propSide(); state.propHand = v;
       if (from !== v && state.pose[from].arm.prop) { state.pose[v].arm.prop = state.pose[from].arm.prop; delete state.pose[from].arm.prop; }
+      captureUpper();
     });
     seg('propGrip', [['One hand', ''], ['Both', 'both']], () => prop()?.grip || '',
-      (v) => { const p = prop(); if (p) { if (v) p.grip = v; else delete p.grip; } });
+      (v) => { const p = prop(); if (p) { if (v) p.grip = v; else delete p.grip; captureUpper(); } });
     seg('propString', [['Free', false], ['Drawn', true]], () => !!prop()?.draw,
-      (v) => { const p = prop(); if (p) { if (v) p.draw = true; else delete p.draw; } });
+      (v) => { const p = prop(); if (p) { if (v) p.draw = true; else delete p.draw; captureUpper(); } });
   }
   // ---------- base × gesture (pose composition): picking a base and a
   // gesture composes a draft from the index's reference poses — legs,
@@ -878,7 +898,7 @@ const INDEX = /*__INDEX__*/;
       arm.shoulder = clampTo('arm.shoulder', arm.shoulder + wrapA(upT - ang(sh, E)));
       arm.elbow = clampTo('arm.elbow', arm.elbow + wrapA(foT - upT) - wrapA(ang(E, grip) - ang(sh, E)));
     }
-    if (touched) { markDirty(); syncControls(); draw(); setStatus('Hands joined: middle of the body, laid on each other.'); }
+    if (touched) { markDirty(); captureUpper(); syncControls(); draw(); setStatus('Hands joined: middle of the body, laid on each other.'); }
     else setStatus('Hands are already joined, or elbow out can’t reach the middle.');
   }
   $('joinBtn').addEventListener('click', joinHands);
