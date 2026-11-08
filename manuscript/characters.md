@@ -30,25 +30,24 @@ this file only says who exists and where they appear in the story.
 | `queen1`, `queen2` | female | queens (ch 1); Tara wears `queen2` (no female monkeys — artist to confirm) |
 | `sage1` | male | sages: the teacher (ch 3), Ravana's ascetic disguise (ch 5) |
 | `raxas_m1` | male | rakshasa warriors, Khara |
-| `raxas_f1` | female | rakshasis: the grove guards, the mourning queen (ch 15) |
+| `raxas_f1` | female | rakshasis: the grove guards |
 
 Still needed as generic types: a plain human male and female (wedding
-guests, the charioteer in ch 15) and children (the four boys, ch 1).
+guests, the charioteer in ch 17) and children (the four boys, ch 1).
 
 ## Creatures and one-offs (not species models)
 
-- Kumbhakarna: a giant, much larger than the others (ch 12), whole
+- Kumbhakarna: a giant, much larger than the others (ch 14), whole
   or only partly in the panel (head, hand, arm).
 - The golden deer (ch 5): in canon it is Maricha in disguise; in this
   telling it is never shown as anything but a deer.
 - Forest deer and birds (ch 3).
 - Jatayu the vulture (ch 3, 6): drawn (`vulture-fly`, `-swoop`,
   `-fall`, `-stand`; lying still a placeholder).
-- The Ocean, rising from the waves before Rama's bow (ch 10).
-- Garuda the great eagle (ch 11): needs its own art, like Jatayu's.
-- Agni, rising from the flames carrying Sita (ch 16).
+- The Ocean, rising from the waves before Rama's bow (ch 12).
+- Agni, rising from the flames carrying Sita (ch 18).
 - Flying chariots: Ravana's (drawn by asses) and the Pushpaka, drawn by
-  swans (ch 16).
+  swans (ch 18).
 
 ## Props
 
