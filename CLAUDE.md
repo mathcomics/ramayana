@@ -95,6 +95,22 @@ renderer or panel changes.
 
 ## Status (2026-11-08)
 
+- **Chapter 7 split into 7 "Sugriva" and 8 "Bali"; 17 chapters
+  (2026-11-08):** the artist: the old chapter had more than wordless
+  panels can carry. Ch 7 = finding the monkeys (one beat, the
+  shoulder-carry dropped), Sugriva on his rock gazing at the shut
+  city (his exile told by where he sits — a new mirror with Rama's
+  look back in 2), and the pact over fire with the paired vows
+  (Sugriva points at Kishkindha, Rama raises his bow). **The
+  agreement is an exchange of griefs, never spoken** — Sugriva holds
+  out the jewels, Rama aims at Sugriva's city, and each half is paid
+  on panel (the hidden arrow in 8, the search in 9). Ch 8 = the
+  roared challenge at the gates, the grapple and the hidden arrow,
+  the coronation. The monsoon wait is dropped entirely. Old chapters
+  8–16 renumbered 9–17; all motif/continuity numbers updated.
+  **Panel folders still carry the old numbers** (`panels/07-*` spans
+  briefs 7–8, `panels/08-*` is brief 9): the revisit pass renames
+  them — until then the site joins `panels/08-*` to the wrong brief.
 - **Chapter 6 trimmed to three beats; 2–3 beats per chapter
   (2026-11-08):** scenes.md v0.6 — the artist's rule: a chapter can
   more or less cover **2–3 beats**, a beat = one story movement in one
