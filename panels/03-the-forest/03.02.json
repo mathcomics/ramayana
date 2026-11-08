@@ -1,15 +1,14 @@
 {
-  "scene": "The three walk through the forest behind a rising fold of ground; the farther, the deeper behind it",
+  "scene": "The three walk toward the reader behind a rising fold of ground; the farther, the deeper behind it",
   "size": 0.5,
   "ground": "sage",
-  "zoom": 0.7,
   "props": [
-    { "prop": "forest-ridge", "at": 0.5, "layer": "front" },
-    { "prop": "flower-yellow", "at": 0.9, "lift": 2, "layer": "front" }
+    { "prop": "forest-ridge", "at": 0.5, "lift": -0.35, "layer": "front" },
+    { "prop": "flower-yellow", "at": 0.9, "lift": 1.65, "layer": "front" }
   ],
   "figures": [
-    { "who": "lakshman", "pose": "pass-swing", "facing": "left", "at": 0.68, "scale": 0.65, "lift": 0.66 },
-    { "who": "sita", "pose": "walk-swing", "facing": "left", "at": 0.5, "scale": 0.8, "lift": 1.25 },
-    { "who": "rama", "pose": "walk-swing", "facing": "left", "at": 0.28, "lift": 1.6 }
+    { "who": "lakshman", "pose": "pass-swing", "view": "front", "at": 0.68, "scale": 0.65 },
+    { "who": "sita", "pose": "walk-swing", "view": "front", "at": 0.5, "scale": 0.8 },
+    { "who": "rama", "pose": "walk-swing", "view": "front", "at": 0.28 }
   ]
 }
