@@ -1,0 +1,24 @@
+{
+  "scene": "Bali strides out of the gates",
+  "size": 0.5,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "monkey1",
+      "id": "bali",
+      "cloth": "white",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.62,
+      "scale": 1.1,
+      "mouth": 3
+    },
+    {
+      "character": "sugriva",
+      "pose": "leanfront-fists",
+      "facing": "right",
+      "at": 0.18,
+      "mouth": 3
+    }
+  ]
+}

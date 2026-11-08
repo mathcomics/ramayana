@@ -1,0 +1,21 @@
+{
+  "scene": "Peering into windows, palace after palace — Sita is nowhere",
+  "size": 0.3,
+  "ground": "#26303d",
+  "zoom": 0.5,
+  "figures": [
+    {
+      "prop": "palace",
+      "at": 0.55,
+      "scale": 0.65
+    },
+    {
+      "character": "hanuman",
+      "pose": "bend-reach",
+      "facing": "right",
+      "at": 0.47,
+      "lift": 2.3,
+      "mouth": 1
+    }
+  ]
+}

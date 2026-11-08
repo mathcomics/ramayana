@@ -1,0 +1,45 @@
+{
+  "scene": "Monkeys crowd and mourn over Bali",
+  "size": 0.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "monkey1",
+      "id": "bali",
+      "cloth": "white",
+      "pose": "liefront-onarms",
+      "facing": "left",
+      "at": 0.45,
+      "scale": 1.1,
+      "mouth": 1
+    },
+    {
+      "character": "queen2",
+      "id": "tara",
+      "cloth": "red",
+      "pose": "kneel-bow",
+      "facing": "left",
+      "at": 0.62,
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "id": "angad",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.26,
+      "scale": 0.75,
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-holdhead",
+      "facing": "left",
+      "at": 0.84,
+      "mouth": 2
+    }
+  ],
+  "needs": [
+    "pose: lie-back (fallen on the back): liefront-onarms for now"
+  ]
+}

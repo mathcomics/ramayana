@@ -1,0 +1,18 @@
+{
+  "scene": "Rama knows them: Sita's jewels",
+  "size": 0.3,
+  "shot": "mid",
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.42,
+      "mouth": 3,
+      "adjust": {
+        "spine.head": 14
+      }
+    }
+  ]
+}

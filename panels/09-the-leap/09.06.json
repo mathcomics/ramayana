@@ -1,0 +1,39 @@
+{
+  "scene": "The search: over the mountains",
+  "size": 0.3,
+  "ground": "off-white",
+  "zoom": 0.55,
+  "figures": [
+    {
+      "prop": "mountain",
+      "at": 0.5,
+      "scale": 0.55
+    },
+    {
+      "character": "monkey1",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "at": 0.2,
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "pose": "leap-reach",
+      "facing": "right",
+      "at": 0.45,
+      "lift": 2.4,
+      "cloth": "red",
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.78,
+      "mouth": 1
+    }
+  ],
+  "needs": [
+    "prop: mountain"
+  ]
+}

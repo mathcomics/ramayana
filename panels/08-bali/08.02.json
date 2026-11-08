@@ -1,0 +1,27 @@
+{
+  "scene": "Sugriva plants himself before the gates, beats his chest and roars",
+  "size": 0.5,
+  "shot": "wide",
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "pose": "stepwide-middle",
+      "facing": "right",
+      "at": 0.4,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.prop": null,
+        "right.arm.shoulder": 55,
+        "right.arm.elbow": 115,
+        "right.arm.hand": "fist",
+        "left.arm.shoulder": 40,
+        "left.arm.elbow": 120,
+        "left.arm.hand": "fist"
+      }
+    }
+  ],
+  "needs": [
+    "pose: stand-chest-beat (fists to the chest, challenge): stepwide with bent arms for now"
+  ]
+}

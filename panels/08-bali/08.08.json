@@ -1,0 +1,21 @@
+{
+  "scene": "Bali falls",
+  "size": 0.3,
+  "shot": "wide",
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "monkey1",
+      "id": "bali",
+      "cloth": "white",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.5,
+      "scale": 1.1,
+      "mouth": 3
+    }
+  ],
+  "needs": [
+    "effect: the arrow in his chest"
+  ]
+}

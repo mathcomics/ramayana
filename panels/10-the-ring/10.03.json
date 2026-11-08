@@ -1,0 +1,24 @@
+{
+  "scene": "He searches over the roofs of the sleeping city",
+  "size": 0.3,
+  "ground": "#26303d",
+  "zoom": 0.5,
+  "figures": [
+    {
+      "prop": "palace",
+      "at": 0.4,
+      "scale": 0.55
+    },
+    {
+      "character": "hanuman",
+      "pose": "leap-reach",
+      "facing": "right",
+      "at": 0.6,
+      "lift": 4.2,
+      "mouth": 1
+    }
+  ],
+  "needs": [
+    "prop: lanka palaces (Ayodhya's palace as a stand-in)"
+  ]
+}

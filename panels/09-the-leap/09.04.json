@@ -1,0 +1,16 @@
+{
+  "scene": "The ring, close: Rama's own, in Hanuman's keeping",
+  "size": 0.3,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "ring",
+      "at": 0.5,
+      "lift": 1.2,
+      "scale": 3
+    }
+  ],
+  "needs": [
+    "prop: ring"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "scene": "Nowhere: Hanuman at a loss in the dark",
+  "size": 0.3,
+  "shot": "mid",
+  "ground": "#26303d",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "step-holdhead",
+      "facing": "right",
+      "at": 0.4,
+      "mouth": 1,
+      "lift": 0.7
+    }
+  ]
+}

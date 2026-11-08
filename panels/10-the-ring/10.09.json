@@ -1,0 +1,38 @@
+{
+  "scene": "Hanuman drops down, kneels, and holds out the ring",
+  "size": 0.5,
+  "ground": "geru",
+  "figures": [
+    {
+      "prop": "tree",
+      "at": 0.2,
+      "scale": 1.3
+    },
+    {
+      "character": "sita",
+      "pose": "sit-armknee",
+      "facing": "left",
+      "at": 0.68,
+      "mouth": 2
+    },
+    {
+      "character": "hanuman",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.38,
+      "mouth": 1,
+      "adjust": {
+        "spine.head": -16
+      }
+    },
+    {
+      "prop": "ring",
+      "at": 0.53,
+      "lift": 2.6
+    }
+  ],
+  "needs": [
+    "prop: ring",
+    "prop: tree"
+  ]
+}

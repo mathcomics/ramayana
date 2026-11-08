@@ -1,0 +1,15 @@
+{
+  "scene": "Rama answers with joined palms",
+  "size": 0.3,
+  "shot": "wide",
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-palms",
+      "facing": "left",
+      "at": 0.45,
+      "mouth": 2
+    }
+  ]
+}

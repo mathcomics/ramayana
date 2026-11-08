@@ -1,0 +1,15 @@
+{
+  "scene": "Opening: Kishkindha on its hill again",
+  "size": 0.5,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "horizon": 0.38,
+  "figures": [
+    {
+      "prop": "kishkindha",
+      "at": 0.55,
+      "row": "horizon",
+      "scale": 2.6
+    }
+  ]
+}

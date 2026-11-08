@@ -1,0 +1,23 @@
+{
+  "scene": "The search: the dry plain, emptier",
+  "size": 0.3,
+  "ground": "sand",
+  "zoom": 0.55,
+  "figures": [
+    {
+      "character": "monkey1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 1
+    },
+    {
+      "character": "monkey1",
+      "pose": "runwide-hang",
+      "facing": "right",
+      "at": 0.75,
+      "cloth": "red",
+      "mouth": 1
+    }
+  ]
+}

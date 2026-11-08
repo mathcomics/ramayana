@@ -1,0 +1,14 @@
+{
+  "scene": "Opening: Kishkindha's gates, near",
+  "size": 0.5,
+  "ground": "sand",
+  "sky": "sky",
+  "horizon": 0.3,
+  "figures": [
+    {
+      "prop": "kishkindha",
+      "at": 0.5,
+      "scale": 1.7
+    }
+  ]
+}

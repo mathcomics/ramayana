@@ -17,10 +17,12 @@ action. The same opener can return when the story comes back to a place.
 | 4 Surpanakha | the forest hut from above again (04.01), before she comes | done |
 | 5 The golden deer | Lanka on its island across the sea (05.01, `0.5-lanka`); then Surpanakha before Ravana (05.02) | done |
 | 6 Jatayu | — | to choose |
-| 7 Sugriva and Bali | Kishkindha on the horizon, sky above (07.01, the drawn `kishkindha`) | done |
-| 8 Hanuman finds Sita | the same hills again (08.01) | done |
-| 10 The bridge | Lanka across the sea, as 05.01 | when chapter 10 is made |
-| 11 The war begins | — | to choose (before Lanka's walls?) |
+| 7 Sugriva | Kishkindha on the horizon, sky above (07.01, the drawn `kishkindha`) | done |
+| 8 Bali | Kishkindha's gates, near (08.01) | done |
+| 9 The leap | Kishkindha on the horizon again (09.01, as 07.01) | done |
+| 10 The ring | night: Lanka's wall (10.01) | done |
+| 12 The bridge | Lanka across the sea, as 05.01 | when chapter 12 is made |
+| 13 The war begins | — | to choose (before Lanka's walls?) |
 
 ## Sky and distance
 

@@ -1,0 +1,24 @@
+{
+  "scene": "Hanuman, small, creeps along the wall",
+  "size": 0.5,
+  "ground": "#26303d",
+  "zoom": 0.5,
+  "figures": [
+    {
+      "prop": "lanka-wall",
+      "at": 0.5,
+      "scale": 1.1
+    },
+    {
+      "character": "hanuman",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "at": 0.35,
+      "lift": 7.8,
+      "mouth": 1
+    }
+  ],
+  "needs": [
+    "prop: lanka-wall"
+  ]
+}

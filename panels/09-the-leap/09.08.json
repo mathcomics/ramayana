@@ -1,0 +1,54 @@
+{
+  "scene": "The land runs out: monkeys sit hopeless before the sea",
+  "size": 0.5,
+  "ground": "sand",
+  "sky": "sea",
+  "horizon": 0.45,
+  "figures": [
+    {
+      "character": "monkey1",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.18,
+      "mouth": 1,
+      "adjust": {
+        "spine.chest": 18,
+        "spine.head": 14
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.42,
+      "cloth": "red",
+      "mouth": 1,
+      "adjust": {
+        "spine.chest": 18,
+        "spine.head": 14
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "sit-armknee",
+      "facing": "left",
+      "at": 0.85,
+      "cloth": "white",
+      "mouth": 1,
+      "adjust": {
+        "spine.chest": 18,
+        "spine.head": 14
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.64,
+      "mouth": 2
+    }
+  ],
+  "needs": [
+    "pose: sit-slump (hopeless, head hung): sit-armknee with chest and head for now"
+  ]
+}

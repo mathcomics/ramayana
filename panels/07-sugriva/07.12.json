@@ -1,0 +1,27 @@
+{
+  "scene": "Rama presses the jewels to his chest and weeps; Sugriva knows the grief",
+  "size": 0.5,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "kneel-bow",
+      "facing": "left",
+      "at": 0.42,
+      "mouth": 1
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.72,
+      "mouth": 1,
+      "adjust": {
+        "spine.head": 20
+      }
+    }
+  ],
+  "needs": [
+    "prop: jewels (held to the chest)"
+  ]
+}

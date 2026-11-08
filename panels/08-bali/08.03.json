@@ -1,0 +1,19 @@
+{
+  "scene": "The roar, close",
+  "size": 0.3,
+  "shot": "mid",
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.42,
+      "mouth": 3,
+      "adjust": {
+        "spine.head": -12
+      },
+      "lift": 0.7
+    }
+  ]
+}

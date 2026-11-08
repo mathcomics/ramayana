@@ -1,0 +1,50 @@
+{
+  "scene": "The ashoka grove: Sita under a tree, rakshasis guarding; Hanuman hides in the branches",
+  "size": 0.5,
+  "ground": "geru",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "crouch-cross",
+      "facing": "left",
+      "at": 0.38,
+      "lift": 5,
+      "scale": 0.7
+    },
+    {
+      "prop": "tree",
+      "at": 0.42,
+      "scale": 1.4
+    },
+    {
+      "character": "sita",
+      "pose": "sit-armknee",
+      "facing": "left",
+      "at": 0.52,
+      "mouth": 1,
+      "adjust": {
+        "spine.chest": 20,
+        "spine.head": 16
+      }
+    },
+    {
+      "character": "raxas_f1",
+      "pose": "step-akimbo",
+      "facing": "left",
+      "at": 0.12,
+      "mouth": 2
+    },
+    {
+      "character": "raxas_f1",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.85,
+      "cloth": "red-check",
+      "mouth": 2
+    }
+  ],
+  "needs": [
+    "prop: tree (the ashoka; Hanuman hidden in its branches)",
+    "pose: sit-slump (Sita captive): sit-armknee bowed for now"
+  ]
+}

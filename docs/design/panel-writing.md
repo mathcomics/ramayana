@@ -114,6 +114,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **A lone full-body action in a 0.3 strip wants `wide`, not `mid`**:
   `mid` crops a single walker to a floating chest (02.07 rework); `mid`
   strips are for chest-up reactions of one or two faces.
+- **`mid` rows fit standing figures only**: a seated or kneeling figure
+  in a `mid` strip sinks almost entirely below the crop (10.08 rework).
+  A close-up of a seated figure is `wide` + `zoom` 2 — the whole seated
+  body fills the strip, still grounded.
 - **A foreground band stands on `row: "floor"`** (artist, 2026-11-08,
   03.02): a foreground strip of ground (after the figures in the list)
   on the front row leaves a 3%-of-panel gap below it; `floor` is the

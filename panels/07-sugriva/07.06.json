@@ -1,0 +1,28 @@
+{
+  "scene": "Hanuman kneels before the princes, palms joined",
+  "size": 0.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.78
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.62
+    },
+    {
+      "character": "hanuman",
+      "pose": "kneel-palms",
+      "facing": "right",
+      "at": 0.3,
+      "adjust": {
+        "spine.head": -14
+      }
+    }
+  ]
+}

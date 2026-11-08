@@ -1,0 +1,37 @@
+{
+  "scene": "Sugriva crowned at Kishkindha's own throne; Angad and Hanuman beside him",
+  "size": 0.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "throne-kishkindha",
+      "at": 0.5,
+      "row": "mid"
+    },
+    {
+      "character": "sugriva",
+      "pose": "chair-armrest",
+      "view": "front",
+      "on": "throne-kishkindha"
+    },
+    {
+      "character": "monkey1",
+      "id": "angad",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.82,
+      "scale": 0.75,
+      "mouth": 2
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-palms",
+      "facing": "right",
+      "at": 0.16,
+      "mouth": 2
+    }
+  ],
+  "needs": [
+    "Sugriva's crown (signature feature)"
+  ]
+}

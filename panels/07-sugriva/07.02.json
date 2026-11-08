@@ -1,0 +1,27 @@
+{
+  "scene": "Rama and Lakshman walk into the hills, toward the reader",
+  "size": 0.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "pass-swing",
+      "view": "front",
+      "at": 0.62,
+      "scale": 0.75
+    },
+    {
+      "prop": "forest-ridge",
+      "at": 0.5,
+      "row": "floor"
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "view": "front",
+      "at": 0.33,
+      "scale": 1.1,
+      "lift": 0.3
+    }
+  ]
+}

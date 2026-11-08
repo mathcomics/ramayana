@@ -1,0 +1,34 @@
+{
+  "scene": "Hanuman leads the two up the hill",
+  "size": 0.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.2,
+      "scale": 0.9
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.38,
+      "scale": 0.95
+    },
+    {
+      "prop": "forest-ridge",
+      "at": 0.5,
+      "row": "floor",
+      "facing": "left"
+    },
+    {
+      "character": "hanuman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.66,
+      "lift": 1.1
+    }
+  ]
+}

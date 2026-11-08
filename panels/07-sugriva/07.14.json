@@ -1,0 +1,29 @@
+{
+  "scene": "The vows: Sugriva points at Kishkindha; Rama draws his bow at it",
+  "size": 0.5,
+  "ground": "sand",
+  "sky": "sky",
+  "horizon": 0.4,
+  "figures": [
+    {
+      "prop": "kishkindha",
+      "at": 0.85,
+      "row": "horizon",
+      "scale": 2.2
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-point",
+      "facing": "right",
+      "at": 0.25,
+      "mouth": 2
+    },
+    {
+      "character": "rama",
+      "pose": "step-bowdraw",
+      "facing": "right",
+      "at": 0.52,
+      "mouth": 2
+    }
+  ]
+}

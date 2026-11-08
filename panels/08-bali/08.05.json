@@ -1,0 +1,22 @@
+{
+  "scene": "Rama steps behind a tree",
+  "size": 0.3,
+  "shot": "wide",
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.48
+    },
+    {
+      "prop": "tree",
+      "at": 0.6,
+      "scale": 1.1
+    }
+  ],
+  "needs": [
+    "prop: tree"
+  ]
+}

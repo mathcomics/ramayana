@@ -1,0 +1,15 @@
+{
+  "scene": "Sugriva, close: who are these bowmen?",
+  "size": 0.3,
+  "shot": "mid",
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "pose": "step-holdhead",
+      "facing": "left",
+      "at": 0.38,
+      "mouth": 2
+    }
+  ]
+}

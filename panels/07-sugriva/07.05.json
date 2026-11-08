@@ -1,0 +1,20 @@
+{
+  "scene": "Hanuman bounds down from the rocks",
+  "size": 0.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "ledge",
+      "at": 0.78,
+      "scale": 1.3
+    },
+    {
+      "character": "hanuman",
+      "pose": "leap-reach",
+      "facing": "left",
+      "at": 0.42,
+      "lift": 2.2,
+      "mouth": 2
+    }
+  ]
+}

@@ -97,6 +97,16 @@ renderer or panel changes.
 
 ## Status (2026-11-08)
 
+- **Briefs 7–10 drawn as four chapters (2026-11-08):** `panels/07-sugriva`
+  (14), `08-bali` (10), `09-the-leap` (11), `10-the-ring` (11) replace the
+  old `07-sugriva-and-bali` / `08-hanuman-finds-sita` folders — every
+  drawn chapter now joins its brief by number on the site. Light grounds
+  per the new rule (night hex and the grove's geru kept as deliberate
+  exceptions); drawn `fire`, `throne-kishkindha`, `forest-ridge` and
+  `palace` (as Lanka's palaces) in use; cut with the briefs: the shoulder
+  carry, the monsoon wait, Ravana threatening Sita in the grove. New
+  lesson: `mid` rows fit standing figures — a seated close-up is `wide` +
+  `zoom` 2. Pose/prop queues refreshed.
 - **Artist props: three thrones, fire, vine, top-view people
   (2026-11-08):** the two throne files arrived cross-saved (each file's
   comment and docname described the other) and were swapped back.

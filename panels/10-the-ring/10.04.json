@@ -1,0 +1,25 @@
+{
+  "scene": "Along the courts: no one he seeks",
+  "size": 0.3,
+  "ground": "#26303d",
+  "zoom": 0.5,
+  "figures": [
+    {
+      "prop": "palace",
+      "at": 0.15,
+      "scale": 0.5
+    },
+    {
+      "prop": "palace",
+      "at": 0.9,
+      "scale": 0.5
+    },
+    {
+      "character": "hanuman",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "at": 0.5,
+      "mouth": 1
+    }
+  ]
+}

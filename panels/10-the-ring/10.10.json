@@ -1,0 +1,30 @@
+{
+  "scene": "The ring in Sita's hand: Rama's",
+  "size": 0.3,
+  "shot": "wide",
+  "zoom": 2,
+  "ground": "geru",
+  "figures": [
+    {
+      "character": "sita",
+      "pose": "sit-armknee",
+      "facing": "left",
+      "at": 0.42,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 65,
+        "right.arm.elbow": 30,
+        "right.arm.hand": "in"
+      }
+    },
+    {
+      "prop": "ring",
+      "at": 0.56,
+      "lift": 2.3,
+      "scale": 2
+    }
+  ],
+  "needs": [
+    "prop: ring"
+  ]
+}

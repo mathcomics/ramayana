@@ -1,0 +1,39 @@
+{
+  "scene": "The pact: Rama and Sugriva clasp hands over a fire",
+  "size": 0.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "fire",
+      "at": 0.5,
+      "scale": 1.6
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.34,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 80,
+        "right.arm.elbow": 15,
+        "right.arm.hand": "out"
+      }
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.64,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 85,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out"
+      }
+    }
+  ],
+  "needs": [
+    "pose: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now"
+  ]
+}

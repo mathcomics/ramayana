@@ -1,0 +1,15 @@
+{
+  "scene": "Opening: night; Lanka's wall",
+  "size": 0.5,
+  "ground": "#26303d",
+  "figures": [
+    {
+      "prop": "lanka-wall",
+      "at": 0.5,
+      "scale": 1.1
+    }
+  ],
+  "needs": [
+    "prop: lanka-wall (the city wall by night)"
+  ]
+}

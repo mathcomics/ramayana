@@ -1,0 +1,41 @@
+{
+  "scene": "Back: the grapple. Front: from the tree, Rama's arrow flies",
+  "size": 0.5,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "monkey1",
+      "id": "bali",
+      "cloth": "white",
+      "pose": "leanfront-fists",
+      "facing": "left",
+      "at": 0.75,
+      "row": "back",
+      "scale": 1.1,
+      "mouth": 3
+    },
+    {
+      "character": "sugriva",
+      "pose": "lunge-armfront",
+      "facing": "right",
+      "at": 0.6,
+      "row": "back",
+      "mouth": 3
+    },
+    {
+      "character": "rama",
+      "pose": "step-bowloose",
+      "facing": "right",
+      "at": 0.12
+    },
+    {
+      "prop": "tree",
+      "at": 0.22,
+      "scale": 1.2
+    }
+  ],
+  "needs": [
+    "prop: tree",
+    "effect: the arrow in flight"
+  ]
+}

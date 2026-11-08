@@ -1,0 +1,38 @@
+{
+  "scene": "Rama gives Hanuman his ring",
+  "size": 0.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.64,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.shoulder": 55,
+        "right.arm.elbow": 25,
+        "right.arm.hand": "out",
+        "spine.head": 16
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.36,
+      "mouth": 1,
+      "adjust": {
+        "spine.head": -18
+      }
+    },
+    {
+      "prop": "ring",
+      "at": 0.5,
+      "lift": 3.1
+    }
+  ],
+  "needs": [
+    "prop: ring (Rama's ring; it reaches Sita in 10)"
+  ]
+}

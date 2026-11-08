@@ -1,0 +1,30 @@
+{
+  "scene": "Sugriva sits on the bare rock, gazing at the Kishkindha he is shut out of",
+  "size": 0.5,
+  "ground": "sand",
+  "sky": "sky",
+  "horizon": 0.4,
+  "layout": "scenes/0.5-lanka",
+  "figures": [
+    {
+      "prop": "kishkindha",
+      "at": 0.8,
+      "row": "horizon",
+      "scale": 1.1
+    },
+    {
+      "prop": "ledge",
+      "at": 0.22,
+      "scale": 1.2,
+      "id": "rock"
+    },
+    {
+      "character": "sugriva",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "on": "rock#seat",
+      "scale": 0.85,
+      "mouth": 1
+    }
+  ]
+}

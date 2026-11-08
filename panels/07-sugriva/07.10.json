@@ -1,0 +1,33 @@
+{
+  "scene": "Sugriva holds out a bundle of jewels to Rama",
+  "size": 0.5,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.32,
+      "adjust": {
+        "right.arm.shoulder": 75,
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out"
+      }
+    },
+    {
+      "prop": "jewels",
+      "at": 0.47,
+      "lift": 3.2
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 2
+    }
+  ],
+  "needs": [
+    "prop: jewels (the dropped bundle, as in 6)"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "scene": "Monkeys watch them from the high rock, wary",
+  "size": 0.5,
+  "ground": "sand",
+  "sky": "sky",
+  "horizon": 0.35,
+  "figures": [
+    {
+      "prop": "kishkindha",
+      "at": 0.6,
+      "scale": 1.35,
+      "id": "rock"
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-point",
+      "facing": "left",
+      "on": "rock#stand-left",
+      "scale": 0.55,
+      "adjust": {
+        "spine.head": 18
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-hang",
+      "facing": "left",
+      "on": "rock#stand",
+      "scale": 0.5,
+      "adjust": {
+        "spine.head": 18
+      }
+    },
+    {
+      "character": "lakshman",
+      "pose": "pass-swing",
+      "at": 0.1,
+      "scale": 0.8
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "at": 0.2,
+      "scale": 0.8
+    }
+  ]
+}
