@@ -62,8 +62,8 @@ when the story comes back to a place, the same image returns.
 - The exile's gaze: **Rama**'s one look back at Ayodhya (2);
   **Sugriva** on his rock, gazing at the Kishkindha he is shut out
   of (7).
-- Two coronations: water poured over the crowned **Sugriva** (8) and
-  the crowned **Vibhishana** (17) — same jar, same umbrella.
+- Two coronations: **Sugriva** crowned beneath the royal umbrella (8)
+  and **Vibhishana** the same (17) — same crown, same umbrella.
 - Two great birds: Jatayu rises against the chariot and falls (6);
   Garuda sweeps in and the serpents flee (12).
 - Over the sea: **Hanuman** crosses it both ways (9, 10), the army
@@ -242,7 +242,7 @@ hidden arrow decides it, and the crown changes heads.
   chest and roars; Bali comes out; **Rama** steps behind a tree.
 - The brothers grapple; from the tree Rama's arrow flies; Bali falls;
   monkeys crowd and mourn over him.
-- Water is poured over the crowned **Sugriva**.
+- **Sugriva** stands crowned beneath the royal umbrella.
 
 Must show: the challenge as pure posture — feet planted, chest
 beaten, mouth wide, no parley; Rama shooting from hiding, exactly as
@@ -429,7 +429,7 @@ keeps his drawn look throughout the story.
 Fire gives Sita back, and the swan chariot carries them home to the
 palace of the first panel.
 
-- Water is poured over the crowned **Vibhishana** — as over Sugriva.
+- The crowned **Vibhishana** beneath the umbrella — as Sugriva stood.
 - **Sita** stands before **Rama**; he looks away.
 - Sita steps into the fire; **Lakshman** watches.
 - The fire god rises from the flames carrying **Sita**, unharmed;
@@ -437,7 +437,7 @@ palace of the first panel.
 - The swan-drawn chariot flies them home; the palace of Ayodhya on the
   horizon, as the story began.
 
-Must show: the coronation mirror (same jar, same umbrella); the palace
+Must show: the coronation mirror (same crown, same umbrella); the palace
 exactly as in chapter 1's opener; Sita crossing the sea again, forward
 this time.
 
@@ -489,4 +489,5 @@ In v0.6, trimming every chapter to 2–3 beats: the sea crossing with
 Sita's arrival in the grove, and Jatayu's pyre (6); Hanuman carrying
 the princes up the hill on his shoulders (7); the monsoon of waiting
 between the crowning and the search (8–9) — chapter 9 simply opens
-with the search sent out.
+with the search sent out; the water poured at the two coronations
+(8, 17) — the pouring confuses, the crown and umbrella alone carry it.
