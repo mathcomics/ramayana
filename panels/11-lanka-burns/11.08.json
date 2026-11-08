@@ -14,7 +14,7 @@
     { "who": "raxas_m1", "id": "runner2", "pose": "run-pump", "facing": "left", "at": 0.45, "cloth": "red-diamond", "mouth": 3,
       "adjust": { "left.arm.shoulder": 150, "left.arm.elbow": 20, "left.arm.hand": "out" } },
     { "who": "raxas_m1", "id": "runner4", "pose": "run-pump", "facing": "left", "at": 0.74, "cloth": "red-check", "mouth": 3 },
-    { "who": "raxas_f1", "id": "runner5", "pose": "runwide-hang", "facing": "left", "at": 0.9, "cloth": "red-stripe", "mouth": 3 }
+    { "who": "raxas_f1", "id": "runner5", "pose": "runwide-hang", "facing": "left", "at": 0.9, "cloth": "red-stripe", "mouth": 3, "turn": 90 }
   ],
   "needs": [
     "prop: flames (fire is a placeholder box; the frieze's tongues of flame, figure-high)"
