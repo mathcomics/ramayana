@@ -509,7 +509,7 @@ Sita's arrival in the grove, and Jatayu's pyre (6); Hanuman carrying
 the princes up the hill on his shoulders (7); the monsoon of waiting
 between the crowning and the search (8–9) — chapter 9 simply opens
 with the search sent out; the water poured at the two coronations
-(8, 18) — the pouring confuses, the crown and umbrella alone carry it;
+(8, 18) — the pouring confuses, the crown alone carries it;
 Sita's tally marks on the tree (3) — thirteen years read as season
 icons instead (to be drawn).
 
