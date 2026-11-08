@@ -1,6 +1,6 @@
 # Scenes
 
-Chapter briefs, v0.5 (2026-11-07). The story runs from the princes'
+Chapter briefs, v0.6 (2026-11-08). The story runs from the princes'
 childhood to the flight home, in 16 chapters. Canon and brief rules:
 `README.md`. **Bold** = identifiable character (`characters.md`);
 everyone else is a generic figure.
@@ -15,8 +15,11 @@ for chapters 1–4 and 6–8 are to be revisited against these briefs —
 they are too complex and do not carry the narrative clearly yet
 (artist, 2026-11-07).
 
-A **beat** is one readable step of the story: a gesture or movement
-that works as a wordless image. A beat may become one panel or several
+A **beat** is one movement of the story, told in one or a few bullets,
+each a gesture or action that works as a wordless image. A chapter can
+more or less hope to cover **2–3 beats** and no more (artist,
+2026-11-08; v0.6 applies this to chapter 6 — the rest are trimmed as
+they come up for revisit). A beat may become one panel or several
 (establishing a new place and its key figure is always a sequence, not
 one panel — see chapter 5). Details that do not move the main
 narrative are left out; the beats are the story, not an inventory.
@@ -35,7 +38,7 @@ when the story comes back to a place, the same image returns.
 | The hut | the forest hut from above | opens 3, 4 and 5's forest half; again in 5 with the line closed round it |
 | Lanka, far | the island across the sea | opens 5 and 10 |
 | Kishkindha | rocky hills on the horizon | opens 7 and 8 |
-| The ashoka grove | **Sita** under a tree, rakshasis guarding her | end of 6; found again in 8 — the same image, so the reader knows Hanuman has found what we saw |
+| The ashoka grove | **Sita** under a tree, rakshasis guarding her | first seen in 8, when Hanuman finds her — the reader discovers it with him; wrecked in 9 |
 | The Lanka throne | **Ravana** enthroned (the gold-backed Lanka throne, never Ayodhya's) | 5, 9, 10, 13 |
 
 **Objects that travel.** Drawn the same every time they appear:
@@ -57,9 +60,9 @@ when the story comes back to a place, the same image returns.
   the crowned **Vibhishana** (16) — same jar, same umbrella.
 - Two great birds: Jatayu rises against the chariot and falls (6);
   Garuda sweeps in and the serpents flee (11).
-- Over the sea: **Sita** carried away, reaching back (6); Sita flying
-  home beside **Rama** (16). Between them **Hanuman** crosses it both
-  ways (8, 9) and the army walks it on the bridge (10).
+- Over the sea: **Hanuman** crosses it both ways (8, 9), the army
+  walks it on the bridge (10), and **Sita** flies home beside
+  **Rama** (16) — her crossing away is never shown.
 - Hopeless before the sea: the monkeys at the shore before Hanuman's
   leap (8) and again before the bridge (10) — first one crosses alone,
   then everyone crosses together.
@@ -67,7 +70,7 @@ when the story comes back to a place, the same image returns.
   back at the forest (4), Jatayu points south (6), the Ocean points
   across the water (10), the healer points north (14).
 - Fire turns the story: the alliance sworn over fire (7), Hanuman's
-  burning tail (9), Indrajit's rite (13), the pyres (6, 15), Sita's
+  burning tail (9), Indrajit's rite (13), Ravana's pyre (15), Sita's
   trial (16).
 
 **The wordless test** (binding; artist, 2026-11-07): no orders,
@@ -183,21 +186,20 @@ cut by the wordless test; the deer simply appears, and simply dies.
 The abduction witnessed: the old vulture gives his life, the monkeys
 see the jewels fall, and Rama comes home to emptiness.
 
-- Jatayu rises toward the flying chariot, wings spread.
-- He claws at **Ravana**; Ravana's sword cuts off a wing; Jatayu falls.
+- Jatayu rises toward the flying chariot, wings spread; he claws at
+  **Ravana**; Ravana's sword cuts off a wing; Jatayu falls.
 - The chariot passes a hill; **Sita** drops her bundle of jewels;
   monkeys on the rocks below look up; one picks the bundle up, the
   others crowd round.
-- The chariot crosses the sea, Sita reaching back; then Lanka: Sita
-  under a tree in the grove, rakshasis guarding her.
-- At the empty hut, **Rama** flings his arms wide; he searches among
-  the trees, a hand pressed to his head, **Lakshman** following.
-- Rama kneels by the dying Jatayu, who lifts his remaining wing,
-  pointing south; Rama lays him on a pyre.
+- At the empty hut, **Rama** flings his arms wide; he runs searching
+  among the trees, **Lakshman** following; he kneels by the dying
+  Jatayu, who lifts his remaining wing, pointing south.
 
 Must show: the jewels falling into monkey hands (they surface in 7);
-Sita under the tree exactly as Hanuman will find her in 8; Jatayu's
-pointed wing — a direction is the only word the story allows.
+Jatayu's pointed wing — a direction is the only word the story allows.
+Not shown: the crossing of the sea and Sita's arrival in the grove
+(the grove is first seen when Hanuman finds it in 8); the funeral
+pyre — the pointed wing is Jatayu's last image.
 
 ## 7. Sugriva and Bali
 
@@ -236,14 +238,14 @@ finds Sita.
 - Hanuman crouches on a mountaintop and leaps — across the whole sky,
   the ocean far below.
 - Night: Hanuman, small, creeps along Lanka's wall.
-- The grove, as the reader last saw it: **Sita** under her tree,
-  guarded; Hanuman hides in the branches above.
+- The ashoka grove: **Sita** under a tree, rakshasis guarding her;
+  Hanuman hides in the branches above — the reader finds her with him.
 - **Ravana** threatens Sita with his sword; she turns away.
 - Hanuman kneels before her: the ring. Sita gives him the jewel from
   her hair.
 
-Must show: the ring passing hand to hand to hand; the grove matching
-chapter 6; the leap using the sky's full height.
+Must show: the ring passing hand to hand to hand; the leap using the
+sky's full height.
 
 ## 9. Lanka burns
 

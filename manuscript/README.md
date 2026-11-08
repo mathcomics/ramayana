@@ -44,12 +44,15 @@ manuscript/
 
 The manuscript writes one **brief** per chapter, not one line per
 panel. A brief is: a one-line arc, the chapter's visual narrative in
-**3–6 beats**, a "Must show" note (the objects and images the story
-cannot do without, especially ones that return in other chapters), and
-a "Not shown" note (what is deliberately left out, and why).
+**2–3 beats** (a chapter can more or less hope to cover that many and
+no more; artist, 2026-11-08), a "Must show" note (the objects and
+images the story cannot do without, especially ones that return in
+other chapters), and a "Not shown" note (what is deliberately left
+out, and why).
 
-A **beat** is one readable step of the story — a gesture or movement
-that works as a wordless image. The panel side (`panels/`) breaks
+A **beat** is one movement of the story, told in one or a few bullets,
+each bullet a gesture or movement that works as a wordless image. The
+panel side (`panels/`) breaks
 beats into panels and owns panel ids, sizes, shots and order, judged
 against `docs/design/panel-writing.md` and the artist's reviews; a
 beat may become one panel or several (establishing a new place and its
@@ -59,8 +62,8 @@ story differently, the panels win and the brief is updated.
 
 Beat rules (the wordless test, at story level):
 
-- **One action per beat**, readable from the silhouettes alone (point,
-  strike, bow at feet, run, lift, fall).
+- **One action per bullet**, readable from the silhouettes alone
+  (point, strike, bow at feet, run, lift, fall).
 - **No orders, refusals, bargains or explanations.** No creature turns
   into another on panel: a disguise thrown off is fine, a
   transformation is not. The only allowed "word" is a pointed

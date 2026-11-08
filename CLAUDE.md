@@ -93,8 +93,22 @@ Panel lab (published artifact, drafts in its database, collection
 Drafts are merged into `panels/` when asked; republish the lab after
 renderer or panel changes.
 
-## Status (2026-11-07)
+## Status (2026-11-08)
 
+- **Chapter 6 trimmed to three beats; 2–3 beats per chapter
+  (2026-11-08):** scenes.md v0.6 — the artist's rule: a chapter can
+  more or less cover **2–3 beats**, a beat = one story movement in one
+  or a few bullets (manuscript/README.md updated; one action per
+  bullet). Ch 6 "Jatayu" is now: the fight and fall, the dropped
+  jewels caught by monkeys, Rama from the empty hut to the dying
+  Jatayu's pointed wing. Cut: the sea crossing with Sita's arrival in
+  the grove (the ashoka grove is now **first seen when Hanuman finds
+  her in ch 8** — the reader discovers it with him) and the funeral
+  pyre (the pointed wing is Jatayu's last image). Motifs updated:
+  over-the-sea mirror (Sita's crossing away never shown), fire mirror
+  (Ravana's pyre only). Ch 6 panels (06.06 waves, 06.10–06.11 pyre)
+  pick the cuts up in the revisit pass; other chapters are trimmed to
+  2–3 beats as they come up for revisit.
 - **Chapters 02 and 07 reworked against the briefs (2026-11-07):** the
   first two of the revisit pass (only ch 05 is artist-reviewed); then
   expanded further at the artist's direction — **more, simpler panels;
