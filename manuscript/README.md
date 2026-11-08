@@ -69,9 +69,9 @@ Beat rules (the wordless test, at story level):
   transformation is not. The only allowed "word" is a pointed
   direction.
 - **No chariots, no horses on the ground** (artist, 2026-11-08).
-  Battles and journeys are on foot — monkeys leap, rakshasas fly. The
-  only chariots are the flying ones: Ravana's (drawn by asses; 5–6)
-  and the swan-drawn Pushpaka (18).
+  Battles and journeys are on foot — monkeys leap, rakshasas fly, and
+  **Ravana** carries Sita off in his own arms (5–6). The story's one
+  chariot is the swan-drawn Pushpaka, flying them home (18).
 - **Few figures, few props.** 1–5 figures and at most 2 props or
   effects per image, about the density of the reference friezes. A
   crowd is a short row of generic figures.

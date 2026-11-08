@@ -1,6 +1,6 @@
 # Scenes
 
-Chapter briefs, v0.8 (2026-11-08). The story runs from the princes'
+Chapter briefs, v0.9 (2026-11-08). The story runs from the princes'
 childhood to the flight home, in 18 chapters. Canon and brief rules:
 `README.md`. **Bold** = identifiable character (`characters.md`);
 everyone else is a generic figure.
@@ -14,7 +14,8 @@ artist-reviewed chapter and the model for the rest**: the panels drawn
 for chapters 1–4 and 6–10 are to be revisited against these briefs —
 they are too complex and do not carry the narrative clearly yet
 (artist, 2026-11-07). v0.8 drops the fire god from chapter 18: Sita
-walks into the fire and walks out of it — no deity on panel.
+walks into the fire and walks out of it — no deity on panel. v0.9
+drops Ravana's chariot (5–6): he flies as he is, holding Sita.
 
 A **beat** is one movement of the story, told in one or a few bullets,
 each a gesture or action that works as a wordless image. A chapter can
@@ -46,8 +47,9 @@ when the story comes back to a place, the same image returns.
 
 **Objects that travel.** Drawn the same every time they appear:
 
-- **The bundle of jewels**: dropped from the chariot (6), picked up by
-  monkeys (6), shown to **Rama**, who presses it to his chest (7).
+- **The bundle of jewels**: dropped from Ravana's arms in the air (6),
+  picked up by monkeys (6), shown to **Rama**, who presses it to his
+  chest (7).
 - **Rama's ring**: given to **Hanuman** (9), given by him to **Sita** (10).
 - **Sita's hair jewel**: given to Hanuman (10), brought home to Rama,
   who presses it to his heart (11) — the answer to the jewels in 7.
@@ -179,25 +181,29 @@ Lakshman away, and Ravana takes Sita. The hinge of the story.
 - Before he goes, Lakshman draws a line round the hut; from above, the
   line closed, Lakshman gone into the trees.
 - An ascetic with staff and pot approaches; **Sita** offers him fruit;
-  the ascetic rears up into **Ravana**; he drags her to his chariot,
-  she pulling against him.
-- The chariot rises; Sita leans out, reaching back down to the empty
-  hut.
+  the ascetic rears up into **Ravana**; he seizes her and holds her
+  against him, she pulling away.
+- **Ravana** rises into the air holding **Sita**; she reaches back
+  down to the empty hut.
 
 Must show: the deer stays far away and is never revealed as anything
 else; the cry as a travelling image; the line round the hut (it is why
-Ravana comes begging at the threshold instead of taking). Not shown:
+Ravana comes begging at the threshold instead of taking); Ravana
+flying off by himself, holding her — nothing carries them. Not shown:
 Ravana ordering Maricha, Maricha refusing, the deer's true form —
-cut by the wordless test; the deer simply appears, and simply dies.
+cut by the wordless test; the deer simply appears, and simply dies;
+Ravana's chariot (artist, 2026-11-08) — there is no chariot in the
+abduction or in Jatayu's fight.
 
 ## 6. Jatayu
 
 The abduction witnessed: the old vulture gives his life, the monkeys
 see the jewels fall, and Rama comes home to emptiness.
 
-- Jatayu rises toward the flying chariot, wings spread; he claws at
-  **Ravana**; Ravana's sword cuts off a wing; Jatayu falls.
-- The chariot passes a hill; **Sita** drops her bundle of jewels;
+- Jatayu rises toward the flying **Ravana**, wings spread; he claws at
+  him; Ravana's sword cuts off a wing; Jatayu falls.
+- Ravana passes over a hill, **Sita** held in one arm; she drops her
+  bundle of jewels;
   monkeys on the rocks below look up; one picks the bundle up, the
   others crowd round.
 - At the empty hut, **Rama** flings his arms wide; he runs searching
@@ -531,8 +537,19 @@ first battle instead ends in Lanka's champions fallen, which is why
 the giant is woken); the war chariots and horses (13, 15–17 — nothing
 rides on the ground, artist 2026-11-08: the chiefs and Ravana stride
 out, Indrajit rises into the sky himself, the last duel is on foot;
-only the flying chariots remain — Ravana's, drawn by asses, 5–6, and
-the swan Pushpaka, 18); the royal umbrella at the coronations (8, 18 —
-the crown and the throne carry it); Ayodhya's return at the close
+only the flying chariots remained — the swan Pushpaka, 18, and
+Ravana's until v0.9 dropped that too); the royal umbrella at the
+coronations (8, 18 — the crown and the throne carry it); Ayodhya's
+return at the close
 (18 — the story ends on the flight itself, **Rama** and **Sita**
 waving back at the reader).
+
+In v0.8, the fire god rising from the flames with Sita in his arms
+(18 — a deity appearing on panel needs the myth explained; she walks
+into the fire and walks out of it unharmed, and the fire giving her
+back by itself is the whole image).
+
+In v0.9, Ravana's chariot (5–6, artist 2026-11-08): he flies as he
+is, holding Sita, so neither the taking nor Jatayu's fight has a
+vehicle in it — the swan Pushpaka (18) is now the story's only
+chariot.

@@ -45,8 +45,8 @@ guests) and children (the four boys, ch 1).
 - Jatayu the vulture (ch 3, 6): drawn (`vulture-fly`, `-swoop`,
   `-fall`, `-stand`; lying still a placeholder).
 - The Ocean, rising from the waves before Rama's bow (ch 12).
-- Flying chariots: Ravana's (drawn by asses) and the Pushpaka, drawn by
-  swans (ch 18).
+- The Pushpaka, the swan-drawn flying chariot (ch 18) — the story's
+  only chariot; **Ravana** flies by himself, holding Sita (ch 5–6).
 
 ## Props
 
