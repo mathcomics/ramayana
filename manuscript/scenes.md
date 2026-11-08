@@ -283,16 +283,20 @@ Hanuman alone in the enemy's city: Sita found, the ring given, the
 jewel got.
 
 - Night: **Hanuman**, small, creeps along Lanka's wall.
+- He searches the sleeping city: over roofs, along courts, peering
+  into windows, palace after palace — one place per panel, Hanuman
+  small against each — and **Sita** is nowhere.
 - The ashoka grove: **Sita** under a tree, rakshasis guarding her;
   Hanuman hides in the branches above — the reader finds her with
   him.
 - Hanuman drops down and kneels before her: the ring. Sita gives him
   the jewel from her hair.
 
-Must show: the grove image exactly as it will be wrecked in 11; the
-ring and the hair jewel passing hand to hand (the jewel travels home
-in 11). Not shown: Ravana threatening Sita in the grove (the guards
-are peril enough).
+Must show: the night search as a run of places without her — like the
+landscapes in 9 — so the grove lands as a discovery; the grove image
+exactly as it will be wrecked in 11; the ring and the hair jewel
+passing hand to hand (the jewel travels home in 11). Not shown: Ravana
+threatening Sita in the grove (the guards are peril enough).
 
 ## 11. Lanka burns
 
