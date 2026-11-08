@@ -1,10 +1,13 @@
 {
   "scene": "From above: the land runs out — monkeys at the water's edge, the sea below",
-  "size": 0.5,
+  "tags": ["travel", "topview"],
+  "size": 0.75,
   "ground": "sand",
   "figures": [
-    { "prop": "monkey-top", "character": "monkey1", "at": 0.3, "lift": 3.4, "scale": 2 },
-    { "prop": "monkey-top", "character": "monkey1", "cloth": "red", "at": 0.56, "lift": 3.2, "scale": 2 },
+    { "prop": "monkey-top", "character": "monkey1", "at": 0.3, "lift": 8.4, "scale": 0.9 },
+    { "prop": "monkey-top", "character": "monkey1", "at": 0.4, "lift": 9.4, "scale": 0.9 },
+    { "prop": "monkey-top", "character": "monkey1", "cloth": "red", "at": 0.5, "lift": 8.2, "scale": 0.9 },
+    { "prop": "monkey-top", "character": "hanuman", "at": 0.8, "lift": 4.4, "scale": 1 },
     { "prop": "wave-top", "at": 0.5, "row": "floor" }
   ]
 }
