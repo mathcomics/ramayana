@@ -134,6 +134,14 @@ to turn it (side view: the angles in the paper; front view: shoulder and
 hip `out`). The selected joint shows its name and angle. A "Joints" toggle hides the dots. A character menu shows the
 pose on any member of the cast; it changes only the view, never the saved
 pose.
+
+Two helpers keep contacts: **Pin feet** (on by default) holds every
+planted foot in place under the body while lean or chest is dragged, by
+re-solving that leg; **Join** solves both arms so the hands meet on the
+body's midline (joined palms, clasped hands). **Base** and **Gesture**
+pickers compose a draft pose from `data/pose-index.json`
+(`<base>-<gesture>`) to tune and save as a whole pose; editing the lower
+body edits the base, so every pose of that base follows.
 It is published as a claude.ai artifact (private to the owner):
 https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 
@@ -159,5 +167,6 @@ https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
   matching rule in `docs/design/style-bible.md`, and a commit to `main`.
 - Never trace or copy third-party reference material. Derive the primitives
   from the style bible and the artist's own work.
-- `CLAUDE.md` holds the current status and next steps for AI-assisted
-  sessions.
+- `CLAUDE.md` holds where the work stands and what is open, for
+  AI-assisted sessions. Current state only: the history is in the git
+  log.

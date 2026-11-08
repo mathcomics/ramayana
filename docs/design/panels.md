@@ -160,9 +160,9 @@ its bottom, negative = below it, so the panel crops the figures):
 | `wide` | 55.2 · 0.031 | 40.8 · 0.085 | 28.8 · 0.136 |
 | `mid` | 110.4 · −0.735 | 81.6 · −0.568 | 57.6 · −0.429 |
 
-`wide` and `mid` were measured from the artist's own layout drawings (the
-retired `layouts/` folder: `panels/layouts.md`, which also says how to
-measure a new shot; the `mid` back row is extrapolated from the other two).
+`wide` and `mid` are measured from the artist's drawings of each shot
+(`panels/layouts.md` says how to measure a new one; the `mid` back row is
+extrapolated from the other two).
 
 ## Background SVG
 

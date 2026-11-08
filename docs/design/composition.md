@@ -1,10 +1,8 @@
 # Composition
 
-How things are arranged in a panel, learned from the artist's scene
-layouts (the folder is retired: `panels/layouts.md` maps each one to the
-model panels that embody it; approved reference panels — `tags` — carry
-composition now). A new composition the artist approves adds what it
-teaches here. Rows, shots and sizes: `docs/design/panels.md`.
+How things are arranged in a panel. The model panel for each kind of
+scene is in `panels/layouts.md`; a composition the artist approves adds
+what it teaches here. Rows, shots and sizes: `docs/design/panels.md`.
 
 ## Chapter openers
 
@@ -48,11 +46,10 @@ action. The same opener can return when the story comes back to a place.
 ## Throne and hall
 
 - The throne stands in the middle with its steps; the king sits on it, not
-  in front of it (figure `on: "throne"`, pose `sit-chair` — the artist's
-  lab save, merged 2026-11-07; it works front view and in profile, and the
-  throne drawing reads front-on too: 05.02–05.03). Courtiers stand at
-  different depths on either side: one small (further back), one bigger
-  (nearer). (05.02–05.03)
+  in front of it (figure `on: "<throne>"`, pose `chair-armrest`, which
+  works in front view and in profile — the throne drawings read front-on
+  too: 02.02–02.03, 05.02–05.03). Courtiers stand at different depths on
+  either side: one small (further back), one bigger (nearer).
 - The throne sits a row behind the people talking in front of it (`row:
   "mid"`), so it reads as the room's centre, not as one of them.
 - Watch the colours: a gold crown disappears against the gold throne back;
@@ -60,9 +57,9 @@ action. The same opener can return when the story comes back to a place.
   `throne-ayodhya` (gold-backed, Dasharatha's), `throne-lanka` (dark seat
   and steps under the red disc, its centre dark, Ravana's) and
   `throne-kishkindha` (gold stupa dome echoing the `kishkindha` palace —
-  Sugriva's coronation). The ayodhya and lanka drawings were
-  interchanged by the artist 2026-11-08 — that assignment is deliberate;
-  don't swap them back.
+  Sugriva's coronation, 08.10 and 09.02). The names do not match what the
+  drawings' own comments claim: the assignment above is the artist's and
+  deliberate — don't swap them.
 
 ## Top view
 

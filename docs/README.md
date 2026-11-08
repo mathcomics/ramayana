@@ -13,7 +13,7 @@
 - `design/faces.md` — faces: the drawing files, and how a head is turned and tilted from its front and side drawings.
 - `design/panels.md` — the panel language, the panel lab and publishing.
 - `design/panel-writing.md` — the checklist for writing a section's panels: the artist's directions and the lessons from reviews. Read before writing panels; add every new lesson.
-- `design/composition.md` — how things are arranged in a panel (sky and horizon, throne, top view), learned from the artist's scene layouts (folder retired: `panels/layouts.md`).
+- `design/composition.md` — how things are arranged in a panel (sky and horizon, throne, top view). The model panel for each kind of scene: `panels/layouts.md`.
 - `design/sequential-grammar.md` — wordless storytelling principles (the clear-line school): camera discipline, cause and effect across the gutter, repetition as time, direction grammar (proposed).
 - `design/pose-picking.md` — the pose index, catalogue and gap report, and the rules for picking a pose.
 
@@ -21,7 +21,9 @@
 
 - `proposals/2026-11-03-scene-spec.md` — scenes as specs or artist templates (spec route implemented as panels).
 - `proposals/2026-11-06-held-props.md` — swords and bows along a reference line in the hand (implemented: `data/props/held/{sword,club,bow}.svg` with base + per-character layers, `tools/import-held.mjs`).
-- `proposals/2026-11-07-contact-constraints.md` — pin feet while editing in the pose lab, `lookAt` to aim gazes, `held-by` to put a prop in a hand.
+- `proposals/2026-11-07-contact-constraints.md` — pin feet while editing in the pose lab (implemented), `lookAt` to aim gazes, `held-by` to put a prop in a hand.
+- `proposals/2026-11-07-pose-composition.md` — poses as a base (lower body) × a gesture (upper body); the index, the lab's pickers and `tools/recompose.mjs` (implemented; poses stay whole in `data/poses.json`).
+- `proposals/2026-11-08-vertical-placement.md` — an `up` field placing a figure as a % of the panel height (proposed).
 
 ## Issues
 

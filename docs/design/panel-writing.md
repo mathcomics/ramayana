@@ -16,8 +16,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
    the cast in `data/characters.json` (who is who: below).
 2. `node tools/pose-gaps.mjs --scenes NN`: candidate poses per beat.
 3. For a scene of a known kind (a far place, a throne, a top view,
-   something seen far off) follow the model panels in `panels/layouts.md`
-   and its section in `composition.md`.
+   something seen far off, travelling, a crowd in panic) follow the model
+   panel in `panels/layouts.md` and its section in `composition.md`.
 4. Check the chapter opener (`composition.md`, Chapter openers).
 5. Look for **approved reference panels** whose `tags` cover the
    chapter's kinds of scene, and follow their composition:

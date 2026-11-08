@@ -24,13 +24,13 @@ from its silhouette alone.
 ## 3. Surface
 
 - Grounds: flat paper colours (off-white, dusty pink, sky blue; geru
-  red-brown as an optional traditional theme; from the artist's scene
-  layouts (retired, panels/layouts.md): sage, dry grass, dark green, stone grey). Ground colour is a
-  scene parameter.
+  red-brown as an optional traditional theme; sage, dry grass, dark
+  green, stone grey). Ground colour is a scene parameter.
 - Sky: an outdoor panel may have a flat band of sky (`sky`, a saturated
   blue) above a straight horizon a little above a third of the way up.
   Things far away are small and stand on the horizon. Arranging panels:
-  `docs/design/composition.md` (from the artist's scene layouts).
+  `docs/design/composition.md`; the model panel per kind of scene:
+  `panels/layouts.md`.
 - Edges: slightly irregular; a torn or wavy paper edge is allowed as a panel
   treatment.
 - No gradients, no outlines around filled shapes (a faint pencil-like halo

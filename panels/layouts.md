@@ -1,55 +1,53 @@
-# Layouts (retired 2026-11-08)
+# Reference compositions
 
-The `layouts/` folder — hand-sketching templates and the artist's scene
-compositions — is deleted; **approved reference panels (`tags`) carry
-composition now** (`grep -rl '"tags"' panels/`, see `panels/CLAUDE.md`).
-The artist's original SVGs stay in git history (last present at commit
-`e710bec`). This page keeps what the folder taught and where each of its
-roles lives today.
+The model panels to follow when a panel is a scene of a known kind, and
+how a shot's row geometry is measured. The rules these panels taught:
+`docs/design/composition.md`. The panel language, sizes and the shot
+tables: `docs/design/panels.md`.
 
-## Where the roles went
+## Where composition is kept
 
-| The folder held | Lives now in |
+| What | Where |
 |---|---|
-| Reference compositions to follow | tagged panels (`tags` field; `docs/design/panel-writing.md`, step on tags) |
-| Arranging rules from the artist's scene layouts | `docs/design/composition.md` |
+| Models to follow for a kind of scene | the panels below |
+| The rules they taught | `docs/design/composition.md` |
 | Row geometry of the shots | `SHOTS` in `src/scene.js`; the tables in `docs/design/panels.md` |
-| Prop drawings inside the scenes | extracted to `data/props/` (throne, deer, hut-top, lanka-island …) |
-| The panel `layout` field naming the layout followed | retired; removed from the panels (the mapping is below) |
+| Scene props (throne, deer, hut from above, Lanka …) | `data/props/`, each registered in `data/props.json` |
 
-## Shots: provenance and how to add one
+A panel carrying `tags` is an **approved reference panel**: artist-reviewed
+and locked — follow it, never rework it (`panels/CLAUDE.md`).
+`grep -rl '"tags"' panels/` lists them all; `grep -rl '"tags".*panic'
+panels/` narrows to one tag. The untagged models below are the best panel
+of their kind so far: follow them, but they can still change.
 
-The three row sets (`far`, `wide`, `mid`) were measured from the artist's
-own layout drawings `0.75-wide.svg` and `0.75-mid.svg` (360 × 540; a
-locked `page` group with the panel rectangle and ground lines, simple men
-`man-front` / `man-mid` / `man-back` drawn at each row's height). The
-generated size/shot variants added nothing beyond scaling, which the
-renderer does itself — that's why the templates could go
-(`tools/layout-template.mjs` deleted with them).
+## Model panels by kind of scene
 
-**A new shot** is still made the same way: draw a 360 × 540 page with
-ground lines and a man per row, measure each row's head-unit (man height
-÷ 7.5) and its ground line's height above the bottom edge as a share of
-the panel, and add the row set to `SHOTS` in `src/scene.js`. The drawing
-itself need not be kept once measured.
+| Kind of scene | Model | What it does |
+|---|---|---|
+| the forest home from above | 03.01 (= 04.01) | top view, no sky: ground `sage`, the hut `lift`ed to the middle of it, a clump of trees near the top-left corner and the same clump again bottom-right |
+| travelling: the three walk toward the reader | **03.02** — `travel` | front views behind a rising fold of ground (`forest-ridge`); the farther the figure, the deeper behind the fold; flowers at the near edge |
+| a crowd seen from above | **09.09** — `travel`, `topview` | top-view props (`monkey-top`) `lift`ed up the ground as distance, the leader nearest the bottom edge, `wave-top` on the `floor` row |
+| a king on his throne | 02.01–02.03 (Ayodhya), 05.02–05.03 (Lanka) | three panels: the throne alone on the `mid` row, centred, as the chapter opener; then the king seated `on` it in `view: front`, still far; then the same pair closer in a `wide` (Ayodhya) or `mid` (Lanka) shot. The hall is a flat ground colour — `dusty-pink`, `geru` |
+| someone sees something far off | 05.08 | `wide` shot, sky above the horizon: the watcher big in front (1.5×, `lift` −1.5 so the bottom edge cuts them) with `turn` −90 to look off, the subject small on the `horizon` row across the panel |
+| something flees into the distance | **05.10** — `chase`, `far` | sky over `dry-grass` and nothing in between: both figures on the `horizon` row, the fleeing one at the far edge, the chaser small behind. The horizon and the size do all the work |
+| a far place across the sea | 05.01 | no figures: `mist` sky over `sea`, the island on the `horizon` row a little right of centre, `palace-lanka` on the island's `stand` anchor at half scale |
+| a crowd in panic, fleeing | **11.08** — `panic`, `crowd`, `flee` | a 0.3 strip, `wide` shot: five figures all `facing` one way at different runs (`run-pump`, `runwide-hang`, `leap-reach`), `mouth` 3 throughout, cloth colours and patterns all different, the fire they flee at the far edge |
+| a crowd in panic under a giant | **14.05** — `panic`, `crowd`, `giant` | the same strip and shot; only the giant's hand is in frame, reaching down; the crowd breaks around it — one crawling, one flung, one turned back the other way |
 
-## The artist's scene layouts → the panels that embody them
+Any court works from the throne model — Ayodhya's (`throne-ayodhya`),
+Ravana's (`throne-lanka`), Kishkindha's (`throne-kishkindha`: 08.10,
+09.02); any "arrival at a far place" from 05.01.
 
-Each composition's rules are in `docs/design/composition.md`; the drawn
-props are in `data/props/`. To follow one now, open the model panel.
+## Measuring a new shot
 
-| Was | What it showed | Model panel(s) | Suits |
-|---|---|---|---|
-| `0.5-forest` | the forest home from above: top view, no horizon, ground `sage`, hut in the middle, a clump of trees top-left and the same clump bottom-right | 03.01 (= 04.01) | any "the hut in the forest" establishing panel; top views |
-| `0.5-lanka-throne` | a king on his throne with courtiers: hall ground, throne with steps in the middle, king seated `on` it, one courtier further back left, one nearer (1.2×) right | 05.02–05.03; 02.01–02.03 | any court: Ravana's (ch 11–13), Ayodhya's, Sugriva's |
-| `0.5-deer` | someone watches a creature far off: sky above a 0.37 horizon, a big figure in front cut by the bottom edge (1.5×), the subject small on the horizon | 05.08 | any "sees something in the distance" |
-| `0.5-deer-running` | a creature flees into the distance: same sky and horizon, otherwise empty, a small leaping deer on the horizon at the right edge | 05.10 (tagged `chase`, `far`) | any chase or escape |
-| `0.5-lanka` | Lanka from far off: no figures, `mist` sky over `sea`, the island small on the horizon a little right of centre, `palace-lanka` on its `stand` anchor | 05.01 | chapter 12's opener; any arrival at Lanka |
+A shot is a set of three rows — `front`, `mid`, `back` — each with a
+head-unit (pixels per head-unit in a 0.75 panel) and a ground line
+(height above the panel's bottom edge as a share of the panel height,
+negative = below it, so the panel crops). `far`, `wide` and `mid` are
+measured from the artist's drawings of the shot.
 
-Panels that carried a `layout` field (removed with the folder): 02.01,
-02.02, 05.02 (lanka-throne); 03.01, 04.01, 05.07, 05.17 (forest); 05.01,
-07.09 (lanka — a far place small on the horizon); 05.08 (deer); 05.10
-(deer-running).
-
-Not a layout: the artist's Jatayu pose sheet is a props source,
-`data/props/sheets/jatayu.svg` → the four `vulture-*` props.
+To add one: draw a 360 × 540 page with a ground line and a man standing
+on each row. Measure each row's head-unit (the man's height ÷ 7.5) and
+its ground line's height as a share of 540, and add the row set to
+`SHOTS` in `src/scene.js`. The renderer scales to the other panel sizes
+itself, so one drawing is enough and need not be kept once measured.

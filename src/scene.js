@@ -17,8 +17,8 @@ export const SLOTS = { left: 0.14, 'center-left': 0.32, center: 0.5, 'center-rig
 // ground = height of the ground line above the panel's bottom edge, as a
 // share of the panel height.
 //
-// A panel's `shot` picks a set of rows (measured from the artist's layout
-// drawings, folder retired — panels/layouts.md; docs/design/panels.md):
+// A panel's `shot` picks a set of rows (measured from the artist's
+// drawings of each shot — panels/layouts.md; docs/design/panels.md):
 // - far:  small figures, deep rows (the default)
 // - wide: whole figures, bigger, rows close together
 // - mid:  close; the front row is cut at the thighs, the ground lines are
