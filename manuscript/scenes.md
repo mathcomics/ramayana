@@ -131,10 +131,12 @@ happens — this is the world about to be broken.
 - A sage teaches; the three sit before him.
 - The vulture Jatayu lands on a branch; **Rama** greets him with
   joined palms.
-- **Sita** cuts another tally mark on a tree: many years.
+- The seasons pass as a row of small icons — rain, blossom, bare
+  branches (to be drawn): thirteen years.
 
 Must show: Jatayu befriended (he must be recognised when he fights in
-6); the tally marks as time passing, like the growing boys in 1.
+6); the thirteen years passing as season icons, like the growing-up
+ladder in 1 — the icons are new art for the artist to draw.
 
 ## 4. Surpanakha
 
@@ -490,4 +492,6 @@ Sita's arrival in the grove, and Jatayu's pyre (6); Hanuman carrying
 the princes up the hill on his shoulders (7); the monsoon of waiting
 between the crowning and the search (8–9) — chapter 9 simply opens
 with the search sent out; the water poured at the two coronations
-(8, 17) — the pouring confuses, the crown and umbrella alone carry it.
+(8, 17) — the pouring confuses, the crown and umbrella alone carry it;
+Sita's tally marks on the tree (3) — thirteen years read as season
+icons instead (to be drawn).
