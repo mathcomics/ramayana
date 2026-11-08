@@ -55,7 +55,7 @@ repeated inside the JSON.
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
 | `layout` | `scenes/<name>` | The scene layout the panel follows (`layouts/scenes/`), for reference only. |
-| `reference` | file name in `reference/` | The artist frieze or image the panel is composed from, for reference only. Keep the composition close to it. |
+| `tags` | list of words (`panic`, `crowd`, `flee`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
 | `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.45). |
 | `shot` | `far` · `wide` · `mid` | Which rows (below). Default `far`. Layouts: `layouts/<size>-<shot>.svg`. |
 | `props` | list | See below. |

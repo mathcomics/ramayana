@@ -34,12 +34,14 @@ scene spec (JSON) → layout → figure geometry → SVG
 - `docs/design/composition.md` + `layouts/scenes/` — how panels are
   arranged (chapter openers, sky and horizon, throne, top view), from the
   artist's scene layouts.
-- `reference/` — the artist's original friezes. Output is judged against these.
+- **Approved reference panels** — panels carrying `tags` (e.g. `panic`,
+  `crowd`, `giant`): artist-reviewed models that output is judged
+  against; locked without the artist's consent (`docs/design/panels.md`,
+  Panel fields). They replace the retired `reference/` image folder.
 
 ## Layout
 
     docs/        design/ (how it works), proposals/, issues/ (see docs/README.md)
-    reference/   artist's reference images
     src/         renderer library (skeleton, species, parts, svg output)
     data/        species profiles, poses (JSON)
     tools/       pose lab, contact sheet, parts sheet; lib.mjs + svg.mjs shared helpers

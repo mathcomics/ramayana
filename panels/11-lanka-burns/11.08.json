@@ -1,6 +1,6 @@
 {
   "scene": "Rakshasas flee through the burning streets, fire at both ends",
-  "reference": "frieze-rakshasas-fire.jpg",
+  "tags": ["panic", "crowd", "flee"],
   "size": 0.3,
   "shot": "wide",
   "ground": "#7e2f22",

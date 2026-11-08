@@ -19,6 +19,11 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
    (a far place, a throne, a top view, something seen far off) and follow
    it; name it in the panel's `layout` field.
 4. Check the chapter opener (`composition.md`, Chapter openers).
+5. Look for **approved reference panels** whose `tags` cover the
+   chapter's kinds of scene (`grep -rl '"tags"' panels/`, e.g. `panic`,
+   `crowd`, `giant`) and follow their composition. Tagged panels are
+   artist-reviewed and locked: never rework one without the artist's
+   consent (`panels/CLAUDE.md`).
 
 ## Panel by panel
 

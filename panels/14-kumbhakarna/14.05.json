@@ -1,6 +1,6 @@
 {
   "scene": "The monkeys turn and flee under Kumbhakarna's reaching fingers; only his hand fits the panel",
-  "reference": "frieze-vanaras-running.jpg",
+  "tags": ["panic", "crowd", "giant"],
   "size": 0.3,
   "shot": "wide",
   "ground": "off-white",
@@ -13,7 +13,7 @@
     { "who": "monkey1", "id": "flee2", "pose": "runwide-hang", "facing": "left", "at": 0.45, "mouth": 3,
       "adjust": { "spine.head": -25 } },
     { "who": "monkey1", "id": "pinched", "pose": "fallback-flung", "facing": "left", "at": 0.7, "lift": 4.2, "mouth": 3 },
-    { "who": "monkey1", "id": "flee3", "pose": "run-pump", "facing": "right", "at": 0.93, "mouth": 3 }
+    { "who": "monkey1", "id": "flee3", "pose": "run-pump", "facing": "right", "at": 0.90, "mouth": 3 }
   ],
   "needs": [
     "prop: giant-fingers (Kumbhakarna's hand reaching into the panel from above; placeholder box)"

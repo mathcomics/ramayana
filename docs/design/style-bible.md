@@ -52,7 +52,6 @@ from its silhouette alone.
   upper segment curves on the *outer* side of the joint's bend, the lower
   segment on the *inner* side. Leg: curved thigh-front, curved calf-back.
   Arm: curved triceps (back of upper arm), curved forearm-front.
-  See `reference/sketch-limbs-and-heads.jpg`.
 - **Knotty joints** (all species): the upper segment runs full width into
   the elbow or knee, and the lower segment starts thinner (`knot` × joint
   width, ~0.55), swells along its curved side, then tapers to the wrist
@@ -88,7 +87,7 @@ generic monkey.
   its size (guide `head.width` 1, a square).
 - Neck: thin (`neckWidth` ≈ 0.24) and fairly long (`neck` ≈ 0.27).
 - Torso: chest tapering to a narrow waist.
-- Torso curl (all species; see `reference/sketch-torso-curl.jpg`): the
+- Torso curl (all species): the
   torso is two blocks hinged at the waist. Bending forward, the upper
   block pivots on the back edge: the back turns in one smooth curve and a
   notch opens on the front, deepening with the bend (a C at ~90°).
@@ -98,7 +97,7 @@ generic monkey.
 - Tail: long, curling upward at the tip; expressive (follows motion). It
   curls in its own plane, turned by `tail.turn` (default 35°) toward its
   left side, so the front view shows part of the curl.
-- Hands (all species; see `reference/sketch-hands.jpg`), set per arm:
+- Hands (all species), set per arm:
   - fist: a wedge widening from the wrist to a flat top with rounded
     corners, shorter than the open hand (`arm.fist` ≈ 0.65 of its length);
   - out: a blunt paddle for the fingers with a thumb (parallel sides,
@@ -234,14 +233,14 @@ male 0.88, female 0.74.
   close to the front edge). Pure white or black, whichever contrasts more
   with the skin.
 - Mouth: **never closed**; three openings, `mouth-1` small, `mouth-2`
-  medium, `mouth-3` wide (see `reference/sketch-mouths.jpg`): monkey an
+  medium, `mouth-3` wide: monkey an
   **arch** (flat bottom, arched top), man a **box** (a slot), woman a
   **wedge** (a V notch toward the back of the head; a triangle pointing
   down in front view). In side view the opening reaches the front edge of
   the face. No muzzle or snout.
 - Male mouths are white (artist's request); sage1's are light
   grey, against his white hair and beard.
-- Female hair (see `reference/sketch-female-hair.jpg`): near-black, a
+- Female hair: near-black, a
   thick frame around the head that falls as broad wavy locks past the
   shoulders. Front view: the locks go in the `back` layer, behind the
   body. Side view: a cap from the forehead over the head, the hairline

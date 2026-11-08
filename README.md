@@ -9,7 +9,7 @@ The repo has two halves:
 
 | Part | Folder | What it is |
 |---|---|---|
-| **Art engine** | `src/`, `data/`, `tools/`, `docs/`, `reference/` | Deterministic renderer: a symbolic figure/scene description in, SVG out |
+| **Art engine** | `src/`, `data/`, `tools/`, `docs/` | Deterministic renderer: a symbolic figure/scene description in, SVG out |
 | **Manuscript** | `manuscript/` | The story text and the scene-by-scene breakdown the art illustrates ([its own README](manuscript/README.md)) |
 
 ## Art engine
@@ -46,7 +46,7 @@ tools/build-panellab.mjs panel lab page → out/panellab.html
 tools/lib.mjs            shared tool helpers (paths, data, sections, rsvg, lab bundling)
 tools/svg.mjs            SVG parsing for import-faces
 test/                    npm test: unit, data integrity and render snapshot
-reference/               the artist's paintings and sketches (the yardstick)
+panels (with "tags")     approved reference panels: the artist-reviewed yardstick
 src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
 src/figure.js            skeleton solve, body-part shapes, SVG output
 data/species/*.json      per-species proportions, in head-units
