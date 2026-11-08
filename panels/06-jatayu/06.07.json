@@ -3,7 +3,7 @@
   "size": 0.5,
   "ground": "geru",
   "zoom": 0.72,
-  "props": [
+  "figures": [
     {
       "prop": "lanka",
       "at": 0.5,
@@ -12,11 +12,9 @@
     {
       "prop": "tree",
       "at": 0.16
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.3,
@@ -24,7 +22,7 @@
       "turn": 0
     },
     {
-      "who": "raxas_f1",
+      "character": "raxas_f1",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.58,
@@ -38,7 +36,7 @@
       }
     },
     {
-      "who": "raxas_f1",
+      "character": "raxas_f1",
       "pose": "step-akimbo",
       "facing": "left",
       "at": 0.8,

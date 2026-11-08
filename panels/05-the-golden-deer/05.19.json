@@ -5,14 +5,14 @@
   "ground": "sand",
   "figures": [
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "fallback-flung",
       "facing": "right",
       "at": 0.29,
       "mouth": 3
     },
     {
-      "who": "ravana",
+      "character": "ravana",
       "pose": "kneeup-armsup",
       "facing": "left",
       "at": 0.66,

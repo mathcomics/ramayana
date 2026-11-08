@@ -4,7 +4,7 @@
   "ground": "sand",
   "figures": [
     {
-      "who": "raxas_m1",
+      "character": "raxas_m1",
       "id": "f1",
       "pose": "liefront-onarms",
       "facing": "right",
@@ -14,21 +14,21 @@
       "scale": 0.9
     },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.16,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.56,
       "mouth": 2
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.41,

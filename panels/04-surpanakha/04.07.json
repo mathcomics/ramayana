@@ -4,7 +4,7 @@
   "ground": "sand",
   "figures": [
     {
-      "who": "surpanakha",
+      "character": "surpanakha",
       "pose": "run-pump",
       "facing": "left",
       "at": 0.45,

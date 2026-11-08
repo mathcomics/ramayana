@@ -3,16 +3,9 @@
   "size": 0.5,
   "ground": "sage",
   "zoom": 0.85,
-  "props": [
-    {
-      "prop": "tree",
-      "at": 0.08,
-      "layer": "front"
-    }
-  ],
   "figures": [
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.58,
@@ -20,7 +13,7 @@
       "mouth": 3
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "bali",
       "pose": "leanfront-fists",
       "facing": "left",
@@ -31,11 +24,15 @@
       "scale": 1.1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-bowloose",
       "facing": "right",
       "at": 0.22,
       "mouth": 1
+    },
+    {
+      "prop": "tree",
+      "at": 0.08
     }
   ],
   "needs": [

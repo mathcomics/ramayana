@@ -2,24 +2,22 @@
   "scene": "Sugriva brings out the bundle of jewels",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "jewels",
       "at": 0.56,
       "lift": 2.4,
       "scale": 0.8
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.28,
       "mouth": 2
     },
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.72,

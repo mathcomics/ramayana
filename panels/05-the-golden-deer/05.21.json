@@ -2,23 +2,14 @@
   "scene": "The chariot rises; Sita leans out reaching back down; far below, the empty hut",
   "size": 0.75,
   "ground": "sky-blue",
-  "props": [
+  "figures": [
     {
       "prop": "hut",
       "at": 0.5,
       "scale": 0.6
     },
     {
-      "prop": "chariot",
-      "at": 0.5,
-      "lift": 8,
-      "layer": "front",
-      "row": "back"
-    }
-  ],
-  "figures": [
-    {
-      "who": "ravana",
+      "character": "ravana",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.6,
@@ -33,7 +24,7 @@
       }
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.4,
@@ -50,6 +41,12 @@
         "left.arm.elbow": 0,
         "left.arm.hand": "out"
       }
+    },
+    {
+      "prop": "chariot",
+      "at": 0.5,
+      "lift": 8,
+      "row": "back"
     }
   ],
   "needs": [

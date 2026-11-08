@@ -2,22 +2,14 @@
   "scene": "Back: the hut and the three. Front: Surpanakha watches them from behind a tree",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "hut",
       "at": 0.7,
       "row": "back"
     },
     {
-      "prop": "tree",
-      "at": 0.2,
-      "layer": "front",
-      "nudge": 0.6
-    }
-  ],
-  "figures": [
-    {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "step-akimbo",
       "facing": "right",
       "at": 0.36,
@@ -25,7 +17,7 @@
       "mouth": 1
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.47,
@@ -33,7 +25,7 @@
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.57,
@@ -41,12 +33,17 @@
       "mouth": 1
     },
     {
-      "who": "surpanakha",
+      "character": "surpanakha",
       "pose": "bend-reach",
       "facing": "right",
       "at": 0.2,
       "mouth": 1,
       "turn": 0
+    },
+    {
+      "prop": "tree",
+      "at": 0.2,
+      "nudge": 0.6
     }
   ],
   "needs": [

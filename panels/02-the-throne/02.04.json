@@ -2,16 +2,14 @@
   "scene": "Dasharatha leads Rama by the hand toward the throne",
   "size": 0.5,
   "ground": "dusty-pink",
-  "props": [
+  "figures": [
     {
       "prop": "throne-ayodhya",
       "at": 0.84,
       "row": "mid"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.34,
@@ -22,7 +20,7 @@
       }
     },
     {
-      "who": "dasharatha",
+      "character": "dasharatha",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.56,

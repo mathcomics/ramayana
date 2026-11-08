@@ -4,7 +4,7 @@
   "ground": "sand",
   "figures": [
     {
-      "who": "raxas_m1",
+      "character": "raxas_m1",
       "id": "r1",
       "pose": "lunge-swordfront",
       "facing": "left",
@@ -14,7 +14,7 @@
       "cloth": "red-check"
     },
     {
-      "who": "raxas_m1",
+      "character": "raxas_m1",
       "id": "r2",
       "pose": "run-pump",
       "facing": "left",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "who": "raxas_m1",
+      "character": "raxas_m1",
       "id": "r3",
       "pose": "lunge-swordfront",
       "facing": "left",
@@ -40,7 +40,7 @@
       "cloth": "red"
     },
     {
-      "who": "raxas_m1",
+      "character": "raxas_m1",
       "id": "r4",
       "pose": "run-pump",
       "facing": "left",
@@ -56,7 +56,7 @@
       }
     },
     {
-      "who": "raxas_m1",
+      "character": "raxas_m1",
       "id": "r5",
       "pose": "lunge-swordfront",
       "facing": "left",
@@ -66,7 +66,7 @@
       "cloth": "red-check"
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-bowdraw",
       "facing": "right",
       "at": 0.22,

@@ -7,7 +7,7 @@
   "zoom": 0.7,
   "figures": [
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m1",
       "pose": "sit-armknee",
       "facing": "right",
@@ -19,7 +19,7 @@
       }
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m2",
       "pose": "sit-armknee",
       "facing": "left",
@@ -32,7 +32,7 @@
       }
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m3",
       "pose": "sit-armknee",
       "facing": "left",
@@ -44,7 +44,7 @@
       }
     },
     {
-      "who": "hanuman",
+      "character": "hanuman",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.6,

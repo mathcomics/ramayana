@@ -5,7 +5,7 @@
   "ground": "dusty-pink",
   "figures": [
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.4,

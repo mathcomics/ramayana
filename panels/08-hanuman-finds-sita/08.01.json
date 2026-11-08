@@ -3,7 +3,7 @@
   "size": 0.5,
   "ground": "dry-grass",
   "sky": "sky",
-  "props": [
+  "figures": [
     {
       "prop": "hills",
       "at": 0.55,
@@ -11,7 +11,6 @@
       "scale": 1.4
     }
   ],
-  "figures": [],
   "needs": [
     "prop: hills (rocky hills, far)"
   ]

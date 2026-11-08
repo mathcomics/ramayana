@@ -2,7 +2,7 @@
   "scene": "The golden deer falls, dying; a cry goes up with Rama's shouting face",
   "size": 0.5,
   "ground": "dry-grass",
-  "props": [
+  "figures": [
     {
       "prop": "golden-deer-fallen",
       "at": 0.42
@@ -13,7 +13,6 @@
       "lift": 3.2
     }
   ],
-  "figures": [],
   "needs": [
     "prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank)",
     "effect: shout-bubble (a speech bubble with Rama's face shouting; it travels 05.12-05.14)"

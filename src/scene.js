@@ -88,13 +88,27 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     return { y: H * (1 - R.ground), unit: R.unit * H / REF_H };
   };
 
-  // -- figures ------------------------------------------------------------------
+  // -- one list: figures ("character") and props ("prop"), drawn in order -------
+  // Later entries draw over earlier ones; a prop before the figures is
+  // scenery, after them a foreground that hides them. Older panels and lab
+  // drafts with a separate `props` list (layer back / front) fold in around
+  // the figures; "who" is the old name of "character".
   const chars = assets.characters.characters;
-  const figs = (panel.figures || []).map((f, i) => {
-    const c = chars.find((x) => x.id === f.who);
-    if (!c) { issues.push(`figure ${i + 1}: unknown character "${f.who}"`); return null; }
+  const lib = assets.props?.props || {};
+  const legacy = (panel.props || []).map(({ layer, ...p }) => ({ p, front: layer === 'front' }));
+  const entries = [
+    ...legacy.filter((e) => !e.front).map((e) => e.p),
+    ...(panel.figures || []),
+    ...legacy.filter((e) => e.front).map((e) => e.p),
+  ];
+
+  let nFig = 0;
+  const makeFig = (f) => {
+    const i = ++nFig, who = f.character ?? f.who;
+    const c = chars.find((x) => x.id === who);
+    if (!c) { issues.push(`figure ${i}: unknown character "${who}"`); return null; }
     const base = assets.poses.find((p) => p.name === f.pose);
-    if (!base) issues.push(`figure ${i + 1} (${f.who}): unknown pose "${f.pose}", using step-hang`);
+    if (!base) issues.push(`figure ${i} (${who}): unknown pose "${f.pose}", using step-hang`);
     const pose = clone(base || assets.poses.find((p) => p.name === 'step-hang') || {});
     if (f.mouth) pose.mouth = f.mouth;
     if (typeof f.turn === 'number') setPath(pose, 'spine.turn', f.turn);   // head turn, degrees, + to its right
@@ -103,7 +117,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (f.hands) for (const [h, v] of Object.entries(f.hands)) setPath(pose, side(`${h}.arm.hand`), v);
     for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, side(k), v);
     const look = characterLook(c, assets.characters.palette, assets.faces, f.cloth);
-    if (f.cloth && !look.colors.cloth) issues.push(`figure ${i + 1} (${f.who}): unknown cloth "${f.cloth}"`);
+    if (f.cloth && !look.colors.cloth) issues.push(`figure ${i} (${who}): unknown cloth "${f.cloth}"`);
     const S = assets.species[look.species];
     const r = row(f.row);
     const unit = r.unit * zoom * (f.scale ?? 1);
@@ -111,28 +125,28 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     // every character has a drawn face; there is no generated fallback
     const { bbox, headAnchor, joints } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
     const headView = headAnchor.view ?? (view === 'front' ? 'front' : normalizePose(pose).headView);
-    if (!look.face?.[headView]?.head) issues.push(`figure ${i + 1} (${f.who}): no drawn ${headView} face (the ${headView} layer of data/faces/${f.who}.svg)`);
-    return { f, name: f.id || f.who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
+    if (!look.face?.[headView]?.head) issues.push(`figure ${i} (${who}): no drawn ${headView} face (the ${headView} layer of data/faces/${who}.svg)`);
+    return { f, fi: i - 1, name: f.id || who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0,
       facing: f.facing === 'left' ? -1 : 1, x: null };
-  }).filter(Boolean);
+  };
 
-  // -- props (placeholders until the artist's SVG exists) -----------------------
-  const lib = assets.props?.props || {};
-  const props = (panel.props || []).map((p) => {
+  const makeProp = (p) => {
     const def = lib[p.prop];
     if (!def) issues.push(`prop "${p.prop}" not in data/props.json`);
     else if (!def.svg) issues.push(`prop "${p.prop}" not drawn yet (placeholder)`);
+    if (p.layer) issues.push(`prop "${p.prop}": "layer" is retired — order the entries instead`);
     const r = row(p.row);
     const unit = r.unit * (p.scale ?? 1);
     const [w, h] = (def?.size || [2, 2]).map((v) => v * unit);
     // recolor: def.recolor names the drawing's role colours ({ body, cloth }).
-    // "who" takes a character's colours; "body" / "cloth" override (hex, or a
-    // cloth palette name; a pattern suffix keeps the base colour).
+    // "character" takes a character's colours; "body" / "cloth" override (hex,
+    // or a cloth palette name; a pattern suffix keeps the base colour).
+    const cid = p.character ?? p.who;
     let svg = def?.svg;
-    if (svg && def.recolor && (p.who || p.body || p.cloth)) {
-      const c = p.who ? chars.find((x) => x.id === p.who) : null;
-      if (p.who && !c) issues.push(`prop "${p.prop}": unknown character "${p.who}"`);
+    if (svg && def.recolor && (cid || p.body || p.cloth)) {
+      const c = cid ? chars.find((x) => x.id === cid) : null;
+      if (cid && !c) issues.push(`prop "${p.prop}": unknown character "${cid}"`);
       const clothName = p.cloth ?? c?.cloth;
       const want = { body: p.body ?? c?.body,
         cloth: clothName && (parseCloth(clothName, assets.characters.palette.cloth).color ?? clothName) };
@@ -140,12 +154,19 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
         if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
       }
     }
-    return { p, name: p.id || p.prop, def, svg, groundY: r.y - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null, layer: p.layer || 'back',
+    return { p, name: p.id || p.prop, def, svg, groundY: r.y - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null,
       facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
-  });
+  };
+
+  const all = entries.map((e, i) => {
+    if (e.prop) return makeProp(e);
+    if (e.character || e.who) return makeFig(e);
+    issues.push(`entry ${i + 1}: needs "character" or "prop"`);
+    return null;
+  }).filter(Boolean);
+  const props = all.filter((o) => o.p);
 
   // -- placement: number or slot first, then relations --------------------------
-  const all = [...figs, ...props];
   for (const o of all) {
     const at = (o.f || o.p).at ?? 'center';
     if (typeof at === 'number') o.x = at * W;
@@ -185,7 +206,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   }
   for (const o of all) { o.x ??= W / 2; o.x += ((o.f || o.p).nudge ?? 0) * o.unit; }
 
-  // -- draw: ground, background, back props, figures in list order, front props
+  // -- draw: ground, sky, background, then the list in order ---------------------
   let s = `<rect width="${W}" height="${H}" fill="${esc(ground)}"/>`;
   if (sky) s += `<rect width="${W}" height="${Math.max(0, horizonY)}" fill="${esc(sky)}"/>`;
   if (background) s += `<g class="background">${background}</g>`;
@@ -195,14 +216,13 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     return `<g class="placeholder"><rect x="${x}" y="${y}" width="${o.w}" height="${o.h}" fill="#000" fill-opacity="0.06" stroke="#7a6f62" stroke-width="1.2" stroke-dasharray="5 4"/>` +
       `<text x="${o.x}" y="${y + o.h / 2}" font-family="Helvetica, Arial, sans-serif" font-size="${Math.max(9, Math.min(16, o.w / 6))}" fill="#7a6f62" text-anchor="middle" dominant-baseline="middle">${esc(o.p.prop)}</text></g>`;
   };
-  props.filter((o) => o.layer !== 'front').forEach((o) => { s += drawProp(o); });
   // ids are unique per panel and figure, so panels can share a page
   const pre = String(id).replace(/\W/g, '_');
-  figs.forEach((o, i) => {
-    s += renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
-      view: o.view, id: `${pre}-f${i}` }).svg;
+  all.forEach((o) => {
+    s += o.p ? drawProp(o)
+      : renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
+        view: o.view, id: `${pre}-f${o.fi}` }).svg;
   });
-  props.filter((o) => o.layer === 'front').forEach((o) => { s += drawProp(o); });
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
   return { svg, w: W, h: H, issues };
 }

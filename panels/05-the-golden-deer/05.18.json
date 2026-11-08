@@ -4,7 +4,7 @@
   "ground": "sand",
   "figures": [
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-point",
       "facing": "right",
       "at": 0.3,
@@ -18,7 +18,7 @@
       }
     },
     {
-      "who": "sage1",
+      "character": "sage1",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.72,

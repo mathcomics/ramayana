@@ -4,14 +4,14 @@
   "ground": "dry-grass",
   "figures": [
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.14,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.34,
@@ -21,7 +21,7 @@
       }
     },
     {
-      "who": "hanuman",
+      "character": "hanuman",
       "pose": "kneel-palms",
       "facing": "left",
       "at": 0.66,

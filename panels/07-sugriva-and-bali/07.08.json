@@ -3,17 +3,14 @@
   "size": 0.5,
   "ground": "dry-grass",
   "zoom": 0.8,
-  "props": [
+  "figures": [
     {
       "prop": "ledge",
       "at": 0.85,
-      "layer": "back",
       "scale": 1.2
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.36,
@@ -21,7 +18,7 @@
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.56,
@@ -29,7 +26,7 @@
       "mouth": 1
     },
     {
-      "who": "hanuman",
+      "character": "hanuman",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.45,

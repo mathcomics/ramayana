@@ -2,15 +2,13 @@
   "scene": "Sita scratches the thirteenth tally mark on a tree",
   "size": 0.3,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "tree",
       "at": 0.66
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-point",
       "facing": "right",
       "at": 0.4,

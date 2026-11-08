@@ -4,7 +4,7 @@
   "ground": "sage",
   "figures": [
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "bali",
       "pose": "liefront-onarms",
       "facing": "right",
@@ -14,7 +14,7 @@
       "scale": 1.1
     },
     {
-      "who": "queen2",
+      "character": "queen2",
       "id": "tara",
       "pose": "kneel-bow",
       "facing": "right",
@@ -23,7 +23,7 @@
       "cloth": "red"
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "angad",
       "pose": "step-holdhead",
       "facing": "left",

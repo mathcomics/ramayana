@@ -4,7 +4,7 @@
   "ground": "geru",
   "figures": [
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "sit-armknee",
       "facing": "left",
       "at": 0.34,
@@ -12,7 +12,7 @@
       "turn": -30
     },
     {
-      "who": "ravana",
+      "character": "ravana",
       "pose": "step-swordlevel",
       "facing": "left",
       "at": 0.7,

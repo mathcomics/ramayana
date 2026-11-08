@@ -32,14 +32,12 @@ repeated inside the JSON.
   "scene": "Kaikeyi points Rama away; the king slumps",
   "size": 0.75,
   "ground": "dusty-pink",
-  "props": [
-    { "prop": "throne", "at": 0.88 }
-  ],
   "figures": [
-    { "who": "dasharatha", "pose": "stand", "facing": "left", "at": 0.74,
+    { "prop": "throne", "at": 0.88 },
+    { "character": "dasharatha", "pose": "stand", "facing": "left", "at": 0.74,
       "adjust": { "spine.chest": 40, "spine.lean": 10 } },
-    { "who": "rama", "pose": "stand", "facing": "left", "at": 0.16, "mouth": 1 },
-    { "who": "kaikeyi", "pose": "point", "facing": "left", "at": 0.48, "mouth": 3 }
+    { "character": "rama", "pose": "stand", "facing": "left", "at": 0.16, "mouth": 1 },
+    { "character": "kaikeyi", "pose": "point", "facing": "left", "at": 0.48, "mouth": 3 }
   ],
   "needs": ["pose: slump (or sit, on the throne)"]
 }
@@ -58,8 +56,7 @@ repeated inside the JSON.
 | `tags` | list of words (`panic`, `crowd`, `flee`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
 | `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.45). |
 | `shot` | `far` · `wide` · `mid` | Which rows (below). Default `far`. Layouts: `layouts/<size>-<shot>.svg`. |
-| `props` | list | See below. |
-| `figures` | list | **Overlap order: later figures are drawn over earlier ones.** |
+| `figures` | one list of figures **and** props | An entry with `character` is a figure, with `prop` a prop. **One overlap rule: later entries draw over earlier ones** — a prop before the figures is scenery, after them a foreground that hides them (03.02's ridge), and props and figures interleave freely. (The old separate `props` list with `layer` back/front still renders, folded in around the figures — old lab drafts only; migrate on merge.) |
 | `needs` | list of text | Missing poses, props, art. Collected into the to-do list. |
 | `background` | file name | Optional; default `<id>.svg` next to the JSON. |
 
@@ -67,7 +64,7 @@ repeated inside the JSON.
 
 | Field | Values | Notes |
 |---|---|---|
-| `who` | character id (`data/characters.json`) | Generic types (`monkey1`, `queen1` …) can repeat. |
+| `character` | character id (`data/characters.json`) | Generic types (`monkey1`, `queen1` …) can repeat. (Old name `who` still reads.) |
 | `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
@@ -86,11 +83,12 @@ repeated inside the JSON.
 
 ### Props
 
-`{ "prop": "throne", "at": "right", "row": "back", "layer": "back" }`
+`{ "prop": "throne", "at": "right", "row": "back" }` — an entry of the same
+`figures` list; its place in the list is its depth (before the figures =
+behind them, after = in front; the retired `layer` field is an issue).
 
 - `prop`: id from `data/props.json`, whose `size` is `[width, height]` in
   head-units, so a prop scales with its row.
-- `layer`: `back` (default, behind figures of its row) or `front`.
 - Artwork: `data/props/<id>.svg`, 100 px = 1 head-unit, bottom edge on the
   ground; its viewBox sets the prop's size. A prop with no artwork yet
   renders as a **labelled dashed box**.
@@ -98,10 +96,10 @@ repeated inside the JSON.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
 - Recolouring: a prop whose registry entry has `recolor` (the drawing's
   role colours, e.g. `{ "body": "#a05a2c", "cloth": "#c8ab37" }`) takes
-  `who` (a character id: that character's body and cloth colours), or
+  `character` (a character id: that character's body and cloth colours), or
   explicit `body` / `cloth` (hex, or a cloth palette name; a pattern
   suffix keeps the base colour). So one drawing serves many characters:
-  `{ "prop": "male-top", "who": "rama" }`.
+  `{ "prop": "male-top", "character": "rama" }`.
 - Anchors: a group `id="anchors"` in the prop's SVG holds named circles
   (not drawn). `seat`: where a seated figure's hips rest (`on`).
   `stand`, `stand-left`, `stand-right`: where a standing figure's feet
@@ -164,8 +162,8 @@ and `0.75-mid.svg` (the `mid` back row is extrapolated from the other two).
 
 `panels/<section>/<id>.svg`, drawn in the panel's coordinates: 360 wide,
 `size` × 720 high (540 for 0.75). Draw anything (horizon, river, hills); the renderer
-fills the ground colour first, then the background, then back-layer props,
-figures in list order, and front-layer props.
+fills the ground colour first, then the background, then the `figures`
+list in order.
 A layer labelled `guide` is ignored; editor attributes are stripped. The
 drawing is otherwise used as is.
 

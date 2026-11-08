@@ -3,7 +3,7 @@
   "size": 0.5,
   "ground": "sage",
   "layout": "scenes/0.5-forest",
-  "props": [
+  "figures": [
     {
       "prop": "trees-top",
       "id": "trees-nw",
@@ -24,6 +24,5 @@
       "scale": 0.4,
       "lift": 0.45
     }
-  ],
-  "figures": []
+  ]
 }

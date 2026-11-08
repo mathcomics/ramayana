@@ -3,23 +3,21 @@
   "size": 0.5,
   "ground": "dry-grass",
   "sky": "sky",
-  "props": [
+  "figures": [
     {
       "prop": "kishkindha",
       "at": 0.12,
       "row": "horizon"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "step-point",
       "facing": "left",
       "at": 0.36,
       "mouth": 2
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "stand-pointup",
       "facing": "left",
       "at": 0.7,

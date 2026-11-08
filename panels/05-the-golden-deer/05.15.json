@@ -2,23 +2,21 @@
   "scene": "Sita pushes Lakshman to go; he goes, looking back",
   "size": 0.75,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "hut",
       "at": 0.2,
       "row": "back"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-point",
       "facing": "right",
       "at": 0.3,
       "mouth": 3
     },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.72,

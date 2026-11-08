@@ -2,7 +2,7 @@
   "scene": "Water is poured over the crowned Sugriva; young Angad beside him",
   "size": 0.5,
   "ground": "off-white",
-  "props": [
+  "figures": [
     {
       "prop": "throne-lanka",
       "at": 0.44,
@@ -14,15 +14,7 @@
       "lift": 6.2
     },
     {
-      "prop": "umbrella",
-      "at": 0.42,
-      "lift": 6.3,
-      "layer": "front"
-    }
-  ],
-  "figures": [
-    {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "chair-armrest",
       "facing": "right",
       "mouth": 1,
@@ -37,7 +29,7 @@
       "on": "throne-lanka"
     },
     {
-      "who": "hanuman",
+      "character": "hanuman",
       "pose": "arch-overhead",
       "facing": "left",
       "at": 0.64,
@@ -47,13 +39,18 @@
       }
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "angad",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.14,
       "mouth": 1,
       "scale": 0.75
+    },
+    {
+      "prop": "umbrella",
+      "at": 0.42,
+      "lift": 6.3
     }
   ],
   "needs": [

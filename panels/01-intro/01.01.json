@@ -3,13 +3,12 @@
   "size": 0.5,
   "ground": "sand",
   "sky": "sky",
-  "props": [
+  "figures": [
     {
       "prop": "palace",
       "at": 0.5,
       "row": "horizon",
       "scale": 1.6
     }
-  ],
-  "figures": []
+  ]
 }

@@ -3,30 +3,28 @@
   "size": 0.5,
   "shot": "wide",
   "ground": "dusty-pink",
-  "props": [
+  "figures": [
     {
       "prop": "throne-ayodhya",
       "at": 0.88,
       "row": "mid"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.85,
       "mouth": 1
     },
     {
-      "who": "dasharatha",
+      "character": "dasharatha",
       "pose": "stepback-armsout",
       "facing": "right",
       "at": 0.56,
       "mouth": 2
     },
     {
-      "who": "kaikeyi",
+      "character": "kaikeyi",
       "pose": "leanback-armsback",
       "facing": "right",
       "at": 0.26,

@@ -4,8 +4,11 @@
   "ground": "sea",
   "sky": "mist",
   "layout": "scenes/0.5-lanka",
-  "props": [
-    { "prop": "lanka-island", "at": 0.598, "row": "horizon" }
-  ],
-  "figures": []
+  "figures": [
+    {
+      "prop": "lanka-island",
+      "at": 0.598,
+      "row": "horizon"
+    }
+  ]
 }

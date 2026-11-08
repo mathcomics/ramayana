@@ -2,29 +2,27 @@
   "scene": "Rama sends Lakshman and Sita into a cave and strings his bow",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "cave",
       "at": 0.2
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.33,
       "mouth": 1
     },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-point",
       "facing": "left",
       "at": 0.8,

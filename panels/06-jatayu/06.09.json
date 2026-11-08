@@ -2,7 +2,7 @@
   "scene": "Rama, head in hands, searches among the trees; Lakshman follows",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "tree",
       "at": 0.12,
@@ -17,18 +17,16 @@
       "prop": "tree",
       "at": 0.55,
       "row": "back"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.24,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.6,

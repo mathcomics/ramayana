@@ -11,7 +11,8 @@ const used = new Map();   // prop id -> Set of panel ids
 const wishes = new Map(); // needs text ("prop: ...") -> Set of panel ids
 for (const sec of loadSections()) {
   for (const { id, def } of sec.panels) {
-    for (const p of def.props ?? []) {
+    for (const p of [...(def.figures ?? []), ...(def.props ?? [])]) {
+      if (!p.prop) continue;
       if (!used.has(p.prop)) used.set(p.prop, new Set());
       used.get(p.prop).add(id);
     }

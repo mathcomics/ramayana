@@ -5,7 +5,7 @@
   "ground": "dusty-pink",
   "figures": [
     {
-      "who": "dasharatha",
+      "character": "dasharatha",
       "pose": "stepback-armsout",
       "facing": "right",
       "at": 0.5,

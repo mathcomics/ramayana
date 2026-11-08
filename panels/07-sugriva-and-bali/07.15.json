@@ -4,14 +4,14 @@
   "ground": "sage",
   "figures": [
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "leanfront-fists",
       "facing": "right",
       "at": 0.32,
       "mouth": 3
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "bali",
       "pose": "leanfront-fists",
       "facing": "left",

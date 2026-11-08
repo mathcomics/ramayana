@@ -5,7 +5,7 @@
   "ground": "dry-grass",
   "figures": [
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-bowdraw",
       "facing": "right",
       "at": 0.42,

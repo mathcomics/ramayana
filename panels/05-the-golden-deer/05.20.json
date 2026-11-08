@@ -3,16 +3,9 @@
   "size": 0.5,
   "shot": "wide",
   "ground": "sand",
-  "props": [
-    {
-      "prop": "chariot",
-      "at": 0.88,
-      "layer": "front"
-    }
-  ],
   "figures": [
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "leanback-armsback",
       "facing": "right",
       "at": 0.28,
@@ -27,7 +20,7 @@
       }
     },
     {
-      "who": "ravana",
+      "character": "ravana",
       "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.56,
@@ -39,6 +32,10 @@
         "left.arm.hand": "fist",
         "spine.head": 8
       }
+    },
+    {
+      "prop": "chariot",
+      "at": 0.88
     }
   ],
   "needs": [

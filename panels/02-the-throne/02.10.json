@@ -5,7 +5,7 @@
   "ground": "dusty-pink",
   "figures": [
     {
-      "who": "kaikeyi",
+      "character": "kaikeyi",
       "pose": "step-point",
       "facing": "left",
       "at": 0.55,

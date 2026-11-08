@@ -2,15 +2,13 @@
   "scene": "Rama and Sugriva clasp hands over a fire",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "fire",
       "at": 0.5
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.3,
@@ -22,7 +20,7 @@
       }
     },
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.66,

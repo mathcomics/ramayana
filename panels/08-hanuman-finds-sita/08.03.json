@@ -2,16 +2,14 @@
   "scene": "Rama gives Hanuman his ring",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "ring",
       "at": 0.52,
       "lift": 4.6
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.34,
@@ -24,7 +22,7 @@
       }
     },
     {
-      "who": "hanuman",
+      "character": "hanuman",
       "pose": "kneel-handslow",
       "facing": "left",
       "at": 0.66,

@@ -3,23 +3,15 @@
   "size": 0.75,
   "ground": "sky-blue",
   "zoom": 0.8,
-  "props": [
-    {
-      "prop": "chariot",
-      "at": 0.66,
-      "lift": 4.5,
-      "layer": "front"
-    },
+  "figures": [
     {
       "prop": "vulture-fall",
       "at": 0.24,
       "lift": 0.5,
       "scale": 0.7
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "ravana",
+      "character": "ravana",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.76,
@@ -30,7 +22,7 @@
       }
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-point",
       "facing": "left",
       "at": 0.58,
@@ -41,6 +33,11 @@
         "spine.lean": 15
       },
       "lift": 5.1
+    },
+    {
+      "prop": "chariot",
+      "at": 0.66,
+      "lift": 4.5
     }
   ],
   "needs": [

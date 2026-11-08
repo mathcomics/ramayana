@@ -2,18 +2,9 @@
   "scene": "Back: the chariot flies over the sea, Sita reaching back. Front: waves",
   "size": 0.75,
   "ground": "sky-blue",
-  "props": [
-    {
-      "prop": "chariot",
-      "at": 0.5,
-      "lift": 7,
-      "layer": "front",
-      "row": "back"
-    }
-  ],
   "figures": [
     {
-      "who": "ravana",
+      "character": "ravana",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.44,
@@ -22,7 +13,7 @@
       "row": "back"
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-point",
       "facing": "right",
       "at": 0.58,
@@ -31,6 +22,12 @@
         "right.arm.shoulder": 60
       },
       "lift": 7.6,
+      "row": "back"
+    },
+    {
+      "prop": "chariot",
+      "at": 0.5,
+      "lift": 7,
       "row": "back"
     }
   ],

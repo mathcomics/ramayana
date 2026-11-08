@@ -5,14 +5,14 @@
   "ground": "dark-green",
   "figures": [
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.25,
       "mouth": 1
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-point",
       "facing": "right",
       "at": 0.68,

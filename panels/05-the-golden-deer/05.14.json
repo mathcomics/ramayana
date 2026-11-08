@@ -2,7 +2,7 @@
   "scene": "The cry reaches the hut: Sita starts up; Lakshman stands unmoved",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "hut",
       "at": 0.82,
@@ -12,11 +12,9 @@
       "prop": "shout-bubble",
       "at": 0.12,
       "lift": 4.2
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.42,
@@ -29,7 +27,7 @@
       }
     },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.66,

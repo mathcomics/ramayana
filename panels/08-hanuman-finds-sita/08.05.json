@@ -2,16 +2,14 @@
   "scene": "Hanuman crouches on a mountaintop, ready to leap",
   "size": 0.5,
   "ground": "sky-blue",
-  "props": [
+  "figures": [
     {
       "prop": "mountain",
       "at": 0.5,
       "scale": 1
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "hanuman",
+      "character": "hanuman",
       "pose": "bend-reach",
       "facing": "right",
       "at": 0.5,

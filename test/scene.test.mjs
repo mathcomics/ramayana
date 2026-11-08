@@ -26,14 +26,15 @@ test('every committed panel renders without issues (placeholders aside)', () => 
 
 test('unknown names become issues, not crashes', () => {
   const r = renderPanel({ ground: 'mauve', figures: [
-    { who: 'nobody' }, { who: 'rama', pose: 'moonwalk', row: 'sky', at: 'far-left' },
-  ], props: [{ prop: 'spaceship' }] }, assets);
+    { prop: 'spaceship' },
+    { character: 'nobody' }, { character: 'rama', pose: 'moonwalk', row: 'sky', at: 'far-left' },
+  ] }, assets);
   const all = r.issues.join('\n');
   for (const s of ['mauve', 'nobody', 'moonwalk', 'sky', 'far-left', 'spaceship']) assert.match(all, new RegExp(s));
 });
 
 test('placement: numbers, slots and relations', () => {
-  const fig = (extra) => ({ who: 'rama', pose: 'step-hang', ...extra });
+  const fig = (extra) => ({ character: 'rama', pose: 'step-hang', ...extra });
   const at = (a) => xOf(renderPanel({ figures: [fig({ at: a })] }, assets).svg, 0);
   assert.equal(at(0.25), 90);
   assert.equal(at('right'), 0.86 * 360);
@@ -48,18 +49,35 @@ test('placement: numbers, slots and relations', () => {
 });
 
 test('rows: back figures stand higher and smaller', () => {
-  const svg = renderPanel({ figures: [{ who: 'rama', row: 'front' }, { who: 'rama', row: 'back' }] }, assets).svg;
+  const svg = renderPanel({ figures: [{ character: 'rama', row: 'front' }, { character: 'rama', row: 'back' }] }, assets).svg;
   const g = [...svg.matchAll(/translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)/g)].map((m) => [+m[2], +m[3]]);
   assert.ok(g[1][0] < g[0][0] && g[1][1] < g[0][1]);
 });
 
 test('missing props draw a labelled placeholder', () => {
-  const r = renderPanel({ props: [{ prop: 'cave' }] }, assets);
+  const r = renderPanel({ figures: [{ prop: 'cave' }] }, assets);
   assert.match(r.svg, /class="placeholder"[\s\S]*>cave</);
 });
 
+test('one list: later entries draw over earlier; legacy props/who/layer still read', () => {
+  // the prop after the figure is drawn after it (a foreground); rama's
+  // body colour marks the figure in the stream
+  const body = '#916f6f';
+  const after = renderPanel({ figures: [{ character: 'rama', pose: 'step-hang' }, { prop: 'cave' }] }, assets).svg;
+  assert.ok(after.indexOf('class="placeholder"') > after.indexOf(body), 'prop after the figure draws over it');
+  const before = renderPanel({ figures: [{ prop: 'cave' }, { character: 'rama', pose: 'step-hang' }] }, assets).svg;
+  assert.ok(before.indexOf('class="placeholder"') < before.indexOf(body), 'prop before the figure draws behind it');
+  // old form: separate props list with layer, figures with who — same render
+  const legacy = renderPanel({ props: [{ prop: 'cave', layer: 'front' }], figures: [{ who: 'rama', pose: 'step-hang' }] }, assets);
+  assert.equal(legacy.svg, after);
+  assert.deepEqual(legacy.issues.filter((i) => !/placeholder/.test(i)), []);
+  // in the one list, layer is retired
+  const r = renderPanel({ figures: [{ prop: 'cave', layer: 'front' }] }, assets);
+  assert.match(r.issues.join('\n'), /"layer" is retired/);
+});
+
 test('sky: a colour above the horizon; row "horizon" stands things on it', () => {
-  const r = renderPanel({ size: 0.5, sky: 'sky', horizon: 0.25, props: [{ prop: 'golden-deer-run', row: 'horizon' }] }, assets);
+  const r = renderPanel({ size: 0.5, sky: 'sky', horizon: 0.25, figures: [{ prop: 'golden-deer-run', row: 'horizon' }] }, assets);
   assert.match(r.svg, /<rect width="360" height="270" fill="#00aad4"\/>/);
   const y = +r.svg.match(/<g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(/)?.[1];
   assert.ok(Math.abs(y + 5.557 * 16 * 360 / 540 - 270) < 0.01, `deer bottom on the horizon (${y})`);
@@ -69,19 +87,19 @@ test('sky: a colour above the horizon; row "horizon" stands things on it', () =>
 test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirror the seat', () => {
   const seat = assets.props.props['throne-ayodhya'].anchors.seat;
   for (const facing of ['right', 'left']) {
-    const r = renderPanel({ props: [{ prop: 'throne-ayodhya', at: 0.5, row: 'mid', facing }], figures: [{ who: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets);
+    const r = renderPanel({ figures: [{ prop: 'throne-ayodhya', at: 0.5, row: 'mid', facing }, { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets);
     assert.deepEqual(r.issues.filter((i) => !/placeholder/.test(i)), []);
     const [, fy, fs] = r.svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/) || [];
     const unit = 34, top = 540 * (1 - 0.17) - assets.props.props['throne-ayodhya'].size[1] * unit;
     assert.ok(Math.abs(+fy - (top + seat[1] * unit)) < 0.01, `${facing}: seat height`);
     assert.equal(Math.abs(+fs), unit);
   }
-  assert.equal(renderPanel({ figures: [{ who: 'rama', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets).issues.length, 1);
+  assert.equal(renderPanel({ figures: [{ character: 'rama', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets).issues.length, 1);
 });
 
 test('two panels on one page never share an id', () => {
-  const a = renderPanel({ figures: [{ who: 'rama' }] }, assets, { id: '01.01' }).svg;
-  const b = renderPanel({ figures: [{ who: 'rama' }] }, assets, { id: '01.02' }).svg;
+  const a = renderPanel({ figures: [{ character: 'rama' }] }, assets, { id: '01.01' }).svg;
+  const b = renderPanel({ figures: [{ character: 'rama' }] }, assets, { id: '01.02' }).svg;
   const ids = (s) => [...s.matchAll(/id="([^"]+)"/g)].map((m) => m[1]);
   assert.deepEqual(ids(a).filter((x) => ids(b).includes(x)), []);
 });
@@ -99,7 +117,7 @@ test('backgroundInner keeps the drawing, drops the guide layer and editor markup
 
 test('a character without a drawn face is an issue (no generated fallback)', () => {
   const noFace = { ...assets, faces: { faces: {} } };
-  const r = renderPanel({ figures: [{ who: 'rama' }, { who: 'sita', view: 'front' }] }, noFace);
+  const r = renderPanel({ figures: [{ character: 'rama' }, { character: 'sita', view: 'front' }] }, noFace);
   assert.match(r.issues.join('\n'), /rama\): no drawn side face/);
   assert.match(r.issues.join('\n'), /sita\): no drawn front face/);
 });

@@ -4,7 +4,7 @@
   "ground": "stone-grey",
   "sky": "#8a99a3",
   "horizon": 0.5,
-  "props": [
+  "figures": [
     {
       "prop": "rain-cloud",
       "at": 0.5,
@@ -14,13 +14,10 @@
     {
       "prop": "ledge",
       "at": 0.5,
-      "layer": "back",
       "scale": 1.1
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "sit-armknee",
       "facing": "left",
       "on": "ledge",
@@ -32,7 +29,7 @@
       }
     },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "step-hang",
       "facing": "left",
       "on": "ledge#stand-left",

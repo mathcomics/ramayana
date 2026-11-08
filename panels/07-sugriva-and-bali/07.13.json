@@ -2,17 +2,15 @@
   "scene": "Rama presses the jewels to his chest and weeps",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "jewels",
       "at": 0.41,
       "lift": 2.1,
       "scale": 0.7
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "kneel-bow",
       "facing": "right",
       "at": 0.38,
@@ -24,7 +22,7 @@
       }
     },
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.76,

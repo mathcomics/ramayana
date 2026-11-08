@@ -3,17 +3,15 @@
   "size": 0.5,
   "ground": "dry-grass",
   "zoom": 0.6,
-  "props": [
+  "figures": [
     {
       "prop": "kishkindha",
       "at": 0.68,
       "row": "back",
       "scale": 1.5
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "step-point",
       "facing": "left",
       "on": "kishkindha#stand-left",
@@ -21,7 +19,7 @@
       "mouth": 2
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m1",
       "pose": "step-hang",
       "facing": "left",
@@ -30,7 +28,7 @@
       "mouth": 1
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m2",
       "pose": "step-akimbo",
       "facing": "left",
@@ -40,14 +38,14 @@
       "cloth": "red"
     },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.14,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.36,

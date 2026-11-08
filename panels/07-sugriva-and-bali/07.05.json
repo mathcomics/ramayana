@@ -2,16 +2,13 @@
   "scene": "Hanuman bounds down from the rocks",
   "size": 0.3,
   "ground": "dry-grass",
-  "props": [
-    {
-      "prop": "ledge",
-      "at": 0.85,
-      "layer": "back"
-    }
-  ],
   "figures": [
     {
-      "who": "hanuman",
+      "prop": "ledge",
+      "at": 0.85
+    },
+    {
+      "character": "hanuman",
       "pose": "leap-reach",
       "facing": "left",
       "at": 0.42,

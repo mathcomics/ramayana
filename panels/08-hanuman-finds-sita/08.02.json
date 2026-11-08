@@ -5,7 +5,7 @@
   "zoom": 0.6,
   "figures": [
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m1",
       "pose": "run-pump",
       "facing": "left",
@@ -14,7 +14,7 @@
       "mouth": 2
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m2",
       "pose": "leap-reach",
       "facing": "right",
@@ -25,14 +25,14 @@
       "lift": 1.5
     },
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "step-point",
       "facing": "right",
       "at": 0.5,
       "mouth": 3
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m3",
       "pose": "runwide-hang",
       "facing": "left",
@@ -41,7 +41,7 @@
       "cloth": "white"
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "m4",
       "pose": "run-pump",
       "facing": "right",

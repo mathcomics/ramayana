@@ -4,7 +4,7 @@
   "ground": "stone-grey",
   "sky": "#8a99a3",
   "horizon": 0.45,
-  "props": [
+  "figures": [
     {
       "prop": "rain-cloud",
       "at": 0.5,
@@ -14,11 +14,9 @@
     {
       "prop": "ledge",
       "at": 0.78,
-      "layer": "back",
       "scale": 0.7
     }
   ],
-  "figures": [],
   "needs": [
     "prop: rain-cloud (with rain)"
   ]

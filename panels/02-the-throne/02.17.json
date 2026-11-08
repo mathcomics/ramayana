@@ -3,7 +3,7 @@
   "size": 0.5,
   "ground": "sand",
   "zoom": 0.45,
-  "props": [
+  "figures": [
     {
       "prop": "tree",
       "at": 0.14,
@@ -18,25 +18,23 @@
       "prop": "tree",
       "at": 0.84,
       "row": "back"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.6,
       "mouth": 1
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.4,

@@ -4,21 +4,21 @@
   "ground": "off-white",
   "figures": [
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.74,
       "mouth": 1
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.27,

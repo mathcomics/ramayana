@@ -110,7 +110,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   `mid` crops a single walker to a floating chest (02.07 rework); `mid`
   strips are for chest-up reactions of one or two faces.
 - **A foreground band sits flush to the panel bottom** (artist, 2026-11-08,
-  03.02): a front-layer strip of ground on the front row leaves a 3%-of-
+  03.02): a foreground strip of ground (after the figures in the list)
+  on the front row leaves a 3%-of-
   panel gap below it; `lift: -0.35` (far shot, front row) drops its bottom
   onto the panel edge. And figures behind a rising band don't need
   per-figure `lift`s: full-size on the front row, the band's own slope

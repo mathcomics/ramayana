@@ -1,20 +1,21 @@
 {
   "scene": "Far off on the horizon, Rama chases the fleeing deer",
-  "tags": ["chase", "far"],
+  "tags": [
+    "chase",
+    "far"
+  ],
   "size": 0.5,
   "ground": "dry-grass",
   "sky": "sky",
   "layout": "scenes/0.5-deer-running",
-  "props": [
+  "figures": [
     {
       "prop": "golden-deer-run",
       "at": 0.86,
       "row": "horizon"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "run-pump",
       "facing": "right",
       "at": 0.55,

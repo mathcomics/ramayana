@@ -3,23 +3,21 @@
   "size": 0.5,
   "ground": "dry-grass",
   "zoom": 0.6,
-  "props": [
+  "figures": [
     {
       "prop": "ledge",
       "at": 0.82,
       "row": "back"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.3,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.52,

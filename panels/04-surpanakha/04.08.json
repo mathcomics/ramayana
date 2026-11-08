@@ -4,7 +4,7 @@
   "ground": "geru",
   "figures": [
     {
-      "who": "raxas_m1",
+      "character": "raxas_m1",
       "id": "khara",
       "pose": "step-akimbo",
       "facing": "left",
@@ -17,7 +17,7 @@
       }
     },
     {
-      "who": "surpanakha",
+      "character": "surpanakha",
       "pose": "kneel-handslow",
       "facing": "right",
       "at": 0.36,

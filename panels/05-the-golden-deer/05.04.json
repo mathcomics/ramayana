@@ -3,24 +3,22 @@
   "size": 0.5,
   "shot": "mid",
   "ground": "geru",
-  "props": [
+  "figures": [
     {
       "prop": "throne-lanka",
       "at": 0.78,
       "row": "back",
       "facing": "left"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "ravana",
+      "character": "ravana",
       "pose": "chair-armrest",
       "facing": "left",
       "on": "throne-lanka",
       "mouth": 1
     },
     {
-      "who": "surpanakha",
+      "character": "surpanakha",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.26,

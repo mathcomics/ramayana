@@ -4,21 +4,21 @@
   "ground": "sand",
   "figures": [
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "stepturn-armface",
       "facing": "right",
       "at": 0.17,
       "mouth": 3
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "leanfront-fists",
       "facing": "right",
       "at": 0.38,
       "mouth": 2
     },
     {
-      "who": "surpanakha",
+      "character": "surpanakha",
       "pose": "lunge-armfront",
       "facing": "left",
       "at": 0.74,

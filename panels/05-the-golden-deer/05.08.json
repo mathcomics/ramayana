@@ -5,17 +5,15 @@
   "sky": "sky",
   "layout": "scenes/0.5-deer",
   "shot": "wide",
-  "props": [
+  "figures": [
     {
       "prop": "golden-deer",
       "at": 0.78,
       "row": "horizon",
       "facing": "left"
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.2,

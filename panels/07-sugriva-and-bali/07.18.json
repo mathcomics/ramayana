@@ -4,7 +4,7 @@
   "ground": "sage",
   "figures": [
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "id": "bali",
       "pose": "fallback-flung",
       "facing": "left",

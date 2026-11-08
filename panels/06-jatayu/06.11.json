@@ -2,7 +2,7 @@
   "scene": "Rama lays Jatayu on a pyre",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "pyre",
       "at": 0.7
@@ -11,11 +11,9 @@
       "prop": "vulture-lie",
       "at": 0.7,
       "lift": 1.5
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.14,
@@ -34,7 +32,7 @@
       }
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "bend-reach",
       "facing": "right",
       "at": 0.4,

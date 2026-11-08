@@ -3,14 +3,7 @@
   "size": 0.75,
   "ground": "sand",
   "zoom": 0.62,
-  "props": [
-    {
-      "prop": "chariot",
-      "at": 0.66,
-      "lift": 6,
-      "layer": "front",
-      "row": "back"
-    },
+  "figures": [
     {
       "prop": "jewels",
       "at": 0.52,
@@ -18,15 +11,7 @@
       "lift": 6
     },
     {
-      "prop": "rocks",
-      "at": 0.5,
-      "layer": "front",
-      "lift": -1.3
-    }
-  ],
-  "figures": [
-    {
-      "who": "monkey1",
+      "character": "monkey1",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.18,
@@ -38,7 +23,7 @@
       }
     },
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.38,
@@ -49,7 +34,7 @@
       }
     },
     {
-      "who": "hanuman",
+      "character": "hanuman",
       "pose": "stand-pointup",
       "facing": "right",
       "at": 0.6,
@@ -57,7 +42,7 @@
       "lift": 0.6
     },
     {
-      "who": "monkey1",
+      "character": "monkey1",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.82,
@@ -70,7 +55,7 @@
       }
     },
     {
-      "who": "ravana",
+      "character": "ravana",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.74,
@@ -79,7 +64,7 @@
       "row": "back"
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-point",
       "facing": "left",
       "at": 0.58,
@@ -90,6 +75,17 @@
       },
       "lift": 6.6,
       "row": "back"
+    },
+    {
+      "prop": "chariot",
+      "at": 0.66,
+      "lift": 6,
+      "row": "back"
+    },
+    {
+      "prop": "rocks",
+      "at": 0.5,
+      "lift": -1.3
     }
   ],
   "needs": [

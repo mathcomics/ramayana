@@ -2,7 +2,7 @@
   "scene": "The cry travels across the forest",
   "size": 0.3,
   "ground": "dark-green",
-  "props": [
+  "figures": [
     {
       "prop": "tree",
       "id": "tree1",
@@ -21,7 +21,6 @@
       "lift": 2.6
     }
   ],
-  "figures": [],
   "needs": [
     "prop: tree",
     "effect: shout-bubble (traveling, 05.12-05.14)"

@@ -3,15 +3,13 @@
   "size": 0.5,
   "ground": "geru",
   "zoom": 0.72,
-  "props": [
+  "figures": [
     {
       "prop": "tree",
       "at": 0.18
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "hanuman",
+      "character": "hanuman",
       "pose": "bend-reach",
       "facing": "right",
       "at": 0.18,
@@ -20,7 +18,7 @@
       "mouth": 1
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.36,
@@ -31,7 +29,7 @@
       }
     },
     {
-      "who": "raxas_f1",
+      "character": "raxas_f1",
       "id": "g1",
       "pose": "step-hang",
       "facing": "left",
@@ -45,7 +43,7 @@
       }
     },
     {
-      "who": "raxas_f1",
+      "character": "raxas_f1",
       "id": "g2",
       "pose": "step-akimbo",
       "facing": "left",

@@ -5,7 +5,7 @@
   "ground": "dry-grass",
   "figures": [
     {
-      "who": "sugriva",
+      "character": "sugriva",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.5,

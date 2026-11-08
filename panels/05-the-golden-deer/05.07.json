@@ -3,10 +3,26 @@
   "size": 0.5,
   "ground": "sage",
   "layout": "scenes/0.5-forest",
-  "props": [
-    { "prop": "trees-top", "id": "trees-nw", "at": 0.257, "scale": 0.4, "lift": 20 },
-    { "prop": "hut-top", "at": 0.505, "scale": 0.4, "lift": 11.35 },
-    { "prop": "trees-top", "id": "trees-se", "at": 0.743, "scale": 0.4, "lift": 0.45 }
-  ],
-  "figures": []
+  "figures": [
+    {
+      "prop": "trees-top",
+      "id": "trees-nw",
+      "at": 0.257,
+      "scale": 0.4,
+      "lift": 20
+    },
+    {
+      "prop": "hut-top",
+      "at": 0.505,
+      "scale": 0.4,
+      "lift": 11.35
+    },
+    {
+      "prop": "trees-top",
+      "id": "trees-se",
+      "at": 0.743,
+      "scale": 0.4,
+      "lift": 0.45
+    }
+  ]
 }

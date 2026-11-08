@@ -2,7 +2,7 @@
   "scene": "The vulture Jatayu lands on a branch; Rama greets him with joined palms",
   "size": 0.75,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "tree",
       "at": 0.8
@@ -12,11 +12,9 @@
       "at": 0.74,
       "lift": 7.4,
       "scale": 0.5
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.18,
@@ -26,7 +24,7 @@
       }
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.42,

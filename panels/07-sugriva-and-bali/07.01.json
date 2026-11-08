@@ -3,13 +3,12 @@
   "size": 0.5,
   "ground": "dry-grass",
   "sky": "sky",
-  "props": [
+  "figures": [
     {
       "prop": "kishkindha",
       "at": 0.55,
       "row": "horizon",
       "scale": 1.3
     }
-  ],
-  "figures": []
+  ]
 }

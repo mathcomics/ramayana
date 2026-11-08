@@ -5,28 +5,28 @@
   "zoom": 0.8,
   "figures": [
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.18,
       "mouth": 1
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.37,
       "mouth": 1
     },
     {
-      "who": "rama",
+      "character": "rama",
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.56,
       "mouth": 1
     },
     {
-      "who": "sage1",
+      "character": "sage1",
       "pose": "sit-armknee",
       "facing": "left",
       "at": 0.8,

@@ -2,7 +2,7 @@
   "scene": "Before he goes, Lakshman bends and draws a line round the hut",
   "size": 0.5,
   "ground": "sand",
-  "props": [
+  "figures": [
     {
       "prop": "hut",
       "at": 0.82,
@@ -12,18 +12,16 @@
       "prop": "line",
       "at": 0.32,
       "lift": -0.1
-    }
-  ],
-  "figures": [
+    },
     {
-      "who": "lakshman",
+      "character": "lakshman",
       "pose": "bend-reach",
       "facing": "left",
       "at": 0.5,
       "mouth": 1
     },
     {
-      "who": "sita",
+      "character": "sita",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.78,
