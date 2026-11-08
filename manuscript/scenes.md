@@ -285,14 +285,14 @@ jewel got.
 - Night: **Hanuman**, small, creeps along Lanka's wall.
 - The ashoka grove: **Sita** under a tree, rakshasis guarding her;
   Hanuman hides in the branches above — the reader finds her with
-  him; **Ravana** threatens her with his sword, and she turns away.
+  him.
 - Hanuman drops down and kneels before her: the ring. Sita gives him
   the jewel from her hair.
 
-Must show: the grove image exactly as it will be wrecked in 11;
-Ravana's threat is a drawn sword and a turned-away face — no bargain;
-the ring and the hair jewel passing hand to hand (the jewel travels
-home in 11).
+Must show: the grove image exactly as it will be wrecked in 11; the
+ring and the hair jewel passing hand to hand (the jewel travels home
+in 11). Not shown: Ravana threatening Sita in the grove (the guards
+are peril enough).
 
 ## 11. Lanka burns
 
@@ -504,4 +504,5 @@ In v0.7, splitting the old chapter 9 and trimming every remaining
 chapter to 2–3 beats: Kumbhakarna before Ravana's throne (14 —
 counsel needs words); Ravana rising grieving at Indrajit's fall (15 —
 chapter 16 opens with him riding out); the rakshasi queen mourning
-over Ravana (17 — a side scene).
+over Ravana (17 — a side scene); Ravana threatening Sita in the grove
+(10 — the guards are peril enough).
