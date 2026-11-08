@@ -452,12 +452,14 @@ to the reader.
   unharmed; Rama embraces her.
 - The swan-drawn chariot flies them home; **Rama** and **Sita** wave
   back at the reader.
+- The book closes on a thin panel: ॥ इति ॥ in orange, nothing else —
+  the colophon, not a scene.
 
 Must show: the coronation mirror (the same crown, each king at his own
 throne — the Lanka throne here, whichever way the artist draws it);
 Sita crossing the sea again, forward this time; the wave to the reader
-is the story's last image. Not shown: Ayodhya's return — the story
-ends on the flight itself.
+is the story's last image, sealed by the ॥ इति ॥ strip. Not shown:
+Ayodhya's return — the story ends on the flight itself.
 
 **The story ends here.**
 
