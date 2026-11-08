@@ -115,7 +115,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .refmark { font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--accent-fg); background: var(--accent); border-radius: 999px; padding: 1px 5px; text-transform: none; }
 
 .save { display: grid; gap: 10px; }
-.posebar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.posebar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: end; }
 .pick { display: flex; gap: 8px; align-items: center; flex: 1 1 200px; min-width: 0; }
 .pick input { flex: 1 1 auto; min-width: 0; font-weight: 600; }
 .charsel { font: inherit; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 6px 8px; min-width: 0; flex: 0 1 160px; }
@@ -194,6 +194,11 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
         <button class="btn" id="saveBtn" type="button">Save</button>
         <button class="btn" id="revertBtn" type="button" title="Drop your edits and go back to this pose as last saved" disabled>Revert</button>
       </div>
+      <div class="field"><span>Base <b class="refmark" id="baseRef" hidden>ref</b></span><select id="baseSel" title="Lower body (legs, lean, tail): pick with a gesture to compose a draft"></select></div>
+      <div class="field"><span>Gesture <b class="refmark" id="gestRef" hidden>ref</b></span><select id="gestSel" title="Upper body (arms, chest, head): pick with a base to compose a draft"></select></div>
+      <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
+      <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
+      <div class="field"><span>Hands</span><button class="btn ghost" id="joinBtn" type="button" title="Join the palms: both hands to the body's midline (each arm's elbow out), then the left hand laid exactly on the right (its shoulder and elbow)">Join</button></div>
     </div>
     <div class="status pose-only" id="status" role="status"></div>
   </section>
@@ -203,15 +208,6 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
     <div class="field"><span>Mouth</span><div class="seg" id="faceMouth"></div></div>
     <div class="facegrid" id="faceGrid"></div>
   </section>
-
-  <div class="bar pose-only">
-    <div class="field"><span>Base <b class="refmark" id="baseRef" hidden>ref</b></span><select id="baseSel" title="Lower body (legs, lean, tail): pick with a gesture to compose a draft"></select></div>
-    <div class="field"><span>Gesture <b class="refmark" id="gestRef" hidden>ref</b></span><select id="gestSel" title="Upper body (arms, chest, head): pick with a base to compose a draft"></select></div>
-    <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
-    <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
-    <div class="field"><span>Hands</span><button class="btn ghost" id="joinBtn" type="button" title="Join the palms: both hands to the body's midline (each arm's elbow out), then the left hand laid exactly on the right (its shoulder and elbow)">Join</button></div>
-  </div>
-
 
   <div class="groups pose-only" id="groups"></div>
 
