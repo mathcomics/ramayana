@@ -95,6 +95,19 @@ renderer or panel changes.
 
 ## Status (2026-11-08)
 
+- **Chapter 9 split; whole book on the 2–3-beat rule; 18 chapters
+  (2026-11-08):** scenes.md v0.7 — old 9 split into **9 "The leap"**
+  (search sent out + ring given, the hopeless shore, the leap) and
+  **10 "The ring"** (night wall, the grove found — Ravana's threat
+  folded into the grove beat — the ring for the hair jewel). Old
+  10–17 renumbered 11–18 and all trimmed to 2–3 beats: cut were
+  Kumbhakarna before Ravana's throne (counsel needs words), Ravana
+  grieving at Indrajit's fall, the rakshasi queen mourning Ravana,
+  plus the standalone Lanka-far opener bullets (the places table
+  mandates openers). Earlier the same day: coronations lose the water
+  pouring (crown + umbrella only, both 8 and 18) and chapter 3's tally
+  marks become **season icons** (to be drawn) for the thirteen years.
+  All motif numbers updated. `panels/08-*` now spans briefs 9–10.
 - **Chapter 7 split into 7 "Sugriva" and 8 "Bali"; 17 chapters
   (2026-11-08):** the artist: the old chapter had more than wordless
   panels can carry. Ch 7 = finding the monkeys (one beat, the

@@ -1,7 +1,7 @@
 # Scenes
 
-Chapter briefs, v0.6 (2026-11-08). The story runs from the princes'
-childhood to the flight home, in 17 chapters. Canon and brief rules:
+Chapter briefs, v0.7 (2026-11-08). The story runs from the princes'
+childhood to the flight home, in 18 chapters. Canon and brief rules:
 `README.md`. **Bold** = identifiable character (`characters.md`);
 everyone else is a generic figure.
 
@@ -11,17 +11,18 @@ panel side (`panels/`) breaks beats into panels and owns panel ids,
 sizes, shots and order; the manuscript owns the story, the cast, the
 chapter boundaries and the wordless test. **Chapter 5 is the only
 artist-reviewed chapter and the model for the rest**: the panels drawn
-for chapters 1–4 and 6–9 are to be revisited against these briefs —
+for chapters 1–4 and 6–10 are to be revisited against these briefs —
 they are too complex and do not carry the narrative clearly yet
 (artist, 2026-11-07). The drawn folders still carry pre-v0.6 numbers:
-`panels/07-*` spans briefs 7–8, `panels/08-*` is brief 9.
+`panels/07-*` spans briefs 7–8, `panels/08-*` spans briefs 9–10.
 
 A **beat** is one movement of the story, told in one or a few bullets,
 each a gesture or action that works as a wordless image. A chapter can
 more or less hope to cover **2–3 beats** and no more (artist,
-2026-11-08; v0.6 applies this to chapters 6–8: 6 trimmed, the old 7
-split into 7 "Sugriva" and 8 "Bali", old 8–16 renumbered 9–17 — the
-rest are trimmed as they come up for revisit). A beat may become one panel or several
+2026-11-08). v0.6 applied this to chapters 6–8 (6 trimmed, the old 7
+split into 7 "Sugriva" and 8 "Bali"); v0.7 to the whole book: the old
+9 split into 9 "The leap" and 10 "The ring", old 10–17 renumbered
+11–18, and every remaining chapter trimmed to the rule. A beat may become one panel or several
 (establishing a new place and its key figure is always a sequence, not
 one panel — see chapter 5). Details that do not move the main
 narrative are left out; the beats are the story, not an inventory.
@@ -36,49 +37,50 @@ when the story comes back to a place, the same image returns.
 
 | Place | Image | Where |
 |---|---|---|
-| Ayodhya | the palace on the horizon | opens 1; closes 17, the chariot flying toward it |
+| Ayodhya | the palace on the horizon | opens 1; closes 18, the chariot flying toward it |
 | The hut | the forest hut from above | opens 3, 4 and 5's forest half; again in 5 with the line closed round it |
-| Lanka, far | the island across the sea | opens 5 and 11 |
+| Lanka, far | the island across the sea | opens 5 and 12 |
 | Kishkindha | rocky hills on the horizon | opens 7 and 9; 8 stands before its gates, near |
-| The ashoka grove | **Sita** under a tree, rakshasis guarding her | first seen in 9, when Hanuman finds her — the reader discovers it with him; wrecked in 10 |
-| The Lanka throne | **Ravana** enthroned (the gold-backed Lanka throne, never Ayodhya's) | 5, 10, 11, 14 |
+| The ashoka grove | **Sita** under a tree, rakshasis guarding her | first seen in 10, when Hanuman finds her — the reader discovers it with him; wrecked in 11 |
+| The Lanka throne | **Ravana** enthroned (the gold-backed Lanka throne, never Ayodhya's) | 5, 11, 12 |
 
 **Objects that travel.** Drawn the same every time they appear:
 
 - **The bundle of jewels**: dropped from the chariot (6), picked up by
   monkeys (6), shown to **Rama**, who presses it to his chest (7).
-- **Rama's ring**: given to **Hanuman** (9), given by him to **Sita** (9).
-- **Sita's hair jewel**: given to Hanuman (9), brought home to Rama,
-  who presses it to his heart (10) — the answer to the jewels in 7.
+- **Rama's ring**: given to **Hanuman** (9), given by him to **Sita** (10).
+- **Sita's hair jewel**: given to Hanuman (10), brought home to Rama,
+  who presses it to his heart (11) — the answer to the jewels in 7.
 - **Rama's bow**: strung against Khara's army (4), drawn after the
   deer (5), raised in the vow (7), shot from hiding (8), drawn at the
-  ocean itself (11), bent full for the last arrow (16), laid down at
-  Ravana's pyre (16).
+  ocean itself (12), bent full for the last arrow (17), laid down at
+  Ravana's pyre (17).
 
 **Mirrors.** Compositions that answer each other; let them rhyme:
 
 - Banished by pointing: **Kaikeyi** points **Rama** away (2);
-  **Ravana** points **Vibhishana** away (11).
+  **Ravana** points **Vibhishana** away (12).
 - The exile's gaze: **Rama**'s one look back at Ayodhya (2);
   **Sugriva** on his rock, gazing at the Kishkindha he is shut out
   of (7).
 - Two coronations: **Sugriva** crowned beneath the royal umbrella (8)
-  and **Vibhishana** the same (17) — same crown, same umbrella.
+  and **Vibhishana** the same (18) — same crown, same umbrella.
 - Two great birds: Jatayu rises against the chariot and falls (6);
-  Garuda sweeps in and the serpents flee (12).
-- Over the sea: **Hanuman** crosses it both ways (9, 10), the army
-  walks it on the bridge (11), and **Sita** flies home beside
-  **Rama** (17) — her crossing away is never shown.
+  Garuda sweeps in and the serpents flee (13).
+- Over the sea: **Hanuman** crosses it out in the leap (9) and home
+  with the jewel (11), the army walks it on the bridge (12), and
+  **Sita** flies home beside **Rama** (18) — her crossing away is
+  never shown.
 - Hopeless before the sea: the monkeys at the shore before Hanuman's
-  leap (9) and again before the bridge (11) — first one crosses alone,
+  leap (9) and again before the bridge (12) — first one crosses alone,
   then everyone crosses together.
 - A pointed direction is the story's only "word": Surpanakha points
   back at the forest (4), Jatayu points south (6), Sugriva points at
-  Kishkindha (7), the Ocean points across the water (11), the healer
-  points north (15).
+  Kishkindha (7), the Ocean points across the water (12), the healer
+  points north (16).
 - Fire turns the story: the pact sworn over fire (7), Hanuman's
-  burning tail (10), Indrajit's rite (14), Ravana's pyre (16), Sita's
-  trial (17).
+  burning tail (11), Indrajit's rite (15), Ravana's pyre (17), Sita's
+  trial (18).
 
 **The wordless test** (binding; artist, 2026-11-07): no orders,
 refusals, bargains or explanations. No creature turns into another on
@@ -98,7 +100,7 @@ Ayodhya, the four princes growing up, and Rama wedded to Sita.
 - **Rama** and **Sita** exchange garlands; guests raise their arms.
 
 Must show: the palace opener exactly as it will return to close the
-story (17); the growing-up ladder (play, bow, books) reads as years
+story (18); the growing-up ladder (play, bow, books) reads as years
 passing. Not shown: the bow contest (dropped) — the wedding is one
 image.
 
@@ -115,7 +117,7 @@ of the kingdom.
   a river and a boat, into the forest.
 
 Must show: the pointing-away (it returns when Ravana banishes
-**Vibhishana**, 11); the one look back; the walkers shrinking as the
+**Vibhishana**, 12); the one look back; the walkers shrinking as the
 world opens. Not shown: the boons and the bargain (wordless) —
 Kaikeyi's pull and her pointing arm carry all of it. Dasharatha's
 death, Bharat and the sandals stay dropped.
@@ -207,7 +209,7 @@ see the jewels fall, and Rama comes home to emptiness.
 Must show: the jewels falling into monkey hands (they surface in 7);
 Jatayu's pointed wing — a direction is the only word the story allows.
 Not shown: the crossing of the sea and Sita's arrival in the grove
-(the grove is first seen when Hanuman finds it in 9); the funeral
+(the grove is first seen when Hanuman finds it in 10); the funeral
 pyre — the pointed wing is Jatayu's last image.
 
 ## 7. Sugriva
@@ -249,72 +251,78 @@ hidden arrow decides it, and the crown changes heads.
 Must show: the challenge as pure posture — feet planted, chest
 beaten, mouth wide, no parley; Rama shooting from hiding, exactly as
 the raised bow promised in 7; the coronation image returns for
-Vibhishana in 17; Bali, Tara and Angad are generic monkeys — only
+Vibhishana in 18; Bali, Tara and Angad are generic monkeys — only
 Hanuman and Sugriva are named. Not shown: Tara holding Bali back (a
 warning needs words); the first, undecided fight and the flower
 garland that marks Sugriva apart (telling the brothers apart is
 drawn, not told — Sugriva's own look already does it).
 
-## 9. Hanuman finds Sita
+## 9. The leap
 
-The search narrows to one leap: Hanuman crosses the sea, and the ring
-finds Sita.
+The search sent out narrows to one monkey, and the sea to one leap.
 
-- **Sugriva** sends monkeys running in four directions.
-- **Rama** gives **Hanuman** his ring.
-- At the shore, monkeys sit hopeless before the sea; Hanuman stands
-  among them.
-- Hanuman crouches on a mountaintop and leaps — across the whole sky,
-  the ocean far below.
-- Night: Hanuman, small, creeps along Lanka's wall.
+- **Sugriva** sends monkeys running in four directions; **Rama**
+  gives **Hanuman** his ring.
+- At the shore the monkeys sit hopeless before the sea; Hanuman
+  stands up among them.
+- He crouches on a mountaintop and leaps — across the whole sky, the
+  ocean far below.
+
+Must show: the ring passing from Rama's hand to Hanuman's (it reaches
+Sita in 10); the hopeless shore (it returns before the bridge in 12);
+the leap using the sky's full height.
+
+## 10. The ring
+
+Hanuman alone in the enemy's city: Sita found, the ring given, the
+jewel got.
+
+- Night: **Hanuman**, small, creeps along Lanka's wall.
 - The ashoka grove: **Sita** under a tree, rakshasis guarding her;
-  Hanuman hides in the branches above — the reader finds her with him.
-- **Ravana** threatens Sita with his sword; she turns away.
-- Hanuman kneels before her: the ring. Sita gives him the jewel from
-  her hair.
+  Hanuman hides in the branches above — the reader finds her with
+  him; **Ravana** threatens her with his sword, and she turns away.
+- Hanuman drops down and kneels before her: the ring. Sita gives him
+  the jewel from her hair.
 
-Must show: the ring passing hand to hand to hand; the leap using the
-sky's full height.
+Must show: the grove image exactly as it will be wrecked in 11;
+Ravana's threat is a drawn sword and a turned-away face — no bargain;
+the ring and the hair jewel passing hand to hand (the jewel travels
+home in 11).
 
-## 10. Lanka burns
+## 11. Lanka burns
 
 Hanuman caught becomes Hanuman the torch: he leaves Lanka burning and
 brings Sita's jewel home.
 
-- **Hanuman** wrecks the grove, uprooting trees; rakshasas attack and
-  are swung aside.
-- **Indrajit**'s arrow-ropes bind him; he is carried bound before
-  **Ravana** on his throne.
-- Rakshasas set his tail on fire.
-- Hanuman leaps over the roofs, tail aflame, Lanka's towers burning
-  behind him; he dips his tail in the sea.
+- **Hanuman** wrecks the grove, uprooting trees; **Indrajit**'s
+  arrow-ropes bind him, and he is carried bound before **Ravana** on
+  his throne.
+- Rakshasas set his tail on fire; he leaps over the roofs, tail
+  aflame, Lanka's towers burning behind him, and dips his tail in the
+  sea.
 - Home: Hanuman gives **Rama** the jewel; Rama presses it to his
   heart.
 
 Must show: **Indrajit** introduced as the binder (his own chapter is
-14); the burning leap is the chapter's height image; the jewel answers
+15); the burning leap is the chapter's height image; the jewel answers
 the ring. Not shown: Vibhishana pleading for Hanuman's life (a plea
-for mercy needs words; Vibhishana's story starts in 11).
+for mercy needs words; Vibhishana's story starts in 12).
 
-## 11. The bridge
+## 12. The bridge
 
 Lanka divides, and the sea is crossed: one rakshasa flies over alone,
 then a whole army walks over on stone.
 
-- Lanka on its island, far across the sea — the way there is the
-  chapter.
 - At the Lanka throne, **Vibhishana** pleads with joined palms;
-  **Ravana** points him away — as Kaikeyi pointed Rama.
-- **Vibhishana** flies across the sea alone, to **Rama**'s side.
+  **Ravana** points him away — as Kaikeyi pointed Rama; Vibhishana
+  flies across the sea alone, to **Rama**'s side.
 - The army reaches the shore: monkeys stand hopeless before the
-  water — the sea itself is the enemy now.
-- **Rama** draws his bow at the ocean; the waves rise.
-- The Ocean rises from the waves before the drawn bow, palms raised,
-  and points across the water.
-- Monkeys carry rocks and trees and drop them into the sea; the line
-  of stone grows toward the horizon.
-- The army crosses the bridge, **Rama** on **Hanuman**'s shoulders;
-  Lanka, far for so long, stands near.
+  water; **Rama** draws his bow at the ocean — and the Ocean rises
+  from the waves before the drawn bow, palms raised, and points
+  across the water.
+- Monkeys drop rocks and trees into the sea; the line of stone grows
+  toward the horizon; the army crosses, **Rama** on **Hanuman**'s
+  shoulders — Lanka, far for so long, stands near.
 
 Must show: the pointing-away mirror (Kaikeyi, 2); the hopeless monkeys
 at the shore as in 9 — there one monkey leapt alone, now everyone
@@ -322,120 +330,111 @@ crosses together; the bridge growing as a line of stone toward the
 Lanka of the opener. Not shown: a named builder (Nala stays a generic
 monkey); the squirrel helping (a later telling).
 
-## 12. The war begins
+## 13. The war begins
 
 The first battle breaks against Indrajit's serpent arrows — until the
 great eagle comes, and Rama sends Ravana home bare-headed.
 
-- Before Lanka's walls the army stands in rows; **Rama** points;
-  battle — monkeys hurl rocks and trees, rakshasas fall.
+- Before Lanka's walls the armies meet: monkeys hurl rocks and trees,
+  rakshasas fall in rows.
 - From a cloud, **Indrajit**'s serpent arrows bind **Rama** and
-  **Lakshman**; they fall.
-- The great eagle Garuda sweeps down; the serpents flee; the brothers
-  rise.
+  **Lakshman**; they fall — until the great eagle Garuda sweeps down,
+  the serpents flee, and the brothers rise.
 - **Rama**, on **Hanuman**'s shoulders, shoots away **Ravana**'s crown
-  and bow.
-- Ravana walks back into Lanka bare-headed, head bowed.
+  and bow; Ravana walks back into Lanka bare-headed, head bowed.
 
 Must show: Garuda echoing Jatayu — this time the great bird arrives in
 time; the humbled walk is the chapter's last image. Not shown: Sita
 shown the fallen brothers (a side scene); Ravana's javelin felling
-Lakshman (he falls once, in 15).
+Lakshman (he falls once, in 16).
 
-## 13. Kumbhakarna
+## 14. Kumbhakarna
 
 The giant: waking him is a comedy, meeting him is a terror; Rama cuts
 him down piece by piece.
 
 - The giant Kumbhakarna asleep across the whole panel; tiny rakshasas
-  around him with drums and conches.
-- They beat the drums, pour water on his head, pile food by his
-  mouth; he sleeps on — then his eyes open, and the yawn scatters
-  them.
-- He eats and drinks; kneeling, he fills Ravana's hall; **Ravana**
-  points to the battle.
+  beat drums, pour water on his head, pile food by his mouth — then
+  his eyes open, and the yawn scatters them.
 - His head and shoulders rise over Lanka's wall; the monkeys turn and
-  flee; he strides through them, sweeping them aside with one hand.
-- **Hanuman** hurls a mountain peak; it breaks on the giant's chest.
-- **Rama**'s arrows: an arm falls among the monkeys, and he strides
-  on; the last arrow, and the great head falls into the sea.
+  flee; **Hanuman** hurls a mountain peak — it breaks on the giant's
+  chest.
+- **Rama**'s arrows cut him down piece by piece: an arm falls among
+  the monkeys, and he strides on; the last arrow, and the great head
+  falls into the sea.
 
 Must show: scale — the giant partly in panel (a head, a hand, an arm)
 against whole small figures; the waking ladder (drums, water, food) as
-one rising joke. Not shown: Sugriva seized and escaping (a side
-struggle).
+one rising joke. Not shown: Kumbhakarna before Ravana's throne
+(counsel needs words); Sugriva seized and escaping (a side struggle).
 
-## 14. Indrajit
+## 15. Indrajit
 
 The unseen archer: his power is his fire rite; caught away from it, he
 falls to Lakshman in a duel across the sky.
 
-- **Indrajit** pours offerings into a sacrificial fire.
-- From inside a cloud he shoots unseen; monkeys fall in rows.
+- **Indrajit** pours offerings into a sacrificial fire; then, from
+  inside a cloud, he shoots unseen, and monkeys fall in rows.
 - **Vibhishana** leads **Lakshman** and monkeys to the fire shrine;
   Indrajit is caught at his rite.
 - The duel: Indrajit shoots from his chariot in the sky, Lakshman from
-  the ground; arrows cross; Lakshman's arrow strikes him down; the
-  monkeys cheer.
-- At the Lanka throne, **Ravana** rises grieving, sword drawn.
+  the ground; arrows cross; Lakshman's arrow strikes him down.
 
 Must show: the fire rite before the cloud (his invisibility has a
 visible source, and losing the fire is losing it); Vibhishana leading
 the way — he knows Lanka. Not shown: the false Sita killed before
 Hanuman — an illusion reads as the real Sita or as a stranger, and
-either needs words; cut by the wordless test.
+either needs words; Ravana's grief at the news — the next chapter
+opens with him riding out.
 
-## 15. The mountain of herbs
+## 16. The mountain of herbs
 
 Ravana's javelin fells Lakshman; Hanuman flies north and, rather than
 choose a herb, brings back the whole mountain.
 
-- **Ravana** rides out; his javelin strikes **Lakshman** down.
-- **Rama** holds Lakshman in his lap; monkeys stand around; an old
-  monkey healer points north.
-- **Hanuman** grows huge, crouches, and leaps; he flies north over sea
-  and land.
-- On the mountain of glowing herbs, Hanuman scratches his head — then
-  lifts the whole mountain overhead.
-- Night: he flies back with the mountain on one palm, the sea below.
+- **Ravana** rides out; his javelin strikes **Lakshman** down;
+  **Rama** holds him in his lap, and an old monkey healer points
+  north.
+- **Hanuman** leaps north over sea and land; on the mountain of
+  glowing herbs he scratches his head — then lifts the whole mountain
+  overhead, and flies back through the night with it on one palm, the
+  sea below.
 - The healer holds a herb to Lakshman's face; Lakshman rises; **Rama**
-  embraces him; monkeys dance.
+  embraces him.
 
 Must show: the pointed direction (north, as Jatayu pointed south); the
 head-scratch before the lift — the war's one joke; the night flight is
 the height image. Not shown: Ravana rushing at Sita with his sword (a
 side scene).
 
-## 16. Ravana's fall
+## 17. Ravana's fall
 
 The last duel, chariot against chariot: heads regrow until the one
 great arrow finds his chest, and the bow is laid down.
 
-- **Ravana** mounts his chariot, arms full of weapons. A charioteer
-  brings **Rama** a chariot; he mounts.
-- The chariots face each other; arrows cross; Ravana's rain of weapons
-  breaks in the air.
+- **Ravana** mounts his chariot, arms full of weapons; a charioteer
+  brings **Rama** a chariot; the chariots face each other, and arrows
+  cross.
 - **Rama**'s arrow cuts off a head; a new head grows in its place.
-- Rama bends his bow full with one great arrow; it pierces **Ravana**'s
-  chest; he falls from the chariot.
-- A rakshasi queen mourns over him; **Vibhishana** lights the pyre;
-  **Rama** lays down his bow.
+- Rama bends his bow full with one great arrow; it pierces
+  **Ravana**'s chest; he falls from the chariot. **Vibhishana** lights
+  the pyre; Rama lays down his bow.
 
 Must show: the regrowing head as a visible loop (cut off, grown back —
 why only the one great arrow, aimed at the chest, can end him); the
 laid-down bow ends the war. Not shown: the ten-headed form — Ravana
-keeps his drawn look throughout the story.
+keeps his drawn look throughout the story; the rakshasi queen's
+mourning (a side scene).
 
-## 17. Return
+## 18. Return
 
 Fire gives Sita back, and the swan chariot carries them home to the
 palace of the first panel.
 
 - The crowned **Vibhishana** beneath the umbrella — as Sugriva stood.
-- **Sita** stands before **Rama**; he looks away.
-- Sita steps into the fire; **Lakshman** watches.
-- The fire god rises from the flames carrying **Sita**, unharmed;
-  **Rama** embraces her.
+- **Sita** stands before **Rama**; he looks away; she steps into the
+  fire — and the fire god rises from the flames carrying her,
+  unharmed; Rama embraces her.
 - The swan-drawn chariot flies them home; the palace of Ayodhya on the
   horizon, as the story began.
 
@@ -454,14 +453,14 @@ Valmiki has them).
 - Surpanakha and Khara's army (ch 4): **yes**
 - Sita drops her jewels; Sugriva shows them to Rama (6, 7): **yes**
 - Rama on **Hanuman**'s shoulders over the bridge and in battle
-  (11, 12): **yes** (Valmiki); Hanuman carrying both princes up the
+  (12, 13): **yes** (Valmiki); Hanuman carrying both princes up the
   hill is Valmiki too but dropped in v0.6
-- Hanuman's tail set on fire (10): **yes**
-- The Ocean rising before Rama's bow and showing the way (11):
+- Hanuman's tail set on fire (11): **yes**
+- The Ocean rising before Rama's bow and showing the way (12):
   **yes**, check Dutt (Valmiki has it)
 - The squirrel helping at the bridge: **no** (later tellings)
-- Garuda frees the brothers (12): **yes**, check Dutt
-- Kumbhakarna's waking (13), Ravana's heads growing back (16):
+- Garuda frees the brothers (13): **yes**, check Dutt
+- Kumbhakarna's waking (14), Ravana's heads growing back (17):
   **yes**, check Dutt
 - Lakshman's line around the hut (5): **yes** — a later telling, not
   Dutt or Valmiki, kept (artist's chapter 5): it makes the taking a
@@ -476,22 +475,28 @@ the sandals, Dasharatha's curse and death, Guha, Chitrakuta and
 Panchavati, Anasuya, Agastya.
 
 In v0.5, by the wordless test or as detail that did not carry the main
-narrative (chapter numbers as of v0.6): Ravana ordering Maricha and
-the deer's true form (5 — Maricha is out of this telling);
-Surpanakha's fair form (4); Tara holding Bali back and Lakshman
-confronting Sugriva (8); Vibhishana's plea for Hanuman's life (10); a
-named builder and the squirrel at the bridge (11); Sita shown the
-fallen brothers, Trijata (12); Lakshman felled twice (12 — kept once,
-in 15); Sugriva seized by the giant (13); the false Sita (14); Ravana
-rushing at Sita (15); Ravana's ten-headed form (16) — he keeps his
-drawn single-headed look throughout, and the regrowing head carries
-the myth.
+narrative (chapter numbers as of the current numbering): Ravana
+ordering Maricha and the deer's true form (5 — Maricha is out of this
+telling); Surpanakha's fair form (4); Tara holding Bali back and
+Lakshman confronting Sugriva (8); Vibhishana's plea for Hanuman's life
+(11); a named builder and the squirrel at the bridge (12); Sita shown
+the fallen brothers, Trijata (13); Lakshman felled twice (13 — kept
+once, in 16); Sugriva seized by the giant (14); the false Sita (15);
+Ravana rushing at Sita (16); Ravana's ten-headed form (17) — he keeps
+his drawn single-headed look throughout, and the regrowing head
+carries the myth.
 
 In v0.6, trimming every chapter to 2–3 beats: the sea crossing with
 Sita's arrival in the grove, and Jatayu's pyre (6); Hanuman carrying
 the princes up the hill on his shoulders (7); the monsoon of waiting
 between the crowning and the search (8–9) — chapter 9 simply opens
 with the search sent out; the water poured at the two coronations
-(8, 17) — the pouring confuses, the crown and umbrella alone carry it;
+(8, 18) — the pouring confuses, the crown and umbrella alone carry it;
 Sita's tally marks on the tree (3) — thirteen years read as season
 icons instead (to be drawn).
+
+In v0.7, splitting the old chapter 9 and trimming every remaining
+chapter to 2–3 beats: Kumbhakarna before Ravana's throne (14 —
+counsel needs words); Ravana rising grieving at Indrajit's fall (15 —
+chapter 16 opens with him riding out); the rakshasi queen mourning
+over Ravana (17 — a side scene).
