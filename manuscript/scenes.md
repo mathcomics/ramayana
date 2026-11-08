@@ -1,6 +1,6 @@
 # Scenes
 
-Chapter briefs, v0.7 (2026-11-08). The story runs from the princes'
+Chapter briefs, v0.8 (2026-11-08). The story runs from the princes'
 childhood to the flight home, in 18 chapters. Canon and brief rules:
 `README.md`. **Bold** = identifiable character (`characters.md`);
 everyone else is a generic figure.
@@ -13,8 +13,8 @@ chapter boundaries and the wordless test. **Chapter 5 is the only
 artist-reviewed chapter and the model for the rest**: the panels drawn
 for chapters 1–4 and 6–10 are to be revisited against these briefs —
 they are too complex and do not carry the narrative clearly yet
-(artist, 2026-11-07). The drawn folders still carry pre-v0.6 numbers:
-`panels/07-*` spans briefs 7–8, `panels/08-*` spans briefs 9–10.
+(artist, 2026-11-07). v0.8 drops the fire god from chapter 18: Sita
+walks into the fire and walks out of it — no deity on panel.
 
 A **beat** is one movement of the story, told in one or a few bullets,
 each a gesture or action that works as a wordless image. A chapter can
@@ -448,8 +448,8 @@ to the reader.
 - The crowned **Vibhishana** at the Lanka throne — as Sugriva stood at
   his.
 - **Sita** stands before **Rama**; he looks away; she steps into the
-  fire — and the fire god rises from the flames carrying her,
-  unharmed; Rama embraces her.
+  fire.
+- **Sita** walks out of the flames unharmed; **Rama** embraces her.
 - The swan-drawn chariot flies them home; **Rama** and **Sita** wave
   back at the reader.
 - The book closes on a thin panel: ॥ इति ॥ in orange, nothing else —
@@ -457,9 +457,12 @@ to the reader.
 
 Must show: the coronation mirror (the same crown, each king at his own
 throne — the Lanka throne here, whichever way the artist draws it);
+the fire trial as two panels, in and out — the same fire, Sita unharmed;
 Sita crossing the sea again, forward this time; the wave to the reader
 is the story's last image, sealed by the ॥ इति ॥ strip. Not shown:
-Ayodhya's return — the story ends on the flight itself.
+the fire god rising with her in his arms — the flames give her back by
+themselves: she walks in and she walks out; Ayodhya's return — the
+story ends on the flight itself.
 
 **The story ends here.**
 

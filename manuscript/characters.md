@@ -45,7 +45,6 @@ guests) and children (the four boys, ch 1).
 - Jatayu the vulture (ch 3, 6): drawn (`vulture-fly`, `-swoop`,
   `-fall`, `-stand`; lying still a placeholder).
 - The Ocean, rising from the waves before Rama's bow (ch 12).
-- Agni, rising from the flames carrying Sita (ch 18).
 - Flying chariots: Ravana's (drawn by asses) and the Pushpaka, drawn by
   swans (ch 18).
 
