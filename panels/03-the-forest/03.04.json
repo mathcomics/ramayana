@@ -1,47 +1,44 @@
 {
-  "scene": "A sage teaches; the three sit before him",
+  "scene": "Deer walk past; Sita watches, Rama beside her",
   "size": 0.5,
-  "ground": "off-white",
-  "zoom": 0.8,
+  "ground": "sand",
+  "props": [
+    {
+      "prop": "deer",
+      "id": "deer1",
+      "at": 0.56,
+      "row": "back"
+    },
+    {
+      "prop": "deer",
+      "id": "deer2",
+      "at": 0.72,
+      "row": "back"
+    },
+    {
+      "prop": "deer",
+      "id": "deer3",
+      "at": 0.88,
+      "row": "back"
+    }
+  ],
   "figures": [
     {
-      "who": "lakshman",
-      "pose": "sit-armknee",
+      "who": "rama",
+      "pose": "step-akimbo",
       "facing": "right",
-      "at": 0.18,
+      "at": 0.17,
       "mouth": 1
     },
     {
       "who": "sita",
-      "pose": "sit-armknee",
+      "pose": "step-point",
       "facing": "right",
-      "at": 0.37,
-      "mouth": 1
-    },
-    {
-      "who": "rama",
-      "pose": "sit-armknee",
-      "facing": "right",
-      "at": 0.56,
-      "mouth": 1
-    },
-    {
-      "who": "sage1",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.8,
-      "mouth": 2,
-      "hands": {
-        "right": "out"
-      },
-      "adjust": {
-        "spine.lean": 0,
-        "right.arm.shoulder": 120,
-        "right.arm.elbow": 40
-      }
+      "at": 0.38,
+      "mouth": 2
     }
   ],
   "needs": [
-    "pose: sit-cross-legged (sage teaching, raised hand)"
+    "prop: deer (creature art)"
   ]
 }

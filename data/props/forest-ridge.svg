@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A tilted fold of forest ground, rising to the right: a foreground band
+     walkers stand on or sink behind (front layer; farther figures lower and
+     more hidden). Outline perturbed with seeded randomness (seed 11;
+     generator kept out of the repo, the result is the drawing). Earth-green
+     palette from the ground colours (sage / dark-green). 100 px = 1
+     head-unit; bottom edge on the ground. Anchors: stand-left / stand /
+     stand-right on the top. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+  <path fill="#667456" d="M 0 300 L 0 212 L 95 206 L 190 197 L 300 190 L 395 177 L 500 172 L 610 159 L 700 149 L 810 141 L 900 127 L 1010 117 L 1100 95 L 1200 87 L 1200 300 Z"/>
+  <path fill="#5d6c53" d="M 150 201 L 260 193 L 300 300 L 180 300 Z"/>
+  <path fill="#5d6c53" d="M 660 153 L 790 143 L 850 300 L 710 300 Z"/>
+  <path fill="#5d6c53" d="M 1040 112 L 1150 92 L 1200 130 L 1200 300 L 1080 300 Z"/>
+  <g id="anchors">
+    <circle id="stand-left" cx="300" cy="190" r="6" fill="none"/>
+    <circle id="stand" cx="610" cy="159" r="6" fill="none"/>
+    <circle id="stand-right" cx="1010" cy="117" r="6" fill="none"/>
+  </g>
+</svg>

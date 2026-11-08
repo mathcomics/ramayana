@@ -1,32 +1,15 @@
 {
-  "scene": "Back: birds fly over a lake. Front: the three sit at the shore",
-  "size": 0.75,
-  "ground": "off-white",
-  "zoom": 0.8,
-  "figures": [
-    {
-      "who": "lakshman",
-      "pose": "sitback-propback",
-      "facing": "right",
-      "at": 0.24,
-      "mouth": 1
-    },
-    {
-      "who": "rama",
-      "pose": "sit-armknee",
-      "facing": "right",
-      "at": 0.5,
-      "mouth": 1
-    },
-    {
-      "who": "sita",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.76,
-      "mouth": 2
-    }
+  "scene": "The three walk through the forest behind a rising fold of ground; the farther, the deeper behind it",
+  "size": 0.5,
+  "ground": "sage",
+  "zoom": 0.7,
+  "props": [
+    { "prop": "forest-ridge", "at": 0.5, "layer": "front" },
+    { "prop": "flower-yellow", "at": 0.9, "lift": 2, "layer": "front" }
   ],
-  "needs": [
-    "background: lake and birds (03.02.svg is a placeholder)"
+  "figures": [
+    { "who": "lakshman", "pose": "pass-swing", "facing": "left", "at": 0.68, "scale": 0.65, "lift": 0.66 },
+    { "who": "sita", "pose": "walk-swing", "facing": "left", "at": 0.5, "scale": 0.8, "lift": 1.25 },
+    { "who": "rama", "pose": "walk-swing", "facing": "left", "at": 0.28, "lift": 1.6 }
   ]
 }

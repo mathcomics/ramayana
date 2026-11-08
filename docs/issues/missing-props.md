@@ -14,7 +14,7 @@ box from `data/props.json`. Held props (sword, club, bow) live in
 |---|---|
 | cave | 04.09 |
 | chariot | 05.20, 05.21, 06.01, 06.02, 06.03, 06.04, 06.06 |
-| deer | 03.03 |
+| deer | 03.04 |
 | fire | 07.09, 11.08 |
 | giant-fingers | 14.05 |
 | golden-deer-fallen | 05.12 |
@@ -32,7 +32,7 @@ box from `data/props.json`. Held props (sword, club, bow) live in
 | ring | 08.03, 08.10 |
 | rocks | 06.04, 06.05 |
 | shout-bubble | 05.12, 05.13, 05.14 |
-| tree | 02.17, 03.05, 03.06, 04.02, 05.13, 06.07, 06.09, 07.17, 08.08 |
+| tree | 02.17, 03.06, 03.07, 04.02, 05.13, 06.07, 06.09, 07.17, 08.08 |
 | tree-uprooted | 07.16 |
 | umbrella | 07.20 |
 | vulture-lie | 06.10, 06.11 |
@@ -46,7 +46,7 @@ docs/design/panel-writing.md, Lessons).
 |---|---|
 | prop: bow in hand while running | 05.10 |
 | prop: cave | 04.09 |
-| prop: deer (creature art) | 03.03 |
+| prop: deer (creature art) | 03.04 |
 | prop: fire | 07.09 |
 | prop: flames (fire is a placeholder box; the frieze's tongues of flame, figure-high) | 11.08 |
 | prop: flying chariot | 05.20, 05.21, 06.01, 06.02, 06.03, 06.04, 06.06 |
@@ -70,8 +70,8 @@ docs/design/panel-writing.md, Lessons).
 | prop: spear (held) | 04.10 |
 | prop: staff and pot (held) | 05.18 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.17 |
-| prop: tree | 02.17, 03.05, 04.02, 05.13, 06.07, 06.09, 07.17, 08.08 |
-| prop: tree with thirteen tally marks | 03.06 |
+| prop: tree | 02.17, 03.06, 04.02, 05.13, 06.07, 06.09, 07.17, 08.08 |
+| prop: tree with thirteen tally marks | 03.07 |
 | prop: tree-uprooted (held overhead) | 07.16 |
 | prop: umbrella (royal) | 07.20 |
 | prop: vulture with one wing cut (vulture-fall for now) | 06.03 |
@@ -80,4 +80,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, palace, throne-ayodhya, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop
+flower-yellow, forest-ridge, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, palace, throne-ayodhya, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop

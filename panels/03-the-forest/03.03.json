@@ -1,44 +1,32 @@
 {
-  "scene": "Deer walk past; Sita watches, Rama beside her",
-  "size": 0.5,
-  "ground": "sand",
-  "props": [
-    {
-      "prop": "deer",
-      "id": "deer1",
-      "at": 0.56,
-      "row": "back"
-    },
-    {
-      "prop": "deer",
-      "id": "deer2",
-      "at": 0.72,
-      "row": "back"
-    },
-    {
-      "prop": "deer",
-      "id": "deer3",
-      "at": 0.88,
-      "row": "back"
-    }
-  ],
+  "scene": "Back: birds fly over a lake. Front: the three sit at the shore",
+  "size": 0.75,
+  "ground": "off-white",
+  "zoom": 0.8,
   "figures": [
     {
-      "who": "rama",
-      "pose": "step-akimbo",
+      "who": "lakshman",
+      "pose": "sitback-propback",
       "facing": "right",
-      "at": 0.17,
+      "at": 0.24,
+      "mouth": 1
+    },
+    {
+      "who": "rama",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.5,
       "mouth": 1
     },
     {
       "who": "sita",
-      "pose": "step-point",
-      "facing": "right",
-      "at": 0.38,
+      "pose": "sit-armknee",
+      "facing": "left",
+      "at": 0.76,
       "mouth": 2
     }
   ],
   "needs": [
-    "prop: deer (creature art)"
+    "background: lake and birds (03.03.svg is a placeholder)"
   ]
 }

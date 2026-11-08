@@ -1,54 +1,47 @@
 {
-  "scene": "The vulture Jatayu lands on a branch; Rama greets him with joined palms",
-  "size": 0.75,
-  "ground": "sand",
-  "props": [
-    {
-      "prop": "tree",
-      "at": 0.8
-    },
-    {
-      "prop": "vulture-stand",
-      "at": 0.74,
-      "lift": 7.4,
-      "scale": 0.5
-    }
-  ],
+  "scene": "A sage teaches; the three sit before him",
+  "size": 0.5,
+  "ground": "off-white",
+  "zoom": 0.8,
   "figures": [
     {
       "who": "lakshman",
-      "pose": "step-hang",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.18,
-      "mouth": 1,
-      "adjust": {
-        "spine.head": -15
-      }
+      "mouth": 1
+    },
+    {
+      "who": "sita",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.37,
+      "mouth": 1
     },
     {
       "who": "rama",
-      "pose": "step-hang",
+      "pose": "sit-armknee",
       "facing": "right",
-      "at": 0.42,
+      "at": 0.56,
+      "mouth": 1
+    },
+    {
+      "who": "sage1",
+      "pose": "sit-armknee",
+      "facing": "left",
+      "at": 0.8,
       "mouth": 2,
-      "turn": 0,
       "hands": {
-        "right": "in",
-        "left": "in"
+        "right": "out"
       },
       "adjust": {
-        "spine.head": -20,
-        "right.arm.shoulder": 40,
-        "right.arm.elbow": 115,
-        "right.arm.out": 0,
-        "left.arm.shoulder": 40,
-        "left.arm.elbow": 115,
-        "left.arm.out": 0
+        "spine.lean": 0,
+        "right.arm.shoulder": 120,
+        "right.arm.elbow": 40
       }
     }
   ],
   "needs": [
-    "pose: stand-palms-joined",
-    "prop: tree"
+    "pose: sit-cross-legged (sage teaching, raised hand)"
   ]
 }
