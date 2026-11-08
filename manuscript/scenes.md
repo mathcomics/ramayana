@@ -65,8 +65,6 @@ when the story comes back to a place, the same image returns.
   of (7).
 - Two coronations: **Sugriva** crowned beneath the royal umbrella (8)
   and **Vibhishana** the same (18) — same crown, same umbrella.
-- Two great birds: Jatayu rises against the chariot and falls (6);
-  Garuda sweeps in and the serpents flee (13).
 - Over the sea: **Hanuman** crosses it out in the leap (9) and home
   with the jewel (11), the army walks it on the bridge (12), and
   **Sita** flies home beside **Rama** (18) — her crossing away is
@@ -344,20 +342,21 @@ monkey); the squirrel helping (a later telling).
 ## 13. The war begins
 
 The first battle breaks against Indrajit's serpent arrows — until the
-great eagle comes, and Rama sends Ravana home bare-headed.
+serpents let go, and Rama sends Ravana home bare-headed.
 
 - Before Lanka's walls the armies meet: monkeys hurl rocks and trees,
   rakshasas fall in rows.
 - From a cloud, **Indrajit**'s serpent arrows bind **Rama** and
-  **Lakshman**; they fall — until the great eagle Garuda sweeps down,
-  the serpents flee, and the brothers rise.
+  **Lakshman**; they fall — until the serpents loosen, slither away,
+  and the brothers rise.
 - **Rama**, on **Hanuman**'s shoulders, shoots away **Ravana**'s crown
   and bow; Ravana walks back into Lanka bare-headed, head bowed.
 
-Must show: Garuda echoing Jatayu — this time the great bird arrives in
-time; the humbled walk is the chapter's last image. Not shown: Sita
-shown the fallen brothers (a side scene); Ravana's javelin felling
-Lakshman (he falls once, in 16).
+Must show: the humbled walk is the chapter's last image. Not shown:
+Garuda freeing the brothers (a second great bird reads as Jatayu back
+from the dead — the serpents simply slither away); Sita shown the
+fallen brothers (a side scene); Ravana's javelin felling Lakshman (he
+falls once, in 16).
 
 ## 14. Kumbhakarna
 
@@ -470,7 +469,8 @@ Valmiki has them).
 - The Ocean rising before Rama's bow and showing the way (12):
   **yes**, check Dutt (Valmiki has it)
 - The squirrel helping at the bridge: **no** (later tellings)
-- Garuda frees the brothers (13): **yes**, check Dutt
+- Garuda frees the brothers: **no** — dropped in v0.7, a second great
+  bird confuses with Jatayu
 - Kumbhakarna's waking (14), Ravana's heads growing back (17):
   **yes**, check Dutt
 - Lakshman's line around the hut (5): **yes** — a later telling, not
@@ -511,4 +511,6 @@ chapter to 2–3 beats: Kumbhakarna before Ravana's throne (14 —
 counsel needs words); Ravana rising grieving at Indrajit's fall (15 —
 chapter 16 opens with him riding out); the rakshasi queen mourning
 over Ravana (17 — a side scene); Ravana threatening Sita in the grove
-(10 — the guards are peril enough).
+(10 — the guards are peril enough); Garuda freeing the brothers (13 —
+a second great bird reads as Jatayu back from the dead; the serpents
+simply slither away).
