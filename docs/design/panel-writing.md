@@ -86,6 +86,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   struggle. Use the falling, lunging and leaning poses (fallback-flung, lunge,
   leanback-armsback), opposed diagonals, a scale step for menace, mouth 3
   (05.19-05.21).
+- **And the reverse — pace comes from the mood, not the errand** (artist,
+  2026-11-08, 09.02): a search party *sets off walking*; running and
+  leaping poses read as panic (11.08's rout). Walk/pass poses and quiet
+  mouths unless something is chasing or burning.
 - **Shots are the zoom**: consecutive panels step far → wide → mid like a
   camera move (05.02 → 05.03). In a mid shot, the second party of a
   dialogue goes in the `back` row for depth (05.04); `mid` row is nearly
