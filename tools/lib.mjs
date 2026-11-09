@@ -68,13 +68,18 @@ export function loadProps() {
     const text = readFileSync(f, 'utf8');
     const vb = text.match(/viewBox="([^"]+)"/)[1].split(/[\s,]+/).map(Number);
     def.size = [vb[2] / 100, vb[3] / 100];
-    // a group id="anchors" holds named points (circles), e.g. seat; not drawn
+    // A group id="anchors" holds named points (circles), e.g. seat; not drawn.
+    // [x, y, d]: d is the circle's diameter in head-units. An anchor that
+    // places a whole figure (seat, stand) is a point and ignores d — its
+    // circle is only a marker. An anchor drawn to size (face) uses it: a head
+    // is 1 head-unit tall, so d = 1 (r="50") is a full-size head.
     const anch = text.match(/<g\b[^>]*id="anchors"[^>]*>([\s\S]*?)<\/g>/);
     if (anch) {
       def.anchors = {};
       for (const c of anch[1].matchAll(/<circle\b[^>]*>/g)) {
         const a = (k) => c[0].match(new RegExp(`\\b${k}="([^"]+)"`))?.[1];
-        if (a('id')) def.anchors[a('id')] = [(Number(a('cx')) - vb[0]) / 100, (Number(a('cy')) - vb[1]) / 100];
+        if (a('id')) def.anchors[a('id')] = [(Number(a('cx')) - vb[0]) / 100, (Number(a('cy')) - vb[1]) / 100,
+          Number(a('r')) * 2 / 100];
       }
     }
     const drawing = text.replace(/<g\b[^>]*id="anchors"[^>]*>[\s\S]*?<\/g>/, '');

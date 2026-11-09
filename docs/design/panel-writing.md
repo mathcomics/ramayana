@@ -76,10 +76,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   creature becoming someone else reads as a new character, so it is cut —
   the shot deer just dies (05.12). A disguise thrown off is different:
   the same figure, revealed (05.19).
-- **Sound travels as a picture**: a cry is a bubble with the shouter's
-  face, repeated across consecutive panels as it crosses the land — from
+- **Sound travels as a picture**: a cry is the `sound-cry` burst with the
+  shouter's face on its `face` anchor (`"on": "sound-cry#face"`),
+  repeated across consecutive panels as it crosses the land — from
   the dying deer (05.12), over the forest (05.13), to the hut (05.14).
-  The same device can carry any far-off sound.
+  The same device carries any far-off sound; its tail points back the way
+  the sound came.
 - **Action panels need action poses** (artist: the abduction was "too low
   action"): two figures standing near each other is a conversation, not a
   struggle. Use the falling, lunging and leaning poses (fallback-flung, lunge,

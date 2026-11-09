@@ -9,7 +9,7 @@
       "row": "back"
     },
     {
-      "prop": "shout-bubble",
+      "prop": "sound-cry",
       "at": 0.12,
       "lift": 4.2
     },
@@ -36,6 +36,6 @@
   ],
   "needs": [
     "prop: hut",
-    "effect: shout-bubble (arriving, 05.12-05.14)"
+    "effect: sound-cry (arriving, 05.12-05.14)"
   ]
 }

@@ -68,7 +68,7 @@ repeated inside the JSON.
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `back` · `mid` · `front` · `horizon` · `floor` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. `horizon`: far away, standing on the horizon (16 px per head-unit in a 0.75 panel). `floor`: the panel's bottom edge at the front row's scale — a foreground band sits flush, whatever the shot (03.02's ridge). |
-| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>` | Puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at`, `row`, `lift` are ignored; `scale` still applies). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). |
+| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>` | Puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at`, `row`, `lift` are ignored; `scale` still applies). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
@@ -106,6 +106,22 @@ behind them, after = in front; the retired `layer` field is an issue).
   `kishkindha` have them). A prop can stand `on` another prop's anchor
   too — its bottom centre lands there, at the carrying prop's scale
   (`palace-lanka` on `"lanka-island#stand"`).
+- **Naming an anchor**: after *what of the figure lands on it*, never
+  after where it sits in the drawing — `seat` (hips), `stand` (feet),
+  `face` (the head alone, as in `sound-cry`). Lowercase, one word, the
+  bare name for the only or default one, `-left`/`-right` for variants
+  of the same kind (two places a figure could stand) — never for parts
+  of one anchor. The parts and face sheets name their anchors the same
+  way (`nape`, `neck-top`, `wrist-left`).
+- **An anchor's size**: an anchor that places a whole figure (`seat`,
+  `stand`) is a point; its circle is only a marker and the radius means
+  nothing. An anchor that places a part is *drawn to size*: the circle's
+  **diameter is the head's height**. A head is 1 head-unit tall for every
+  species (only the width differs: monkey 1.0, male 0.88, female 0.74),
+  and the drawing is 100 px = 1 head-unit, so `r="50"` is a full-size
+  head and `sound-cry`'s `r="40"` is 0.8 of one. One circle carries both
+  the place and the size — a tilted head is the panel's `adjust`, not the
+  prop's.
 - Drawn so far: `palace-ayodhya`, `palace-lanka` (the golden rework,
   Lanka's palaces; also small on `lanka-island`'s `stand` anchor),
   `golden-deer`, `golden-deer-run`,

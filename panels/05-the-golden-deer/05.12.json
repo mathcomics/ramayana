@@ -8,13 +8,19 @@
       "at": 0.42
     },
     {
-      "prop": "shout-bubble",
+      "prop": "sound-cry",
       "at": 0.56,
       "lift": 3.2
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "mouth": 3,
+      "on": "sound-cry#face"
     }
   ],
   "needs": [
-    "prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank)",
-    "effect: shout-bubble (a speech bubble with Rama's face shouting; it travels 05.12-05.14)"
+    "prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank)"
   ]
 }

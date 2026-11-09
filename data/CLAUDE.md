@@ -18,7 +18,12 @@ wrong: `docs/issues/problem-poses.md`.
   mismatches for the artist to fix in the drawings.
 - **Props**: art in `data/props/<id>.svg`, 100 px = 1 head-unit, size
   from the viewBox, anchors (`seat` for hips, `stand`/`stand-left`/
-  `stand-right` for feet) in a group `id="anchors"`. A prop that should
+  `stand-right` for feet, `face` for a head alone) in a group
+  `id="anchors"` — an anchor is named after what of the figure lands on
+  it, not after where it sits in the drawing. A whole-figure anchor is a
+  point (its circle is just a marker); a part anchor is drawn to size,
+  the circle's diameter being the head height (100 px = 1 head-unit, so
+  `r="50"` is a full-size head). A prop that should
   recolour per use (e.g. `male-top`) names its role colours in its
   `data/props.json` entry: `"recolor": { "body": "#…", "cloth": "#…" }`.
   Held props (sword, club, bow) in `data/props/held/` with a reference

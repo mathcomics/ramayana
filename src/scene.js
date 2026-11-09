@@ -181,6 +181,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   // "on": a figure (or another prop) sits or stands on a prop's anchor, at
   // the prop's scale. "<prop>" uses the seat anchor; "<prop>#<anchor>"
   // names another (e.g. stand). A prop stands with its bottom centre on it.
+  // A `face` anchor is different: it takes the head alone, centred on the
+  // anchor and drawn to the anchor circle's size — a face in a sound bubble.
   const seatOn = (o) => {
     const e = o.f || o.p;
     const [tname, aname = 'seat'] = String(e.on).split('#');
@@ -188,6 +190,15 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const seat = t?.def?.anchors?.[aname];
     if (!seat) { issues.push(`${o.name}: "on" needs a prop with a "${aname}" anchor in the panel ("${e.on}")`); if (o.f) o.f = { ...o.f, on: undefined }; else o.p = { ...o.p, on: undefined }; return; }
     if (t.x == null) return;
+    if (aname === 'face') {                     // the head alone, no ground contact
+      if (!o.f) { issues.push(`${o.name}: a "face" anchor takes a figure, not a prop ("${e.on}")`); return; }
+      o.headOnly = true;
+      o.unit = (seat[2] || 1) * t.unit * (e.scale ?? 1);
+      o.halfW = ((o.S.head?.width ?? 1) / 2) * o.unit;
+      o.groundY = t.groundY - t.h + seat[1] * t.unit;   // the head's centre, not a ground line
+      o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW);
+      return;
+    }
     o.unit = t.unit * (e.scale ?? 1);
     if (o.f) o.halfW = o.halfW1 * o.unit;
     else { [o.w, o.h] = (o.def?.size || [2, 2]).map((v) => v * o.unit); o.halfW = o.w / 2; }
@@ -226,7 +237,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   all.forEach((o) => {
     s += o.p ? drawProp(o)
       : renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
-        view: o.view, id: `${pre}-f${o.fi}` }).svg;
+        view: o.view, headOnly: o.headOnly, id: `${pre}-f${o.fi}` }).svg;
   });
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
   return { svg, w: W, h: H, issues };

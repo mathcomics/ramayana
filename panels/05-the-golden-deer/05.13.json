@@ -16,13 +16,19 @@
       "scale": 0.7
     },
     {
-      "prop": "shout-bubble",
+      "prop": "sound-cry",
       "at": 0.5,
       "lift": 2.6
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "mouth": 3,
+      "on": "sound-cry#face"
     }
   ],
   "needs": [
-    "prop: tree",
-    "effect: shout-bubble (traveling, 05.12-05.14)"
+    "prop: tree"
   ]
 }

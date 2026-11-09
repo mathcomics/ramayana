@@ -562,7 +562,7 @@ function shade(c, k) {
 }
 let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
-  const { x = 0, y = 0, scale = 20, facing = 1 } = opts;
+  const { x = 0, y = 0, scale = 20, facing = 1, headOnly = false } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
   const { shapes, headAnchor, hairAnchor, sk, bbox: bb, joints } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.bodyScale ?? 1, opts.who);
   // Drawn face (data/faces): replaces the guide head (every character has
@@ -579,6 +579,22 @@ export function renderFigure(species, pose, opts = {}) {
   const at = `translate(${headAnchor.at[0]} ${headAnchor.at[1]})`;
   const turnPart = (part) => `<g transform="${at}" color="${colors.body}">${headTurn(opts.face.turn, 0, 0, { R: headAnchor.R, part, mouth: sk.pose.mouth, id: `${clipId0}${part}`, drawn: opts.face })}</g>`;
   const faceHead = turned ? turnPart('head') : drawn && place(`<g color="${colors.body}">${ver.head || ''}${ver.mouth?.[sk.pose.mouth] || ''}</g>`);
+  // A head alone, for a prop's `face` anchor (the sound-cry burst carries
+  // the crier's face). The drawn face and the hair behind it, nothing else:
+  // with no torso there is no neck, and the face's `hair-body` layer is
+  // dropped — it hangs from the nape onto the back and has nothing to lie on.
+  // `scale` is the head's height in px (a head is 1 head-unit tall for every
+  // species), and the head's centre lands on (x, y).
+  if (headOnly) {
+    const [ax, ay] = headAnchor.at;
+    let h = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale}) translate(${-ax} ${-ay})">`;
+    if (drawn?.defs) h += `<defs>${drawn.defs}</defs>`;
+    if (turned) h += turnPart('back');
+    else if (drawn?.back) h += place(drawn.back);
+    h += `${faceHead || ''}</g>`;
+    const hw = (species.head?.width ?? 1) / 2;
+    return { svg: h, bbox: { x0: -hw, x1: hw, y0: -0.5, y1: 0.5 }, joints };
+  }
   // Shapes are emitted in draw order; consecutive body shapes share one
   // <g fill> so the silhouette merges visually.
   let svg = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale})">`;

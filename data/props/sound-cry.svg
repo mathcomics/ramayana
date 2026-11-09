@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A cry heard from far away: a ragged burst with a tail, the artist's drawing.
+     100 px = 1 head-unit. Not a ground prop — it is placed with "lift".
+     Anchor: face, the burst's centre, where the crier's head goes
+     ("on": "sound-cry#face"), drawn to size: its diameter is the head height
+     (r="40" = 0.8 of a head-unit, which sits inside the burst with a margin;
+     r="50" would be a full-size head). The artist marked the centre with a red dot inside the
+     drawing; moved out to the anchors group (where the loader reads it and it
+     is not drawn), same point. The drawing is unchanged otherwise. -->
+
+<svg
+   viewBox="0 0 346.62393 217.11935"
+   width="346.62393"
+   height="217.11935"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="sound-cry.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0471334"
+     inkscape:cx="202.47826"
+     inkscape:cy="97.941834"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4" />
+  <g
+     transform="matrix(6.501951,0,0,6.501951,302.16423,-393.16497)"
+     id="g4">
+    <path
+       sodipodi:type="star"
+       style="fill:#ffe680;stroke:none;stroke-width:0.6152"
+       id="path351"
+       inkscape:flatsided="false"
+       sodipodi:sides="12"
+       sodipodi:cx="-339.49911"
+       sodipodi:cy="176.34415"
+       sodipodi:r1="104.59233"
+       sodipodi:r2="73.21463"
+       sodipodi:arg1="0.67619973"
+       sodipodi:arg2="0.93799912"
+       inkscape:rounded="0"
+       inkscape:randomized="0.08"
+       d="m -253.16569,242.86868 -51.25731,-14.81912 -3.33956,51.82659 -30.56528,-22.71412 -9.33146,26.98444 -23.93326,-34.45956 -28.65521,11.65161 5.3959,-37.22964 -39.55994,-17.74057 14.98229,-16.37318 -26.49285,-33.85467 39.39461,-2.75639 -11.43049,-37.35502 30.22086,-5.4787 3.33983,-33.238861 30.56528,22.714121 29.46549,-32.998498 7.19848,34.459558 45.38999,-11.651611 -8.79542,41.390741 42.05703,4.00236 -34.21416,30.11139 42.04988,19.73429 -35.71951,21.72629 z"
+       transform="matrix(0.15379999,0,0,0.15379999,22.11,50.16)" />
+    <path
+       style="fill:#ffe680;stroke:none;stroke-width:0.6152"
+       d="m -20.694436,83.199431 11.6612172,3.032573 -0.517546,-1.648651 4.391551,2.95234 -0.257501,-1.572796 12.2546174,4.421181 -14.1331754,-8.398634 -0.01507,2.209572 -4.2256902,-2.925664 0.03411,2.115388 -7.225373,-3.952607"
+       id="path459" />
+  </g>
+  <g id="anchors">
+    <circle id="face" cx="113.44" cy="111" r="40" fill="none"/>
+  </g>
+</svg>
