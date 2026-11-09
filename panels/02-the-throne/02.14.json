@@ -13,7 +13,6 @@
       "pose": "run-pump",
       "view": "front",
       "at": 0.7,
-      "lift": 0.5,
       "mouth": 1
     },
     {
@@ -21,7 +20,6 @@
       "pose": "run-pump",
       "view": "front",
       "at": 0.5,
-      "lift": 0.6,
       "mouth": 1
     },
     {

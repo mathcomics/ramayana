@@ -1,7 +1,6 @@
 {
   "scene": "The roar, close",
   "tall": 0.6,
-  "shot": "mid",
   "ground": "sand",
   "figures": [
     {
@@ -13,7 +12,7 @@
       "adjust": {
         "spine.head": -12
       },
-      "lift": 0.7
+      "row": "closeup"
     }
   ]
 }

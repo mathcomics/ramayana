@@ -1,7 +1,6 @@
 {
   "scene": "Sita points after it; Rama looks. The deer is off-panel, far away",
   "tall": 0.6,
-  "shot": "mid",
   "ground": "dark-green",
   "figures": [
     {
@@ -9,14 +8,16 @@
       "pose": "step-hang",
       "facing": "right",
       "at": 0.25,
-      "mouth": 1
+      "mouth": 1,
+      "row": "closeup"
     },
     {
       "character": "sita",
       "pose": "step-point",
       "facing": "right",
       "at": 0.68,
-      "mouth": 2
+      "mouth": 2,
+      "row": "closeup"
     }
   ]
 }

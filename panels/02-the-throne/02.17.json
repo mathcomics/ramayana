@@ -2,7 +2,6 @@
   "scene": "Still walking, small. Back: outline of a forest",
   "tall": 1,
   "ground": "sand",
-  "zoom": 0.45,
   "figures": [
     {
       "prop": "tree",

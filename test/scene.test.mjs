@@ -85,13 +85,39 @@ test('sky: a colour above the horizon; row "horizon" stands things on it', () =>
   assert.equal(renderPanel({ sky: 'nope' }, assets).issues.length, 1);
 });
 
+test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', () => {
+  const propY = (row, extra = {}) => {
+    const r = renderPanel({ figures: [{ prop: 'golden-deer-run', row, ...extra }] }, assets);
+    const [, y, sc] = r.svg.match(/<g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/);
+    return { top: +y, unit: +sc, bottom: +y + assets.props.props['golden-deer-run'].size[1] * +sc, issues: r.issues };
+  };
+  const man = (t) => 0.75 * (1 - t) * 540 / 7.5;
+  const near = (a, b) => Math.abs(a - b) < 0.01;
+  for (const [row, t] of [['front', 0.08], ['mid', 0.4], ['back', 0.7]]) {
+    const p = propY(row);
+    assert.ok(near(p.unit, man(t)) && near(p.bottom, 540 * (1 - t * 0.37)), `${row} row`);
+  }
+  // the horizon moves a row's ground line, not its size
+  const low = renderPanel({ horizon: 0.2, figures: [{ prop: 'golden-deer-run', row: 'back' }] }, assets).svg;
+  assert.ok(near(+low.match(/scale\(([-\d.]+)/)[1], man(0.7)), 'the horizon leaves sizes alone');
+  const c = propY('closeup');
+  assert.ok(near(c.unit, 1.75 * 540 / 7.5) && near(c.bottom, 1080), 'closeup: ground a panel below, head at 75 %');
+  const t = propY('top');
+  assert.ok(near(t.top, 0) && near(t.unit, man(0.08)), 'top: top edge on the panel top, front size');
+  const n = propY(0.5);
+  assert.ok(near(n.bottom, 270) && near(n.unit, man(0.08)), 'a number: the bottom edge at that share');
+  assert.ok(near(propY(0.5, { lift: 1 }).bottom, 270 - man(0.08)), 'lift: own head-units, up');
+  assert.equal(propY('nope').issues.filter((i) => /row "nope"/.test(i)).length, 1);
+  for (const k of ['shot', 'zoom']) assert.match(renderPanel({ [k]: 'wide' }, assets).issues.join(' '), new RegExp(`"${k}" is retired`));
+});
+
 test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirror the seat', () => {
   const seat = assets.props.props['throne-ayodhya'].anchors.seat;
   for (const facing of ['right', 'left']) {
     const r = renderPanel({ figures: [{ prop: 'throne-ayodhya', at: 0.5, row: 'mid', facing }, { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets);
     assert.deepEqual(r.issues.filter((i) => !/placeholder/.test(i)), []);
     const [, fy, fs] = r.svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/) || [];
-    const unit = 34, top = 540 * (1 - 0.17) - assets.props.props['throne-ayodhya'].size[1] * unit;
+    const unit = 0.75 * (1 - 0.4) * 540 / 7.5, top = 540 * (1 - 0.4 * 0.37) - assets.props.props['throne-ayodhya'].size[1] * unit;
     assert.ok(Math.abs(+fy - (top + seat[1] * unit)) < 0.01, `${facing}: seat height`);
     assert.equal(Math.abs(+fs), unit);
   }

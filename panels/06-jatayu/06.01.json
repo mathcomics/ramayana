@@ -17,8 +17,8 @@
     {
       "prop": "sound-cry",
       "at": 0.2,
-      "lift": 3.4,
-      "facing": "left"
+      "facing": "left",
+      "row": 0.32
     },
     {
       "character": "sita",

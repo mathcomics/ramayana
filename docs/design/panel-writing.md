@@ -41,8 +41,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   figures sit in the bottom half with empty ground above wants to be 1
   or 0.6. Never taller than 1.5. The manuscript's "full" means at most 1.5,
   and only if it earns the height.
-- **Shot**: `far` by default; `wide` for bigger whole figures, `mid` for
-  close (front row cut at the thighs).
+- **Row**: `front` by default, `mid` and `back` for depth; `closeup` for
+  close (a standing figure from about the waist up); a number for
+  anything in the air or seen from above (`panels.md`, Rows).
 - **Backgrounds are light** (artist, 2026-11-08): `off-white` (light
   beige), `light-grey`, even `white`. Green grounds only for top views
   (03.01) and the land strip under a `sky` horizon (05.10's dry-grass);
@@ -63,7 +64,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Establish a new place and its key figure as a sequence, not one
   panel** (artist, 2026-11-07, chapter 05): location from far; the figure
   in their place, far (a king on his throne, front view); the same
-  closer (step the shot far → mid); the arriving character near the
+  closer (step the rows to `closeup`); the arriving character near the
   viewer, waist up, facing them; then the exchange in 2–3 more panels
   (gesture, reaction, decision). The old single panel crammed arrival,
   complaint and rage into one image.
@@ -91,10 +92,11 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   2026-11-08, 09.02): a search party *sets off walking*; running and
   leaping poses read as panic (11.08's rout). Walk/pass poses and quiet
   mouths unless something is chasing or burning.
-- **Shots are the zoom**: consecutive panels step far → wide → mid like a
-  camera move (05.02 → 05.03). In a mid shot, the second party of a
-  dialogue goes in the `back` row for depth (05.04); `mid` row is nearly
-  as big as `front` and kills the depth.
+- **Rows are the zoom**: consecutive panels step from `front` to
+  `closeup` like a camera move (05.02 → 05.03). In a closeup, the second
+  party of a dialogue stands lower and smaller behind for depth (05.04:
+  Ravana's throne on a negative numeric row); at the same size the two
+  kill the depth.
 - **Aim the gazes**: `spine.head` adjust, + looks down, − looks up. A
   kneeling figure looks up at the one standing over them (05.06); seated
   and kneeling figures otherwise stare level through their partner's
@@ -107,38 +109,34 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   target can stay off-panel (05.08: Sita points past the edge, the deer
   is not shown); more, smaller panels beat one crowded one, as long as
   each panel's transition from the last is clear.
-- **0.6 strips for reactions and partial views**: a `mid` shot in a 0.6
-  panel gives chest-up figures that fill the strip (05.08, 05.10); use
+- **0.6 strips for reactions and partial views**: `closeup` in a 0.6
+  panel gives waist-up figures that fill the strip (05.09, 05.11); use
   them often.
 - **A chase is one distance**: put the chaser on the horizon row with the
   chased (05.09), not big in front running parallel to a far-off quarry.
-- **No far props in a `mid`-shot strip**: a back-row prop's ground is far
-  below a mid shot's bottom edge, so only its top shows — the Ayodhya
-  throne reduced to its red disc, a stray ball (02.04 rework). Let the
-  previous panel carry the geography.
-- **A lone full-body action in a 0.6 strip wants `wide`, not `mid`**:
-  `mid` crops a single walker to a floating chest (02.07 rework); `mid`
-  strips are for chest-up reactions of one or two faces.
-- **`mid` rows fit standing figures only**: a seated or kneeling figure
-  in a `mid` strip sinks almost entirely below the crop (10.08 rework).
-  A close-up of a seated figure is `wide` + `zoom` 2 — the whole seated
-  body fills the strip, still grounded.
+- **No far props in a `closeup` strip**: a prop behind closeup figures
+  shows only in part — the Ayodhya throne reduced to its red disc, a
+  stray ball (02.04 rework). Let the previous panel carry the geography.
+- **A lone full-body action in a 0.6 strip wants `front`, not
+  `closeup`**: a closeup crops a single walker to a floating chest (02.07
+  rework); closeup strips are for waist-up reactions of one or two faces.
+- **`closeup` fits standing figures only**: a seated or kneeling figure
+  sinks below the crop (10.08 rework). A close seated figure is `front`
+  with a `scale` (10.08: 2.2) — the whole seated body fills the strip,
+  still grounded.
 - **A foreground band stands on `row: "floor"`** (artist, 2026-11-08,
   03.02): a foreground strip of ground (after the figures in the list)
   on the front row leaves a 3%-of-panel gap below it; `floor` is the
-  panel's bottom edge at the front row's scale, flush under any shot
-  (a hand-tuned negative `lift` broke when the shot changed). And
+  panel's bottom edge at the front row's scale, flush whatever the rows
+  do (a hand-tuned negative `lift` broke when the rows changed). And
   figures behind a rising band don't need
   per-figure `lift`s: full-size on the front row, the band's own slope
   staggers how deep each one sinks (the farther, the deeper). Walkers
   toward the reader (`view: front`) read larger and more alive there than
-  small profile walkers (`zoom` cut them down; it went too).
+  small profile walkers (shrinking them all cut them down).
 
 - **The throne goes in the `mid` row**, a row behind the people in front:
   in the front row it is as tall as the men and runs off the edge.
-- **`zoom` scales figures only**: a prop next to zoomed figures needs its
-  own `scale` (the golden deer at `zoom` 0.75 needed `scale` 0.7), or it
-  dwarfs them.
 - **A figure in the air needs its legs closed and its toes pointed**
   (06.02–06.05): `step-hang` lifted off the ground is a man *walking on
   nothing*, because the base is a stride. Bring the legs together and
@@ -168,7 +166,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   a tree, 0.6–0.8 in the air beside a flying figure.
 - **Colour clashes**: a gold crown vanishes against the gold throne back;
   check heads against what's behind them.
-- **Top views** place props with `lift` (rows mean little from above).
+- **Top views** place props with a numeric `row` (named rows mean little
+  from above): the height on the ground is the distance.
 - **Render and look** at every panel (`node tools/render-panels.mjs NN`),
   at phone size: poses must read from the silhouette; fix before showing.
 - Every committed panel must render without issues other than

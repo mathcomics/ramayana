@@ -1,7 +1,6 @@
 {
   "scene": "A monkey picks the bundle up; the others crowd round it",
   "tall": 1,
-  "shot": "wide",
   "ground": "sand",
   "figures": [
     {
@@ -54,8 +53,7 @@
     },
     {
       "prop": "jewels",
-      "at": 0.6,
-      "lift": 0.4
+      "at": 0.6
     }
   ],
   "needs": [

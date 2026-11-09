@@ -2,7 +2,7 @@
 
 How things are arranged in a panel. The model panel for each kind of
 scene is in `panels/layouts.md`; a composition the artist approves adds
-what it teaches here. Rows, shots and panel heights: `docs/design/panels.md`.
+what it teaches here. Rows and panel heights: `docs/design/panels.md`.
 
 ## Chapter openers
 
@@ -68,7 +68,8 @@ action. The same opener can return when the story comes back to a place.
   opposite corners frame it, leaving the other two corners open.
   (03.01)
 - Top-view props are drawn obliquely (roof and one wall, tree canopy above
-  its trunk); place them with `lift` (the rows mean little from above).
+  its trunk); place them with a numeric `row` (the named rows mean little
+  from above).
 - People from above: `male-top` (the artist's standing man — head,
   shoulders, arms, feet), `male-top-back` (the same man seen from
   behind, facing away) and `female-top` (the woman, her hair showing).

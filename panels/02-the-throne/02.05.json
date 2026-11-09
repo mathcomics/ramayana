@@ -1,7 +1,6 @@
 {
   "scene": "Rama looks up at the throne",
   "tall": 0.6,
-  "shot": "mid",
   "ground": "dusty-pink",
   "figures": [
     {
@@ -12,7 +11,8 @@
       "mouth": 2,
       "adjust": {
         "spine.head": -15
-      }
+      },
+      "row": "closeup"
     }
   ]
 }

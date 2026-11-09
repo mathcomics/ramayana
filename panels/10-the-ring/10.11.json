@@ -28,8 +28,8 @@
     {
       "prop": "jewels",
       "at": 0.5,
-      "lift": 2.8,
-      "scale": 0.6
+      "scale": 0.6,
+      "row": 0.17
     }
   ],
   "needs": [

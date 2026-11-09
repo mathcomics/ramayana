@@ -1,7 +1,6 @@
 {
   "scene": "Rama knows them: Sita's jewels",
   "tall": 0.6,
-  "shot": "mid",
   "ground": "sand",
   "figures": [
     {
@@ -12,7 +11,8 @@
       "mouth": 3,
       "adjust": {
         "spine.head": 14
-      }
+      },
+      "row": "closeup"
     }
   ]
 }

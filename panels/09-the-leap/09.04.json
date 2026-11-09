@@ -6,8 +6,8 @@
     {
       "prop": "ring",
       "at": 0.5,
-      "lift": 1.2,
-      "scale": 3
+      "scale": 3,
+      "row": 0.34
     }
   ],
   "needs": [

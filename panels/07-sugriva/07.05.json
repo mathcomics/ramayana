@@ -13,8 +13,8 @@
       "pose": "leap-reach",
       "facing": "left",
       "at": 0.42,
-      "lift": 2.2,
-      "mouth": 2
+      "mouth": 2,
+      "row": 0.22
     }
   ]
 }

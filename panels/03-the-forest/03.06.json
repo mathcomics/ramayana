@@ -10,8 +10,8 @@
     {
       "prop": "vulture-stand",
       "at": 0.74,
-      "lift": 7.4,
-      "scale": 0.5
+      "scale": 0.5,
+      "row": 0.35
     },
     {
       "character": "lakshman",

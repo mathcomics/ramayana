@@ -18,7 +18,7 @@
       "facing": "left",
       "at": 0.4,
       "scale": 0.8,
-      "lift": 1.2
+      "row": 0.11
     },
     {
       "prop": "forest-ridge",
@@ -30,19 +30,17 @@
       "pose": "walk-swing",
       "view": "front",
       "at": 0.28,
-      "scale": 1.2,
-      "lift": 0.4
+      "scale": 1.2
     },
     {
       "prop": "flower-yellow",
       "at": 0.9,
-      "lift": 1.5
+      "row": 0.16
     },
     {
       "prop": "flower-yellow",
       "at": 0.85,
-      "scale": 1.5,
-      "lift": 0.8
+      "scale": 1.5
     }
   ]
 }

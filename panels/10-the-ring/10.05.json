@@ -2,7 +2,6 @@
   "scene": "Peering into windows, palace after palace — Sita is nowhere",
   "tall": 0.6,
   "ground": "#26303d",
-  "zoom": 0.5,
   "figures": [
     {
       "prop": "palace-lanka",
@@ -14,8 +13,9 @@
       "pose": "bend-reach",
       "facing": "right",
       "at": 0.47,
-      "lift": 2.3,
-      "mouth": 1
+      "mouth": 1,
+      "row": 0.13,
+      "scale": 0.5
     }
   ]
 }

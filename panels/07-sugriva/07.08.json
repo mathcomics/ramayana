@@ -28,7 +28,7 @@
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.66,
-      "lift": 1.1
+      "row": 0.12
     }
   ]
 }

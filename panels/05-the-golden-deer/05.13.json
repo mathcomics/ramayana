@@ -18,7 +18,7 @@
     {
       "prop": "sound-cry",
       "at": 0.5,
-      "lift": 2.6
+      "row": 0.25
     },
     {
       "character": "rama",

@@ -8,8 +8,8 @@
       "pose": "crouch-cross",
       "facing": "left",
       "at": 0.38,
-      "lift": 5,
-      "scale": 0.7
+      "scale": 0.7,
+      "row": 0.33
     },
     {
       "prop": "tree",

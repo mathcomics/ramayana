@@ -6,14 +6,13 @@
     "giant"
   ],
   "tall": 0.6,
-  "shot": "wide",
   "ground": "off-white",
   "figures": [
     {
       "prop": "giant-fingers",
       "at": 0.72,
-      "lift": 5,
-      "facing": "left"
+      "facing": "left",
+      "row": "top"
     },
     {
       "character": "monkey1",
@@ -48,8 +47,8 @@
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.7,
-      "lift": 4.2,
-      "mouth": 3
+      "mouth": 3,
+      "row": 0.46
     },
     {
       "character": "monkey1",

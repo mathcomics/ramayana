@@ -2,7 +2,6 @@
   "scene": "He searches over the roofs of the sleeping city",
   "tall": 0.6,
   "ground": "#26303d",
-  "zoom": 0.5,
   "figures": [
     {
       "prop": "palace-lanka",
@@ -14,8 +13,9 @@
       "pose": "leap-reach",
       "facing": "right",
       "at": 0.6,
-      "lift": 4.2,
-      "mouth": 1
+      "mouth": 1,
+      "row": 0.21,
+      "scale": 0.5
     }
   ]
 }

@@ -11,20 +11,18 @@
       "view": "front",
       "facing": "right",
       "at": 0.63,
-      "row": "mid",
-      "lift": 8.1,
+      "row": 0.48,
       "mouth": 3,
-      "scale": 0.6
+      "scale": 0.44
     },
     {
       "character": "ravana",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.52,
-      "row": "mid",
-      "lift": 7.2,
+      "row": 0.46,
       "mouth": 2,
-      "scale": 0.65,
+      "scale": 0.48,
       "adjust": {
         "left.arm.shoulder": 70,
         "left.arm.elbow": 40,
@@ -42,9 +40,8 @@
     {
       "prop": "jewels",
       "at": 0.73,
-      "row": "mid",
-      "lift": 3.6,
-      "scale": 1.4
+      "row": 0.49,
+      "scale": 1.03
     },
     {
       "prop": "ledge",

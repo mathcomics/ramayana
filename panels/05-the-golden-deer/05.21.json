@@ -14,14 +14,14 @@
       "facing": "right",
       "at": 0.6,
       "mouth": 2,
-      "lift": 8.6,
-      "row": "back",
+      "row": 0.72,
       "adjust": {
         "right.arm.shoulder": 65,
         "right.arm.elbow": 25,
         "left.arm.shoulder": 55,
         "left.arm.elbow": 30
-      }
+      },
+      "scale": 0.52
     },
     {
       "character": "sita",
@@ -29,8 +29,7 @@
       "facing": "left",
       "at": 0.4,
       "mouth": 3,
-      "lift": 8.6,
-      "row": "back",
+      "row": 0.72,
       "adjust": {
         "spine.chest": 30,
         "spine.head": 20,
@@ -40,13 +39,14 @@
         "left.arm.shoulder": 30,
         "left.arm.elbow": 0,
         "left.arm.hand": "out"
-      }
+      },
+      "scale": 0.52
     },
     {
       "prop": "chariot",
       "at": 0.5,
-      "lift": 8,
-      "row": "back"
+      "row": 0.7,
+      "scale": 0.52
     }
   ],
   "needs": [

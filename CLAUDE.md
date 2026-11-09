@@ -33,8 +33,8 @@ scene spec (JSON) → layout → figure geometry → SVG
   the same commit.
 - `docs/design/composition.md` — how panels are arranged (chapter
   openers, sky and horizon, throne, top view).
-- `panels/layouts.md` — the model panel for each kind of scene, and how a
-  shot's rows are measured.
+- `panels/layouts.md` — the model panel for each kind of scene, and how the
+  rows are set.
 - **Approved reference panels** — panels carrying `tags` (e.g. `panic`,
   `crowd`, `giant`): artist-reviewed models that output is judged
   against; locked without the artist's consent (`docs/design/panels.md`,
@@ -188,7 +188,8 @@ per use. The queue: `docs/issues/missing-props.md`.
   `lunge-longpoint` …): swap a remaining use when its panel is revisited.
 - Panel-lab drafts still sitting in its database carry pose names from
   before the composite renaming, and the old `size` field (now `tall`:
-  0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) — fix them when a draft is merged.
+  0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) and the retired `shot` / `zoom` / big
+  lifts (`docs/design/panels.md`, Rows) — fix them when a draft is merged.
 - The reader site is Cloudflare Pages project `ramayana`
   (`https://ramayana-7fw.pages.dev`, open to account members only). It
   builds from GitHub, but automatic builds are **off**: publishing is the

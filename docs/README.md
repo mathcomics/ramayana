@@ -23,7 +23,7 @@
 - `proposals/2026-11-06-held-props.md` — swords and bows along a reference line in the hand (implemented: `data/props/held/{sword,club,bow}.svg` with base + per-character layers, `tools/import-held.mjs`).
 - `proposals/2026-11-07-contact-constraints.md` — pin feet while editing in the pose lab (implemented), `lookAt` to aim gazes, `held-by` to put a prop in a hand.
 - `proposals/2026-11-07-pose-composition.md` — poses as a base × a gesture (partly implemented, now in `design/pose-picking.md`; open: chest on reclined bases, gaps as products, half-copy in the lab, a CLI combine, composition as spec).
-- `proposals/2026-11-08-vertical-placement.md` — an `up` field placing a figure as a % of the panel height (proposed).
+- `proposals/2026-11-08-vertical-placement.md` — one `row` for vertical placement, by name or number; `shot` and `zoom` retired (implemented: `design/panels.md`, Rows; open: the row values, `top`'s size).
 
 ## Issues
 

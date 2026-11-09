@@ -9,18 +9,16 @@
       "view": "front",
       "facing": "right",
       "at": 0.43,
-      "row": "mid",
-      "lift": 6.2,
+      "row": 0.51,
       "mouth": 3,
-      "scale": 0.88
+      "scale": 0.65
     },
     {
       "character": "ravana",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.26,
-      "row": "mid",
-      "lift": 4.8,
+      "row": 0.47,
       "mouth": 3,
       "adjust": {
         "left.arm.shoulder": 70,
@@ -38,19 +36,19 @@
         "left.leg.knee": 0,
         "left.leg.ankle": -45,
         "spine.head": 26
-      }
+      },
+      "scale": 0.74
     },
     {
       "prop": "vulture-wing",
       "at": 0.84,
       "scale": 0.38,
-      "lift": 6.6
+      "row": 0.24
     },
     {
       "prop": "vulture-fall",
       "at": 0.5,
-      "scale": 0.55,
-      "lift": 0.1
+      "scale": 0.55
     }
   ],
   "needs": [

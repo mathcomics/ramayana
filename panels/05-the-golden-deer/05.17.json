@@ -8,26 +8,25 @@
       "id": "trees-nw",
       "at": 0.257,
       "scale": 0.4,
-      "lift": 20
+      "row": 0.71
     },
     {
       "prop": "line-top",
       "at": 0.505,
       "scale": 0.55,
-      "lift": 9.2
+      "row": 0.46
     },
     {
       "prop": "hut-top",
       "at": 0.505,
       "scale": 0.4,
-      "lift": 11.35
+      "row": 0.42
     },
     {
       "prop": "trees-top",
       "id": "trees-se",
       "at": 0.743,
-      "scale": 0.4,
-      "lift": 0.45
+      "scale": 0.4
     }
   ],
   "needs": [

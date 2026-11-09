@@ -5,7 +5,8 @@
   "figures": [
     {
       "prop": "tree",
-      "at": 0.66
+      "at": 0.66,
+      "row": "closeup"
     },
     {
       "character": "sita",
@@ -19,11 +20,11 @@
       "adjust": {
         "right.arm.shoulder": 110,
         "right.arm.elbow": 20
-      }
+      },
+      "row": "closeup"
     }
   ],
   "needs": [
     "prop: tree with thirteen tally marks"
-  ],
-  "shot": "mid"
+  ]
 }

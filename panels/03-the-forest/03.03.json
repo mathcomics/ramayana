@@ -2,7 +2,6 @@
   "scene": "Back: birds fly over a lake. Front: the three sit at the shore",
   "tall": 1.5,
   "ground": "off-white",
-  "zoom": 0.8,
   "figures": [
     {
       "character": "lakshman",

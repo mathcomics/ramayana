@@ -53,8 +53,6 @@ repeated inside the JSON.
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
 | `tags` | list of words (`panic`, `crowd`, `flee`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
-| `zoom` | number | Scales **figures only** ("small in the panel" ≈ 0.45). |
-| `shot` | `far` · `wide` · `mid` | Which rows (below). Default `far`. |
 | `figures` | one list of figures **and** props | An entry with `character` is a figure, with `prop` a prop. **One overlap rule: later entries draw over earlier ones** — a prop before the figures is scenery, after them a foreground that hides them (03.02's ridge), and props and figures interleave freely. (The old separate `props` list with `layer` back/front still renders, folded in around the figures — old lab drafts only; migrate on merge.) |
 | `needs` | list of text | Missing poses, props, art. Collected into the to-do list. |
 | `background` | file name | Optional; default `<id>.svg` next to the JSON. |
@@ -67,7 +65,7 @@ repeated inside the JSON.
 | `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
-| `row` | `back` · `mid` · `front` · `horizon` · `floor` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. `horizon`: far away, standing on the horizon (16 px per head-unit in a 1.5 panel). `floor`: the panel's bottom edge at the front row's scale — a foreground band sits flush, whatever the shot (03.02's ridge). |
+| `row` | `top` · `horizon` · `back` · `mid` · `front` · `floor` · `closeup`, or a number | Where it stands and how big: see Rows. Default `front`. Rows don't change the overlap order. |
 | `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>` | Puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at`, `row`, `lift` are ignored; `scale` still applies). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
@@ -76,7 +74,7 @@ repeated inside the JSON.
 | `hands` | `{ "right": "point", "left": "fist" }` (fist · out · in · point) | Overrides the pose. |
 | `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. Can also give a hand a held prop: `"left.arm.prop": { "kind": "bow", "angle": 90 }`, or swap one (`"right.arm.prop.kind": "club"`). |
 | `scale` | number | This figure only (a child, a giant). |
-| `lift` | head-units | Off the ground (leap, flight). |
+| `lift` | head-units | A small adjustment up (+) or down, in the figure's own head-units (a hop, feet on a ledge). Anything placed high — flight, a top view — takes a numeric `row`. |
 | `nudge` | head-units | Small horizontal shift after placement. |
 | `id` | text | Name for relations when the same character appears twice. |
 
@@ -91,7 +89,7 @@ behind them, after = in front; the retired `layer` field is an issue).
 - Artwork: `data/props/<id>.svg`, 100 px = 1 head-unit, bottom edge on the
   ground; its viewBox sets the prop's size. A prop with no artwork yet
   renders as a **labelled dashed box**.
-- `at`, `row`, `scale`, `lift`, `nudge`, `id` as for figures (`lift`: a bird on a branch).
+- `at`, `row`, `scale`, `lift`, `nudge`, `id` as for figures.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
 - Recolouring: a prop whose registry entry has `recolor` (the drawing's
   role colours, e.g. `{ "body": "#a05a2c", "cloth": "#c8ab37" }`) takes
@@ -174,32 +172,37 @@ behind them, after = in front; the retired `layer` field is an issue).
   (negative overlaps).
 - `nudge` shifts by head-units after placement.
 
-### Rows and figure size
+### Rows
 
-Figures scale with the panel height, so a front-row figure is about two
-thirds of its panel whatever its height.
+`row` says where an entry stands vertically and how big it is, by name
+or by number — as `at` does across. Shares are of the panel height, so a
+row looks the same in a panel of any height.
 
-| Row | Head-unit in a 1.5 panel | Ground line above the bottom |
+| `row` | Bottom edge | Size (a man = 7.5 head-units) |
 |---|---|---|
-| front | 46 (a man ≈ 345 tall) | 3 % of the panel height |
-| mid | 34 | 17 % |
-| back | 24 | 34 % |
+| `top` | the entry's **top** edge on the panel's top edge | as `front` |
+| `horizon` | on the horizon line | far away: 16 px per head-unit in a 1.5 panel |
+| `back` | 26 % (at the default horizon) | a man 22 % of the panel |
+| `mid` | 15 % | 45 % |
+| `front` (default) | 3 % | 69 % |
+| `floor` | the bottom edge | as `front` (a foreground band sits flush: 03.02's ridge, 09.09's sea) |
+| `closeup` | a panel below the bottom edge (−100 %) | a man's head at 75 %: he shows from about the waist up |
+| a number | that share (0 = bottom, 1 = top; negative or above 1 crops) | as `front` |
 
-Other heights scale in proportion (a 1 panel: × 2/3, a 0.6 panel: × 0.4).
+`front`, `mid` and `back` are one-point perspective with the horizon as
+eye level. A row at depth `t` (front 0.08, mid 0.4, back 0.7; 0 = the
+bottom edge, 1 = the horizon) has its ground line at `t × horizon` and a
+man's head at `0.75 − t × (0.75 − horizon)`: feet and heads converge on
+the horizon, a man is `0.75 × (1 − t)` of the panel whatever the horizon,
+and moving the panel's `horizon` moves the rows' ground lines with it
+(`DEPTH` and `HEAD_TOP` in `src/scene.js`; starting values, set by eye).
 
-That table is the `far` shot. A panel's `shot` picks another row set
-(head-unit in a 1.5 panel; ground as a share of the panel height above
-its bottom, negative = below it, so the panel crops the figures):
+`closeup` is for standing figures: a seated or kneeling one sinks out of
+the panel; it takes `front` with a `scale`.
 
-| Shot | front | mid | back |
-|---|---|---|---|
-| `far` | 46 · 0.03 | 34 · 0.17 | 24 · 0.34 |
-| `wide` | 55.2 · 0.031 | 40.8 · 0.085 | 28.8 · 0.136 |
-| `mid` | 110.4 · −0.735 | 81.6 · −0.568 | 57.6 · −0.429 |
-
-`wide` and `mid` are measured from the artist's drawings of each shot
-(`panels/layouts.md` says how to measure a new one; the `mid` back row is
-extrapolated from the other two).
+`scale` resizes one entry. `lift` is for small adjustments only, in the
+entry's own head-units; anything placed high (flight, hanging, a top
+view) takes a numeric row, which does not move when its `scale` changes.
 
 ## Background SVG
 

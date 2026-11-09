@@ -1,8 +1,6 @@
 {
   "scene": "Sita, close: captive under the tree",
   "tall": 0.6,
-  "shot": "wide",
-  "zoom": 2,
   "ground": "geru",
   "figures": [
     {
@@ -14,7 +12,9 @@
       "adjust": {
         "spine.chest": 20,
         "spine.head": 16
-      }
+      },
+      "row": "front",
+      "scale": 2.22
     }
   ]
 }

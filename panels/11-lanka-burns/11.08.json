@@ -2,13 +2,11 @@
   "scene": "Rakshasas flee through the burning streets, the fire behind them",
   "tags": ["panic", "crowd", "flee"],
   "tall": 0.6,
-  "shot": "wide",
   "ground": "#7e2f22",
   "figures": [
     {
       "prop": "fire",
       "at": 0.95,
-      "lift": 0.6,
       "scale": 4.8
     },
     {
@@ -31,9 +29,9 @@
       "pose": "leap-reach",
       "facing": "left",
       "at": 0.26,
-      "lift": 1.3,
       "cloth": "red",
-      "mouth": 3
+      "mouth": 3,
+      "row": 0.16
     },
     {
       "character": "raxas_m1",

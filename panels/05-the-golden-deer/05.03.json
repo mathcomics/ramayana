@@ -1,14 +1,13 @@
 {
   "scene": "Ravana alone, closer: the king of Lanka",
   "tall": 0.6,
-  "shot": "mid",
   "ground": "geru",
   "figures": [
     {
       "prop": "throne-lanka",
       "at": 0.5,
-      "lift": -0.5,
-      "scale": 1.1
+      "scale": 1.1,
+      "row": "closeup"
     },
     {
       "character": "ravana",

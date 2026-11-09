@@ -10,8 +10,8 @@
       "pose": "liefront-dive",
       "facing": "right",
       "at": 0.42,
-      "lift": 7.2,
-      "mouth": 2
+      "mouth": 2,
+      "row": 0.64
     }
   ]
 }

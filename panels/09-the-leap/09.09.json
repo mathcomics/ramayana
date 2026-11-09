@@ -4,10 +4,38 @@
   "tall": 1.5,
   "ground": "sand",
   "figures": [
-    { "prop": "monkey-top", "character": "monkey1", "at": 0.3, "lift": 8.4, "scale": 0.9 },
-    { "prop": "monkey-top", "character": "monkey1", "at": 0.4, "lift": 9.4, "scale": 0.9 },
-    { "prop": "monkey-top", "character": "monkey1", "cloth": "red", "at": 0.5, "lift": 8.2, "scale": 0.9 },
-    { "prop": "monkey-top", "character": "hanuman", "at": 0.8, "lift": 4.4, "scale": 1 },
-    { "prop": "wave-top", "at": 0.5, "row": "floor" }
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.3,
+      "scale": 0.9,
+      "row": 0.67
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.4,
+      "scale": 0.9,
+      "row": 0.75
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "red",
+      "at": 0.5,
+      "scale": 0.9,
+      "row": 0.66
+    },
+    {
+      "prop": "monkey-top",
+      "character": "hanuman",
+      "at": 0.8,
+      "row": 0.4
+    },
+    {
+      "prop": "wave-top",
+      "at": 0.5,
+      "row": "floor"
+    }
   ]
 }

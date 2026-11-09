@@ -11,40 +11,23 @@ export const PANEL_W = 360;
 export const DEFAULT_TALL = 1.5;
 export const SLOTS = { left: 0.14, 'center-left': 0.32, center: 0.5, 'center-right': 0.68, right: 0.86 };
 
-// Rows. Figures scale with the panel: unit = units per head-unit in a 1.5
-// panel (540 tall), and in proportion for other heights. A male figure is
-// ~7.5 head-units, so the front row is ~2/3 of the panel height.
-// ground = height of the ground line above the panel's bottom edge, as a
-// share of the panel height.
-//
-// A panel's `shot` picks a set of rows (measured from the artist's
-// drawings of each shot — panels/layouts.md; docs/design/panels.md):
-// - far:  small figures, deep rows (the default)
-// - wide: whole figures, bigger, rows close together
-// - mid:  close; the front row is cut at the thighs, the ground lines are
-//         below the panel (negative), the panel crops the figures
-export const SHOTS = {
-  far: {
-    front: { unit: 46, ground: 0.03 },
-    mid:   { unit: 34, ground: 0.17 },
-    back:  { unit: 24, ground: 0.34 },
-  },
-  wide: {
-    front: { unit: 55.2, ground: 0.031 },
-    mid:   { unit: 40.8, ground: 0.085 },
-    back:  { unit: 28.8, ground: 0.136 },
-  },
-  mid: {
-    front: { unit: 110.4, ground: -0.735 },
-    mid:   { unit: 81.6, ground: -0.568 },
-    back:  { unit: 57.6, ground: -0.429 },
-  },
-};
-export const ROWS = SHOTS.far;
+// Rows (docs/design/panels.md, Rows): where an entry stands, and how big.
+// front / mid / back are one-point perspective with the horizon as eye
+// level: a row at depth t (0 = the bottom edge, 1 = the horizon) has its
+// ground line at t × horizon and a man's head at HEAD_TOP − t × (HEAD_TOP −
+// horizon), so a man (MAN head-units) is HEAD_TOP × (1 − t) of the panel
+// whatever the horizon. Shares are of the panel height.
+export const DEPTH = { front: 0.08, mid: 0.4, back: 0.7 };
+export const HEAD_TOP = 0.75;
+export const MAN = 7.5;
+// closeup: a man standing just in front of the panel, ground line a panel
+// below its bottom edge, his head at HEAD_TOP: the panel shows him from
+// about the waist up.
+export const CLOSEUP_GROUND = -1;
+export const ROW_NAMES = ['top', 'horizon', 'back', 'mid', 'front', 'floor', 'closeup'];
 // The horizon (panel field `horizon`, default HORIZON): height above the
 // bottom edge as a share of the panel. Row "horizon" stands things on it,
-// far away: HORIZON_UNIT px per head-unit in a 1.5 panel (from the
-// artist's deer-running layout, a 1 panel); `scale` for nearer things.
+// far away: HORIZON_UNIT px per head-unit in a 1.5 panel (540 tall).
 export const HORIZON = 0.37;
 export const HORIZON_UNIT = 16;
 const REF_H = 540;
@@ -65,7 +48,6 @@ export const panelHeight = (panel) => Math.round(PANEL_W * (validTall(panel) ?? 
 // Returns { svg (complete <svg>), w, h, issues: [..] }.
 export function renderPanel(panel, assets, { id = 'panel', background = '' } = {}) {
   const W = PANEL_W, H = panelHeight(panel);
-  const zoom = panel.zoom ?? 1;           // figures only: "small in the panel"
   const issues = [];
   if (validTall(panel) == null) issues.push(`tall ${JSON.stringify(panel.tall)}: use ${TALLS.join(', ')}`);
   if (panel.size != null) issues.push(`size is now tall (height ÷ width): 0.75 → 1.5, 0.5 → 1, 0.3 → 0.6`);
@@ -79,16 +61,21 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   if (panel.sky && !grounds[panel.sky] && !/^#/.test(panel.sky)) issues.push(`sky "${panel.sky}" not in data/grounds.json`);
   const horizonY = H * (1 - (panel.horizon ?? HORIZON));
 
-  const shot = SHOTS[panel.shot ?? 'far'] || SHOTS.far;
-  if (panel.shot && !SHOTS[panel.shot]) issues.push(`shot "${panel.shot}" unknown (${Object.keys(SHOTS).join(' | ')})`);
+  for (const k of ['shot', 'zoom']) if (panel[k] != null) issues.push(`"${k}" is retired: rows set every size (docs/design/panels.md, Rows)`);
+  const hz = panel.horizon ?? HORIZON;
+  const unitAt = (t) => HEAD_TOP * (1 - t) * H / MAN;
+  // row: a name or a number (the bottom edge as a share of the panel
+  // height). y = the ground line in panel units; top: the entry hangs
+  // from the panel's top edge instead (its top edge on it).
   const row = (r = 'front') => {
+    if (typeof r === 'number') return { y: H * (1 - r), unit: unitAt(DEPTH.front) };
+    if (r === 'top') return { y: 0, top: true, unit: unitAt(DEPTH.front) };
     if (r === 'horizon') return { y: horizonY, unit: HORIZON_UNIT * H / REF_H };
-    // floor: the panel's bottom edge, at the front row's scale (a
-    // foreground band sits flush, whatever the shot)
-    if (r === 'floor') return { y: H, unit: shot.front.unit * H / REF_H };
-    if (!shot[r]) issues.push(`row "${r}" unknown (back | mid | front | horizon | floor)`);
-    const R = shot[r] || shot.front;
-    return { y: H * (1 - R.ground), unit: R.unit * H / REF_H };
+    if (r === 'floor') return { y: H, unit: unitAt(DEPTH.front) };
+    if (r === 'closeup') return { y: H * (1 - CLOSEUP_GROUND), unit: (HEAD_TOP - CLOSEUP_GROUND) * H / MAN };
+    if (!(r in DEPTH)) issues.push(`row "${r}" unknown (${ROW_NAMES.join(' | ')}, or a number)`);
+    const t = DEPTH[r] ?? DEPTH.front;
+    return { y: H * (1 - t * hz), unit: unitAt(t) };
   };
 
   // -- one list: figures ("character") and props ("prop"), drawn in order -------
@@ -123,13 +110,14 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (f.cloth && !look.colors.cloth) issues.push(`figure ${i} (${who}): unknown cloth "${f.cloth}"`);
     const S = assets.species[look.species];
     const r = row(f.row);
-    const unit = r.unit * zoom * (f.scale ?? 1);
+    const unit = r.unit * (f.scale ?? 1);
     const view = f.view === 'front' ? 'front' : 'side';
     // every character has a drawn face; there is no generated fallback
     const { bbox, headAnchor, joints } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
     const headView = headAnchor.view ?? (view === 'front' ? 'front' : normalizePose(pose).headView);
     if (!look.face?.[headView]?.head) issues.push(`figure ${i} (${who}): no drawn ${headView} face (the ${headView} layer of data/faces/${who}.svg)`);
-    return { f, fi: i - 1, name: f.id || who, pose, view, look, S, groundY: r.y - (f.lift ?? 0) * unit, unit,
+    const groundY = (r.top ? -bbox.y0 * unit : r.y) - (f.lift ?? 0) * unit;
+    return { f, fi: i - 1, name: f.id || who, pose, view, look, S, groundY, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0,
       facing: f.facing === 'left' ? -1 : 1, x: null };
   };
@@ -157,7 +145,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
         if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
       }
     }
-    return { p, name: p.id || p.prop, def, svg, groundY: r.y - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null,
+    return { p, name: p.id || p.prop, def, svg, groundY: (r.top ? h : r.y) - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null,
       facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
   };
 
