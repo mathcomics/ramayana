@@ -1,38 +1,50 @@
 {
-  "scene": "Jatayu claws at Ravana; Ravana strikes back with his sword",
+  "scene": "Jatayu rises toward Ravana flying over, Sita held in one arm; wings spread",
   "size": 0.75,
   "ground": "sky-blue",
-  "zoom": 0.8,
   "figures": [
     {
-      "prop": "vulture-swoop",
-      "at": 0.24,
-      "lift": 3,
-      "scale": 0.6
-    },
-    {
       "character": "sita",
-      "pose": "stepturn-armface",
-      "facing": "left",
-      "at": 0.8,
+      "pose": "arch-overhead",
+      "view": "front",
+      "facing": "right",
+      "at": 0.45,
+      "row": "mid",
+      "lift": 4.6,
       "mouth": 3,
-      "lift": 4.1
+      "scale": 0.88
     },
     {
       "character": "ravana",
-      "pose": "step-swordup",
-      "facing": "left",
-      "at": 0.62,
-      "mouth": 3,
-      "lift": 4.1
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.28,
+      "row": "mid",
+      "lift": 3.6,
+      "mouth": 2,
+      "adjust": {
+        "left.arm.shoulder": 70,
+        "left.arm.elbow": 40,
+        "right.arm.shoulder": -50,
+        "right.arm.elbow": 8,
+        "right.leg.hip": 12,
+        "right.leg.knee": 8,
+        "right.leg.ankle": -45,
+        "left.leg.hip": -2,
+        "left.leg.knee": 0,
+        "left.leg.ankle": -45,
+        "spine.head": 14
+      }
     },
     {
-      "prop": "chariot",
-      "at": 0.68,
-      "lift": 3.5
+      "prop": "vulture-fly",
+      "at": 0.64,
+      "facing": "left",
+      "scale": 0.62,
+      "lift": 0.4
     }
   ],
   "needs": [
-    "prop: flying chariot"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
   ]
 }

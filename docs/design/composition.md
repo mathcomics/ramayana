@@ -16,7 +16,7 @@ action. The same opener can return when the story comes back to a place.
 | 3 The forest | the forest hut from above (03.01) | done |
 | 4 Surpanakha | the forest hut from above again (04.01), before she comes | done |
 | 5 The golden deer | Lanka on its island across the sea (05.01); then Surpanakha before Ravana (05.02) | done |
-| 6 Jatayu | — | to choose |
+| 6 Jatayu | Jatayu alone on his bluff, the cry coming over the forest (06.01) | done |
 | 7 Sugriva | Kishkindha on the horizon, sky above (07.01, the drawn `kishkindha`) | done |
 | 8 Bali | Kishkindha's gates, near (08.01) | done |
 | 9 The leap | Kishkindha on the horizon again (09.01, as 07.01) | done |
@@ -92,10 +92,16 @@ action. The same opener can return when the story comes back to a place.
 ## Jatayu
 
 - Four drawn poses (`vulture-fly`, `-swoop`, `-fall`, `-stand`), black
-  silhouettes. The flying ones share a scale (9 head-units wingspan
-  soaring); standing he is 5 head-units, perched in a tree about half
-  that (`scale` 0.5). In the air beside the chariot use `scale` 0.6–0.7.
-  Lying (06.10, 06.11) is not drawn yet (`vulture-lie` placeholder).
+  silhouettes, plus `vulture-wing` — **the wing Ravana cuts off**, not a
+  bird: a lone wing, placed well clear of the falling bird so the two do
+  not merge into one mass (06.04). The flying ones share a scale (9
+  head-units wingspan soaring); standing he is 5 head-units, perched in a
+  tree about half that (`scale` 0.5). In the air beside a flying figure
+  use `scale` 0.6–0.8. All four birds mirror cleanly with `facing:
+  "left"`, so Jatayu can come at his enemy either way.
+  Lying (06.10) is not drawn yet (`vulture-lie` placeholder).
+- His bluff: `ledge-jatayu` with `vulture-stand` on its `seat` anchor is
+  the chapter 6 opener (06.01), the cry reaching him from the forest.
 
 ## Props and anchors
 

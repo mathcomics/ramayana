@@ -1,6 +1,7 @@
 {
-  "scene": "Rama kneels by the dying Jatayu; Jatayu lifts a wing, pointing south",
+  "scene": "Rama kneels by the dying Jatayu; Jatayu lifts his one wing, pointing south",
   "size": 0.5,
+  "shot": "wide",
   "ground": "sand",
   "figures": [
     {
@@ -11,7 +12,8 @@
       "character": "lakshman",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.16,
+      "at": 0.14,
+      "row": "mid",
       "mouth": 1,
       "adjust": {
         "spine.head": 15
@@ -21,7 +23,7 @@
       "character": "rama",
       "pose": "kneel-handslow",
       "facing": "right",
-      "at": 0.46,
+      "at": 0.42,
       "mouth": 2,
       "adjust": {
         "right.arm.shoulder": 60,
@@ -31,6 +33,6 @@
     }
   ],
   "needs": [
-    "prop: vulture-lie (lying, one wing raised)"
+    "prop: vulture-lie (lying, the one remaining wing raised and pointing)"
   ]
 }

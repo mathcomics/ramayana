@@ -128,7 +128,8 @@ behind them, after = in front; the retired `layer` field is an issue).
   `hut-top`, `trees-top`, `tree-top`, `lanka-island` (the bare island —
   the city split off into `palace-lanka`, 2026-11-08),
   `vulture-fly`, `-swoop`, `-fall`,
-  `-stand`, `vulture-wing` (from the artist's Jatayu sheet,
+  `-stand` and `vulture-wing` (the wing Ravana cuts off — a lone wing,
+  not a bird; all from the artist's Jatayu sheet,
   `data/props/sheets/`), the thrones `throne-ayodhya` (gold-backed,
   Dasharatha's — the two throne drawings were interchanged by the artist
   2026-11-08), `throne-lanka` (dark, under the red disc with a dark

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Background for panel 06.04 (0.75 panel: 360 x 540; drawn for 720, scaled). PLACEHOLDER outline,
-     to be replaced by the artist: a hill in the back. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-     width="360" height="540" viewBox="0 0 360 540">
-  <g inkscape:label="background" inkscape:groupmode="layer" id="background" transform="scale(1 0.75)">
-    <path d="M0 480 C80 470 140 330 230 320 C300 312 330 400 360 420 L360 500 L0 500 Z" fill="#cbb995"/>
-  </g>
-</svg>

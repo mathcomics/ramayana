@@ -1,97 +1,60 @@
 {
-  "scene": "Back: the chariot passes a hill; Sita drops a bundle of jewels. Front: monkeys on the rocks look up; one points",
+  "scene": "The sword comes down; the cut wing goes one way and Jatayu drops the other",
   "size": 0.75,
-  "ground": "sand",
-  "zoom": 0.62,
+  "ground": "sky-blue",
   "figures": [
     {
-      "prop": "jewels",
-      "at": 0.52,
-      "row": "back",
-      "lift": 6
-    },
-    {
-      "character": "monkey1",
-      "pose": "step-hang",
+      "character": "sita",
+      "pose": "arch-overhead",
+      "view": "front",
       "facing": "right",
-      "at": 0.18,
-      "id": "m1",
-      "mouth": 1,
-      "lift": 0.6,
-      "adjust": {
-        "spine.head": -25
-      }
-    },
-    {
-      "character": "sugriva",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.38,
-      "mouth": 2,
-      "lift": 0.6,
-      "adjust": {
-        "spine.head": -25
-      }
-    },
-    {
-      "character": "hanuman",
-      "pose": "stand-pointup",
-      "facing": "right",
-      "at": 0.6,
-      "mouth": 2,
-      "lift": 0.6
-    },
-    {
-      "character": "monkey1",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.82,
-      "id": "m2",
-      "mouth": 2,
-      "lift": 0.6,
-      "cloth": "red",
-      "adjust": {
-        "spine.head": -25
-      }
+      "at": 0.43,
+      "row": "mid",
+      "lift": 6.2,
+      "mouth": 3,
+      "scale": 0.88
     },
     {
       "character": "ravana",
       "pose": "step-hang",
-      "facing": "left",
-      "at": 0.74,
-      "mouth": 2,
-      "lift": 6.6,
-      "row": "back"
-    },
-    {
-      "character": "sita",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.58,
-      "mouth": 2,
+      "facing": "right",
+      "at": 0.26,
+      "row": "mid",
+      "lift": 4.8,
+      "mouth": 3,
       "adjust": {
-        "right.arm.shoulder": 20,
-        "right.arm.elbow": 0
-      },
-      "lift": 6.6,
-      "row": "back"
+        "left.arm.shoulder": 70,
+        "left.arm.elbow": 40,
+        "right.arm.shoulder": 112,
+        "right.arm.elbow": 6,
+        "right.arm.prop": {
+          "kind": "sword",
+          "angle": 15
+        },
+        "right.leg.hip": 12,
+        "right.leg.knee": 8,
+        "right.leg.ankle": -45,
+        "left.leg.hip": -2,
+        "left.leg.knee": 0,
+        "left.leg.ankle": -45,
+        "spine.head": 26
+      }
     },
     {
-      "prop": "chariot",
-      "at": 0.66,
-      "lift": 6,
-      "row": "back"
+      "prop": "vulture-wing",
+      "at": 0.84,
+      "scale": 0.38,
+      "lift": 6.6
     },
     {
-      "prop": "rocks",
+      "prop": "vulture-fall",
       "at": 0.5,
-      "lift": -1.3
+      "scale": 0.55,
+      "lift": 0.1
     }
   ],
   "needs": [
-    "background: hill",
-    "prop: rocks",
-    "prop: jewels (bundle)",
-    "prop: flying chariot"
+    "prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now",
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
   ]
 }

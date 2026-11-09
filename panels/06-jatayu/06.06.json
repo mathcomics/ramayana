@@ -1,38 +1,64 @@
 {
-  "scene": "Back: the chariot flies over the sea, Sita reaching back. Front: waves",
-  "size": 0.75,
-  "ground": "sky-blue",
+  "scene": "A monkey picks the bundle up; the others crowd round it",
+  "size": 0.5,
+  "shot": "wide",
+  "ground": "sand",
   "figures": [
     {
-      "character": "ravana",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.44,
-      "mouth": 2,
-      "lift": 7.6,
-      "row": "back"
+      "prop": "ledge",
+      "at": 0.9,
+      "row": "mid",
+      "scale": 0.9
     },
     {
-      "character": "sita",
-      "pose": "step-point",
+      "character": "monkey1",
+      "id": "m1",
+      "pose": "stand-pointup",
       "facing": "right",
-      "at": 0.58,
-      "mouth": 3,
+      "at": 0.26,
+      "row": "mid",
+      "mouth": 2,
       "adjust": {
-        "right.arm.shoulder": 60
-      },
-      "lift": 7.6,
-      "row": "back"
+        "spine.head": -18
+      }
     },
     {
-      "prop": "chariot",
-      "at": 0.5,
-      "lift": 7,
-      "row": "back"
+      "character": "sugriva",
+      "pose": "step-akimbo",
+      "facing": "right",
+      "at": 0.14,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 18
+      }
+    },
+    {
+      "character": "monkey1",
+      "id": "m2",
+      "pose": "step-point",
+      "facing": "left",
+      "at": 0.82,
+      "cloth": "red",
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 20,
+        "right.arm.shoulder": 55
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "bend-reach",
+      "facing": "right",
+      "at": 0.44,
+      "mouth": 2
+    },
+    {
+      "prop": "jewels",
+      "at": 0.6,
+      "lift": 0.4
     }
   ],
   "needs": [
-    "prop: flying chariot",
-    "background: waves (06.06.svg is a placeholder)"
+    "prop: jewels (the bundle)"
   ]
 }

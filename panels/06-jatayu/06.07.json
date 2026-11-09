@@ -1,53 +1,28 @@
 {
-  "scene": "Back: the towers of Lanka. Front: Sita sits under a tree, two rakshasis guarding her",
+  "scene": "Back in the forest: the hut from above (as 05.07), nobody there",
   "size": 0.5,
-  "ground": "geru",
-  "zoom": 0.72,
+  "ground": "sage",
   "figures": [
     {
-      "prop": "lanka",
-      "at": 0.5,
-      "row": "back"
+      "prop": "trees-top",
+      "id": "trees-nw",
+      "at": 0.257,
+      "scale": 0.4,
+      "lift": 20
     },
     {
-      "prop": "tree",
-      "at": 0.16
+      "prop": "hut-top",
+      "at": 0.505,
+      "scale": 0.4,
+      "lift": 11.35
     },
     {
-      "character": "sita",
-      "pose": "sit-armknee",
-      "facing": "right",
-      "at": 0.3,
-      "mouth": 1,
-      "turn": 0
-    },
-    {
-      "character": "raxas_f1",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.58,
-      "id": "g1",
-      "mouth": 2,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club",
-          "angle": 160
-        }
-      }
-    },
-    {
-      "character": "raxas_f1",
-      "pose": "step-akimbo",
-      "facing": "left",
-      "at": 0.8,
-      "id": "g2",
-      "mouth": 2,
-      "cloth": "red-diamond"
+      "prop": "trees-top",
+      "id": "trees-se",
+      "at": 0.743,
+      "scale": 0.4,
+      "lift": 0.45
     }
   ],
-  "needs": [
-    "prop: Lanka towers",
-    "prop: tree",
-    "pose: sit-slump (Sita captive under the tree): sit for now"
-  ]
+  "needs": []
 }

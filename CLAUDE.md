@@ -122,7 +122,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `03-the-forest` | 7 | predates the briefs — to revisit (03.02 is approved and locked) |
 | `04-surpanakha` | 12 | predates the briefs — to revisit |
 | `05-the-golden-deer` | 21 | artist-reviewed; the model chapter (05.10 tagged) |
-| `06-jatayu` | 11 | predates the briefs — to revisit |
+| `06-jatayu` | 10 | written against the brief |
 | `07-sugriva` | 14 | written against the brief |
 | `08-bali` | 10 | written against the brief |
 | `09-the-leap` | 12 | written against the brief (09.09 approved and locked) |
@@ -140,9 +140,10 @@ On the chapters that predate the briefs: they are too complex (the
 artist), and each is reworked against its brief when it comes up —
 splitting single paintings into more, simpler panels, dropping what the
 brief does not show, and swapping the `adjust` stand-ins for the real
-poses now that they exist. Chapter 6's brief cuts the sea crossing, the
-arrival in the grove and the funeral pyre, which 06.06, 06.07 and 06.11
-still show.
+poses now that they exist. Chapter 6 has been through that pass: the sea
+crossing, the arrival in the grove and the funeral pyre are gone, the
+chariot with them. **Chapter 5 still has the chariot** in 05.20 and
+05.21 — the last two panels to lose it.
 
 ### Figures
 

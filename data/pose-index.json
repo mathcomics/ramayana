@@ -1,5 +1,5 @@
 {
-  "_doc": "How to find a pose for a scene (docs/design/pose-picking.md). poses: one entry per pose in data/poses.json (same names): desc = what the body does, as seen; ground = what touches the ground (feet, one-knee, seat, front, back, air, feet-hands); hold = hands (right, left) that can carry a prop as the pose stands; use = story moments (tags below); like = nearest other poses. tags: the story moments, each with the words that call for it in a scene line (word stems, matched at the start of a word). notWords: words that start like a tag word but aren't (Sita, ready …). wanted: poses the scenes ask for that don't exist yet, in the order to make them; until = what to use meanwhile. bases: the distinct lower bodies (legs + lean + tail), one-word names set by the artist, each with desc and the poses that carry it (the first is drawn in the base catalogue); every pose belongs to exactly one base (a test checks). gestures: the distinct upper bodies (arms + chest/neck/head + mouth), same shape and rules (gesture catalogue; a prop and its angle keep gestures apart); a gesture whose meaning includes tipping the whole body (a bow) carries that as lean, degrees added to the base's lean when composing, with the feet kept by the leg solve. Angles stay in data/poses.json; this file is only for finding.",
+  "_doc": "How to find a pose for a scene (docs/design/pose-picking.md). poses: one entry per pose in data/poses.json (same names): desc = what the body does, as seen; ground = what touches the ground (feet, one-knee, seat, front, back, air, feet-hands); hold = hands (right, left) that can carry a prop as the pose stands; use = story moments (tags below); like = nearest other poses. tags: the story moments, each with the words that call for it in a scene line (word stems, matched at the start of a word). notWords: words that start like a tag word but aren't (Sita, ready \u00e2\u20ac\u00a6). wanted: poses the scenes ask for that don't exist yet, in the order to make them; until = what to use meanwhile. bases: the distinct lower bodies (legs + lean + tail), one-word names set by the artist, each with desc and the poses that carry it (the first is drawn in the base catalogue); every pose belongs to exactly one base (a test checks). gestures: the distinct upper bodies (arms + chest/neck/head + mouth), same shape and rules (gesture catalogue; a prop and its angle keep gestures apart); a gesture whose meaning includes tipping the whole body (a bow) carries that as lean, degrees added to the base's lean when composing, with the feet kept by the leg solve. Angles stay in data/poses.json; this file is only for finding.",
   "notWords": [
     "going",
     "gods",
@@ -105,7 +105,7 @@
       ]
     },
     "liefront": {
-      "desc": "flat on the belly — on the ground, or lifted in the air for flying",
+      "desc": "flat on the belly \u00e2\u20ac\u201d on the ground, or lifted in the air for flying",
       "poses": [
         "liefront-onarms",
         "liefront-dive"
@@ -1982,7 +1982,7 @@
         "carry",
         "fly"
       ],
-      "until": "step-hang lifted into the sky with the near arm bent round her, she lifted beside him (05.21, 06.01-06.06)"
+      "until": "step-hang lifted into the sky, the legs closed and the toes pointed (right/left.leg.hip 12/-2, knee 8/0, ankle -45) and the far arm across her (shoulder 70, elbow 40); she arch-overhead in view front about 1.8 head-units ahead at chest height, listed before him so his arm crosses in front of her (06.02-06.05)"
     },
     "crouch-ready": {
       "desc": "deep crouch, knees bent, body gathered, arms back, about to leap",

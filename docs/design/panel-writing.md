@@ -139,9 +139,33 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **`zoom` scales figures only**: a prop next to zoomed figures needs its
   own `scale` (the golden deer at `zoom` 0.75 needed `scale` 0.7), or it
   dwarfs them.
+- **A figure in the air needs its legs closed and its toes pointed**
+  (06.02–06.05): `step-hang` lifted off the ground is a man *walking on
+  nothing*, because the base is a stride. Bring the legs together and
+  point the feet with `adjust` — `right.leg.hip` 12, `knee` 8, `ankle`
+  −45; `left.leg.hip` −2, `knee` 0, `ankle` −45 — and the same figure
+  reads as flying.
+- **Carrying a figure takes three things** (06.02–06.05): the carried one
+  about 1.8 head-units ahead of the carrier at his chest height; the
+  carrier's far arm across her (`shoulder` 70, `elbow` 40); and the
+  carrier listed **after** her, so his arm draws in front of her body.
+  Side by side at the same height they are two people standing, however
+  the arms are bent.
+- **`arch-overhead` loses both arms in side view**: they are bent back
+  behind the head and vanish into the hair. The carried Sita is `view:
+  "front"` — the arms read, and the open mouth faces the reader (06.02).
+- **Mind what a swung weapon crosses**: a sword cut toward the side the
+  carried figure is on goes straight through her (06.04 first try). Use
+  the wind-up (blade back over the shoulder, 06.03) or the follow-through
+  (arm up and forward, blade clear of everyone, 06.04); the severed wing
+  and the falling bird tell the rest.
+- **Figures `on` a prop's anchor take the prop's scale**: three monkeys
+  on `ledge#stand-left/#stand/#stand-right` at the ledge's own scale fill
+  the panel. Scale the prop up and the figures down (0.45) for people on
+  a rock seen from a distance (06.05).
 - **Creatures have their own sizes**: golden deer 4.6 head-units to the
   antler tips; Jatayu 9 wingspan flying, 5 standing, `scale` 0.5 perched in
-  a tree, 0.6–0.7 in the air beside the chariot.
+  a tree, 0.6–0.8 in the air beside a flying figure.
 - **Colour clashes**: a gold crown vanishes against the gold throne back;
   check heads against what's behind them.
 - **Top views** place props with `lift` (rows mean little from above).

@@ -1,18 +1,19 @@
 {
-  "scene": "At the empty hut, Rama flings his arms wide; Lakshman behind",
+  "scene": "At the empty hut, Rama throws his arms out; Lakshman behind him",
   "size": 0.5,
+  "shot": "wide",
   "ground": "sand",
   "figures": [
     {
       "prop": "hut",
-      "at": 0.75,
+      "at": 0.84,
       "row": "back"
     },
     {
       "character": "lakshman",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.22,
+      "at": 0.18,
       "row": "mid",
       "mouth": 1
     },
@@ -20,26 +21,21 @@
       "character": "rama",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.5,
-      "view": "front",
+      "at": 0.46,
       "mouth": 3,
-      "hands": {
-        "right": "out",
-        "left": "out"
-      },
       "adjust": {
+        "spine.head": -14,
         "right.arm.shoulder": 115,
-        "right.arm.elbow": 15,
+        "right.arm.elbow": 20,
         "right.arm.hand": "out",
-        "left.arm.shoulder": 55,
-        "left.arm.elbow": 10,
-        "left.arm.hand": "out",
-        "spine.head": -10
+        "left.arm.shoulder": 50,
+        "left.arm.elbow": 15,
+        "left.arm.hand": "out"
       }
     }
   ],
   "needs": [
     "prop: hut",
-    "pose: stand-arms-out (grief): stand with both arms adjusted for now"
+    "pose: stand-arms-out (grief, both arms thrown open): step-hang with both arms adjusted (as 05.05) for now"
   ]
 }
