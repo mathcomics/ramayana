@@ -5,27 +5,25 @@
   "figures": [
     {
       "prop": "ledge-jatayu",
-      "at": 0.72,
-      "scale": 1.2
+      "at": 0.72
     },
     {
       "prop": "vulture-stand",
       "on": "ledge-jatayu#seat",
-      "facing": "left",
-      "scale": 0.85
+      "facing": "left"
     },
     {
       "prop": "sound-cry",
-      "at": 0.2,
       "facing": "left",
+      "at": 0.2,
       "row": 0.32
     },
     {
       "character": "sita",
       "pose": "step-hang",
+      "on": "sound-cry#face",
       "facing": "right",
-      "mouth": 3,
-      "on": "sound-cry#face"
+      "mouth": 3
     }
   ],
   "needs": []
