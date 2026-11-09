@@ -14,7 +14,7 @@
     },
     {
       "character": "ravana",
-      "pose": "stepwide-swordback",
+      "pose": "stepwide-swordcarry",
       "view": "front",
       "at": 0.28,
       "row": "closeup",
@@ -28,6 +28,6 @@
     }
   ],
   "needs": [
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now"
   ]
 }

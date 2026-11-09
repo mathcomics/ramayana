@@ -3580,6 +3580,65 @@
       }
     },
     {
+      "name": "stepwide-swordcarry",
+      "mouth": 3,
+      "spine": {
+        "lean": -4,
+        "chest": -10,
+        "neck": 10,
+        "head": -4,
+        "turn": 0
+      },
+      "right": {
+        "arm": {
+          "shoulder": -110,
+          "out": 20,
+          "elbow": 15,
+          "elbowOut": 0,
+          "wrist": 0,
+          "twist": 0,
+          "hand": "fist",
+          "prop": {
+            "kind": "sword",
+            "angle": 10,
+            "out": 0
+          }
+        },
+        "leg": {
+          "hip": -20,
+          "out": 10,
+          "knee": 20,
+          "kneeOut": 0,
+          "ankle": -8,
+          "toe": 0
+        }
+      },
+      "left": {
+        "arm": {
+          "shoulder": 70,
+          "out": 15,
+          "elbow": 30,
+          "elbowOut": 0,
+          "wrist": 0,
+          "twist": 0,
+          "hand": "out"
+        },
+        "leg": {
+          "hip": 35,
+          "out": 10,
+          "knee": 25,
+          "kneeOut": 0,
+          "ankle": 0,
+          "toe": 0
+        }
+      },
+      "tail": {
+        "lift": 10,
+        "curl": 260,
+        "turn": 35
+      }
+    },
+    {
       "name": "walk-swing",
       "mouth": 1,
       "spine": {

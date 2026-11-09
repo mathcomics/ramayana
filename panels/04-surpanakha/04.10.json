@@ -6,7 +6,7 @@
     {
       "character": "raxas_m1",
       "id": "r1",
-      "pose": "lunge-swordfront",
+      "pose": "lunge-longpoint",
       "facing": "left",
       "at": 0.6,
       "row": "back",
@@ -32,7 +32,7 @@
     {
       "character": "raxas_m1",
       "id": "r3",
-      "pose": "lunge-swordfront",
+      "pose": "leanfront-hanging",
       "facing": "left",
       "at": 0.92,
       "row": "back",
@@ -58,7 +58,7 @@
     {
       "character": "raxas_m1",
       "id": "r5",
-      "pose": "lunge-swordfront",
+      "pose": "lunge-longpoint",
       "facing": "left",
       "at": 0.9,
       "row": "mid",

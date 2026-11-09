@@ -156,9 +156,9 @@ what looks wrong: `docs/issues/problem-poses.md`.
   More generic monkeys and rakshasas come from cloth colour and a cloth
   pattern, never from new characters. Every character has a front and a
   side face drawing; there is no generated fallback.
-- **64 poses** in `data/poses.json`, all side view (the front view is
+- **65 poses** in `data/poses.json`, all side view (the front view is
   derived by the renderer). Each is named `<base>-<gesture>` and composed
-  from the **27 bases** (lower body) and **58 gestures** (upper body) in
+  from the **27 bases** (lower body) and **59 gestures** (upper body) in
   `data/pose-index.json`; `tools/recompose.mjs` re-derives a pose from
   its base and gesture, so retuning a base propagates to all its poses.
   The lower body belongs to the base — no per-pose deviations.

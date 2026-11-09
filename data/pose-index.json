@@ -205,6 +205,7 @@
       "desc": "a wide stride, weight on the back leg",
       "poses": [
         "stepwide-swordback",
+        "stepwide-swordcarry",
         "stepwide-ox",
         "stepwide-plow",
         "stepwide-middle",
@@ -514,6 +515,12 @@
       "desc": "both hands over the head, the sword pointing back",
       "poses": [
         "step-swordbehind"
+      ]
+    },
+    "swordcarry": {
+      "desc": "one hand the sword, swung far back; the other arm carrying a figure against the chest",
+      "poses": [
+        "stepwide-swordcarry"
       ]
     },
     "sworddown": {
@@ -1905,6 +1912,20 @@
       "like": [
         "arch-overhead",
         "step-swordup"
+      ]
+    },
+    "stepwide-swordcarry": {
+      "desc": "weight on the back leg, right arm swung far back with the sword, the left arm carrying a figure (Ravana with Sita)",
+      "ground": "feet",
+      "hold": [
+        "right"
+      ],
+      "use": [
+        "strike",
+        "carry"
+      ],
+      "like": [
+        "stepwide-swordback"
       ]
     },
     "walk-swing": {
