@@ -1,6 +1,6 @@
 {
   "scene": "A monkey picks the bundle up; the others crowd round it",
-  "size": 0.5,
+  "tall": 1,
   "shot": "wide",
   "ground": "sand",
   "figures": [

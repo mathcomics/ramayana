@@ -1,6 +1,6 @@
 {
   "scene": "Opening: night; Lanka's wall",
-  "size": 0.5,
+  "tall": 1,
   "ground": "#26303d",
   "figures": [
     {

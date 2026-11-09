@@ -1,6 +1,6 @@
 {
   "scene": "Hanuman crouches on the mountaintop, ready",
-  "size": 0.5,
+  "tall": 1,
   "ground": "off-white",
   "sky": "sky",
   "horizon": 0.55,

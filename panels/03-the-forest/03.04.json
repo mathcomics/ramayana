@@ -1,6 +1,6 @@
 {
   "scene": "Deer walk past; Sita watches, Rama beside her",
-  "size": 0.5,
+  "tall": 1,
   "ground": "sand",
   "figures": [
     {

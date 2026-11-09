@@ -1,6 +1,6 @@
 {
   "scene": "The search: a band crosses the forest",
-  "size": 0.5,
+  "tall": 1,
   "ground": "dry-grass",
   "sky": "sky",
   "horizon": 0.25,

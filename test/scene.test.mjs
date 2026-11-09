@@ -1,19 +1,20 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderPanel, panelHeight, backgroundInner, SCREEN } from '../src/scene.js';
+import { renderPanel, panelHeight, backgroundInner, PANEL_W } from '../src/scene.js';
 import { loadAssets, loadSections } from '../tools/lib.mjs';
 
 const assets = loadAssets();
 const xOf = (svg, n) => [...svg.matchAll(/<g transform="translate\(([-\d.e]+) ([-\d.e]+)\) scale\(/g)].map((m) => +m[1])[n];
 
-test('panel height is size × screen height (0.75, 0.5, 0.3), with a fallback', () => {
+test('panel height is tall × width (1.5, 1, 0.6), with a fallback', () => {
   assert.equal(panelHeight({}), 540);
-  assert.equal(panelHeight({ size: 0.5 }), 360);
-  assert.equal(panelHeight({ size: 0.3 }), Math.round(0.3 * SCREEN.h));
-  assert.equal(panelHeight({ size: 1 }), 540);            // no full-screen panels
-  assert.equal(panelHeight({ size: -1 }), 540);
-  assert.equal(renderPanel({ size: 'big' }, assets).issues.length, 1);
-  assert.equal(renderPanel({ size: 1 }, assets).issues.length, 1);
+  assert.equal(panelHeight({ tall: 1 }), 360);
+  assert.equal(panelHeight({ tall: 0.6 }), Math.round(0.6 * PANEL_W));
+  assert.equal(panelHeight({ tall: 2 }), 540);            // nothing taller than 1.5
+  assert.equal(panelHeight({ tall: -1 }), 540);
+  assert.equal(renderPanel({ tall: 'big' }, assets).issues.length, 1);
+  assert.equal(renderPanel({ tall: 2 }, assets).issues.length, 1);
+  assert.equal(renderPanel({ size: 0.5 }, assets).issues.length, 1);  // the old field
 });
 
 test('every committed panel renders without issues (placeholders aside)', () => {
@@ -77,7 +78,7 @@ test('one list: later entries draw over earlier; legacy props/who/layer still re
 });
 
 test('sky: a colour above the horizon; row "horizon" stands things on it', () => {
-  const r = renderPanel({ size: 0.5, sky: 'sky', horizon: 0.25, figures: [{ prop: 'golden-deer-run', row: 'horizon' }] }, assets);
+  const r = renderPanel({ tall: 1, sky: 'sky', horizon: 0.25, figures: [{ prop: 'golden-deer-run', row: 'horizon' }] }, assets);
   assert.match(r.svg, /<rect width="360" height="270" fill="#00aad4"\/>/);
   const y = +r.svg.match(/<g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(/)?.[1];
   assert.ok(Math.abs(y + 5.557 * 16 * 360 / 540 - 270) < 0.01, `deer bottom on the horizon (${y})`);

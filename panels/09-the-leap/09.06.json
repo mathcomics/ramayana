@@ -1,6 +1,6 @@
 {
   "scene": "The search: over the mountains, the other way",
-  "size": 0.5,
+  "tall": 1,
   "ground": "stone-grey",
   "sky": "sky",
   "horizon": 0.25,

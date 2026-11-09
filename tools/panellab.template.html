@@ -152,7 +152,7 @@ const SECTIONS = /*__SECTIONS__*/;
       const b = document.createElement('button');
       const flag = state.edits[id] ? ' *' : state.drafts[id] ? ' •' : '';
       b.innerHTML = id + `<span class="draft-dot">${flag}</span>`;
-      b.title = (state.edits[id] ? 'unsaved changes · ' : state.drafts[id] ? 'saved draft · ' : '') + 'size ' + (def.size ?? 0.75);
+      b.title = (state.edits[id] ? 'unsaved changes · ' : state.drafts[id] ? 'saved draft · ' : '') + 'tall ' + (def.tall ?? 1.5);
       b.setAttribute('aria-pressed', String(id === state.panelId));
       b.addEventListener('click', () => select(id));
       $('panels').appendChild(b);
@@ -236,7 +236,7 @@ const SECTIONS = /*__SECTIONS__*/;
   const pr = Object.keys(ASSETS.props.props).join(', ');
   const gr = Object.keys(ASSETS.grounds.grounds).join(', ');
   $('ref').innerHTML = `<b>character</b> ${ch}<br><b>pose</b> ${po}<br><b>prop</b> ${pr}<br><b>ground</b> ${gr}<br>` +
-    `<b>size</b> share of a screen height: 0.75 (default), 0.5, 1 …<br><b>at</b> 0–1 across the width, or ${Object.keys(SLOTS).join(', ')}, or {"before"|"behind"|"beside"|"left-of"|"right-of": name, "gap": h}<br><b>order</b> one figures list of figures ("character") and props ("prop"), drawn in order (last is in front)<br>` +
+    `<b>tall</b> height ÷ width: 1.5 (default), 1, 0.6<br><b>at</b> 0–1 across the width, or ${Object.keys(SLOTS).join(', ')}, or {"before"|"behind"|"beside"|"left-of"|"right-of": name, "gap": h}<br><b>order</b> one figures list of figures ("character") and props ("prop"), drawn in order (last is in front)<br>` +
     `<b>row</b> back, mid, front<br><b>figure</b> facing, mouth, turn (head, degrees, + to its right), hands {right, left}, adjust {"right.arm.shoulder": 40}, scale, lift, nudge<br><b>panel</b> zoom (figures), needs [..]`;
 
   draw(true);

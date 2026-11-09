@@ -8,7 +8,7 @@ artist's scene SVG) comes later.
 
 | Layer | Where | What |
 |---|---|---|
-| Scenes | `manuscript/scenes.md` | The story as chapter briefs: each chapter's arc in 3–6 beats, plus the continuity-and-motifs list. **Guidance**, not a definition: the panel side breaks beats into panels (one beat may be several panels) and owns ids, sizes, shots and order. |
+| Scenes | `manuscript/scenes.md` | The story as chapter briefs: each chapter's arc in 3–6 beats, plus the continuity-and-motifs list. **Guidance**, not a definition: the panel side breaks beats into panels (one beat may be several panels) and owns ids, heights, shots and order. |
 | Panel definitions | `panels/<NN-section>/<id>.json` (+ optional `<id>.svg`) | What the renderer draws. One file per panel. |
 | Rendered panels | `_site/` (not committed): an index of chapters (all `## N.` headings of `manuscript/scenes.md`; those without panels marked "to come") and one scrolling page per chapter with previous / next links | Built by `tools/build-site.mjs`; published to Cloudflare Pages by hand (GitHub Action calls a deploy hook). |
 
@@ -18,8 +18,8 @@ section as it will scroll on a phone while you edit a panel's JSON.
 ## Delivery: a scroll of panels
 
 The reader scrolls one long column. Every panel is the full width (360
-units) and `size` × one phone screen (720 units) tall: **0.75** (most
-panels), **0.5** or **0.3** (a strip). No full-screen panels (1): too tall. Panels follow each other in id order; there
+units) and `tall` × that width high: **1.5** (540 units, most panels),
+**1** (360, square) or **0.6** (216, a strip). Nothing taller than 1.5. Panels follow each other in id order; there
 are no screens or pages to fill.
 
 ## Panel definition
@@ -30,7 +30,7 @@ repeated inside the JSON.
 ```json
 {
   "scene": "Kaikeyi points Rama away; the king slumps",
-  "size": 0.75,
+  "tall": 1.5,
   "ground": "dusty-pink",
   "figures": [
     { "prop": "throne", "at": 0.88 },
@@ -48,7 +48,7 @@ repeated inside the JSON.
 | Field | Values | Notes |
 |---|---|---|
 | `scene` | text | The scene line it draws, for reference only. |
-| `size` | `0.75` · `0.5` · `0.3` | Share of a screen height. Default 0.75. Anything else is an issue. |
+| `tall` | `1.5` · `1` · `0.6` | Height as a multiple of the width (360). Default 1.5. Anything else is an issue, and so is the old `size` field. |
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. |
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
@@ -67,7 +67,7 @@ repeated inside the JSON.
 | `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
-| `row` | `back` · `mid` · `front` · `horizon` · `floor` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. `horizon`: far away, standing on the horizon (16 px per head-unit in a 0.75 panel). `floor`: the panel's bottom edge at the front row's scale — a foreground band sits flush, whatever the shot (03.02's ridge). |
+| `row` | `back` · `mid` · `front` · `horizon` · `floor` | Default `front`. Back rows sit higher and smaller; rows don't change the overlap order. `horizon`: far away, standing on the horizon (16 px per head-unit in a 1.5 panel). `floor`: the panel's bottom edge at the front row's scale — a foreground band sits flush, whatever the shot (03.02's ridge). |
 | `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>` | Puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at`, `row`, `lift` are ignored; `scale` still applies). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
@@ -177,18 +177,18 @@ behind them, after = in front; the retired `layer` field is an issue).
 ### Rows and figure size
 
 Figures scale with the panel height, so a front-row figure is about two
-thirds of its panel whatever the size.
+thirds of its panel whatever its height.
 
-| Row | Head-unit in a 0.75 panel | Ground line above the bottom |
+| Row | Head-unit in a 1.5 panel | Ground line above the bottom |
 |---|---|---|
 | front | 46 (a man ≈ 345 tall) | 3 % of the panel height |
 | mid | 34 | 17 % |
 | back | 24 | 34 % |
 
-Other sizes scale in proportion (a 0.5 panel: × 2/3, a 0.3 panel: × 0.4).
+Other heights scale in proportion (a 1 panel: × 2/3, a 0.6 panel: × 0.4).
 
 That table is the `far` shot. A panel's `shot` picks another row set
-(head-unit in a 0.75 panel; ground as a share of the panel height above
+(head-unit in a 1.5 panel; ground as a share of the panel height above
 its bottom, negative = below it, so the panel crops the figures):
 
 | Shot | front | mid | back |
@@ -204,7 +204,7 @@ extrapolated from the other two).
 ## Background SVG
 
 `panels/<section>/<id>.svg`, drawn in the panel's coordinates: 360 wide,
-`size` × 720 high (540 for 0.75). Draw anything (horizon, river, hills); the renderer
+`tall` × 360 high (540 for 1.5). Draw anything (horizon, river, hills); the renderer
 fills the ground colour first, then the background, then the `figures`
 list in order.
 A layer labelled `guide` is ignored; editor attributes are stripped. The

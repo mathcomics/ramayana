@@ -1,7 +1,7 @@
 {
   "scene": "Rakshasas flee through the burning streets, the fire behind them",
   "tags": ["panic", "crowd", "flee"],
-  "size": 0.3,
+  "tall": 0.6,
   "shot": "wide",
   "ground": "#7e2f22",
   "figures": [

@@ -2,7 +2,7 @@
 
 The model panels to follow when a panel is a scene of a known kind, and
 how a shot's row geometry is measured. The rules these panels taught:
-`docs/design/composition.md`. The panel language, sizes and the shot
+`docs/design/composition.md`. The panel language, heights and the shot
 tables: `docs/design/panels.md`.
 
 ## Where composition is kept
@@ -31,7 +31,7 @@ of their kind so far: follow them, but they can still change.
 | someone sees something far off | 05.08 | `wide` shot, sky above the horizon: the watcher big in front (1.5×, `lift` −1.5 so the bottom edge cuts them) with `turn` −90 to look off, the subject small on the `horizon` row across the panel |
 | something flees into the distance | **05.10** — `chase`, `far` | sky over `dry-grass` and nothing in between: both figures on the `horizon` row, the fleeing one at the far edge, the chaser small behind. The horizon and the size do all the work |
 | a far place across the sea | 05.01 | no figures: `mist` sky over `sea`, the island on the `horizon` row a little right of centre, `palace-lanka` on the island's `stand` anchor at half scale |
-| a crowd in panic, fleeing | **11.08** — `panic`, `crowd`, `flee` | a 0.3 strip, `wide` shot: five figures all `facing` one way at different runs (`run-pump`, `runwide-hang`, `leap-reach`), `mouth` 3 throughout, cloth colours and patterns all different, the fire they flee at the far edge |
+| a crowd in panic, fleeing | **11.08** — `panic`, `crowd`, `flee` | a 0.6 strip, `wide` shot: five figures all `facing` one way at different runs (`run-pump`, `runwide-hang`, `leap-reach`), `mouth` 3 throughout, cloth colours and patterns all different, the fire they flee at the far edge |
 | a crowd in panic under a giant | **14.05** — `panic`, `crowd`, `giant` | the same strip and shot; only the giant's hand is in frame, reaching down; the crowd breaks around it — one crawling, one flung, one turned back the other way |
 
 Any court works from the throne model — Ayodhya's (`throne-ayodhya`),
@@ -41,7 +41,7 @@ Ravana's (`throne-lanka`), Kishkindha's (`throne-kishkindha`: 08.10,
 ## Measuring a new shot
 
 A shot is a set of three rows — `front`, `mid`, `back` — each with a
-head-unit (pixels per head-unit in a 0.75 panel) and a ground line
+head-unit (pixels per head-unit in a 1.5 panel) and a ground line
 (height above the panel's bottom edge as a share of the panel height,
 negative = below it, so the panel crops). `far`, `wide` and `mid` are
 measured from the artist's drawings of the shot.
@@ -49,5 +49,5 @@ measured from the artist's drawings of the shot.
 To add one: draw a 360 × 540 page with a ground line and a man standing
 on each row. Measure each row's head-unit (the man's height ÷ 7.5) and
 its ground line's height as a share of 540, and add the row set to
-`SHOTS` in `src/scene.js`. The renderer scales to the other panel sizes
+`SHOTS` in `src/scene.js`. The renderer scales to the other panel heights
 itself, so one drawing is enough and need not be kept once measured.

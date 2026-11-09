@@ -50,9 +50,9 @@ confirms, apply it chapter by chapter and note it in `composition.md`.
 
 ## For the vertical scroll in particular
 
-- The scroll gutter is time: a tall panel is a held breath, a run of 0.3
+- The scroll gutter is time: a tall panel is a held breath, a run of 0.6
   strips is quick cutting. Vary panel height with the story's pulse, not
-  by habit (the size rule in panel-writing.md).
+  by habit (the height rule in panel-writing.md).
 - A reveal lands after a scroll beat: put the quiet panel (location,
   empty ground) immediately before the surprise, so the reader scrolls
   into it (05.07 quiet hut → the deer appears).

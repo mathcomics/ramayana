@@ -8,7 +8,7 @@ artist's lessons — binding). The language: `docs/design/panels.md`;
 arranging: `docs/design/composition.md` + the model panel for each kind
 of scene (`panels/layouts.md`); poses: `docs/design/pose-picking.md`.
 
-**You own** panel ids, sizes, shots, order and composition. The
+**You own** panel ids, heights, shots, order and composition. The
 manuscript owns story, canon and cast naming.
 
 - Never edit `manuscript/scenes.md` or `characters.md` from here. Panel

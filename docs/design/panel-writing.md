@@ -32,14 +32,14 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Open the chapter with a location panel**: the place, empty or nearly,
   no action. Reuse an earlier opener when the story returns to a place
   (the forest hut 03.01 → 04.01; Lanka 05.01 → chapter 10). A scene
-  change **within** a chapter gets the same beat, smaller (0.5): Lanka →
+  change **within** a chapter gets the same beat, smaller (1): Lanka →
   forest in 05.07 shows the hut again before the deer appears (artist,
   2026-11-07).
-- **Size**: 0.5 and 0.3 mostly (artist, 2026-11-07); 0.75 **only when the
+- **Height** (`tall`): 1 and 0.6 mostly (artist, 2026-11-07); 1.5 **only when the
   height is used in a particular way** — a fall or flight, looking far up
-  or down, sky-to-ground depth, a towering figure. A 0.75 panel whose
-  figures sit in the bottom half with empty ground above wants to be 0.5
-  or 0.3. Never 1 (too tall). The manuscript's "full" means at most 0.75,
+  or down, sky-to-ground depth, a towering figure. A 1.5 panel whose
+  figures sit in the bottom half with empty ground above wants to be 1
+  or 0.6. Never taller than 1.5. The manuscript's "full" means at most 1.5,
   and only if it earns the height.
 - **Shot**: `far` by default; `wide` for bigger whole figures, `mid` for
   close (front row cut at the thighs).
@@ -107,7 +107,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   target can stay off-panel (05.08: Sita points past the edge, the deer
   is not shown); more, smaller panels beat one crowded one, as long as
   each panel's transition from the last is clear.
-- **0.3 strips for reactions and partial views**: a `mid` shot in a 0.3
+- **0.6 strips for reactions and partial views**: a `mid` shot in a 0.6
   panel gives chest-up figures that fill the strip (05.08, 05.10); use
   them often.
 - **A chase is one distance**: put the chaser on the horizon row with the
@@ -116,7 +116,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   below a mid shot's bottom edge, so only its top shows — the Ayodhya
   throne reduced to its red disc, a stray ball (02.04 rework). Let the
   previous panel carry the geography.
-- **A lone full-body action in a 0.3 strip wants `wide`, not `mid`**:
+- **A lone full-body action in a 0.6 strip wants `wide`, not `mid`**:
   `mid` crops a single walker to a floating chest (02.07 rework); `mid`
   strips are for chest-up reactions of one or two faces.
 - **`mid` rows fit standing figures only**: a seated or kneeling figure

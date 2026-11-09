@@ -1,6 +1,6 @@
 {
   "scene": "Back: the grapple. Front: from the tree, Rama's arrow flies",
-  "size": 0.5,
+  "tall": 1,
   "ground": "sand",
   "figures": [
     {

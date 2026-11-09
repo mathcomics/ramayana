@@ -2,7 +2,7 @@
 
 How things are arranged in a panel. The model panel for each kind of
 scene is in `panels/layouts.md`; a composition the artist approves adds
-what it teaches here. Rows, shots and sizes: `docs/design/panels.md`.
+what it teaches here. Rows, shots and panel heights: `docs/design/panels.md`.
 
 ## Chapter openers
 
@@ -31,7 +31,7 @@ action. The same opener can return when the story comes back to a place.
   horizon sits a little above a third of the way up (`horizon`, default
   0.37 of the panel height above the bottom edge). (05.08, 05.10)
 - Something far away stands on the horizon and is small: `row: "horizon"`
-  (16 px per head-unit in a 0.75 panel; `scale` brings it nearer).
+  (16 px per head-unit in a 1.5 panel; `scale` brings it nearer).
 - Distance needs nothing in between: the horizon and the size do the work.
   An empty ground with a small figure at its edge reads as "far away" and
   "getting away". (05.10)
@@ -40,7 +40,7 @@ action. The same opener can return when the story comes back to a place.
 
 - A place far away is a small prop on the horizon with nothing else: the
   sea and the sky are the panel (05.01: `lanka-island` on row
-  `horizon` is as drawn in a 0.5 panel, with `palace-lanka` stood small
+  `horizon` is as drawn in a 1 panel, with `palace-lanka` stood small
   on its `stand` anchor — `"on": "lanka-island#stand"`, scale 0.5).
 
 ## Throne and hall

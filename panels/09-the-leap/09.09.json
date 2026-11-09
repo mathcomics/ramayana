@@ -1,7 +1,7 @@
 {
   "scene": "From above: the land runs out — monkeys at the water's edge, the sea below",
   "tags": ["travel", "topview"],
-  "size": 0.75,
+  "tall": 1.5,
   "ground": "sand",
   "figures": [
     { "prop": "monkey-top", "character": "monkey1", "at": 0.3, "lift": 8.4, "scale": 0.9 },

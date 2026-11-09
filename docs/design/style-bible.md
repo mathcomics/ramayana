@@ -14,8 +14,8 @@ from its silhouette alone.
 ## 2. Format
 
 - Target: smartphone portrait webapp.
-- The reader scrolls a column of full-width panels, each 0.75, 0.5 or 0.3
-  of a screen tall (no full-screen panels; `docs/design/panels.md`).
+- The reader scrolls a column of full-width panels, each 1.5, 1 or 0.6
+  times its width tall (`tall`; `docs/design/panels.md`).
 - Density: about the complexity of the reference friezes. At a 3-way split,
   expect ~3–4 figures per band.
 - Figures render roughly 60–150 px tall on screen. Everything must be

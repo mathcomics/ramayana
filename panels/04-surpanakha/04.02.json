@@ -1,6 +1,6 @@
 {
   "scene": "Back: the hut and the three. Front: Surpanakha watches them from behind a tree",
-  "size": 0.5,
+  "tall": 1,
   "ground": "sand",
   "figures": [
     {

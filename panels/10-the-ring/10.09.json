@@ -1,6 +1,6 @@
 {
   "scene": "Hanuman drops down, kneels, and holds out the ring",
-  "size": 0.5,
+  "tall": 1,
   "ground": "geru",
   "figures": [
     {

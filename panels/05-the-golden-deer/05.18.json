@@ -1,6 +1,6 @@
 {
   "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
-  "size": 0.75,
+  "tall": 1.5,
   "ground": "sand",
   "figures": [
     {

@@ -187,7 +187,8 @@ per use. The queue: `docs/issues/missing-props.md`.
   of the guard set (`step-roof`, `stepwide-ox`, `leanback-wrath`,
   `lunge-longpoint` …): swap a remaining use when its panel is revisited.
 - Panel-lab drafts still sitting in its database carry pose names from
-  before the composite renaming — fix them when a draft is merged.
+  before the composite renaming, and the old `size` field (now `tall`:
+  0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) — fix them when a draft is merged.
 - The reader site is Cloudflare Pages project `ramayana`
   (`https://ramayana-7fw.pages.dev`, open to account members only). It
   builds from GitHub, but automatic builds are **off**: publishing is the

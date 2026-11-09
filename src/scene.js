@@ -3,16 +3,16 @@
 // Language: docs/design/panels.md.
 //
 // Delivery is a vertical scroll of panels. Every panel is the full width
-// (360 units) and `size` × one screen height (720 units) tall.
+// (360 units) and `tall` × its width high.
 
 import { renderFigure, buildShapes, characterLook, normalizePose, parseCloth } from './figure.js';
 
-export const SCREEN = { w: 360, h: 720 };
-export const DEFAULT_SIZE = 0.75;
+export const PANEL_W = 360;
+export const DEFAULT_TALL = 1.5;
 export const SLOTS = { left: 0.14, 'center-left': 0.32, center: 0.5, 'center-right': 0.68, right: 0.86 };
 
-// Rows. Figures scale with the panel: unit = units per head-unit in a 0.75
-// panel (540 tall), and in proportion for other sizes. A male figure is
+// Rows. Figures scale with the panel: unit = units per head-unit in a 1.5
+// panel (540 tall), and in proportion for other heights. A male figure is
 // ~7.5 head-units, so the front row is ~2/3 of the panel height.
 // ground = height of the ground line above the panel's bottom edge, as a
 // share of the panel height.
@@ -43,8 +43,8 @@ export const SHOTS = {
 export const ROWS = SHOTS.far;
 // The horizon (panel field `horizon`, default HORIZON): height above the
 // bottom edge as a share of the panel. Row "horizon" stands things on it,
-// far away: HORIZON_UNIT px per head-unit in a 0.75 panel (from the
-// artist's 0.5-deer-running layout); `scale` for nearer things.
+// far away: HORIZON_UNIT px per head-unit in a 1.5 panel (from the
+// artist's deer-running layout, a 1 panel); `scale` for nearer things.
 export const HORIZON = 0.37;
 export const HORIZON_UNIT = 16;
 const REF_H = 540;
@@ -53,21 +53,22 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 const setPath = (o, path, v) => { const k = path.split('.'); let t = o; while (k.length > 1) { const p = k.shift(); t = t[p] ??= {}; } t[k[0]] = v; };
 const clone = (o) => JSON.parse(JSON.stringify(o));
 
-// Panel sizes, as a share of a phone screen's height: 0.75 (the usual
-// panel), 0.5 and 0.3 (a strip). A full screen (1) is too tall.
-export const SIZES = [0.3, 0.5, 0.75];
-const validSize = (panel) => { const s = Number(panel.size ?? DEFAULT_SIZE); return SIZES.includes(s) ? s : null; };
-export const panelHeight = (panel) => Math.round(SCREEN.h * (validSize(panel) ?? DEFAULT_SIZE));
+// Panel heights, as a multiple of the panel's width: 1.5 (the usual
+// panel), 1 (square) and 0.6 (a strip). Anything taller is too tall.
+export const TALLS = [0.6, 1, 1.5];
+const validTall = (panel) => { const t = Number(panel.tall ?? DEFAULT_TALL); return TALLS.includes(t) ? t : null; };
+export const panelHeight = (panel) => Math.round(PANEL_W * (validTall(panel) ?? DEFAULT_TALL));
 
 // assets: { species, poses, characters, faces, props, grounds }
 // id: the panel's id (its file name); not part of the JSON.
 // background: optional SVG markup in the panel's coordinates (360 × h).
 // Returns { svg (complete <svg>), w, h, issues: [..] }.
 export function renderPanel(panel, assets, { id = 'panel', background = '' } = {}) {
-  const W = SCREEN.w, H = panelHeight(panel);
+  const W = PANEL_W, H = panelHeight(panel);
   const zoom = panel.zoom ?? 1;           // figures only: "small in the panel"
   const issues = [];
-  if (validSize(panel) == null) issues.push(`size ${JSON.stringify(panel.size)}: use ${SIZES.join(', ')}`);
+  if (validTall(panel) == null) issues.push(`tall ${JSON.stringify(panel.tall)}: use ${TALLS.join(', ')}`);
+  if (panel.size != null) issues.push(`size is now tall (height ÷ width): 0.75 → 1.5, 0.5 → 1, 0.3 → 0.6`);
   const grounds = assets.grounds?.grounds || {};
   const ground = grounds[panel.ground] || panel.ground || grounds[assets.grounds?.default] || '#efe8db';
   if (panel.ground && !grounds[panel.ground] && !/^#/.test(panel.ground)) issues.push(`ground "${panel.ground}" not in data/grounds.json`);

@@ -9,9 +9,9 @@ Status: proposed, 2026-11-08. Prompted by the artist asking what unit
 figure size — and in `SHOTS` / `row()` in `src/scene.js`. This section
 only collects them in one place.)
 
-**The panel.** Every panel is 360 units wide; its height is `size` × one
-screen height (720), so 540 / 360 / 216 units for sizes 0.75 / 0.5 /
-0.3. The viewBox is in these units.
+**The panel.** Every panel is 360 units wide; its height is `tall` × the
+width: 540 / 360 / 216 units for `tall` 1.5 / 1 / 0.6. The viewBox is in
+these units.
 
 **Horizontal: `at`.** A 0–1 share of the panel's **width** (0.5 =
 centre; the named slots are sugar for fixed shares). It already is a
@@ -22,7 +22,7 @@ position.
 row's ground line. Each row of each shot is defined as (head-unit in a
 540-tall panel, ground line as a share of the panel height); both scale
 with the panel, so **a figure's share of its panel is constant per
-shot × row, whatever the size**. A figure ≈ 7.5 head-units tall:
+shot × row, whatever the height**. A figure ≈ 7.5 head-units tall:
 
 | shot | front | mid | back | horizon | floor |
 |---|---|---|---|---|---|
@@ -30,7 +30,7 @@ shot × row, whatever the size**. A figure ≈ 7.5 head-units tall:
 | `wide` | 77 % | 57 % | 40 % | 22 % | 77 % |
 | `mid` | 153 % (cropped) | 113 % | 80 % | 22 % | 153 % |
 
-(`unit × 7.5 / 540` from `SHOTS`; `horizon` is 16 px/head-unit at 0.75
+(`unit × 7.5 / 540` from `SHOTS`; `horizon` is 16 px/head-unit at 1.5
 and stands on the panel's `horizon` line, default 0.37; `floor` is the
 bottom edge at the front row's scale.)
 
@@ -42,7 +42,7 @@ row is 4 × 46 / 540 ≈ 34 % of the panel height.
 **`lift`** raises an entry off its ground line, in the entry's **own
 head-units** — it scales with the entry's `scale` (and a figure's
 `zoom`). Right for body-relative motion (a leap of 1.5 = one and a
-half body heights, at any panel size); wrong-footed for scenery, where
+half body heights, at any panel height); wrong-footed for scenery, where
 "two of this prop's heights up" means nothing compositional.
 
 ## The problem
@@ -84,7 +84,7 @@ same convention as the panel's `horizon` field, applied to one entry.
 
 Reading `at` as % of height would break every panel and make the two
 axes inconsistent; and width is the stable axis (always 360 units),
-while height varies with `size`. The intuition the question points at
+while height varies with `tall`. The intuition the question points at
 is real, but it is the missing *vertical* percentage — `up` — not a
 change to `at`.
 

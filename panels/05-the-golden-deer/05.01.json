@@ -1,6 +1,6 @@
 {
   "scene": "Opening: Lanka, the golden city on its island, far across the sea",
-  "size": 0.5,
+  "tall": 1,
   "ground": "sea",
   "sky": "mist",
   "figures": [

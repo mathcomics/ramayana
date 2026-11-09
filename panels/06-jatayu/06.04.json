@@ -1,6 +1,6 @@
 {
   "scene": "The sword comes down; the cut wing goes one way and Jatayu drops the other",
-  "size": 0.75,
+  "tall": 1.5,
   "ground": "sky-blue",
   "figures": [
     {

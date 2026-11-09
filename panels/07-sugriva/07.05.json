@@ -1,6 +1,6 @@
 {
   "scene": "Hanuman bounds down from the rocks",
-  "size": 0.5,
+  "tall": 1,
   "ground": "off-white",
   "figures": [
     {

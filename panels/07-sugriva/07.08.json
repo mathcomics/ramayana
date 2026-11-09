@@ -1,6 +1,6 @@
 {
   "scene": "Hanuman leads the two up the hill",
-  "size": 0.5,
+  "tall": 1,
   "ground": "off-white",
   "figures": [
     {
