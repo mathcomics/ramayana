@@ -1,7 +1,7 @@
 // Every gesture (distinct upper body) from data/pose-index.json
 // `gestures`, drawn as a full figure on the step base (side + front),
 // alphabetically. Part of the pose composition work
-// (docs/proposals/2026-11-07-pose-composition.md).
+// (docs/design/pose-picking.md).
 //
 //   node tools/gesture-catalogue.mjs [--who rama] [--zoom 2]
 //

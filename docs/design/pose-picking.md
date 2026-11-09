@@ -30,8 +30,44 @@ stepturn, leanback, leanfront, kneel, lunge …), each with a one-line
 `desc` and the poses that carry it; the first listed is drawn in the
 base catalogue (`node tools/base-catalogue.mjs`, published page in the
 root CLAUDE.md). Every pose belongs to exactly one base (`npm test`
-checks). The bases are the lower axis of pose composition
-(`docs/proposals/2026-11-07-pose-composition.md`).
+checks). `gestures` names the distinct upper bodies (arms incl. `prop`,
+`spine.chest`, neck, head, mouth) in the same shape and under the same
+rules, drawn on the step base in the gesture catalogue
+(`node tools/gesture-catalogue.mjs`); a held prop and its angle keep two
+gestures apart even where the hands match. A gesture may carry two
+flags for the composer: `lean` (degrees added to the base's lean, for a
+gesture that tips the whole body — the bow: 24) and `join: true`
+(joined palms). The grouping was finished by the artist's eye, not a
+distance measure: a stance of its own needs a real lean or a different
+ground contact, not a slight stride or turn.
+
+## Composition
+
+Every pose is a base × a gesture, and is exactly what the grid derives —
+there is no per-pose tuning of legs, lean, arms or chest. Composing takes
+legs, tail and lean from the base's reference pose (the first listed),
+arms, chest, neck, head and mouth from the gesture's; a gesture's `lean`
+is added with the base's planted feet held by a two-bone leg solve
+(a foot counts as planted below 0.4 head-units, so a hovering foot like
+kneel's forward one keeps its place). `join` re-runs the hand solves per
+base: the far hand laid on the near one in the side view, kept on the
+midline in the front view. `spine.turn` belongs to neither half (rule 3).
+Shared code: `tools/compose-lib.mjs`; the pose lab carries the same logic
+inline.
+
+    node tools/recompose.mjs <pose ...> | --base kneel | --gesture palms | --all [--dry]
+
+re-derives poses from their coordinates and writes `data/poses.json`;
+`--dry` prints the drift report (what a stored pose differs from the
+grid). What stays a pose's own through a recompose: neck and head (gaze,
+rule 3), mouth, tail and turn. So retuning a base's or gesture's
+reference pose and recomposing its family propagates the change; then
+look at the sheets and run `npm test`.
+
+A new pose starts in the pose lab: the Base and Gesture pickers compose
+a draft named `<base>-<gesture>`, read at phone size (rule 8) before it
+is saved as a whole pose. Poses stay whole in `data/poses.json`; panels
+name them, never a base and gesture pair.
 
 When a pose is added, renamed or retuned so its meaning changes, its index
 entry changes in the same commit. A pose made from `wanted` moves from

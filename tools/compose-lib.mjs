@@ -1,5 +1,5 @@
 // Composing a pose from a base × gesture pair (pose composition:
-// docs/proposals/2026-11-07-pose-composition.md). Used by the recompose
+// docs/design/pose-picking.md). Used by the recompose
 // tool; the pose lab carries the same logic inline (poselab.template.html).
 //
 // compose(base, gesture): legs + tail + lean from the base's reference

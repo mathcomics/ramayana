@@ -1,7 +1,7 @@
 // Every base (distinct lower body) from data/pose-index.json `bases`,
 // drawn as a full figure with stand's upper body on it (side + front),
 // alphabetically. Part of the pose composition work
-// (docs/proposals/2026-11-07-pose-composition.md).
+// (docs/design/pose-picking.md).
 //
 //   node tools/base-catalogue.mjs [--who rama] [--zoom 2]
 //
