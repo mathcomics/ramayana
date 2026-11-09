@@ -134,7 +134,8 @@ behind them, after = in front; the retired `layer` field is an issue).
   2026-11-08), `throne-lanka` (dark, under the red disc with a dark
   centre, Ravana's) and `throne-kishkindha` (gold
   stupa dome on a dark post, Sugriva's coronation),
-  `ledge`, `kishkindha` (rocky; seeded-random outlines, stand anchors),
+  `ledge`, `ledge-jatayu` (the bluff Jatayu rests on; one `seat` on the
+  top), `kishkindha` (rocky; seeded-random outlines, stand anchors),
   the flowers `flower-droop`, `-white`, `-pink`, `-yellow`, `-orange`,
   `lotus-bud`, `lotus-full`, `fire`, `vine`, and the top-view people
   `male-top`, `male-top-back`, `female-top` (recolour, see above). How to

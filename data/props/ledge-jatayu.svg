@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- The ledge Jatayu rests on: a rocky bluff with a broad sloping top, a
+     loose boulder on its upper right and a dark crevice down the right
+     side. Stone palette from the artist's Lanka layout, as `ledge`.
+     100 px = 1 head-unit; bottom edge on the ground.
+     Anchor: seat on the top (hips, or a prop's bottom centre) —
+     "on": "ledge-jatayu". -->
+
+<svg
+   viewBox="0 0 262.23813 219.99068"
+   width="262.23813"
+   height="219.99068"
+   version="1.1"
+   id="svg731"
+   sodipodi:docname="ledge-jatayu.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs735" />
+  <sodipodi:namedview
+     id="namedview733"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0521739"
+     inkscape:cx="260.9428"
+     inkscape:cy="105.98517"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg731" />
+  <path
+     fill="#ac9393"
+     d="M 241.69195,43.632994 235.02468,2.829197 223.15391,0 187.26287,6.269029 c -0.78904,12.425719 -2.07876,19.663233 -2.43253,29.045422 l 12.35811,11.484995 29.65973,7.152806 z"
+     id="path720-9"
+     sodipodi:nodetypes="cccccccc"
+     style="fill:#baa5a5;fill-opacity:1;stroke-width:1" />
+  <path
+     fill="#ac9393"
+     d="m 251.7198,144.55009 -15.06636,-40.8038 -107.9297,3.43984 -5.49691,29.04542 z"
+     id="path720-9-6"
+     sodipodi:nodetypes="ccccc"
+     style="fill:#594545;fill-opacity:1;stroke-width:1" />
+  <path
+     fill="#ac9393"
+     d="M 2.0248386,219.99067 0,166.49067 l 11.718215,-36.3 16.276733,-51.199995 2.369492,-45 50.457307,-12.89661 171.076793,34.89661 3.10188,61.900005 c 0.16439,1.90373 -13.34445,4.28037 -29.76397,4.30061 -25.28877,0.0312 -57.48199,-2.78312 -57.2593,-0.16586 0.31773,3.73419 88.81685,4.86032 89.10089,8.29046 2.57114,31.04983 3.83736,51.24958 5.1601,89.67478 z"
+     id="path720"
+     sodipodi:nodetypes="ccccccccccccc"
+     style="stroke-width:1" />
+  <g id="anchors">
+    <circle id="seat" cx="120" cy="29" r="6" fill="none"/>
+  </g>
+</svg>
