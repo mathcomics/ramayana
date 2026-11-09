@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderPanel, panelHeight, backgroundInner, PANEL_W } from '../src/scene.js';
+import { renderPanel, panelHeight, backgroundInner, PANEL_W, MAN } from '../src/scene.js';
 import { loadAssets, loadSections } from '../tools/lib.mjs';
 
 const assets = loadAssets();
@@ -91,7 +91,7 @@ test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', (
     const [, y, sc] = r.svg.match(/<g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/);
     return { top: +y, unit: +sc, bottom: +y + assets.props.props['golden-deer-run'].size[1] * +sc, issues: r.issues };
   };
-  const man = (t) => 0.75 * (1 - t) * 540 / 7.5;
+  const man = (t) => 0.75 * (1 - t) * 540 / MAN;
   const near = (a, b) => Math.abs(a - b) < 0.01;
   for (const [row, t] of [['front', 0.08], ['mid', 0.4], ['back', 0.7]]) {
     const p = propY(row);
@@ -101,7 +101,7 @@ test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', (
   const low = renderPanel({ horizon: 0.2, figures: [{ prop: 'golden-deer-run', row: 'back' }] }, assets).svg;
   assert.ok(near(+low.match(/scale\(([-\d.]+)/)[1], man(0.7)), 'the horizon leaves sizes alone');
   const c = propY('closeup');
-  assert.ok(near(c.unit, 1.75 * 540 / 7.5) && near(c.bottom, 1080), 'closeup: ground a panel below, head at 75 %');
+  assert.ok(near(c.unit, 1.75 * 540 / MAN) && near(c.bottom, 1080), 'closeup: ground a panel below, head at 75 %');
   const t = propY('top');
   assert.ok(near(t.top, 0) && near(t.unit, man(0.08)), 'top: top edge on the panel top, front size');
   const n = propY(0.5);
@@ -117,7 +117,7 @@ test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirr
     const r = renderPanel({ figures: [{ prop: 'throne-ayodhya', at: 0.5, row: 'mid', facing }, { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets);
     assert.deepEqual(r.issues.filter((i) => !/placeholder/.test(i)), []);
     const [, fy, fs] = r.svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/) || [];
-    const unit = 0.75 * (1 - 0.4) * 540 / 7.5, top = 540 * (1 - 0.4 * 0.37) - assets.props.props['throne-ayodhya'].size[1] * unit;
+    const unit = 0.75 * (1 - 0.4) * 540 / MAN, top = 540 * (1 - 0.4 * 0.37) - assets.props.props['throne-ayodhya'].size[1] * unit;
     assert.ok(Math.abs(+fy - (top + seat[1] * unit)) < 0.01, `${facing}: seat height`);
     assert.equal(Math.abs(+fs), unit);
   }
@@ -147,4 +147,16 @@ test('a character without a drawn face is an issue (no generated fallback)', () 
   const r = renderPanel({ figures: [{ character: 'rama' }, { character: 'sita', view: 'front' }] }, noFace);
   assert.match(r.issues.join('\n'), /rama\): no drawn side face/);
   assert.match(r.issues.join('\n'), /sita\): no drawn front face/);
+});
+
+test('MAN is the drawn male standing straight (feet to head top)', async () => {
+  const { renderFigure } = await import('../src/figure.js');
+  const p = JSON.parse(JSON.stringify(assets.poses.find((q) => q.name === 'walk-swing')));
+  p.spine = { lean: 0, chest: 0, neck: 0, head: 0, turn: 0 };
+  for (const s of ['right', 'left']) {
+    Object.assign(p[s].leg, { hip: 0, knee: 0, ankle: 0, out: 0, kneeOut: 0, toe: 0 });
+    Object.assign(p[s].arm, { shoulder: 0, elbow: 0, wrist: 0, out: 0, elbowOut: 0, twist: 0 });
+  }
+  const { bbox } = renderFigure(assets.species.male, p, { scale: 1 });
+  assert.ok(Math.abs(bbox.y1 - bbox.y0 - MAN) < 0.1, `drawn male is ${(bbox.y1 - bbox.y0).toFixed(2)} head-units, MAN is ${MAN}`);
 });

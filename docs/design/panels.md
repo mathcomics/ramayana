@@ -178,7 +178,7 @@ behind them, after = in front; the retired `layer` field is an issue).
 or by number — as `at` does across. Shares are of the panel height, so a
 row looks the same in a panel of any height.
 
-| `row` | Bottom edge | Size (a man = 7.5 head-units) |
+| `row` | Bottom edge | Size (a man standing = 6.1 head-units, as drawn) |
 |---|---|---|
 | `top` | the entry's **top** edge on the panel's top edge | as `front` |
 | `horizon` | on the horizon line | far away: 16 px per head-unit in a 1.5 panel |

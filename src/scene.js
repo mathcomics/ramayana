@@ -19,7 +19,10 @@ export const SLOTS = { left: 0.14, 'center-left': 0.32, center: 0.5, 'center-rig
 // whatever the horizon. Shares are of the panel height.
 export const DEPTH = { front: 0.08, mid: 0.4, back: 0.7 };
 export const HEAD_TOP = 0.75;
-export const MAN = 7.5;
+// A man standing straight, feet to the top of the head, in head-units: the
+// drawn male's own proportions (a big comic head, not the academic 7.5).
+// A test checks it against the drawings.
+export const MAN = 6.1;
 // closeup: a man standing just in front of the panel, ground line a panel
 // below its bottom edge, his head at HEAD_TOP: the panel shows him from
 // about the waist up.
