@@ -122,6 +122,19 @@ behind them, after = in front; the retired `layer` field is an issue).
   head and `sound-cry`'s `r="40"` is 0.8 of one. One circle carries both
   the place and the size — a tilted head is the panel's `adjust`, not the
   prop's.
+- **Delivering a drawing** (what saves an edit on import):
+  file name = the prop id, kebab-case, saved as
+  `data/props/<id>.svg`; the header comment says what *this* drawing is
+  (a copied header from another file is the commonest fix); the page
+  cropped to the drawing (Inkscape *Resize page to drawing*), 100 px =
+  1 head-unit at the size it should appear at `scale` 1; facing right;
+  the bottom edge on the ground, or a part that enters from outside the
+  panel cut straight at that edge; colours that a panel should change
+  drawn in one exact fill each (the skin one hex, the cloth one hex —
+  a nail or sole in another colour will not follow a recolour), using
+  the character's or palette hex where it belongs to one; stroke width
+  matching the props it will stand beside; anchors as named circles in
+  a group `id="anchors"`.
 - Drawn so far: `palace-ayodhya`, `palace-lanka` (the golden rework,
   Lanka's palaces; also small on `lanka-island`'s `stand` anchor),
   `golden-deer`, `golden-deer-run`,
@@ -137,6 +150,12 @@ behind them, after = in front; the retired `layer` field is an issue).
   stupa dome on a dark post, Sugriva's coronation),
   `ledge`, `ledge-jatayu` (the bluff Jatayu rests on; one `seat` on the
   top), `kishkindha` (rocky; seeded-random outlines, stand anchors),
+  the giant's parts for chapter 14 `giant-feet`, `giant-fist`,
+  `giant-grab` (reaching down from above), `giant-lie-waist` (the
+  sleeping giant's middle) — each cut off at the frame edge it enters
+  from, and recolourable (`body`, and `cloth` on the waist) so the four
+  share one skin in a panel; the placeholder `giant-fingers` in the
+  locked 14.05 stays until the artist swaps it,
   the flowers `flower-droop`, `-white`, `-pink`, `-yellow`, `-orange`,
   `lotus-bud`, `lotus-full`, `fire`, `vine`, and the top-view people
   `male-top`, `male-top-back`, `female-top` (recolour, see above). How to

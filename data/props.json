@@ -29,6 +29,43 @@
         5
       ]
     },
+    "giant-feet": {
+      "size": [
+        2.25,
+        3.17
+      ],
+      "recolor": {
+        "body": "#d38d5f"
+      }
+    },
+    "giant-fist": {
+      "size": [
+        2.91,
+        2.48
+      ],
+      "recolor": {
+        "body": "#916f6f"
+      }
+    },
+    "giant-grab": {
+      "size": [
+        1.56,
+        1.73
+      ],
+      "recolor": {
+        "body": "#e9c6af"
+      }
+    },
+    "giant-lie-waist": {
+      "size": [
+        2.57,
+        1.91
+      ],
+      "recolor": {
+        "body": "#9a7a7a",
+        "cloth": "#ffcc00"
+      }
+    },
     "palace-ayodhya": {
       "size": [
         10,
