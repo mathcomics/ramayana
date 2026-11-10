@@ -9,7 +9,9 @@ wrong: `docs/issues/problem-poses.md`.
 
 - **Poses**: refined in the pose lab (URL in the root CLAUDE.md); saves
   land in its database (collection `poses`) and are merged into
-  `poses.json` after review. Names: `<base>-<visible action>` (style
+  `poses.json` after review (the `commit-pose-lab` skill; merged saves
+  are then deleted from the lab, since a save overrides the repo pose
+  there). Names: `<base>-<visible action>` (style
   bible §7, `docs/design/pose-picking.md`). Every pose needs a
   `pose-index.json` entry with known tags — `npm test` enforces it.
 - **Faces and parts are the artist's drawings**: never edit their curves

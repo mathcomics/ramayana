@@ -252,7 +252,8 @@ hides every later repo change to that panel. **After a merge is
 committed, delete each merged draft** — re-read it first and delete it
 only if it still matches what was committed (the artist may have saved
 it again since; a newer draft is kept). Then rebuild and republish the
-lab.
+lab. The whole procedure is the `commit-panel-lab` skill
+(`.claude/skills/`), with `tools/merge-panel-drafts.mjs` doing the merge.
 
 ## Publishing (Cloudflare Pages)
 

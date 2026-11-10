@@ -44,6 +44,9 @@ tools/build-site.mjs     reader site → _site/ (Cloudflare Pages)
 tools/render-panels.mjs  screens → out/panels/*.png, with issues and needs
 tools/build-panellab.mjs panel lab page → out/panellab.html
 tools/renumber-panels.mjs a settled chapter's ids made consecutive (inserts are 05.01a)
+tools/merge-panel-drafts.mjs panel-lab drafts → panels/ (commit-panel-lab skill)
+tools/pose-saves.mjs     what pose-lab saves change (commit-pose-lab skill)
+.claude/skills/          commit-panel-lab, commit-pose-lab: merging the labs' saves
 tools/lib.mjs            shared tool helpers (paths, data, sections, rsvg, lab bundling)
 tools/svg.mjs            SVG parsing for import-faces
 test/                    npm test: unit, data integrity and render snapshot

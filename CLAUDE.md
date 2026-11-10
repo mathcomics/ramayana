@@ -83,7 +83,9 @@ scene spec (JSON) → layout → figure geometry → SVG
 
 Pose lab (published artifact, saves poses to its database, collection
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
-Saved poses are reviewed and then merged into `data/poses.json`.
+Saved poses are reviewed and then merged into `data/poses.json`: the
+`commit-pose-lab` skill (`.claude/skills/`), which also deletes the
+merged saves — a save overrides the repo pose in the lab.
 
     node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
@@ -92,9 +94,10 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 
 Panel lab (published artifact, drafts in its database, collection
 `panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
-Drafts are merged into `panels/` when asked; once committed, delete the
-merged drafts (a draft overrides the repo panel in the lab) unless saved
-again since; republish the lab after renderer or panel changes.
+Drafts are merged into `panels/` when asked — the `commit-panel-lab`
+skill: merge, commit, delete the merged drafts (a draft overrides the
+repo panel in the lab) unless saved again since; republish the lab after
+renderer or panel changes.
 
 ## Where the work stands
 
