@@ -1,26 +1,35 @@
 {
-  "scene": "Back in the forest: the hut from above (as 03.01), all quiet",
+  "scene": "Ravana rises from the throne in rage",
   "tall": 1,
-  "ground": "sage",
+  "ground": "geru",
   "figures": [
     {
-      "prop": "trees-top",
-      "id": "trees-nw",
-      "at": 0.257,
-      "scale": 0.4,
-      "row": 0.71
+      "prop": "throne-lanka",
+      "at": 0.74,
+      "row": "mid",
+      "facing": "left"
     },
     {
-      "prop": "hut-top",
-      "at": 0.505,
-      "scale": 0.4,
-      "row": 0.42
+      "character": "surpanakha",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.18,
+      "mouth": 2,
+      "adjust": {
+        "spine.chest": 25,
+        "spine.head": -25
+      }
     },
     {
-      "prop": "trees-top",
-      "id": "trees-se",
-      "at": 0.743,
-      "scale": 0.4
+      "character": "ravana",
+      "pose": "step-point",
+      "facing": "left",
+      "at": 0.48,
+      "mouth": 3,
+      "scale": 1.05,
+      "adjust": {
+        "spine.head": 10
+      }
     }
   ]
 }

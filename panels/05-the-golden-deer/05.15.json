@@ -1,30 +1,42 @@
 {
-  "scene": "Sita pushes Lakshman to go; he goes, looking back",
-  "tall": 0.6,
-  "ground": "sand",
+  "scene": "Rama's cry reaches them: Sita starts up; Lakshman stands unmoved",
+  "tall": 1,
+  "ground": "light-grey",
   "figures": [
     {
-      "prop": "hut",
-      "at": 0.2,
-      "row": "back"
+      "prop": "sound-cry",
+      "at": 0.62,
+      "row": 0.79
+    },
+    {
+      "character": "rama",
+      "facing": "right",
+      "mouth": 3,
+      "on": "sound-cry#face",
+      "pose": "step-hang"
     },
     {
       "character": "sita",
-      "pose": "step-point",
+      "pose": "step-hang",
       "facing": "right",
-      "at": 0.3,
-      "mouth": 3
+      "at": 0.22,
+      "mouth": 3,
+      "adjust": {
+        "spine.head": -28,
+        "right.arm.shoulder": 95,
+        "right.arm.elbow": 55,
+        "right.arm.hand": "out"
+      }
     },
     {
       "character": "lakshman",
-      "pose": "walk-swing",
+      "pose": "step-hang",
       "facing": "right",
-      "at": 0.72,
-      "mouth": 2,
-      "turn": 90
+      "at": 0.66,
+      "mouth": 1
     }
   ],
   "needs": [
-    "prop: hut"
+    "effect: sound-cry (arriving, 05.13-05.15)"
   ]
 }

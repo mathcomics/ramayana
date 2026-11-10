@@ -1,44 +1,23 @@
 {
-  "scene": "Ravana drags Sita toward the chariot; she pulls against him",
+  "scene": "The ascetic becomes Ravana, rearing up; Sita is knocked back",
   "tall": 1,
   "ground": "sand",
   "figures": [
     {
       "character": "sita",
-      "pose": "leanback-armsback",
-      "facing": "right",
-      "at": 0.28,
+      "pose": "arch-overhead",
+      "facing": "left",
+      "at": 0.49,
       "mouth": 3,
-      "adjust": {
-        "right.arm.shoulder": 80,
-        "right.arm.elbow": 5,
-        "right.arm.hand": "fist",
-        "left.arm.shoulder": 70,
-        "left.arm.elbow": 10,
-        "left.arm.hand": "fist"
-      }
+      "row": 0.3
     },
     {
       "character": "ravana",
-      "pose": "lunge-armfront",
-      "facing": "right",
-      "at": 0.56,
-      "mouth": 3,
-      "scale": 1.1,
-      "adjust": {
-        "left.arm.shoulder": -65,
-        "left.arm.elbow": 10,
-        "left.arm.hand": "fist",
-        "spine.head": 8
-      }
-    },
-    {
-      "prop": "chariot",
-      "at": 0.88
+      "pose": "kneeup-armsup",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 3
     }
   ],
-  "needs": [
-    "prop: flying chariot",
-    "relation: his hand closed on her wrists"
-  ]
+  "needs": []
 }

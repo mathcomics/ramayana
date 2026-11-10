@@ -1,24 +1,16 @@
 {
-  "scene": "The cry travels across the forest",
-  "tall": 0.6,
-  "ground": "dark-green",
+  "scene": "The golden deer falls, dying; a cry goes up with Rama's shouting face",
+  "tall": 1,
+  "ground": "dry-grass",
   "figures": [
     {
-      "prop": "tree",
-      "id": "tree1",
-      "at": 0.14,
-      "scale": 0.8
-    },
-    {
-      "prop": "tree",
-      "id": "tree2",
-      "at": 0.85,
-      "scale": 0.7
+      "prop": "golden-deer-fallen",
+      "at": 0.42
     },
     {
       "prop": "sound-cry",
-      "at": 0.5,
-      "row": 0.25
+      "at": 0.56,
+      "row": 0.3
     },
     {
       "character": "rama",
@@ -29,6 +21,6 @@
     }
   ],
   "needs": [
-    "prop: tree"
+    "prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank)"
   ]
 }

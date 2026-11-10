@@ -1,27 +1,62 @@
 {
-  "scene": "Back in the forest: the hut from above (as 05.07), nobody there",
+  "scene": "A monkey picks the bundle up; the others crowd round it",
   "tall": 1,
-  "ground": "sage",
+  "ground": "sand",
   "figures": [
     {
-      "prop": "trees-top",
-      "id": "trees-nw",
-      "at": 0.257,
-      "scale": 0.4,
-      "row": 0.71
+      "prop": "ledge",
+      "at": 0.9,
+      "row": "mid",
+      "scale": 0.9
     },
     {
-      "prop": "hut-top",
-      "at": 0.505,
-      "scale": 0.4,
-      "row": 0.42
+      "character": "monkey1",
+      "id": "m1",
+      "pose": "stand-pointup",
+      "facing": "right",
+      "at": 0.26,
+      "row": "mid",
+      "mouth": 2,
+      "adjust": {
+        "spine.head": -18
+      }
     },
     {
-      "prop": "trees-top",
-      "id": "trees-se",
-      "at": 0.743,
-      "scale": 0.4
+      "character": "sugriva",
+      "pose": "step-akimbo",
+      "facing": "right",
+      "at": 0.14,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 18
+      }
+    },
+    {
+      "character": "monkey1",
+      "id": "m2",
+      "pose": "step-point",
+      "facing": "left",
+      "at": 0.82,
+      "cloth": "red",
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 20,
+        "right.arm.shoulder": 55
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "bend-reach",
+      "facing": "right",
+      "at": 0.44,
+      "mouth": 2
+    },
+    {
+      "prop": "jewels",
+      "at": 0.6
     }
   ],
-  "needs": []
+  "needs": [
+    "prop: jewels (the bundle)"
+  ]
 }

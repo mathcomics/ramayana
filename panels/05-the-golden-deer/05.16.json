@@ -1,31 +1,30 @@
 {
-  "scene": "Before he goes, Lakshman bends and draws a line round Sita",
+  "scene": "Sita pushes Lakshman to go; he goes, looking back",
   "tall": 0.6,
-  "ground": "white",
+  "ground": "sand",
   "figures": [
     {
-      "prop": "line",
-      "at": 0.32
-    },
-    {
-      "character": "lakshman",
-      "pose": "bend-reach",
-      "facing": "left",
-      "at": 0.8,
-      "mouth": 1
+      "prop": "hut",
+      "at": 0.2,
+      "row": "back"
     },
     {
       "character": "sita",
-      "pose": "step-hang",
-      "at": 0.28,
-      "mouth": 1,
-      "adjust": {
-        "spine.head": 15
-      }
+      "pose": "step-point",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 3
+    },
+    {
+      "character": "lakshman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.72,
+      "mouth": 2,
+      "turn": 90
     }
   ],
   "needs": [
-    "prop: line (scratched in the earth, under his hand)",
-    "effect: arrow or stick in Lakshman's drawing hand"
+    "prop: hut"
   ]
 }

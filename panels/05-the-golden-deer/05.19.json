@@ -1,23 +1,42 @@
 {
-  "scene": "The ascetic becomes Ravana, rearing up; Sita is knocked back",
-  "tall": 1,
+  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
+  "tall": 1.5,
   "ground": "sand",
   "figures": [
     {
       "character": "sita",
-      "pose": "arch-overhead",
-      "facing": "left",
-      "at": 0.49,
-      "mouth": 3,
-      "row": 0.3
+      "pose": "step-point",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 2,
+      "hands": {
+        "right": "in"
+      },
+      "adjust": {
+        "right.arm.shoulder": 60,
+        "right.arm.elbow": 30
+      }
     },
     {
-      "character": "ravana",
-      "pose": "kneeup-armsup",
+      "character": "sage1",
+      "pose": "walk-swing",
       "facing": "left",
-      "at": 0.66,
-      "mouth": 3
+      "at": 0.72,
+      "id": "ascetic",
+      "mouth": 1,
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "club",
+          "angle": 175
+        },
+        "right.arm.shoulder": 20,
+        "right.arm.elbow": 40
+      }
     }
   ],
-  "needs": []
+  "needs": [
+    "prop: staff and pot (held)",
+    "prop: fruit",
+    "Ravana's ascetic disguise (sage1 for now)"
+  ]
 }

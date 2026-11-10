@@ -13,18 +13,18 @@ box from `data/props.json`. Held props (sword, club, bow) live in
 | prop | panels |
 |---|---|
 | cave | 04.09 |
-| chariot | 05.20, 05.21 |
+| chariot | 05.21, 05.22 |
 | deer | 03.04 |
-| golden-deer-fallen | 05.12 |
-| hut | 04.02, 05.15, 05.21, 06.08 |
-| jewels | 06.05, 06.06, 07.10, 10.11 |
+| golden-deer-fallen | 05.13 |
+| hut | 04.02, 05.16, 05.22, 06.09 |
+| jewels | 06.06, 06.07, 07.10, 10.11 |
 | lanka-wall | 10.01, 10.02 |
-| line | 05.16 |
-| line-top | 05.17 |
+| line | 05.17 |
+| line-top | 05.18 |
 | mountain | 09.06, 09.11 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
-| tree | 02.17, 03.07, 04.02, 05.13, 06.09, 08.05, 08.07, 09.05, 10.07, 10.09 |
-| vulture-lie | 06.10 |
+| tree | 02.17, 03.07, 04.02, 05.14, 06.10, 08.05, 08.07, 09.05, 10.07, 10.09 |
+| vulture-lie | 06.11 |
 
 ## Prop wishes from the panels' needs
 
@@ -33,33 +33,33 @@ docs/design/panel-writing.md, Lessons).
 
 | need | panels |
 |---|---|
-| prop: bow in hand while running | 05.10 |
+| prop: bow in hand while running | 05.11 |
 | prop: cave | 04.09 |
 | prop: deer (creature art) | 03.04 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
-| prop: flying chariot | 05.20, 05.21 |
-| prop: fruit | 05.18 |
-| prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank) | 05.12 |
-| prop: hut | 04.02, 05.15, 05.21, 06.08 |
+| prop: flying chariot | 05.21, 05.22 |
+| prop: fruit | 05.19 |
+| prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank) | 05.13 |
+| prop: hut | 04.02, 05.16, 05.22, 06.09 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
 | prop: jewels (held to the chest) | 07.12 |
-| prop: jewels (the bundle) | 06.05, 06.06 |
+| prop: jewels (the bundle) | 06.06, 06.07 |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
 | prop: lanka-wall | 10.02 |
 | prop: lanka-wall (the city wall by night) | 10.01 |
-| prop: line (scratched in the earth, under his hand) | 05.16 |
-| prop: line-top (the line as a closed ring round the hut, seen from above) | 05.17 |
+| prop: line (scratched in the earth, under his hand) | 05.17 |
+| prop: line-top (the line as a closed ring round the hut, seen from above) | 05.18 |
 | prop: mountain | 09.06, 09.11 |
 | prop: ring | 09.04, 10.09, 10.10 |
 | prop: ring (Rama's ring; it reaches Sita in 10) | 09.03 |
 | prop: spear (held) | 04.10 |
-| prop: staff and pot (held) | 05.18 |
-| prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.17 |
-| prop: tree | 02.17, 03.06, 04.02, 05.13, 06.09, 08.05, 08.07, 09.05, 10.09 |
+| prop: staff and pot (held) | 05.19 |
+| prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
+| prop: tree | 02.17, 03.06, 04.02, 05.14, 06.10, 08.05, 08.07, 09.05, 10.09 |
 | prop: tree (the ashoka; Hanuman hidden in its branches) | 10.07 |
 | prop: tree with thirteen tally marks | 03.07 |
-| prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.04 |
-| prop: vulture-lie (lying, the one remaining wing raised and pointing) | 06.10 |
+| prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
+| prop: vulture-lie (lying, the one remaining wing raised and pointing) | 06.11 |
 
 ## Drawn props in use
 

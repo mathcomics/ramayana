@@ -1,53 +1,33 @@
 {
-  "scene": "Jatayu's talons reach Ravana; Ravana swings his sword back over his shoulder",
-  "tall": 1.5,
-  "ground": "sky-blue",
+  "scene": "Jatayu rises toward Ravana flying over, Sita held in one arm; wings spread",
+  "tall": 0.6,
+  "ground": "light-grey",
   "figures": [
+    {
+      "prop": "vulture-fly",
+      "facing": "left",
+      "at": 0.9,
+      "row": "back"
+    },
+    {
+      "character": "ravana",
+      "pose": "stepwide-swordcarry",
+      "view": "front",
+      "at": 0.28,
+      "row": "closeup",
+      "mouth": 2
+    },
     {
       "character": "sita",
       "pose": "arch-overhead",
       "view": "front",
       "facing": "right",
-      "at": 0.38,
-      "mouth": 3,
-      "scale": 0.88,
-      "row": "mid"
-    },
-    {
-      "character": "ravana",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.22,
-      "mouth": 3,
-      "adjust": {
-        "left.arm.shoulder": 70,
-        "left.arm.elbow": 40,
-        "right.arm.shoulder": 138,
-        "right.arm.elbow": 72,
-        "right.arm.prop": {
-          "kind": "sword",
-          "angle": 80
-        },
-        "right.leg.hip": 12,
-        "right.leg.knee": 8,
-        "right.leg.ankle": -45,
-        "left.leg.hip": -2,
-        "left.leg.knee": 0,
-        "left.leg.ankle": -45,
-        "spine.head": 10
-      },
-      "row": "mid",
-      "scale": 0.88
-    },
-    {
-      "prop": "vulture-swoop",
-      "at": 0.76,
-      "facing": "left",
-      "scale": 0.6,
-      "row": 0.6
+      "at": 0.5,
+      "row": "closeup",
+      "mouth": 3
     }
   ],
   "needs": [
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now"
   ]
 }

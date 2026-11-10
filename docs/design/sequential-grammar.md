@@ -24,7 +24,7 @@ the artist's own work and the style bible. Read with
   location panel, a glance, a partial view).
 - Repetition with one small change is the clock of the story: the same
   walking figures across three panels is a journey (02.06-02.08); the
-  same bubble across three panels is a sound traveling (05.12-05.14).
+  same bubble across three panels is a sound traveling (05.13-05.15).
   Keep everything else identical so the change carries the meaning.
 
 ## Readability
@@ -55,4 +55,4 @@ confirms, apply it chapter by chapter and note it in `composition.md`.
   by habit (the height rule in panel-writing.md).
 - A reveal lands after a scroll beat: put the quiet panel (location,
   empty ground) immediately before the surprise, so the reader scrolls
-  into it (05.07 quiet hut → the deer appears).
+  into it (05.08 quiet hut → the deer appears).

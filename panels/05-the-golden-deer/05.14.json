@@ -1,42 +1,34 @@
 {
-  "scene": "Rama's cry reaches them: Sita starts up; Lakshman stands unmoved",
-  "tall": 1,
-  "ground": "light-grey",
+  "scene": "The cry travels across the forest",
+  "tall": 0.6,
+  "ground": "dark-green",
   "figures": [
     {
+      "prop": "tree",
+      "id": "tree1",
+      "at": 0.14,
+      "scale": 0.8
+    },
+    {
+      "prop": "tree",
+      "id": "tree2",
+      "at": 0.85,
+      "scale": 0.7
+    },
+    {
       "prop": "sound-cry",
-      "at": 0.62,
-      "row": 0.79
+      "at": 0.5,
+      "row": 0.25
     },
     {
       "character": "rama",
-      "facing": "right",
-      "mouth": 3,
-      "on": "sound-cry#face",
-      "pose": "step-hang"
-    },
-    {
-      "character": "sita",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.22,
       "mouth": 3,
-      "adjust": {
-        "spine.head": -28,
-        "right.arm.shoulder": 95,
-        "right.arm.elbow": 55,
-        "right.arm.hand": "out"
-      }
-    },
-    {
-      "character": "lakshman",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.66,
-      "mouth": 1
+      "on": "sound-cry#face"
     }
   ],
   "needs": [
-    "effect: sound-cry (arriving, 05.12-05.14)"
+    "prop: tree"
   ]
 }

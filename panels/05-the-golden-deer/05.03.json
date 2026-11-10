@@ -1,19 +1,20 @@
 {
-  "scene": "Ravana alone, closer: the king of Lanka",
-  "tall": 0.6,
+  "scene": "Lanka: Ravana on his throne, from the front, far",
+  "tall": 1,
   "ground": "geru",
   "figures": [
     {
       "prop": "throne-lanka",
       "at": 0.5,
-      "row": "closeup"
+      "row": "mid"
     },
     {
       "character": "ravana",
       "pose": "chair-armrest",
       "view": "front",
       "on": "throne-lanka",
-      "mouth": 1
+      "mouth": 1,
+      "scale": 1.05
     }
   ]
 }

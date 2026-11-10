@@ -1,26 +1,15 @@
 {
-  "scene": "The golden deer falls, dying; a cry goes up with Rama's shouting face",
-  "tall": 1,
+  "scene": "Rama draws his bow",
+  "tall": 0.6,
   "ground": "dry-grass",
   "figures": [
     {
-      "prop": "golden-deer-fallen",
-      "at": 0.42
-    },
-    {
-      "prop": "sound-cry",
-      "at": 0.56,
-      "row": 0.3
-    },
-    {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "step-bowdraw",
       "facing": "right",
-      "mouth": 3,
-      "on": "sound-cry#face"
+      "at": 0.42,
+      "mouth": 1,
+      "row": "closeup"
     }
-  ],
-  "needs": [
-    "prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank)"
   ]
 }

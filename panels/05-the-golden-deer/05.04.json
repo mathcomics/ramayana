@@ -1,37 +1,19 @@
 {
-  "scene": "Surpanakha comes before the throne, close to the viewer, waist up, facing him",
-  "tall": 1,
+  "scene": "Ravana alone, closer: the king of Lanka",
+  "tall": 0.6,
   "ground": "geru",
   "figures": [
     {
-      "at": 0.96,
-      "character": "vibhishana",
-      "facing": "left",
-      "mouth": 2,
-      "pose": "step-hang",
-      "row": -0.1
-    },
-    {
       "prop": "throne-lanka",
-      "at": 0.58,
-      "row": -0.1,
-      "facing": "left"
+      "at": 0.5,
+      "row": "closeup"
     },
     {
       "character": "ravana",
       "pose": "chair-armrest",
+      "view": "front",
       "on": "throne-lanka",
-      "mouth": 1,
-      "turn": 30,
-      "view": "front"
-    },
-    {
-      "character": "surpanakha",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.16,
-      "mouth": 2,
-      "row": -0.1
+      "mouth": 1
     }
   ]
 }

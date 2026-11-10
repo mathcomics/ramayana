@@ -56,14 +56,14 @@ chapter). Moments with no pose come first.
 | stand-embrace | both arms forward and bent at chest height, to fold around another figure | 3 | stand with both arms forward (shoulder ~70, elbow ~70) |
 | lie-back | lying flat on the back, arms at the sides or one across the chest (sleep, death) | 3 | lie-front |
 | sit-ride | seated astride or on a chariot, legs down, arms forward holding reins or a bow | 1 | the Pushpaka: stand or sit on the chariot prop (on: chariot) |
-| stand-carry-arm | upright, one arm clamped round a figure carried against the chest, legs together (lifted into the air it is Ravana flying off with Sita) | 6 | step-hang lifted into the sky, the legs closed and the toes pointed (right/left.leg.hip 12/-2, knee 8/0, ankle -45) and the far arm across her (shoulder 70, elbow 40); she arch-overhead in view front about 1.8 head-units ahead at chest height, listed before him so his arm crosses in front of her (06.02-06.05) |
+| stand-carry-arm | upright, one arm clamped round a figure carried against the chest, legs together (lifted into the air it is Ravana flying off with Sita) | 6 | step-hang lifted into the sky, the legs closed and the toes pointed (right/left.leg.hip 12/-2, knee 8/0, ankle -45) and the far arm across her (shoulder 70, elbow 40); she arch-overhead in view front about 1.8 head-units ahead at chest height, listed before him so his arm crosses in front of her (06.02-06.06) |
 | crouch-ready | deep crouch, knees bent, body gathered, arms back, about to leap | 7 | bend-low (reads as searching the ground, not gathering: 08.05) |
 | sit-hand-on-head | sitting, one hand on the head (despair, heavy thought) | 7 | sit with the right arm adjusted (shoulder ~170, elbow ~140) |
 | stand-clasp-hands | two figures standing, right hands clasped (alliance, friendship) | 17 | stand with the right arm forward (07.05) |
-| stand-arms-out | standing, both arms thrown out, palms open (wailing, a complaint, grief) | 5 | stand with both arms adjusted (05.05) |
+| stand-arms-out | standing, both arms thrown out, palms open (wailing, a complaint, grief) | 5 | stand with both arms adjusted (05.06) |
 | sit-slump | sitting on the ground, knees up, shoulders fallen, head low (hopeless) | 7 | sit with spine.chest 30-35, which reads as collapsing (08.04; problem-poses) |
 | sit-carried | carried on a shoulder or back: seated high, legs hanging, one hand holding on | 7 | sit with lift over the carrier, placed so the carrier's head stays visible (07.04) |
-| walk-hand-on-head | walking with one hand pressed to the head (searching in grief) | 21 | walk with the right arm adjusted (06.09) |
+| walk-hand-on-head | walking with one hand pressed to the head (searching in grief) | 21 | walk with the right arm adjusted (06.10) |
 
 ## Asked for by panels
 
@@ -72,12 +72,13 @@ chapter). Moments with no pose come first.
 - 03.05: sit-cross-legged (sage teaching, raised hand)
 - 03.06: stand-palms-joined
 - 04.12: stand-embrace
-- 05.10: run-bow (running with the bow drawn)
+- 05.11: run-bow (running with the bow drawn)
 - 06.02: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now
-- 06.03: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
+- 06.03: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now
 - 06.04: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
 - 06.05: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
-- 06.08: stand-arms-out (grief, both arms thrown open): step-hang with both arms adjusted (as 05.05) for now
+- 06.06: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
+- 06.09: stand-arms-out (grief, both arms thrown open): step-hang with both arms adjusted (as 05.06) for now
 - 07.13: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now
 - 08.02: stand-chest-beat (fists to the chest, challenge): stepwide with bent arms for now
 - 08.06: grapple (two bodies locked): lunge and lean for now

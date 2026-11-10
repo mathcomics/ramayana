@@ -1,34 +1,38 @@
 {
-  "scene": "Ravana rises from the throne in rage",
+  "scene": "She shows him her face and wails her complaint",
   "tall": 1,
   "ground": "geru",
   "figures": [
     {
       "prop": "throne-lanka",
-      "at": 0.74,
+      "at": 0.76,
       "row": "mid",
       "facing": "left"
     },
     {
-      "character": "surpanakha",
-      "pose": "kneel-handslow",
-      "facing": "right",
-      "at": 0.18,
+      "character": "ravana",
+      "pose": "chair-armrest",
+      "facing": "left",
+      "on": "throne-lanka",
       "mouth": 2,
       "adjust": {
-        "spine.chest": 25,
-        "spine.head": -25
+        "spine.chest": 10
       }
     },
     {
-      "character": "ravana",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.48,
+      "character": "surpanakha",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.3,
       "mouth": 3,
-      "scale": 1.05,
       "adjust": {
-        "spine.head": 10
+        "spine.head": -10,
+        "right.arm.shoulder": 115,
+        "right.arm.elbow": 20,
+        "right.arm.hand": "out",
+        "left.arm.shoulder": 50,
+        "left.arm.elbow": 15,
+        "left.arm.hand": "out"
       }
     }
   ]

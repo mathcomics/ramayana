@@ -1,37 +1,37 @@
 {
-  "scene": "Rama kneels by the dying Jatayu; Jatayu lifts his one wing, pointing south",
+  "scene": "Rama runs searching among the trees; Lakshman comes behind",
   "tall": 1,
   "ground": "sand",
   "figures": [
     {
-      "prop": "vulture-lie",
-      "at": 0.76
+      "prop": "tree",
+      "id": "tree1",
+      "at": 0.06,
+      "row": "back"
+    },
+    {
+      "prop": "tree",
+      "id": "tree2",
+      "at": 0.84,
+      "row": "back"
     },
     {
       "character": "lakshman",
-      "pose": "step-hang",
+      "pose": "pass-swing",
       "facing": "right",
-      "at": 0.14,
+      "at": 0.24,
       "row": "mid",
-      "mouth": 1,
-      "adjust": {
-        "spine.head": 15
-      }
+      "mouth": 1
     },
     {
       "character": "rama",
-      "pose": "kneel-handslow",
+      "pose": "run-pump",
       "facing": "right",
-      "at": 0.42,
-      "mouth": 2,
-      "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 20,
-        "spine.head": 18
-      }
+      "at": 0.56,
+      "mouth": 3
     }
   ],
   "needs": [
-    "prop: vulture-lie (lying, the one remaining wing raised and pointing)"
+    "prop: tree"
   ]
 }

@@ -16,6 +16,6 @@ The rework against the v0.9 brief (10 panels, no chariot) adds one image
 ahead of the brief's first beat: **Jatayu alone on his bluff, Sita's cry
 arriving as the `sound-cry` burst with her face in it** (06.01). It is
 the chapter's location opener and it carries the travelling-cry motif on
-from 05.12–05.14 — the cry is now how Jatayu knows, which is what sends
+from 05.13–05.15 — the cry is now how Jatayu knows, which is what sends
 him up. Worth a line in beat 1 of chapter 6, and in the
 continuity-and-motifs list: the cry travels in 5 *and* in 6.

@@ -1,42 +1,36 @@
 {
-  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
-  "tall": 1.5,
-  "ground": "sand",
+  "scene": "From above: the line closed round the hut; Lakshman gone into the trees",
+  "tall": 1,
+  "ground": "sage",
   "figures": [
     {
-      "character": "sita",
-      "pose": "step-point",
-      "facing": "right",
-      "at": 0.3,
-      "mouth": 2,
-      "hands": {
-        "right": "in"
-      },
-      "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 30
-      }
+      "prop": "trees-top",
+      "id": "trees-nw",
+      "at": 0.257,
+      "scale": 0.4,
+      "row": 0.71
     },
     {
-      "character": "sage1",
-      "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.72,
-      "id": "ascetic",
-      "mouth": 1,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club",
-          "angle": 175
-        },
-        "right.arm.shoulder": 20,
-        "right.arm.elbow": 40
-      }
+      "prop": "line-top",
+      "at": 0.505,
+      "scale": 0.55,
+      "row": 0.46
+    },
+    {
+      "prop": "hut-top",
+      "at": 0.505,
+      "scale": 0.4,
+      "row": 0.42
+    },
+    {
+      "prop": "trees-top",
+      "id": "trees-se",
+      "at": 0.743,
+      "scale": 0.4
     }
   ],
   "needs": [
-    "prop: staff and pot (held)",
-    "prop: fruit",
-    "Ravana's ascetic disguise (sage1 for now)"
+    "prop: line-top (the line as a closed ring round the hut, seen from above)",
+    "prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving"
   ]
 }

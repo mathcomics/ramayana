@@ -1,39 +1,37 @@
 {
-  "scene": "She shows him her face and wails her complaint",
+  "scene": "Surpanakha comes before the throne, close to the viewer, waist up, facing him",
   "tall": 1,
   "ground": "geru",
   "figures": [
     {
+      "at": 0.96,
+      "character": "vibhishana",
+      "facing": "left",
+      "mouth": 2,
+      "pose": "step-hang",
+      "row": -0.1
+    },
+    {
       "prop": "throne-lanka",
-      "at": 0.76,
-      "row": "mid",
+      "at": 0.58,
+      "row": -0.1,
       "facing": "left"
     },
     {
       "character": "ravana",
       "pose": "chair-armrest",
-      "facing": "left",
       "on": "throne-lanka",
-      "mouth": 2,
-      "adjust": {
-        "spine.chest": 10
-      }
+      "mouth": 1,
+      "turn": 30,
+      "view": "front"
     },
     {
       "character": "surpanakha",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.3,
-      "mouth": 3,
-      "adjust": {
-        "spine.head": -10,
-        "right.arm.shoulder": 115,
-        "right.arm.elbow": 20,
-        "right.arm.hand": "out",
-        "left.arm.shoulder": 50,
-        "left.arm.elbow": 15,
-        "left.arm.hand": "out"
-      }
+      "at": 0.16,
+      "mouth": 2,
+      "row": -0.1
     }
   ]
 }

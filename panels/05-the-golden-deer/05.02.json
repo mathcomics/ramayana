@@ -1,20 +1,17 @@
 {
-  "scene": "Lanka: Ravana on his throne, from the front, far",
+  "scene": "Opening: Lanka, the golden city on its island, far across the sea",
   "tall": 1,
-  "ground": "geru",
+  "ground": "sea",
+  "sky": "mist",
   "figures": [
     {
-      "prop": "throne-lanka",
-      "at": 0.5,
-      "row": "mid"
+      "prop": "lanka-island",
+      "at": 0.598,
+      "row": "horizon"
     },
     {
-      "character": "ravana",
-      "pose": "chair-armrest",
-      "view": "front",
-      "on": "throne-lanka",
-      "mouth": 1,
-      "scale": 1.05
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand"
     }
   ]
 }

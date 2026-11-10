@@ -1,62 +1,90 @@
 {
-  "scene": "A monkey picks the bundle up; the others crowd round it",
-  "tall": 1,
+  "scene": "Ravana passes high over the hill; Sita lets the bundle of jewels fall; the monkeys on the rocks look up",
+  "tall": 1.5,
   "ground": "sand",
+  "sky": "sky-blue",
+  "horizon": 0.34,
   "figures": [
     {
+      "character": "sita",
+      "pose": "arch-overhead",
+      "view": "front",
+      "facing": "right",
+      "at": 0.63,
+      "row": 0.48,
+      "mouth": 3,
+      "scale": 0.44
+    },
+    {
+      "character": "ravana",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.52,
+      "row": 0.46,
+      "mouth": 2,
+      "scale": 0.48,
+      "adjust": {
+        "left.arm.shoulder": 70,
+        "left.arm.elbow": 40,
+        "right.arm.shoulder": -50,
+        "right.arm.elbow": 8,
+        "right.leg.hip": 12,
+        "right.leg.knee": 8,
+        "right.leg.ankle": -45,
+        "left.leg.hip": -2,
+        "left.leg.knee": 0,
+        "left.leg.ankle": -45,
+        "spine.head": 14
+      }
+    },
+    {
+      "prop": "jewels",
+      "at": 0.73,
+      "row": 0.49,
+      "scale": 1.03
+    },
+    {
       "prop": "ledge",
-      "at": 0.9,
-      "row": "mid",
-      "scale": 0.9
+      "at": 0.46,
+      "scale": 1.1
     },
     {
       "character": "monkey1",
       "id": "m1",
       "pose": "stand-pointup",
       "facing": "right",
-      "at": 0.26,
-      "row": "mid",
-      "mouth": 2,
+      "on": "ledge#stand-left",
+      "scale": 0.45,
+      "mouth": 3,
       "adjust": {
-        "spine.head": -18
+        "spine.head": -30
       }
     },
     {
       "character": "sugriva",
       "pose": "step-akimbo",
       "facing": "right",
-      "at": 0.14,
+      "on": "ledge#stand",
+      "scale": 0.45,
       "mouth": 2,
       "adjust": {
-        "spine.head": 18
-      }
-    },
-    {
-      "character": "monkey1",
-      "id": "m2",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.82,
-      "cloth": "red",
-      "mouth": 2,
-      "adjust": {
-        "spine.head": 20,
-        "right.arm.shoulder": 55
+        "spine.head": -30
       }
     },
     {
       "character": "hanuman",
-      "pose": "bend-reach",
+      "pose": "stepback-armsout",
       "facing": "right",
-      "at": 0.44,
-      "mouth": 2
-    },
-    {
-      "prop": "jewels",
-      "at": 0.6
+      "on": "ledge#stand-right",
+      "scale": 0.45,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": -20
+      }
     }
   ],
   "needs": [
-    "prop: jewels (the bundle)"
+    "prop: jewels (the bundle)",
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
   ]
 }

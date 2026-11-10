@@ -33,7 +33,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   no action. Reuse an earlier opener when the story returns to a place
   (the forest hut 03.01 → 04.01; Lanka 05.01 → chapter 10). A scene
   change **within** a chapter gets the same beat, smaller (1): Lanka →
-  forest in 05.07 shows the hut again before the deer appears (artist,
+  forest in 05.08 shows the hut again before the deer appears (artist,
   2026-11-07).
 - **Height** (`tall`): 1 and 0.6 mostly (artist, 2026-11-07); 1.5 **only when the
   height is used in a particular way** — a fall or flight, looking far up
@@ -46,7 +46,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   anything in the air or seen from above (`panels.md`, Rows).
 - **Backgrounds are light** (artist, 2026-11-08): `off-white` (light
   beige), `light-grey`, even `white`. Green grounds only for top views
-  (03.01) and the land strip under a `sky` horizon (05.10's dry-grass);
+  (03.01) and the land strip under a `sky` horizon (05.11's dry-grass);
   `dusty-pink` never. Panels still on dusty-pink or green swap in the
   revisit pass.
 - **Poses**: legs first, arms from the verb; head direction (`turn`) and
@@ -75,45 +75,45 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   tell it?
 - **Transformations fail the wordless test too** (artist, 2026-11-07): a
   creature becoming someone else reads as a new character, so it is cut —
-  the shot deer just dies (05.12). A disguise thrown off is different:
-  the same figure, revealed (05.19).
+  the shot deer just dies (05.13). A disguise thrown off is different:
+  the same figure, revealed (05.20).
 - **Sound travels as a picture**: a cry is the `sound-cry` burst with the
   shouter's face on its `face` anchor (`"on": "sound-cry#face"`),
   repeated across consecutive panels as it crosses the land — from
-  the dying deer (05.12), over the forest (05.13), to the hut (05.14).
+  the dying deer (05.13), over the forest (05.14), to the hut (05.15).
   The same device carries any far-off sound; its tail points back the way
   the sound came.
 - **Action panels need action poses** (artist: the abduction was "too low
   action"): two figures standing near each other is a conversation, not a
   struggle. Use the falling, lunging and leaning poses (fallback-flung, lunge,
   leanback-armsback), opposed diagonals, a scale step for menace, mouth 3
-  (05.19-05.21).
+  (05.20-05.22).
 - **And the reverse — pace comes from the mood, not the errand** (artist,
   2026-11-08, 09.02): a search party *sets off walking*; running and
   leaping poses read as panic (11.08's rout). Walk/pass poses and quiet
   mouths unless something is chasing or burning.
 - **Rows are the zoom**: consecutive panels step from `front` to
-  `closeup` like a camera move (05.02 → 05.03). In a closeup, the second
-  party of a dialogue stands lower and smaller behind for depth (05.04:
+  `closeup` like a camera move (05.03 → 05.04). In a closeup, the second
+  party of a dialogue stands lower and smaller behind for depth (05.05:
   Ravana's throne on a negative numeric row); at the same size the two
   kill the depth.
 - **Aim the gazes**: `spine.head` adjust, + looks down, − looks up. A
-  kneeling figure looks up at the one standing over them (05.06); seated
+  kneeling figure looks up at the one standing over them (05.07); seated
   and kneeling figures otherwise stare level through their partner's
   waist.
 - **A raised arm hides the face**: a gesture toward the own face (showing
   a wound) reads as hiding it; throw the arms out instead and leave the
-  face clear (05.05).
+  face clear (05.06).
 - **Not every character in every panel** (artist, 2026-11-07, golden
   deer): once the geography is set, show only whose beat it is. A pointed-at
-  target can stay off-panel (05.08: Sita points past the edge, the deer
+  target can stay off-panel (05.09: Sita points past the edge, the deer
   is not shown); more, smaller panels beat one crowded one, as long as
   each panel's transition from the last is clear.
 - **0.6 strips for reactions and partial views**: `closeup` in a 0.6
-  panel gives waist-up figures that fill the strip (05.09, 05.11); use
+  panel gives waist-up figures that fill the strip (05.10, 05.12); use
   them often.
 - **A chase is one distance**: put the chaser on the horizon row with the
-  chased (05.09), not big in front running parallel to a far-off quarry.
+  chased (05.10), not big in front running parallel to a far-off quarry.
 - **No far props in a `closeup` strip**: a prop behind closeup figures
   shows only in part — the Ayodhya throne reduced to its red disc, a
   stray ball (02.04 rework). Let the previous panel carry the geography.
@@ -138,12 +138,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **The throne goes in the `mid` row**, a row behind the people in front:
   in the front row it is as tall as the men and runs off the edge.
 - **A figure in the air needs its legs closed and its toes pointed**
-  (06.02–06.05): `step-hang` lifted off the ground is a man *walking on
+  (06.02–06.06): `step-hang` lifted off the ground is a man *walking on
   nothing*, because the base is a stride. Bring the legs together and
   point the feet with `adjust` — `right.leg.hip` 12, `knee` 8, `ankle`
   −45; `left.leg.hip` −2, `knee` 0, `ankle` −45 — and the same figure
   reads as flying.
-- **Carrying a figure takes three things** (06.02–06.05): the carried one
+- **Carrying a figure takes three things** (06.02–06.06): the carried one
   about 1.8 head-units ahead of the carrier at his chest height; the
   carrier's far arm across her (`shoulder` 70, `elbow` 40); and the
   carrier listed **after** her, so his arm draws in front of her body.
@@ -153,9 +153,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   behind the head and vanish into the hair. The carried Sita is `view:
   "front"` — the arms read, and the open mouth faces the reader (06.02).
 - **Mind what a swung weapon crosses**: a sword cut toward the side the
-  carried figure is on goes straight through her (06.04 first try). Use
-  the wind-up (blade back over the shoulder, 06.03) or the follow-through
-  (arm up and forward, blade clear of everyone, 06.04); the severed wing
+  carried figure is on goes straight through her (06.05 first try). Use
+  the wind-up (blade back over the shoulder, 06.04) or the follow-through
+  (arm up and forward, blade clear of everyone, 06.05); the severed wing
   and the falling bird tell the rest.
 - **Skin over skin hides a face**: an arm of the same skin colour drawn
   across a face merges with it, and the face reads as distorted (an
@@ -166,7 +166,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Figures `on` a prop's anchor take the prop's scale**: three monkeys
   on `ledge#stand-left/#stand/#stand-right` at the ledge's own scale fill
   the panel. Scale the prop up and the figures down (0.45) for people on
-  a rock seen from a distance (06.05).
+  a rock seen from a distance (06.06).
 - **Creatures have their own sizes**: golden deer 4.6 head-units to the
   antler tips; Jatayu 9 wingspan flying, 5 standing, `scale` 0.5 perched in
   a tree, 0.6–0.8 in the air beside a flying figure.
@@ -185,7 +185,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   transformation. Always the `surpanakha` character, cloth `red-check`.
   She first watches the three from behind a tree (04.02).
 - **Surpanakha before Ravana** opens the golden deer chapter, after the
-  Lanka opener (05.02).
+  Lanka opener (05.03).
 - **Khara** = `raxas_m1` (id `khara`, cloth `red-diamond`).
   **Maricha** = `raxas_m1` (id `maricha`, cloth `white`).
   **The ascetic** (Ravana disguised) = `sage1` (id `ascetic`) until

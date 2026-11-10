@@ -1,40 +1,27 @@
 {
-  "scene": "At the empty hut, Rama throws his arms out; Lakshman behind him",
+  "scene": "Back in the forest: the hut from above (as 05.08), nobody there",
   "tall": 1,
-  "ground": "sand",
+  "ground": "sage",
   "figures": [
     {
-      "prop": "hut",
-      "at": 0.84,
-      "row": "back"
+      "prop": "trees-top",
+      "id": "trees-nw",
+      "at": 0.257,
+      "scale": 0.4,
+      "row": 0.71
     },
     {
-      "character": "lakshman",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.18,
-      "row": "mid",
-      "mouth": 1
+      "prop": "hut-top",
+      "at": 0.505,
+      "scale": 0.4,
+      "row": 0.42
     },
     {
-      "character": "rama",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.46,
-      "mouth": 3,
-      "adjust": {
-        "spine.head": -14,
-        "right.arm.shoulder": 115,
-        "right.arm.elbow": 20,
-        "right.arm.hand": "out",
-        "left.arm.shoulder": 50,
-        "left.arm.elbow": 15,
-        "left.arm.hand": "out"
-      }
+      "prop": "trees-top",
+      "id": "trees-se",
+      "at": 0.743,
+      "scale": 0.4
     }
   ],
-  "needs": [
-    "prop: hut",
-    "pose: stand-arms-out (grief, both arms thrown open): step-hang with both arms adjusted (as 05.05) for now"
-  ]
+  "needs": []
 }

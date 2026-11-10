@@ -1,36 +1,31 @@
 {
-  "scene": "From above: the line closed round the hut; Lakshman gone into the trees",
-  "tall": 1,
-  "ground": "sage",
+  "scene": "Before he goes, Lakshman bends and draws a line round Sita",
+  "tall": 0.6,
+  "ground": "white",
   "figures": [
     {
-      "prop": "trees-top",
-      "id": "trees-nw",
-      "at": 0.257,
-      "scale": 0.4,
-      "row": 0.71
+      "prop": "line",
+      "at": 0.32
     },
     {
-      "prop": "line-top",
-      "at": 0.505,
-      "scale": 0.55,
-      "row": 0.46
+      "character": "lakshman",
+      "pose": "bend-reach",
+      "facing": "left",
+      "at": 0.8,
+      "mouth": 1
     },
     {
-      "prop": "hut-top",
-      "at": 0.505,
-      "scale": 0.4,
-      "row": 0.42
-    },
-    {
-      "prop": "trees-top",
-      "id": "trees-se",
-      "at": 0.743,
-      "scale": 0.4
+      "character": "sita",
+      "pose": "step-hang",
+      "at": 0.28,
+      "mouth": 1,
+      "adjust": {
+        "spine.head": 15
+      }
     }
   ],
   "needs": [
-    "prop: line-top (the line as a closed ring round the hut, seen from above)",
-    "prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving"
+    "prop: line (scratched in the earth, under his hand)",
+    "effect: arrow or stick in Lakshman's drawing hand"
   ]
 }

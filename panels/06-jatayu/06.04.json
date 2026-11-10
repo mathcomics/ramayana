@@ -1,5 +1,5 @@
 {
-  "scene": "The sword comes down; the cut wing goes one way and Jatayu drops the other",
+  "scene": "Jatayu's talons reach Ravana; Ravana swings his sword back over his shoulder",
   "tall": 1.5,
   "ground": "sky-blue",
   "figures": [
@@ -8,26 +8,25 @@
       "pose": "arch-overhead",
       "view": "front",
       "facing": "right",
-      "at": 0.43,
-      "row": 0.51,
+      "at": 0.38,
       "mouth": 3,
-      "scale": 0.65
+      "scale": 0.88,
+      "row": "mid"
     },
     {
       "character": "ravana",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.26,
-      "row": 0.47,
+      "at": 0.22,
       "mouth": 3,
       "adjust": {
         "left.arm.shoulder": 70,
         "left.arm.elbow": 40,
-        "right.arm.shoulder": 112,
-        "right.arm.elbow": 6,
+        "right.arm.shoulder": 138,
+        "right.arm.elbow": 72,
         "right.arm.prop": {
           "kind": "sword",
-          "angle": 15
+          "angle": 80
         },
         "right.leg.hip": 12,
         "right.leg.knee": 8,
@@ -35,24 +34,20 @@
         "left.leg.hip": -2,
         "left.leg.knee": 0,
         "left.leg.ankle": -45,
-        "spine.head": 26
+        "spine.head": 10
       },
-      "scale": 0.74
+      "row": "mid",
+      "scale": 0.88
     },
     {
-      "prop": "vulture-wing",
-      "at": 0.84,
-      "scale": 0.38,
-      "row": 0.24
-    },
-    {
-      "prop": "vulture-fall",
-      "at": 0.5,
-      "scale": 0.55
+      "prop": "vulture-swoop",
+      "at": 0.76,
+      "facing": "left",
+      "scale": 0.6,
+      "row": 0.6
     }
   ],
   "needs": [
-    "prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now",
     "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
   ]
 }
