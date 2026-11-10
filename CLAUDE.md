@@ -91,8 +91,9 @@ Saved poses are reviewed and then merged into `data/poses.json`.
 
 Panel lab (published artifact, drafts in its database, collection
 `panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
-Drafts are merged into `panels/` when asked; republish the lab after
-renderer or panel changes.
+Drafts are merged into `panels/` when asked; once committed, delete the
+merged drafts (a draft overrides the repo panel in the lab) unless saved
+again since; republish the lab after renderer or panel changes.
 
 ## Where the work stands
 

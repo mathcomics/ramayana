@@ -230,6 +230,13 @@ issues.
 drafts show with a dot and survive reloads. Claude merges drafts into
 `panels/` when asked, as with poses. Background SVGs come from the repo.
 
+A draft always overrides the repo panel in the lab, so a stale draft
+hides every later repo change to that panel. **After a merge is
+committed, delete each merged draft** — re-read it first and delete it
+only if it still matches what was committed (the artist may have saved
+it again since; a newer draft is kept). Then rebuild and republish the
+lab.
+
 ## Publishing (Cloudflare Pages)
 
 One site, private, published by hand. The Pages project `ramayana` is
