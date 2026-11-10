@@ -5,15 +5,13 @@
   "figures": [
     {
       "prop": "throne-ayodhya",
-      "at": 0.5,
-      "scale": 1.2
+      "at": 0.5
     },
     {
       "character": "dasharatha",
       "pose": "chair-armrest",
       "view": "front",
       "on": "throne-ayodhya",
-      "scale": 1.2,
       "mouth": 1
     }
   ]

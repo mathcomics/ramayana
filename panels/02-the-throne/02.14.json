@@ -19,17 +19,17 @@
       "character": "sita",
       "pose": "run-pump",
       "view": "front",
-      "at": 0.5,
+      "at": 0.6,
       "mouth": 1
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "view": "front",
-      "at": 0.3,
-      "scale": 1.5,
+      "at": 0.5,
       "turn": -120,
-      "mouth": 1
+      "mouth": 1,
+      "row": "closeup"
     }
   ]
 }
