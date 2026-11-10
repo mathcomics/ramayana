@@ -1,6 +1,6 @@
 {
   "scene": "Jatayu's talons reach Ravana; Ravana swings his sword back over his shoulder",
-  "tall": 1,
+  "tall": 1.5,
   "ground": "sky-blue",
   "figures": [
     {
@@ -11,7 +11,7 @@
       "at": 0.38,
       "mouth": 3,
       "scale": 0.88,
-      "row": 0.25
+      "row": "mid"
     },
     {
       "character": "ravana",
@@ -36,14 +36,15 @@
         "left.leg.ankle": -45,
         "spine.head": 10
       },
-      "row": 0.17
+      "row": "mid",
+      "scale": 0.88
     },
     {
       "prop": "vulture-swoop",
-      "at": 0.66,
+      "at": 0.76,
       "facing": "left",
-      "scale": 0.66,
-      "row": 0.1
+      "scale": 0.6,
+      "row": 0.6
     }
   ],
   "needs": [
