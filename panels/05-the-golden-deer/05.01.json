@@ -11,8 +11,7 @@
     },
     {
       "prop": "palace-lanka",
-      "on": "lanka-island#stand",
-      "scale": 0.5
+      "on": "lanka-island#stand"
     }
   ]
 }

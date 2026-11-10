@@ -1,26 +1,28 @@
 {
   "scene": "The cry reaches the hut: Sita starts up; Lakshman stands unmoved",
   "tall": 1,
-  "ground": "sand",
+  "ground": "light-grey",
   "figures": [
     {
-      "prop": "hut",
-      "at": 0.82,
-      "row": "back"
+      "prop": "sound-cry",
+      "at": 0.62,
+      "row": 0.79
     },
     {
-      "prop": "sound-cry",
-      "at": 0.12,
-      "row": 0.39
+      "character": "rama",
+      "facing": "right",
+      "mouth": 3,
+      "on": "sound-cry#face",
+      "pose": "step-hang"
     },
     {
       "character": "sita",
       "pose": "step-hang",
-      "facing": "left",
-      "at": 0.42,
+      "facing": "right",
+      "at": 0.22,
       "mouth": 3,
       "adjust": {
-        "spine.head": -8,
+        "spine.head": -28,
         "right.arm.shoulder": 95,
         "right.arm.elbow": 55,
         "right.arm.hand": "out"
@@ -29,7 +31,7 @@
     {
       "character": "lakshman",
       "pose": "step-hang",
-      "facing": "left",
+      "facing": "right",
       "at": 0.66,
       "mouth": 1
     }

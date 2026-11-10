@@ -5,21 +5,18 @@
   "figures": [
     {
       "character": "sita",
-      "pose": "fallback-flung",
-      "facing": "right",
-      "at": 0.29,
-      "mouth": 3
+      "pose": "arch-overhead",
+      "facing": "left",
+      "at": 0.49,
+      "mouth": 3,
+      "row": 0.3
     },
     {
       "character": "ravana",
       "pose": "kneeup-armsup",
       "facing": "left",
       "at": 0.66,
-      "mouth": 3,
-      "scale": 1.15,
-      "adjust": {
-        "spine.head": 12
-      }
+      "mouth": 3
     }
   ],
   "needs": []

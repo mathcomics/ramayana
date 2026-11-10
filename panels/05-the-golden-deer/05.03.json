@@ -6,7 +6,6 @@
     {
       "prop": "throne-lanka",
       "at": 0.5,
-      "scale": 1.1,
       "row": "closeup"
     },
     {
@@ -14,7 +13,6 @@
       "pose": "chair-armrest",
       "view": "front",
       "on": "throne-lanka",
-      "scale": 1.1,
       "mouth": 1
     }
   ]

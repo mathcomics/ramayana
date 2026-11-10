@@ -4,29 +4,34 @@
   "ground": "geru",
   "figures": [
     {
-      "prop": "throne-lanka",
-      "at": 0.78,
-      "row": -0.43,
+      "at": 0.96,
+      "character": "vibhishana",
       "facing": "left",
-      "scale": 1.16
+      "mouth": 2,
+      "pose": "step-hang",
+      "row": -0.1
+    },
+    {
+      "prop": "throne-lanka",
+      "at": 0.58,
+      "row": -0.1,
+      "facing": "left"
     },
     {
       "character": "ravana",
       "pose": "chair-armrest",
-      "facing": "left",
       "on": "throne-lanka",
-      "mouth": 1
+      "mouth": 1,
+      "turn": 30,
+      "view": "front"
     },
     {
       "character": "surpanakha",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.26,
+      "at": 0.16,
       "mouth": 2,
-      "adjust": {
-        "spine.head": -12
-      },
-      "row": "closeup"
+      "row": -0.1
     }
   ]
 }

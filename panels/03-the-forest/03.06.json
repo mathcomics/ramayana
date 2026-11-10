@@ -1,27 +1,30 @@
 {
   "scene": "The vulture Jatayu lands on a branch; Rama greets him with joined palms",
-  "tall": 1.5,
-  "ground": "sand",
+  "tall": 1,
+  "ground": "light-grey",
   "figures": [
     {
-      "prop": "tree",
-      "at": 0.8
+      "prop": "ledge-jatayu",
+      "at": 0.74,
+      "row": "mid"
     },
     {
       "prop": "vulture-stand",
       "at": 0.74,
-      "scale": 0.5,
-      "row": 0.35
+      "facing": "left",
+      "on": "ledge-jatayu"
     },
     {
       "character": "lakshman",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.18,
+      "at": 0.3,
       "mouth": 1,
       "adjust": {
-        "spine.head": -15
-      }
+        "spine.head": -25
+      },
+      "row": "mid",
+      "scale": 0.7
     },
     {
       "character": "rama",
@@ -29,20 +32,11 @@
       "facing": "right",
       "at": 0.42,
       "mouth": 2,
-      "turn": 0,
-      "hands": {
-        "right": "in",
-        "left": "in"
-      },
       "adjust": {
-        "spine.head": -20,
-        "right.arm.shoulder": 40,
-        "right.arm.elbow": 115,
-        "right.arm.out": 0,
-        "left.arm.shoulder": 40,
-        "left.arm.elbow": 115,
-        "left.arm.out": 0
-      }
+        "spine.head": -25
+      },
+      "row": "mid",
+      "scale": 0.7
     }
   ],
   "needs": [
