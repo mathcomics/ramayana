@@ -93,6 +93,7 @@ details summary { cursor: pointer; color: var(--muted); }
           <button class="btn" id="saveBtn" disabled>Save draft</button>
           <button class="btn ghost" id="revertBtn">Revert to repo</button>
           <button class="btn ghost" id="copyBtn">Copy JSON</button>
+          <button class="btn ghost" id="insertBtn" title="A copy of this panel, placed right after it">Insert after</button>
         </div>
         <div class="status" id="status" role="status"></div>
         <ul class="issues" id="issues"></ul>
@@ -116,19 +117,40 @@ const SECTIONS = /*__SECTIONS__*/;
 (() => {
   const $ = (id) => document.getElementById(id);
   const slug = (id) => String(id).replace(/[^\w-]/g, '-');
-  const state = { section: 0, panelId: null, edits: {}, drafts: {}, bad: false };
+  // added: panels inserted here and not saved yet (id -> section name)
+  const state = { section: 0, panelId: null, edits: {}, drafts: {}, added: {}, bad: false };
   let db = null;
   try { const v = JSON.parse(localStorage.getItem('panellab') || '{}'); state.section = v.section || 0; state.panelId = v.panelId || null; } catch (e) {}
   const remember = () => { try { localStorage.setItem('panellab', JSON.stringify({ section: state.section, panelId: state.panelId })); } catch (e) {} };
   const byNum = (a, b) => String(a.id).localeCompare(String(b.id), 'en', { numeric: true });
 
   // A section's panels: repo panels, replaced by saved drafts, plus
-  // draft-only panels; unsaved edits on top. Each item: { id, def }.
+  // draft-only panels, plus panels inserted and not saved yet; unsaved
+  // edits on top. Each item: { id, def }.
   function sectionPanels(si) {
     const sec = SECTIONS[si];
     const list = sec.panels.map((p) => ({ id: p.id, def: state.drafts[p.id]?.panel || p.def }));
     for (const [id, d] of Object.entries(state.drafts)) if (d.section === sec.name && !sec.panels.some((p) => p.id === id)) list.push({ id, def: d.panel });
-    return list.map((p) => ({ id: p.id, def: state.edits[p.id] || p.def })).sort(byNum);
+    for (const [id, name] of Object.entries(state.added)) if (name === sec.name && !list.some((p) => p.id === id)) list.push({ id, def: state.edits[id] });
+    return list.filter((p) => p.def).map((p) => ({ id: p.id, def: state.edits[p.id] || p.def })).sort(byNum);
+  }
+
+  // The id for a panel inserted after `x`: it must sort between x and the
+  // panel after it, so nothing is renumbered (docs/design/panels.md, Ids).
+  // After the last panel the next number (05.22 -> 05.23); otherwise a
+  // letter: 05.01 -> 05.01a, 05.01a -> 05.01b, and 05.01aa between
+  // 05.01a and 05.01b. Null when nothing fits (05.01 directly before
+  // 05.01a): insert after the other panel, or renumber the chapter.
+  function idAfter(list, x) {
+    const i = list.findIndex((p) => p.id === x), next = list[i + 1]?.id;
+    const taken = new Set([...list.map((p) => p.id), ...Object.keys(state.drafts), ...SECTIONS.flatMap((s) => s.panels.map((p) => p.id))]);
+    const cmp = (a, b) => String(a).localeCompare(String(b), 'en', { numeric: true });
+    const cands = [];
+    const m = x.match(/^(\d+)\.(\d+)$/);
+    if (!next && m) cands.push(m[1] + '.' + String(Number(m[2]) + 1).padStart(m[2].length, '0'));
+    if (/[a-y]$/.test(x)) cands.push(x.slice(0, -1) + String.fromCharCode(x.charCodeAt(x.length - 1) + 1));
+    cands.push(x + 'a');
+    return cands.find((c) => !taken.has(c) && cmp(x, c) < 0 && (!next || cmp(c, next) < 0)) || null;
   }
   const shown = (id) => sectionPanels(state.section).find((p) => p.id === id);
 
@@ -175,8 +197,21 @@ const SECTIONS = /*__SECTIONS__*/;
     const id = state.panelId;
     $('saveBtn').disabled = !db || !state.edits[id] || state.bad;
     $('revertBtn').disabled = !state.edits[id] && !state.drafts[id];
-    $('revertBtn').textContent = state.drafts[id] && !state.edits[id] ? 'Delete draft' : 'Revert to repo';
+    $('revertBtn').textContent = state.added[id] && !state.drafts[id] ? 'Discard new panel'
+      : state.drafts[id] && !state.edits[id] ? 'Delete draft' : 'Revert to repo';
+    $('insertBtn').disabled = !id || state.bad;
   }
+
+  $('insertBtn').addEventListener('click', () => {
+    const list = sectionPanels(state.section), from = state.panelId, p = shown(from);
+    if (!p) return;
+    const id = idAfter(list, from);
+    if (!id) { setStatus(`No id fits right after ${from}. Insert after the panel that follows it, or ask Claude to renumber the chapter.`); return; }
+    state.added[id] = SECTIONS[state.section].name;
+    state.edits[id] = JSON.parse(JSON.stringify(p.def));
+    select(id);
+    setStatus(`New panel ${id}, a copy of ${from}. Edit it, then Save draft to keep it.`);
+  });
 
   $('json').addEventListener('input', () => {
     try {
@@ -207,6 +242,7 @@ const SECTIONS = /*__SECTIONS__*/;
 
   $('revertBtn').addEventListener('click', async () => {
     const id = state.panelId;
+    if (state.added[id] && !state.drafts[id]) { delete state.added[id]; delete state.edits[id]; state.bad = false; setStatus(`New panel ${id} discarded.`); draw(); return; }
     if (state.edits[id]) { delete state.edits[id]; state.bad = false; setStatus('Unsaved changes dropped.'); draw(); return; }
     if (state.drafts[id] && db) {
       $('revertBtn').disabled = true;

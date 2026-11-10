@@ -88,6 +88,7 @@ Saved poses are reviewed and then merged into `data/poses.json`.
     node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
     node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
+    node tools/renumber-panels.mjs 05 --dry        # settled chapter -> consecutive ids (inserts are 05.01a)
 
 Panel lab (published artifact, drafts in its database, collection
 `panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG

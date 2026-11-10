@@ -22,6 +22,18 @@ units) and `tall` × that width high: **1.5** (540 units, most panels),
 **1** (360, square) or **0.6** (216, a strip). Nothing taller than 1.5. Panels follow each other in id order; there
 are no screens or pages to fill.
 
+### Ids
+
+A panel's id is its file name, `<chapter>.<nn>` (`05.07`), and panels
+sort by it numerically. **A panel inserted later takes a letter, so
+nothing else moves**: after `05.01` comes `05.01a`, then `05.01b`;
+between `05.01a` and `05.01b` goes `05.01aa`; after the last panel the
+next number (`05.23`). Ids are cited all over the docs, the data and
+the lab's drafts, so a renumbering touches dozens of files: do it once,
+when the artist calls a chapter settled, with
+`node tools/renumber-panels.mjs 05` (`--dry` first). Merge or delete
+that chapter's lab drafts before renumbering — they are stored by id.
+
 ## Panel definition
 
 `panels/02-the-throne/02.03.json`; the **id is the file name** and is not
@@ -219,6 +231,7 @@ drawing is otherwise used as is.
 node tools/render-panels.mjs [02]   # out/panels/<section>.png (all panels) + issues and needs
 node tools/build-site.mjs           # _site/ (the reader site)
 node tools/build-panellab.mjs       # out/panellab.html (published as the panel lab)
+node tools/renumber-panels.mjs 05 --dry  # a settled chapter's ids made consecutive (see Ids)
 ```
 
 ## Panel lab
@@ -227,8 +240,12 @@ Pick a section; the phone shows it as it scrolls. Pick a panel (or tap it
 in the phone) and edit its JSON; it re-renders as you type and lists
 issues.
 **Save draft** stores the panel in the lab's database (collection `panels`);
-drafts show with a dot and survive reloads. Claude merges drafts into
-`panels/` when asked, as with poses. Background SVGs come from the repo.
+drafts show with a dot and survive reloads. **Insert after** adds a
+copy of the selected panel right after it, under the next free id (see
+Ids); it is kept once saved as a draft (**Discard new panel** drops it
+before that). Claude merges drafts into `panels/` when asked, as with
+poses — a draft with a new id becomes a new file. Background SVGs come
+from the repo.
 
 A draft always overrides the repo panel in the lab, so a stale draft
 hides every later repo change to that panel. **After a merge is
