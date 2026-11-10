@@ -1,29 +1,31 @@
 {
   "scene": "Jatayu rises toward Ravana flying over, Sita held in one arm; wings spread",
   "tall": 0.6,
-  "ground": "light-grey",
+  "ground": "white",
   "figures": [
     {
-      "prop": "vulture-fly",
-      "facing": "left",
-      "at": 0.9,
-      "row": "back"
+      "prop": "vulture-fall",
+      "facing": "right",
+      "at": 0.1,
+      "row": "closeup",
+      "lift": 2
     },
     {
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
-      "at": 0.28,
-      "row": "closeup",
-      "mouth": 2
+      "at": 0.89,
+      "row": 0.1,
+      "mouth": 2,
+      "turn": 40
     },
     {
       "character": "sita",
       "pose": "arch-overhead",
       "view": "front",
       "facing": "right",
-      "at": 0.5,
-      "row": "closeup",
+      "at": 1,
+      "row": 0.1,
       "mouth": 3
     }
   ],

@@ -5,15 +5,15 @@
   "figures": [
     {
       "prop": "vulture-fly",
-      "facing": "left",
-      "at": 0.9,
+      "facing": "right",
+      "at": 0.1,
       "row": "back"
     },
     {
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
-      "at": 0.28,
+      "at": 0.48,
       "row": "closeup",
       "mouth": 2
     },
@@ -22,7 +22,7 @@
       "pose": "arch-overhead",
       "view": "front",
       "facing": "right",
-      "at": 0.5,
+      "at": 0.7,
       "row": "closeup",
       "mouth": 3
     }
