@@ -76,9 +76,15 @@ export function loadProps() {
     const anch = text.match(/<g\b[^>]*id="anchors"[^>]*>([\s\S]*?)<\/g>/);
     if (anch) {
       def.anchors = {};
+      // Inkscape moves a group by giving it translate(): honour that, and
+      // refuse any other transform rather than misplace the anchors.
+      const gt = anch[0].match(/^<g\b[^>]*\btransform="([^"]*)"/)?.[1];
+      const tm = gt && gt.match(/^\s*translate\(\s*(-?[\d.e-]+)(?:[\s,]+(-?[\d.e-]+))?\s*\)\s*$/);
+      if (gt && !tm) throw new Error(`data/props/${id}.svg: anchors group transform "${gt}" — only translate() is supported`);
+      const [tx, ty] = tm ? [Number(tm[1]), Number(tm[2] ?? 0)] : [0, 0];
       for (const c of anch[1].matchAll(/<circle\b[^>]*>/g)) {
         const a = (k) => c[0].match(new RegExp(`\\b${k}="([^"]+)"`))?.[1];
-        if (a('id')) def.anchors[a('id')] = [(Number(a('cx')) - vb[0]) / 100, (Number(a('cy')) - vb[1]) / 100,
+        if (a('id')) def.anchors[a('id')] = [(Number(a('cx')) + tx - vb[0]) / 100, (Number(a('cy')) + ty - vb[1]) / 100,
           Number(a('r')) * 2 / 100];
       }
     }

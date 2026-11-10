@@ -175,7 +175,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
 
 ### Props
 
-`data/props.json` holds 65 entries, of which 40 are drawn as
+`data/props.json` holds 68 entries, of which 43 are drawn as
 `data/props/<id>.svg` — the rest render as placeholder boxes, and a
 drawing only loads once it is registered. A prop can carry anchors a
 figure stands or sits on (`on: "<prop>#<anchor>"`) and can be recoloured

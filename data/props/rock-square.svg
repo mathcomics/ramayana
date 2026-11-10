@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A squat, square rock: flat top, rounded corners, plain stone (#ac9393, the stone palette of the
+     ledges). Replaces `ledge` and `ledge-jatayu`; scale it to the scene.
+     100 px = 1 head-unit; bottom edge on the ground.
+     Anchors: stand (feet) and seat (hips, or a prop's bottom centre) at the
+     middle of the top; stand-left (feet) towards the left end —
+     "on": "rock-square#stand" / "rock-square#stand-left" / "rock-square#seat". -->
+
+<svg
+   viewBox="0 0 181.5791 180.76694"
+   width="181.5791"
+   height="180.76694"
+   version="1.1"
+   id="svg731"
+   sodipodi:docname="rock-square.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <path
+     id="rect447"
+     style="fill:#ac9393;fill-opacity:1;stroke:none;stroke-width:0.999999"
+     d="m 34.286635,8.266942 h 98.930885 c 22.28243,0 38.20579,18.44782 40.22099,41.16279 l 8,90.174418 c 2.0152,22.71498 -17.93856,41.16279 -40.22099,41.16279 H 40.286635 c -22.282432,0 -41.5578258,-18.39781 -40.22099553,-41.16279 L 6.0656395,37.429732 C 7.4024695,14.664764 12.004203,8.266942 34.286635,8.266942 Z"
+     sodipodi:nodetypes="sssssssss" />
+  <defs
+     id="defs735" />
+  <sodipodi:namedview
+     id="namedview733"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0521739"
+     inkscape:cx="160.07415"
+     inkscape:cy="67.002119"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg731" />
+  <g
+     id="anchors">
+    <circle
+       id="stand-left"
+       cx="50"
+       cy="8.27"
+       r="6"
+       fill="none" />
+    <circle
+       id="stand"
+       cx="90.79"
+       cy="8.27"
+       r="6"
+       fill="none" />
+    <circle
+       id="seat"
+       cx="90.79"
+       cy="8.27"
+       r="6"
+       fill="none" />
+  </g>
+</svg>
