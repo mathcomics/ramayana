@@ -15,16 +15,15 @@ box from `data/props.json`. Held props (sword, club, bow) live in
 | cave | 04.09 |
 | chariot | 05.20, 05.21 |
 | deer | 03.04 |
-| giant-fingers | 14.05 |
 | golden-deer-fallen | 05.12 |
-| hut | 04.02, 05.14, 05.15, 05.16, 05.21, 06.08 |
+| hut | 04.02, 05.15, 05.21, 06.08 |
 | jewels | 06.05, 06.06, 07.10, 10.11 |
 | lanka-wall | 10.01, 10.02 |
 | line | 05.16 |
 | line-top | 05.17 |
 | mountain | 09.06, 09.11 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
-| tree | 02.17, 03.06, 03.07, 04.02, 05.13, 06.09, 08.05, 08.07, 09.05, 10.07, 10.09 |
+| tree | 02.17, 03.07, 04.02, 05.13, 06.09, 08.05, 08.07, 09.05, 10.07, 10.09 |
 | vulture-lie | 06.10 |
 
 ## Prop wishes from the panels' needs
@@ -40,9 +39,8 @@ docs/design/panel-writing.md, Lessons).
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
 | prop: flying chariot | 05.20, 05.21 |
 | prop: fruit | 05.18 |
-| prop: giant-fingers (Kumbhakarna's hand reaching into the panel from above; placeholder box) | 14.05 |
 | prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank) | 05.12 |
-| prop: hut | 04.02, 05.14, 05.15, 05.16, 05.21, 06.08 |
+| prop: hut | 04.02, 05.15, 05.21, 06.08 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
 | prop: jewels (held to the chest) | 07.12 |
 | prop: jewels (the bundle) | 06.05, 06.06 |
@@ -65,4 +63,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-fire, flower-yellow, forest-ridge, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, ledge-jatayu, monkey-top, palace-ayodhya, palace-lanka, sound-cry, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-stand, vulture-swoop, vulture-wing, wave-top
+fire, flower-yellow, forest-ridge, giant-grab, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, ledge-jatayu, monkey-top, palace-ayodhya, palace-lanka, sound-cry, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

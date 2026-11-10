@@ -1,5 +1,5 @@
 {
-  "scene": "The cry reaches the hut: Sita starts up; Lakshman stands unmoved",
+  "scene": "Rama's cry reaches them: Sita starts up; Lakshman stands unmoved",
   "tall": 1,
   "ground": "light-grey",
   "figures": [
@@ -37,7 +37,6 @@
     }
   ],
   "needs": [
-    "prop: hut",
     "effect: sound-cry (arriving, 05.12-05.14)"
   ]
 }
