@@ -1,7 +1,7 @@
 // Integrity of the data files: everything a name refers to exists.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCloth } from '../src/figure.js';
 import { root, SPECIES, POSES, CAST, FACES } from './helpers.mjs';
@@ -88,5 +88,15 @@ test('faces: every face belongs to a character; every character has both views',
   for (const id of ids) for (const view of ['front', 'side']) {
     assert.ok(FACES.faces[id]?.[view]?.head, `${id}: no ${view} face`);
     assert.ok(existsSync(join(root, `data/faces/${id}.svg`)), `${id}.svg missing`);
+  }
+});
+
+test('props: recolouring roles on a drawing name colours it uses', async () => {
+  const { loadProps } = await import('../tools/lib.mjs');
+  const { props } = loadProps();
+  assert.ok(Object.values(props).filter((d) => d.recolor).length >= 8, 'the top-view figures and giant parts recolour');
+  for (const [id, def] of Object.entries(props)) for (const [role, c] of Object.entries(def.recolor ?? {})) {
+    assert.match(c, /^#[0-9a-f]{6}$/i, `${id}: data-recolor-${role}`);
+    assert.ok(def.svg.toLowerCase().includes(`fill:${c.toLowerCase()}`), `${id}: data-recolor-${role}="${c}" is not a fill in the drawing`);
   }
 });

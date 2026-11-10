@@ -9,6 +9,8 @@ import { renderFigure, buildShapes, characterLook, normalizePose, parseCloth } f
 
 export const PANEL_W = 360;
 export const DEFAULT_TALL = 1.5;
+// A prop with no drawing yet: a labelled dashed box, [width, height] in head-units.
+export const PLACEHOLDER = [2, 2];
 export const SLOTS = { left: 0.14, 'center-left': 0.32, center: 0.5, 'center-right': 0.68, right: 0.86 };
 
 // Rows (docs/design/panels.md, Rows): where an entry stands, and how big.
@@ -127,12 +129,11 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
 
   const makeProp = (p) => {
     const def = lib[p.prop];
-    if (!def) issues.push(`prop "${p.prop}" not in data/props.json`);
-    else if (!def.svg) issues.push(`prop "${p.prop}" not drawn yet (placeholder)`);
+    if (!def) issues.push(`prop "${p.prop}" not drawn yet: no data/props/${p.prop}.svg (placeholder)`);
     if (p.layer) issues.push(`prop "${p.prop}": "layer" is retired — order the entries instead`);
     const r = row(p.row);
     const unit = r.unit * (p.scale ?? 1);
-    const [w, h] = (def?.size || [2, 2]).map((v) => v * unit);
+    const [w, h] = (def?.size || PLACEHOLDER).map((v) => v * unit);
     // recolor: def.recolor names the drawing's role colours ({ body, cloth }).
     // "character" takes a character's colours; "body" / "cloth" override (hex,
     // or a cloth palette name; a pattern suffix keeps the base colour).
@@ -193,7 +194,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     }
     o.unit = t.unit * (e.scale ?? 1);
     if (o.f) o.halfW = o.halfW1 * o.unit;
-    else { [o.w, o.h] = (o.def?.size || [2, 2]).map((v) => v * o.unit); o.halfW = o.w / 2; }
+    else { [o.w, o.h] = (o.def?.size || PLACEHOLDER).map((v) => v * o.unit); o.halfW = o.w / 2; }
     o.groundY = t.groundY - t.h + seat[1] * t.unit;
     o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - (o.f ? o.pelvisX * o.unit * o.facing : 0);
   };

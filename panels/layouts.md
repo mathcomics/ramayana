@@ -12,7 +12,7 @@ how the rows are set. The rules these panels taught:
 | Models to follow for a kind of scene | the panels below |
 | The rules they taught | `docs/design/composition.md` |
 | Row geometry | `DEPTH`, `HEAD_TOP` in `src/scene.js`; the table in `docs/design/panels.md` |
-| Scene props (throne, deer, hut from above, Lanka …) | `data/props/`, each registered in `data/props.json` |
+| Scene props (throne, deer, hut from above, Lanka …) | `data/props/` (any SVG there is a prop) |
 
 A panel carrying `tags` is an **approved reference panel**: artist-reviewed
 and locked — follow it, never rework it (`panels/CLAUDE.md`).

@@ -3,7 +3,7 @@
      left edge (the giant is out of frame). Skin #916f6f, thumbnail
      #9a7a7a (recolor: body = the skin). 100 px = 1 head-unit; no anchors. -->
 
-<svg
+<svg data-recolor-body="#916f6f"
    viewBox="386 398 290.51572 247.6214"
    width="290.51572"
    height="247.6214"

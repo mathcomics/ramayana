@@ -112,5 +112,5 @@ action. The same opener can return when the story comes back to a place.
   `stand-right` are where a standing figure's feet rest (`on`:
   `"<prop>"` means the seat, `"<prop>#<anchor>"` names another). They
   are not drawn.
-- A prop registered with `recolor` takes a character's colours (`character`) or
+- A prop whose drawing names `data-recolor-*` roles takes a character's colours (`character`) or
   explicit `body` / `cloth` per instance (docs/design/panels.md).

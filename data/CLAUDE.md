@@ -18,16 +18,18 @@ wrong: `docs/issues/problem-poses.md`.
   or colours; only place, rotate, mirror. Import with the tools
   (`import-faces`, `import-parts`, `import-held`); they report
   mismatches for the artist to fix in the drawings.
-- **Props**: art in `data/props/<id>.svg`, 100 px = 1 head-unit, size
-  from the viewBox, anchors (`seat` for hips, `stand`/`stand-left`/
+- **Props**: art in `data/props/<id>.svg` (any SVG there is a prop, no
+  registration), 100 px = 1 head-unit, size from the viewBox, anchors (`seat` for hips, `stand`/`stand-left`/
   `stand-right` for feet, `face` for a head alone) in a group
   `id="anchors"` — an anchor is named after what of the figure lands on
   it, not after where it sits in the drawing. A whole-figure anchor is a
   point (its circle is just a marker); a part anchor is drawn to size,
   the circle's diameter being the head height (100 px = 1 head-unit, so
   `r="50"` is a full-size head). A prop that should
-  recolour per use (e.g. `male-top`) names its role colours in its
-  `data/props.json` entry: `"recolor": { "body": "#…", "cloth": "#…" }`.
+  recolour per use (e.g. `male-top`) names its role colours on its root
+  element: `<svg data-recolor-body="#…" data-recolor-cloth="#…" …>`
+  (each must be a fill in the drawing — `npm test`). A prop id with no
+  drawing is a fixed-size placeholder box; there is no prop registry.
   Held props (sword, club, bow) in `data/props/held/` with a reference
   `line`, imported by `tools/import-held.mjs`.
 - After any change: regenerate the relevant sheet (contact, parts, face,

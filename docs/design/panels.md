@@ -96,15 +96,16 @@ repeated inside the JSON.
 `figures` list; its place in the list is its depth (before the figures =
 behind them, after = in front; the retired `layer` field is an issue).
 
-- `prop`: id from `data/props.json`, whose `size` is `[width, height]` in
-  head-units, so a prop scales with its row.
+- `prop`: a drawing's id (`data/props/<id>.svg`); a prop scales with its
+  row.
 - Artwork: `data/props/<id>.svg`, 100 px = 1 head-unit, bottom edge on the
-  ground; its viewBox sets the prop's size. A prop with no artwork yet
-  renders as a **labelled dashed box**.
+  ground; its viewBox sets the prop's size. Any SVG there is a prop — no
+  registry. A prop id with no artwork yet renders as a **labelled dashed
+  box** of a fixed 2 × 2 head-units (`PLACEHOLDER` in `src/scene.js`).
 - `at`, `row`, `scale`, `lift`, `nudge`, `id` as for figures.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
-- Recolouring: a prop whose registry entry has `recolor` (the drawing's
-  role colours, e.g. `{ "body": "#a05a2c", "cloth": "#c8ab37" }`) takes
+- Recolouring: a prop whose drawing names role colours on its root
+  element (`<svg data-recolor-body="#a05a2c" data-recolor-cloth="#c8ab37" …>`) takes
   `character` (a character id: that character's body and cloth colours), or
   explicit `body` / `cloth` (hex, or a cloth palette name; a pattern
   suffix keeps the base colour). So one drawing serves many characters:

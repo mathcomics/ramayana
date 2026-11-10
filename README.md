@@ -38,7 +38,6 @@ docs/proposals/          dated proposals, each with its status at the top
 docs/issues/             open problems: rules still to migrate, problem poses
 src/scene.js             panels and screens: definition in, SVG out
 panels/<NN-section>/     panel definitions: <id>.json (+ optional <id>.svg background)
-data/props.json          prop registry (sizes; placeholders until drawn)
 data/grounds.json        ground colours
 tools/build-site.mjs     reader site → _site/ (Cloudflare Pages)
 tools/render-panels.mjs  screens → out/panels/*.png, with issues and needs

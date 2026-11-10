@@ -8,7 +8,7 @@
      100 px = 1 head-unit; the viewBox is tight around the figure.
      The drawing is the artist's, unchanged: only placed and scaled. -->
 
-<svg
+<svg data-recolor-body="#a05a2c" data-recolor-cloth="#c8ab37"
    viewBox="242.8 236.8 106.1 80.1"
    width="106.1"
    height="80.1"
