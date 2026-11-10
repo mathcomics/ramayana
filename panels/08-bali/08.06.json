@@ -4,13 +4,12 @@
   "ground": "sand",
   "figures": [
     {
-      "character": "monkey1",
+      "character": "sugriva",
       "id": "bali",
-      "cloth": "white",
       "pose": "leanfront-fists",
       "facing": "left",
       "at": 0.58,
-      "scale": 1.1,
+      "scale": 0.9,
       "mouth": 3
     },
     {
@@ -23,5 +22,6 @@
   ],
   "needs": [
     "pose: grapple (two bodies locked): lunge and lean for now"
-  ]
+  ],
+  "tags": ["grapple"]
 }

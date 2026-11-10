@@ -6,44 +6,53 @@
     {
       "prop": "throne-kishkindha",
       "at": 0.52,
-      "row": "mid"
+      "row": "back"
     },
     {
       "character": "monkey1",
       "pose": "walk-swing",
       "facing": "left",
-      "at": 0.12,
-      "mouth": 1
+      "at": 0.1,
+      "row": "back"
     },
     {
       "character": "monkey1",
-      "pose": "pass-swing",
+      "pose": "walk-swing",
       "facing": "left",
-      "at": 0.3,
-      "cloth": "red",
-      "mouth": 1
+      "at": 0.15,
+      "row": "back"
     },
     {
       "character": "sugriva",
       "pose": "step-point",
       "facing": "right",
-      "at": 0.52,
-      "mouth": 2
+      "at": 0.4,
+      "mouth": 2,
+      "row": "mid"
     },
     {
       "character": "monkey1",
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.76,
-      "mouth": 1
+      "mouth": 1,
+      "row": "mid"
     },
     {
       "character": "monkey1",
       "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.92,
+      "at": 0.65,
+      "cloth": "red",
+      "mouth": 1,
+      "view": "front"
+    },
+    {
+      "at": 0.95,
+      "character": "monkey1",
       "cloth": "white",
-      "mouth": 1
+      "facing": "right",
+      "mouth": 1,
+      "pose": "walk-swing"
     }
   ]
 }

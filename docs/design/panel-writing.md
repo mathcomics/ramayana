@@ -157,6 +157,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   the wind-up (blade back over the shoulder, 06.03) or the follow-through
   (arm up and forward, blade clear of everyone, 06.04); the severed wing
   and the falling bird tell the rest.
+- **Skin over skin hides a face**: an arm of the same skin colour drawn
+  across a face merges with it, and the face reads as distorted (an
+  eye and half the mouth gone). In 06.02 Ravana's carrying arm (front
+  view, at Sita's head height) lay over her face: lower the arm to cross
+  her body below the chin and give the faces room (Sita `at` 0.45 → 0.5).
+  Check every face against the limbs drawn after it.
 - **Figures `on` a prop's anchor take the prop's scale**: three monkeys
   on `ledge#stand-left/#stand/#stand-right` at the ledge's own scale fill
   the panel. Scale the prop up and the figures down (0.45) for people on

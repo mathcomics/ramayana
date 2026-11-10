@@ -8,7 +8,7 @@
       "pose": "arch-overhead",
       "view": "front",
       "facing": "right",
-      "at": 0.45,
+      "at": 0.5,
       "row": "closeup",
       "mouth": 3
     },
@@ -18,12 +18,16 @@
       "view": "front",
       "at": 0.28,
       "row": "closeup",
-      "mouth": 2
+      "mouth": 2,
+      "adjust": {
+        "left.arm.shoulder": 40,
+        "left.arm.elbow": 40
+      }
     },
     {
       "prop": "vulture-fly",
       "facing": "left",
-      "at": 0.64,
+      "at": 0.7,
       "scale": 0.62
     }
   ],

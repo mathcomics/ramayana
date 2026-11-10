@@ -1,19 +1,9 @@
 {
   "scene": "The monkeys turn and flee under Kumbhakarna's reaching fingers; only his hand fits the panel",
-  "tags": [
-    "panic",
-    "crowd",
-    "giant"
-  ],
+  "tags": ["panic", "crowd", "giant"],
   "tall": 0.6,
   "ground": "off-white",
   "figures": [
-    {
-      "prop": "giant-fingers",
-      "at": 0.72,
-      "facing": "left",
-      "row": "top"
-    },
     {
       "character": "monkey1",
       "id": "fallen",
@@ -57,9 +47,13 @@
       "facing": "right",
       "at": 0.9,
       "mouth": 3
+    },
+    {
+      "at": 0.57,
+      "facing": "left",
+      "prop": "giant-grab",
+      "row": 0.5,
+      "scale": 4
     }
-  ],
-  "needs": [
-    "prop: giant-fingers (Kumbhakarna's hand reaching into the panel from above; placeholder box)"
   ]
 }
