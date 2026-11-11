@@ -44,17 +44,17 @@
       "scale": 1.03
     },
     {
-      "prop": "ledge",
+      "prop": "rock-rectangle",
       "at": 0.46,
-      "scale": 1.1
+      "scale": 1.4
     },
     {
       "character": "monkey1",
       "id": "m1",
       "pose": "stand-pointup",
       "facing": "right",
-      "on": "ledge#stand-left",
-      "scale": 0.45,
+      "on": "rock-rectangle#stand-left",
+      "scale": 0.22,
       "mouth": 3,
       "adjust": {
         "spine.head": -30
@@ -64,8 +64,8 @@
       "character": "sugriva",
       "pose": "step-akimbo",
       "facing": "right",
-      "on": "ledge#stand",
-      "scale": 0.45,
+      "on": "rock-rectangle#stand",
+      "scale": 0.22,
       "mouth": 2,
       "adjust": {
         "spine.head": -30
@@ -75,8 +75,8 @@
       "character": "hanuman",
       "pose": "stepback-armsout",
       "facing": "right",
-      "on": "ledge#stand-right",
-      "scale": 0.45,
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.22,
       "mouth": 2,
       "adjust": {
         "spine.head": -20

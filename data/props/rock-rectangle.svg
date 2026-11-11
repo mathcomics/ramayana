@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- A long, low rock: flat top, rounded corners, plain stone (#ac9393, the stone palette of the
-     ledges). Replaces `ledge` and `ledge-jatayu`; scale it to the scene.
+<!-- A long, low rock: flat top, rounded corners, plain stone (#ac9393); scale it to the scene.
      100 px = 1 head-unit; bottom edge on the ground.
      Anchors: stand (feet) and seat (hips, or a prop's bottom centre) at the
-     middle of the top; stand-left / stand-right (feet) towards either end,
-     as on `ledge` — "on": "rock-rectangle#stand-left" etc. -->
+     middle of the top; stand-left / stand-right (feet) towards either end —
+     "on": "rock-rectangle#stand-left" etc. -->
 
 <svg
    viewBox="0 0 262.68496 180.76694"

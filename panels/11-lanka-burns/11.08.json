@@ -2,7 +2,7 @@
   "scene": "Rakshasas flee through the burning streets, the fire behind them",
   "tags": ["panic", "crowd", "flee"],
   "tall": 0.6,
-  "ground": "#7e2f22",
+  "ground": "geru",
   "figures": [
     {
       "prop": "fire",

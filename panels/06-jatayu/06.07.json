@@ -4,10 +4,10 @@
   "ground": "sand",
   "figures": [
     {
-      "prop": "ledge",
+      "prop": "rock-rectangle",
       "at": 0.9,
       "row": "mid",
-      "scale": 0.9
+      "scale": 1.6
     },
     {
       "character": "monkey1",

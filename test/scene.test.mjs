@@ -79,7 +79,12 @@ test('one list: later entries draw over earlier; legacy props/who/layer still re
 
 test('sky: a colour above the horizon; row "horizon" stands things on it', () => {
   const r = renderPanel({ tall: 1, sky: 'sky', horizon: 0.25, figures: [{ prop: 'golden-deer-run', row: 'horizon' }] }, assets);
-  assert.match(r.svg, /<rect width="360" height="270" fill="#00aad4"\/>/);
+  assert.match(r.svg, /<rect width="360" height="270" fill="url\(#panel-sky\)"\/>/);
+  assert.ok(r.svg.includes(`<stop offset="0" stop-color="${assets.grounds.grounds.sky[0]}"/>`), 'sky gradient from grounds.json');
+  // a hex sky (or ground) is a flat fill; a hex ground draws no gradient
+  const flat = renderPanel({ ground: '#123456', sky: '#abcdef' }, assets).svg;
+  assert.match(flat, /<rect width="360" height="\d+(\.\d+)?" fill="#123456"\/><rect width="360" height="[\d.]+" fill="#abcdef"\/>/);
+  assert.doesNotMatch(flat, /linearGradient/);
   const y = +r.svg.match(/<g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(/)?.[1];
   assert.ok(Math.abs(y + 5.557 * 16 * 360 / 540 - 270) < 0.01, `deer bottom on the horizon (${y})`);
   assert.equal(renderPanel({ sky: 'nope' }, assets).issues.length, 1);

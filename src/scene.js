@@ -133,7 +133,12 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (p.layer) issues.push(`prop "${p.prop}": "layer" is retired — order the entries instead`);
     const r = row(p.row);
     const unit = r.unit * (p.scale ?? 1);
-    const [w, h] = (def?.size || PLACEHOLDER).map((v) => v * unit);
+    const [w0, h0] = (def?.size || PLACEHOLDER).map((v) => v * unit);
+    // rotate: degrees clockwise about the drawing's centre; the prop then
+    // stands on the bottom of its rotated box (e.g. 90 turns the sideways fire upright)
+    const rot = p.rotate ?? 0, rr = rot * Math.PI / 180;
+    const [w, h] = rot ? [Math.abs(w0 * Math.cos(rr)) + Math.abs(h0 * Math.sin(rr)), Math.abs(w0 * Math.sin(rr)) + Math.abs(h0 * Math.cos(rr))] : [w0, h0];
+    if (rot && p.on) issues.push(`prop "${p.prop}": "rotate" with "on" — the anchors are not rotated`);
     // recolor: def.recolor names the drawing's role colours ({ body, cloth }).
     // "character" takes a character's colours; "body" / "cloth" override (hex,
     // or a cloth palette name; a pattern suffix keeps the base colour).
@@ -149,7 +154,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
         if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
       }
     }
-    return { p, name: p.id || p.prop, def, svg, groundY: (r.top ? h : r.y) - (p.lift ?? 0) * unit, unit, w, h, halfW: w / 2, x: null,
+    return { p, name: p.id || p.prop, def, svg, groundY: (r.top ? h : r.y) - (p.lift ?? 0) * unit, unit, w, h, w0, h0, rot, halfW: w / 2, x: null,
       facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
   };
 
@@ -216,17 +221,32 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   for (const o of all) { o.x ??= W / 2; o.x += ((o.f || o.p).nudge ?? 0) * o.unit; }
 
   // -- draw: ground, sky, background, then the list in order ---------------------
-  let s = `<rect width="${W}" height="${H}" fill="${esc(ground)}"/>`;
-  if (sky) s += `<rect width="${W}" height="${Math.max(0, horizonY)}" fill="${esc(sky)}"/>`;
+  // ids are unique per panel and figure, so panels can share a page
+  const pre = String(id).replace(/\W/g, '_');
+  // a grounds.json colour is a hex; [top, bottom] (or { "vertical": [..] }),
+  // a vertical gradient; { "horizontal": [left, right] }, a horizontal one —
+  // over the rect it fills
+  let defs = '';
+  const fill = (g, key) => {
+    const horiz = Array.isArray(g?.horizontal);
+    const c = Array.isArray(g) ? g : horiz ? g.horizontal : g?.vertical;
+    if (!Array.isArray(c)) return esc(g);
+    const gid = `${pre}-${key}`;
+    defs += `<linearGradient id="${gid}" x1="0" y1="0" x2="${horiz ? 1 : 0}" y2="${horiz ? 0 : 1}">` +
+      c.map((col, i) => `<stop offset="${c.length > 1 ? i / (c.length - 1) : 0}" stop-color="${esc(col)}"/>`).join('') + `</linearGradient>`;
+    return `url(#${gid})`;
+  };
+  let s = `<rect width="${W}" height="${H}" fill="${fill(ground, 'ground')}"/>`;
+  if (sky) s += `<rect width="${W}" height="${Math.max(0, horizonY)}" fill="${fill(sky, 'sky')}"/>`;
+  if (defs) s = `<defs>${defs}</defs>` + s;
   if (background) s += `<g class="background">${background}</g>`;
   const drawProp = (o) => {
     const x = o.x - o.halfW, y = o.groundY - o.h;
+    if (o.svg && o.rot) return `<g transform="translate(${o.x} ${o.groundY - o.h / 2}) rotate(${o.rot}) translate(${o.facing < 0 ? o.w0 / 2 : -o.w0 / 2} ${-o.h0 / 2}) scale(${o.facing * o.unit} ${o.unit})">${o.svg}</g>`;
     if (o.svg) return `<g transform="translate(${o.facing < 0 ? x + o.w : x} ${y}) scale(${o.facing * o.unit} ${o.unit})">${o.svg}</g>`;
     return `<g class="placeholder"><rect x="${x}" y="${y}" width="${o.w}" height="${o.h}" fill="#000" fill-opacity="0.06" stroke="#7a6f62" stroke-width="1.2" stroke-dasharray="5 4"/>` +
       `<text x="${o.x}" y="${y + o.h / 2}" font-family="Helvetica, Arial, sans-serif" font-size="${Math.max(9, Math.min(16, o.w / 6))}" fill="#7a6f62" text-anchor="middle" dominant-baseline="middle">${esc(o.p.prop)}</text></g>`;
   };
-  // ids are unique per panel and figure, so panels can share a page
-  const pre = String(id).replace(/\W/g, '_');
   all.forEach((o) => {
     s += o.p ? drawProp(o)
       : renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,

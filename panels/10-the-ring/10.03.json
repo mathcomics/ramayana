@@ -1,7 +1,7 @@
 {
   "scene": "He searches over the roofs of the sleeping city",
   "tall": 0.6,
-  "ground": "#26303d",
+  "ground": "night",
   "figures": [
     {
       "prop": "palace-lanka",

@@ -86,7 +86,7 @@ action. The same opener can return when the story comes back to a place.
   with `on`: `"kishkindha#stand"` (also `#stand-left`, `#stand-right`).
   A figure on an anchor takes the prop's scale: for small figures on a
   big mountain, scale the prop up and give the figure a `scale` below 1.
-- **Rocks, not ledges** (artist, 2026-11-10): rocky scenes use the plain
+- **Rocks** (artist, 2026-11-10): rocky scenes use the plain
   rocks `rock-circle` (round boulder), `rock-square` (squat block) and
   `rock-rectangle` (long and low), often **one big with a smaller one
   in front of it** (07.05, 07.09). `stand` / `seat` anchors on the top
@@ -100,9 +100,6 @@ action. The same opener can return when the story comes back to a place.
     before it so its top meets the hips (07.09, 07.09a, 07.10). The rock's
     `seat` anchor is on its top and a chair pose's feet land on an anchor
     (as on a throne's step), so `on` would hang the legs in the air.
-  - `ledge` is **deprecated**: chapter 7 no longer uses it; it is still
-    in 03.06, 06.06 and 06.07 (swap when those chapters are reworked).
-    `ledge-jatayu` stays as Jatayu's bluff until redrawn.
 
 ## Jatayu
 
@@ -115,8 +112,8 @@ action. The same opener can return when the story comes back to a place.
   use `scale` 0.6–0.8. All four birds mirror cleanly with `facing:
   "left"`, so Jatayu can come at his enemy either way.
   Lying (06.11) is not drawn yet (`vulture-lie` placeholder).
-- His bluff: `ledge-jatayu` with `vulture-stand` on its `seat` anchor is
-  the chapter 6 opener (06.01), the cry reaching him from the forest.
+- Standing on a rock: `vulture-stand` on a `rock-circle`'s `seat`
+  anchor (03.06).
 
 ## Props and anchors
 

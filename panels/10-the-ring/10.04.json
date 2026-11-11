@@ -1,7 +1,7 @@
 {
   "scene": "Along the courts: no one he seeks",
   "tall": 0.6,
-  "ground": "#26303d",
+  "ground": "night",
   "figures": [
     {
       "prop": "palace-lanka",

@@ -1,20 +1,21 @@
 {
-  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex. A panel's \"sky\" (above the horizon) takes the same names. Artist's rule (2026-11-08): backgrounds are light — off-white (light beige), light-grey, even white; greens only for top views (03.01) and the land strip under a sky/horizon (05.11); dusty-pink never.",
+  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex. A panel's \"sky\" (above the horizon) takes the same names. A colour is a hex; [top, bottom], a vertical gradient (night); or { \"horizontal\": [left, right] } (sky-blue). Every ground carries a gradient, the direction picked arbitrarily (2026-11-11), to be reviewed; the first colour is the original flat one. Artist's rule (2026-11-08): backgrounds are light — off-white (light beige), light-grey, even white; greens only for top views (03.01) and the land strip under a sky/horizon (05.11); dusty-pink never.",
   "default": "off-white",
   "grounds": {
-    "off-white": "#f2ece1",
-    "light-grey": "#dedede",
-    "white": "#ffffff",
-    "dusty-pink": "#e9cfc4",
-    "sky-blue": "#cfe0e6",
-    "sand": "#e8dcc0",
-    "geru": "#9c4a2f",
-    "sage": "#9dac93",
-    "dry-grass": "#a7ac93",
-    "dark-green": "#5d6c53",
-    "stone-grey": "#b3b3b3",
-    "sky": "#00aad4",
-    "sea": "#5fbcd3",
-    "mist": "#dbe2e3"
+    "off-white": ["#f7f4ed", "#e3e0da"],
+    "light-grey": { "horizontal": ["#dedede", "#bfbfbf"] },
+    "white": ["#ffffff", "#dbdbdb"],
+    "dusty-pink": { "horizontal": ["#e9cfc4", "#c8b2a9"] },
+    "sky-blue": { "horizontal": ["#cfe0e6", "#93b6c4"] },
+    "sand": ["#f1ead9", "#ded7c9"],
+    "geru": { "horizontal": ["#9c4a2f", "#864028"] },
+    "sage": ["#9dac93", "#87947e"],
+    "dry-grass": { "horizontal": ["#a7ac93", "#90947e"] },
+    "dark-green": ["#5d6c53", "#505d47"],
+    "stone-grey": { "horizontal": ["#b3b3b3", "#9a9a9a"] },
+    "sky": ["#59c8e3", "#59b8d0"],
+    "sea": { "horizontal": ["#5fbcd3", "#52a2b5"] },
+    "mist": ["#dbe2e3", "#bcc2c3"],
+    "night": ["#232c3b", "#56647d"]
   }
 }

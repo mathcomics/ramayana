@@ -61,7 +61,7 @@ repeated inside the JSON.
 |---|---|---|
 | `scene` | text | The scene line it draws, for reference only. |
 | `tall` | `1.5` · `1` · `0.6` | Height as a multiple of the width (360). Default 1.5. Anything else is an issue, and so is the old `size` field. |
-| `ground` | name from `data/grounds.json`, or a hex | Background colour. |
+| `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`night`), or `{ "horizontal": [left, right] }` (`sky-blue`) — set there, never in the panel. |
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
 | `tags` | list of words (`panic`, `crowd`, `flee`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
@@ -86,7 +86,7 @@ repeated inside the JSON.
 | `hands` | `{ "right": "point", "left": "fist" }` (fist · out · in · point) | Overrides the pose. |
 | `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. Can also give a hand a held prop: `"left.arm.prop": { "kind": "bow", "angle": 90 }`, or swap one (`"right.arm.prop.kind": "club"`). |
 | `scale` | number | This figure only (a child, a giant). |
-| `lift` | head-units | A small adjustment up (+) or down, in the figure's own head-units (a hop, feet on a ledge). Anything placed high — flight, a top view — takes a numeric `row`. |
+| `lift` | head-units | A small adjustment up (+) or down, in the figure's own head-units (a hop, feet on a rock). Anything placed high — flight, a top view — takes a numeric `row`. |
 | `nudge` | head-units | Small horizontal shift after placement. |
 | `id` | text | Name for relations when the same character appears twice. |
 
@@ -104,6 +104,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   box** of a fixed 2 × 2 head-units (`PLACEHOLDER` in `src/scene.js`).
 - `at`, `row`, `scale`, `lift`, `nudge`, `id` as for figures.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
+- `rotate`: degrees clockwise about the drawing's centre, after `facing`; the prop stands on the bottom of its turned box (`"rotate": 90` sets the sideways `fire` upright, 07.13). Anchors are not turned, so not with `on`.
 - Recolouring: a prop whose drawing names role colours on its root
   element (`<svg data-recolor-body="#a05a2c" data-recolor-cloth="#c8ab37" …>`) takes
   `character` (a character id: that character's body and cloth colours), or
@@ -161,8 +162,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   centre, Ravana's) and `throne-kishkindha` (gold
   stupa dome on a dark post, Sugriva's coronation),
   the rocks `rock-circle`, `rock-square`, `rock-rectangle` (plain stone,
-  for every rocky scene; they replace the deprecated `ledge`),
-  `ledge-jatayu` (the bluff Jatayu rests on; one `seat` on the top), `kishkindha` (rocky; seeded-random outlines, stand anchors),
+  for every rocky scene; Jatayu perches on a `rock-circle`'s `seat`, 03.06), `kishkindha` (rocky; seeded-random outlines, stand anchors),
   the giant's parts for chapter 14 `giant-feet`, `giant-fist`,
   `giant-grab` (reaching down from above), `giant-lie-waist` (the
   sleeping giant's middle) — each cut off at the frame edge it enters
