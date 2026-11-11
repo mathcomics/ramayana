@@ -1,5 +1,5 @@
 {
-  "scene": "Sita, close: captive under the tree",
+  "scene": "Sita, close: captive under a branch",
   "tall": 1.5,
   "ground": "geru",
   "figures": [
@@ -15,5 +15,8 @@
       "on": "rock-square#seat",
       "mouth": 1
     }
+  ],
+  "needs": [
+    "prop: branch (the ashoka branch Sita sits under)"
   ]
 }

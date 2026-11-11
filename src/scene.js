@@ -118,12 +118,18 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const unit = r.unit * (f.scale ?? 1);
     const view = f.view === 'front' ? 'front' : 'side';
     // every character has a drawn face; there is no generated fallback
-    const { bbox, headAnchor, joints } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
+    const { bbox, headAnchor, joints, shapes } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
+    // where the hips rest when seated (a "seat" anchor): the underside of
+    // the thighs at the pelvis, in the figure's frame (y up is negative)
+    const pv = joints?.spine?.pelvis;
+    const thighY = pv ? shapes.filter((s) => /-thigh$/.test(s.part || '')).flatMap((s) => s.pts)
+      .filter((q) => Math.abs(q[0] - pv[0]) <= 0.25).reduce((m, q) => Math.max(m, q[1]), -Infinity) : -Infinity;
+    const seatY = thighY > -Infinity ? thighY : pv?.[1] ?? 0;
     const headView = headAnchor.view ?? (view === 'front' ? 'front' : normalizePose(pose).headView);
     if (!look.face?.[headView]?.head) issues.push(`figure ${i} (${who}): no drawn ${headView} face (the ${headView} layer of data/faces/${who}.svg)`);
     const groundY = r.top ? -bbox.y0 * unit : r.y;
     return { f, fi: i - 1, name: f.id || who, pose, view, look, S, groundY, unit,
-      halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0,
+      halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0, seatY, h1: -bbox.y0, rot: f.rotate ?? 0,
       // each hand's grip, in the figure's own frame (y up is negative): a "hand" anchor
       grips: { right: joints?.near?.grip ?? joints?.near?.Wr, left: joints?.far?.grip ?? joints?.far?.Wr },
       facing: f.facing === 'left' ? -1 : 1, x: null };
@@ -243,9 +249,14 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       o.halfW = ((o.S.head?.width ?? 1) / 2) * o.unit;
       o.groundY = t.groundY - t.h + seat[1] * t.unit - o.dy * o.unit;   // the head's centre, not a ground line
       o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) + o.dx * o.unit;
+      o.pivot = [o.x, o.groundY];
       return;
     }
     o.unit = t.unit * (e.scale ?? 1);
+    // the anchor point, nudged: a rotated figure turns about it
+    const ax = t.x + t.facing * (seat[0] * t.unit - t.halfW) + o.dx * o.unit;
+    const ay = t.groundY - t.h + seat[1] * t.unit - o.dy * o.unit;
+    if (o.f) o.pivot = [ax, ay];
     // a hand anchor: the figure hangs from it by one hand — the higher one,
     // or the one its "hand" names (right / left) — its grip on the point
     if (aname === 'hand' || aname.startsWith('hand-')) {
@@ -261,7 +272,9 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     }
     if (o.f) o.halfW = o.halfW1 * o.unit;
     else { [o.w, o.h] = (o.def?.size || PLACEHOLDER).map((v) => v * o.unit); o.halfW = o.w / 2; }
-    o.groundY = t.groundY - t.h + seat[1] * t.unit - o.dy * o.unit;
+    // a seat anchor takes the hips; any other (stand …) the lowest point
+    const hips = o.f && aname === 'seat' ? o.seatY * o.unit : 0;
+    o.groundY = t.groundY - t.h + seat[1] * t.unit - hips - o.dy * o.unit;
     o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - (o.f ? o.pelvisX * o.unit * o.facing : 0) + o.dx * o.unit;
   };
   for (let pass = 0; pass < 3; pass++) {
@@ -317,10 +330,27 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const from = defs.length, paint = fill(o.color, `band${k}`), d = defs.slice(from);
     return (d ? `<defs>${d}</defs>` : '') + `<path d="M0 ${H}L0 ${+lineY(o, 0).toFixed(2)}L${W} ${+lineY(o, W).toFixed(2)}L${W} ${H}Z" fill="${paint}"/>`;
   };
+  // a figure's rotate: degrees clockwise. On a prop's anchor it turns about
+  // that point (keeps its grip, seat or footing); on a foreground, about its
+  // feet; otherwise about its centre, then stands on the bottom of its
+  // turned box, as a prop does
+  const turn = (o, g) => {
+    if (!o.rot) return g;
+    const r = o.rot * Math.PI / 180, e = ent(o);
+    let px, py, dy = 0;
+    if (e.on && o.pivot) [px, py] = o.pivot;
+    else if (e.on) [px, py] = [o.x, o.groundY];
+    else {
+      const h = o.h1 * o.unit, w = 2 * o.halfW;
+      [px, py] = [o.x, o.groundY - h / 2];
+      dy = h / 2 - (Math.abs(w * Math.sin(r)) + Math.abs(h * Math.cos(r))) / 2;
+    }
+    return `<g transform="${dy ? `translate(0 ${+dy.toFixed(3)}) ` : ''}rotate(${o.rot} ${+px.toFixed(3)} ${+py.toFixed(3)})">${g}</g>`;
+  };
   all.forEach((o, k) => {
     s += o.b ? drawBand(o, k) : o.p ? drawProp(o)
-      : renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
-        view: o.view, headOnly: o.headOnly, id: `${pre}-f${o.fi}` }).svg;
+      : turn(o, renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
+        view: o.view, headOnly: o.headOnly, id: `${pre}-f${o.fi}` }).svg);
   });
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
   return { svg, w: W, h: H, issues };

@@ -88,6 +88,7 @@ repeated inside the JSON.
 | `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. Can also give a hand a held prop: `"left.arm.prop": { "kind": "bow", "angle": 90 }`, or swap one (`"right.arm.prop.kind": "club"`). |
 | `scale` | number | This figure only (a child, a giant). |
 | `nudge` | head-units: a number (across) or `[dx, dy]` (across, up +) | The one fine shift after placement — by `at`/`row`, a relation or `on` — in the entry's own head-units (a hop, feet on a rock, a figure settled on a seat). Anything placed high — flight, a top view — takes a numeric `row`. Whatever sits on or is placed against a nudged entry follows it. The retired `lift` is flagged (`lift: n` is `nudge: [0, n]`). |
+| `rotate` | degrees, clockwise | Turns the whole figure, after the pose and `facing`. On a prop's anchor it turns about that point, so the grip, seat or footing stays put (`"on": "palace-side#hand", "rotate": 90`: Hanuman's body upright against the wall, still hanging by the hand); on a foreground, about its feet; otherwise about its centre, then it stands on the bottom of its turned box, as a prop does. The layout spaces it by its unturned width. |
 | `id` | text | Name for relations when the same character appears twice. |
 
 ### Props
@@ -112,7 +113,10 @@ behind them, after = in front; the retired `layer` field is an issue).
   suffix keeps the base colour). So one drawing serves many characters:
   `{ "prop": "male-top", "character": "rama" }`.
 - Anchors: a group `id="anchors"` in the prop's SVG holds named circles
-  (not drawn). `seat`: where a seated figure's hips rest (`on`).
+  (not drawn). `seat`: where a seated figure's hips rest (`on`) — the
+  underside of its thighs at the pelvis lands on the point, so it goes on
+  the top of the seat (a rock's top, a throne's cushion), and the legs
+  hang as the pose has them.
   `stand`, `stand-left`, `stand-right`: where a standing figure's feet
   rest (`on` with `#`, e.g. `"on": "kishkindha#stand"`; the rocks
   `rock-circle`, `rock-square`, `rock-rectangle` and `kishkindha` have

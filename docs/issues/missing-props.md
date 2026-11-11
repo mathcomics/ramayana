@@ -34,6 +34,7 @@ docs/design/panel-writing.md, Lessons).
 | need | panels |
 |---|---|
 | prop: bow in hand while running | 05.11 |
+| prop: branch (the ashoka branch Sita sits under) | 10.08 |
 | prop: cave | 04.09 |
 | prop: deer (creature art) | 03.04 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
@@ -63,4 +64,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-fire, flower-yellow, giant-grab, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, monkey-top, palace-ayodhya, palace-lanka, rock-circle, rock-rectangle, rock-square, sound-cry, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+fire, flower-yellow, giant-grab, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, monkey-top, palace-ayodhya, palace-gap, palace-lanka, palace-roof, palace-side, rock-circle, rock-rectangle, rock-square, sound-cry, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

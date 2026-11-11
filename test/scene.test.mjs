@@ -120,12 +120,17 @@ test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', (
 
 test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirror the seat', () => {
   const seat = assets.props.props['throne-ayodhya'].anchors.seat;
+  // the hips: the underside of the thighs at the pelvis, in the figure's frame
+  const kingPose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'sit-armknee')));
+  const kingLook = characterLook(assets.characters.characters.find((c) => c.id === 'dasharatha'), assets.characters.palette, assets.faces);
+  const { joints: kj, shapes: ks } = buildShapes(assets.species[kingLook.species], kingPose, kingLook.outfit, 'side', kingLook.bodyScale, kingLook.who);
+  const hipsY = Math.max(...ks.filter((s) => /-thigh$/.test(s.part || '')).flatMap((s) => s.pts).filter((q) => Math.abs(q[0] - kj.spine.pelvis[0]) <= 0.25).map((q) => q[1]));
   for (const facing of ['right', 'left']) {
     const r = renderPanel({ figures: [{ prop: 'throne-ayodhya', at: 0.5, row: 'mid', facing }, { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets);
     assert.deepEqual(r.issues.filter((i) => !/placeholder/.test(i)), []);
     const [, fy, fs] = r.svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/) || [];
     const unit = 0.75 * (1 - 0.4) * 540 / MAN, top = 540 * (1 - 0.4 * 0.37) - assets.props.props['throne-ayodhya'].size[1] * unit;
-    assert.ok(Math.abs(+fy - (top + seat[1] * unit)) < 0.01, `${facing}: seat height`);
+    assert.ok(Math.abs(+fy + hipsY * unit - (top + seat[1] * unit)) < 0.01, `${facing}: the hips on the seat`);
     assert.equal(Math.abs(+fs), unit);
   }
   assert.equal(renderPanel({ figures: [{ character: 'rama', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets).issues.length, 1);
@@ -178,6 +183,30 @@ test('a "hand" anchor: the figure hangs by its higher hand, or the one "hand" na
   assert.ok(Math.abs(fx + g[0] * unit - ax) < 1e-6 && Math.abs(fy + g[1] * unit - ay) < 1e-6, 'the higher grip on the anchor');
   assert.match(renderPanel({ figures: [fig({ hand: 'left', on: undefined })] }, assets).issues.join(' '), /"hand" picks the hand/);
   assert.match(renderPanel({ figures: [wall, { prop: 'golden-deer', on: 'palace-side#hand' }] }, assets).issues.join(' '), /takes a figure/);
+});
+
+test('a seat anchor takes the hips, a stand anchor the feet', () => {
+  const rock = { prop: 'rock-square', at: 0.5, scale: 0.5 };
+  const y = (on) => +renderPanel({ figures: [rock, { character: 'sita', pose: 'chair-grief', on }] }, assets).svg.match(/<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(/)[1];
+  const def = assets.props.props['rock-square'];
+  assert.equal(def.anchors.seat[1], def.anchors.stand[1]);       // the same point on this rock
+  assert.ok(y('rock-square#seat') - y('rock-square#stand') > 0.5 * 0.08 * 540 / MAN, 'seated: the feet hang below the seat');
+});
+
+test('rotate on a figure: about its anchor when on a prop; else about its centre, standing on its turned box', () => {
+  const wall = { prop: 'palace-side', at: 0.5, scale: 4, row: -0.1 };
+  const fig = { character: 'hanuman', pose: 'crawl-onhands', facing: 'left', on: 'palace-side#hand', scale: 0.09 };
+  const plain = renderPanel({ tall: 1.5, figures: [wall, fig] }, assets);
+  const turned = renderPanel({ tall: 1.5, figures: [wall, { ...fig, rotate: 90 }] }, assets);
+  assert.deepEqual(turned.issues, []);
+  const [, px, py] = turned.svg.match(/<g transform="rotate\(90 ([-\d.]+) ([-\d.]+)\)">/).map(Number);
+  // the pivot is the gripping hand, so the grip stays put
+  assert.ok(px > 0 && py > 0);
+  assert.ok(turned.svg.includes(plain.svg.slice(plain.svg.indexOf('</g><g') + 4, plain.svg.lastIndexOf('</svg>'))), 'the figure itself unchanged inside the turn');
+  const free = renderPanel({ figures: [{ character: 'rama', pose: 'step-hang', at: 0.5, rotate: 90 }] }, assets).svg;
+  assert.match(free, /<g transform="translate\(0 [-\d.]+\) rotate\(90 180 [-\d.]+\)">/);
+  assert.equal(renderPanel({ figures: [{ character: 'rama', pose: 'step-hang', at: 0.5, rotate: 0 }] }, assets).svg,
+    renderPanel({ figures: [{ character: 'rama', pose: 'step-hang', at: 0.5 }] }, assets).svg);
 });
 
 test('two panels on one page never share an id', () => {
