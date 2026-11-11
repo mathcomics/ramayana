@@ -4,18 +4,18 @@
   "ground": "night",
   "figures": [
     {
-      "prop": "palace-lanka",
-      "at": 0.55,
-      "scale": 0.65
+      "prop": "palace-side",
+      "at": 0.3,
+      "scale": 5,
+      "row": -0.2
     },
     {
       "character": "hanuman",
       "pose": "bend-reach",
-      "facing": "right",
-      "at": 0.47,
+      "facing": "left",
       "mouth": 1,
-      "row": 0.13,
-      "scale": 0.5
+      "on": "palace-side#hand",
+      "scale": 0.09
     }
   ]
 }
