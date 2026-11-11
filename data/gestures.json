@@ -252,34 +252,35 @@
       }
     },
     "barrier": {
+      "chest": 20.1,
       "desc": "both hands low and forward, the point at the ground ahead (longsword guard: Schrankhut, the barrier guard)",
-      "chest": 0,
-      "neck": 8,
       "head": -33,
-      "mouth": 1,
-      "right": {
-        "shoulder": 80,
-        "out": 10,
-        "elbow": 10,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": -30,
-          "out": 0,
-          "grip": "both"
-        }
-      },
+      "lean": 19.9,
       "left": {
-        "shoulder": 80,
+        "elbow": 10,
+        "elbowOut": -18.1,
+        "hand": "fist",
         "out": 10,
+        "shoulder": 80,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 8,
+      "right": {
         "elbow": 10,
         "elbowOut": 0,
-        "wrist": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": -16,
+          "grip": "both",
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 104.3,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
       }
     },
     "bow": {
@@ -402,34 +403,35 @@
       }
     },
     "change": {
+      "chest": 21.8,
       "desc": "both hands low, the sword trailing down and back beside the leg (longsword guard: Wechsel)",
-      "chest": 10,
-      "neck": 8,
-      "head": 7,
-      "mouth": 1,
-      "right": {
-        "shoulder": -5,
-        "out": 10,
-        "elbow": 10,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": -50,
-          "out": 0,
-          "grip": "both"
-        }
-      },
+      "head": -12.7,
+      "lean": -2.8,
       "left": {
-        "shoulder": -5,
-        "out": 10,
         "elbow": 10,
         "elbowOut": 0,
-        "wrist": 0,
+        "hand": "fist",
+        "out": 10,
+        "shoulder": -5,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": -4.2,
+      "right": {
+        "elbow": 57.6,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": -4,
+          "grip": "both",
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": -5,
+        "twist": 0,
+        "wrist": 4.2
       }
     },
     "cross": {
@@ -539,34 +541,34 @@
       }
     },
     "flank": {
-      "desc": "both hands at the hip, the blade sweeping down behind the leg (longsword guard: Nebenhut)",
       "chest": 0,
-      "neck": 8,
+      "desc": "both hands at the hip, the blade sweeping down behind the leg (longsword guard: Nebenhut)",
       "head": -4,
-      "mouth": 1,
-      "right": {
-        "shoulder": 11,
-        "out": 10,
-        "elbow": 20,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": -75,
-          "out": 0,
-          "grip": "both"
-        }
-      },
       "left": {
-        "shoulder": 11,
-        "out": 10,
         "elbow": 20,
         "elbowOut": 0,
-        "wrist": 0,
+        "hand": "fist",
+        "out": 10,
+        "shoulder": 11,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 8,
+      "right": {
+        "elbow": 20,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": -40,
+          "grip": "both",
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": -19.3,
+        "twist": 0,
+        "wrist": 0
       }
     },
     "flung": {
@@ -595,34 +597,34 @@
       }
     },
     "fool": {
-      "desc": "both hands low in front, the blade sloping down ahead (longsword guard: Alber)",
       "chest": 5,
-      "neck": 8,
+      "desc": "both hands low in front, the blade sloping down ahead (longsword guard: Alber)",
       "head": -21,
-      "mouth": 1,
-      "right": {
-        "shoulder": 63,
-        "out": 10,
-        "elbow": 25,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": -20,
-          "out": 0,
-          "grip": "both"
-        }
-      },
       "left": {
-        "shoulder": 63,
-        "out": 10,
         "elbow": 25,
         "elbowOut": 0,
-        "wrist": 0,
+        "hand": "fist",
+        "out": 10,
+        "shoulder": 63,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 8,
+      "right": {
+        "elbow": 0,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": 6,
+          "grip": "both",
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 73.8,
+        "twist": 0,
+        "wrist": 0
       }
     },
     "handslow": {
@@ -763,65 +765,65 @@
       }
     },
     "longpoint": {
-      "desc": "both arms straight forward, the sword level at the opponent (longsword guard: Langort)",
       "chest": -10,
-      "neck": 8,
+      "desc": "both arms straight forward, the sword level at the opponent (longsword guard: Langort)",
       "head": -35,
-      "mouth": 2,
-      "right": {
-        "shoulder": 125,
-        "out": 10,
-        "elbow": 0,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": -5,
-          "out": 0,
-          "grip": "both"
-        }
-      },
       "left": {
-        "shoulder": 125,
-        "out": 10,
         "elbow": 0,
         "elbowOut": 0,
-        "wrist": 0,
+        "hand": "fist",
+        "out": 10,
+        "shoulder": 125,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
+      },
+      "mouth": 2,
+      "neck": 8,
+      "right": {
+        "elbow": 0,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": 8,
+          "grip": "both",
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 103,
+        "twist": 0,
+        "wrist": 0
       }
     },
     "middle": {
-      "desc": "both hands at the waist, the blade level ahead (longsword guard: Mittelhut)",
       "chest": 0,
-      "neck": 8,
+      "desc": "both hands at the waist, the blade level ahead (longsword guard: Mittelhut)",
       "head": -4,
-      "mouth": 1,
-      "right": {
-        "shoulder": 21,
-        "out": 10,
-        "elbow": 40,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": 25,
-          "out": 0,
-          "grip": "both"
-        }
-      },
       "left": {
-        "shoulder": 21,
-        "out": 10,
-        "elbow": 40,
-        "elbowOut": 0,
-        "wrist": 0,
+        "elbow": 10.3,
+        "elbowOut": -66.5,
+        "hand": "fist",
+        "out": -13.6,
+        "prop": {
+          "angle": 25,
+          "grip": "both",
+          "kind": "sword",
+          "out": 13
+        },
+        "shoulder": 80.6,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 8,
+      "right": {
+        "elbow": 90.6,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "shoulder": -32,
+        "twist": 0,
+        "wrist": 0
       }
     },
     "onarms": {
@@ -957,34 +959,34 @@
       }
     },
     "plow": {
-      "desc": "both hands at the front hip, the blade angled up at the throat (longsword guard: Pflug)",
       "chest": 5,
-      "neck": 8,
+      "desc": "both hands at the front hip, the blade angled up at the throat (longsword guard: Pflug)",
       "head": -9,
-      "mouth": 1,
-      "right": {
-        "shoulder": 41,
-        "out": 10,
-        "elbow": 15,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": 70,
-          "out": 0,
-          "grip": "both"
-        }
-      },
       "left": {
-        "shoulder": 41,
-        "out": 10,
         "elbow": 15,
         "elbowOut": 0,
-        "wrist": 0,
+        "hand": "fist",
+        "out": 10,
+        "shoulder": 41,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 8,
+      "right": {
+        "elbow": 7.3,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": 103,
+          "grip": "both",
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 62.6,
+        "twist": 0,
+        "wrist": 0
       }
     },
     "point": {
@@ -1201,18 +1203,18 @@
       "mouth": 1,
       "right": {
         "shoulder": -40,
-        "out": 4,
+        "out": 10.4,
         "elbow": 19,
-        "elbowOut": 0,
+        "elbowOut": -24.4,
         "wrist": 0,
         "twist": 0,
-        "hand": "out"
+        "hand": "in"
       },
       "left": {
         "shoulder": 30,
-        "out": 8,
+        "out": 10.6,
         "elbow": 22,
-        "elbowOut": 0,
+        "elbowOut": -29.5,
         "wrist": 0,
         "twist": 0,
         "hand": "in"
@@ -1280,34 +1282,34 @@
       }
     },
     "wrath": {
-      "desc": "both hands at the shoulder, the sword swept back over it (longsword guard: Zornhut)",
       "chest": 10,
-      "neck": 8,
-      "head": 12,
-      "mouth": 3,
-      "right": {
-        "shoulder": 80,
-        "out": 10,
-        "elbow": 150,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": 5,
-          "out": 0,
-          "grip": "both"
-        }
-      },
+      "desc": "both hands at the shoulder, the sword swept back over it (longsword guard: Zornhut)",
+      "head": -32.3,
       "left": {
-        "shoulder": 80,
-        "out": 10,
         "elbow": 150,
-        "elbowOut": 0,
-        "wrist": 0,
+        "elbowOut": 9.8,
+        "hand": "fist",
+        "out": 10,
+        "shoulder": 80,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
+      },
+      "mouth": 3,
+      "neck": 8,
+      "right": {
+        "elbow": 84.6,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": -52.7,
+        "prop": {
+          "angle": 5,
+          "grip": "both",
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 171.8,
+        "twist": 0,
+        "wrist": 75
       }
     }
   }
