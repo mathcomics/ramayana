@@ -1,30 +1,31 @@
 {
   "scene": "Rama and Lakshman walk below the high rock; Hanuman and Sugriva crouch on it, watching them, wary",
-  "tall": 1,
-  "ground": "sand",
+  "tall": 1.5,
+  "ground": "geru",
   "sky": "sky",
-  "horizon": 0.35,
+  "horizon": 0.05,
   "figures": [
     {
+      "character": "hanuman",
+      "pose": "crawl-onhands",
+      "view": "front",
+      "at": 0.7,
+      "row": 0.75,
+      "scale": 0.5
+    },
+    {
       "prop": "rock-square",
-      "at": 0.66,
-      "row": "mid",
+      "at": 0.65,
       "scale": 4,
       "id": "rock"
     },
     {
-      "character": "sugriva",
-      "pose": "crouch-handslow",
-      "facing": "left",
-      "on": "rock#stand",
-      "scale": 0.2
-    },
-    {
-      "character": "hanuman",
-      "pose": "crouch-handslow",
-      "facing": "left",
-      "on": "rock#stand-left",
-      "scale": 0.2
+      "character": "monkey1",
+      "pose": "fallfront-armsdown",
+      "scale": 0.5,
+      "at": 0.8,
+      "row": 0.75,
+      "view": "front"
     },
     {
       "character": "lakshman",
@@ -32,7 +33,7 @@
       "facing": "right",
       "at": 0.14,
       "row": -0.12,
-      "scale": 1.1
+      "scale": 0.6
     },
     {
       "character": "rama",
@@ -40,7 +41,7 @@
       "facing": "right",
       "at": 0.4,
       "row": -0.12,
-      "scale": 1.1
+      "scale": 0.6
     }
   ]
 }

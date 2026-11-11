@@ -15,11 +15,12 @@ the new generic characters — were applied in the v0.5 rewrite of
 Rocks replace the ledges (artist). Two changes the brief may want to
 catch up with:
 
-- **07.03**: the watchers on the high rock are **Hanuman and Sugriva**
-  (was Sugriva and a generic monkey), crouched; Rama and Lakshman walk
-  below, large in front. Hanuman is then the one who bounds down (07.05).
+- **07.03**: the watchers are **Hanuman and a monkey** peering over the
+  top of the high rock (was Sugriva and a generic monkey); Rama and
+  Lakshman walk below, in front. Hanuman is then the one who bounds
+  down (07.05).
 - **New 07.09a**: Rama and Sugriva sit face to face, each on a round
-  rock, Lakshman and Hanuman standing by. 07.10 keeps them seated on
+  rock, Lakshman standing and Hanuman sitting by. 07.10 keeps them seated on
   the same rocks for the jewels. Beat 2 could say they sit together
   before the jewels are shown.
 
