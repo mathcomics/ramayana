@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { renderPanel, panelHeight, backgroundInner, PANEL_W, MAN } from '../src/scene.js';
 import { loadAssets, loadSections } from '../tools/lib.mjs';
+import { buildShapes, characterLook } from '../src/figure.js';
 
 const assets = loadAssets();
 const xOf = (svg, n) => [...svg.matchAll(/<g transform="translate\(([-\d.e]+) ([-\d.e]+)\) scale\(/g)].map((m) => +m[1])[n];
@@ -159,6 +160,24 @@ test('a foreground: a band of ground in the list; "on" stands entries on its lin
   assert.match(place([fg, { character: 'rama', pose: 'step-hang', on: 'foreground', row: 'mid' }]).issues.join(' '), /"row" does nothing on a foreground/);
   assert.deepEqual(place([{ ...fg, id: 'hill' }, { character: 'rama', pose: 'step-hang', on: 'hill' }]).issues, []);
   assert.match(place([{ foreground: 'x', color: 'forest' }]).issues.join(' '), /takes \[left, right\]/);
+});
+
+test('a "hand" anchor: the figure hangs by its higher hand, or the one "hand" names', () => {
+  const wall = { prop: 'palace-side', at: 0.5, row: 'front' }, def = assets.props.props['palace-side'];
+  const fig = (extra) => ({ character: 'hanuman', pose: 'leap-reach', on: 'palace-side#hand', ...extra });
+  const r = renderPanel({ tall: 1, figures: [wall, fig({})] }, assets);
+  assert.deepEqual(r.issues, []);
+  const [, fx, fy, fs] = r.svg.match(/<\/g><g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)/).map(Number);
+  // where the anchor is in the panel
+  const unit = fs, H = 360, ground = H * (1 - 0.08 * 0.37), top = ground - def.size[1] * unit;
+  const ax = 180 + (def.anchors.hand[0] - def.size[0] / 2) * unit, ay = top + def.anchors.hand[1] * unit;
+  const pose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'leap-reach')));
+  const look = characterLook(assets.characters.characters.find((c) => c.id === 'hanuman'), assets.characters.palette, assets.faces);
+  const { joints } = buildShapes(assets.species[look.species], pose, look.outfit, 'side', look.bodyScale, look.who);
+  const g = [joints.near.grip, joints.far.grip].sort((a, b) => a[1] - b[1])[0];
+  assert.ok(Math.abs(fx + g[0] * unit - ax) < 1e-6 && Math.abs(fy + g[1] * unit - ay) < 1e-6, 'the higher grip on the anchor');
+  assert.match(renderPanel({ figures: [fig({ hand: 'left', on: undefined })] }, assets).issues.join(' '), /"hand" picks the hand/);
+  assert.match(renderPanel({ figures: [wall, { prop: 'golden-deer', on: 'palace-side#hand' }] }, assets).issues.join(' '), /takes a figure/);
 });
 
 test('two panels on one page never share an id', () => {

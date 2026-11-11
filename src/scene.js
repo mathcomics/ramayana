@@ -124,6 +124,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const groundY = r.top ? -bbox.y0 * unit : r.y;
     return { f, fi: i - 1, name: f.id || who, pose, view, look, S, groundY, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0,
+      // each hand's grip, in the figure's own frame (y up is negative): a "hand" anchor
+      grips: { right: joints?.near?.grip ?? joints?.near?.Wr, left: joints?.far?.grip ?? joints?.far?.Wr },
       facing: f.facing === 'left' ? -1 : 1, x: null };
   };
 
@@ -205,6 +207,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (o.b) continue;
     const e = ent(o), n = e.nudge ?? 0;
     if (e.lift != null) issues.push(`${o.name}: "lift" is retired — use "nudge": [0, ${e.lift}]`);
+    if (e.hand != null && !/#hand(-|$)/.test(String(e.on ?? ''))) issues.push(`${o.name}: "hand" picks the hand for a "hand" anchor — it needs "on": "<prop>#hand"`);
     if (e.on && !onBand(e)) for (const k of ['at', 'row']) if (e[k] != null) issues.push(`${o.name}: "${k}" does nothing with "on" — the prop places it; shift with "nudge"`);
     const ok = typeof n === 'number' || (Array.isArray(n) && n.length === 2 && n.every((v) => typeof v === 'number'));
     if (!ok) issues.push(`${o.name}: "nudge" takes a number or [dx, dy]`);
@@ -243,6 +246,19 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       return;
     }
     o.unit = t.unit * (e.scale ?? 1);
+    // a hand anchor: the figure hangs from it by one hand — the higher one,
+    // or the one its "hand" names (right / left) — its grip on the point
+    if (aname === 'hand' || aname.startsWith('hand-')) {
+      if (!o.f) { issues.push(`${o.name}: a "hand" anchor takes a figure, not a prop ("${e.on}")`); return; }
+      const { right, left } = o.grips;
+      if (e.hand != null && !['right', 'left'].includes(e.hand)) issues.push(`${o.name}: "hand" is right or left`);
+      const g = e.hand === 'right' ? right : e.hand === 'left' ? left : (right && left ? (left[1] < right[1] ? left : right) : right || left);
+      if (!g) { issues.push(`${o.name}: no hand to hang from`); return; }
+      o.halfW = o.halfW1 * o.unit;
+      o.groundY = t.groundY - t.h + seat[1] * t.unit - g[1] * o.unit - o.dy * o.unit;
+      o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - g[0] * o.unit * o.facing + o.dx * o.unit;
+      return;
+    }
     if (o.f) o.halfW = o.halfW1 * o.unit;
     else { [o.w, o.h] = (o.def?.size || PLACEHOLDER).map((v) => v * o.unit); o.halfW = o.w / 2; }
     o.groundY = t.groundY - t.h + seat[1] * t.unit - o.dy * o.unit;

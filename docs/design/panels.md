@@ -84,6 +84,7 @@ repeated inside the JSON.
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
 | `turn` | degrees, −180 … 180 | Head turn from the body's own front, + to its right; overrides the pose's `spine.turn`. ±90 faces the viewer; ±180 is a full look back (profile facing backward, 11.08). |
 | `hands` | `{ "right": "point", "left": "fist" }` (fist · out · in · point) | Overrides the pose. |
+| `hand` | `right` · `left` | With `"on": "<prop>#hand"`: the hand the figure hangs by (default: the higher one in its pose). Flagged anywhere else. |
 | `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. Can also give a hand a held prop: `"left.arm.prop": { "kind": "bow", "angle": 90 }`, or swap one (`"right.arm.prop.kind": "club"`). |
 | `scale` | number | This figure only (a child, a giant). |
 | `nudge` | head-units: a number (across) or `[dx, dy]` (across, up +) | The one fine shift after placement — by `at`/`row`, a relation or `on` — in the entry's own head-units (a hop, feet on a rock, a figure settled on a seat). Anything placed high — flight, a top view — takes a numeric `row`. Whatever sits on or is placed against a nudged entry follows it. The retired `lift` is flagged (`lift: n` is `nudge: [0, n]`). |
@@ -120,13 +121,15 @@ behind them, after = in front; the retired `layer` field is an issue).
   (`palace-lanka` on `"lanka-island#stand"`).
 - **Naming an anchor**: after *what of the figure lands on it*, never
   after where it sits in the drawing — `seat` (hips), `stand` (feet),
-  `face` (the head alone, as in `sound-cry`). Lowercase, one word, the
+  `hand` (the figure hangs from it by one hand: its higher hand, or the
+  one the figure's `hand` field names; `palace-side`), `face` (the head
+  alone, as in `sound-cry`). Any other name places the feet, as `stand`. Lowercase, one word, the
   bare name for the only or default one, `-left`/`-right` for variants
   of the same kind (two places a figure could stand) — never for parts
   of one anchor. The parts and face sheets name their anchors the same
   way (`nape`, `neck-top`, `wrist-left`).
 - **An anchor's size**: an anchor that places a whole figure (`seat`,
-  `stand`) is a point; its circle is only a marker and the radius means
+  `stand`, `hand`) is a point; its circle is only a marker and the radius means
   nothing. An anchor that places a part is *drawn to size*: the circle's
   **diameter is the head's height**. A head is 1 head-unit tall for every
   species (only the width differs: monkey 1.0, male 0.88, female 0.74),

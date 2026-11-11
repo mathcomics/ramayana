@@ -23,7 +23,8 @@ wrong: `docs/issues/problem-poses.md`.
   mismatches for the artist to fix in the drawings.
 - **Props**: art in `data/props/<id>.svg` (any SVG there is a prop, no
   registration), 100 px = 1 head-unit, size from the viewBox, anchors (`seat` for hips, `stand`/`stand-left`/
-  `stand-right` for feet, `face` for a head alone) in a group
+  `stand-right` for feet, `hand` for a figure hanging by one hand, `face`
+  for a head alone) in a group
   `id="anchors"` — an anchor is named after what of the figure lands on
   it, not after where it sits in the drawing. A whole-figure anchor is a
   point (its circle is just a marker); a part anchor is drawn to size,
