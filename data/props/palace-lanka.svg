@@ -6,9 +6,9 @@
      100 px = 1 head-unit; the bottom edge (y 400) sits on the ground line. -->
 
 <svg
-   viewBox="0 0 1000 400"
-   width="1000"
-   height="400"
+   viewBox="0 0 812.70337 342.86438"
+   width="812.70337"
+   height="342.86438"
    version="1.1"
    id="svg1701"
    sodipodi:docname="palace-lanka.svg"
@@ -30,8 +30,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.18"
-     inkscape:cx="336.01695"
-     inkscape:cy="206.35593"
+     inkscape:cx="469.0678"
+     inkscape:cy="163.98305"
      inkscape:window-width="2560"
      inkscape:window-height="1494"
      inkscape:window-x="-11"
@@ -41,7 +41,8 @@
   <g
      fill="#8f5f3f"
      fill-rule="evenodd"
-     id="g1699">
+     id="g1699"
+     transform="translate(-92.432199,-42.661017)">
     <path
        d="M 180.27276,262.77111 H 817.96335 V 383.72695 H 180.27276 Z"
        id="path1575-5"
