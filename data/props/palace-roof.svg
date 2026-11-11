@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Lanka palace roofs seen from the side: a long block with a row of lit
+     windows under the roof line; scale it to the scene.
+     100 px = 1 head-unit; bottom edge on the ground.
+     Anchors: stand-left / stand / stand-right (feet) along the roof top. -->
+
+<svg
+   viewBox="0 0 214.66696 91.272363"
+   width="214.66696"
+   height="91.272362"
+   version="1.1"
+   id="svg731"
+   sodipodi:docname="palace-roof.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <path
+     id="rect447"
+     style="fill:#6c5353;fill-opacity:1;stroke:none;stroke-width:0.999999"
+     d="M 214.13807,5.9969415 H 1.088148 L 0,91.272363 h 214.66697 z"
+     sodipodi:nodetypes="ccccc" />
+  <defs
+     id="defs735" />
+  <sodipodi:namedview
+     id="namedview733"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0521739"
+     inkscape:cx="-141.80085"
+     inkscape:cy="-94.290255"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg731" />
+  <path
+     id="path26-8-4"
+     d="m 15.819972,11.892249 a 6.7899775,6.7444653 0 0 0 -6.789817,6.744496 v 1.341781 a 4.9560701,4.64812 0 0 0 -5.984458,4.527923 v 13.014738 h 5.984458 3.927687 9.65233 6.177274 V 24.506449 a 4.9560701,4.64812 0 0 0 -6.177274,-4.494151 v -1.375553 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.744496 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <path
+     id="path26-8-4-4"
+     d="m 76.730998,11.892249 a 6.7899775,6.7444653 0 0 0 -6.78982,6.744496 v 1.341781 a 4.9560701,4.64812 0 0 0 -5.98446,4.527923 v 13.014738 h 5.98446 3.92769 9.65233 6.17727 V 24.506449 a 4.9560701,4.64812 0 0 0 -6.17727,-4.494151 v -1.375553 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.744496 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <path
+     id="path26-8-4-7"
+     d="m 46.275488,11.892249 a 6.7899775,6.7444653 0 0 0 -6.789824,6.744496 v 1.341781 a 4.9560701,4.64812 0 0 0 -5.98446,4.527923 v 13.014738 h 5.98446 3.927693 9.652331 6.17727 V 24.506449 a 4.9560701,4.64812 0 0 0 -6.17727,-4.494151 v -1.375553 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.744496 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <path
+     id="path26-8-4-47"
+     d="m 107.1865,11.892249 a 6.7899775,6.7444653 0 0 0 -6.78982,6.744496 v 1.341781 a 4.9560701,4.64812 0 0 0 -5.984462,4.527923 v 13.014738 h 5.984462 3.92769 9.65233 6.17727 V 24.506449 a 4.9560701,4.64812 0 0 0 -6.17727,-4.494151 v -1.375553 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.744496 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <path
+     id="path26-8-4-4-7"
+     d="m 168.09752,11.892249 a 6.7899775,6.7444653 0 0 0 -6.78982,6.744496 v 1.341781 a 4.9560701,4.64812 0 0 0 -5.98446,4.527923 v 13.014738 h 5.98446 3.92769 9.65233 6.17727 V 24.506449 a 4.9560701,4.64812 0 0 0 -6.17727,-4.494151 v -1.375553 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.744496 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <path
+     id="path26-8-4-7-8"
+     d="m 137.64201,11.892249 a 6.7899775,6.7444653 0 0 0 -6.78982,6.744496 v 1.341781 a 4.9560701,4.64812 0 0 0 -5.98446,4.527923 v 13.014738 h 5.98446 3.92769 9.65233 6.17727 V 24.506449 a 4.9560701,4.64812 0 0 0 -6.17727,-4.494151 v -1.375553 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.744496 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <path
+     id="path26-8-4-47-6"
+     d="m 198.55303,11.892249 a 6.7899775,6.7444653 0 0 0 -6.78982,6.744496 v 1.341781 a 4.9560701,4.64812 0 0 0 -5.98446,4.527923 v 13.014738 h 5.98446 3.92769 9.65233 6.17727 V 24.506449 a 4.9560701,4.64812 0 0 0 -6.17727,-4.494151 v -1.375553 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.744496 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <g
+     id="anchors">
+    <circle
+     id="stand-left"
+     cx="25.016148"
+     cy="6"
+     r="6"
+     fill="none" />
+    <circle
+     id="stand-right"
+     cx="127.01615"
+     cy="6"
+     r="6"
+     fill="none" />
+    <circle
+     id="stand"
+     cx="76.356148"
+     cy="6"
+     r="6"
+     fill="none" />
+  </g>
+</svg>

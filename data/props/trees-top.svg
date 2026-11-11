@@ -1,73 +1,114 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Clump of five trees seen from above, from the artist's layout layouts/scenes/0.5-forest.svg (top-left clump; the bottom-right one is the same).
      100 px = 1 head-unit; the bottom edge sits on the ground line.
-     The drawing is the artist's, unchanged: only placed and scaled (the outer group). -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" viewBox="0 0 917.88 640.96" width="917.88" height="640.96">
-<g transform="scale(6.501951) translate(-22.11 -5.43)">
-<rect
-       style="fill:#484537;stroke:none"
+     The trees are the artist's, unchanged: only placed and scaled (the outer group);
+     the dark-green ground under them is drawn here. -->
+
+<svg
+   viewBox="0 0 917.88 640.96"
+   width="917.88"
+   height="640.96"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="trees-top.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0414203"
+     inkscape:cx="441.22434"
+     inkscape:cy="324.07664"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <path
+     style="fill:#45563b;fill-opacity:1"
+     d="m 46.0909,564.61352 c 42.927064,15.57945 98.27331,90.63372 266.94313,49.93181 L 465.71013,326.4772 C 574.31217,314.287 682.99852,303.19281 794.10779,323.59652 L 797.9487,154.59656 C 264.07526,137.6442 166.51926,330.01195 46.0909,564.61352 Z"
+     id="path247"
+     sodipodi:nodetypes="cccccc" />
+  <g
+     transform="scale(6.501951) translate(-22.11 -5.43)"
+     id="g12">
+    <rect
+       style="fill:#594426;stroke:none;fill-opacity:1"
        id="rect4370"
        width="9.1684189"
        height="17.2582"
        x="36.673676"
        y="83.055084" />
-<circle
-       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+    <circle
+       style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040"
        cx="41.612061"
        cy="69.656654"
        r="19.5" />
-<rect
-       style="fill:#484537;stroke:none"
+    <rect
+       style="fill:#594426;stroke:none;fill-opacity:1"
        id="rect4370-8"
        width="9.1684189"
        height="17.2582"
        x="109.14301"
        y="38.326382" />
-<rect
-       style="fill:#484537;stroke:none"
+    <rect
+       style="fill:#594426;stroke:none;fill-opacity:1"
        id="rect4370-4"
        width="9.1684189"
        height="17.2582"
        x="86.968407"
        y="51.67606" />
-<circle
-       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+    <circle
+       style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040-8"
        cx="114.08139"
        cy="24.927954"
        r="19.5" />
-<circle
-       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+    <circle
+       style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040-5"
        cx="91.906784"
        cy="38.277622"
        r="19.5" />
-<rect
-       style="fill:#484537;stroke:none"
+    <rect
+       style="fill:#594426;stroke:none;fill-opacity:1"
        id="rect4370-2"
        width="9.1684189"
        height="17.2582"
        x="66.375175"
        y="86.760796" />
-<circle
-       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+    <circle
+       style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040-0"
        cx="71.31356"
        cy="73.362366"
        r="19.5" />
-<rect
-       style="fill:#484537;stroke:none"
+    <rect
+       style="fill:#594426;stroke:none;fill-opacity:1"
        id="rect4370-2-2"
        width="9.1684189"
        height="17.2582"
        x="138.84451"
        y="42.032093" />
-<circle
-       style="fill:#7c916f;stroke:none;stroke-width:0.999999"
+    <circle
+       style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040-0-9"
        cx="143.7829"
        cy="28.633665"
        r="19.5" />
-</g>
+  </g>
 </svg>

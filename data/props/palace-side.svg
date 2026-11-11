@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A tall Lanka palace wall seen edge-on, three lit windows one above the
+     other; scale it to the scene. The page reaches past the wall on the
+     right, where the anchors are.
+     100 px = 1 head-unit; bottom edge on the ground.
+     Anchors: climb, jump (feet) beside the wall. -->
+
+<svg
+   viewBox="0 0 103.86441 244.13137"
+   width="103.86441"
+   height="244.13136"
+   version="1.1"
+   id="svg731"
+   sodipodi:docname="palace-side.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <path
+     id="rect447"
+     style="fill:#6c5353;fill-opacity:1;stroke:none;stroke-width:1"
+     d="M 66.36745,0 H 0.33725 L 0,244.13136 h 66.53138 z"
+     sodipodi:nodetypes="ccccc" />
+  <defs
+     id="defs735" />
+  <sodipodi:namedview
+     id="namedview733"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0521739"
+     inkscape:cx="-141.80085"
+     inkscape:cy="217.57415"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg731" />
+  <path
+     id="path26-8-4-4-7"
+     d="m 45.56391,14.1792 a 6.7899775,6.7444653 0 0 0 -6.78982,6.7445 v 1.34178 a 4.9560701,4.64812 0 0 0 -5.98446,4.52792 v 13.01474 h 5.98446 3.92769 9.65233 6.17727 V 26.7934 A 4.9560701,4.64812 0 0 0 52.35411,22.29925 V 20.9237 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.7445 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <path
+     id="path26-8-4-7-8"
+     d="m 45.56391,194.47581 a 6.7899775,6.7444653 0 0 0 -6.78982,6.7445 v 1.34178 a 4.9560701,4.64812 0 0 0 -5.98446,4.52792 v 13.01474 h 5.98446 3.92769 9.65233 6.17727 v -13.01474 a 4.9560701,4.64812 0 0 0 -6.17727,-4.49415 v -1.37555 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.7445 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <path
+     id="path26-8-4-47-6"
+     d="m 45.56391,104.32751 a 6.7899775,6.7444653 0 0 0 -6.78982,6.74449 v 1.34179 a 4.9560701,4.64812 0 0 0 -5.98446,4.52792 v 13.01474 h 5.98446 3.92769 9.65233 6.17727 v -13.01474 a 4.9560701,4.64812 0 0 0 -6.17727,-4.49415 V 111.072 a 6.7899775,6.7444653 0 0 0 -6.7902,-6.74449 z"
+     style="fill:#ffd42a;stroke-width:0.999999" />
+  <g
+     id="anchors">
+    <circle
+     id="jump"
+     cx="97.86441"
+     cy="158.85899"
+     r="6"
+     fill="none" />
+    <circle
+     id="climb"
+     cx="67.86441"
+     cy="108.85899"
+     r="6"
+     fill="none" />
+  </g>
+</svg>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Two Lanka palace blocks with the gap between them, in perspective; lit
+     windows on the inner walls; scale it to the scene.
+     100 px = 1 head-unit; bottom edge on the ground.
+     Anchors: stand-left / stand-right (feet) on either block; jump (feet)
+     over the gap. -->
+
+<svg
+   viewBox="-107.23948 1.9639257 311.88701 113.27541"
+   width="311.88701"
+   height="113.27541"
+   version="1.1"
+   id="svg731"
+   sodipodi:docname="palace-gap.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <path
+     id="rect447-4"
+     style="fill:#6c5353;fill-opacity:1;stroke:none;stroke-width:0.999999"
+     d="m 204.64753,63.963926 -100.24488,-28 0.98236,79.275414 h 99.83232 z"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     id="rect447-8-5"
+     style="fill:#241f1c;fill-opacity:1;stroke:none;stroke-width:0.999999"
+     d="m 24.875871,65.963926 80.367239,-29.72282 0.236,78.998234 H 24.413185 Z"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     id="rect447"
+     style="fill:#6c5353;fill-opacity:1;stroke:none;stroke-width:0.999999"
+     d="M 72.532182,29.963926 -27.7127,1.9639257 -26.73034,115.23934 h 99.832322 z"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     id="rect447-8"
+     style="fill:#241f1c;fill-opacity:1;stroke:none;stroke-width:0.999999"
+     d="M -107.23948,29.963926 -25.838547,1.9639257 -26.636242,115.23934 h -81.065928 z"
+     sodipodi:nodetypes="ccccc" />
+  <defs
+     id="defs735" />
+  <sodipodi:namedview
+     id="namedview733"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0521739"
+     inkscape:cx="44.343221"
+     inkscape:cy="-96.726696"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg731" />
+  <path
+     id="path26-8-4"
+     d="m 57.531404,37.051286 c -2.045569,-0.5334 -3.973284,-0.36589 -3.981843,2.20457 v 14.83839 l 17.127631,5.23254 v -11.35003 c -0.005,-2.63998 -2.02872,-6.314 -4.11014,-5.66348 0.36918,-9.90017 -8.40517,-11.20334 -9.035648,-5.26199 z"
+     style="fill:#ffd42a;stroke-width:0.999993"
+     sodipodi:nodetypes="ccccccc" />
+  <path
+     id="path26-8-4-8"
+     d="m 111.3926,45.952546 c -2.04557,-0.5334 -3.97329,-0.36589 -3.98185,2.20457 v 14.83839 l 17.12764,5.23254 v -11.35003 c -0.005,-2.63998 -2.02873,-6.314 -4.11014,-5.66348 0.36917,-9.90017 -8.40517,-11.20334 -9.03565,-5.26199 z"
+     style="fill:#ffd42a;stroke-width:0.999993"
+     sodipodi:nodetypes="ccccccc" />
+  <path
+     id="path26-8-4-8-4"
+     d="m 99.115872,46.683476 c 2.045568,-0.5334 3.973288,-0.36589 3.981848,2.20457 v 14.83839 l -17.127638,5.23254 v -11.35003 c 0.005,-2.63998 2.02873,-6.314 4.11014,-5.66348 -0.36917,-9.90017 8.40517,-11.20334 9.03565,-5.26199 z"
+     style="fill:#ffd42a;stroke-width:0.999993"
+     sodipodi:nodetypes="ccccccc" />
+  <g
+     id="anchors">
+    <circle
+     id="stand-left"
+     cx="25.016148"
+     cy="6"
+     r="6"
+     fill="none" />
+    <circle
+     id="stand-right"
+     cx="127.01615"
+     cy="36"
+     r="6"
+     fill="none" />
+    <circle
+     id="jump"
+     cx="76.356148"
+     cy="6"
+     r="6"
+     fill="none" />
+  </g>
+</svg>
