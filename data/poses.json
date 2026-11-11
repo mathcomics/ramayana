@@ -52,6 +52,19 @@
         "sitback-propback"
       ]
     },
+    "chair-grief": {
+      "desc": "seated, bent forward, both forearms raised across the face (weeping)",
+      "ground": "seat",
+      "hold": [],
+      "use": [
+        "sit",
+        "grieve"
+      ],
+      "like": [
+        "chair-armrest",
+        "kneel-bow"
+      ]
+    },
     "crawl-onhands": {
       "desc": "body low and pitched forward, arms reaching ahead to the ground, legs in a long step",
       "ground": "feet-hands",
