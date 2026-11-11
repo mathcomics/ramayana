@@ -3,7 +3,7 @@
      other; scale it to the scene. The page reaches past the wall on the
      right, where the anchors are.
      100 px = 1 head-unit; bottom edge on the ground.
-     Anchors: climb, jump (feet) beside the wall. -->
+     Anchors: climb, stand (feet) beside the wall. -->
 
 <svg
    viewBox="0 0 103.86441 244.13137"
@@ -58,7 +58,7 @@
   <g
      id="anchors">
     <circle
-     id="jump"
+     id="stand"
      cx="97.86441"
      cy="158.85899"
      r="6"
