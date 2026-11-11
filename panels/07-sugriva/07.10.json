@@ -1,13 +1,24 @@
 {
-  "scene": "Sugriva holds out a bundle of jewels to Rama",
+  "scene": "Sugriva, seated on his rock, holds out a bundle of jewels to Rama",
   "tall": 1,
   "ground": "sand",
   "figures": [
     {
+      "prop": "rock-circle",
+      "at": 0.25,
+      "scale": 0.75
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.75,
+      "scale": 0.75,
+      "facing": "left"
+    },
+    {
       "character": "sugriva",
-      "pose": "step-hang",
+      "pose": "chair-armrest",
       "facing": "right",
-      "at": 0.32,
+      "at": 0.3,
       "adjust": {
         "right.arm.shoulder": 75,
         "right.arm.elbow": 10,
@@ -16,14 +27,14 @@
     },
     {
       "prop": "jewels",
-      "at": 0.47,
-      "row": 0.3
+      "at": 0.5,
+      "row": 0.36
     },
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "chair-armrest",
       "facing": "left",
-      "at": 0.66,
+      "at": 0.7,
       "mouth": 2
     }
   ],

@@ -167,6 +167,15 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   on `ledge#stand-left/#stand/#stand-right` at the ledge's own scale fill
   the panel. Scale the prop up and the figures down (0.45) for people on
   a rock seen from a distance (06.06).
+- **Rocks, not ledges** (artist, 2026-11-10): build rocky ground from
+  `rock-circle`, `rock-square` and `rock-rectangle`, often a big one with
+  a smaller one before it; `ledge` is deprecated (`composition.md`,
+  Kishkindha and rocks).
+- **`on` lands a pose's lowest point on the anchor**: on a rock's top
+  `seat`, `sit-armknee` stands on its raised foot with the hips hovering,
+  and `chair-armrest` hangs its legs in the air (07.09 first tries). To
+  sit on a rock, put `chair-armrest` on the ground and draw a
+  `rock-circle` (scale ~0.75) behind it at hip height.
 - **Creatures have their own sizes**: golden deer 4.6 head-units to the
   antler tips; Jatayu 9 wingspan flying, 5 standing, `scale` 0.5 perched in
   a tree, 0.6–0.8 in the air beside a flying figure.

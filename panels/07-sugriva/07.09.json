@@ -12,17 +12,20 @@
       "scale": 1.1
     },
     {
-      "prop": "ledge",
-      "at": 0.22,
-      "scale": 1.2,
-      "id": "rock"
+      "prop": "rock-square",
+      "at": 0.14,
+      "scale": 1.3
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.3,
+      "scale": 0.75
     },
     {
       "character": "sugriva",
-      "pose": "sit-armknee",
+      "pose": "chair-armrest",
       "facing": "right",
-      "on": "rock#seat",
-      "scale": 0.85,
+      "at": 0.35,
       "mouth": 1
     }
   ]

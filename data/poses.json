@@ -79,6 +79,22 @@
         "bend-reach"
       ]
     },
+    "crouch-handslow": {
+      "desc": "squatting low, forearms low in front, head up (crouched, watching)",
+      "ground": "feet",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "sneak",
+        "stand"
+      ],
+      "like": [
+        "crouch-cross",
+        "kneel-handslow"
+      ]
+    },
     "fallback-flung": {
       "desc": "falling onto the back: body tipped back, legs kicked up, arms flung out",
       "ground": "back",

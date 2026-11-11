@@ -113,8 +113,9 @@ behind them, after = in front; the retired `layer` field is an issue).
 - Anchors: a group `id="anchors"` in the prop's SVG holds named circles
   (not drawn). `seat`: where a seated figure's hips rest (`on`).
   `stand`, `stand-left`, `stand-right`: where a standing figure's feet
-  rest (`on` with `#`, e.g. `"on": "kishkindha#stand"`; `ledge` and
-  `kishkindha` have them). A prop can stand `on` another prop's anchor
+  rest (`on` with `#`, e.g. `"on": "kishkindha#stand"`; the rocks
+  `rock-circle`, `rock-square`, `rock-rectangle` and `kishkindha` have
+  them). A prop can stand `on` another prop's anchor
   too — its bottom centre lands there, at the carrying prop's scale
   (`palace-lanka` on `"lanka-island#stand"`).
 - **Naming an anchor**: after *what of the figure lands on it*, never
@@ -159,8 +160,9 @@ behind them, after = in front; the retired `layer` field is an issue).
   2026-11-08), `throne-lanka` (dark, under the red disc with a dark
   centre, Ravana's) and `throne-kishkindha` (gold
   stupa dome on a dark post, Sugriva's coronation),
-  `ledge`, `ledge-jatayu` (the bluff Jatayu rests on; one `seat` on the
-  top), `kishkindha` (rocky; seeded-random outlines, stand anchors),
+  the rocks `rock-circle`, `rock-square`, `rock-rectangle` (plain stone,
+  for every rocky scene; they replace the deprecated `ledge`),
+  `ledge-jatayu` (the bluff Jatayu rests on; one `seat` on the top), `kishkindha` (rocky; seeded-random outlines, stand anchors),
   the giant's parts for chapter 14 `giant-feet`, `giant-fist`,
   `giant-grab` (reaching down from above), `giant-lie-waist` (the
   sleeping giant's middle) — each cut off at the frame edge it enters

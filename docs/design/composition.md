@@ -86,9 +86,23 @@ action. The same opener can return when the story comes back to a place.
   with `on`: `"kishkindha#stand"` (also `#stand-left`, `#stand-right`).
   A figure on an anchor takes the prop's scale: for small figures on a
   big mountain, scale the prop up and give the figure a `scale` below 1.
-- `ledge`: a flat-topped rock for any rocky scene (stand anchors as
-  above; `seat` near its right edge for sitting). Mirror (`facing`) and
-  `scale` it for variety when it repeats.
+- **Rocks, not ledges** (artist, 2026-11-10): rocky scenes use the plain
+  rocks `rock-circle` (round boulder), `rock-square` (squat block) and
+  `rock-rectangle` (long and low), often **one big with a smaller one
+  in front of it** (07.05, 07.09). `stand` / `seat` anchors on the top
+  (`stand-left`, `stand-right` towards the ends where drawn). Scale and
+  mirror them to the scene.
+  - Figures up on a rock watching those below: a big rock (`rock-square`
+    at `row: "mid"`, `scale` ~4) with the watchers on its anchors at a
+    small `scale` (0.2), the walkers large in front (07.03).
+  - Sitting on a rock like a seat: `chair-armrest` standing **on the
+    ground** (`at`, no `on`), with a `rock-circle` at `scale` 0.75 drawn
+    before it so its top meets the hips (07.09, 07.09a, 07.10). The rock's
+    `seat` anchor is on its top and a chair pose's feet land on an anchor
+    (as on a throne's step), so `on` would hang the legs in the air.
+  - `ledge` is **deprecated**: chapter 7 no longer uses it; it is still
+    in 03.06, 06.06 and 06.07 (swap when those chapters are reworked).
+    `ledge-jatayu` stays as Jatayu's bluff until redrawn.
 
 ## Jatayu
 

@@ -63,4 +63,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-fire, flower-yellow, forest-ridge, giant-grab, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, ledge-jatayu, monkey-top, palace-ayodhya, palace-lanka, sound-cry, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+fire, flower-yellow, forest-ridge, giant-grab, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, ledge, ledge-jatayu, monkey-top, palace-ayodhya, palace-lanka, rock-circle, rock-square, sound-cry, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
