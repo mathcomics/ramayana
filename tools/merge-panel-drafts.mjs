@@ -19,7 +19,7 @@ if (!dir) { console.error('usage: node tools/merge-panel-drafts.mjs <dir of draf
 const dry = flag === '--dry';
 
 const TOP = ['scene', 'tall', 'ground', 'sky', 'horizon', 'background', 'figures', 'needs', 'tags'];
-const FIG = ['id', 'character', 'prop', 'pose', 'view', 'facing', 'at', 'row', 'on', 'scale', 'mouth', 'cloth', 'turn', 'hands', 'adjust'];
+const FIG = ['id', 'character', 'prop', 'foreground', 'color', 'pose', 'view', 'facing', 'at', 'row', 'on', 'nudge', 'scale', 'mouth', 'cloth', 'turn', 'hands', 'adjust'];
 const sortBy = (order) => (a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99);
 const sortKeys = (o, order) => Object.fromEntries(Object.keys(o).sort(sortBy(order)).map((k) => [k, o[k]]));
 const canon = (x) => Array.isArray(x) ? x.map(canon)
@@ -27,7 +27,8 @@ const canon = (x) => Array.isArray(x) ? x.map(canon)
 const same = (a, b) => JSON.stringify(canon(a)) === JSON.stringify(canon(b));
 
 // figures match by id, else by what they are, else by position
-const key = (g) => g && (g.id || (g.character ? `${g.character}|${g.cloth || ''}|${g.pose}` : g.prop));
+const kind = (g) => (g?.prop ? 'prop' : g?.foreground != null ? 'foreground' : 'figure');
+const key = (g) => g && (g.id || (g.character ? `${g.character}|${g.cloth || ''}|${g.pose}` : g.foreground != null ? 'foreground' : g.prop));
 // the new value laid out in the old one's key order; new keys after
 function keepOrder(n, o) {
   if (Array.isArray(n)) {
@@ -35,8 +36,8 @@ function keepOrder(n, o) {
     const used = new Set();
     return n.map((x, i) => {
       let j = o.findIndex((y, k) => !used.has(k) && key(y) && key(y) === key(x));
-      if (j < 0 && !used.has(i) && o[i] && typeof o[i] === 'object' && !o[i].prop === !(x && x.prop)) j = i;
-      if (j < 0) return x && typeof x === 'object' && !Array.isArray(x) && (x.character || x.prop) ? sortKeys(x, FIG) : x;
+      if (j < 0 && !used.has(i) && o[i] && typeof o[i] === 'object' && kind(o[i]) === kind(x)) j = i;
+      if (j < 0) return x && typeof x === 'object' && !Array.isArray(x) && (x.character || x.prop || x.foreground != null) ? sortKeys(x, FIG) : x;
       used.add(j); return keepOrder(x, o[j]);
     });
   }

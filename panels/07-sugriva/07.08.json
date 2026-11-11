@@ -18,17 +18,16 @@
       "scale": 0.95
     },
     {
-      "prop": "forest-ridge",
-      "at": 0.5,
-      "row": "floor",
-      "facing": "left"
+      "foreground": [0.22, 0.11],
+      "color": "forest"
     },
     {
       "character": "hanuman",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.66,
-      "row": 0.12
+      "on": "foreground",
+      "nudge": [0, -0.25]
     }
   ]
 }

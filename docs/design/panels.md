@@ -65,7 +65,7 @@ repeated inside the JSON.
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
 | `tags` | list of words (`panic`, `crowd`, `flee`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
-| `figures` | one list of figures **and** props | An entry with `character` is a figure, with `prop` a prop. **One overlap rule: later entries draw over earlier ones** — a prop before the figures is scenery, after them a foreground that hides them (03.02's ridge), and props and figures interleave freely. (The old separate `props` list with `layer` back/front still renders, folded in around the figures — old lab drafts only; migrate on merge.) |
+| `figures` | one list of figures **and** props | An entry with `character` is a figure, with `prop` a prop, with `foreground` a band of ground (Foregrounds). **One overlap rule: later entries draw over earlier ones** — a prop before the figures is scenery, after them a foreground that hides them (03.02's rising ground), and props and figures interleave freely. (The old separate `props` list with `layer` back/front still renders, folded in around the figures — old lab drafts only; migrate on merge.) |
 | `needs` | list of text | Missing poses, props, art. Collected into the to-do list. |
 | `background` | file name | Optional; default `<id>.svg` next to the JSON. |
 
@@ -78,7 +78,7 @@ repeated inside the JSON.
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `top` · `horizon` · `back` · `mid` · `front` · `floor` · `closeup`, or a number | Where it stands and how big: see Rows. Default `front`. Rows don't change the overlap order. |
-| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>` | Puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at` and `row` do nothing and are flagged; `scale` and `nudge` still apply, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
+| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at` and `row` do nothing and are flagged; `scale` and `nudge` still apply, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
@@ -173,6 +173,29 @@ behind them, after = in front; the retired `layer` field is an issue).
   `male-top`, `male-top-back`, `female-top` (recolour, see above). How to
   arrange them: `docs/design/composition.md`.
 
+### Foregrounds
+
+`{ "foreground": [0.11, 0.22], "color": "forest" }` — a band of ground,
+an entry of the same `figures` list, drawn from the panel's bottom edge
+up to a straight line. The two numbers are the line's height at the left
+and right edges, as shares of the panel height (one number: level). Its
+place in the list is its depth, as for a prop: figures before it are
+behind it (their feet hidden, the farther the deeper), figures after it
+in front (03.02, 07.02, 07.08, 09.07).
+
+- `color`: a `data/grounds.json` name or a hex; gradients as for `ground`.
+- Standing on it: `"on": "foreground"` with the figure's own `at` (a
+  number, slot or relation). The feet land on the line at that x, at
+  front-row size × `scale`; `nudge` `[dx, dy]` then moves along the line
+  (the feet follow the slope) and up or down from it (03.02: Rama
+  `[0, -0.5]` in front of it, Lakshman `[0, -1]` sunk behind it). A prop
+  can stand on it the same way.
+- `id` names it when a panel has more than one (`"on": "far-hill"`).
+- `at`, `row`, `scale`, `nudge` and `on` do nothing on a foreground itself
+  and are flagged; so is `row` on an entry standing on one.
+- Not the horizon: `horizon` stays the eye level the rows are built on
+  (and a `sky` above it); a foreground is a near slope of ground.
+
 ### Placement
 
 - **Number**: 0–1 across the width (0.5 = centre), where the figure's
@@ -200,7 +223,7 @@ row looks the same in a panel of any height.
 | `back` | 26 % (at the default horizon) | a man 22 % of the panel |
 | `mid` | 15 % | 45 % |
 | `front` (default) | 3 % | 69 % |
-| `floor` | the bottom edge | as `front` (a foreground band sits flush: 03.02's ridge, 09.09's sea) |
+| `floor` | the bottom edge | as `front` (a foreground prop sits flush: 09.09's sea) |
 | `closeup` | a panel below the bottom edge (−100 %) | a man's head at 75 %: he shows from about the waist up |
 | a number | that share (0 = bottom, 1 = top; negative or above 1 crops) | as `front` |
 

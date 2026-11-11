@@ -8,7 +8,8 @@
       "character": "lakshman",
       "pose": "pass-swing",
       "view": "front",
-      "on": "forest-ridge#stand-right",
+      "at": 0.68,
+      "on": "foreground",
       "nudge": [0, -1],
       "scale": 0.65
     },
@@ -17,19 +18,20 @@
       "pose": "walk-swing",
       "view": "front",
       "facing": "left",
-      "on": "forest-ridge#stand",
+      "at": 0.4,
+      "on": "foreground",
       "scale": 0.8
     },
     {
-      "prop": "forest-ridge",
-      "at": 0.5,
-      "row": "floor"
+      "foreground": [0.11, 0.22],
+      "color": "forest"
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "view": "front",
-      "on": "forest-ridge#stand-left",
+      "at": 0.28,
+      "on": "foreground",
       "nudge": [0, -0.5],
       "scale": 1.2
     },

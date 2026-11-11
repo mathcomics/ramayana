@@ -22,9 +22,8 @@
       "mouth": 1
     },
     {
-      "prop": "forest-ridge",
-      "at": 0.5,
-      "row": "floor"
+      "foreground": [0.11, 0.22],
+      "color": "forest"
     },
     {
       "character": "monkey1",

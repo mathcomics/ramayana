@@ -158,13 +158,42 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
   };
 
-  const all = entries.map((e, i) => {
+  // foreground: a band of ground, drawn from the bottom edge up to a
+  // straight line whose left and right heights are shares of the panel
+  // height ([l, r], or one number for a level one). Its place in the list is
+  // its depth, like a prop's. Entries stand on it with "on": "foreground"
+  // (or its id): feet on the line at their own x, front-row size × scale;
+  // "at" places them across.
+  const makeBand = (b) => {
+    const v = typeof b.foreground === 'number' ? [b.foreground, b.foreground] : b.foreground;
+    const name = b.id || 'foreground';
+    if (!Array.isArray(v) || v.length !== 2 || !v.every((n) => typeof n === 'number')) { issues.push(`${name}: "foreground" takes [left, right] heights (shares of the panel) or one number`); return null; }
+    const col = grounds[b.color] || b.color;
+    if (!b.color) issues.push(`${name}: a foreground needs a "color" (data/grounds.json or a hex)`);
+    else if (!grounds[b.color] && !/^#/.test(b.color)) issues.push(`${name}: color "${b.color}" not in data/grounds.json`);
+    for (const k of ['at', 'row', 'scale', 'nudge', 'on']) if (b[k] != null) issues.push(`${name}: "${k}" does nothing on a foreground — "foreground" sets its line`);
+    return { b, name, line: v, color: col || '#7a8f6a', x: W / 2, halfW: W / 2, unit: 1, groundY: H, facing: 1 };
+  };
+  const bandNames = new Set(entries.filter((e) => e.foreground != null).map((e) => e.id || 'foreground'));
+  const onBand = (e) => e.on != null && bandNames.has(String(e.on).split('#')[0]);
+  // on a foreground, "row" would fight its line: flagged and dropped
+  const strip = (e) => {
+    if (!onBand(e) || e.row == null) return e;
+    issues.push(`${e.id || e.character || e.who || e.prop}: "row" does nothing on a foreground — it sets the ground line; size with "scale"`);
+    const { row: _, ...rest } = e; return rest;
+  };
+  const all = entries.map((e0, i) => {
+    const e = strip(e0);
+    if (e.foreground != null) return makeBand(e);
     if (e.prop) return makeProp(e);
     if (e.character || e.who) return makeFig(e);
-    issues.push(`entry ${i + 1}: needs "character" or "prop"`);
+    issues.push(`entry ${i + 1}: needs "character", "prop" or "foreground"`);
     return null;
   }).filter(Boolean);
   const props = all.filter((o) => o.p);
+  const bands = all.filter((o) => o.b);
+  const ent = (o) => o.f || o.p || o.b;
+  const bandOf = (o) => { const e = ent(o); return onBand(e) ? bands.find((b) => b.name === String(e.on).split('#')[0]) : null; };
 
   // -- placement: number or slot first, then relations --------------------------
   // "nudge": the one fine shift after placement (by at/row, a relation or
@@ -173,16 +202,18 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   // on it or is placed by it follows. "lift" is retired; with "on", the
   // prop places the entry and at/row do nothing.
   for (const o of all) {
-    const e = o.f || o.p, n = e.nudge ?? 0;
+    if (o.b) continue;
+    const e = ent(o), n = e.nudge ?? 0;
     if (e.lift != null) issues.push(`${o.name}: "lift" is retired — use "nudge": [0, ${e.lift}]`);
-    if (e.on) for (const k of ['at', 'row']) if (e[k] != null) issues.push(`${o.name}: "${k}" does nothing with "on" — the prop places it; shift with "nudge"`);
+    if (e.on && !onBand(e)) for (const k of ['at', 'row']) if (e[k] != null) issues.push(`${o.name}: "${k}" does nothing with "on" — the prop places it; shift with "nudge"`);
     const ok = typeof n === 'number' || (Array.isArray(n) && n.length === 2 && n.every((v) => typeof v === 'number'));
     if (!ok) issues.push(`${o.name}: "nudge" takes a number or [dx, dy]`);
     [o.dx, o.dy] = !ok ? [0, 0] : typeof n === 'number' ? [n, 0] : n;
     if (!e.on) o.groundY -= o.dy * o.unit;
   }
   for (const o of all) {
-    const at = (o.f || o.p).at ?? 'center';
+    if (o.b) continue;
+    const at = ent(o).at ?? 'center';
     if (typeof at === 'number') o.x = at * W + o.dx * o.unit;
     else if (typeof at === 'string') {
       if (!(at in SLOTS)) issues.push(`${o.name}: unknown position "${at}"`);
@@ -196,7 +227,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   // A `face` anchor is different: it takes the head alone, centred on the
   // anchor and drawn to the anchor circle's size — a face in a sound bubble.
   const seatOn = (o) => {
-    const e = o.f || o.p;
+    const e = ent(o);
     const [tname, aname = 'seat'] = String(e.on).split('#');
     const t = props.find((x) => x !== o && x.name === tname);
     const seat = t?.def?.anchors?.[aname];
@@ -219,8 +250,9 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   };
   for (let pass = 0; pass < 3; pass++) {
     for (const o of all) {
-      if ((o.f || o.p).on) { seatOn(o); continue; }
-      const at = (o.f || o.p).at;
+      if (o.b) continue;
+      if (ent(o).on && !onBand(ent(o))) { seatOn(o); continue; }
+      const at = ent(o).at;
       if (!at || typeof at !== 'object') continue;
       const [rel, target] = Object.entries(at).find(([k]) => RELS.includes(k)) || [];
       const t = target && all.find((x) => x.name === target);
@@ -233,6 +265,10 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     }
   }
   for (const o of all) o.x ??= W / 2;
+  // on a foreground: the feet on its line where the entry stands (after the
+  // across nudge, so the feet follow the slope), then the up/down nudge
+  const lineY = (b, x) => H * (1 - (b.line[0] + (b.line[1] - b.line[0]) * x / W));
+  for (const o of all) { const b = bandOf(o); if (b) o.groundY = lineY(b, o.x) - o.dy * o.unit; }
 
   // -- draw: ground, sky, background, then the list in order ---------------------
   // ids are unique per panel and figure, so panels can share a page
@@ -261,8 +297,12 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     return `<g class="placeholder"><rect x="${x}" y="${y}" width="${o.w}" height="${o.h}" fill="#000" fill-opacity="0.06" stroke="#7a6f62" stroke-width="1.2" stroke-dasharray="5 4"/>` +
       `<text x="${o.x}" y="${y + o.h / 2}" font-family="Helvetica, Arial, sans-serif" font-size="${Math.max(9, Math.min(16, o.w / 6))}" fill="#7a6f62" text-anchor="middle" dominant-baseline="middle">${esc(o.p.prop)}</text></g>`;
   };
-  all.forEach((o) => {
-    s += o.p ? drawProp(o)
+  const drawBand = (o, k) => {
+    const from = defs.length, paint = fill(o.color, `band${k}`), d = defs.slice(from);
+    return (d ? `<defs>${d}</defs>` : '') + `<path d="M0 ${H}L0 ${+lineY(o, 0).toFixed(2)}L${W} ${+lineY(o, W).toFixed(2)}L${W} ${H}Z" fill="${paint}"/>`;
+  };
+  all.forEach((o, k) => {
+    s += o.b ? drawBand(o, k) : o.p ? drawProp(o)
       : renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
         view: o.view, headOnly: o.headOnly, id: `${pre}-f${o.fi}` }).svg;
   });

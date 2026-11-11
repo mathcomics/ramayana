@@ -25,7 +25,7 @@ of their kind so far: follow them, but they can still change.
 | Kind of scene | Model | What it does |
 |---|---|---|
 | the forest home from above | 03.01 (= 04.01) | top view, no sky: ground `sage`, the hut on a numeric `row` in the middle of it, a clump of trees near the top-left corner and the same clump again bottom-right |
-| travelling: the three walk toward the reader | **03.02** — `travel` | front views behind a rising fold of ground (`forest-ridge`); the farther the figure, the deeper behind the fold; flowers at the near edge |
+| travelling: the three walk toward the reader | **03.02** — `travel` | front views on and behind a rising fold of ground (a `foreground`, standing `on` it); the farther the figure, the deeper behind the fold; flowers at the near edge |
 | a crowd seen from above | **09.09** — `travel`, `topview` | top-view props (`monkey-top`) on numeric rows up the ground as distance, the leader nearest the bottom edge, `wave-top` on the `floor` row |
 | a king on his throne | 02.01–02.03 (Ayodhya), 05.03–05.04 (Lanka) | three panels: the throne alone on the `mid` row, centred, as the chapter opener; then the king seated `on` it in `view: front`, still far; then the same pair closer (`closeup` for Lanka). The hall is a flat ground colour — `dusty-pink`, `geru` |
 | someone sees something far off | 05.09 | sky above the horizon: the watcher big in front (1.5×, on row −0.2 so the bottom edge cuts them) with `turn` −90 to look off, the subject small on the `horizon` row across the panel |

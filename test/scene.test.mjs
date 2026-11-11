@@ -139,6 +139,28 @@ test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirr
   assert.match(renderPanel({ figures: [throne, { ...king, at: 0.2, row: 'back' }] }, assets).issues.join(' '), /"at" does nothing with "on"[\s\S]*"row" does nothing with "on"/);
 });
 
+test('a foreground: a band of ground in the list; "on" stands entries on its line at their own x', () => {
+  const fg = { foreground: [0.1, 0.3], color: '#667456' };
+  const place = (figs) => renderPanel({ tall: 1, figures: figs }, assets);
+  const feet = (svg) => [...svg.matchAll(/<g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)/g)].map((m) => m.slice(1).map(Number));
+  // the band: from the bottom edge up to the line, drawn at its place in the list
+  const r = place([{ character: 'rama', pose: 'step-hang', at: 0.5 }, fg]);
+  assert.deepEqual(r.issues, []);
+  assert.ok(r.svg.endsWith('<path d="M0 360L0 324L360 252L360 360Z" fill="#667456"/></svg>'), 'drawn last: over the figure before it');
+  // on it: the line's height at x (0.25 across: 0.15 of the panel), front size; nudge dy from the line
+  const [[x, y, u]] = feet(place([fg, { character: 'rama', pose: 'step-hang', at: 0.25, on: 'foreground' }]).svg);
+  assert.ok(Math.abs(x - 90) < 1e-6 && Math.abs(y - 360 * 0.85) < 1e-6, 'feet on the line');
+  const [[, y2]] = feet(place([fg, { character: 'rama', pose: 'step-hang', at: 0.25, on: 'foreground', nudge: [0, -1] }]).svg);
+  assert.ok(Math.abs(y2 - y - u) < 1e-6, 'nudge [0, -1]: a head below the line');
+  // across nudge: the feet follow the slope
+  const [[x3, y3]] = feet(place([fg, { character: 'rama', pose: 'step-hang', at: 0.25, on: 'foreground', nudge: [1, 0] }]).svg);
+  assert.ok(Math.abs(x3 - 90 - u) < 1e-6 && Math.abs(y3 - 360 * (1 - (0.1 + 0.2 * x3 / 360))) < 1e-6, 'along the slope');
+  // row on a foreground is flagged; a band takes its own "id"
+  assert.match(place([fg, { character: 'rama', pose: 'step-hang', on: 'foreground', row: 'mid' }]).issues.join(' '), /"row" does nothing on a foreground/);
+  assert.deepEqual(place([{ ...fg, id: 'hill' }, { character: 'rama', pose: 'step-hang', on: 'hill' }]).issues, []);
+  assert.match(place([{ foreground: 'x', color: 'forest' }]).issues.join(' '), /takes \[left, right\]/);
+});
+
 test('two panels on one page never share an id', () => {
   const a = renderPanel({ figures: [{ character: 'rama' }] }, assets, { id: '01.01' }).svg;
   const b = renderPanel({ figures: [{ character: 'rama' }] }, assets, { id: '01.02' }).svg;
