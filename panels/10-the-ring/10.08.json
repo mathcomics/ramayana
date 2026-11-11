@@ -1,20 +1,19 @@
 {
   "scene": "Sita, close: captive under the tree",
-  "tall": 0.6,
+  "tall": 1.5,
   "ground": "geru",
   "figures": [
     {
+      "prop": "rock-square",
+      "at": 0.2,
+      "scale": 0.5
+    },
+    {
       "character": "sita",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.42,
-      "mouth": 1,
-      "adjust": {
-        "spine.chest": 20,
-        "spine.head": 16
-      },
-      "row": "front",
-      "scale": 2.22
+      "pose": "chair-grief",
+      "facing": "right",
+      "on": "rock-square#seat",
+      "mouth": 1
     }
   ]
 }

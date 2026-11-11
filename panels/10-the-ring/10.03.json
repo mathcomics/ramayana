@@ -11,7 +11,7 @@
     },
     {
       "character": "hanuman",
-      "pose": "leap-reach",
+      "pose": "leapup-reachup",
       "facing": "right",
       "mouth": 1,
       "on": "palace-gap#stand",
