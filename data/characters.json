@@ -2,9 +2,9 @@
   "_doc": "Characters inherit a species and fix body colour (hex; must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from the cloth palette below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later. scale (optional, default 1): body scale, torso and legs only (head, neck and arms keep their size); e.g. 0.8 for a small generic monkey.",
   "palette": {
     "cloth": {
-      "white": "#f4f1ea",
+      "orange": "#f5b56e",
       "yellow": "#f0d23a",
-      "red": "#c8322a"
+      "red": "#d21d20"
     }
   },
   "characters": [
@@ -30,19 +30,10 @@
       "id": "lakshman",
       "name": "Lakshman",
       "species": "male",
-      "body": "#d38d5f",
-      "top": "bare",
-      "bottom": "dhoti",
-      "cloth": "white"
-    },
-    {
-      "id": "bharat",
-      "name": "Bharat",
-      "species": "male",
       "body": "#c87137",
       "top": "bare",
       "bottom": "dhoti",
-      "cloth": "white"
+      "cloth": "orange"
     },
     {
       "id": "dasharatha",
@@ -130,46 +121,37 @@
       "id": "raxas_f1",
       "name": "raxas_f1",
       "species": "female",
-      "body": "#a02c2c",
+      "body": "#c8504a",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe"
     },
     {
-      "id": "queen1",
-      "name": "queen1",
+      "id": "raxas_f2",
+      "name": "raxas_f2",
       "species": "female",
       "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
-      "cloth": "yellow"
-    },
-    {
-      "id": "queen2",
-      "name": "queen2",
-      "species": "female",
-      "body": "#c87137",
-      "top": "full",
-      "bottom": "dhoti",
-      "cloth": "yellow"
+      "cloth": "red-stripe"
     },
     {
       "id": "surpanakha",
       "name": "Surpanakha",
       "species": "female",
-      "body": "#c87137",
+      "body": "#c8504a",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-check"
     },
     {
-      "id": "sage1",
-      "name": "sage1",
+      "id": "raxas_m2",
+      "name": "raxas_m2",
       "species": "male",
       "body": "#c87137",
-      "top": "bare",
+      "top": "full",
       "bottom": "dhoti",
-      "cloth": "white"
+      "cloth": "red-stripe"
     }
   ]
 }

@@ -187,8 +187,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Surpanakha before Ravana** opens the golden deer chapter, after the
   Lanka opener (05.03).
 - **Khara** = `raxas_m1` (id `khara`, cloth `red-diamond`).
-  **Maricha** = `raxas_m1` (id `maricha`, cloth `white`).
-  **The ascetic** (Ravana disguised) = `sage1` (id `ascetic`) until
+  **Maricha** = `raxas_m1` (id `maricha`, cloth `orange`).
+  **The ascetic** (Ravana disguised) = `raxas_m2` (id `ascetic`, cloth `orange`) until
   Ravana's own disguise exists.
 - Generic monkeys and rakshasas vary by `cloth` (colour, pattern), not by
   new characters.

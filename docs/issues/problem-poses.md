@@ -19,7 +19,7 @@ these: `docs/issues/rules-to-migrate.md`.
 | all (side) | Rama, Sita | The neck barely shows; the head sits on the shoulders | Parts SVG: the neck (`neck-base` lower on the torso or a longer neck) or the `head` anchor |
 | arch-overhead (side) | all | The head is tipped far back and hidden behind the raised arm | Pose: less head tilt, or the arm a little lower |
 | fallback-flung (front) | all | The raised legs come over the belly | Correct for the pose (legs toward the viewer); change the pose if not wanted |
-| (faces) | rakshasa men, sugriva, monkey1, sage1, dasharatha | Keep their own eyes or mouths after the face split, so base edits don't reach them | Face files: delete the character's `eyes` / `mouth-*` layers where the base should be used |
+| (faces) | rakshasa men, sugriva, monkey1, raxas_m2, dasharatha | Keep their own eyes or mouths after the face split, so base edits don't reach them | Face files: delete the character's `eyes` / `mouth-*` layers where the base should be used |
 | (turned heads, 30° and 60°) | all | The in-between turns are computed from the two drawings and look less hand-made; Hanuman's muzzle and mouth flatten | Face files: adjust the front / side drawings |
 | all (side) | female characters | A small bump on top of the head: the front hair reaches 0.11 head-units higher than the side hair, so the side gets a rounded cap | Face files: match the hair heights in front and side (`import-faces` lists every mismatch) |
 | (turned heads) | every character | Front and side drawings disagree on heights: skin top about 0.09 higher in front (all bases), hair masses and buns by 0.03–0.12 | Face files: line up the heights; `node tools/import-faces.mjs` prints each mismatch (`~` lines) |

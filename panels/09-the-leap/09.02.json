@@ -49,7 +49,7 @@
     {
       "at": 0.95,
       "character": "monkey1",
-      "cloth": "white",
+      "cloth": "orange",
       "facing": "right",
       "mouth": 1,
       "pose": "walk-swing"

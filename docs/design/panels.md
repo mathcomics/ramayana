@@ -73,7 +73,7 @@ repeated inside the JSON.
 
 | Field | Values | Notes |
 |---|---|---|
-| `character` | character id (`data/characters.json`) | Generic types (`monkey1`, `queen1` …) can repeat. (Old name `who` still reads.) |
+| `character` | character id (`data/characters.json`) | Generic types (`monkey1`, `raxas_f2` …) can repeat. (Old name `who` still reads.) |
 | `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |

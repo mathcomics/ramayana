@@ -159,7 +159,7 @@ the pose.
 - Top: `bare` or `full` (the whole torso in the cloth colour).
 - Body colour: a hex per character; it also paints the skin of the base
   face (no named body palette).
-- Cloth colours: white, yellow, red.
+- Cloth colours: orange (light, #f5b56e; was white until 2026-11-10), yellow, red (saturated, #d21d20).
 - **Cloth patterns** (for rakshasas only): a cloth name can add a pattern
   to the colour: `red-check`, `red-diamond`, `red-stripe` (any palette
   colour works). The pattern goes on the upper body only (a `full` top);
@@ -193,7 +193,7 @@ parts:
 - **Character parts**, one file per character (`data/faces/<id>.svg`):
   `under` (behind the base face) and `over` (hair, crown, beard, marks),
   `back` (behind the whole body), `hair-body`; optional own `eyes` or
-  mouths replace the base's (rakshasa men, sugriva/monkey1, sage1,
+  mouths replace the base's (rakshasa men, sugriva/monkey1, raxas_m2,
   dasharatha's side mouths). Colours as drawn. A guide shows the base
   face.
 
@@ -238,7 +238,7 @@ male 0.88, female 0.74.
   **wedge** (a V notch toward the back of the head; a triangle pointing
   down in front view). In side view the opening reaches the front edge of
   the face. No muzzle or snout.
-- Male mouths are white (artist's request); sage1's are light
+- Male mouths are white (artist's request); raxas_m2's are light
   grey, against his white hair and beard.
 - Female hair: near-black, a
   thick frame around the head that falls as broad wavy locks past the

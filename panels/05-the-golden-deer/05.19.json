@@ -18,7 +18,8 @@
       }
     },
     {
-      "character": "sage1",
+      "character": "raxas_m2",
+      "cloth": "orange",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.72,
@@ -37,6 +38,6 @@
   "needs": [
     "prop: staff and pot (held)",
     "prop: fruit",
-    "Ravana's ascetic disguise (sage1 for now)"
+    "Ravana's ascetic disguise (raxas_m2 in orange for now)"
   ]
 }

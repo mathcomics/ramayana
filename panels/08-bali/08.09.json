@@ -6,7 +6,7 @@
     {
       "character": "monkey1",
       "id": "bali",
-      "cloth": "white",
+      "cloth": "orange",
       "pose": "liefront-onarms",
       "facing": "left",
       "at": 0.45,
@@ -14,7 +14,7 @@
       "mouth": 1
     },
     {
-      "character": "queen2",
+      "character": "monkey1",
       "id": "tara",
       "cloth": "red",
       "pose": "kneel-bow",

@@ -71,7 +71,7 @@ Draw order of a face: `under`, base skin, eyes, `over`, mouth.
 
 Where a hair shape is drawn in both views, give the front and side
 versions the same number of nodes, so a head turn can later blend one
-into the other (step 4). In sita, queen1 and raxas_f1 (2026-11-06): the
+into the other (step 4). In sita, raxas_f2 (then queen1) and raxas_f1 (2026-11-06): the
 front `back` hair pairs with the side `over` hair, and the front
 `hair-body` with the side `hair-body`; the two topmost nodes of a front
 shape correspond to the two rightmost nodes of its side partner.
