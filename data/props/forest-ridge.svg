@@ -61,20 +61,20 @@
      id="anchors">
     <circle
        id="stand-left"
-       cx="300"
-       cy="190"
+       cx="407"
+       cy="176.4"
        r="6"
        fill="none" />
     <circle
        id="stand"
-       cx="610"
-       cy="159"
+       cx="512"
+       cy="170.6"
        r="6"
        fill="none" />
     <circle
        id="stand-right"
-       cx="1010"
-       cy="117"
+       cx="758"
+       cy="144.8"
        r="6"
        fill="none" />
   </g>

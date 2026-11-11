@@ -42,13 +42,13 @@
     <circle
        id="stand"
        cx="99.46"
-       cy="7.43"
+       cy="15"
        r="6"
        fill="none" />
     <circle
        id="seat"
        cx="99.46"
-       cy="7.43"
+       cy="15"
        r="6"
        fill="none" />
   </g>
