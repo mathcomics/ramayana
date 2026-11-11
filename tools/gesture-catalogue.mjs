@@ -1,17 +1,17 @@
-// Every gesture (distinct upper body) from data/pose-index.json
-// `gestures`, drawn as a full figure on the step base (side + front),
+// Every gesture (distinct upper body) from data/gestures.json, drawn as
+// a full figure on the step base (side + front),
 // alphabetically. Part of the pose composition work
 // (docs/design/pose-picking.md).
 //
 //   node tools/gesture-catalogue.mjs [--who rama] [--zoom 2]
 //
 // A gesture = both arms (held prop included) + spine.chest/neck/head +
-// mouth, named by the artist (one word, desc in the index); its cell is
-// drawn from the first pose listed and names the rest. Every pose
-// belongs to exactly one gesture (npm test).
+// mouth, named by the artist (one word, with a desc); its cell names the
+// poses that use it.
 
 import { renderFigure, characterLook } from '../src/figure.js';
-import { loadAssets, writeOut, rsvg, json } from './lib.mjs';
+import { poseComposer } from '../src/compose.js';
+import { loadAssets, loadPoseData, writeOut, rsvg } from './lib.mjs';
 
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
@@ -23,24 +23,15 @@ if (!who) throw new Error(`no character "${opt('--who', 'rama')}"`);
 const look = characterLook(who, A.characters.palette, A.faces);
 const species = A.species[who.species];
 
-const clone = (o) => JSON.parse(JSON.stringify(o));
-const index = json('data/pose-index.json');
-// the step base's drawn legs: its first pose
-const stepPose = A.poses.find((p) => p.name === index.bases.step.poses[0]);
-const composeGesture = (src) => ({
-  name: src.name, mouth: src.mouth,
-  spine: { lean: stepPose.spine.lean, chest: src.spine.chest, neck: src.spine.neck, head: src.spine.head },
-  right: { arm: clone(src.right.arm), leg: clone(stepPose.right.leg) },
-  left: { arm: clone(src.left.arm), leg: clone(stepPose.left.leg) },
-  tail: clone(stepPose.tail),
-});
-
-const cells = Object.entries(index.gestures).sort(([a], [b]) => a.localeCompare(b)).map(([name, e]) => {
-  const rep = A.poses.find((p) => p.name === e.poses[0]);
-  if (!rep) throw new Error(`gesture ${name}: no pose ${e.poses[0]}`);
-  return { name, desc: e.desc, pose: composeGesture(rep), members: e.poses };
-});
-
+// each gesture on the step base, composed as a pose is (src/compose.js):
+// a bow's lean and joined palms' solves included
+const D = loadPoseData();
+const compose = poseComposer(A.species.male);
+const names = Object.keys(D.poses);
+const cells = Object.entries(D.gestures).sort(([a], [b]) => a.localeCompare(b)).map(([name, e]) => ({
+  name, desc: e.desc, pose: compose(D.bases, D.gestures, `step-${name}`),
+  members: names.filter((n) => n.slice(n.indexOf('-') + 1) === name),
+}));
 console.log(`${A.poses.length} poses -> ${cells.length} gestures`);
 for (const c of cells) console.log('  ' + c.name.padEnd(14) + ' <- ' + c.members.join(', '));
 
@@ -85,8 +76,8 @@ svg { display: block; width: 100%; height: auto; max-width: ${W}px; border-radiu
 </style>
 <h1>Gesture Catalogue</h1>
 <p>The ${cells.length} gestures (distinct upper bodies) of the ${A.poses.length} poses, from
-<code>gestures</code> in the pose index, alphabetical, each drawn on the step base.
-A cell named "x&nbsp;(n)" carries the n poses listed under it.
+<code>data/gestures.json</code>, alphabetical, each drawn on the step base.
+A cell named "x&nbsp;(n)" is used by the n poses listed under it.
 Regenerate: <code>node tools/gesture-catalogue.mjs</code>.</p>
 ${svg.replace(/ width="\d+" height="\d+">/, '>')}`;
 console.log(writeOut('out/gesture-catalogue.html', html));

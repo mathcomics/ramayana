@@ -1,77 +1,88 @@
 # Picking poses
 
 How a figure in a panel gets its pose, whoever writes the panel (the artist,
-Claude, or later an LLM writing specs). The angles live in
-`data/poses.json`; finding a pose uses `data/pose-index.json`; the
-catalogue and the gap report are generated from both.
+Claude, or later an LLM writing specs). A pose is one base with one
+gesture; the angles live in `data/bases.json` and `data/gestures.json`,
+the pose list and what is used to find a pose in `data/poses.json`; the
+catalogues and the gap report are generated from them.
 
-## The pose index
+## The data
 
-`data/pose-index.json` has one entry per pose (a test keeps it in step with
-`poses.json`):
+**`data/bases.json`**: the distinct lower bodies. Per base a one-line
+`desc`, `lean` (`spine.lean`), the `right` and `left` leg and the
+`tail`. One-word names set by the artist (stand, step, stepback,
+stepwide, stepturn, leanback, leanfront, kneel, lunge …). Base catalogue:
+`node tools/base-catalogue.mjs` (each base with the hang gesture;
+published page in the root CLAUDE.md).
+
+**`data/gestures.json`**: the distinct upper bodies. Per gesture a
+`desc`, `chest`, `neck`, `head`, `mouth` and the `right` and `left`
+arm (a held `prop` included), under the same naming rules; a held prop
+and its angle keep two gestures apart even where the hands match. Two
+optional flags for the composer: `lean` (degrees added to the base's
+lean, for a gesture that tips the whole body — the bow: 24) and
+`join: true` (joined palms). Gesture catalogue:
+`node tools/gesture-catalogue.mjs` (each gesture on the step base).
+
+The grouping was finished by the artist's eye, not a distance measure: a
+stance of its own needs a real lean or a different ground contact, not a
+slight stride or turn.
+
+**`data/poses.json`**: the pose list, alphabetical, one entry per pose
+named `<base>-<gesture>`. A pose has no angles of its own, only what is
+used to find it:
 
 | Field | What |
 |---|---|
 | `desc` | What the body does, as seen. No emotions. |
 | `ground` | What touches the ground: `feet`, `one-knee`, `seat`, `front`, `back`, `air`, `feet-hands`. |
-| `hold` | Hands that can carry a prop as the pose stands (`right`, `left`). Poses made for a weapon carry it themselves (`arm.prop`: the sword or bow poses). |
+| `hold` | Hands that can carry a prop as the pose stands (`right`, `left`). Poses made for a weapon carry it themselves (`arm.prop`: the sword or bow gestures). |
 | `use` | Story moments the pose serves (tags). Emotions are allowed here, never in names. |
 | `like` | The nearest other poses: where to look when this one is almost right. |
 
-`tags` lists the story moments (walk, point, grieve, shoot …) with the
-words that call for each in a scene line. `notWords` lists words that start
-like a tag word but aren't (Sita, ready). `wanted` lists poses the scenes
-need that don't exist yet, in the order to make them, each with `until`:
-what to use meanwhile.
+Beside `poses`: `tags` lists the story moments (walk, point, grieve,
+shoot …) with the words that call for each in a scene line; `notWords`
+lists words that start like a tag word but aren't (Sita, ready);
+`wanted` lists poses the scenes need that don't exist yet, in the order
+to make them, each with `until`: what to use meanwhile. `_angles`
+documents the angle conventions (the same paths a panel's `adjust` uses).
 
-`bases` names the distinct lower bodies (legs + `spine.lean` + tail):
-one-word names set by the artist (stand, step, stepback, stepwide,
-stepturn, leanback, leanfront, kneel, lunge …), each with a one-line
-`desc` and the poses that carry it; the first listed is drawn in the
-base catalogue (`node tools/base-catalogue.mjs`, published page in the
-root CLAUDE.md). Every pose belongs to exactly one base (`npm test`
-checks). `gestures` names the distinct upper bodies (arms incl. `prop`,
-`spine.chest`, neck, head, mouth) in the same shape and under the same
-rules, drawn on the step base in the gesture catalogue
-(`node tools/gesture-catalogue.mjs`); a held prop and its angle keep two
-gestures apart even where the hands match. A gesture may carry two
-flags for the composer: `lean` (degrees added to the base's lean, for a
-gesture that tips the whole body — the bow: 24) and `join: true`
-(joined palms). The grouping was finished by the artist's eye, not a
-distance measure: a stance of its own needs a real lean or a different
-ground contact, not a slight stride or turn.
+`npm test` checks every pose names a known base and gesture, holds only
+those fields, and that every base and gesture is used by some pose.
 
 ## Composition
 
-Every pose is a base × a gesture, and is exactly what the grid derives —
-there is no per-pose tuning of legs, lean, arms or chest. Composing takes
-legs, tail and lean from the base's reference pose (the first listed),
-arms, chest, neck, head and mouth from the gesture's; a gesture's `lean`
-is added with the base's planted feet held by a two-bone leg solve
-(a foot counts as planted below 0.4 head-units, so a hovering foot like
-kneel's forward one keeps its place). `join` re-runs the hand solves per
-base: the far hand laid on the near one in the side view, kept on the
-midline in the front view. `spine.turn` belongs to neither half (rule 3).
-Shared code: `tools/compose-lib.mjs`; the pose lab carries the same logic
-inline.
+Every pose is exactly its base and its gesture — nothing per pose
+(decided 2026-11-10; the per-pose tails and gazes left over from before
+were dropped, each base keeping one tail). `src/compose.js` composes it
+when the assets load (`tools/lib.mjs` `loadPoses`), so the renderer, the
+panels, the tests and the labs all get whole poses: legs, tail and lean
+from the base; arms, chest, neck, head and mouth from the gesture. A
+gesture's `lean` is added with the base's planted feet held by a
+two-bone leg solve (a foot counts as planted below 0.4 head-units, so a
+hovering foot like kneel's forward one keeps its place). `join` re-runs
+the hand solves per base: the far hand laid on the near one in the side
+view, kept on the midline in the front view. Solves run on the male
+proportions, so a pose is the same for every species. `spine.turn` is 0:
+where a figure looks is the panel's (rule 3).
 
-    node tools/recompose.mjs <pose ...> | --base kneel | --gesture palms | --all [--dry]
+So retuning a base or a gesture changes every pose that uses it; look at
+the catalogues and the panels that use them, and accept the render
+snapshot after looking.
 
-re-derives poses from their coordinates and writes `data/poses.json`;
-`--dry` prints the drift report (what a stored pose differs from the
-grid). What stays a pose's own through a recompose: neck and head (gaze,
-rule 3), mouth, tail and turn. So retuning a base's or gesture's
-reference pose and recomposing its family propagates the change; then
-look at the sheets and run `npm test`.
+**The pose lab** edits the three separately. *Base* drags the legs, lean
+and tail (shown with a gesture of choice, never one that tips the body),
+*Gesture* the arms, prop, chest, head, mouth and the gesture's own lean
+(shown on a base of choice); both show every pose using what is edited,
+live, and a new one-word name saves a new base or gesture. *Pose* picks a
+base and a gesture, and saves the combination with its finding fields —
+or removes it from the list. Saves go to the lab's database (collections
+`bases`, `gestures`, `poses`) and are merged by the `commit-pose-lab`
+skill. Panels name a pose, never a base and gesture pair.
 
-A new pose starts in the pose lab: the Base and Gesture pickers compose
-a draft named `<base>-<gesture>`, read at phone size (rule 8) before it
-is saved as a whole pose. Poses stay whole in `data/poses.json`; panels
-name them, never a base and gesture pair.
-
-When a pose is added, renamed or retuned so its meaning changes, its index
-entry changes in the same commit. A pose made from `wanted` moves from
-`wanted` to `poses`.
+When a pose is added, or a base or gesture changes so a pose's meaning
+changes, its entry in `data/poses.json` changes in the same commit. A
+pose made from `wanted` moves from `wanted` to `poses`.
 
 ## Tools
 
@@ -112,7 +123,7 @@ entry changes in the same commit. A pose made from `wanted` moves from
    | respect, pleading | kneel | step-palms, kneel-palms |
 5. **Adjust a little, then make a pose.** `adjust` is for one-off changes
    of two or three joints. A gesture adjusted the same way twice becomes a
-   pose (in the pose lab), with an index entry.
+   pose (in the pose lab), with an entry in `data/poses.json`.
 6. **No silent stand.** If nothing fits, use the nearest pose (`like`, or
    the wanted pose's `until`) and add a `needs` entry naming the missing
    pose. `step-hang` is only right when the figure really just stands.
@@ -132,22 +143,25 @@ entry changes in the same commit. A pose made from `wanted` moves from
 ## Names
 
 **Every pose is named `<base>-<gesture>`** — the composite name, its one
-name everywhere: poses.json, the index, the panels, the labs (decided
-2026-11-07; no friendly-name layer, no mapping). `step-hang` is standing
-at ease, `step-bowdraw` the full draw, `lunge-sworddown` the lunging
-cut, `kneel-bow` the kneeling bow. `npm test` checks the name equals the
-pose's base and gesture in the index.
+name everywhere: poses.json, the panels, the labs (decided 2026-11-07;
+no friendly-name layer, no mapping). `step-hang` is standing
+at ease, `step-bowdraw` the full draw, `lunge-longpoint` the sword
+level at the opponent, `kneel-bow` the kneeling bow. The name is the pose's only link to
+its base and gesture.
 
 - **Base and gesture names** are single words (the test checks); the
   base says what carries the body, the gesture what the upper body does.
   New one-word names follow the artist's style: plain (`step`, `swing`,
   `palms`), or an image for a stance (`roof`, `ox`, `fool` from the
-  fencing guards).
+  fencing guards). The two-handed sword gestures are the longsword
+  guards, named after them; each `desc` gives the guard it comes from
+  (Ochs, Pflug, vom Tag …).
 - **Never** an emotion or intent (`guard`, `throw`, `stagger`,
   `strike`), the head's direction or the mouth: those come from the
   scene, `turn` and `mouth`.
-- A rename changes the poses, the index, the panels and the docs in one
-  commit. Pose lab saves keep the name they were saved under; a save
-  under an old name no longer matches a pose.
+- A rename of a base or gesture changes `bases.json` or `gestures.json`,
+  the pose names in `poses.json`, the panels and the docs in one commit.
+  Pose lab saves keep the name they were saved under; a save under an
+  old name no longer matches.
 - `wanted` entries still carry older descriptive names; a wanted pose is
   named `<base>-<gesture>` when it is actually made.

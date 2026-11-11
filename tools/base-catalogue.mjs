@@ -1,16 +1,16 @@
-// Every base (distinct lower body) from data/pose-index.json `bases`,
-// drawn as a full figure with stand's upper body on it (side + front),
+// Every base (distinct lower body) from data/bases.json, drawn as a full
+// figure with the hang gesture on it (side + front),
 // alphabetically. Part of the pose composition work
 // (docs/design/pose-picking.md).
 //
 //   node tools/base-catalogue.mjs [--who rama] [--zoom 2]
 //
 // A base = both legs + spine.lean + tail, named by the artist (one word,
-// desc in the index); its cell is drawn from the first pose listed and
-// names the rest. Every pose belongs to exactly one base (npm test).
+// with a desc); its cell names the poses that use it.
 
 import { renderFigure, characterLook } from '../src/figure.js';
-import { loadAssets, writeOut, rsvg, json } from './lib.mjs';
+import { poseComposer } from '../src/compose.js';
+import { loadAssets, loadPoseData, writeOut, rsvg } from './lib.mjs';
 
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
@@ -22,23 +22,15 @@ if (!who) throw new Error(`no character "${opt('--who', 'rama')}"`);
 const look = characterLook(who, A.characters.palette, A.faces);
 const species = A.species[who.species];
 
-const clone = (o) => JSON.parse(JSON.stringify(o));
-const stand = A.poses.find((p) => p.name === 'step-hang');
-const composeBase = (src) => ({
-  name: src.name, mouth: stand.mouth,
-  spine: { ...clone(stand.spine), lean: src.spine.lean },
-  right: { arm: clone(stand.right.arm), leg: clone(src.right.leg) },
-  left: { arm: clone(stand.left.arm), leg: clone(src.left.leg) },
-  tail: clone(src.tail),
-});
-
-const BASES = json('data/pose-index.json').bases;
-const cells = Object.entries(BASES).sort(([a], [b]) => a.localeCompare(b)).map(([name, e]) => {
-  const rep = A.poses.find((p) => p.name === e.poses[0]);
-  if (!rep) throw new Error(`base ${name}: no pose ${e.poses[0]}`);
-  return { name, desc: e.desc, pose: composeBase(rep), members: e.poses };
-});
-
+// each base under the hang gesture (both arms hanging), composed as a
+// pose is (src/compose.js), so a gesture's own solves never show here
+const D = loadPoseData();
+const compose = poseComposer(A.species.male);
+const names = Object.keys(D.poses);
+const cells = Object.entries(D.bases).sort(([a], [b]) => a.localeCompare(b)).map(([name, e]) => ({
+  name, desc: e.desc, pose: compose(D.bases, D.gestures, `${name}-hang`),
+  members: names.filter((n) => n.split('-')[0] === name),
+}));
 console.log(`${A.poses.length} poses -> ${cells.length} bases`);
 for (const c of cells) console.log('  ' + c.name.padEnd(10) + ' <- ' + c.members.join(', '));
 
@@ -84,8 +76,8 @@ svg { display: block; width: 100%; height: auto; max-width: ${W}px; border-radiu
 </style>
 <h1>Base Catalogue</h1>
 <p>The ${cells.length} bases (distinct lower bodies) of the ${A.poses.length} poses, from
-<code>bases</code> in the pose index, alphabetical, each drawn with stand's upper body.
-A cell named "x&nbsp;(n)" carries the n poses listed under it.
+<code>data/bases.json</code>, alphabetical, each drawn with the hang gesture.
+A cell named "x&nbsp;(n)" is used by the n poses listed under it.
 Regenerate: <code>node tools/base-catalogue.mjs</code>.</p>
 ${svg.replace(/ width="\d+" height="\d+">/, '>')}`;
 console.log(writeOut('out/base-catalogue.html', html));

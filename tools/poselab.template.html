@@ -173,25 +173,41 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
   .groups { gap: 6px; }
   fieldset { padding: 6px 6px 8px; }
 }
+/* modes: Base and Gesture edit one half; Pose combines a base and a
+   gesture (no angles of its own); Face shows the head */
+body:not(.mode-base) .only-base, body:not(.mode-gesture) .only-gesture, body:not(.mode-pose) .only-pose,
+body.mode-pose .only-edit, body.face-mode .only-edit { display: none !important; }
+.descrow { display: flex; gap: 8px; align-items: center; }
+.descrow input { flex: 1 1 auto; }
+.posefields { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: end; }
+.posefields input[type="text"] { width: 16em; max-width: 100%; }
+.family { display: grid; gap: 4px; }
+.family .strip { display: flex; gap: 6px; overflow-x: auto; padding: 2px; }
+.family .thumb { flex: 0 0 72px; }
+.famhead { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.thumb.edited span::after { content: " •"; color: var(--accent); }
+.namefixed { font-weight: 600; font-family: var(--font-mono); font-size: 13px; padding: 6px 2px; }
 </style>
 
 <div class="wrap">
   <section class="stage" aria-label="Preview">
     <div class="stage-head">
       <h1>Pose Lab</h1>
-      <div class="tabs" role="tablist" aria-label="View">
-        <button type="button" role="tab" id="tabPose" aria-selected="true">Pose</button>
+      <div class="tabs" role="tablist" aria-label="Mode">
+        <button type="button" role="tab" id="tabBase" aria-selected="false" title="Edit a base: the lower body (legs, lean, tail)">Base</button>
+        <button type="button" role="tab" id="tabGesture" aria-selected="false" title="Edit a gesture: the upper body (arms, chest, head, mouth)">Gesture</button>
+        <button type="button" role="tab" id="tabPose" aria-selected="true" title="A pose: one base with one gesture">Pose</button>
         <button type="button" role="tab" id="tabFace" aria-selected="false">Face</button>
       </div>
       <label class="sr" for="character">Character</label>
       <select id="character" class="charsel" title="Character (view only)"></select>
-      <span class="meta" id="meta">monkey · side</span>
+      <span class="meta" id="meta"></span>
     </div>
     <div class="canvas pose-only">
       <div class="paper" id="big"></div>
-      <div class="toggles">
+      <div class="toggles only-edit">
         <button type="button" class="jtoggle" id="jtoggle" aria-pressed="true" title="Show or hide the joint handles">Joints</button>
-        <button type="button" class="jtoggle" id="pintoggle" aria-pressed="true" title="Keep feet that touch the ground in place while dragging lean or chest (re-solves their hips and knees)">Pin feet</button>
+        <button type="button" class="jtoggle only-base" id="pintoggle" aria-pressed="true" title="Keep feet that touch the ground in place while dragging lean (re-solves their hips and knees)">Pin feet</button>
       </div>
       <div class="gallerycol">
         <div class="gtoggles">
@@ -199,28 +215,48 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
             <button type="button" data-v="side" aria-pressed="true" title="Thumbnails in side view (as edited)">Side</button>
             <button type="button" data-v="front" aria-pressed="false" title="Thumbnails in the derived front view">Front</button>
           </div>
-          <div class="seg" id="gsort" role="group" aria-label="Sort poses">
+          <div class="seg only-pose" id="gsort" role="group" aria-label="Sort poses">
             <button type="button" data-v="base" aria-pressed="true" title="Group poses by their base (lower body)">By base</button>
             <button type="button" data-v="gesture" aria-pressed="false" title="Group poses by their gesture (upper body)">By gesture</button>
           </div>
         </div>
-        <div class="gallery" id="gallery" role="listbox" aria-label="Poses"></div>
+        <div class="gallery" id="gallery" role="listbox" aria-label="Gallery"></div>
       </div>
     </div>
     <div class="posebar pose-only">
       <div class="pick">
-        <label class="sr" for="name">Pose name</label>
-        <input type="text" id="name" autocomplete="off" spellcheck="false" placeholder="pose name">
+        <label class="sr" for="name">Name</label>
+        <input type="text" id="name" class="only-edit" autocomplete="off" spellcheck="false" placeholder="one-word name">
+        <span class="namefixed only-pose" id="poseName"></span>
         <button class="btn" id="saveBtn" type="button">Save</button>
-        <button class="btn" id="revertBtn" type="button" title="Drop your edits and go back to this pose as last saved" disabled>Revert</button>
+        <button class="btn" id="revertBtn" type="button" title="Drop your edits and go back to this as last saved" disabled>Revert</button>
       </div>
-      <div class="field"><span>Base <b class="refmark" id="baseRef" hidden>ref</b></span><select id="baseSel" title="Lower body (legs, lean, tail): pick with a gesture to compose a draft"></select></div>
-      <div class="field"><span>Gesture <b class="refmark" id="gestRef" hidden>ref</b></span><select id="gestSel" title="Upper body (arms, chest, head): pick with a base to compose a draft"></select></div>
-      <div class="field"><span>Mouth</span><div class="seg" id="mouth"></div></div>
+      <div class="field only-base"><span>Shown with gesture</span><select id="previewG" title="The arms to show the base with (gestures that tip the body are left out: the base's own lean is edited here)"></select></div>
+      <div class="field only-gesture"><span>Shown on base</span><select id="previewB" title="The legs to show the gesture on"></select></div>
+      <div class="field only-pose"><span>Base</span><select id="baseSel" title="Lower body (legs, lean, tail)"></select></div>
+      <div class="field only-pose"><span>Gesture</span><select id="gestSel" title="Upper body (arms, chest, head, mouth)"></select></div>
+      <div class="field only-pose"><span>Edit</span><div class="seg"><button type="button" id="editBase" title="Edit this pose's base (changes every pose on it)">Base</button><button type="button" id="editGest" title="Edit this pose's gesture (changes every pose with it)">Gesture</button></div></div>
+      <div class="field only-gesture"><span>Mouth</span><div class="seg" id="mouth"></div></div>
       <div class="field"><span>Facing</span><div class="seg" id="facing"></div></div>
-      <div class="field"><span>Hands</span><button class="btn ghost" id="joinBtn" type="button" title="Join the palms: both hands to the body's midline (each arm's elbow out), then the left hand laid exactly on the right (its shoulder and elbow)">Join</button></div>
+      <div class="field only-gesture"><span>Hands</span><div class="bar" style="gap:8px"><button class="btn ghost" id="joinBtn" type="button" title="Join the palms: both hands to the body's midline (each arm's elbow out), then the left hand laid exactly on the right (its shoulder and elbow)">Join</button><label class="check" title="Re-solve the joined palms on every base this gesture is used with"><input type="checkbox" id="joinFlag"> joined on every base</label></div></div>
+    </div>
+    <div class="descrow pose-only">
+      <label class="sr" for="desc">Description</label>
+      <input type="text" id="desc" autocomplete="off" placeholder="what the body does, as seen">
+    </div>
+    <div class="posefields only-pose">
+      <div class="field"><span>Ground</span><select id="ground" title="What touches the ground"></select></div>
+      <div class="field"><span>Hands free to hold</span><div class="bar" style="gap:10px"><label class="check"><input type="checkbox" id="holdR"> right</label><label class="check"><input type="checkbox" id="holdL"> left</label></div></div>
+      <div class="field"><span>Story moments</span><input type="text" id="use" autocomplete="off" spellcheck="false" placeholder="tags, comma separated" title="Story moments (tags from the pose list)"></div>
+      <div class="field"><span>Like</span><input type="text" id="like" autocomplete="off" spellcheck="false" placeholder="nearest poses, comma separated"></div>
+      <button class="btn ghost" id="removeBtn" type="button" title="Take this combination out of the pose list (the base and gesture stay)">Remove pose</button>
     </div>
     <div class="status pose-only" id="status" role="status"></div>
+  </section>
+
+  <section class="family only-edit" aria-label="Poses using this">
+    <div class="famhead" id="famhead"></div>
+    <div class="strip" id="family"></div>
   </section>
 
   <section class="faces face-only" id="facePane" aria-label="Head turned and tilted" hidden>
@@ -229,14 +265,14 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
     <div class="facegrid" id="faceGrid"></div>
   </section>
 
-  <div class="groups pose-only" id="groups"></div>
+  <div class="groups only-edit" id="groups"></div>
 
-  <section class="save pose-only" aria-label="Pose data">
+  <section class="save pose-only" aria-label="Data">
     <div class="bar">
-      <p class="hint" style="flex:1 1 240px">Pick a pose in the gallery to edit it. Poses are edited in side view; the front view next to it is derived from the side pose. Save keeps your changes under the name in the box; type a new name to save a new pose. Revert drops your edits and goes back to the pose as last saved (the character stays). Poses are kept with this page, so Claude can read them and add them to the repo.</p>
+      <p class="hint" style="flex:1 1 240px" id="help"></p>
       <button class="btn ghost" id="copyBtn" type="button">Copy JSON</button>
     </div>
-    <pre id="json" aria-label="Pose JSON"></pre>
+    <pre id="json" aria-label="JSON"></pre>
   </section>
 </div>
 
@@ -245,14 +281,19 @@ body.face-mode .pose-only, body:not(.face-mode) .face-only { display: none !impo
 const SPECIES = /*__SPECIES__*/;
 const CAST = /*__CHARACTERS__*/;
 const FACES = /*__FACES__*/;
-const STARTERS = /*__POSES__*/;
-const INDEX = /*__INDEX__*/;
+const REPO = /*__POSEDATA__*/;
 </script>
 <script>
 (() => {
   const PAPER = '#f2ece1';
-  // Character and facing change only the view: the pose is
-  // shared by every species and saved without them.
+  const KINDS = { base: 'bases', gesture: 'gestures', pose: 'poses' };
+  const HELP = {
+    base: 'A base is the lower body: legs, lean and tail. Drag the joints on the figure; every pose on this base (below) changes with it. Type a new one-word name to save a new base. Saves are kept with this page until Claude merges them into the repo.',
+    gesture: 'A gesture is the upper body: arms, held prop, chest, neck, head and mouth (and a lean of its own for one that tips the whole body, like a bow). Every pose with this gesture (below) changes with it. Type a new one-word name to save a new gesture.',
+    pose: 'A pose is one base with one gesture, named base-gesture: it has no angles of its own. Pick the two, describe it, and Save to add it to the pose list. To change how it looks, edit its base or its gesture.',
+  };
+  const GROUND = ['feet', 'one-knee', 'seat', 'front', 'back', 'air', 'feet-hands'];
+  // Character and facing change only the view
   const LOOK = new Set(['facing', 'faceMouth']);
   const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
   const look = () => { const c = charById(state.character); return characterLook(c, CAST.palette, FACES, c.cloth); };
@@ -265,15 +306,18 @@ const INDEX = /*__INDEX__*/;
     'leg.hip': [-90, 150], 'leg.out': [-90, 90], 'leg.knee': [0, 160], 'leg.kneeOut': [-90, 90], 'leg.ankle': [-180, 180],
   };
   const SLIDERS = [
-    { key: 'spine', title: 'Body & tail', rows: [
-      ['spine.turn', 'head turn', -90, 90],
+    { key: 'spine', title: 'Tail', rows: [
       ['tail.lift', 'tail lift', -90, 120], ['tail.curl', 'tail curl', -60, 300], ['tail.turn', 'tail turn', -90, 90]] },
-    { key: 'near', title: 'Right arm & leg', rows: [['near.arm.twist', 'wrist turn', -180, 180], ['near.leg.toe', 'toe turn', -90, 90]] },
-    { key: 'far', title: 'Left arm & leg', rows: [['far.arm.twist', 'wrist turn', -180, 180], ['far.leg.toe', 'toe turn', -90, 90]] },
+    { key: 'near', title: 'Right', rows: [['near.arm.twist', 'wrist turn', -180, 180], ['near.leg.toe', 'toe turn', -90, 90]] },
+    { key: 'far', title: 'Left', rows: [['far.arm.twist', 'wrist turn', -180, 180], ['far.leg.toe', 'toe turn', -90, 90]] },
     // one held prop at a time, in the hand chosen in this panel; `prop.` paths
     // resolve to that arm's prop
     { key: 'prop', title: 'Prop', rows: [['prop.angle', 'angle', -180, 180], ['prop.out', 'out', -90, 90]] },
   ];
+  // which half a path belongs to
+  const LOWER_PATH = (path) => /(^|\.)leg\.|^spine\.lean$|^tail\./.test(path);
+  const UPPER_PATH = (path) => /(^|\.)arm\.|^prop\.|^spine\.(lean|chest|neck|head)$/.test(path);
+  const inMode = (path) => (state.mode === 'base' ? LOWER_PATH(path) : state.mode === 'gesture' ? UPPER_PATH(path) : false);
   // the arm holding the prop (the one with a prop, else the hand picked)
   const propSide = () => (state.pose.far.arm.prop ? 'far' : state.pose.near.arm.prop ? 'near' : state.propHand || 'near');
   const rp = (path) => (path.startsWith('prop.') ? `${propSide()}.arm.${path}` : path);
@@ -285,18 +329,74 @@ const INDEX = /*__INDEX__*/;
     for (let i = 0; i < ks.length - 1; i++) a = a[ks[i]] ??= {};
     a[ks[ks.length - 1]] = v;
   };
+  const halves = (n) => splitPoseName(n);
 
   const state = {
-    pose: normalizePose(STARTERS[0]),
+    mode: 'pose',
     facing: 1,
     character: (CAST.characters.find((c) => c.species === 'monkey') || CAST.characters[0]).id,
-    saved: [],
+    // saves kept with this page, per kind: name -> item ({ removed: true } takes a pose out)
+    saved: { bases: {}, gestures: {}, poses: {} },
+    legacy: 0,                 // whole-pose saves from before bases and gestures were split
+    // unsaved edits this session, per kind: name -> item (kept across
+    // switching, shown everywhere, dropped by Revert)
+    drafts: { bases: {}, gestures: {}, poses: {} },
+    work: null,                // { kind, name, item }: what is being edited
     dirty: false,
-    galleryView: 'side',
-    gallerySort: 'base',
+    previewG: 'hang', previewB: 'step',
+    galleryView: 'side', gallerySort: 'base',
   };
   const $ = (id) => document.getElementById(id);
   let db = null;
+  const composeWith = poseComposer(SPECIES.male);
+
+  // ---------- the data in effect: the repo, then saves, then unsaved
+  // drafts (bases and gestures only: a pose is in the list once saved)
+  function eff(kind) {
+    const out = { ...REPO[kind] };
+    for (const [n, it] of Object.entries(state.saved[kind])) { if (it.removed) delete out[n]; else out[n] = it; }
+    if (kind !== 'poses') Object.assign(out, state.drafts[kind]);
+    return out;
+  }
+  const effSorted = (kind) => Object.keys(eff(kind)).sort();
+  // a pose (stored form) for base b and gesture g, as the renderer gets it
+  function composed(b, g) {
+    const B = eff('bases'), G = eff('gestures');
+    if (!B[b] || !G[g]) return null;
+    return composeWith(B, G, `${b}-${g}`);
+  }
+  // the figure on the stage for the current work
+  function stagePose() {
+    const w = state.work;
+    if (w.kind === 'base') return composed(w.name, state.previewG);
+    if (w.kind === 'gesture') return composed(state.previewB, w.name);
+    const [b, g] = halves(w.name);
+    return composed(b, g);
+  }
+  function recompose() {
+    const p = stagePose();
+    if (p) state.pose = normalizePose(p);
+  }
+  // the edited half of the stage figure back into the base or gesture
+  function absorb() {
+    const w = state.work, p = state.pose;
+    if (w.kind === 'base') {
+      const G = eff('gestures')[state.previewG] || {};
+      w.item = { ...w.item, lean: Math.round((p.spine.lean - (G.lean ?? 0)) * 10) / 10, right: clone(p.near.leg), left: clone(p.far.leg), tail: clone(p.tail) };
+    } else if (w.kind === 'gesture') {
+      const B = eff('bases')[state.previewB] || { lean: 0 };
+      const lean = Math.round((p.spine.lean - (B.lean ?? 0)) * 10) / 10;
+      const item = { ...w.item, chest: p.spine.chest, neck: p.spine.neck, head: p.spine.head, mouth: p.mouth, right: clone(p.near.arm), left: clone(p.far.arm) };
+      if (lean) item.lean = lean; else delete item.lean;
+      w.item = item;
+    }
+  }
+  // after any change to the stage figure or the item
+  function edited({ fromPose = true } = {}) {
+    if (fromPose) absorb();
+    markDirty();
+    recompose();
+  }
 
   // ---------- render
   function draw() {
@@ -307,8 +407,7 @@ const INDEX = /*__INDEX__*/;
     const side = renderFigure(SPECIES[L.species], p, { ...opts, x: -3.3 });
     const front = renderFigure(SPECIES[L.species], p, { ...opts, x: 3.3, view: 'front' });
     state.J = { side: side.joints, front: front.joints };
-    // while turning a joint, its view is held so the pivot stays put (the
-    // figure is otherwise re-centred on its body as it changes)
+    // while turning a joint, its view is held so the pivot stays put
     state.off = { side: [0, 0], front: [0, 0] };
     const hold = state.drag && state.sel && state.holdAt;
     if (hold) {
@@ -318,32 +417,24 @@ const INDEX = /*__INDEX__*/;
     const shift = (v, svg) => (state.off[v][0] || state.off[v][1] ? `<g transform="translate(${state.off[v][0]} ${state.off[v][1]})">${svg}</g>` : svg);
     const groundLine = `<line x1="-8" x2="8" y1="0" y2="0" stroke="#000" stroke-opacity="0.18" stroke-width="0.03"/>`;
     const cap = (x, t) => `<text x="${x}" y="0.55" font-size="0.36" fill="#000" fill-opacity="0.4" text-anchor="middle" font-family="sans-serif" letter-spacing="0.05">${t}</text>`;
-    $('big').innerHTML = `<svg viewBox="-6.6 -7.1 13.2 7.85" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pose preview, side and front"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${shift('side', side.svg)}${shift('front', front.svg)}${cap(-3.3, 'SIDE')}${cap(3.3, 'FRONT')}${handlesSvg()}</svg>`;
-    if (state.tab !== 'face') {
-      const bs = coordOf('bases', p.name), gs = coordOf('gestures', p.name);
-      $('meta').textContent = `${charById(state.character).name} · side + front · ${p.name}` + (bs && gs ? ` (${bs} + ${gs})` : '');
-    }
-    $('json').textContent = JSON.stringify(exportPose(), null, 2);
+    $('big').innerHTML = `<svg viewBox="-6.6 -7.1 13.2 7.85" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Preview, side and front"><rect x="-20" y="-20" width="40" height="40" fill="${PAPER}"/>${groundLine}${shift('side', side.svg)}${shift('front', front.svg)}${cap(-3.3, 'SIDE')}${cap(3.3, 'FRONT')}${handlesSvg()}</svg>`;
+    drawMeta();
+    $('json').textContent = JSON.stringify({ [state.work.name]: state.work.item }, null, 2);
+    if (!state.drag) renderFamily();
   }
-
-  function exportPose() {
-    const p = clone(state.pose);
-    // stored as the character's right / left (the normalised pose calls them near / far:
-    // the right side is the near one in the side view)
-    const out = { name: p.name, mouth: p.mouth };
-    out.spine = p.spine; out.right = p.near; out.left = p.far; out.tail = p.tail;
-    return out;
+  function drawMeta() {
+    const w = state.work, who = charById(state.character).name;
+    if (state.tab === 'face') { $('meta').textContent = `${who} · face`; return; }
+    const on = w.kind === 'base' ? ` (with ${state.previewG})` : w.kind === 'gesture' ? ` (on ${state.previewB})` : '';
+    $('meta').textContent = `${who} · ${w.kind} ${w.name}${on}`;
   }
 
   // ---------- handles on the figures
-  // Every joint shows a dot. Tap one and a ring with a knob appears; drag
-  // the knob (or anywhere on the ring) to turn the joint. Side view: the
-  // angles in the paper (lean, chest, neck, head, shoulder, elbow, wrist,
-  // hip, knee, ankle). Front view: shoulder, elbow, hip and knee `out`
-  // (sideways; elbow / knee turn the forearm / shin further out). The
-  // angle shows while a joint is selected. Each move solves the joint's value
-  // numerically so the part follows the pointer (works for any angle
-  // convention, and for `out`'s foreshortening in the front view).
+  // Every joint of the half being edited shows a dot. Tap one and a ring
+  // with a knob appears; drag the knob (or anywhere on the ring) to turn
+  // the joint. Side view: the angles in the paper. Front view: shoulder,
+  // elbow, hip and knee `out`. Each move solves the joint's value
+  // numerically so the part follows the pointer.
   const VIEWX = { side: -3.3, front: 3.3 };
   const RING = 0.55;
   const SIDE_NAME = { near: 'right', far: 'left' };
@@ -351,6 +442,7 @@ const INDEX = /*__INDEX__*/;
   const wrapA = (v) => ((v + 540) % 360) - 180;
   const rangeOf = (path) => RANGES[path] || RANGES[path.replace(/^(near|far)\./, '')] || [-180, 180];
   function controls(view) {
+    if (state.mode !== 'base' && state.mode !== 'gesture') return [];
     const out = [], P = state.pose;
     const solved = (sd) => ['near', 'far'].some((h) => h !== sd && P[h].arm.prop?.grip === 'both');   // arm moved by a two-handed grip
     if (view === 'side') {
@@ -375,14 +467,13 @@ const INDEX = /*__INDEX__*/;
         out.push({ view, side: sd, path: `${sd}.leg.kneeOut`, label: `${n} knee out`, piv: j('Kn'), dir: (J) => ang(J[sd].Kn, J[sd].A) });
       }
     }
-    return out;
+    return out.filter((c) => inMode(c.path));
   }
   // figure frame -> picture (the stage's svg units)
   const toPic = (view, q) => { const o = state.off?.[view] || [0, 0]; return [VIEWX[view] + state.facing * q[0] + o[0], q[1] + o[1]]; };
   // Where each control's dot is drawn and tapped (display only: the turn is
   // always about the joint itself). Dots that would overlap an earlier one
-  // (both hips in the side view, the shoulders and the neck) are pushed
-  // apart, away from it, or back and down where they coincide.
+  // are pushed apart, away from it, or back and down where they coincide.
   const GAP = 0.15;
   function layoutDots() {
     const placed = [], at = {};
@@ -420,10 +511,9 @@ const INDEX = /*__INDEX__*/;
       s += `<circle cx="${p[0]}" cy="${p[1]}" r="${RING}" fill="none" stroke="var(--accent)" stroke-width="0.025" stroke-dasharray="0.06 0.05"/>` +
         `<line x1="${p[0]}" y1="${p[1]}" x2="${k[0]}" y2="${k[1]}" stroke="var(--accent)" stroke-width="0.025"/>` +
         `<circle cx="${k[0]}" cy="${k[1]}" r="0.11" fill="var(--accent)" stroke="#fff" stroke-width="0.025" style="cursor:grab"/>`;
-      {                                                   // the selected joint's name and angle
-        const v = get(state.pose, sel.path) ?? 0;
-        s += `<text x="${k[0] + 0.16}" y="${k[1] - 0.14}" font-size="0.26" font-family="sans-serif" font-weight="600" fill="#222" stroke="${PAPER}" stroke-width="0.06" paint-order="stroke">${sel.label} ${Math.round(v)}°</text>`;
-      }
+      const v = get(state.pose, sel.path) ?? 0;
+      const lbl = sel.path === 'spine.lean' && state.mode === 'gesture' ? `lean ${Math.round(state.work.item.lean ?? 0)}° (gesture's own)` : `${sel.label} ${Math.round(v)}°`;
+      s += `<text x="${k[0] + 0.16}" y="${k[1] - 0.14}" font-size="0.26" font-family="sans-serif" font-weight="600" fill="#222" stroke="${PAPER}" stroke-width="0.06" paint-order="stroke">${lbl}</text>`;
     }
     return s + '</g>';
   }
@@ -455,22 +545,16 @@ const INDEX = /*__INDEX__*/;
       dv = Math.max(-25, Math.min(25, dv));
       set(state.pose, c.path, Math.max(lo, Math.min(hi, Math.round((v + dv) * 10) / 10)));
     }
-    const el = $('s-' + c.path.replace(/\./g, '-'));
-    if (el) { el.value = get(state.pose, c.path); el.closest('.row')._sync(); }
   }
-  // ---------- pin feet: while lean or chest is dragged, every foot that
-  // touches the ground keeps its place under the body: that leg's hip and
-  // knee are re-solved to put the ankle back (two-bone IK on the probe
-  // render's own joints, so projected lengths are taken as they are; the
-  // ankle already keeps the foot's ground angle). Feet are chosen at the
-  // start of the drag. Targets are kept relative to the pelvis: the figure
-  // frame is re-centred on the body every render, and the drag holds the
-  // pelvis still on screen, so a pelvis-relative foot is one that stays put.
-  const PIN_PATHS = new Set(['spine.lean', 'spine.chest']);
+  // ---------- pin feet (base mode): while the base's lean is dragged,
+  // every foot that touches the ground keeps its place under the body: that
+  // leg's hip and knee are re-solved to put the ankle back (two-bone IK on
+  // the probe render's own joints). Targets are kept relative to the pelvis.
+  // A gesture's own lean always keeps the base's planted feet (compose).
   const D2 = 180 / Math.PI;
   function startPin(c) {
     state.pin = null;
-    if (!state.pinFeet || !PIN_PATHS.has(c.path)) return;
+    if (!state.pinFeet || state.mode !== 'base' || c.path !== 'spine.lean') return;
     const J = jointsFor('side', state.pose), P = J.spine.pelvis;
     const legs = {};
     for (const sd of ['near', 'far']) if (J[sd].low[1] > -0.06) legs[sd] = [J[sd].A[0] - P[0], J[sd].A[1] - P[1]];
@@ -478,11 +562,7 @@ const INDEX = /*__INDEX__*/;
   }
   function settleFeet() {
     if (!state.pin) return;
-    settleLegs(state.pose, state.pin);
-  }
-  // put each pinned foot (pelvis-relative ankle target) back by re-solving
-  // that leg's hip and knee; also used when composing a base with a gesture
-  function settleLegs(pose, pin) {
+    const pose = state.pose, pin = state.pin;
     for (let pass = 0; pass < 3; pass++) {
       const J = jointsFor('side', pose), P = J.spine.pelvis;
       let moved = false;
@@ -496,10 +576,9 @@ const INDEX = /*__INDEX__*/;
         const d = Math.max(Math.abs(L1 - L2) + 1e-4, Math.min(Math.hypot(D[0], D[1]), L1 + L2 - 1e-4));
         const phi = Math.atan2(D[0], D[1]) * D2;
         const alpha = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d)))) * D2;
-        // the knee always flexes backward (knee >= 0): thigh ahead of the chord
-        const thT = phi + alpha;                                        // thigh target angle
+        const thT = phi + alpha;                                        // the knee always flexes backward
         const KnT = [hp[0] + Math.sin(thT / D2) * L1, hp[1] + Math.cos(thT / D2) * L1];
-        const shT = Math.atan2(T[0] - KnT[0], T[1] - KnT[1]) * D2;      // shin target angle
+        const shT = Math.atan2(T[0] - KnT[0], T[1] - KnT[1]) * D2;
         const leg = pose[sd].leg;
         const clampTo = (path, v) => { const [lo, hi] = rangeOf(path); return Math.max(lo, Math.min(hi, Math.round(v * 10) / 10)); };
         leg.hip = clampTo('leg.hip', leg.hip + wrapA(thT - ang(hp, Kn)));
@@ -523,8 +602,8 @@ const INDEX = /*__INDEX__*/;
     try { localStorage.setItem('poselab-joints', state.showJ ? 'on' : 'off'); } catch {}
     draw();
   });
-  // gallery toggles: thumbnail view (side / front) and sort (by base /
-  // by gesture), remembered per browser
+  // gallery toggles: thumbnail view (side / front) and, for poses, sort
+  // (by base / by gesture), remembered per browser
   try { if (localStorage.getItem('poselab-gview') === 'front') state.galleryView = 'front'; } catch {}
   try { if (localStorage.getItem('poselab-gsort') === 'gesture') state.gallerySort = 'gesture'; } catch {}
   for (const [id, key, store] of [['gview', 'galleryView', 'poselab-gview'], ['gsort', 'gallerySort', 'poselab-gsort']]) {
@@ -535,8 +614,13 @@ const INDEX = /*__INDEX__*/;
       const b = e.target.closest('button'); if (!b || b.dataset.v === state[key]) return;
       state[key] = b.dataset.v; sync();
       try { localStorage.setItem(store, state[key]); } catch {}
-      renderGallery();
+      renderGallery(); renderFamily();
     });
+  }
+  // a drag step: turn the joint, keep pinned feet, take the half back into
+  // the item and recompose the figure from it
+  function dragTo(sel, m) {
+    solveTo(sel, pointerAng(sel, m)); settleFeet(); edited(); draw();
   }
   {
     const big = $('big');
@@ -548,7 +632,7 @@ const INDEX = /*__INDEX__*/;
         if (r > RING - 0.25 && r < RING + 0.25) {                       // on the ring or its knob: turn
           state.drag = true; state.holdAt = p; big.setPointerCapture(e.pointerId);
           startPin(sel);
-          solveTo(sel, pointerAng(sel, m)); settleFeet(); markDirty(); if (LOWER_PATH(sel.path)) captureLower(); else if (UPPER_PATH(sel.path)) captureUpper(); draw(); e.preventDefault(); return;
+          dragTo(sel, m); e.preventDefault(); return;
         }
       }
       // a dot: select it (tapping again where two dots meet picks the other)
@@ -566,9 +650,9 @@ const INDEX = /*__INDEX__*/;
     big.addEventListener('pointermove', (e) => {
       if (!state.drag || !state.sel) return;
       const m = picPoint(e); if (!m) return;
-      solveTo(state.sel, pointerAng(state.sel, m)); settleFeet(); markDirty(); if (LOWER_PATH(state.sel.path)) captureLower(); else if (UPPER_PATH(state.sel.path)) captureUpper(); draw();
+      dragTo(state.sel, m);
     });
-    const end = () => { if (state.drag) { state.drag = false; state.holdAt = null; state.pin = null; syncControls(); draw(); } };
+    const end = () => { if (state.drag) { state.drag = false; state.holdAt = null; state.pin = null; syncControls(); draw(); renderGallery(); } };
     big.addEventListener('pointerup', end);
     big.addEventListener('pointercancel', end);
   }
@@ -580,7 +664,9 @@ const INDEX = /*__INDEX__*/;
       const b = document.createElement('button');
       b.type = 'button'; b.textContent = label;
       b.addEventListener('click', () => {
-        setv(value); if (!LOOK.has(id)) markDirty(); syncControls(); draw();
+        setv(value);
+        if (!LOOK.has(id)) { edited(); renderGallery(); }
+        syncControls(); draw();
         if (LOOK.has(id)) renderGallery();
       });
       b.dataset.value = JSON.stringify(value);
@@ -593,9 +679,14 @@ const INDEX = /*__INDEX__*/;
     const host = $('groups'); host.innerHTML = '';
     for (const g of SLIDERS) {
       const fs = document.createElement('fieldset');
+      // a panel of one half only shows in that half's mode
+      if (g.key === 'spine') fs.classList.add('only-base');
+      if (g.key === 'prop') fs.classList.add('only-gesture');
       const lg = document.createElement('legend'); lg.textContent = g.title; lg.id = 'lg-' + g.key; fs.appendChild(lg);
       for (const [path, label, min, max, step = 1] of g.rows) {
         const row = document.createElement('div'); row.className = 'row';
+        if (/\.leg\./.test(path)) row.classList.add('only-base');
+        if (/\.arm\./.test(path)) row.classList.add('only-gesture');
         const id = 's-' + path.replace(/\./g, '-');
         row.innerHTML = `<label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}"><output for="${id}"></output>`;
         const input = row.querySelector('input'), out = row.querySelector('output');
@@ -604,17 +695,16 @@ const INDEX = /*__INDEX__*/;
           if (path.startsWith('prop.') && !state.pose[propSide()].arm.prop) { row._sync(); return; }   // no prop held
           set(state.pose, rp(path), v);
           out.textContent = step < 1 ? v.toFixed(2) : v + '°';
-          markDirty();
-          if (LOWER_PATH(rp(path))) captureLower(); else if (UPPER_PATH(rp(path))) captureUpper();
-          draw();
+          edited(); draw();
         });
+        input.addEventListener('change', () => renderGallery());
         row._sync = () => {
           const v = get(state.pose, rp(path)) ?? 0;
           input.value = v; out.textContent = step < 1 ? Number(v).toFixed(2) : v + '°';
         };
         fs.appendChild(row);
         if (path.endsWith('.arm.twist')) {
-          const hr = document.createElement('div'); hr.className = 'handrow';
+          const hr = document.createElement('div'); hr.className = 'handrow only-gesture';
           hr.innerHTML = `<span>hand</span><div class="seg" id="hand-${g.key}"></div>`;
           fs.appendChild(hr);
         }
@@ -641,90 +731,62 @@ const INDEX = /*__INDEX__*/;
       const el = $(id); el.disabled = !hasTail; el.closest('.row').style.opacity = hasTail ? '' : '0.4';
     }
     document.querySelectorAll('.row').forEach((r) => r._sync());
-  }
-
-  // One list: starter poses, with any saved version replacing the starter
-  // of the same name, followed by poses that exist only as saved ones.
-  function allPoses() {
-    const saved = new Map(state.saved.map((p) => [p.name, p]));
-    const list = STARTERS.map((p) => saved.has(p.name)
-      ? { pose: saved.get(p.name), edited: true }
-      : { pose: p, edited: false });
-    for (const p of state.saved) if (!STARTERS.some((q) => q.name === p.name)) list.push({ pose: p, edited: true, isNew: true });
-    return list;
+    const w = state.work;
+    $('desc').value = w.item.desc || '';
+    $('joinFlag').checked = !!(w.kind === 'gesture' && w.item.join);
+    if (w.kind === 'pose') {
+      const [b, g] = halves(w.name);
+      $('baseSel').value = b; $('gestSel').value = g;
+      $('poseName').textContent = w.name;
+      $('ground').value = w.item.ground || 'feet';
+      $('holdR').checked = (w.item.hold || []).includes('right');
+      $('holdL').checked = (w.item.hold || []).includes('left');
+      $('use').value = (w.item.use || []).join(', ');
+      $('like').value = (w.item.like || []).join(', ');
+      $('removeBtn').disabled = !db || !eff('poses')[w.name];
+    }
+    $('previewG').value = state.previewG; $('previewB').value = state.previewB;
   }
 
   function markDirty() {
+    state.drafts[KINDS[state.work.kind]][state.work.name] = state.work.item;
     if (state.dirty) return;
     state.dirty = true;
     $('revertBtn').disabled = false;
-    if (db) setStatus(`Unsaved changes to “${state.pose.name}”.`);
+    if (db) setStatus(`Unsaved changes to ${state.work.kind} “${state.work.name}”.`);
   }
   function setStatus(t) { $('status').textContent = t; }
 
-  // ---------- shared bases and gestures (decided 2026-11-07 / 08): the
-  // lower body (legs, lean, tail) belongs to the BASE and the upper body
-  // (arms, chest) to the GESTURE, not the pose — no per-pose deviations
-  // while they are being refined. Editing either half on any pose updates
-  // the session's base / gesture, and every pose of that family loads
-  // with it. Gaze (neck, head), mouth, turn stay the pose's own (as in
-  // recompose). A gesture's own lean (a bow) still adds on top, with the
-  // base's planted feet kept by the leg solve. Saves hold whole poses as
-  // always; merging spreads a changed base or gesture with recompose.
-  state.baseEdit = {};                      // base -> { lean, tail, legs }
-  state.gestEdit = {};                      // gesture -> { chest, arms }
-  const baseNameOf = (n) => coordOf('bases', n) || n.split('-')[0];
-  const gestLeanOf = (n) => INDEX.gestures[coordOf('gestures', n) || n.split('-').slice(1).join('-')]?.lean ?? 0;
-  const LOWER_PATH = (path) => /(^|\.)leg\.|^spine\.lean$|^tail\./.test(path);
-  function captureLower() {
-    const p = state.pose, b = baseNameOf(p.name);
-    if (!INDEX.bases[b]) return;
-    state.baseEdit[b] = { lean: p.spine.lean - gestLeanOf(p.name), tail: clone(p.tail), legs: { near: clone(p.near.leg), far: clone(p.far.leg) } };
-    setStatus(`${b} base updated: all ${b} poses take these legs, lean and tail (merge spreads it with recompose).`);
+  // ---------- loading something to work on
+  // the stored item (saved, else the repo), or a fresh one
+  function storedItem(kind, name) {
+    const s = state.saved[KINDS[kind]][name];
+    if (s && !s.removed) return clone(s);
+    if (REPO[KINDS[kind]][name]) return clone(REPO[KINDS[kind]][name]);
+    return null;
   }
-  const gestNameOf = (n) => coordOf('gestures', n) || n.split('-').slice(1).join('-');
-  const UPPER_PATH = (path) => /(^|\.)arm\.|^spine\.chest$/.test(path);
-  function captureUpper() {
-    const p = state.pose, g = gestNameOf(p.name);
-    if (!INDEX.gestures[g]) return;
-    state.gestEdit[g] = { chest: p.spine.chest, arms: { near: clone(p.near.arm), far: clone(p.far.arm) } };
-    setStatus(`${g} gesture updated: all ${g} poses take these arms and chest (merge spreads it with recompose).`);
+  function newPoseMeta(name) {
+    const [b, g] = halves(name);
+    // start from a sibling on the same base (what touches the ground) and
+    // gesture (the hands free to hold)
+    const P = eff('poses');
+    const sb = Object.keys(P).find((n) => halves(n)[0] === b), sg = Object.keys(P).find((n) => halves(n)[1] === g);
+    return { desc: '', ground: sb ? P[sb].ground : 'feet', hold: sg ? clone(P[sg].hold) : [], use: [], like: [] };
   }
-  function applyUpper(pose) {
-    const g = gestNameOf(pose.name), E = state.gestEdit[g];
-    if (!E) return pose;
-    pose.spine.chest = E.chest;
-    pose.near.arm = clone(E.arms.near); pose.far.arm = clone(E.arms.far);
-    return pose;
-  }
-  function applyLower(pose) {
-    const b = baseNameOf(pose.name), E = state.baseEdit[b];
-    if (!E) return pose;
-    const dLean = gestLeanOf(pose.name);
-    pose.spine.lean = E.lean + dLean;
-    pose.tail = clone(E.tail);
-    pose.near.leg = clone(E.legs.near); pose.far.leg = clone(E.legs.far);
-    if (dLean) {
-      // pin the base's grounded feet under the tipped body (as when composing)
-      const probe = clone(pose); probe.spine.lean = E.lean;
-      const J = jointsFor('side', probe), P = J.spine.pelvis, pin = {};
-      for (const sd of ['near', 'far']) if (J[sd].low[1] > -0.06) pin[sd] = [J[sd].A[0] - P[0], J[sd].A[1] - P[1]];
-      if (Object.keys(pin).length) settleLegs(pose, pin);
-    }
-    return pose;
+  function load(kind, name) {
+    const draft = state.drafts[KINDS[kind]][name];
+    const item = draft || storedItem(kind, name) || (kind === 'pose' ? newPoseMeta(name) : null);
+    if (!item) return;
+    state.work = { kind, name, item };
+    state.sel = null; state.drag = false; state.dirty = !!draft;
+    $('revertBtn').disabled = !draft;
+    if (kind !== 'pose') $('name').value = name;
+    recompose();
+    syncControls(); draw(); updateSaveLabel(); renderGallery();
+    try { localStorage.setItem('poselab-' + kind, name); } catch {}
   }
 
-  function load(p) {
-    state.pose = applyLower(applyUpper(normalizePose(clone(p))));
-    state.sel = null; state.drag = false;
-    state.dirty = false;
-    $('revertBtn').disabled = true;
-    $('name').value = state.pose.name;
-    syncControls(); draw(); updateSaveLabel(); markSelected();
-    state.syncCoords?.();
-  }
-
-  // ---------- gallery: every pose as a thumbnail; tap to edit it
+  // ---------- gallery: the bases, the gestures or the poses
   function thumbSvg(pose) {
     const L = look();
     const r = renderFigure(SPECIES[L.species], pose, { ...L, x: 0, y: 0, scale: 1, facing: state.facing, view: state.galleryView });
@@ -732,46 +794,81 @@ const INDEX = /*__INDEX__*/;
     const cx = (b.x0 + b.x1) / 2 * state.facing, cy = (b.y0 + b.y1) / 2;
     return `<svg viewBox="${cx - side / 2} ${cy - side / 2} ${side} ${side}" aria-hidden="true">${r.svg}</svg>`;
   }
-  function renderGallery() {
-    const host = $('gallery'); host.innerHTML = '';
-    // sort by base (the alphabetical composite order) or by gesture: the
-    // chosen half first, so its families sit together
-    const key = state.gallerySort === 'gesture'
-      ? (n) => `${gestNameOf(n)} ${baseNameOf(n)}`
-      : (n) => `${baseNameOf(n)} ${gestNameOf(n)}`;
-    const list = [...allPoses()].sort((a, b) => key(a.pose.name).localeCompare(key(b.pose.name)));
-    for (const { pose } of list) {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'thumb'; b.setAttribute('role', 'option');
-      b.dataset.name = pose.name;
-      b.innerHTML = thumbSvg(pose) + '<span></span>';
-      b.querySelector('span').textContent = pose.name;
-      b.addEventListener('click', () => { load(pose); setStatus(''); });
-      host.appendChild(b);
-    }
-    markSelected();
+  function thumb(label, pose, { edited, selected, onClick }) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'thumb' + (edited ? ' edited' : ''); b.setAttribute('role', 'option');
+    b.setAttribute('aria-selected', String(!!selected));
+    b.innerHTML = (pose ? thumbSvg(pose) : '<svg aria-hidden="true"></svg>') + '<span></span>';
+    b.querySelector('span').textContent = label;
+    if (edited) b.title = 'changed here (saved in this page or not saved yet), not in the repo yet';
+    b.addEventListener('click', onClick);
+    return b;
   }
-  function markSelected() {
-    for (const b of $('gallery').children) b.setAttribute('aria-selected', String(b.dataset.name === state.pose.name));
+  const isSaved = (kind, n) => n in state.saved[kind] || n in state.drafts[kind];
+  const anyG = (prefer) => (eff('gestures')[prefer] ? prefer : effSorted('gestures')[0]);
+  const anyB = (prefer) => (eff('bases')[prefer] ? prefer : effSorted('bases')[0]);
+  function renderGallery() {
+    if (!state.work) return;
+    const host = $('gallery'); host.innerHTML = '';
+    const w = state.work, mode = state.mode;
+    if (mode === 'base') {
+      for (const n of effSorted('bases')) host.appendChild(thumb(n, composed(n, anyG('hang')), {
+        edited: isSaved('bases', n), selected: w.kind === 'base' && w.name === n,
+        onClick: () => { load('base', n); setStatus(''); },
+      }));
+    } else if (mode === 'gesture') {
+      for (const n of effSorted('gestures')) host.appendChild(thumb(n, composed(anyB('step'), n), {
+        edited: isSaved('gestures', n), selected: w.kind === 'gesture' && w.name === n,
+        onClick: () => { load('gesture', n); setStatus(''); },
+      }));
+    } else {
+      const key = state.gallerySort === 'gesture' ? (n) => { const [b, g] = halves(n); return `${g} ${b}`; } : (n) => n;
+      const names = Object.keys(eff('poses'));
+      if (w.kind === 'pose' && !names.includes(w.name)) names.push(w.name);    // a new combination being made
+      names.sort((a, b) => key(a).localeCompare(key(b)));
+      for (const n of names) {
+        const [b, g] = halves(n);
+        host.appendChild(thumb(n, composed(b, g), {
+          edited: isSaved('poses', n) || !(n in eff('poses')), selected: w.kind === 'pose' && w.name === n,
+          onClick: () => { load('pose', n); setStatus(''); },
+        }));
+      }
+    }
+  }
+  // the poses using the base or gesture being edited, drawn with the edit
+  function renderFamily() {
+    const w = state.work; if (!w || w.kind === 'pose') return;
+    const host = $('family'); host.innerHTML = '';
+    const i = w.kind === 'base' ? 0 : 1;
+    const names = Object.keys(eff('poses')).filter((n) => halves(n)[i] === w.name);
+    $('famhead').textContent = names.length
+      ? `${names.length} pose${names.length > 1 ? 's' : ''} with this ${w.kind}${state.dirty ? ' (as edited, not saved)' : ''}`
+      : `No pose uses this ${w.kind} yet: make one in Pose.`;
+    for (const n of names) {
+      const [b, g] = halves(n);
+      host.appendChild(thumb(n, composed(b, g), { onClick: () => { setTab('pose'); load('pose', n); } }));
+    }
   }
 
-  // Save under the typed name: the current pose's own name saves in place,
-  // a different name saves a new pose (or replaces the pose with that name).
-  function typedName() { return $('name').value.trim(); }
+  // ---------- naming and saving
+  // base / gesture: one word; a different name saves a copy under it
+  function typedName() { return state.work.kind === 'pose' ? state.work.name : $('name').value.trim(); }
   function updateSaveLabel() {
-    const n = typedName();
-    const exists = allPoses().some((x) => x.pose.name === n);
-    $('saveBtn').textContent = !n || n === state.pose.name ? 'Save' : exists ? 'Replace' : 'Save as new';
+    const w = state.work, n = typedName();
+    if (w.kind === 'pose') { $('saveBtn').textContent = eff('poses')[n] ? 'Save' : 'Add pose'; return; }
+    const exists = n in eff(KINDS[w.kind]);
+    $('saveBtn').textContent = !n || n === w.name ? 'Save' : exists ? 'Replace' : `Save as new ${w.kind}`;
   }
   $('name').addEventListener('input', updateSaveLabel);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('saveBtn').click(); });
 
   seg('mouth', [['Slit', 1], ['Arch', 2], ['Wide', 3]], () => state.pose.mouth, (v) => { state.pose.mouth = v; });
   seg('facing', [['→', 1], ['←', -1]], () => state.facing, (v) => { state.facing = v; });
-  // Character menu: changes only the look, never the pose.
+  // Character menu: changes only the look
   $('character').innerHTML = CAST.characters.map((c) => `<option value="${c.id}">${c.name}</option>`).join('');
-  $('character').addEventListener('change', (e) => { state.character = e.target.value; syncControls(); draw(); renderGallery(); if (state.tab === 'face') setTab('face'); });
-  // ---------- tabs: Pose (the editor) and Face (the head turned, no controls)
+  $('character').addEventListener('change', (e) => { state.character = e.target.value; syncControls(); draw(); renderGallery(); if (state.tab === 'face') drawFaces(); });
+
+  // ---------- the face pane (the head turned, no controls)
   const YAWS = [0, 30, 60, 90, 120, 150, 180], PITCHES = [90, 40, 20, 0, -20, -40, -90];
   function drawFaces() {
     const c = charById(state.character), turn = FACES.faces?.[c.id]?.turn;
@@ -789,108 +886,105 @@ const INDEX = /*__INDEX__*/;
   }
   state.faceMouth = 2;
   seg('faceMouth', [['Small', 1], ['Medium', 2], ['Wide', 3]], () => state.faceMouth, (v) => { state.faceMouth = v; drawFaces(); });
+
+  // ---------- tabs: Base, Gesture, Pose (the modes) and Face
+  const TABS = { base: 'tabBase', gesture: 'tabGesture', pose: 'tabPose', face: 'tabFace' };
   function setTab(t) {
     state.tab = t;
-    $('tabPose').setAttribute('aria-selected', t === 'pose'); $('tabFace').setAttribute('aria-selected', t === 'face');
+    for (const [k, id] of Object.entries(TABS)) $(id).setAttribute('aria-selected', String(k === t));
     document.body.classList.toggle('face-mode', t === 'face');
     $('facePane').hidden = t !== 'face';
-    if (t === 'face') drawFaces();
-    $('meta').textContent = t === 'face' ? `${charById(state.character).name} · face` : `${charById(state.character).name} · side + front · ${state.pose.name}`;
     try { localStorage.setItem('poselab-tab', t); } catch {}
+    if (t === 'face') { drawFaces(); drawMeta(); return; }
+    state.mode = t;
+    for (const m of ['base', 'gesture', 'pose']) document.body.classList.toggle('mode-' + m, m === t);
+    $('help').textContent = HELP[t];
+    if (state.work?.kind !== t) {
+      // the mode's item: the half of the pose on screen, else the last one worked on
+      const w = state.work;
+      const cur = w?.kind === 'pose' ? halves(w.name) : w?.kind === 'base' ? [w.name, state.previewG] : w?.kind === 'gesture' ? [state.previewB, w.name] : null;
+      // from a pose, show the half being edited with the pose's other half
+      // (a base not with a gesture that tips the body: its lean is the base's own)
+      if (w?.kind === 'pose' && t === 'gesture') state.previewB = cur[0];
+      if (w?.kind === 'pose' && t === 'base' && !eff('gestures')[cur[1]]?.lean) state.previewG = cur[1];
+      let name = t === 'base' ? cur?.[0] : t === 'gesture' ? cur?.[1] : null;
+      if (!name) try { name = localStorage.getItem('poselab-' + t); } catch {}
+      if (t === 'pose' && cur) name = cur.join('-');
+      const pool = eff(KINDS[t]);
+      if (!name || (t !== 'pose' && !pool[name])) name = Object.keys(pool).sort()[0];
+      load(t, name);
+    } else { syncControls(); draw(); renderGallery(); }
   }
-  $('tabPose').addEventListener('click', () => setTab('pose'));
-  $('tabFace').addEventListener('click', () => setTab('face'));
+  for (const [k, id] of Object.entries(TABS)) $(id).addEventListener('click', () => { setStatus(''); setTab(k); });
   buildSliders();
   for (const side of ['near', 'far']) {
-    const arm = () => state.pose[side].arm;
     seg('hand-' + side, [['Fist', 'fist'], ['Out', 'out'], ['In', 'in'], ['Point', 'point']],
-      () => state.pose[side].arm.hand, (v) => { state.pose[side].arm.hand = v; captureUpper(); });
+      () => state.pose[side].arm.hand, (v) => { state.pose[side].arm.hand = v; });
   }
   {
     const prop = () => state.pose[propSide()].arm.prop;
     seg('propKind', [['None', ''], ['Sword', 'sword'], ['Club', 'club'], ['Bow', 'bow']], () => prop()?.kind || '', (v) => {
       const arm = state.pose[propSide()].arm;
       if (!v) { state.propHand = propSide(); delete arm.prop; } else arm.prop = { angle: 0, out: 0, ...(arm.prop || {}), kind: v };
-      captureUpper();
     });
     seg('propHand', [['Right', 'near'], ['Left', 'far']], propSide, (v) => {
       const from = propSide(); state.propHand = v;
       if (from !== v && state.pose[from].arm.prop) { state.pose[v].arm.prop = state.pose[from].arm.prop; delete state.pose[from].arm.prop; }
-      captureUpper();
     });
     seg('propGrip', [['One hand', ''], ['Both', 'both']], () => prop()?.grip || '',
-      (v) => { const p = prop(); if (p) { if (v) p.grip = v; else delete p.grip; captureUpper(); } });
+      (v) => { const p = prop(); if (p) { if (v) p.grip = v; else delete p.grip; } });
     seg('propString', [['Free', false], ['Drawn', true]], () => !!prop()?.draw,
-      (v) => { const p = prop(); if (p) { if (v) p.draw = true; else delete p.draw; captureUpper(); } });
+      (v) => { const p = prop(); if (p) { if (v) p.draw = true; else delete p.draw; } });
   }
-  // ---------- base × gesture (pose composition): picking a base and a
-  // gesture composes a draft from the index's reference poses — legs,
-  // tail and lean from the base, arms, chest/neck/head and mouth from the
-  // gesture. A gesture that tips the whole body (a bow) carries a `lean`
-  // in the index, added to the base's lean with the base's planted feet
-  // kept by the leg solve. The draft is named <base>-<gesture>; tune and
-  // save as usual.
-  const coordOf = (kind, name) => Object.keys(INDEX[kind]).find((k) => INDEX[kind][k].poses.includes(name)) || '';
-  function refPose(name) {
-    const hit = allPoses().find((x) => x.pose.name === name);
-    return normalizePose(clone(hit ? hit.pose : STARTERS.find((p) => p.name === name)));
-  }
-  function composeDraft(baseName, gestName) {
-    const bp = refPose(INDEX.bases[baseName].poses[0]);
-    const gp = refPose(INDEX.gestures[gestName].poses[0]);
-    const dLean = INDEX.gestures[gestName].lean ?? 0;
-    const pose = normalizePose({
-      name: `${baseName}-${gestName}`, mouth: gp.mouth,
-      spine: { lean: bp.spine.lean + dLean, chest: gp.spine.chest, neck: gp.spine.neck, head: gp.spine.head, turn: 0 },
-      near: { arm: clone(gp.near.arm), leg: clone(bp.near.leg) },
-      far: { arm: clone(gp.far.arm), leg: clone(bp.far.leg) },
-      tail: clone(bp.tail),
-    });
-    const JB = jointsFor('side', bp), PB = JB.spine.pelvis;
-    const pin = {};
-    for (const sd of ['near', 'far']) if (JB[sd].low[1] > -0.06) pin[sd] = [JB[sd].A[0] - PB[0], JB[sd].A[1] - PB[1]];
-    if (Object.keys(pin).length) settleLegs(pose, pin);
-    return applyLower(pose);                 // a session base edit wins over the stored reference
-  }
+
+  // ---------- the pickers: preview halves, and a pose's base and gesture
   {
-    const fill = (el, kind) => { el.innerHTML = '<option value=""></option>' + Object.keys(INDEX[kind]).sort().map((k) => `<option>${k}</option>`).join(''); };
-    fill($('baseSel'), 'bases'); fill($('gestSel'), 'gestures');
+    const fill = (el, names, blank) => { el.innerHTML = (blank ? '<option value=""></option>' : '') + names.map((k) => `<option>${k}</option>`).join(''); };
+    state.fillPickers = () => {
+      // a base is shown with a gesture that doesn't tip the body, so the
+      // lean on screen is the base's own
+      fill($('previewG'), effSorted('gestures').filter((g) => !eff('gestures')[g].lean));
+      fill($('previewB'), effSorted('bases'));
+      fill($('baseSel'), effSorted('bases')); fill($('gestSel'), effSorted('gestures'));
+      fill($('ground'), GROUND);
+      if (state.work && state.pose) syncControls();
+    };
+    $('previewG').addEventListener('change', (e) => { state.previewG = e.target.value; recompose(); syncControls(); draw(); });
+    $('previewB').addEventListener('change', (e) => { state.previewB = e.target.value; recompose(); syncControls(); draw(); });
     const onPick = () => {
       const b = $('baseSel').value, g = $('gestSel').value;
       if (!b || !g) return;
-      state.pose = composeDraft(b, g);
-      state.sel = null; state.drag = false;
-      $('name').value = state.pose.name;
-      markDirty(); syncControls(); draw(); updateSaveLabel(); markSelected();
-      $('baseSel').value = b; $('gestSel').value = g;
-      $('baseRef').hidden = $('gestRef').hidden = true;      // a draft is not a reference
-      setStatus(`Composed ${b} × ${g}: tune it, then Save.`);
+      load('pose', `${b}-${g}`);
+      setStatus(eff('poses')[`${b}-${g}`] ? '' : `New pose ${b}-${g}: describe it, then Add pose.`);
     };
     $('baseSel').addEventListener('change', onPick);
     $('gestSel').addEventListener('change', onPick);
-    // "ref" badge: this pose is the reference of its base / gesture —
-    // the pose the family is derived from (tools/recompose.mjs spreads
-    // edits to it across the family after merging)
-    const mark = (el, kind, half) => {
-      const coord = coordOf(kind, state.pose.name);
-      const isRef = !!coord && INDEX[kind][coord].poses[0] === state.pose.name;
-      el.hidden = !isRef;
-      if (isRef) el.title = `This pose is the ${coord} reference: its ${half} define the ${kind === 'bases' ? 'base' : 'gesture'}. After merging an edit, recompose spreads it to the family.`;
-    };
-    state.syncCoords = () => {
-      $('baseSel').value = coordOf('bases', state.pose.name);
-      $('gestSel').value = coordOf('gestures', state.pose.name);
-      mark($('baseRef'), 'bases', 'legs, lean and tail');
-      mark($('gestRef'), 'gestures', 'arms, chest and mouth');
-    };
+    $('editBase').addEventListener('click', () => setTab('base'));
+    $('editGest').addEventListener('click', () => setTab('gesture'));
   }
+  // ---------- a pose's finding fields and every item's description
+  const list = (s) => s.split(',').map((x) => x.trim()).filter(Boolean);
+  $('desc').addEventListener('input', () => { state.work.item.desc = $('desc').value; markDirty(); $('json').textContent = JSON.stringify({ [state.work.name]: state.work.item }, null, 2); });
+  for (const id of ['ground', 'holdR', 'holdL', 'use', 'like']) $(id).addEventListener(id === 'use' || id === 'like' ? 'input' : 'change', () => {
+    const it = state.work.item;
+    it.ground = $('ground').value;
+    it.hold = [...($('holdR').checked ? ['right'] : []), ...($('holdL').checked ? ['left'] : [])];
+    it.use = list($('use').value); it.like = list($('like').value);
+    markDirty();
+    const bad = it.use.filter((t) => !REPO.tags.includes(t));
+    setStatus(bad.length ? `Unknown story moment${bad.length > 1 ? 's' : ''}: ${bad.join(', ')} (known: ${REPO.tags.join(', ')}).` : `Unsaved changes to pose “${state.work.name}”.`);
+    $('json').textContent = JSON.stringify({ [state.work.name]: it }, null, 2);
+  });
+  $('joinFlag').addEventListener('change', () => {
+    if ($('joinFlag').checked) state.work.item.join = true; else delete state.work.item.join;
+    edited({ fromPose: false }); syncControls(); draw(); renderGallery();
+  });
 
   // ---------- join hands: both hands to the body's midline in the front
-  // view, as for joined palms, solving each arm's elbowOut (a secant step
-  // per pass, like the drag solve); heights and the side view stay. The
-  // forearm is kept within 40° of the paper: past that the hand
-  // foreshortens into a splayed fan instead of the drawn hand, and the
-  // last fraction of convergence isn't worth it (hands touch well before).
+  // view, as for joined palms, solving each arm's elbowOut; then the far
+  // hand exactly onto the near hand in the side view (two-bone IK). The
+  // forearm is kept within 40° of the paper (past that the hand
+  // foreshortens into a splayed fan).
   function joinHands() {
     const solvedBy = (sd) => ['near', 'far'].some((h) => h !== sd && state.pose[h].arm.prop?.grip === 'both');
     let touched = false;
@@ -917,11 +1011,6 @@ const INDEX = /*__INDEX__*/;
       }
       if (done) break;
     }
-    // then the far hand exactly onto the near hand in the side view (the
-    // far shoulder is drawn a little behind the near one, so identical
-    // angles leave the hands offset; the overlap is the point of joined
-    // palms — other poses keep that natural shift): the far arm's
-    // shoulder and elbow are solved by two-bone IK on the probe's joints.
     if (!solvedBy('far')) for (let pass = 0; pass < 4; pass++) {
       const J = jointsFor('side', state.pose);
       const T = J.near.grip, { sh, E, grip } = J.far;
@@ -941,18 +1030,15 @@ const INDEX = /*__INDEX__*/;
       arm.shoulder = clampTo('arm.shoulder', arm.shoulder + wrapA(upT - ang(sh, E)));
       arm.elbow = clampTo('arm.elbow', arm.elbow + wrapA(foT - upT) - wrapA(ang(E, grip) - ang(sh, E)));
     }
-    if (touched) { markDirty(); captureUpper(); syncControls(); draw(); setStatus('Hands joined: middle of the body, laid on each other.'); }
+    if (touched) { edited(); syncControls(); draw(); renderGallery(); setStatus('Hands joined: middle of the body, laid on each other.'); }
     else setStatus('Hands are already joined, or elbow out can’t reach the middle.');
   }
   $('joinBtn').addEventListener('click', joinHands);
-  renderGallery();
-  load(STARTERS[0]);
-  try { if (localStorage.getItem('poselab-tab') === 'face') setTab('face'); } catch {}
 
   // ---------- copy
   $('copyBtn').addEventListener('click', async () => {
     const text = $('json').textContent;
-    try { await navigator.clipboard.writeText(text); $('status').textContent = 'Copied pose JSON.'; }
+    try { await navigator.clipboard.writeText(text); $('status').textContent = 'Copied the JSON.'; }
     catch {
       const r = document.createRange(); r.selectNodeContents($('json'));
       const s = getSelection(); s.removeAllRanges(); s.addRange(r);
@@ -960,11 +1046,26 @@ const INDEX = /*__INDEX__*/;
     }
   });
 
-  // ---------- saved poses (kept with this page)
-  const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'pose';
-  $('saveBtn').disabled = true;
-  setStatus('Connecting to saved poses…');
+  // ---------- start
+  state.fillPickers();
+  {
+    let t = 'pose';
+    try { t = localStorage.getItem('poselab-tab') || 'pose'; } catch {}
+    if (!TABS[t]) t = 'pose';
+    let first = null;
+    try { first = localStorage.getItem('poselab-pose'); } catch {}
+    load('pose', first && REPO.poses[first] ? first : Object.keys(REPO.poses)[0]);
+    setTab(t === 'face' ? 'pose' : t);
+    if (t === 'face') setTab('face');
+  }
 
+  // ---------- saves (kept with this page): collections bases, gestures and
+  // poses, one document per name — { base | gesture | pose, savedAt }, or a
+  // pose { removed: true, savedAt }. A save overrides the repo entry here
+  // until it is merged (the commit-pose-lab skill), then it is deleted.
+  const FIELD = { bases: 'base', gestures: 'gesture', poses: 'pose' };
+  $('saveBtn').disabled = true; $('removeBtn').disabled = true;
+  setStatus('Connecting to saved work…');
   (async () => {
     db = window.claude?.use ? await window.claude.use('db') : null;
     if (!db) {
@@ -972,51 +1073,77 @@ const INDEX = /*__INDEX__*/;
       return;
     }
     $('saveBtn').disabled = false;
-    setStatus(state.dirty ? `Unsaved changes to “${state.pose.name}”.` : '');
-    const timer = setTimeout(() => setStatus('Saved poses can’t be reached yet. They’ll appear when the connection returns.'), 10000);
-    let firstSnap = true;
-    db.collection('poses').onSnapshot((snap) => {
-      if (!snap.metadata?.fromCache) clearTimeout(timer);
-      state.saved = snap.docs.map((d) => d.data()).filter((d) => d && d.pose).map((d) => d.pose);
-      // When saved poses first arrive, show the saved version of the pose
-      // on screen, unless it has unsaved changes the viewer would lose.
-      if (firstSnap && !state.dirty) {
-        const hit = allPoses().find((x) => x.pose.name === state.pose.name);
-        if (hit) load(hit.pose);
-      }
-      firstSnap = false;
-      renderGallery(); updateSaveLabel();
-    }, (e) => {
-      clearTimeout(timer);
-      setStatus('Saved poses stopped updating (' + (e?.code || 'error') + '). Reload the page to reconnect.');
-    });
+    setStatus(state.dirty ? `Unsaved changes to ${state.work.kind} “${state.work.name}”.` : '');
+    const timer = setTimeout(() => setStatus('Saved work can’t be reached yet. It will appear when the connection returns.'), 10000);
+    for (const kind of Object.keys(FIELD)) {
+      let first = true;
+      db.collection(kind).onSnapshot((snap) => {
+        if (!snap.metadata?.fromCache) clearTimeout(timer);
+        const out = {};
+        let legacy = 0;
+        for (const d of snap.docs) {
+          const v = d.data(); if (!v) continue;
+          if (kind === 'poses' && v.pose?.spine) { legacy++; continue; }   // a whole pose from before the split
+          if (v.removed) out[d.id] = { removed: true };
+          else if (v[FIELD[kind]]) out[d.id] = v[FIELD[kind]];
+        }
+        state.saved[kind] = out;
+        if (kind === 'poses') state.legacy = legacy;
+        // when saves first arrive, show the saved version of what is on
+        // screen, unless it has unsaved changes the viewer would lose
+        if (first && !state.dirty && KINDS[state.work.kind] === kind && out[state.work.name]) load(state.work.kind, state.work.name);
+        first = false;
+        state.fillPickers(); recompose(); draw(); renderGallery(); updateSaveLabel();
+        if (state.legacy && kind === 'poses' && !state.dirty) setStatus(`${state.legacy} older whole-pose save${state.legacy > 1 ? 's are' : ' is'} waiting for Claude to merge (not shown here).`);
+      }, (e) => {
+        clearTimeout(timer);
+        setStatus('Saved work stopped updating (' + (e?.code || 'error') + '). Reload the page to reconnect.');
+      });
+    }
   })();
 
-  async function save(name, btn) {
+  async function write(kind, name, data, btn, done) {
     if (!db) return;
-    const pose = exportPose(); pose.name = name;
     btn.disabled = true;
     try {
-      await db.collection('poses').doc(slug(name)).set({ pose, savedAt: new Date().toISOString() });
-      state.pose.name = name; state.dirty = false; $('revertBtn').disabled = true;
-      setStatus(`Saved “${name}”.`);
-      renderGallery(); draw(); updateSaveLabel();
+      await db.collection(kind).doc(name).set({ ...data, savedAt: new Date().toISOString() });
+      done();
     } catch (e) {
       setStatus(e?.code === 'permission_denied'
         ? 'You can view this page but not save to it. Use Copy JSON instead.'
         : 'Couldn’t save (' + (e?.code || 'error') + '). Try again in a moment.');
     } finally { btn.disabled = false; }
   }
-  // Revert: back to the pose as last saved (or the starter), keeping the
-  // character pick
-  $('revertBtn').addEventListener('click', () => {
-    const it = allPoses().find((x) => x.pose.name === state.pose.name);
-    if (it) { load(it.pose); setStatus(`Back to the saved “${it.pose.name}”.`); }
-  });
   $('saveBtn').addEventListener('click', () => {
-    const name = typedName();
-    if (!name) { setStatus('Type a name for the pose first.'); $('name').focus(); return; }
-    save(name, $('saveBtn'));
+    const w = state.work, kind = KINDS[w.kind], name = typedName(), from = w.name;
+    if (w.kind !== 'pose' && !/^[a-z]+$/.test(name)) { setStatus(`A ${w.kind} name is one word, lower case letters only.`); $('name').focus(); return; }
+    if (w.kind === 'pose' && !(w.item.desc || '').trim()) { setStatus('Describe the pose first (what the body does, as seen).'); $('desc').focus(); return; }
+    const item = clone(w.item);
+    write(kind, name, { [FIELD[kind]]: item }, $('saveBtn'), () => {
+      state.saved[kind][name] = item;
+      delete state.drafts[kind][from]; delete state.drafts[kind][name];     // a copy saved under a new name leaves the original as it was
+      state.work = { kind: w.kind, name, item: clone(item) };
+      state.dirty = false; $('revertBtn').disabled = true;
+      setStatus(`Saved ${w.kind} “${name}”.`);
+      state.fillPickers(); recompose(); draw(); renderGallery(); updateSaveLabel();
+    });
+  });
+  $('removeBtn').addEventListener('click', () => {
+    const w = state.work; if (w.kind !== 'pose') return;
+    write('poses', w.name, { removed: true }, $('removeBtn'), () => {
+      state.saved.poses[w.name] = { removed: true };
+      delete state.drafts.poses[w.name];
+      state.dirty = false; $('revertBtn').disabled = true;
+      setStatus(`Removed pose “${w.name}” (its base and gesture stay). Pick the two again to bring it back.`);
+      renderGallery(); syncControls();
+    });
+  });
+  // Revert: back to what is saved (or the repo), keeping the character pick
+  $('revertBtn').addEventListener('click', () => {
+    const w = state.work;
+    delete state.drafts[KINDS[w.kind]][w.name];
+    load(w.kind, w.name);
+    setStatus(`Back to the saved ${w.kind} “${w.name}”.`);
   });
 })();
 </script>

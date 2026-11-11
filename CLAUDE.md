@@ -75,17 +75,17 @@ scene spec (JSON) → layout → figure geometry → SVG
                                                    # page: https://claude.ai/artifact/9VH3oVabnkmaxNHcwDFLzz
     node tools/gesture-catalogue.mjs               # out/gesture-catalogue.{png,html}: distinct upper bodies
                                                    # page: https://claude.ai/artifact/RmiwkAFe1gBtRkHFpHzUm5
-    node tools/recompose.mjs --all --dry           # drift report: what per-pose tuning remains
-    node tools/recompose.mjs --base kneel          # re-derive a base's poses from the grid (then look + snapshot)
     node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
     node tools/prop-gaps.mjs                       # docs/issues/missing-props.md; placeholder props per panel
     node tools/import-held.mjs                     # data/props/held/{sword,club,bow}.svg -> data/held.json
 
-Pose lab (published artifact, saves poses to its database, collection
+Pose lab (published artifact; edits bases, gestures and the pose list
+separately, saving to its database, collections `bases`, `gestures`,
 `poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
-Saved poses are reviewed and then merged into `data/poses.json`: the
-`commit-pose-lab` skill (`.claude/skills/`), which also deletes the
-merged saves — a save overrides the repo pose in the lab.
+Saves are reviewed and then merged into `data/bases.json`,
+`data/gestures.json` and `data/poses.json`: the `commit-pose-lab`
+skill (`.claude/skills/`), which also deletes the merged saves — a save
+overrides the repo entry in the lab.
 
     node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
@@ -161,12 +161,13 @@ what looks wrong: `docs/issues/problem-poses.md`.
   More generic monkeys and rakshasas come from cloth colour and a cloth
   pattern, never from new characters. Every character has a front and a
   side face drawing; there is no generated fallback.
-- **65 poses** in `data/poses.json`, all side view (the front view is
-  derived by the renderer). Each is named `<base>-<gesture>` and composed
-  from the **27 bases** (lower body) and **59 gestures** (upper body) in
-  `data/pose-index.json`; `tools/recompose.mjs` re-derives a pose from
-  its base and gesture, so retuning a base propagates to all its poses.
-  The lower body belongs to the base — no per-pose deviations.
+- **54 poses** in `data/poses.json`, all side view (the front view is
+  derived by the renderer). Each is named `<base>-<gesture>` and is
+  exactly one of the **27 bases** (`data/bases.json`: legs, lean, tail)
+  with one of the **48 gestures** (`data/gestures.json`: arms, chest,
+  head, mouth); `src/compose.js` composes it when the assets load, so
+  retuning a base or gesture changes every pose using it. A pose has no
+  angles of its own — `poses.json` holds only its finding fields.
 - Heads turn and tilt to any angle from the front and side face drawings,
   and show the drawn face exactly as drawn at the drawn angles.
 - Weapons are drawn along a reference line in the hand
@@ -183,14 +184,15 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
 
 ### Open
 
-- **14 wanted poses** in `data/pose-index.json` (`wanted`), each with the
+- **14 wanted poses** in `data/poses.json` (`wanted`), each with the
   stand-in to use meanwhile; `docs/issues/missing-poses.md` is the
   generated queue.
-- The old sword gestures (`swordup`, `swordacross`, `swordback`,
-  `swordbehind`, `sworddown`, `swordfront`, `swordhip`, `swordlevel`,
-  `swordlow`, `swordshoulder`, `swordwaist`) are **deprecated** in favour
-  of the guard set (`step-roof`, `stepwide-ox`, `leanback-wrath`,
-  `lunge-longpoint` …): swap a remaining use when its panel is revisited.
+- **Sword postures are unreviewed.** They are the 14 two-handed
+  longsword guards (`roof`, `ox`, `plow`, `fool`, `key`, `crown`,
+  `wrath`, `longpoint`, `unicorn`, `hanging`, `middle`, `flank`,
+  `change`, `barrier`; each desc names its guard) — the old `sword…`
+  gestures were deleted 2026-11-10, unused by any panel. There is no
+  one-handed sword gesture any more except `swordcarry`.
 - Panel-lab drafts still sitting in its database carry pose names from
   before the composite renaming, and the old `size` field (now `tall`:
   0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) and the retired `shot` / `zoom` / big

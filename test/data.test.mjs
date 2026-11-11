@@ -7,10 +7,11 @@ import { parseCloth } from '../src/figure.js';
 import { root, SPECIES, POSES, CAST, FACES } from './helpers.mjs';
 
 // A pose name starts with a style bible §7 base word, or — for a pose
-// composed in the lab (named <base>-<gesture>) — with its base's name
-// from the pose index.
-const INDEX = JSON.parse(readFileSync(join(root, 'data/pose-index.json'), 'utf8'));
-const BASES = ['stand', 'walk', 'run', 'leap', 'crouch', 'bend', 'crawl', 'kneel', 'lunge', 'sit', 'lie', 'fall', ...Object.keys(INDEX.bases)];
+// composed in the lab (named <base>-<gesture>) — with its base's name.
+const D = { ...JSON.parse(readFileSync(join(root, 'data/poses.json'), 'utf8')),
+  bases: JSON.parse(readFileSync(join(root, 'data/bases.json'), 'utf8')).bases,
+  gestures: JSON.parse(readFileSync(join(root, 'data/gestures.json'), 'utf8')).gestures };
+const BASES = ['stand', 'walk', 'run', 'leap', 'crouch', 'bend', 'crawl', 'kneel', 'lunge', 'sit', 'lie', 'fall', ...Object.keys(D.bases)];
 
 test('only three species', () => {
   assert.deepEqual(Object.keys(SPECIES).sort(), ['female', 'male', 'monkey']);
@@ -23,47 +24,53 @@ test('species heads are only a size guide (faces are drawn)', () => {
   }
 });
 
-test('poses: unique, alphabetical, named <base>-<gesture>, side view only', () => {
-  const names = POSES.map((p) => p.name);
-  assert.equal(new Set(names).size, names.length, 'duplicate pose name');
+test('poses: unique, alphabetical, named <base>-<gesture> of a known base and gesture', () => {
+  const names = Object.keys(D.poses);
   assert.deepEqual(names, [...names].sort(), 'poses.json is not alphabetical');
-  const baseOf = {}, gestOf = {};
-  for (const [b, e] of Object.entries(INDEX.bases)) for (const p of e.poses) baseOf[p] = b;
-  for (const [g, e] of Object.entries(INDEX.gestures)) for (const p of e.poses) gestOf[p] = g;
-  for (const p of POSES) {
-    assert.equal(p.name, `${baseOf[p.name]}-${gestOf[p.name]}`, `${p.name}: a pose is named <base>-<gesture>`);
-    assert.notEqual(p.view, 'front', `${p.name}: poses are side view only`);
+  for (const n of names) {
+    const i = n.indexOf('-');
+    assert.ok(i > 0, `${n}: a pose is named <base>-<gesture>`);
+    assert.ok(D.bases[n.slice(0, i)], `${n}: no base ${n.slice(0, i)}`);
+    assert.ok(D.gestures[n.slice(i + 1)], `${n}: no gesture ${n.slice(i + 1)}`);
   }
+  assert.deepEqual(POSES.map((p) => p.name), names, 'composed poses follow poses.json');
+  for (const p of POSES) assert.notEqual(p.view, 'front', `${p.name}: poses are side view only`);
   assert.ok(names.includes('step-hang'), 'the fallback pose "step-hang" is missing');
 });
 
-test('pose index: every pose and only those, known tags and neighbours', () => {
-  const index = JSON.parse(readFileSync(join(root, 'data/pose-index.json'), 'utf8'));
-  const names = POSES.map((p) => p.name);
-  assert.deepEqual(Object.keys(index.poses).sort(), [...names].sort(), 'pose-index.json must list exactly the poses in poses.json');
+test('poses: finding fields, known tags and neighbours; wanted', () => {
+  const names = Object.keys(D.poses);
   const GROUND = ['feet', 'one-knee', 'seat', 'front', 'back', 'air', 'feet-hands'];
-  for (const [name, e] of Object.entries(index.poses)) {
+  for (const [name, e] of Object.entries(D.poses)) {
+    assert.deepEqual(Object.keys(e).filter((k) => !['desc', 'ground', 'hold', 'use', 'like'].includes(k)), [],
+      `${name}: a pose holds only finding fields (its angles come from its base and gesture)`);
     assert.ok(e.desc, `${name}: desc`);
     assert.ok(GROUND.includes(e.ground), `${name}: ground ${e.ground}`);
     for (const h of e.hold) assert.ok(['right', 'left'].includes(h), `${name}: hold ${h}`);
     assert.ok(e.use.length, `${name}: no use tags`);
-    for (const t of e.use) assert.ok(index.tags[t], `${name}: unknown tag ${t}`);
+    for (const t of e.use) assert.ok(D.tags[t], `${name}: unknown tag ${t}`);
     for (const l of e.like) assert.ok(names.includes(l) && l !== name, `${name}: like ${l}`);
   }
-  for (const [name, w] of Object.entries(index.wanted)) {
+  for (const [name, w] of Object.entries(D.wanted)) {
     assert.ok(!names.includes(name), `wanted ${name} already exists: move it to poses`);
     assert.ok(BASES.includes(name.split('-')[0]), `wanted ${name}: base`);
-    for (const t of w.use) assert.ok(index.tags[t], `wanted ${name}: unknown tag ${t}`);
+    for (const t of w.use) assert.ok(D.tags[t], `wanted ${name}: unknown tag ${t}`);
   }
-  // bases and gestures: single-word names, a desc each, and every pose
-  // in exactly one of each
-  for (const key of ['bases', 'gestures']) {
-    const claimed = Object.entries(index[key]).flatMap(([b, e]) => {
-      assert.match(b, /^[a-z]+$/, `${key} ${b}: one word`);
-      assert.ok(e.desc, `${key} ${b}: desc`);
-      return e.poses;
-    });
-    assert.deepEqual([...claimed].sort(), [...names].sort(), `every pose must belong to exactly one of ${key}`);
+});
+
+test('bases and gestures: one-word names, a desc, the half they own, each used', () => {
+  const used = (k, i) => Object.keys(D.poses).some((n) => (i === 0 ? n.slice(0, n.indexOf('-')) : n.slice(n.indexOf('-') + 1)) === k);
+  for (const [b, e] of Object.entries(D.bases)) {
+    assert.match(b, /^[a-z]+$/, `base ${b}: one word`);
+    assert.ok(e.desc, `base ${b}: desc`);
+    assert.deepEqual(Object.keys(e).sort(), ['desc', 'lean', 'left', 'right', 'tail'], `base ${b}: desc, lean, right, left, tail`);
+    assert.ok(used(b, 0), `base ${b}: no pose uses it`);
+  }
+  for (const [g, e] of Object.entries(D.gestures)) {
+    assert.match(g, /^[a-z]+$/, `gesture ${g}: one word`);
+    assert.ok(e.desc, `gesture ${g}: desc`);
+    for (const k of Object.keys(e)) assert.ok(['desc', 'lean', 'join', 'chest', 'neck', 'head', 'mouth', 'right', 'left'].includes(k), `gesture ${g}: unknown field ${k}`);
+    assert.ok(used(g, 1), `gesture ${g}: no pose uses it`);
   }
 });
 

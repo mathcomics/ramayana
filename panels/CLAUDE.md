@@ -21,7 +21,7 @@ manuscript owns story, canon and cast naming.
 - After any change: `node tools/render-panels.mjs NN`, then **look at the
   renders at full size** (the per-panel PNGs, not only the sheet).
 - A missing pose goes in `needs` (`pose: <name> (...): <stand-in> for
-  now`) **and** in `wanted` in `data/pose-index.json`; a missing prop in
+  now`) **and** in `wanted` in `data/poses.json`; a missing prop in
   `needs` (`prop: ...`). Regenerate the queues: `node
   tools/pose-gaps.mjs`, `node tools/prop-gaps.mjs`.
 - When the artist corrects a panel or a review finds a mistake, add the

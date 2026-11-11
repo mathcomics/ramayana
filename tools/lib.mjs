@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { backgroundInner } from '../src/scene.js';
 import { anatomy } from '../src/figure.js';
 import { bbox } from '../src/geom.js';
+import { composePoses } from '../src/compose.js';
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const read = (p) => readFileSync(join(root, p), 'utf8');
@@ -100,10 +101,27 @@ export function loadProps() {
   return { props };
 }
 
+// The pose data: bases (lower bodies), gestures (upper bodies) and the
+// pose list with its finding fields (data/poses.json: poses, tags,
+// notWords, wanted). baseOf / gestureOf split a pose name.
+export function loadPoseData() {
+  const P = json('data/poses.json');
+  return { bases: json('data/bases.json').bases, gestures: json('data/gestures.json').gestures,
+    poses: P.poses, tags: P.tags, notWords: P.notWords, wanted: P.wanted };
+}
+
+// Every pose composed from its base and gesture (src/compose.js), in
+// data/poses.json order: the whole stored-form poses the renderer takes.
+export function loadPoses(species = loadSpecies()) {
+  const D = loadPoseData();
+  return composePoses(species.male, D.bases, D.gestures, Object.keys(D.poses));
+}
+
 export function loadAssets() {
+  const species = loadSpecies();
   return {
-    species: loadSpecies(),
-    poses: json('data/poses.json').poses,
+    species,
+    poses: loadPoses(species),
     characters: json('data/characters.json'),
     faces: json('data/faces.json'),
     props: loadProps(),

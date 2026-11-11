@@ -29,7 +29,11 @@ these: `docs/issues/rules-to-migrate.md`.
 | kneel, kneel-bow, kneel-palms (side) | all | The forward foot hovers ~0.35 head-units above the ground (the back shin and foot carry the ground contact); seen from the new `joints.low` measurements | Pose lab: forward leg's hip / knee so the foot lands; the pin-feet toggle will then keep it there |
 | sit (side) | all | The stretched left foot's heel hovers ~0.65 above the ground | Pose lab: left knee / ankle so the heel rests |
 | two-handed sword poses (front) | all | The other arm is solved to the hilt, so it can cross the chest or bend sharply where the hilt is far to the holding side | Pose lab: the solved arm's "elbow out" (its free swivel, kept since 2026-11-07) moves its elbow; or the holding arm's out / angle so the hilt sits nearer the middle |
+| two-handed grips (all views) | all | To review (artist, 2026-11-10): how the other hand is calculated on a joint grip — its place on the hilt (0.42 below the holding hand, `rules-to-migrate.md`) and the arm solved to it | Review the solve against the guards in the pose lab before reworking the look-alike guard pairs |
 | new walk, shoot and sword poses (front) | all | First drafts from reference sheets: legs reaching forward and back have little hip out, so the stride overlaps in front | Pose lab: hip out on the stepping legs |
+| sword guards: barrier, fool (gesture catalogue, 2026-11-10) | all | Nearly the same picture: both hands low in front, the blade sloping down ahead; at phone size they don't read apart | Artist: tell them apart in the pose lab (Gesture), or merge into one gesture |
+| longpoint on an upright base (gesture catalogue, on step) | all | The arms and sword aim up at ~45° instead of level: the chest was tuned against the lunge's forward lean, so on an upright base it tips up | Compose chest relative to the base's lean (`docs/proposals/2026-11-07-pose-composition.md`, Open), or use longpoint only on lunge |
+| sword guards (all 14) | all | Unreviewed by the artist: first drafts from the guard names; front views carry the solved second arm | Artist review in the pose lab, Gesture mode, shown on their bases |
 
 ## From the panel self-review of sections 07–08 (2026-11-07)
 

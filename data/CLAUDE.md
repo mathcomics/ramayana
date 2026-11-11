@@ -3,17 +3,20 @@
 You are working on the figure and prop data the renderer draws from.
 
 **Queues:** poses wanted by the story: `docs/issues/missing-poses.md`
-(generated; the source is `wanted` in `data/pose-index.json`). Props the
+(generated; the source is `wanted` in `data/poses.json`). Props the
 panels need: `docs/issues/missing-props.md` (generated). What looks
 wrong: `docs/issues/problem-poses.md`.
 
-- **Poses**: refined in the pose lab (URL in the root CLAUDE.md); saves
-  land in its database (collection `poses`) and are merged into
-  `poses.json` after review (the `commit-pose-lab` skill; merged saves
-  are then deleted from the lab, since a save overrides the repo pose
-  there). Names: `<base>-<visible action>` (style
-  bible §7, `docs/design/pose-picking.md`). Every pose needs a
-  `pose-index.json` entry with known tags — `npm test` enforces it.
+- **Poses** are a base (`bases.json`: legs, lean, tail) with a gesture
+  (`gestures.json`: arms, chest, head, mouth), named `<base>-<gesture>`
+  and listed in `poses.json` with their finding fields only (desc,
+  ground, hold, use, like; known tags — `npm test` enforces it). Edit
+  angles on the base or gesture, never per pose
+  (`docs/design/pose-picking.md`). They are refined in the pose lab (URL
+  in the root CLAUDE.md); saves land in its database (collections
+  `bases`, `gestures`, `poses`) and are merged after review (the
+  `commit-pose-lab` skill; merged saves are then deleted from the lab,
+  since a save overrides the repo entry there).
 - **Faces and parts are the artist's drawings**: never edit their curves
   or colours; only place, rotate, mirror. Import with the tools
   (`import-faces`, `import-parts`, `import-held`); they report

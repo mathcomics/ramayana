@@ -1,0 +1,680 @@
+{
+  "_doc": "Bases: the distinct lower bodies, one-word names set by the artist (docs/design/pose-picking.md). Per base: desc; lean (spine.lean); right / left = the leg of the character's right / left (hip, out, knee, kneeOut, ankle, toe); tail (lift, curl, turn). A pose <base>-<gesture> takes all of these from its base. Angles: _angles in data/poses.json.",
+  "bases": {
+    "arch": {
+      "desc": "a slight arch back, knees bent",
+      "lean": -16,
+      "right": {
+        "hip": 22,
+        "out": 0,
+        "knee": 87,
+        "kneeOut": 0,
+        "ankle": -3,
+        "toe": 0
+      },
+      "left": {
+        "hip": 56,
+        "out": 0,
+        "knee": 55,
+        "kneeOut": 0,
+        "ankle": 12,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 30,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "bend": {
+      "desc": "deep bend from the hips, knees bent",
+      "lean": 70,
+      "right": {
+        "hip": 112,
+        "out": 0,
+        "knee": 54,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": 73,
+        "out": 0,
+        "knee": 51,
+        "kneeOut": 0,
+        "ankle": -13,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -50,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "chair": {
+      "desc": "seated on a chair or throne, legs down",
+      "lean": 8,
+      "right": {
+        "hip": 89,
+        "out": 46.4,
+        "knee": 42.8,
+        "kneeOut": -49.9,
+        "ankle": -1,
+        "toe": 0
+      },
+      "left": {
+        "hip": 99.5,
+        "out": 48.7,
+        "knee": 114.7,
+        "kneeOut": -54.4,
+        "ankle": -1,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -29,
+        "curl": 194,
+        "turn": 35
+      }
+    },
+    "crawl": {
+      "desc": "low on hands and feet",
+      "lean": 55,
+      "right": {
+        "hip": 47,
+        "out": 0,
+        "knee": 80,
+        "kneeOut": 0,
+        "ankle": -57,
+        "toe": 0
+      },
+      "left": {
+        "hip": 95,
+        "out": 0,
+        "knee": 89,
+        "kneeOut": 0,
+        "ankle": -3,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -30,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "crouch": {
+      "desc": "a deep squat",
+      "lean": 30,
+      "right": {
+        "hip": 114,
+        "out": 24,
+        "knee": 149,
+        "kneeOut": 0,
+        "ankle": -52,
+        "toe": 0
+      },
+      "left": {
+        "hip": 87,
+        "out": 25,
+        "knee": 127,
+        "kneeOut": 0,
+        "ankle": -10,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -60,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "fallback": {
+      "desc": "tipped onto the back, legs kicked up",
+      "lean": -70,
+      "right": {
+        "hip": 25,
+        "out": 21,
+        "knee": 67,
+        "kneeOut": 0,
+        "ankle": 20,
+        "toe": 0
+      },
+      "left": {
+        "hip": 63,
+        "out": 17,
+        "knee": 26,
+        "kneeOut": 0,
+        "ankle": 76,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 40,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "fallfront": {
+      "desc": "pitched forward head first",
+      "lean": 72,
+      "right": {
+        "hip": 106,
+        "out": 17,
+        "knee": 117,
+        "kneeOut": 0,
+        "ankle": -61,
+        "toe": 0
+      },
+      "left": {
+        "hip": 11,
+        "out": 26,
+        "knee": 37,
+        "kneeOut": 0,
+        "ankle": -71,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 36,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "kneel": {
+      "desc": "one knee down, the other foot forward",
+      "lean": -2,
+      "right": {
+        "hip": 98,
+        "out": 9,
+        "knee": 90,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": -5,
+        "out": 18,
+        "knee": 90,
+        "kneeOut": 0,
+        "ankle": -150,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -60,
+        "curl": 237,
+        "turn": 35
+      }
+    },
+    "kneeup": {
+      "desc": "upright, one knee lifted",
+      "lean": -15,
+      "right": {
+        "hip": 45,
+        "out": 30,
+        "knee": 53,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": -20,
+        "out": 9,
+        "knee": 0,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 40,
+        "curl": 300,
+        "turn": 35
+      }
+    },
+    "leanback": {
+      "desc": "leaning far back from the hips, legs braced",
+      "lean": -30,
+      "right": {
+        "hip": 10,
+        "out": 0,
+        "knee": 30,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": -50,
+        "out": 0,
+        "knee": 10,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -39,
+        "curl": 300,
+        "turn": 35
+      }
+    },
+    "leanfront": {
+      "desc": "leaning forward, front knee deep in a stride",
+      "lean": 25,
+      "right": {
+        "hip": 85,
+        "out": 0,
+        "knee": 80,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": -5,
+        "out": 0,
+        "knee": 20,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -20,
+        "curl": 260,
+        "turn": 35
+      }
+    },
+    "leap": {
+      "desc": "mid-air jump forward, front knee high, back leg trailing",
+      "lean": -17,
+      "right": {
+        "hip": 107,
+        "out": 0,
+        "knee": 105,
+        "kneeOut": 0,
+        "ankle": 19,
+        "toe": 0
+      },
+      "left": {
+        "hip": -67,
+        "out": 0,
+        "knee": 59,
+        "kneeOut": 0,
+        "ankle": -139,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 10,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "leapup": {
+      "desc": "in the air, legs tucked",
+      "lean": 55,
+      "right": {
+        "hip": 150,
+        "out": 0,
+        "knee": 31,
+        "kneeOut": 0,
+        "ankle": 4,
+        "toe": 0
+      },
+      "left": {
+        "hip": 150,
+        "out": 0,
+        "knee": 70,
+        "kneeOut": 0,
+        "ankle": 25,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -46,
+        "curl": 220,
+        "turn": 35
+      }
+    },
+    "liefront": {
+      "desc": "flat on the belly â€” on the ground, or lifted in the air for flying",
+      "lean": 90,
+      "right": {
+        "hip": 26,
+        "out": 0,
+        "knee": 38,
+        "kneeOut": 0,
+        "ankle": -104,
+        "toe": 0
+      },
+      "left": {
+        "hip": 0,
+        "out": 0,
+        "knee": 0,
+        "kneeOut": 0,
+        "ankle": -116,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -54,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "lunge": {
+      "desc": "a very long stride, front knee bent deep",
+      "lean": 40,
+      "right": {
+        "hip": 107.9,
+        "out": 0,
+        "knee": 70,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": -8.7,
+        "out": 0,
+        "knee": 12.3,
+        "kneeOut": 0,
+        "ankle": -60,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -49,
+        "curl": 260,
+        "turn": 35
+      }
+    },
+    "pass": {
+      "desc": "walking, one leg passing the other",
+      "lean": 5,
+      "right": {
+        "hip": 40,
+        "out": 2,
+        "knee": 47,
+        "kneeOut": 0,
+        "ankle": -34,
+        "toe": 0
+      },
+      "left": {
+        "hip": 5,
+        "out": 2,
+        "knee": 5,
+        "kneeOut": 0,
+        "ankle": -3,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -30,
+        "curl": 220,
+        "turn": 35
+      }
+    },
+    "run": {
+      "desc": "a long running stride",
+      "lean": 41,
+      "right": {
+        "hip": 123,
+        "out": 8,
+        "knee": 61,
+        "kneeOut": 0,
+        "ankle": 27,
+        "toe": 0
+      },
+      "left": {
+        "hip": -24,
+        "out": 13,
+        "knee": 96,
+        "kneeOut": 0,
+        "ankle": -153,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 18,
+        "curl": 300,
+        "turn": 35
+      }
+    },
+    "runlow": {
+      "desc": "a crouched running stride",
+      "lean": 54,
+      "right": {
+        "hip": 92,
+        "out": -7,
+        "knee": 105,
+        "kneeOut": 0,
+        "ankle": -60,
+        "toe": 0
+      },
+      "left": {
+        "hip": 13,
+        "out": 16,
+        "knee": 126,
+        "kneeOut": 0,
+        "ankle": -159,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -42,
+        "curl": 300,
+        "turn": 35
+      }
+    },
+    "runwide": {
+      "desc": "a running stride, the back shin swung high",
+      "lean": 40,
+      "right": {
+        "hip": 110,
+        "out": 0,
+        "knee": 80,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": 10,
+        "out": 0,
+        "knee": 80,
+        "kneeOut": 0,
+        "ankle": -100,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 10,
+        "curl": 300,
+        "turn": 35
+      }
+    },
+    "sit": {
+      "desc": "on the ground, one knee up, one leg out",
+      "lean": -10,
+      "right": {
+        "hip": 115,
+        "out": 0,
+        "knee": 115,
+        "kneeOut": 0,
+        "ankle": -8,
+        "toe": 0
+      },
+      "left": {
+        "hip": 80,
+        "out": 0,
+        "knee": 0,
+        "kneeOut": 0,
+        "ankle": 69,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -12,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "sitback": {
+      "desc": "seated leaning back on the hands, legs out",
+      "lean": -35,
+      "right": {
+        "hip": 85,
+        "out": 17,
+        "knee": 105,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": 55,
+        "out": 10,
+        "knee": 5,
+        "kneeOut": 0,
+        "ankle": 80,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -21,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "stand": {
+      "desc": "upright, feet together",
+      "lean": -5,
+      "right": {
+        "hip": 5,
+        "out": 6,
+        "knee": 10,
+        "kneeOut": 0,
+        "ankle": 3,
+        "toe": 0
+      },
+      "left": {
+        "hip": -15,
+        "out": 7,
+        "knee": 0,
+        "kneeOut": 0,
+        "ankle": -1,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -30,
+        "curl": 237,
+        "turn": 35
+      }
+    },
+    "step": {
+      "desc": "a small open stance, one foot a little ahead",
+      "lean": 8,
+      "right": {
+        "hip": 27,
+        "out": 0,
+        "knee": 14,
+        "kneeOut": 0,
+        "ankle": -1,
+        "toe": 0
+      },
+      "left": {
+        "hip": -8,
+        "out": 0,
+        "knee": 0,
+        "kneeOut": 0,
+        "ankle": -1,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -48,
+        "curl": 237,
+        "turn": 35
+      }
+    },
+    "stepback": {
+      "desc": "weight back, one leg stretched behind",
+      "lean": -25,
+      "right": {
+        "hip": 5,
+        "out": 7,
+        "knee": 32,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": -48,
+        "out": 3,
+        "knee": 0,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 30,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "stepturn": {
+      "desc": "stepping back, the body leaning away",
+      "lean": -20,
+      "right": {
+        "hip": 0,
+        "out": 0,
+        "knee": 30,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "left": {
+        "hip": -50,
+        "out": 0,
+        "knee": 10,
+        "kneeOut": 0,
+        "ankle": -2,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -20,
+        "curl": 200,
+        "turn": 35
+      }
+    },
+    "stepwide": {
+      "desc": "a wide stride, weight on the back leg",
+      "lean": -4,
+      "right": {
+        "hip": -20,
+        "out": 10,
+        "knee": 20,
+        "kneeOut": 0,
+        "ankle": -8,
+        "toe": 0
+      },
+      "left": {
+        "hip": 35,
+        "out": 10,
+        "knee": 25,
+        "kneeOut": 0,
+        "ankle": 0,
+        "toe": 0
+      },
+      "tail": {
+        "lift": 10,
+        "curl": 260,
+        "turn": 35
+      }
+    },
+    "walk": {
+      "desc": "a walking step, back heel up",
+      "lean": 4,
+      "right": {
+        "hip": 35,
+        "out": 0,
+        "knee": 31,
+        "kneeOut": 0,
+        "ankle": -3,
+        "toe": 0
+      },
+      "left": {
+        "hip": -6,
+        "out": 0,
+        "knee": 34,
+        "kneeOut": 0,
+        "ankle": -25,
+        "toe": 0
+      },
+      "tail": {
+        "lift": -30,
+        "curl": 220,
+        "turn": 35
+      }
+    }
+  }
+}

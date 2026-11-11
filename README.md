@@ -53,7 +53,10 @@ panels (with "tags")     approved reference panels: the artist-reviewed yardstic
 src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
 src/figure.js            skeleton solve, body-part shapes, SVG output
 data/species/*.json      per-species proportions, in head-units
-data/poses.json          named poses (joint angles, view, hands, mouth)
+data/bases.json          bases: lower bodies (legs, lean, tail)
+data/gestures.json       gestures: upper bodies (arms, prop, chest, head, mouth)
+data/poses.json          the poses (<base>-<gesture>), how to find one, wanted poses
+src/compose.js           a pose from its base and gesture
 data/characters.json     cast: species + body colour + outfit + cloth colour
 tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
 tools/pose-catalogue.mjs poses with their story moments, by base → out/pose-catalogue.png
@@ -114,8 +117,10 @@ real phone size (figures roughly 60–150 px tall).
   facing right.
 - **Pose:** joint angles relative to the parent joint (except the ankle:
   the foot's angle from the ground, 0 = flat), plus head view,
-  mouth (1–3) and a hand per arm (`fist`, `out` or `in`). See the `_doc`
-  field in `data/poses.json`. All species share the same poses.
+  mouth (1–3) and a hand per arm (`fist`, `out` or `in`). See the `_angles`
+  field in `data/poses.json`. A pose is a base (lower body) with a
+  gesture (upper body), composed when the data loads. All species share
+  the same poses.
 - **Look (not part of the pose):** a character from
   `data/characters.json` fixes species, body and cloth colours and outfit
   (`bottom`: briefs | dhoti, `top`: bare | full). `characterLook()` turns it
@@ -131,25 +136,28 @@ The full rules, with the reasoning behind each, are in
 
 ### Pose lab
 
-A phone-friendly page for tuning poses with sliders, or on the figures
-themselves: every joint shows a dot; tap one and drag the knob on its ring
+A phone-friendly page with three modes: **Base** edits a lower body
+(legs, lean, tail), **Gesture** an upper body (arms, prop, chest, head,
+mouth), each showing every pose that uses it, live; **Pose** picks a base
+and a gesture and saves the combination with its finding fields (a pose
+has no angles of its own). A new one-word name saves a new base or
+gesture. Angles are set on the figures themselves: every joint shows a dot; tap one and drag the knob on its ring
 to turn it (side view: the angles in the paper; front view: shoulder and
 hip `out`). The selected joint shows its name and angle. A "Joints" toggle hides the dots. A character menu shows the
 pose on any member of the cast; it changes only the view, never the saved
 pose.
 
 Two helpers keep contacts: **Pin feet** (on by default) holds every
-planted foot in place under the body while lean or chest is dragged, by
+planted foot in place under the body while a base's lean is dragged, by
 re-solving that leg; **Join** solves both arms so the hands meet on the
-body's midline (joined palms, clasped hands). **Base** and **Gesture**
-pickers compose a draft pose from `data/pose-index.json`
-(`<base>-<gesture>`) to tune and save as a whole pose; editing the lower
-body edits the base, so every pose of that base follows.
+body's midline (joined palms, clasped hands), and "joined on every base"
+keeps a gesture's palms joined whatever base it is used with.
 It is published as a claude.ai artifact (private to the owner):
 https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
 
-The page keeps its saves in its own database (collection `poses`).
-They are merged into `data/poses.json` on request, and the contact sheet
+The page keeps its saves in its own database (collections `bases`,
+`gestures`, `poses`); unsaved edits stay as drafts while the page is
+open. Saves are merged into the data files on request, and the contact sheet
 is reviewed after each merge. Republishing keeps the same URL.
 
 ### Panels and the site

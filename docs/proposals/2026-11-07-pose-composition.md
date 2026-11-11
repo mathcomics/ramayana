@@ -1,17 +1,18 @@
 # Pose composition: bases and gestures
 
-2026-11-07 · status: partly implemented. Bases, gestures, the lab's
-pickers, `tools/recompose.mjs` and the catalogues are built and
-documented in `docs/design/pose-picking.md` (Composition). What follows
-is still open.
+2026-11-07 · status: partly implemented. Bases and gestures are their
+own files (`data/bases.json`, `data/gestures.json`), every pose is
+composed from them when the data loads (`src/compose.js`, 2026-11-10,
+replacing `tools/recompose.mjs`), the lab edits them separately, and the
+catalogues are built; documented in `docs/design/pose-picking.md`
+(Composition). What follows is still open.
 
 ## Open
 
 - **Chest on a reclined base.** A gesture's `chest` is tuned against its
   home base's lean, so on a reclined base (sit) the pitches add and the
-  upper body tips too far. Today the artist retunes by eye, but a
-  recompose resets chest to the gesture's, so that tuning does not
-  survive. Wanted: compose chest relative to the base's lean (or a
+  upper body tips too far. A pose has no angles of its own, so it cannot
+  be retuned per pose either. Wanted: compose chest relative to the base's lean (or a
   per-base chest offset) so the grid gets it right.
 - **Gaps as products.** `tools/pose-gaps.mjs` still reports flat pose
   names; it could report which base × gesture products the scenes ask
@@ -20,11 +21,8 @@ is still open.
 - **"Arms from… / Legs from…" in the lab.** Take only the upper (or
   lower) half of any gallery pose into the current one, for a draft
   whose half is not yet a named gesture or base.
-- **A command-line combine.** `node tools/combine-pose.mjs <base>
-  <gesture>` writing a new pose and its index entry, for batch drafts
-  outside the lab (recompose only re-derives poses that exist).
-- **Composition as spec — deferred.** Panels would name
-  `pose: "kneel + palms"` and the renderer would compose at render time.
-  Deferred on purpose: it moves the solvers into the render path, and
-  products are not free (kneel-bow). Revisit only if most composed
-  drafts ship untouched.
+- **Composition as spec — deferred.** Panels would name any
+  `base-gesture` pair, listed or not, and it would be composed on the
+  fly. Composition already runs when the data loads; what is deferred is
+  dropping the list, which carries the finding fields and keeps
+  untested products (kneel-bow) out of panels.

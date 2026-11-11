@@ -339,12 +339,13 @@ found from a scene description:
   derived, §6);
 - one arm `arm`/`hand`, both `arms`/`hands`; variants as suffixes
   (`-low`, `-back`, `-high`); a held prop right after the base, only when
-  the body's shape is made for it (`step-bowdraw`, `step-swordup`);
+  the body's shape is made for it (`step-bowdraw`, `step-roof`);
   no intent words (`guard`, `throw`, `strike`); head direction and mouth
   never (they are set per figure).
 
-Every pose has an entry in `data/pose-index.json` (what it shows, what
-touches the ground, story moments, nearest poses); poses are picked by the
+Every pose is a base with a gesture (`data/bases.json`,
+`data/gestures.json`) and has an entry in `data/poses.json` (what it
+shows, what touches the ground, story moments, nearest poses); poses are picked by the
 rules in `docs/design/pose-picking.md`.
 
 44 poses, many drawn from pose reference sheets and still

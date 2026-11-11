@@ -1,6 +1,6 @@
 // The pose catalogue: every pose as a thumbnail pair (side + front) with its
 // name, what touches the ground and its story moments from
-// data/pose-index.json, grouped by base. For picking poses for panels
+// data/poses.json, grouped by base. For picking poses for panels
 // (docs/design/pose-picking.md).
 //
 //   node tools/pose-catalogue.mjs [--who rama] [--scale 16] [--zoom 2]
@@ -8,7 +8,7 @@
 // Output: out/pose-catalogue.svg (+ .png).
 
 import { renderFigure, characterLook } from '../src/figure.js';
-import { loadAssets, writeOut, rsvg, json } from './lib.mjs';
+import { loadAssets, loadPoseData, writeOut, rsvg } from './lib.mjs';
 
 const args = process.argv.slice(2);
 const val = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
@@ -16,7 +16,7 @@ const scale = Number(val('--scale', 16));
 const zoom = Number(val('--zoom', 1));
 
 const A = loadAssets();
-const index = json('data/pose-index.json');
+const index = loadPoseData();
 const who = A.characters.characters.find((c) => c.id === val('--who', 'rama'));
 if (!who) throw new Error(`no character ${val('--who')}`);
 const species = A.species[who.species];
