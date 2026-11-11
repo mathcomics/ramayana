@@ -121,7 +121,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const { bbox, headAnchor, joints } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
     const headView = headAnchor.view ?? (view === 'front' ? 'front' : normalizePose(pose).headView);
     if (!look.face?.[headView]?.head) issues.push(`figure ${i} (${who}): no drawn ${headView} face (the ${headView} layer of data/faces/${who}.svg)`);
-    const groundY = (r.top ? -bbox.y0 * unit : r.y) - (f.lift ?? 0) * unit;
+    const groundY = r.top ? -bbox.y0 * unit : r.y;
     return { f, fi: i - 1, name: f.id || who, pose, view, look, S, groundY, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0,
       facing: f.facing === 'left' ? -1 : 1, x: null };
@@ -154,7 +154,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
         if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
       }
     }
-    return { p, name: p.id || p.prop, def, svg, groundY: (r.top ? h : r.y) - (p.lift ?? 0) * unit, unit, w, h, w0, h0, rot, halfW: w / 2, x: null,
+    return { p, name: p.id || p.prop, def, svg, groundY: r.top ? h : r.y, unit, w, h, w0, h0, rot, halfW: w / 2, x: null,
       facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
   };
 
@@ -167,12 +167,26 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   const props = all.filter((o) => o.p);
 
   // -- placement: number or slot first, then relations --------------------------
+  // "nudge": the one fine shift after placement (by at/row, a relation or
+  // "on"), in the entry's own head-units: a number is across, [dx, dy] is
+  // across and up (+ up). It is part of the entry's place, so whatever sits
+  // on it or is placed by it follows. "lift" is retired; with "on", the
+  // prop places the entry and at/row do nothing.
+  for (const o of all) {
+    const e = o.f || o.p, n = e.nudge ?? 0;
+    if (e.lift != null) issues.push(`${o.name}: "lift" is retired — use "nudge": [0, ${e.lift}]`);
+    if (e.on) for (const k of ['at', 'row']) if (e[k] != null) issues.push(`${o.name}: "${k}" does nothing with "on" — the prop places it; shift with "nudge"`);
+    const ok = typeof n === 'number' || (Array.isArray(n) && n.length === 2 && n.every((v) => typeof v === 'number'));
+    if (!ok) issues.push(`${o.name}: "nudge" takes a number or [dx, dy]`);
+    [o.dx, o.dy] = !ok ? [0, 0] : typeof n === 'number' ? [n, 0] : n;
+    if (!e.on) o.groundY -= o.dy * o.unit;
+  }
   for (const o of all) {
     const at = (o.f || o.p).at ?? 'center';
-    if (typeof at === 'number') o.x = at * W;
+    if (typeof at === 'number') o.x = at * W + o.dx * o.unit;
     else if (typeof at === 'string') {
       if (!(at in SLOTS)) issues.push(`${o.name}: unknown position "${at}"`);
-      o.x = (SLOTS[at] ?? 0.5) * W;
+      o.x = ((SLOTS[at] ?? 0.5) * W) + o.dx * o.unit;
     }
   }
   const RELS = ['before', 'behind', 'beside', 'left-of', 'right-of'];
@@ -193,15 +207,15 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       o.headOnly = true;
       o.unit = (seat[2] || 1) * t.unit * (e.scale ?? 1);
       o.halfW = ((o.S.head?.width ?? 1) / 2) * o.unit;
-      o.groundY = t.groundY - t.h + seat[1] * t.unit;   // the head's centre, not a ground line
-      o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW);
+      o.groundY = t.groundY - t.h + seat[1] * t.unit - o.dy * o.unit;   // the head's centre, not a ground line
+      o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) + o.dx * o.unit;
       return;
     }
     o.unit = t.unit * (e.scale ?? 1);
     if (o.f) o.halfW = o.halfW1 * o.unit;
     else { [o.w, o.h] = (o.def?.size || PLACEHOLDER).map((v) => v * o.unit); o.halfW = o.w / 2; }
-    o.groundY = t.groundY - t.h + seat[1] * t.unit;
-    o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - (o.f ? o.pelvisX * o.unit * o.facing : 0);
+    o.groundY = t.groundY - t.h + seat[1] * t.unit - o.dy * o.unit;
+    o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - (o.f ? o.pelvisX * o.unit * o.facing : 0) + o.dx * o.unit;
   };
   for (let pass = 0; pass < 3; pass++) {
     for (const o of all) {
@@ -215,10 +229,10 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       const d = o.halfW + t.halfW + (at.gap ?? 0) * o.unit;
       const tf = t.facing || 1;
       const sign = rel === 'before' ? tf : rel === 'behind' ? -tf : rel === 'left-of' ? -1 : rel === 'right-of' ? 1 : (t.x < W / 2 ? 1 : -1);
-      o.x = t.x + sign * d;
+      o.x = t.x + sign * d + o.dx * o.unit;
     }
   }
-  for (const o of all) { o.x ??= W / 2; o.x += ((o.f || o.p).nudge ?? 0) * o.unit; }
+  for (const o of all) o.x ??= W / 2;
 
   // -- draw: ground, sky, background, then the list in order ---------------------
   // ids are unique per panel and figure, so panels can share a page

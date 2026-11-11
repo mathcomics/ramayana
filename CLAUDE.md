@@ -195,8 +195,8 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
   one-handed sword gesture any more except `swordcarry`.
 - Panel-lab drafts still sitting in its database carry pose names from
   before the composite renaming, and the old `size` field (now `tall`:
-  0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) and the retired `shot` / `zoom` / big
-  lifts (`docs/design/panels.md`, Rows) — fix them when a draft is merged.
+  0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) and the retired `shot` / `zoom` / `lift`
+  (now `nudge: [0, n]`) (`docs/design/panels.md`, Rows) — fix them when a draft is merged.
 - The reader site is Cloudflare Pages project `ramayana`
   (`https://ramayana-7fw.pages.dev`, open to account members only). It
   builds from GitHub, but automatic builds are **off**: publishing is the

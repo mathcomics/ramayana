@@ -11,7 +11,6 @@
     },
     {
       "prop": "vulture-stand",
-      "at": 0.74,
       "facing": "left",
       "on": "rock-circle",
       "scale": 0.83

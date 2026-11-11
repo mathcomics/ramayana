@@ -128,9 +128,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   03.02): a foreground strip of ground (after the figures in the list)
   on the front row leaves a 3%-of-panel gap below it; `floor` is the
   panel's bottom edge at the front row's scale, flush whatever the rows
-  do (a hand-tuned negative `lift` broke when the rows changed). And
+  do (a hand-tuned negative `lift`, now `nudge`, broke when the rows changed). And
   figures behind a rising band don't need
-  per-figure `lift`s: full-size on the front row, the band's own slope
+  per-figure vertical `nudge`s: full-size on the front row, the band's own slope
   staggers how deep each one sinks (the farther, the deeper). Walkers
   toward the reader (`view: front`) read larger and more alive there than
   small profile walkers (shrinking them all cut them down).

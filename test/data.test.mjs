@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { parseCloth } from '../src/figure.js';
 import { root, SPECIES, POSES, CAST, FACES } from './helpers.mjs';
 
@@ -106,4 +107,11 @@ test('props: recolouring roles on a drawing name colours it uses', async () => {
     assert.match(c, /^#[0-9a-f]{6}$/i, `${id}: data-recolor-${role}`);
     assert.ok(def.svg.toLowerCase().includes(`fill:${c.toLowerCase()}`), `${id}: data-recolor-${role}="${c}" is not a fill in the drawing`);
   }
+});
+
+// The renderer reads data/faces.json, not the drawings: a face drawing
+// committed without re-running the import never reaches the site.
+test('data/faces.json is up to date with data/faces/*.svg', () => {
+  const r = spawnSync(process.execPath, [join(root, 'tools/import-faces.mjs'), '--check'], { encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr.split('\n').filter((l) => /out of date/.test(l)).join('\n') || r.stderr);
 });

@@ -111,7 +111,8 @@ test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', (
   assert.ok(near(t.top, 0) && near(t.unit, man(0.08)), 'top: top edge on the panel top, front size');
   const n = propY(0.5);
   assert.ok(near(n.bottom, 270) && near(n.unit, man(0.08)), 'a number: the bottom edge at that share');
-  assert.ok(near(propY(0.5, { lift: 1 }).bottom, 270 - man(0.08)), 'lift: own head-units, up');
+  assert.ok(near(propY(0.5, { nudge: [0, 1] }).bottom, 270 - man(0.08)), 'nudge [dx, dy]: own head-units, + up');
+  assert.match(propY(0.5, { lift: 1 }).issues.join(' '), /"lift" is retired/);
   assert.equal(propY('nope').issues.filter((i) => /row "nope"/.test(i)).length, 1);
   for (const k of ['shot', 'zoom']) assert.match(renderPanel({ [k]: 'wide' }, assets).issues.join(' '), new RegExp(`"${k}" is retired`));
 });
@@ -127,6 +128,15 @@ test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirr
     assert.equal(Math.abs(+fs), unit);
   }
   assert.equal(renderPanel({ figures: [{ character: 'rama', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets).issues.length, 1);
+  // nudge moves a seated figure off the seat, and a nudged prop carries its sitter
+  const at = (figs) => renderPanel({ figures: figs }, assets).svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)/).slice(1).map(Number);
+  const throne = { prop: 'throne-ayodhya', at: 0.5, row: 'mid' }, king = { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' };
+  const [x0, y0, u] = at([throne, king]);
+  const [x1, y1] = at([throne, { ...king, nudge: [0.5, 1] }]);
+  assert.ok(Math.abs(x1 - x0 - 0.5 * u) < 0.01 && Math.abs(y0 - y1 - u) < 0.01, 'nudge on a seated figure');
+  const [x2, y2] = at([{ ...throne, nudge: [1, 1] }, king]);
+  assert.ok(Math.abs(x2 - x0 - u) < 0.01 && Math.abs(y0 - y2 - u) < 0.01, 'the sitter follows a nudged prop');
+  assert.match(renderPanel({ figures: [throne, { ...king, at: 0.2, row: 'back' }] }, assets).issues.join(' '), /"at" does nothing with "on"[\s\S]*"row" does nothing with "on"/);
 });
 
 test('two panels on one page never share an id', () => {

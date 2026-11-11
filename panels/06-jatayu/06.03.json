@@ -8,7 +8,7 @@
       "facing": "right",
       "at": 0.1,
       "row": "closeup",
-      "lift": 2
+      "nudge": [0, 2]
     },
     {
       "character": "ravana",
