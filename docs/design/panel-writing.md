@@ -40,7 +40,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   or down, sky-to-ground depth, a towering figure. A 1.5 panel whose
   figures sit in the bottom half with empty ground above wants to be 1
   or 0.6. Never taller than 1.5. The manuscript's "full" means at most 1.5,
-  and only if it earns the height.
+  and only if it earns the height. **0.4** is a thin strip for a fast run
+  of action (artist, 2026-11-11, 04.07–04.13): `front` row or `closeup`
+  only — `back` figures come out about 30 px tall.
 - **Row**: `front` by default, `mid` and `back` for depth; `closeup` for
   close (a standing figure from about the waist up); a number for
   anything in the air or seen from above (`panels.md`, Rows).
@@ -109,6 +111,15 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   target can stay off-panel (05.09: Sita points past the edge, the deer
   is not shown); more, smaller panels beat one crowded one, as long as
   each panel's transition from the last is clear.
+- **A fight at a distance is told across panels, not in one** (artist,
+  2026-11-11, 04.08–04.13): an archer and his targets in one panel stand
+  far too close. Give each side its own thin strip, the attackers
+  running in from one edge and the archers waiting at the other, with
+  the arrows crossing the panel edge (they shoot left, the struck fall
+  back from the right), then the rout the way they came.
+- **Weapons carried at a run are held up**: on `run-pump` a club or
+  sword at `angle` 60 in the forward hand is brandished; at 150 it
+  lies across the chest like a stick (04.08).
 - **0.6 strips for reactions and partial views**: `closeup` in a 0.6
   panel gives waist-up figures that fill the strip (05.10, 05.12); use
   them often.

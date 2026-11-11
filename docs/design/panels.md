@@ -19,7 +19,7 @@ section as it will scroll on a phone while you edit a panel's JSON.
 
 The reader scrolls one long column. Every panel is the full width (360
 units) and `tall` × that width high: **1.5** (540 units, most panels),
-**1** (360, square) or **0.6** (216, a strip). Nothing taller than 1.5. Panels follow each other in id order; there
+**1** (360, square), **0.6** (216, a strip) or **0.4** (144, a thin strip). Nothing taller than 1.5. Panels follow each other in id order; there
 are no screens or pages to fill.
 
 ### Ids
@@ -60,7 +60,7 @@ repeated inside the JSON.
 | Field | Values | Notes |
 |---|---|---|
 | `scene` | text | The scene line it draws, for reference only. |
-| `tall` | `1.5` · `1` · `0.6` | Height as a multiple of the width (360). Default 1.5. Anything else is an issue, and so is the old `size` field. |
+| `tall` | `1.5` · `1` · `0.6` · `0.4` | Height as a multiple of the width (360). Default 1.5. Anything else is an issue, and so is the old `size` field. |
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`night`), or `{ "horizontal": [left, right] }` (`sky-blue`) — set there, never in the panel. |
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |

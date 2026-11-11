@@ -1,43 +1,58 @@
 {
-  "scene": "Rama sends Lakshman and Sita into a cave and strings his bow",
-  "tall": 1,
+  "scene": "Five rakshasas run to the right with swords and clubs",
+  "tall": 0.4,
   "ground": "sand",
   "figures": [
     {
-      "prop": "cave",
-      "at": 0.2
+      "character": "raxas_m1",
+      "id": "r1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.05,
+      "mouth": 3,
+      "cloth": "red",
+      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
     },
     {
-      "character": "sita",
-      "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.33,
-      "mouth": 1
+      "character": "raxas_m1",
+      "id": "r2",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "at": 0.24,
+      "mouth": 3,
+      "cloth": "red-check",
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
     },
     {
-      "character": "lakshman",
-      "pose": "pass-swing",
-      "facing": "left",
-      "at": 0.5,
-      "mouth": 1
+      "character": "raxas_m1",
+      "id": "r3",
+      "pose": "leap-reach",
+      "facing": "right",
+      "at": 0.44,
+      "mouth": 3,
+      "cloth": "red-diamond",
+      "row": 0.12,
+      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 120 } }
     },
     {
-      "character": "rama",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.8,
-      "mouth": 2,
-      "adjust": {
-        "left.arm.prop": {
-          "kind": "bow",
-          "angle": 90
-        },
-        "left.arm.shoulder": 60,
-        "left.arm.elbow": 20
-      }
+      "character": "raxas_m1",
+      "id": "r4",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.66,
+      "mouth": 3,
+      "cloth": "red-stripe",
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
+    },
+    {
+      "character": "raxas_m2",
+      "id": "r5",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.88,
+      "mouth": 3,
+      "cloth": "orange",
+      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
     }
-  ],
-  "needs": [
-    "prop: cave"
   ]
 }

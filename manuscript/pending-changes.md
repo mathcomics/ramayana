@@ -33,3 +33,23 @@ the chapter's location opener and it carries the travelling-cry motif on
 from 05.13–05.15 — the cry is now how Jatayu knows, which is what sends
 him up. Worth a line in beat 1 of chapter 6, and in the
 continuity-and-motifs list: the cry travels in 5 *and* in 6.
+
+## Chapter 4 after the wound: a strip sequence, no Khara (2026-11-11)
+
+The artist redrew everything after 04.07 as seven 0.4 strips (04.07 kept,
+now 0.4; 04.08–04.13 new, the old 04.08–04.12 gone):
+
+- **04.08** Surpanakha comes back in from the left, pointing ahead, two
+  armed rakshasas running in behind her.
+- **04.09** Five rakshasas run right, swords and clubs.
+- **04.10** Rama and Lakshman at the right; Lakshman points back left,
+  alarmed.
+- **04.11** Both brothers shoot to the left.
+- **04.12** Struck by arrows from the right, the rakshasas fall and leap.
+- **04.13** The rest flee to the left.
+
+Dropped against the brief: **Khara** (her falling at his feet), Lakshman
+and Sita sent into the cave (**Lakshman now fights beside Rama**), and
+**Sita's embrace** at the end. Her pointing ahead in 04.08 still carries
+the "pointing back the way she came" gesture. Beats 5–7 of chapter 4
+want rewriting to match.

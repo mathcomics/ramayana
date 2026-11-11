@@ -1,35 +1,35 @@
 {
-  "scene": "She falls at the feet of a rakshasa lord (Khara), pointing back",
-  "tall": 1,
-  "ground": "geru",
+  "scene": "Surpanakha comes back in from the left, pointing ahead; two rakshasas run in behind her with weapons",
+  "tall": 0.4,
+  "ground": "sand",
   "figures": [
     {
       "character": "raxas_m1",
-      "id": "khara",
-      "pose": "step-akimbo",
-      "facing": "left",
-      "at": 0.72,
-      "mouth": 2,
-      "scale": 1.1,
+      "id": "r1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.06,
+      "mouth": 3,
       "cloth": "red-diamond",
-      "adjust": {
-        "spine.head": 12
-      }
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
+    },
+    {
+      "character": "raxas_m1",
+      "id": "r2",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 3,
+      "cloth": "red-stripe",
+      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
     },
     {
       "character": "surpanakha",
-      "pose": "kneel-handslow",
+      "pose": "step-point",
       "facing": "right",
-      "at": 0.36,
+      "at": 0.6,
       "mouth": 3,
-      "hands": {
-        "left": "point"
-      },
-      "adjust": {
-        "left.arm.shoulder": -70,
-        "left.arm.elbow": 0,
-        "spine.head": -20
-      }
+      "cloth": "red-check"
     }
   ]
 }

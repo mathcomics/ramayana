@@ -1,52 +1,57 @@
 {
-  "scene": "Rama stands among the fallen; Sita runs out and embraces him",
-  "tall": 1,
+  "scene": "Arrows come in from the right; the rakshasas are struck, flung back and falling",
+  "tall": 0.4,
   "ground": "sand",
   "figures": [
     {
       "character": "raxas_m1",
-      "id": "f1",
-      "pose": "liefront-onarms",
+      "id": "r1",
+      "pose": "fallfront-armsdown",
       "facing": "right",
-      "at": 0.82,
-      "mouth": 1,
-      "cloth": "red-check",
-      "scale": 0.9
+      "at": 0.1,
+      "mouth": 3,
+      "cloth": "red-check"
     },
     {
-      "character": "lakshman",
-      "pose": "walk-swing",
+      "character": "raxas_m1",
+      "id": "r2",
+      "pose": "fallback-flung",
       "facing": "right",
-      "at": 0.16,
-      "mouth": 1
+      "at": 0.32,
+      "mouth": 3,
+      "cloth": "red",
+      "row": 0.1
     },
     {
-      "character": "rama",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.56,
-      "mouth": 2
+      "character": "raxas_m1",
+      "id": "r3",
+      "pose": "stepback-armsout",
+      "facing": "right",
+      "at": 0.52,
+      "mouth": 3,
+      "cloth": "red-diamond"
     },
     {
-      "character": "sita",
-      "pose": "step-hang",
+      "character": "raxas_m2",
+      "id": "r5",
+      "pose": "leapup-reachup",
       "facing": "right",
-      "at": 0.41,
-      "mouth": 2,
-      "hands": {
-        "right": "in",
-        "left": "in"
-      },
-      "adjust": {
-        "spine.lean": 10,
-        "right.arm.shoulder": 75,
-        "right.arm.elbow": 60,
-        "left.arm.shoulder": 75,
-        "left.arm.elbow": 60
-      }
+      "at": 0.7,
+      "mouth": 3,
+      "cloth": "orange",
+      "row": 0.1
+    },
+    {
+      "character": "raxas_m1",
+      "id": "r4",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "at": 0.9,
+      "mouth": 3,
+      "cloth": "red-stripe"
     }
   ],
   "needs": [
-    "pose: stand-embrace"
+    "prop: arrow (in flight from the right edge, and stuck in the struck)"
   ]
 }
