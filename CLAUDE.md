@@ -157,7 +157,7 @@ Bodies, faces and poses all come from the artist's drawings
 code still decides by a rule instead: `docs/issues/rules-to-migrate.md`;
 what looks wrong: `docs/issues/problem-poses.md`.
 
-- **16 characters** in `data/characters.json` — the cast is complete.
+- **17 characters** in `data/characters.json` — the cast is complete.
   More generic monkeys and rakshasas come from cloth colour and a cloth
   pattern, never from new characters. Every character has a front and a
   side face drawing; there is no generated fallback.

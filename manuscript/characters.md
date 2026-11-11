@@ -26,7 +26,7 @@ this file only says who exists and where they appear in the story.
 | Type | Species | Used for |
 |---|---|---|
 | `monkey1` | monkey | any monkey, incl. Bali, Angad, Tara (Tara in red cloth) |
-| `raxas_m1`, `raxas_m2` | male | rakshasa warriors, Khara; `raxas_m2` in orange is Ravana's ascetic disguise (ch 5) |
+| `raxas_m1`, `raxas_m2`, `raxas_m3` | male | rakshasa warriors, Khara; `raxas_m2` in orange is Ravana's ascetic disguise (ch 5); `raxas_m3` has maroon skin and white eyes |
 | `raxas_f1`, `raxas_f2` | female | rakshasis: the grove guards |
 
 Still needed as generic types: a plain human male and female (wedding

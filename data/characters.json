@@ -152,6 +152,15 @@
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe"
+    },
+    {
+      "id": "raxas_m3",
+      "name": "raxas_m3",
+      "species": "male",
+      "body": "#7c1d1d",
+      "top": "full",
+      "bottom": "dhoti",
+      "cloth": "red-stripe"
     }
   ]
 }
