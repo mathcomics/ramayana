@@ -4,10 +4,16 @@
   "ground": "off-white",
   "figures": [
     {
+      "prop": "rock-circle",
+      "at": 0.74,
+      "row": -0.1,
+      "scale": 1.2
+    },
+    {
       "prop": "vulture-lookback",
-      "at": 0.7,
       "facing": "left",
-      "row": -0.1
+      "on": "rock-circle#stand",
+      "scale": 0.83
     },
     {
       "prop": "sound-cry",
