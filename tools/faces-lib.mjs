@@ -14,10 +14,10 @@ export const VIEWS = ['front', 'side', 'front-up', 'front-down', 'quarter', 'bac
 // them, and the page wide enough to show them all
 export const VIEW_X = { front: 0, side: 3, quarter: 5, 'back-view': 6.6, 'front-down': 8.2, top: 9.8 };
 export const PAGE_ALL_VIEWS = { viewBox: '-1.5 -1.2 12.5 5', width: '2500', height: '1000' };
-// a base face file: front, side and (mouths only) quarter in the first row,
+// a base face file: front, side, quarter, back-view, top in the first row,
 // front-up / front-down in the second (y 4)
-export const BASE_X = { front: 0, side: 3, quarter: 5 };
-export const PAGE_BASE = { viewBox: '-1.5 -1.2 7.6 9', width: '1520', height: '1800' };
+export const BASE_X = { front: 0, side: 3, quarter: 5, 'back-view': 6.6, top: 8.2 };
+export const PAGE_BASE = { viewBox: '-1.5 -1.2 10.4 9', width: '2080', height: '1800' };
 const r4 = (v) => Math.round(v * 1e4) / 1e4;
 
 // Find the named layers anywhere in a view; keep the transforms of their ancestors.

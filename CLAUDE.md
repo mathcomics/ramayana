@@ -211,5 +211,8 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
   manual `.github/workflows/publish-site.yml`, which calls the deploy
   hook. Once the site settles, turn automatic builds on and delete the
   workflow.
+- Head views: body hair (`hair-body`) per head view, and the rakshasa
+  men's props in their extra views (copied from Rama) —
+  `docs/proposals/2026-11-12-head-rendering-survey.md`, Open.
 - Wanted next: a pose picker in the panel lab (filter by story moment,
   tap to insert), and the open items in `docs/proposals/`.

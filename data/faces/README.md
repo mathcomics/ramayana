@@ -33,14 +33,15 @@ angles; `docs/design/faces.md`):
 | `top` | lowered 90°: the top of the head |
 
 The **bases** draw the face in front, side, three-quarter and down-40°
-(`skin`, `eyes`, `mouth-1/2/3`). In those views a character's file
-holds **only its own parts** — `under` (behind the face), `over` (hair,
+(`skin`, `eyes`, `mouth-1/2/3`), and the head in the back view (the
+front's skin, no eyes or mouths) and the top view (a circle one head-unit
+across). In every view a character's file holds **only its own parts** — `under` (behind the face), `over` (hair,
 crown, beard, marks), `back` — and its own `eyes` / mouths only where it
 draws its own in front (rakshasa men's eyes, raxas_m2's mouths); its guide
 shows the base face, and a locked `guide-mouth` layer on top shows the
-base's widest mouth, half transparent. The back and top views have no base
-drawing: the character's file holds the **whole head** there (skin
-included, in `over`). They were **generated**
+base's widest mouth, half transparent. In the back and top views all of
+a character's parts are in `over`: hair covers the skull from behind and
+above. They were **generated**
 by `node tools/bake-views.mjs` from the front and side drawings and placed
 to the right of the side view in the file (x 6, 9, 12, 15). To redraw one,
 edit or replace its layers and **delete its empty `generated` layer**:
@@ -76,8 +77,8 @@ drawing, the importer measures from where it now is.
 
 ### Base face (`base/<species>.svg`)
 
-Views: `front`, `side`, and optional others (above); a character view
-the base doesn't draw is the whole head in the character's file. A base
+Views: `front`, `side`, `quarter`, `back-view`, `front-down`, `top`
+(above), and the unused `front-up`. A base
 `front-up` / `front-down` with `top` and `chin` anchors makes a
 character's raised / lowered view from its front parts when it has none.
 

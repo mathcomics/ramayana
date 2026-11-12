@@ -3,6 +3,18 @@
 2026-11-12 · status: **built** (2026-11-12): six drawn views, the missing ones generated once
 (`tools/bake-views.mjs`); queue `docs/issues/missing-views.md`
 
+## Open (2026-11-12)
+
+- **Body hair per view.** Only the front and side `hair-body` are drawn
+  (from the body's view); a head view's own long hair sits in its `over` /
+  `back`. Planned: a head view's own `hair-body` (with its `nape` anchor)
+  replaces the body's, so the long hair of the new views follows the body
+  — and Sita's / Surpanakha's top view, whose hair now streams upward,
+  becomes a skull cap in `over` and the length in `hair-body`.
+- The rakshasa men (indrajit, ravana, vibhishana, raxas_m1–m3) have Rama's
+  four extra views as a start: their moustaches, brows, earrings etc. are
+  still to be drawn there.
+
 ## Decision (the artist, 2026-11-12)
 
 A model that gets these six heads right is adequate (marked on the

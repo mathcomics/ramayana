@@ -7,7 +7,7 @@
      colour here), eyes, mouth-1/2/3 (the pose's mouth size), anchors (top
      = top of the head, chin; character layers follow them in up/down).
      guide: locked, ignored. Units: head-units, head centre (0,0), y down. -->
-<svg width="1520" height="1800" viewBox="-1.5 -1.2 7.6 9" version="1.1" id="svg771" sodipodi:docname="male.svg" inkscape:version="1.2.2 (732a01da63, 2022-12-09)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg width="2080" height="1800" viewBox="-1.5 -1.2 10.4 9" version="1.1" id="svg771" sodipodi:docname="male.svg" inkscape:version="1.2.2 (732a01da63, 2022-12-09)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
   <defs id="defs775"/>
   <sodipodi:namedview id="namedview773" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" showgrid="false" inkscape:zoom="0.37083822" inkscape:cx="1034.1437" inkscape:cy="1115.0415" inkscape:window-width="2880" inkscape:window-height="1514" inkscape:window-x="3829" inkscape:window-y="-11" inkscape:window-maximized="1" inkscape:current-layer="front-down-skin"/>
   <g inkscape:groupmode="layer" inkscape:label="front" id="g48">
@@ -213,6 +213,28 @@
           </g>
         </g>
       </g>
+    </g>
+  </g>
+  <g inkscape:groupmode="layer" inkscape:label="back-view" id="back-view" transform="translate(6.6 0)">
+    <g inkscape:groupmode="layer" inkscape:label="guide" sodipodi:insensitive="true" opacity="0.7">
+      <path d="M-0.126 0.808L-0.126 0.733L-0.126 0.657L-0.126 0.582L-0.126 0.507L-0.126 0.432L-0.126 0.357L-0.126 0.282L-0.126 0.207L-0.095 0.207L-0.063 0.208L-0.032 0.209L0 0.21L0.032 0.211L0.063 0.212L0.095 0.213L0.126 0.214L0.126 0.287L0.126 0.361L0.126 0.435L0.126 0.509L0.126 0.582L0.126 0.656L0.126 0.73L0.126 0.804L0.095 0.804L0.063 0.805L0.032 0.805L0 0.806L-0.032 0.806L-0.063 0.807L-0.095 0.807Z" fill="#e8e1d9"/>
+      <path d="M-0.08 0H0.08M0 -0.08V0.08" stroke="#b04040" stroke-width="0.01" fill="none"/>
+    </g>
+    <g inkscape:groupmode="layer" inkscape:label="skin" id="back-view-skin">
+      <g>
+        <path style="fill:#916f6f;stroke-width:0.0150001" d="m 0.01439747,0.54979272 c 0.28795,0 0.3635829,-0.17732015 0.3727087,-0.30068659 l 0.03305,-0.44678877 c 0.00913,-0.12336644 -0.089154,-0.27690438 -0.4101547,-0.27690438 -0.3210003,0 -0.4252264,0.15353794 -0.4161006,0.27690438 l 0.03305,0.44678877 c 0.00913,0.12336644 0.099496,0.30068659 0.3874466,0.30068659 z"/>
+        <path style="fill:#916f6f;fill-opacity:1;stroke-width:0.015" d="m 0.37019377,0.15571815 0.00297,-0.24620166 c 5.574e-4,-0.001688 0.1214868,-0.0907092 0.1097389,0.11135869 -0.00967,0.16636197 -0.09533,0.17494566 -0.112707,0.13484297 z"/>
+        <path style="fill:#916f6f;fill-opacity:1;stroke-width:0.015" d="m -0.37759573,0.15631551 -0.00297,-0.24620167 c -5.575e-4,-0.001688 -0.1095957,-0.0847637 -0.097848,0.11730427 0.00967,0.16636197 0.083439,0.16900008 0.1008158,0.1288974 z"/>
+      </g>
+    </g>
+  </g>
+  <g inkscape:groupmode="layer" inkscape:label="top" id="top" transform="translate(8.2 0)">
+    <g inkscape:groupmode="layer" inkscape:label="guide" sodipodi:insensitive="true" opacity="0.7">
+      <path d="M-0.126 0.718L-0.126 0.643L-0.126 0.567L-0.126 0.492L-0.126 0.417L-0.126 0.342L-0.126 0.267L-0.126 0.192L-0.126 0.117L-0.095 0.117L-0.063 0.118L-0.032 0.119L0 0.12L0.032 0.121L0.063 0.122L0.095 0.123L0.126 0.124L0.126 0.197L0.126 0.271L0.126 0.345L0.126 0.419L0.126 0.492L0.126 0.566L0.126 0.64L0.126 0.714L0.095 0.714L0.063 0.715L0.032 0.715L0 0.716L-0.032 0.716L-0.063 0.717L-0.095 0.717Z" fill="#e8e1d9"/>
+      <path d="M-0.08 0H0.08M0 -0.08V0.08" stroke="#b04040" stroke-width="0.01" fill="none"/>
+    </g>
+    <g inkscape:groupmode="layer" inkscape:label="skin" id="top-skin">
+      <circle cx="0" cy="0" r="0.5" style="fill:#916f6f"/>
     </g>
   </g>
 </svg>

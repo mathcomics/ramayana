@@ -85,7 +85,7 @@ for (const species of Object.keys(all)) {
   const more = Object.fromEntries(Object.keys(VIEW_POSE).map((v) => [v, viewGuide(S, v)]));
   writeFileSync(baseFile, replaceGuides(readFileSync(baseFile, 'utf8'), {
     front: G.front.markup, side: G.side.markup, 'front-up': G.front.markup + baseFace(B, 'front'),
-    'front-down': more['front-down'], quarter: more.quarter },
+    'front-down': more['front-down'], quarter: more.quarter, 'back-view': more['back-view'], top: more.top },
     B.quarter ? { offsets: BASE_X, page: PAGE_BASE } : {}));
   const charGuides = { front: G.front.markup + baseFace(B, 'front'), side: G.side.markup + baseFace(B, 'side') };
   const mouthTop = { quarter: baseMouth(B, 'quarter'), 'front-down': baseMouth(B, 'front-down') };
@@ -94,8 +94,8 @@ for (const species of Object.keys(all)) {
     const X = readFile(f);
     // a character with views beyond front and side: their guides, laid out in a row
     const all = Object.keys(VIEW_POSE).some((v) => X[v]);
-    // quarter and front-down: the base face too (the character draws only its own parts there)
-    const viewGuides = { ...more, quarter: more.quarter + baseFace(B, 'quarter'), 'front-down': more['front-down'] + baseFace(B, 'front-down') };
+    // the base face too (the character draws only its own parts in these views)
+    const viewGuides = Object.fromEntries(Object.keys(VIEW_POSE).map((v) => [v, more[v] + baseFace(B, v)]));
     writeFileSync(f, replaceGuides(readFileSync(f, 'utf8'), all ? { ...charGuides, ...viewGuides } : charGuides,
       // the base's mouth on top, where the character draws no mouths of its own
       all ? { offsets: VIEW_X, page: PAGE_ALL_VIEWS, top: ownMouths(X) ? null : mouthTop } : {}));

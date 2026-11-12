@@ -6,7 +6,8 @@
 //   node tools/bake-views.mjs [id …]          characters: views the file lacks
 //   node tools/bake-views.mjs --bases         base faces: the quarter and
 //                                             front-down views (skin, eyes,
-//                                             mouths)
+//                                             mouths, sliced), back-view (the
+//                                             front's skin) and top (a circle)
 //   --force                                   also re-generate views still
 //                                             marked generated
 //   --views quarter,front-down                only these views
@@ -41,7 +42,8 @@ import { headTurn } from './head-loft.mjs';
 // behind the head is over the skin, so it stays in the head (as in the
 // turned-head grid the artist approved)
 const BAKE = [['quarter', 30, 0, true], ['back-view', 180, 0, false], ['front-down', 0, -40, true], ['top', 0, -90, false]];
-const MOUTH_VIEWS = ['quarter', 'front-down'];        // the base draws the face there
+const MOUTH_VIEWS = ['quarter', 'front-down'];        // the base draws the face (with mouths) there
+const BASE_VIEWS = [...MOUTH_VIEWS, 'back-view', 'top']; // the base draws the head there
 const force = process.argv.includes('--force');
 const bases = process.argv.includes('--bases');
 const vi = process.argv.indexOf('--views');
@@ -74,6 +76,13 @@ function writable(old, X, view) {
   return !Object.keys(X[view]?.layers || {}).length;     // an empty layer (the bases' old front-down)
 }
 
+// the colour the base's front skin is drawn in (the importer paints the skin
+// the character's body colour anyway; this is for the drawing)
+function skinColourOf(B) {
+  const s = B.front.layers.skin;
+  return (s.match(/fill\s*:\s*(#[0-9a-fA-F]{3,6})/) || s.match(/fill="(#[0-9a-fA-F]{3,6})"/) || [])[1] || '#c8a080';
+}
+
 if (bases) {
   for (const species of ['male', 'female', 'monkey']) {
     const file = join(root, 'data/faces/base', `${species}.svg`);
@@ -86,7 +95,7 @@ if (bases) {
       if (!writable(old, B, view)) continue;
       const gen = (o) => unclip(headTurn(turn, yaw, pitch, { id: `${species}-${view}`, part: 'head', ...o }));
       // the skin in the colour the base's front skin is drawn in
-      const skinColour = (B.front.layers.skin.match(/fills*:s*(#[0-9a-fA-F]{3,6})/) || B.front.layers.skin.match(/fill="(#[0-9a-fA-F]{3,6})"/) || [])[1] || '#c8a080';
+      const skinColour = skinColourOf(B);
       const skin = gen({ mouths: false, layers: ['skin'] }).replace(/currentColor/g, skinColour);
       const kids = [layerOf(view, 'generated'), layerOf(view, 'skin', skin), layerOf(view, 'eyes', gen({ mouths: false, layers: ['eyes'] })),
         ...MOUTHS.map((m, i) => layerOf(view, m, gen({ mouths: 'only', mouth: i + 1 })))];
@@ -94,10 +103,22 @@ if (bases) {
       else svg.children.push({ tag: 'g', attrs: { 'inkscape:groupmode': 'layer', 'inkscape:label': view, id: view, transform: `translate(${BASE_X[view] ?? 0} ${view === 'front-down' ? 4 : 0})` }, children: kids });
       done.push(view);
     }
+    // back and top: drawn, not sliced — the back is the front's skin (face
+    // shape and ears, no eyes or mouths), the top a circle one head-unit
+    // across, in the skin colour
+    for (const view of ['back-view', 'top']) {
+      const old = svg.children.find((n) => n.tag === 'g' && label(n) === view);
+      if (!writable(old, B, view)) continue;
+      const skin = view === 'back-view' ? B.front.layers.skin : `<circle cx="0" cy="0" r="0.5" style="fill:${skinColourOf(B)}"/>`;
+      const kids = [layerOf(view, 'skin', skin)];
+      if (old) old.children = [...old.children.filter((n) => n.tag === 'g' && label(n).startsWith('guide')), ...kids];
+      else svg.children.push({ tag: 'g', attrs: { 'inkscape:groupmode': 'layer', 'inkscape:label': view, id: view, transform: `translate(${BASE_X[view]} 0)` }, children: kids });
+      done.push(view);
+    }
     if (!done.length) { console.log(`base ${species}: nothing to generate`); continue; }
     Object.assign(svg.attrs, PAGE_BASE);
     save(file, src, svg);
-    console.log(`base ${species}: generated ${done.join(", ")} (skin, eyes, mouths)`);
+    console.log(`base ${species}: wrote ${done.join(', ')}`);
   }
   process.exit();
 }
@@ -119,12 +140,17 @@ for (const c of cast) {
     const old = svg.children.find((n) => n.tag === 'g' && label(n) === view);
     if (!writable(old, X, view)) continue;
     const part = (o) => unclip(headTurn(turn, yaw, pitch, { id: `${c.id}-${view}`, ...o }));
-    const own = MOUTH_VIEWS.includes(view);         // the character's own parts only
+    const own = BASE_VIEWS.includes(view);          // the character's own parts only
+    const away = !MOUTH_VIEWS.includes(view);       // back, top: hair over the whole skull
     const L = (name, inner) => layerOf(view, name, inner);
     const layer = {
       tag: 'g',
       attrs: { 'inkscape:groupmode': 'layer', 'inkscape:label': view, id: view, transform: `translate(${VIEW_X[view]} 0)`, style: `color:${c.body}` },
-      children: own ? [
+      children: own && away ? [
+        // seen from behind or above, all the character's parts are over the base
+        L('generated'),
+        L('over', part({ part: 'all', mouths: false, layers: ['back', 'under', 'over'] })),
+      ].filter((g) => label(g) === 'generated' || g.children.length) : own ? [
         L('generated'),
         L('back', part({ part: 'back', mouths: false, layers: ['back'] })),
         L('under', part({ part: 'head', mouths: false, layers: ['under'] })),

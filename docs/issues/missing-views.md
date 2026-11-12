@@ -12,85 +12,29 @@ characters (`sideOnly` in `data/characters.json`) have the side view only.
 
 | Character | front | 3/4 (30°) | side | back | down 40° | top (down 90°) |
 |---|---|---|---|---|---|---|
-| rama | drawn | generated | drawn | generated | generated | generated |
-| sita | drawn | generated | drawn | generated | generated | generated |
-| lakshman | drawn | generated | drawn | generated | generated | generated |
-| dasharatha | drawn | generated | drawn | generated | generated | generated |
+| rama | drawn | drawn | drawn | drawn | drawn | drawn |
+| sita | drawn | drawn | drawn | drawn | drawn | drawn |
+| lakshman | drawn | drawn | drawn | drawn | drawn | drawn |
+| dasharatha | drawn | drawn | drawn | drawn | drawn | drawn |
 | kaikeyi | · | · | drawn | · | · | · |
-| hanuman | drawn | generated | drawn | generated | generated | generated |
-| sugriva | drawn | generated | drawn | generated | generated | generated |
-| monkey1 | drawn | generated | drawn | generated | generated | generated |
-| ravana | drawn | generated | drawn | generated | generated | generated |
-| indrajit | drawn | generated | drawn | generated | generated | generated |
-| vibhishana | drawn | generated | drawn | generated | generated | generated |
-| raxas_m1 | drawn | generated | drawn | generated | generated | generated |
+| hanuman | drawn | drawn | drawn | drawn | drawn | drawn |
+| sugriva | drawn | drawn | drawn | drawn | drawn | drawn |
+| monkey1 | drawn | drawn | drawn | drawn | drawn | drawn |
+| ravana | drawn | drawn | drawn | drawn | drawn | drawn |
+| indrajit | drawn | drawn | drawn | drawn | drawn | drawn |
+| vibhishana | drawn | drawn | drawn | drawn | drawn | drawn |
+| raxas_m1 | drawn | drawn | drawn | drawn | drawn | drawn |
 | raxas_f1 | · | · | drawn | · | · | · |
 | raxas_f2 | · | · | drawn | · | · | · |
 | raxas_f3 | · | · | drawn | · | · | · |
-| surpanakha | drawn | generated | drawn | generated | generated | generated |
-| raxas_m2 | drawn | generated | drawn | generated | generated | generated |
-| raxas_m3 | drawn | generated | drawn | generated | generated | generated |
+| surpanakha | drawn | drawn | drawn | drawn | drawn | drawn |
+| raxas_m2 | drawn | drawn | drawn | drawn | drawn | drawn |
+| raxas_m3 | drawn | drawn | drawn | drawn | drawn | drawn |
 
-## To draw (56), most used first
+## To draw (0), most used first
 
 | Character | View | State | Panel heads using it |
 |---|---|---|---|
-| ravana | 3/4 (30°) | generated | 05.05, 06.03 |
-| hanuman | down 40° | generated | 07.03 |
-| monkey1 | top (down 90°) | generated | 07.03 |
-| sita | back | generated | 05.09 |
-| dasharatha | 3/4 (30°) | generated | — |
-| dasharatha | back | generated | — |
-| dasharatha | down 40° | generated | — |
-| dasharatha | top (down 90°) | generated | — |
-| hanuman | 3/4 (30°) | generated | — |
-| hanuman | back | generated | — |
-| hanuman | top (down 90°) | generated | — |
-| indrajit | 3/4 (30°) | generated | — |
-| indrajit | back | generated | — |
-| indrajit | down 40° | generated | — |
-| indrajit | top (down 90°) | generated | — |
-| lakshman | 3/4 (30°) | generated | — |
-| lakshman | back | generated | — |
-| lakshman | down 40° | generated | — |
-| lakshman | top (down 90°) | generated | — |
-| monkey1 | 3/4 (30°) | generated | — |
-| monkey1 | back | generated | — |
-| monkey1 | down 40° | generated | — |
-| rama | 3/4 (30°) | generated | — |
-| rama | back | generated | — |
-| rama | down 40° | generated | — |
-| rama | top (down 90°) | generated | — |
-| ravana | back | generated | — |
-| ravana | down 40° | generated | — |
-| ravana | top (down 90°) | generated | — |
-| raxas_m1 | 3/4 (30°) | generated | — |
-| raxas_m1 | back | generated | — |
-| raxas_m1 | down 40° | generated | — |
-| raxas_m1 | top (down 90°) | generated | — |
-| raxas_m2 | 3/4 (30°) | generated | — |
-| raxas_m2 | back | generated | — |
-| raxas_m2 | down 40° | generated | — |
-| raxas_m2 | top (down 90°) | generated | — |
-| raxas_m3 | 3/4 (30°) | generated | — |
-| raxas_m3 | back | generated | — |
-| raxas_m3 | down 40° | generated | — |
-| raxas_m3 | top (down 90°) | generated | — |
-| sita | 3/4 (30°) | generated | — |
-| sita | down 40° | generated | — |
-| sita | top (down 90°) | generated | — |
-| sugriva | 3/4 (30°) | generated | — |
-| sugriva | back | generated | — |
-| sugriva | down 40° | generated | — |
-| sugriva | top (down 90°) | generated | — |
-| surpanakha | 3/4 (30°) | generated | — |
-| surpanakha | back | generated | — |
-| surpanakha | down 40° | generated | — |
-| surpanakha | top (down 90°) | generated | — |
-| vibhishana | 3/4 (30°) | generated | — |
-| vibhishana | back | generated | — |
-| vibhishana | down 40° | generated | — |
-| vibhishana | top (down 90°) | generated | — |
 
 ## Bases
 
@@ -101,6 +45,6 @@ head, drawn in the character's file.
 
 | Base | Face | Mouths only |
 |---|---|---|
-| male | front, quarter, side, front-down | — |
-| female | front, quarter, side, front-down | — |
-| monkey | front, quarter, side, front-down | — |
+| male | front, quarter, side, back-view, front-down, top | — |
+| female | front, quarter, side, back-view, front-down, top | — |
+| monkey | front, quarter, side, back-view, front-down, top | — |

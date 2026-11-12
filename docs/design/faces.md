@@ -27,13 +27,13 @@ character (`sideOnly` in `data/characters.json`) has the side view only.
 - `data/faces/base/<species>.svg` (male, female, monkey): the base face,
   per view `skin` (face shape and ears), `eyes`, `mouth-1/2/3`, anchors
   `top`, `chin`. The bases draw front, side, `quarter` and
-  `front-down`; in those views a character draws only its own parts.
+  `front-down`, and the head alone in `back-view` (the front's skin) and
+  `top` (a circle); a character draws only its own parts in every view
+  (in back and top all of them in `over`).
 - `data/faces/<id>.svg`, one per character, per view: `under` (behind the
   face), `over` (hair, crown, beard, marks), `back` (behind the whole
   body), `hair-body` (long hair on the back, pinned at the `nape`
   anchor), and optionally its own `eyes` / `mouth-*` replacing the base's.
-  A view the base has no drawing for is the whole head in the character's
-  file (skin included, in `over`).
 - Coordinates: head-units, head centre at (0, 0), y down; the face looks
   picture-right in the side and three-quarter views.
 
@@ -53,11 +53,12 @@ the base draws (quarter, front-down) only the character's own parts are
 written, sorted into under / over / back by the layer they come from in
 its front drawing. They are
 ordinary layers from then on, to keep or redraw (`--bases`: the bases'
-quarter and front-down mouths; a character's views get mouths only if it
-draws its own front mouths); an empty `generated`
+quarter and front-down faces, sliced; back-view and top are drawn: the
+front's skin and a circle; a character's views get eyes or mouths only if
+it draws its own in front); an empty `generated`
 layer marks a view not yet redrawn (`--force` regenerates those; a view
 without the marker is never touched). Seen from behind or above (back,
-top) the whole head is in `over`; the three-quarter and down views keep
+top) all of a character's parts are in `over`, over the base; the three-quarter and down views keep
 the hair behind the head in `back`. Eyes and mouths are not clipped to
 the face. The queue of views to draw by hand, most used first:
 `docs/issues/missing-views.md` (`node tools/view-gaps.mjs`).
