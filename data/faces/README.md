@@ -41,11 +41,8 @@ draws its own in front (rakshasa men's eyes, raxas_m2's mouths); its guide
 shows the base face, and a locked `guide-mouth` layer on top shows the
 base's widest mouth, half transparent. In the back and top views all of
 a character's parts are in `over`: hair covers the skull from behind and
-above. They were **generated**
-by `node tools/bake-views.mjs` from the front and side drawings and placed
-to the right of the side view in the file (x 6, 9, 12, 15). To redraw one,
-edit or replace its layers and **delete its empty `generated` layer**:
-from then on the view is yours and `bake-views --force` leaves it alone.
+above. They sit to the right of the side view in the file (x 6, 9, 12,
+15), and are drawn by hand like the front and side.
 The pose lab's Face tab shows every view of a character; the list of views
 still to draw: `docs/issues/missing-views.md` (`node tools/view-gaps.mjs`).
 

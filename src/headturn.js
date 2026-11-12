@@ -2,8 +2,7 @@
 // y down, z toward the face) to picture coordinates (u right, v down, w
 // toward the viewer). A head is drawn as the nearest of the face's drawn
 // views (src/figure.js, headView); these give the head's orientation to
-// pick it by. The drawings at the views other than front and side can be
-// generated once from the front and side (tools/bake-views.mjs).
+// pick it by.
 
 const HT_RAD = Math.PI / 180;
 

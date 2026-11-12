@@ -39,29 +39,16 @@ character (`sideOnly` in `data/characters.json`) has the side view only.
 
 `node tools/import-faces.mjs` composes base + character into
 `data/faces.json`: per character, per view, `head` (under, skin, eyes,
-over), `mouth` (1–3), `back`, `hairBody`, `nape`, `defs`, and `generated`
-for a view still as generated. It reports a missing file, or a missing
+over), `mouth` (1–3), `back`, `hairBody`, `nape` and `defs`. It reports a missing file, or a missing
 front or side view.
 
-## Generated views (`tools/bake-views.mjs`)
+## Views to draw
 
-The views a character has no drawing for are written once into its face
-file from its front and side drawings, by the slice model
-(`tools/head-loft.mjs` with `tools/face-turn.mjs`: each element drawn in
-both views lofted into stacked ellipses, the rest flat cards). In the views
-the base draws (quarter, front-down) only the character's own parts are
-written, sorted into under / over / back by the layer they come from in
-its front drawing. They are
-ordinary layers from then on, to keep or redraw (`--bases`: the bases'
-quarter and front-down faces, sliced; back-view and top are drawn: the
-front's skin and a circle; a character's views get eyes or mouths only if
-it draws its own in front); an empty `generated`
-layer marks a view not yet redrawn (`--force` regenerates those; a view
-without the marker is never touched). Seen from behind or above (back,
-top) all of a character's parts are in `over`, over the base; the three-quarter and down views keep
-the hair behind the head in `back`. Eyes and mouths are not clipped to
-the face. The queue of views to draw by hand, most used first:
-`docs/issues/missing-views.md` (`node tools/view-gaps.mjs`).
+Every character has all its views drawn by hand (the four beyond front and
+side were first generated from those two, then redrawn; the generator is
+gone). A view a character lacks is drawn as its nearest drawn view; the
+queue, most used first: `docs/issues/missing-views.md`
+(`node tools/view-gaps.mjs`).
 
 ## A head in a figure (`src/headturn.js`, `src/figure.js`)
 

@@ -36,7 +36,7 @@ wrong: `docs/issues/problem-poses.md`.
   drawing is a fixed-size placeholder box; there is no prop registry.
   Held props (sword, club, bow) in `data/props/held/` with a reference
   `line`, imported by `tools/import-held.mjs`.
-- After any change: regenerate the relevant sheet (contact, parts, face,
-  head-turn, pose catalogue) and **look at it**; `npm test` before every
+- After any change: regenerate the relevant sheet (contact, face, pose
+  catalogue) and **look at it**; `npm test` before every
   commit (`UPDATE_SNAPSHOT=1` only after looking at an intended change);
   republish the pose lab after pose or face changes.

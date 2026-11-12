@@ -14,8 +14,7 @@
 // and mouth-1/2/3 (replace the base's), anchors (nape). A view the base has
 // no face drawing for is the whole head as drawn in the character's file,
 // with the base's mouths for that view (quarter, front-down) unless it has
-// its own (the views tools/bake-views.mjs generates: an empty `generated`
-// layer marks them until they are redrawn).
+// its own.
 // Layer offsets (the top-level layers' own transforms) are ignored; a moved
 // guide moves the origin with it. The drawings are copied unchanged (with
 // the transforms of their groups); only the base's skin is painted
@@ -24,7 +23,7 @@
 // For each character and view the importer composes:
 //   head  = under, skin, eyes, over
 //   mouth = { 1, 2, 3 }                     (drawn over the head)
-//   back, hairBody, nape, defs, generated
+//   back, hairBody, nape, defs
 //   front-up / front-down: when the base draws that version and the
 //     character does not, the character's front under / over moved and
 //     stretched so that the base's top and chin anchors land on that
@@ -87,7 +86,6 @@ for (const c of cast) {
       const defs = (B[view]?.defs || '') + (x.defs || '');
       if (!B[view]?.layers.skin && !Object.keys(e.mouth).length && ['quarter', 'front-down'].includes(view)) console.error(`  ! ${c.id} ${view}: no mouths (the base's ${view} view or the character's own)`);
       if (defs.trim()) e.defs = defs;
-      if (x.generated) e.generated = true;
     } else if ((view === 'front-up' || view === 'front-down') && B[view]?.layers.skin && X.front) {
       // the base draws the raised / lowered head and the character does not:
       // its front layers (and anything the version lacks: eyes, mouths)

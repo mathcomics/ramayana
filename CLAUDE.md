@@ -78,7 +78,6 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/prop-gaps.mjs                       # docs/issues/missing-props.md; placeholder props per panel
     node tools/import-held.mjs                     # data/props/held/{sword,club,bow}.svg -> data/held.json
     node tools/import-faces.mjs                    # data/faces/*.svg -> data/faces.json
-    node tools/bake-views.mjs [--force] [ids]      # generate the head views a face file lacks
     node tools/view-gaps.mjs                       # docs/issues/missing-views.md: head views to draw
 
 Pose lab (published artifact; edits bases, gestures and the pose list
@@ -174,9 +173,8 @@ what looks wrong: `docs/issues/problem-poses.md`.
   angles of its own — `poses.json` holds only its finding fields.
 - A head is always one of six drawn views, shown as drawn: front,
   three-quarter, side, back, down 40°, top (mirrored for the other side;
-  `docs/design/faces.md`). The four beyond front and side were generated
-  once from those two and are redrawn by hand over time:
-  `docs/issues/missing-views.md`.
+  `docs/design/faces.md`). All are drawn by hand; a missing one shows
+  as its nearest drawn view (`docs/issues/missing-views.md`).
 - Weapons are drawn along a reference line in the hand
   (`data/props/held/`, a per-character version where one exists);
   `grip: "both"` solves the second arm onto the hilt.

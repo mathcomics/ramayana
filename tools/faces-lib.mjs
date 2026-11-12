@@ -25,7 +25,7 @@ function findLayers(node, chain, found) {
   for (const c of node.children || []) {
     if (!c.tag) continue;
     const name = c.tag === 'g' ? label(c) : '';
-    if (name.startsWith('guide') || name === 'anchors' || name === 'generated') continue;
+    if (name.startsWith('guide') || name === 'anchors') continue;
     if (LAYERS.includes(name)) { found[name] = { chain, node: c }; continue; }
     findLayers(c, c.tag === 'g' ? [...chain, c.attrs.transform].filter(Boolean) : chain, found);
   }
@@ -58,7 +58,7 @@ function readView(v, where) {
   const found = findLayers(v, [], {});
   // loose drawing outside any named layer belongs to "over"
   const loose = v.children.filter((c) => c.tag && !/^(defs|metadata|sodipodi:|inkscape:|title|desc)/.test(c.tag)
-    && !(c.tag === 'g' && (LAYERS.includes(label(c)) || label(c).startsWith('guide') || label(c) === 'anchors' || label(c) === 'generated' || Object.values(found).some((f) => contains(c, f.node)))));
+    && !(c.tag === 'g' && (LAYERS.includes(label(c)) || label(c).startsWith('guide') || label(c) === 'anchors' || Object.values(found).some((f) => contains(c, f.node)))));
   if (loose.length) console.error(`  ! ${where}: ${loose.length} element(s) outside a layer, put in "over"`);
   const layers = {};
   for (const [name, { chain: chain0, node }] of Object.entries(found)) {
@@ -72,10 +72,7 @@ function readView(v, where) {
   const anchorsG = v.children.find((c) => c.tag === 'g' && label(c) === 'anchors');
   const anchors = Object.fromEntries(Object.entries(anchorsG ? findCircles(anchorsG) : {}).map(([k, p]) => [k, [r4(p[0] - off[0]), r4(p[1] - off[1])]]));
   const defs = v.children.filter((c) => c.tag === 'defs').map((d) => d.children.map(serialize).join('')).join('');
-  // an empty `generated` layer marks a view written by tools/bake-views.mjs
-  // (delete it once the view is redrawn by hand)
-  const generated = v.children.some((c) => c.tag === 'g' && label(c) === 'generated');
-  return { layers, anchors, defs, generated };
+  return { layers, anchors, defs };
 }
 // Hiding something in the editor (a layer or a single element) is only an
 // editing state: it is still drawn.

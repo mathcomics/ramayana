@@ -16,7 +16,7 @@
 // colours are kept; the drawing is only moved and turned.
 import { parse, serialize, label } from './svg.mjs';
 import { read, writeOut } from './lib.mjs';
-import { mm, ap, parseTransform, pathPolys } from './face-turn.mjs';
+import { mm, ap, parseTransform, pathPolys } from './svg-geom.mjs';
 
 const KINDS = ['sword', 'club', 'bow'];
 const K = 100, r4 = (v) => Math.round(v * 1e4) / 1e4;
