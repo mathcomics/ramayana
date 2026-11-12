@@ -346,7 +346,7 @@ alphabetically.
 
 ## 8. Identity
 
-- Unnamed figures: varied per instance (body colour, loincloth colour,
+- Unnamed figures: varied per instance (body colour, cloth colour,
   torso pattern, horn shape, small proportion jitter, scale, seed) within
   species ranges.
 - Named characters (~12, later): fixed garment colour **plus** a signature

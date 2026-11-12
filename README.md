@@ -47,7 +47,8 @@ tools/merge-panel-drafts.mjs panel-lab drafts → panels/ (commit-panel-lab skil
 tools/pose-saves.mjs     what pose-lab saves change (commit-pose-lab skill)
 .claude/skills/          commit-panel-lab, commit-pose-lab: merging the labs' saves
 tools/lib.mjs            shared tool helpers (paths, data, sections, chapters, options, PNG, lab bundling)
-tools/svg.mjs            SVG parsing for import-faces
+tools/svg.mjs            SVG parsing and writing for the importers
+tools/svg-geom.mjs       SVG transforms and paths as geometry, for the importers
 test/                    npm test: unit, data integrity and render snapshot
 panels (with "tags")     approved reference panels: the artist-reviewed yardstick
 src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
@@ -57,7 +58,7 @@ data/species/*.json      per species: its drawn parts, head guide size, tail
 data/bases.json          bases: lower bodies (legs, lean, tail)
 data/gestures.json       gestures: upper bodies (arms, prop, chest, head, mouth)
 data/poses.json          the poses (<base>-<gesture>), how to find one, wanted poses
-src/compose.js           a pose from its base and gesture
+src/compose.js           a pose from its base and gesture; the two-bone reach (shared with the pose lab)
 data/characters.json     cast: species + body colour + outfit + cloth colour
 tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
 tools/pose-catalogue.mjs poses with their story moments, by base → out/pose-catalogue.png
@@ -116,8 +117,8 @@ real phone size (figures roughly 60–150 px tall).
   side pose when drawn (`view: 'front'`). Facing left is a mirror of
   facing right.
 - **Pose:** joint angles relative to the parent joint (except the ankle:
-  the foot's angle from the ground, 0 = flat), plus head view,
-  mouth (1–3) and a hand per arm (`fist`, `out` or `in`). See the `_angles`
+  the foot's angle from the ground, 0 = flat), plus the head's turn,
+  mouth (1–3) and a hand per arm (`fist`, `out`, `in` or `point`). See the `_angles`
   field in `data/poses.json`. A pose is a base (lower body) with a
   gesture (upper body), composed when the data loads. All species share
   the same poses.

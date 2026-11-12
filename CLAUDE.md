@@ -211,5 +211,8 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
 - Head views: body hair (`hair-body`) per head view, and the rakshasa
   men's props in their extra views (copied from Rama) —
   `docs/proposals/2026-11-12-head-rendering-survey.md`, Open.
+- Face guides are stale: the base faces were redrawn after the guides
+  were last refreshed. Run `node tools/face-templates.mjs` and commit
+  (guide layers only; the diff is large because of the layout).
 - Wanted next: a pose picker in the panel lab (filter by story moment,
   tap to insert), and the open items in `docs/proposals/`.

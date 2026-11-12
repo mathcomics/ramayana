@@ -53,7 +53,9 @@ still to draw: `docs/issues/missing-views.md` (`node tools/view-gaps.mjs`).
    ids in `data/characters.json`).
 2. After changing a base face, run `node tools/face-templates.mjs`: it
    refreshes the guide (the base face) in every character file and in the
-   templates.
+   templates. It changes only the locked guide layers, but writes each
+   file back in its own layout (one element per line, not Inkscape's one
+   attribute per line), so the first diff after an Inkscape save is large.
    The guide shows the species' torso and neck (no limbs) and, in
    character files, the base face.
 3. Run `node tools/import-faces.mjs` (writes `data/faces.json`, used by the

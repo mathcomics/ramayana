@@ -15,8 +15,11 @@ keep their size (monkey1 is 0.8).
 renderer's frame: the figure faces right; front-view limbs are drawn with
 the near side (the character's right) on picture-right, and the finished
 front view is flipped so the right side is on picture-left (the head keeps
-its drawing unflipped and turns to match). `node tools/export-parts.mjs` writes it from
-`data/parts.json`; `node tools/import-parts.mjs` reads it back.
+its drawing unflipped and turns to match). `node tools/import-parts.mjs` reads it into
+`data/parts.json`; `node tools/export-parts.mjs` writes it back from there,
+**overwriting the file**: the artist's Inkscape layers and layout are
+replaced by the imported shapes, so export only to restructure a file,
+never as a check.
 
 - Every part at rotation 0: limbs and hands hang straight down, the neck
   points up, feet are flat.
