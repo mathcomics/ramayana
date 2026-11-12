@@ -5,7 +5,7 @@
 // Delivery is a vertical scroll of panels. Every panel is the full width
 // (360 units) and `tall` × its width high.
 
-import { renderFigure, buildShapes, characterLook, parseCloth } from './figure.js';
+import { renderFigure, buildShapes, characterLook, parseCloth, DEFAULT_OUTFIT } from './figure.js';
 import { headView, INTENDED_VIEWS } from './headturn.js';
 
 export const PANEL_W = 360;
@@ -122,7 +122,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (f.view === 'front' && look.sideOnly) issues.push(`figure ${i} (${who}): side view only (sideOnly in data/characters.json); drawn in side view`);
     const view = f.view === 'front' && !look.sideOnly ? 'front' : 'side';
     // every character has a drawn face; there is no generated fallback
-    const { bbox, headAnchor, joints, shapes } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
+    const built = buildShapes(S, pose, { ...DEFAULT_OUTFIT, ...(look.outfit || {}) }, view, look.bodyScale, look.who);
+    const { bbox, headAnchor, joints, shapes } = built;
     // where the hips rest when seated (a "seat" anchor): the underside of
     // the thighs at the pelvis, in the figure's frame (y up is negative)
     const pv = joints?.spine?.pelvis;
@@ -138,7 +139,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     else if (want && want !== got) issues.push(`figure ${i} (${who}): head wants the ${want} view, not drawn; drawn as ${got} (docs/issues/missing-views.md)`);
     heads.push({ character: who, want: want ?? got, got });
     const groundY = r.top ? -bbox.y0 * unit : r.y;
-    return { f, fi: i - 1, name: f.id || who, pose, view, look, S, groundY, unit,
+    return { f, fi: i - 1, name: f.id || who, pose, view, look, S, built, groundY, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0, seatY, h1: -bbox.y0, rot: f.rotate ?? 0,
       // each hand's grip, in the figure's own frame (y up is negative): a "hand" anchor
       grips: { right: joints?.near?.grip ?? joints?.near?.Wr, left: joints?.far?.grip ?? joints?.far?.Wr },
@@ -360,7 +361,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   all.forEach((o, k) => {
     s += o.b ? drawBand(o, k) : o.p ? drawProp(o)
       : turn(o, renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
-        view: o.view, headOnly: o.headOnly, id: `${pre}-f${o.fi}` }).svg);
+        view: o.view, headOnly: o.headOnly, built: o.built, id: `${pre}-f${o.fi}` }).svg);
   });
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
   return { svg, w: W, h: H, issues, heads };

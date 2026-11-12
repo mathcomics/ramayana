@@ -39,13 +39,35 @@ export function rawPose(baseName, base, gesture, name) {
   };
 }
 
+// Two-bone reach (the leg's hip and knee, the arm's shoulder and elbow):
+// a joint chain a -> b -> c, drawn in the figure frame (angles: 0 = down),
+// turned so c lands on T (or as near as the bones reach). `flex` +1 bends
+// the middle joint backward (a knee), -1 forward (an elbow). Returns the
+// change to the upper bone's angle (`upper`) and to the bend at b
+// (`bend`: knee = thigh − shin, elbow = forearm − upper arm). Shared by the
+// composer and the pose lab (bundled), so they solve alike.
+export const ikWrap = (v) => ((v + 540) % 360) - 180;
+export const ikAng = (a, b) => Math.atan2(b[0] - a[0], b[1] - a[1]) * 180 / Math.PI;
+export function ikTwoBone(a, b, c, T, flex) {
+  const D2 = 180 / Math.PI;
+  const L1 = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1e-6;
+  const L2 = Math.hypot(c[0] - b[0], c[1] - b[1]) || 1e-6;
+  const D = [T[0] - a[0], T[1] - a[1]];
+  const d = Math.max(Math.abs(L1 - L2) + 1e-4, Math.min(Math.hypot(D[0], D[1]), L1 + L2 - 1e-4));
+  const phi = Math.atan2(D[0], D[1]) * D2;
+  const alpha = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d)))) * D2;
+  const t1 = phi + flex * alpha;                       // the upper bone's new angle
+  const bT = [a[0] + Math.sin(t1 / D2) * L1, a[1] + Math.cos(t1 / D2) * L1];
+  const t2 = Math.atan2(T[0] - bT[0], T[1] - bT[1]) * D2;
+  const c1 = ikAng(a, b), c2 = ikAng(b, c);
+  return { upper: ikWrap(t1 - c1),
+    bend: flex > 0 ? ikWrap(t1 - t2) - ikWrap(c1 - c2) : ikWrap(t2 - t1) - ikWrap(c2 - c1) };
+}
+
 // poseComposer(S) -> compose(bases, gestures, name): the stored pose
 // (right / left), solved for planted feet and joined palms.
 export function poseComposer(S) {
-  const D2 = 180 / Math.PI;
   const clone = (o) => JSON.parse(JSON.stringify(o));
-  const wrapA = (v) => ((v + 540) % 360) - 180;
-  const ang = (a, b) => Math.atan2(b[0] - a[0], b[1] - a[1]) * D2;
   const clamp = (lo, hi, v) => Math.max(lo, Math.min(hi, Math.round(v * 10) / 10));
   const jf = (pose, view) => renderFigure(S, pose, { x: 0, y: 0, scale: 1, facing: 1, ...(view === 'front' ? { view: 'front' } : {}) }).joints;
 
@@ -57,18 +79,10 @@ export function poseComposer(S) {
         const { hp, Kn, A: An } = J[sd], T = [P[0] + pin[sd][0], P[1] + pin[sd][1]];
         if (Math.hypot(An[0] - T[0], An[1] - T[1]) < 0.01) continue;
         moved = true;
-        const L1 = Math.hypot(Kn[0] - hp[0], Kn[1] - hp[1]) || 1e-6;
-        const L2 = Math.hypot(An[0] - Kn[0], An[1] - Kn[1]) || 1e-6;
-        const D = [T[0] - hp[0], T[1] - hp[1]];
-        const d = Math.max(Math.abs(L1 - L2) + 1e-4, Math.min(Math.hypot(D[0], D[1]), L1 + L2 - 1e-4));
-        const phi = Math.atan2(D[0], D[1]) * D2;
-        const alpha = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d)))) * D2;
-        const thT = phi + alpha;                       // the knee always flexes backward
-        const KnT = [hp[0] + Math.sin(thT / D2) * L1, hp[1] + Math.cos(thT / D2) * L1];
-        const shT = Math.atan2(T[0] - KnT[0], T[1] - KnT[1]) * D2;
+        const r = ikTwoBone(hp, Kn, An, T, +1);        // the knee always flexes backward
         const leg = pose[sd].leg;
-        leg.hip = clamp(-90, 150, leg.hip + wrapA(thT - ang(hp, Kn)));
-        leg.knee = clamp(0, 160, leg.knee + wrapA(thT - shT) - wrapA(ang(hp, Kn) - ang(Kn, An)));
+        leg.hip = clamp(-90, 150, leg.hip + r.upper);
+        leg.knee = clamp(0, 160, leg.knee + r.bend);
       }
       if (!moved) break;
     }
@@ -82,18 +96,10 @@ export function poseComposer(S) {
         const J = jf(pose);
         const T = J.near.grip, { sh, E, grip } = J.far;
         if (Math.hypot(grip[0] - T[0], grip[1] - T[1]) < 0.005) break;
-        const L1 = Math.hypot(E[0] - sh[0], E[1] - sh[1]) || 1e-6;
-        const L2 = Math.hypot(grip[0] - E[0], grip[1] - E[1]) || 1e-6;
-        const D = [T[0] - sh[0], T[1] - sh[1]];
-        const d = Math.max(Math.abs(L1 - L2) + 1e-4, Math.min(Math.hypot(D[0], D[1]), L1 + L2 - 1e-4));
-        const phi = Math.atan2(D[0], D[1]) * D2;
-        const alpha = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d)))) * D2;
-        const upT = phi - alpha;                       // the elbow flexes forward
-        const ET = [sh[0] + Math.sin(upT / D2) * L1, sh[1] + Math.cos(upT / D2) * L1];
-        const foT = Math.atan2(T[0] - ET[0], T[1] - ET[1]) * D2;
+        const r = ikTwoBone(sh, E, grip, T, -1);       // the elbow flexes forward
         const arm = pose.far.arm;
-        arm.shoulder = clamp(-90, 230, arm.shoulder + wrapA(upT - ang(sh, E)));
-        arm.elbow = clamp(0, 160, arm.elbow + wrapA(foT - upT) - wrapA(ang(E, grip) - ang(sh, E)));
+        arm.shoulder = clamp(-90, 230, arm.shoulder + r.upper);
+        arm.elbow = clamp(0, 160, arm.elbow + r.bend);
       }
       for (let pass = 0; pass < 6; pass++) {          // far hand -> midline
         const J = jf(pose, 'front');

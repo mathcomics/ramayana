@@ -11,20 +11,16 @@
 import { readFileSync } from 'node:fs';
 import { buildShapes, characterLook, normalizePose } from '../src/figure.js';
 import { headView } from '../src/headturn.js';
-import { loadAssets, writeOut } from './lib.mjs';
+import { loadAssets, writeOut, cliArgs, characterById } from './lib.mjs';
 
-const args = process.argv.slice(2);
-const flag = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null; };
-const who = args.find((a, i) => !a.startsWith('--') && !args[i - 1]?.startsWith('--')) || 'rama';
+const args = cliArgs();
+const flag = (k) => args.str(k);
 const A = loadAssets();
-const c = A.characters.characters.find((x) => x.id === who);
-if (!c) throw new Error(`unknown character "${who}"`);
+const { who: c, look, species: S } = characterById(A, args.words[0] || 'rama', characterLook);
 const pose = flag('--pose-file') ? JSON.parse(readFileSync(flag('--pose-file'), 'utf8'))
   : A.poses.find((p) => p.name === (flag('--pose') || 'step-hang'));
 if (!pose) throw new Error(`unknown pose "${flag('--pose')}"`);
 const views = (flag('--view') || 'both') === 'both' ? ['side', 'front'] : [flag('--view')];
-const look = characterLook(c, A.characters.palette, A.faces);
-const S = A.species[look.species];
 const K = 100;                                         // px per head-unit
 const f = (v) => +(v * K).toFixed(2);
 

@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { parseCloth } from '../src/figure.js';
 import { HEAD_VIEWS } from '../src/headturn.js';
+import { splitPoseName } from '../src/compose.js';
 import { root, SPECIES, POSES, CAST, FACES } from './helpers.mjs';
 
 // A pose name starts with a style bible §7 base word, or — for a pose
@@ -55,13 +56,13 @@ test('poses: finding fields, known tags and neighbours; wanted', () => {
   }
   for (const [name, w] of Object.entries(D.wanted)) {
     assert.ok(!names.includes(name), `wanted ${name} already exists: move it to poses`);
-    assert.ok(BASES.includes(name.split('-')[0]), `wanted ${name}: base`);
+    assert.ok(BASES.includes(splitPoseName(name)[0]), `wanted ${name}: base`);
     for (const t of w.use) assert.ok(D.tags[t], `wanted ${name}: unknown tag ${t}`);
   }
 });
 
 test('bases and gestures: one-word names, a desc, the half they own, each used', () => {
-  const used = (k, i) => Object.keys(D.poses).some((n) => (i === 0 ? n.slice(0, n.indexOf('-')) : n.slice(n.indexOf('-') + 1)) === k);
+  const used = (k, i) => Object.keys(D.poses).some((n) => splitPoseName(n)[i] === k);
   for (const [b, e] of Object.entries(D.bases)) {
     assert.match(b, /^[a-z]+$/, `base ${b}: one word`);
     assert.ok(e.desc, `base ${b}: desc`);

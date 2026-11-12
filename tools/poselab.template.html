@@ -439,9 +439,10 @@ const REPO = /*__POSEDATA__*/;
   const VIEWX = { side: -3.3, front: 3.3 };
   const RING = 0.55;
   const SIDE_NAME = { near: 'right', far: 'left' };
-  const ang = (a, b) => Math.atan2(b[0] - a[0], b[1] - a[1]) * 180 / Math.PI;   // 0 = down, 90 = picture-right (figure frame)
-  const wrapA = (v) => ((v + 540) % 360) - 180;
+  const ang = ikAng;                                                // 0 = down, 90 = picture-right (figure frame)
+  const wrapA = ikWrap;
   const rangeOf = (path) => RANGES[path] || RANGES[path.replace(/^(near|far)\./, '')] || [-180, 180];
+  const clampTo = (path, v) => { const [lo, hi] = rangeOf(path); return Math.max(lo, Math.min(hi, Math.round(v * 10) / 10)); };
   function controls(view) {
     if (state.mode !== 'base' && state.mode !== 'gesture') return [];
     const out = [], P = state.pose;
@@ -552,7 +553,6 @@ const REPO = /*__POSEDATA__*/;
   // leg's hip and knee are re-solved to put the ankle back (two-bone IK on
   // the probe render's own joints). Targets are kept relative to the pelvis.
   // A gesture's own lean always keeps the base's planted feet (compose).
-  const D2 = 180 / Math.PI;
   function startPin(c) {
     state.pin = null;
     if (!state.pinFeet || state.mode !== 'base' || c.path !== 'spine.lean') return;
@@ -571,19 +571,10 @@ const REPO = /*__POSEDATA__*/;
         const { hp, Kn, A } = J[sd], T = [P[0] + pin[sd][0], P[1] + pin[sd][1]];
         if (Math.hypot(A[0] - T[0], A[1] - T[1]) < 0.01) continue;
         moved = true;
-        const L1 = Math.hypot(Kn[0] - hp[0], Kn[1] - hp[1]) || 1e-6;
-        const L2 = Math.hypot(A[0] - Kn[0], A[1] - Kn[1]) || 1e-6;
-        const D = [T[0] - hp[0], T[1] - hp[1]];
-        const d = Math.max(Math.abs(L1 - L2) + 1e-4, Math.min(Math.hypot(D[0], D[1]), L1 + L2 - 1e-4));
-        const phi = Math.atan2(D[0], D[1]) * D2;
-        const alpha = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d)))) * D2;
-        const thT = phi + alpha;                                        // the knee always flexes backward
-        const KnT = [hp[0] + Math.sin(thT / D2) * L1, hp[1] + Math.cos(thT / D2) * L1];
-        const shT = Math.atan2(T[0] - KnT[0], T[1] - KnT[1]) * D2;
+        const r = ikTwoBone(hp, Kn, A, T, +1);                         // the knee always flexes backward
         const leg = pose[sd].leg;
-        const clampTo = (path, v) => { const [lo, hi] = rangeOf(path); return Math.max(lo, Math.min(hi, Math.round(v * 10) / 10)); };
-        leg.hip = clampTo('leg.hip', leg.hip + wrapA(thT - ang(hp, Kn)));
-        leg.knee = clampTo('leg.knee', leg.knee + wrapA(thT - shT) - wrapA(ang(hp, Kn) - ang(Kn, A)));
+        leg.hip = clampTo('leg.hip', leg.hip + r.upper);
+        leg.knee = clampTo('leg.knee', leg.knee + r.bend);
       }
       if (!moved) break;
     }
@@ -1020,19 +1011,10 @@ const REPO = /*__POSEDATA__*/;
       const T = J.near.grip, { sh, E, grip } = J.far;
       if (Math.hypot(grip[0] - T[0], grip[1] - T[1]) < 0.01) break;
       touched = true;
-      const L1 = Math.hypot(E[0] - sh[0], E[1] - sh[1]) || 1e-6;
-      const L2 = Math.hypot(grip[0] - E[0], grip[1] - E[1]) || 1e-6;
-      const D = [T[0] - sh[0], T[1] - sh[1]];
-      const d = Math.max(Math.abs(L1 - L2) + 1e-4, Math.min(Math.hypot(D[0], D[1]), L1 + L2 - 1e-4));
-      const phi = Math.atan2(D[0], D[1]) * D2;
-      const alpha = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d)))) * D2;
-      const upT = phi - alpha;                       // the elbow flexes forward: upper arm behind the chord
-      const ET = [sh[0] + Math.sin(upT / D2) * L1, sh[1] + Math.cos(upT / D2) * L1];
-      const foT = Math.atan2(T[0] - ET[0], T[1] - ET[1]) * D2;
+      const r = ikTwoBone(sh, E, grip, T, -1);                         // the elbow flexes forward
       const arm = state.pose.far.arm;
-      const clampTo = (path, v) => { const [lo, hi] = rangeOf(path); return Math.max(lo, Math.min(hi, Math.round(v * 10) / 10)); };
-      arm.shoulder = clampTo('arm.shoulder', arm.shoulder + wrapA(upT - ang(sh, E)));
-      arm.elbow = clampTo('arm.elbow', arm.elbow + wrapA(foT - upT) - wrapA(ang(E, grip) - ang(sh, E)));
+      arm.shoulder = clampTo('arm.shoulder', arm.shoulder + r.upper);
+      arm.elbow = clampTo('arm.elbow', arm.elbow + r.bend);
     }
     if (touched) { edited(); syncControls(); draw(); renderGallery(); setStatus('Hands joined: middle of the body, laid on each other.'); }
     else setStatus('Hands are already joined, or elbow out can’t reach the middle.');

@@ -126,7 +126,8 @@ function patternDef(id, kind, ink) {
 // and pattern ids; give each figure on a page its own (default: a counter).
 // The other options are a character look (see characterLook): colors,
 // outfit, pattern, face, bodyScale (torso and legs; drawn parts only),
-// who (character id: its own held weapons, data/props/held/).
+// who (character id: its own held weapons, data/props/held/); built (the
+// figure's buildShapes result, if already made).
 // Two tones (style bible §4): the far leg (thigh with its cloth, shin,
 // foot) and the torso (bare skin or a full top) are 5% lighter than the
 // body or cloth colour (each channel 5% of the way to white), so they
@@ -153,7 +154,10 @@ export function renderFigure(species, pose, opts = {}) {
   // a sideOnly character (data/characters.json) is always drawn in side
   // view, with its side face as drawn (it has no front face, no turn data)
   const view = opts.sideOnly ? 'side' : opts.view;
-  const { shapes, headAnchor, hairAnchor, sk, bbox: bb, joints } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, view, opts.bodyScale ?? 1, opts.who);
+  // opts.built: this figure's buildShapes result, when the caller already has
+  // it (renderPanel measures the figure first); it must be for the same view
+  const { shapes, headAnchor, hairAnchor, sk, bbox: bb, joints } = opts.built
+    ?? buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, view, opts.bodyScale ?? 1, opts.who);
   // Drawn face (data/faces): replaces the guide head (every character has
   // one; the guide shows on species sheets only). The head is the face's
   // drawn view nearest to its orientation (headView: front, quarter, side,

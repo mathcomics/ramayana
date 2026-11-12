@@ -10,14 +10,13 @@
 // --zoom multiplies the PNG resolution for close inspection.
 
 import { renderFigure, characterLook } from '../src/figure.js';
-import { loadAssets, writeOut, rsvg } from './lib.mjs';
+import { loadAssets, writeOut, toPng, cliArgs } from './lib.mjs';
 
-const args = process.argv.slice(2);
-const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? Number(args[i + 1]) : d; };
-const flag = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null; };
-const speciesId = args.find((a, i) => !a.startsWith('--') && !args[i - 1]?.startsWith('--')) || 'monkey';
-const scale = opt('--scale', 20);
-const zoom = opt('--zoom', 1);
+const args = cliArgs();
+const flag = (k) => args.str(k);
+const speciesId = args.words[0] || 'monkey';
+const scale = args.num('--scale', 20);
+const zoom = args.num('--zoom', 1);
 
 const A = loadAssets();
 const species = A.species[speciesId];
@@ -45,11 +44,4 @@ poses.forEach((pose, i) => {
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">` +
   `<rect width="${W}" height="${H}" fill="#f4efe6"/>${body}</svg>`;
 
-const svgPath = writeOut(`out/contact-${speciesId}.svg`, svg);
-try {
-  const png = svgPath.replace(/\.svg$/, `${zoom > 1 ? `@${zoom}x` : ''}.png`);
-  rsvg(svgPath, png, ['-z', String(zoom)]);
-  console.log(png);
-} catch {
-  console.log(svgPath, '(rsvg-convert not available; SVG only)');
-}
+toPng(writeOut(`out/contact-${speciesId}.svg`, svg), zoom);

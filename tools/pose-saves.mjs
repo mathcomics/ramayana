@@ -25,6 +25,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { json, writeOut, loadPoseData } from './lib.mjs';
 import { normalizePose } from '../src/figure.js';
+import { splitPoseName as split } from '../src/compose.js';
 
 const dir = process.argv[2];
 const write = process.argv.includes('--write');
@@ -32,7 +33,6 @@ if (!dir) { console.error('usage: node tools/pose-saves.mjs <out_dir> [--write]'
 const D = loadPoseData();
 const files = { bases: json('data/bases.json'), gestures: json('data/gestures.json'), poses: json('data/poses.json') };
 const FIELD = { bases: 'base', gestures: 'gesture', poses: 'pose' };
-const split = (n) => { const i = n.indexOf('-'); return [n.slice(0, i), n.slice(i + 1)]; };
 
 const flat = (o, p = '', out = {}) => {
   for (const [k, v] of Object.entries(o || {})) {

@@ -159,3 +159,51 @@ export function rendererBundle(files) {
 // Fill a lab template's /*__KEY__*/ placeholders.
 export const fillTemplate = (template, values) =>
   Object.entries(values).reduce((html, [k, v]) => html.replace(`/*__${k}__*/`, () => v), read(template));
+
+// Command-line options: values (--zoom 2), switches (--light) and the
+// positional words (not a flag's value).
+export function cliArgs(argv = process.argv.slice(2)) {
+  const at = (k) => argv.indexOf(k);
+  return {
+    has: (k) => at(k) >= 0,
+    str: (k, d = null) => (at(k) >= 0 ? argv[at(k) + 1] : d),
+    num: (k, d) => (at(k) >= 0 ? Number(argv[at(k) + 1]) : d),
+    words: argv.filter((a, i) => !a.startsWith('--') && !argv[i - 1]?.startsWith('--')),
+  };
+}
+
+// SVG -> PNG beside it at `zoom` (named <name>@<zoom>x.png when zoomed and
+// tagZoom); prints the PNG's path, or the SVG's when no converter is installed.
+export function toPng(svgPath, zoom = 1, { tagZoom = true } = {}) {
+  const png = svgPath.replace(/\.svg$/, `${tagZoom && zoom > 1 ? `@${zoom}x` : ''}.png`);
+  try { rsvg(svgPath, png, ['-z', String(zoom)]); console.log(png); return png; }
+  catch { console.log(svgPath, '(rsvg-convert not available; SVG only)'); return svgPath; }
+}
+
+// A character by id with its render look and species (loadAssets() as A).
+export function characterById(A, id, characterLook) {
+  const who = A.characters.characters.find((c) => c.id === id);
+  if (!who) throw new Error(`no character "${id}"`);
+  const look = characterLook(who, A.characters.palette, A.faces);
+  return { who, look, species: A.species[who.species] };
+}
+
+// Text for XML / HTML content and attributes.
+export const escXml = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// manuscript/scenes.md: every "## N. Title" chapter in order, with its
+// beats (the "- " bullets, wrapped lines joined). Other "## " sections
+// (continuity, dropped) end a chapter.
+export function loadChapters() {
+  const out = [];
+  let ch = null;
+  for (const l of read('manuscript/scenes.md').split('\n')) {
+    const h = l.match(/^## (\d+)\.\s*(.*)/);
+    if (h) { out.push(ch = { n: Number(h[1]), title: h[2].trim(), beats: [] }); continue; }
+    if (/^## /.test(l)) { ch = null; continue; }
+    if (!ch) continue;
+    if (/^- /.test(l)) ch.beats.push(l.slice(2).trim());
+    else if (/^ {2,}\S/.test(l) && ch.beats.length) ch.beats[ch.beats.length - 1] += ' ' + l.trim();
+  }
+  return out;
+}

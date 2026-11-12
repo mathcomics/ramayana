@@ -8,21 +8,17 @@
 // Output: out/pose-catalogue.svg (+ .png).
 
 import { renderFigure, characterLook } from '../src/figure.js';
-import { loadAssets, loadPoseData, writeOut, rsvg } from './lib.mjs';
+import { splitPoseName } from '../src/compose.js';
+import { loadAssets, loadPoseData, writeOut, toPng, cliArgs, characterById, escXml as esc } from './lib.mjs';
 
-const args = process.argv.slice(2);
-const val = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
-const scale = Number(val('--scale', 16));
-const zoom = Number(val('--zoom', 1));
+const args = cliArgs();
+const scale = args.num('--scale', 16);
+const zoom = args.num('--zoom', 1);
 
 const A = loadAssets();
 const index = loadPoseData();
-const who = A.characters.characters.find((c) => c.id === val('--who', 'rama'));
-if (!who) throw new Error(`no character ${val('--who')}`);
-const species = A.species[who.species];
-const look = characterLook(who, A.characters.palette, A.faces);
+const { look, species } = characterById(A, args.str('--who', 'rama'), characterLook);
 
-const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const cols = 3, cellW = scale * 13, figH = scale * 8.2, textH = scale * 1.9, headH = scale * 1.6;
 const font = 'font-family="sans-serif"';
 
@@ -31,12 +27,13 @@ const font = 'font-family="sans-serif"';
 const BASES = ['stand', 'walk', 'run', 'leap', 'crouch', 'bend', 'crawl', 'kneel', 'lunge', 'sit', 'lie', 'fall'];
 for (const b of Object.keys(index.bases)) if (!BASES.includes(b)) BASES.push(b);
 const wanted = Object.entries(index.wanted);
-const groups = BASES.map((b) => [b, A.poses.filter((p) => p.name.split('-')[0] === b)]).filter(([b, ps]) => ps.length || wanted.some(([n]) => n.split('-')[0] === b));
+const baseOf = (n) => splitPoseName(n)[0];
+const groups = BASES.map((b) => [b, A.poses.filter((p) => baseOf(p.name) === b)]).filter(([b, ps]) => ps.length || wanted.some(([n]) => baseOf(n) === b));
 
 let y = 0, body = '';
 const W = cols * cellW;
 for (const [base, poses] of groups) {
-  const want = wanted.filter(([n]) => n.split('-')[0] === base).map(([n]) => n);
+  const want = wanted.filter(([n]) => baseOf(n) === base).map(([n]) => n);
   body += `<text x="${scale * 0.5}" y="${y + headH * 0.75}" ${font} font-weight="bold" font-size="${scale * 0.8}" fill="#4a4033">${base}</text>`;
   if (want.length) body += `<text x="${W - scale * 0.5}" y="${y + headH * 0.75}" ${font} font-size="${scale * 0.5}" fill="#b0563a" text-anchor="end">wanted: ${esc(want.join(', '))}</text>`;
   body += `<line x1="0" x2="${W}" y1="${y + headH}" y2="${y + headH}" stroke="#4a4033" stroke-width="1"/>`;
@@ -58,11 +55,4 @@ for (const [base, poses] of groups) {
 const H = Math.ceil(y);
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">` +
   `<rect width="${W}" height="${H}" fill="#f4efe6"/>${body}</svg>`;
-const svgPath = writeOut('out/pose-catalogue.svg', svg);
-try {
-  const png = svgPath.replace(/\.svg$/, `${zoom > 1 ? `@${zoom}x` : ''}.png`);
-  rsvg(svgPath, png, ['-z', String(zoom)]);
-  console.log(png);
-} catch {
-  console.log(svgPath, '(rsvg-convert not available; SVG only)');
-}
+toPng(writeOut('out/pose-catalogue.svg', svg), zoom);

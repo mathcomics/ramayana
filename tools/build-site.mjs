@@ -2,9 +2,9 @@
 // (phone portrait, each the full width). Static files only; Cloudflare Pages serves _site/.
 //
 //   node tools/build-site.mjs        ->  _site/index.html (chapters), _site/<NN-name>.html
-import { writeFileSync, mkdirSync, rmSync, readFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
-import { root, loadAssets, loadSections } from './lib.mjs';
+import { root, loadAssets, loadSections, loadChapters, escXml as esc } from './lib.mjs';
 import { renderPanel } from '../src/scene.js';
 
 const out = join(root, '_site');
@@ -16,18 +16,14 @@ const sections = loadSections();
 // Chapters: every "## N. Title" in manuscript/scenes.md, in order. A chapter
 // with a panel folder (panels/NN-*) gets a scrolling page; the others are
 // listed on the index as still to come.
-const scenes = readFileSync(join(root, 'manuscript', 'scenes.md'), 'utf8');
 const byNumber = new Map(sections.map((sec) => [Number(sec.name.match(/^(\d+)/)?.[1]), sec]));
-const chapters = [...scenes.matchAll(/^## (\d+)\. (.+)$/gm)].map(([, n, title]) => ({
-  n: Number(n), title: title.trim(), sec: byNumber.get(Number(n)),
-}));
+const chapters = loadChapters().map(({ n, title }) => ({ n, title, sec: byNumber.get(n) }));
 for (const [n, sec] of byNumber) {      // a panel folder with no heading in scenes.md
   if (!chapters.some((c) => c.n === n)) chapters.push({ n, title: sec.title.replace(/^\d+\.\s*/, ''), sec });
 }
 chapters.sort((a, b) => a.n - b.n);
 const ready = chapters.filter((c) => c.sec && c.sec.panels.length);
 
-const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const css = `
 :root { --bg: #fffdf8; --fg: #2b2620; --muted: #8a7f72; --line: #eee5d8; }
 * { box-sizing: border-box; }
