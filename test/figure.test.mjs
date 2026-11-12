@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizePose, solve, frontOf, buildShapes, renderFigure, parseCloth, characterLook, anatomy } from '../src/figure.js';
+import { bbox as geomBbox } from '../src/geom.js';
 import { SPECIES, POSES, CAST, FACES, allFinite, stableIds } from './helpers.mjs';
 
 const stand = POSES.find((p) => p.name === 'step-hang');
@@ -18,13 +19,18 @@ test('normalizePose fills defaults and rejects bad values', () => {
   assert.equal(normalizePose({ near: { arm: { hand: 'point' } } }).near.arm.hand, 'point');
 });
 
-test('every species × pose × view builds finite shapes, feet on y = 0, centred', () => {
+test('every species × pose × view builds finite shapes, feet on y = 0, body centred', () => {
   for (const [sp, S] of Object.entries(SPECIES)) for (const p of POSES) for (const view of ['side', 'front']) {
-    const { shapes, bbox } = buildShapes(S, p, undefined, view);
+    const { shapes, bbox, headAnchor } = buildShapes(S, p, undefined, view);
     const at = `${sp} ${p.name} ${view}`;
+    assert.equal(typeof S.parts, 'object', `${sp} uses drawn parts`);
     assert.ok(allFinite(shapes), `${at}: non-finite point`);
+    assert.ok(Number.isFinite(headAnchor.at[0]), `${at}: head anchor`);
     assert.ok(Math.abs(bbox.y1) < 1e-9, `${at}: lowest point not on the ground`);
-    assert.ok(Math.abs(bbox.x0 + bbox.x1) < 1e-9, `${at}: not centred`);
+    // held props don't move the figure: the body alone is centred
+    const body = geomBbox(shapes.filter((s) => s.role !== 'prop').map((s) => s.pts));
+    assert.ok(Math.abs(body.x0 + body.x1) < 1e-9, `${at}: not centred`);
+    assert.ok(!shapes.some((s) => s.part === 'loincloth'), `${at}: no loincloth`);
   }
 });
 
@@ -85,12 +91,10 @@ test('monkeys have a tail, men and women do not', () => {
   assert.equal(anatomy(SPECIES.female, stand).tail, undefined);
 });
 
-test('outfit: dhoti and full top use the cloth colour', () => {
-  const role = (outfit) => buildShapes(SPECIES.male, stand, outfit).shapes.filter((s) => s.role === 'cloth').length;
-  const briefs = role({ bottom: 'briefs', top: 'bare' });
-  assert.equal(briefs, 1);                                    // the loincloth only
-  assert.ok(role({ bottom: 'dhoti', top: 'bare' }) > briefs);
-  assert.ok(role({ bottom: 'briefs', top: 'full' }) > briefs);
+test('outfit: the thighs are cloth; a full top puts the torso in cloth too', () => {
+  const cloth = (outfit) => buildShapes(SPECIES.male, stand, outfit).shapes.filter((s) => s.role === 'cloth').map((s) => s.part).sort();
+  assert.deepEqual(cloth({ bottom: 'dhoti', top: 'bare' }), ['far-thigh', 'near-thigh']);
+  assert.deepEqual(cloth({ bottom: 'dhoti', top: 'full' }), ['far-thigh', 'near-thigh', 'torso']);
 });
 
 test('the guide head is a plain rectangle, size × (size · width)', () => {
@@ -127,23 +131,6 @@ test('a drawn face replaces the generated head', () => {
   const without = renderFigure(SPECIES.male, stand, { ...rama, face: null }).svg;
   assert.ok(withFace.includes(FACES.faces.rama.side.head));
   assert.ok(!without.includes(FACES.faces.rama.side.head));
-});
-
-// Drawn parts (experiment): species with "parts" use the artist's outlines.
-test('drawn parts: every pose builds in side and front, standing on the ground', async () => {
-  const { loadAssets } = await import('../tools/lib.mjs');
-  const A = loadAssets();
-  for (const id of ['male', 'female', 'monkey']) {
-    const S = A.species[id];
-    assert.equal(typeof S.parts, 'object', `${id} uses drawn parts`);
-    for (const p of A.poses) for (const view of ['side', 'front']) {
-      const { shapes, bbox, headAnchor } = buildShapes(S, p, { top: 'bare', bottom: 'dhoti' }, view);
-      assert.ok(Math.abs(bbox.y1) < 1e-9, `${p.name} ${view} on the ground`);
-      assert.ok(shapes.every((s) => s.pts.every((q) => q.every(Number.isFinite))), `${p.name} ${view} finite`);
-      assert.ok(Number.isFinite(headAnchor.at[0]));
-      assert.ok(!shapes.some((s) => s.part === 'loincloth'), 'no loincloth');
-    }
-  }
 });
 
 test('a head is drawn as the nearest drawn view (front, quarter, side, back, down, top)', async () => {
