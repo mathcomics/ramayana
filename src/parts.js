@@ -496,6 +496,9 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
         limbs[s].arm.push(['prop', poly([add(tip, mul(ad, 0.14)), add(tip, mul(ap, 0.06)), add(tip, mul(ap, -0.06))]), H.d3]);
       } else limbs[s].arm.push(['prop', band([T1, T2], 0.025), H.d3]);
     }
+    // the fist goes over the weapon it holds: the hand is drawn last
+    const arm = limbs[s].arm;
+    arm.push(...arm.splice(arm.findIndex(([part]) => part === 'hand'), 1));
   }
   // Neck and head in 3D. The neck leans with lean + chest + neck in the side
   // plane; each view is its projection (the front view sees its up-down
