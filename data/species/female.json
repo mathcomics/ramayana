@@ -5,54 +5,5 @@
     "size": 1,
     "width": 0.74
   },
-  "neck": 0.3,
-  "neckWidth": 0.2,
-  "spine": {
-    "lower": 0.85,
-    "upper": 1
-  },
-  "torso": {
-    "side": {
-      "hip": 0.78,
-      "waist": 0.46,
-      "chest": 0.78
-    },
-    "front": {
-      "hip": 1,
-      "waist": 0.5,
-      "chest": 1
-    }
-  },
-  "arm": {
-    "upper": 1.15,
-    "lower": 1.05,
-    "w": [
-      0.19,
-      0.24,
-      0.12
-    ],
-    "hand": 0.36,
-    "knot": 0.6,
-    "fist": 0.65
-  },
-  "leg": {
-    "upper": 1.4,
-    "lower": 1.35,
-    "w": [
-      0.44,
-      0.31,
-      0.14
-    ],
-    "foot": 0.55,
-    "knot": 0.6
-  },
-  "bulge": 0.65,
-  "lowerBulge": 0.95,
-  "shoulder": {
-    "side": {
-      "near": 0.4,
-      "far": -0.1
-    }
-  },
   "parts": "female"
 }

@@ -22,28 +22,6 @@ export function rot(p, phi) {
   return [p[0] * c - p[1] * s, p[0] * s + p[1] * c];
 }
 
-// Sample a quadratic bezier p0 -> p2 with control p1 (excludes p0).
-export function quad(p0, p1, p2, n = 10) {
-  const out = [];
-  for (let i = 1; i <= n; i++) {
-    const t = i / n, u = 1 - t;
-    out.push([
-      u * u * p0[0] + 2 * u * t * p1[0] + t * t * p2[0],
-      u * u * p0[1] + 2 * u * t * p1[1] + t * t * p2[1],
-    ]);
-  }
-  return out;
-}
-
-export function circlePts(c, r, n = 20) {
-  const out = [];
-  for (let i = 0; i < n; i++) {
-    const a = (i / n) * Math.PI * 2;
-    out.push([c[0] + Math.cos(a) * r, c[1] + Math.sin(a) * r]);
-  }
-  return out;
-}
-
 const f = (v) => (Math.round(v * 1000) / 1000).toString();
 
 export function pathD(pts, close = true) {

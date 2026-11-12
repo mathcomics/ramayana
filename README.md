@@ -51,8 +51,9 @@ tools/svg.mjs            SVG parsing for import-faces
 test/                    npm test: unit, data integrity and render snapshot
 panels (with "tags")     approved reference panels: the artist-reviewed yardstick
 src/geom.js              2D helpers (angles: 0 = down, +90 = forward)
-src/figure.js            skeleton solve, body-part shapes, SVG output
-data/species/*.json      per-species proportions, in head-units
+src/parts.js             the artist's drawn body parts placed on the pose (both views)
+src/figure.js            a figure's shapes from the parts, SVG output
+data/species/*.json      per species: its drawn parts, head guide size, tail
 data/bases.json          bases: lower bodies (legs, lean, tail)
 data/gestures.json       gestures: upper bodies (arms, prop, chest, head, mouth)
 data/poses.json          the poses (<base>-<gesture>), how to find one, wanted poses
@@ -61,7 +62,6 @@ data/characters.json     cast: species + body colour + outfit + cloth colour
 tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
 tools/pose-catalogue.mjs poses with their story moments, by base → out/pose-catalogue.png
 tools/pose-gaps.mjs      story moments without a pose → docs/issues/missing-poses.md
-tools/parts-sheet.mjs    every body part separately → out/parts-<species>.png
 tools/figure-svg.mjs     one character, one pose → editable SVG, one path per body part
 tools/build-poselab.mjs  builds the pose lab page → out/poselab.html
 tools/poselab.template.html  pose lab source
@@ -81,7 +81,6 @@ node tools/contact-sheet.mjs monkey --zoom 3   # all poses, 3× (or: male, femal
 node tools/pose-catalogue.mjs                  # pose catalogue for picking (docs/design/pose-picking.md)
 node tools/pose-gaps.mjs --scenes 04           # missing poses; candidate poses per scene
 node tools/figure-svg.mjs rama --pose stand      # out/figure-rama-stand-side/front.svg (or --pose-file x.json)
-node tools/parts-sheet.mjs monkey [--light]    # each body part at one scale (--light: pale, outlined, PDF, to draw on)
 node tools/build-poselab.mjs                   # rebuild the pose lab page
 node tools/face-templates.mjs                  # character templates; refresh guides after a base change
 node tools/import-faces.mjs                    # data/faces/base + data/faces/*.svg → data/faces.json
@@ -123,10 +122,10 @@ real phone size (figures roughly 60–150 px tall).
   the same poses.
 - **Look (not part of the pose):** a character from
   `data/characters.json` fixes species, body and cloth colours and outfit
-  (`bottom`: briefs | dhoti, `top`: bare | full). `characterLook()` turns it
+  (`top`: bare | full; the lower cloth always covers the thighs). `characterLook()` turns it
   into `renderFigure` options; facing is chosen per use.
-- **Shapes:** limbs follow straight-against-curve with knotty joints. The
-  loincloth is derived from the thighs and the torso. The head is the
+- **Shapes:** every body part is the artist's own drawing
+  (`data/parts/`, `docs/design/drawn-parts.md`), placed on the pose. The head is the
   artist's drawn face (`data/faces/`, every character has one); a species
   gives only the head's size and width, a plain rectangle used as the
   drawing guide.

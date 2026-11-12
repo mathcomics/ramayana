@@ -1,9 +1,9 @@
-// Drawn-parts figures (experiment, branch drawn-parts): every body part is
-// the artist's own outline (data/parts/<id>.svg, imported by
-// tools/import-parts.mjs into data/parts.json), placed rigidly on the
-// skeleton. The torso is interpolated between four drawn keys:
-// front / side (turn) × straight / bent forward (bend). Shapes are
-// returned in the same form as buildShapes in figure.js.
+// Drawn-parts figures: every body part is the artist's own outline
+// (data/parts/<id>.svg, imported by tools/import-parts.mjs into
+// data/parts.json), placed rigidly on the skeleton. The torso is
+// interpolated between four drawn keys: front / side (turn) × straight /
+// bent forward (bend). src/figure.js (buildShapes) turns the result into a
+// figure's shapes.
 //
 // Names here are prefixed (dp…) because the labs concatenate the renderer
 // modules into one script.

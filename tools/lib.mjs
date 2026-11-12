@@ -1,13 +1,10 @@
 // Shared helpers for the tools (Node only): repo paths, data loading,
-// panel sections, PNG conversion, the renderer bundle for the lab pages and
-// the head-local frame used by the hair and face templates.
+// panel sections, PNG conversion and the renderer bundle for the lab pages.
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { backgroundInner } from '../src/scene.js';
-import { anatomy } from '../src/figure.js';
-import { bbox } from '../src/geom.js';
 import { composePoses } from '../src/compose.js';
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -42,8 +39,8 @@ const rank = (id) => (ORDER.includes(id) ? ORDER.indexOf(id) : ORDER.length);
 export function loadSpecies() {
   const ids = readdirSync(join(root, 'data/species')).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5))
     .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
-  // a species with "parts": "<id>" is drawn from the artist's parts
-  // (data/parts.json, from data/parts/<id>.svg; experiment)
+  // every species names its drawn parts, "parts": "<id>" (data/parts.json,
+  // from data/parts/<id>.svg); the renderer needs them attached
   const parts = existsSync(join(root, 'data/parts.json')) ? json('data/parts.json').parts : {};
   // held props (data/held.json, from data/props/held/<kind>.svg): shared by every species
   const held = existsSync(join(root, 'data/held.json')) ? json('data/held.json') : null;
@@ -162,12 +159,3 @@ export function rendererBundle(files) {
 // Fill a lab template's /*__KEY__*/ placeholders.
 export const fillTemplate = (template, values) =>
   Object.entries(values).reduce((html, [k, v]) => html.replace(`/*__${k}__*/`, () => v), read(template));
-
-// A standing, unbent figure's parts, and `loc` to move points into the
-// head-local frame (head centre at 0,0) used by hair and face SVGs.
-export function headFrame(S, view) {
-  const parts = anatomy(S, { view, headView: view, mouth: 2, spine: { lean: 0, chest: 0, neck: 0, head: 0 } });
-  const b = bbox([parts.head.find((p) => p.head).pts]);
-  const c = [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2];
-  return { parts, centre: c, loc: (pts) => pts.map(([x, y]) => [x - c[0], y - c[1]]) };
-}

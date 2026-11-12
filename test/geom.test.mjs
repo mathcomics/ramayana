@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { dir, add, sub, mul, lerp, rot, quad, circlePts, pathD, bbox } from '../src/geom.js';
+import { dir, add, sub, mul, lerp, rot, pathD, bbox } from '../src/geom.js';
 
 const near = (a, b, eps = 1e-9) => a.every((v, i) => Math.abs(v - b[i]) < eps);
 
@@ -17,18 +17,6 @@ test('vector helpers', () => {
   assert.deepEqual(mul([1, -2], 3), [3, -6]);
   assert.deepEqual(lerp([0, 0], [10, 20], 0.25), [2.5, 5]);
   assert.ok(near(rot([1, 0], 90), [0, 1]));        // clockwise in a y-down frame
-});
-
-test('quad excludes its start and ends on its end point', () => {
-  const q = quad([0, 0], [5, 10], [10, 0], 4);
-  assert.equal(q.length, 4);
-  assert.deepEqual(q.at(-1), [10, 0]);
-  assert.ok(near(quad([0, 0], [5, 10], [10, 0], 2)[0], [5, 5]));   // midpoint of the bezier
-});
-
-test('circle stays inside its bounds', () => {
-  const c = bbox([circlePts([1, 1], 2, 40)]);
-  assert.ok(c.x0 >= -1 - 1e-9 && c.x1 <= 3 + 1e-9);
 });
 
 test('pathD rounds to 3 decimals and closes by default', () => {

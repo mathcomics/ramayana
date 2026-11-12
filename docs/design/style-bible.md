@@ -85,7 +85,7 @@ generic monkey.
 
 - Head: drawn by the artist per character (§5.6); the species gives only
   its size (guide `head.width` 1, a square).
-- Neck: thin (`neckWidth` ≈ 0.24) and fairly long (`neck` ≈ 0.27).
+- Neck: thin and fairly long.
 - Torso: chest tapering to a narrow waist.
 - Torso curl (all species): the
   torso is two blocks hinged at the waist. Bending forward, the upper
@@ -99,7 +99,7 @@ generic monkey.
   left side, so the front view shows part of the curl.
 - Hands (all species), set per arm:
   - fist: a wedge widening from the wrist to a flat top with rounded
-    corners, shorter than the open hand (`arm.fist` ≈ 0.65 of its length);
+    corners, shorter than the open hand (about 0.65 of its length);
   - out: a blunt paddle for the fingers with a thumb (parallel sides,
     blunt end) on the side away from the body;
   - in: the same with the thumb on the side toward the body;
@@ -117,7 +117,7 @@ generic monkey.
 
 Not in the reference work. Same parts and
 rules as the monkey (hands, knotty limbs, torso curl), with its own
-proportions in `data/species/male.json`:
+proportions, drawn in `data/parts/male.svg`:
 
 - Taller: longer legs (thigh 1.5, shin 1.45) and torso; arms a bit
   shorter than the monkey's.
@@ -130,7 +130,7 @@ proportions in `data/species/male.json`:
 
 ### 5.3 Female
 
-First version, `data/species/female.json`. Like the male, with:
+First version, drawn in `data/parts/female.svg`. Like the male, with:
 
 - Narrower shoulders, narrow waist, wider hips (front view reads as an
   hourglass).
