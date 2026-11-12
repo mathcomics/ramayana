@@ -2,6 +2,7 @@
 // tools/import-faces.mjs and tools/face-templates.mjs.
 import { readFileSync } from 'node:fs';
 import { parse, serialize, label, esc, withoutDisplay } from './svg.mjs';
+import { r4 } from './svg-geom.mjs';
 
 const LAYERS = ['skin', 'eyes', 'mouth-1', 'mouth-2', 'mouth-3', 'under', 'over', 'head', 'back', 'hair-body'];
 // views of a face (docs/proposals/2026-11-12-head-rendering-survey.md): front,
@@ -18,7 +19,6 @@ export const PAGE_ALL_VIEWS = { viewBox: '-1.5 -1.2 12.5 5', width: '2500', heig
 // front-up / front-down in the second (y 4)
 export const BASE_X = { front: 0, side: 3, quarter: 5, 'back-view': 6.6, top: 8.2 };
 export const PAGE_BASE = { viewBox: '-1.5 -1.2 10.4 9', width: '2080', height: '1800' };
-const r4 = (v) => Math.round(v * 1e4) / 1e4;
 
 // Find the named layers anywhere in a view; keep the transforms of their ancestors.
 function findLayers(node, chain, found) {
@@ -92,11 +92,13 @@ export function readFile(file) {
   return out;
 }
 // the base's skin is painted with the character's body colour
-export const paintSkin = (g) => g.replace(/fill\s*:\s*(?!none)[^;"]+/g, 'fill:currentColor').replace(/fill="(?!none)[^"]*"/g, 'fill="currentColor"');
+export const paintSkin = (g) => recolorFills(g, 'currentColor');
+// every fill in markup (style or attribute; not "none") set to one colour
+export const recolorFills = (g, c) => g.replace(/fill\s*:\s*(?!none)[^;"]+/g, `fill:${c}`).replace(/fill="(?!none)[^"]*"/g, `fill="${c}"`);
 
 
 // ---- writing a parsed SVG back (pretty-printed; for refreshing guides)
-const xesc = (s) => String(s).replace(/&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[\da-f]+);)/gi, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const xesc = (s) => esc(s).replace(/</g, '&lt;');
 export function writeNode(n, depth = 0) {
   if (n.text != null) return n.text;
   const pad = '  '.repeat(depth);
@@ -105,6 +107,9 @@ export function writeNode(n, depth = 0) {
   if (n.children.every((c) => c.text != null)) return `${pad}<${n.tag}${attrs}>${n.children.map((c) => c.text).join('')}</${n.tag}>\n`;
   return `${pad}<${n.tag}${attrs}>\n${n.children.map((c) => writeNode(c, depth + 1)).join('')}${pad}</${n.tag}>\n`;
 }
+// a locked guide layer (ignored on import)
+const guideLayer = (name, opacity, children = []) =>
+  ({ tag: 'g', attrs: { 'inkscape:groupmode': 'layer', 'inkscape:label': name, 'sodipodi:insensitive': 'true', opacity }, children });
 // Replace the guide layer's drawing in every view of a face file (src text);
 // guides: { view: markup }. Everything else is kept, except: offsets
 // ({ view: x }) moves those views' layers, page ({ viewBox, width, height })
@@ -116,7 +121,7 @@ export function replaceGuides(src, guides, { offsets = null, page = null, top = 
   const svg = tree.children.find((c) => c.tag === 'svg');
   for (const v of svg.children.filter((c) => c.tag === 'g' && guides[label(c)] != null)) {
     let g = v.children.find((c) => c.tag === 'g' && label(c).startsWith('guide'));
-    if (!g) { g = { tag: 'g', attrs: { 'inkscape:groupmode': 'layer', 'inkscape:label': 'guide', 'sodipodi:insensitive': 'true', opacity: '0.7' }, children: [] }; v.children.unshift(g); }
+    if (!g) { g = guideLayer('guide', '0.7'); v.children.unshift(g); }
     g.children = parse(`<g>${guides[label(v)]}</g>`).children[0].children;
   }
   if (offsets) for (const v of svg.children.filter((c) => c.tag === 'g' && offsets[label(c)] != null)) {
@@ -126,8 +131,7 @@ export function replaceGuides(src, guides, { offsets = null, page = null, top = 
   if (page) Object.assign(svg.attrs, page);
   if (top) for (const v of svg.children.filter((c) => c.tag === 'g' && top[label(c)] != null)) {
     v.children = v.children.filter((c) => !(c.tag === 'g' && label(c) === 'guide-mouth'));
-    v.children.push({ tag: 'g', attrs: { 'inkscape:groupmode': 'layer', 'inkscape:label': 'guide-mouth', 'sodipodi:insensitive': 'true', opacity: '0.5' },
-      children: parse(`<g>${top[label(v)]}</g>`).children[0].children });
+    v.children.push(guideLayer('guide-mouth', '0.5', parse(`<g>${top[label(v)]}</g>`).children[0].children));
   }
   return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n${comment ? `${comment}\n` : ''}${writeNode(svg)}`;
 }

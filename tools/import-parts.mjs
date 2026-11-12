@@ -30,6 +30,8 @@
 import { readdirSync } from 'node:fs';
 import { parse, label } from './svg.mjs';
 import { read, writeOut } from './lib.mjs';
+import { r4 } from './svg-geom.mjs';
+import { RAD, add, sub, mul, lerp, rot } from '../src/geom.js';
 
 const K = 100;
 const HANDS = ['fist', 'out', 'in', 'point'];
@@ -64,12 +66,6 @@ const translateOf = (n) => {
 };
 
 // ---- geometry helpers (drawing coordinates)
-const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
-const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
-const mul = (a, s) => [a[0] * s, a[1] * s];
-const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
-const RAD = Math.PI / 180;
-const rot = (p, phi) => { const c = Math.cos(phi * RAD), s = Math.sin(phi * RAD); return [p[0] * c - p[1] * s, p[0] * s + p[1] * c]; };
 const angleOf = (v) => Math.atan2(v[0], v[1]) / RAD;        // 0 = down, +90 = +x
 const wrap = (v) => ((v + 540) % 360) - 180;
 const mapSegs = (segs, f) => segs.map((s) => s.map(f));
@@ -81,7 +77,6 @@ const bary = (X, [A, B, C]) => {
   return [1 - b - c, b, c];
 };
 const fromBary = (w, [A, B, C]) => add(add(mul(A, w[0]), mul(B, w[1])), mul(C, w[2]));
-const r4 = (v) => Math.round(v * 1e4) / 1e4;
 const pack = (segs) => segs.map((s) => s.map((p) => [r4(p[0]), r4(p[1])]));
 
 // Torso nodes, in order round the outline (as on the front torso):

@@ -253,20 +253,22 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const seat = t?.def?.anchors?.[aname];
     if (!seat) { issues.push(`${o.name}: "on" needs a prop with a "${aname}" anchor in the panel ("${e.on}")`); if (o.f) o.f = { ...o.f, on: undefined }; else o.p = { ...o.p, on: undefined }; return; }
     if (t.x == null) return;
+    // the anchor's point in the panel (the prop mirrored when it faces left)
+    const sx = t.x + t.facing * (seat[0] * t.unit - t.halfW), sy = t.groundY - t.h + seat[1] * t.unit;
     if (aname === 'face') {                     // the head alone, no ground contact
       if (!o.f) { issues.push(`${o.name}: a "face" anchor takes a figure, not a prop ("${e.on}")`); return; }
       o.headOnly = true;
       o.unit = (seat[2] || 1) * t.unit * (e.scale ?? 1);
       o.halfW = ((o.S.head?.width ?? 1) / 2) * o.unit;
-      o.groundY = t.groundY - t.h + seat[1] * t.unit - o.dy * o.unit;   // the head's centre, not a ground line
-      o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) + o.dx * o.unit;
+      o.groundY = sy - o.dy * o.unit;   // the head's centre, not a ground line
+      o.x = sx + o.dx * o.unit;
       o.pivot = [o.x, o.groundY];
       return;
     }
     o.unit = t.unit * (e.scale ?? 1);
     // the anchor point, nudged: a rotated figure turns about it
-    const ax = t.x + t.facing * (seat[0] * t.unit - t.halfW) + o.dx * o.unit;
-    const ay = t.groundY - t.h + seat[1] * t.unit - o.dy * o.unit;
+    const ax = sx + o.dx * o.unit;
+    const ay = sy - o.dy * o.unit;
     if (o.f) o.pivot = [ax, ay];
     // a hand anchor: the figure hangs from it by one hand — the higher one,
     // or the one its "hand" names (right / left) — its grip on the point
@@ -277,16 +279,16 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       const g = e.hand === 'right' ? right : e.hand === 'left' ? left : (right && left ? (left[1] < right[1] ? left : right) : right || left);
       if (!g) { issues.push(`${o.name}: no hand to hang from`); return; }
       o.halfW = o.halfW1 * o.unit;
-      o.groundY = t.groundY - t.h + seat[1] * t.unit - g[1] * o.unit - o.dy * o.unit;
-      o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - g[0] * o.unit * o.facing + o.dx * o.unit;
+      o.groundY = sy - g[1] * o.unit - o.dy * o.unit;
+      o.x = sx - g[0] * o.unit * o.facing + o.dx * o.unit;
       return;
     }
     if (o.f) o.halfW = o.halfW1 * o.unit;
     else { [o.w, o.h] = (o.def?.size || PLACEHOLDER).map((v) => v * o.unit); o.halfW = o.w / 2; }
     // a seat anchor takes the hips; any other (stand …) the lowest point
     const hips = o.f && aname === 'seat' ? o.seatY * o.unit : 0;
-    o.groundY = t.groundY - t.h + seat[1] * t.unit - hips - o.dy * o.unit;
-    o.x = t.x + t.facing * (seat[0] * t.unit - t.halfW) - (o.f ? o.pelvisX * o.unit * o.facing : 0) + o.dx * o.unit;
+    o.groundY = sy - hips - o.dy * o.unit;
+    o.x = sx - (o.f ? o.pelvisX * o.unit * o.facing : 0) + o.dx * o.unit;
   };
   for (let pass = 0; pass < 3; pass++) {
     for (const o of all) {

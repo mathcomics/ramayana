@@ -14,6 +14,7 @@
 // limbs are its near side (picture-right). 100 px = 1 head-unit, ground at
 // y = 0.
 import { json, writeOut } from './lib.mjs';
+import { add, sub, mul } from '../src/geom.js';
 
 const id = process.argv[2] || 'male';
 const J = json('data/parts.json');
@@ -21,9 +22,6 @@ const K = 100;
 if (id === 'hands') { exportHands(J.hands || { ...J.parts.male.hands, handTip: J.parts.male.handTip }); process.exit(0); }
 const M = J.parts[id];
 if (!M) throw new Error(`no parts "${id}" in data/parts.json`);
-const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
-const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
-const mul = (a, s) => [a[0] * s, a[1] * s];
 const node = (T, i) => T[i][0];
 const at = (W, idx, T) => idx.map((i) => node(T, i)).reduce((acc, p, k) => add(acc, mul(p, W[k])), [0, 0]);
 // a joint as stored (a mix of three torso nodes, or a point on a torso edge)

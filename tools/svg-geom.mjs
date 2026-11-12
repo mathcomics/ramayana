@@ -1,6 +1,8 @@
-// SVG geometry for the importers (tools/import-held.mjs): transforms as
-// 2x3 matrices [a b c d e f] (parseTransform, mm, ap) and any SVG path as
-// sampled polygons (pathPolys).
+// SVG geometry for the importers: transforms as 2x3 matrices
+// [a b c d e f] (parseTransform, mm, ap), any SVG path as sampled polygons
+// (pathPolys), and r4, the 4-decimal rounding the imported data is stored at.
+
+export const r4 = (v) => Math.round(v * 1e4) / 1e4;
 
 // ---- transforms (2x3 matrices [a b c d e f])
 export const mm = (A, B) => [A[0] * B[0] + A[2] * B[1], A[1] * B[0] + A[3] * B[1], A[0] * B[2] + A[2] * B[3], A[1] * B[2] + A[3] * B[3],

@@ -34,7 +34,7 @@ import { writeFileSync, readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, json } from './lib.mjs';
 import { readFile, paintSkin, VIEWS } from './faces-lib.mjs';
-const r4 = (v) => Math.round(v * 1e4) / 1e4;
+import { r4 } from './svg-geom.mjs';
 
 const dir = join(root, 'data/faces');
 const outPath = join(root, 'data/faces.json');

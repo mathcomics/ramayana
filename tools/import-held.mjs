@@ -16,10 +16,11 @@
 // colours are kept; the drawing is only moved and turned.
 import { parse, serialize, label } from './svg.mjs';
 import { read, writeOut } from './lib.mjs';
-import { mm, ap, parseTransform, pathPolys } from './svg-geom.mjs';
+import { mm, ap, parseTransform, pathPolys, r4 } from './svg-geom.mjs';
+import { sub } from '../src/geom.js';
 
 const KINDS = ['sword', 'club', 'bow'];
-const K = 100, r4 = (v) => Math.round(v * 1e4) / 1e4;
+const K = 100;
 const I = [1, 0, 0, 1, 0, 0];
 
 // layers -> { name: { node, M (ancestors' transform incl. the layer's) } }
@@ -57,7 +58,6 @@ function refOf(L, where) {
   if (!pts) throw new Error(`${where}: no path labelled "line"`);
   return { a: pts[0], b: pts[pts.length - 1], pts, grip };
 }
-const sub = (p, q) => [p[0] - q[0], p[1] - q[1]];
 // the frame of a line: origin at the grip, x along it (start -> end for a
 // sword, end -> start for a bow, so +x points at the top tip)
 function frameOf(ref, kind) {

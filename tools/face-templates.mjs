@@ -17,13 +17,13 @@
 // neck.
 // Units are head-units: head centre (0,0), y down; side faces look right.
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathD } from '../src/geom.js';
 import { buildShapes } from '../src/figure.js';
 import { headView } from '../src/headturn.js';
 import { loadSpecies, writeOut, root, json } from './lib.mjs';
-import { readFile, replaceGuides, VIEW_X, PAGE_ALL_VIEWS, BASE_X, PAGE_BASE } from './faces-lib.mjs';
+import { readFile, replaceGuides, recolorFills, VIEW_X, PAGE_ALL_VIEWS, BASE_X, PAGE_BASE } from './faces-lib.mjs';
 
 const STRAIGHT = { look: 'front', spine: { lean: 0, chest: 0, neck: 0, head: 0 },
   near: { arm: { shoulder: 0, elbow: 0 }, leg: { hip: 0, knee: 0 } },
@@ -71,7 +71,7 @@ const ownMouths = (X) => ['mouth-1', 'mouth-2', 'mouth-3'].some((m) => X.front?.
 // the base face (level) for a guide: skin in a neutral colour, eyes as drawn
 const baseFace = (B, view) => {
   const L = B[view]?.layers || {};
-  const skin = (L.skin || '').replace(/fill\s*:\s*(?!none)[^;"]+/g, `fill:${GUIDE.skin}`).replace(/fill="(?!none)[^"]*"/g, `fill="${GUIDE.skin}"`);
+  const skin = recolorFills(L.skin || '', GUIDE.skin);
   return `<g opacity="0.6">${skin}${L.eyes || ''}</g>`;
 };
 
@@ -93,12 +93,12 @@ for (const species of Object.keys(all)) {
     const f = join(dir, `${c.id}.svg`);
     const X = readFile(f);
     // a character with views beyond front and side: their guides, laid out in a row
-    const all = Object.keys(VIEW_POSE).some((v) => X[v]);
+    const allViews = Object.keys(VIEW_POSE).some((v) => X[v]);
     // the base face too (the character draws only its own parts in these views)
     const viewGuides = Object.fromEntries(Object.keys(VIEW_POSE).map((v) => [v, more[v] + baseFace(B, v)]));
-    writeFileSync(f, replaceGuides(readFileSync(f, 'utf8'), all ? { ...charGuides, ...viewGuides } : charGuides,
+    writeFileSync(f, replaceGuides(readFileSync(f, 'utf8'), allViews ? { ...charGuides, ...viewGuides } : charGuides,
       // the base's mouth on top, where the character draws no mouths of its own
-      all ? { offsets: VIEW_X, page: PAGE_ALL_VIEWS, top: ownMouths(X) ? null : mouthTop } : {}));
+      allViews ? { offsets: VIEW_X, page: PAGE_ALL_VIEWS, top: ownMouths(X) ? null : mouthTop } : {}));
   }
   // template for a new character
   const layer = (name, inner = '') => `    <g inkscape:groupmode="layer" inkscape:label="${name}">${inner}</g>\n`;

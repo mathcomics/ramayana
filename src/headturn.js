@@ -1,19 +1,22 @@
 // Head orientation: 3×3 matrices from head-local coordinates (x across,
 // y down, z toward the face) to picture coordinates (u right, v down, w
 // toward the viewer). A head is drawn as the nearest of the face's drawn
-// views (src/figure.js, headView); these give the head's orientation to
+// views (headView below; src/figure.js draws it); these give its orientation to
 // pick it by.
 
-const HT_RAD = Math.PI / 180;
+import { RAD } from './geom.js';
+
+// 3×3 matrix product A·B
+const htMul = (A, B) => A.map((r) => [0, 1, 2].map((j) => r[0] * B[0][j] + r[1] * B[1][j] + r[2] * B[2][j]));
 
 // yaw (degrees): 0 = the face toward the viewer, 90 = looking picture-right,
 // 180 = the back of the head; pitch: + raises the face
 export function htRot(yaw, pitch) {
-  const cy = Math.cos(yaw * HT_RAD), sy = Math.sin(yaw * HT_RAD), cp = Math.cos(pitch * HT_RAD), sp = Math.sin(pitch * HT_RAD);
+  const cy = Math.cos(yaw * RAD), sy = Math.sin(yaw * RAD), cp = Math.cos(pitch * RAD), sp = Math.sin(pitch * RAD);
   // object (x right, y down, z toward the viewer at yaw 0) -> picture (u, v, w toward the viewer)
   const Ry = [[cy, 0, sy], [0, 1, 0], [-sy, 0, cy]];
   const Rx = [[1, 0, 0], [0, cp, -sp], [0, sp, cp]];
-  return Rx.map((r) => [0, 1, 2].map((j) => r[0] * Ry[0][j] + r[1] * Ry[1][j] + r[2] * Ry[2][j]));
+  return htMul(Rx, Ry);
 }
 
 // A figure's head: head-local -> picture, from the side pose. The head
@@ -24,12 +27,12 @@ export function htRot(yaw, pitch) {
 // forward); the head is taken as symmetric, so the far side is shown, as in
 // the side drawing.
 export function headMatrix(tilt, turn, front) {
-  const t = tilt * HT_RAD, a = (front ? turn : -turn) * HT_RAD;
+  const t = tilt * RAD, a = (front ? turn : -turn) * RAD;
   const ct = Math.cos(t), st = Math.sin(t), ca = Math.cos(a), sa = Math.sin(a);
   // head-local (x, y, z = face) -> body (X near side, Y down, Z forward): turn about Y, then tilt about X
   const turnM = [[ca, 0, sa], [0, 1, 0], [-sa, 0, ca]];
   const tiltM = [[1, 0, 0], [0, ct, st], [0, -st, ct]];
-  const B = tiltM.map((r) => [0, 1, 2].map((j) => r[0] * turnM[0][j] + r[1] * turnM[1][j] + r[2] * turnM[2][j]));
+  const B = htMul(tiltM, turnM);
   // body -> picture (u, v, w toward the viewer)
   return front ? [B[0], B[1], B[2]] : [B[2], B[1], B[0].map((v) => -v)];
 }

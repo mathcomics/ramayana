@@ -225,7 +225,6 @@ function dpMatchRound(segs, ref) {
   }
   return best.r;
 }
-const dpWrap = (v) => { while (v > 180) v -= 360; while (v <= -180) v += 360; return v; };
 
 // S: the species (head size, tail); pose: the normalised SIDE pose (both
 // views); bodyScale: the character's body scale.

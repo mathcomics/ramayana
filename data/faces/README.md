@@ -118,7 +118,7 @@ everything else is used exactly as drawn.
 
 ## History
 
-`tools/split-faces.mjs` (one-time, 2026-11-06) split the 18 earlier whole
+A one-time script (`tools/split-faces.mjs`, 2026-11-06; removed, in git history) split the 18 earlier whole
 faces: skin-coloured parts became the base's (from rama, sita, hanuman),
 eyes and mouths that differed from the base stayed with the character, and
 the rest went to `under` / `over` by drawing order.
