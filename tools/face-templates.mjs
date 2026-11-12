@@ -9,14 +9,21 @@
 // straight at the figure's real scale (so body hair can be drawn over the
 // back) and, in
 // character files and the base's raised / lowered versions, the base face.
+// The other views of a character (quarter, back-view, front-down, top) get
+// the neck as a figure shows it with the head in that view, and the views
+// are laid out in a row after the side (faces-lib VIEW_X); their
+// quarter and front-down guides also show the base's mouth-3 (the mouths of
+// those views are the base's); the base's quarter and front-down show the
+// neck.
 // Units are head-units: head centre (0,0), y down; side faces look right.
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathD } from '../src/geom.js';
 import { buildShapes } from '../src/figure.js';
+import { headView } from '../src/headturn.js';
 import { loadSpecies, writeOut, root, json } from './lib.mjs';
-import { readFile, replaceGuides } from './faces-lib.mjs';
+import { readFile, replaceGuides, VIEW_X, PAGE_ALL_VIEWS, BASE_X, PAGE_BASE } from './faces-lib.mjs';
 
 const STRAIGHT = { look: 'front', spine: { lean: 0, chest: 0, neck: 0, head: 0 },
   near: { arm: { shoulder: 0, elbow: 0 }, leg: { hip: 0, knee: 0 } },
@@ -40,6 +47,27 @@ function bodyGuide(S, view) {
   const nape = [hairAnchor.at[0] - hx, hairAnchor.at[1] - hy].map((v) => Math.round(v * 1000) / 1000);
   return { markup, nape };
 }
+// The neck for a view beyond front and side: a front-view figure standing
+// straight with its head turned / lowered to that view, the neck carried
+// into the view's own drawing coordinates (the inverse of how the renderer
+// places the view), and the head centre's cross.
+const VIEW_POSE = { quarter: { turn: 30 }, 'back-view': { turn: 180 }, 'front-down': { head: 40 }, top: { head: 90 } };
+function viewGuide(S, view) {
+  const pose = { ...STRAIGHT, spine: { ...STRAIGHT.spine, ...VIEW_POSE[view] } };
+  const { shapes, headAnchor } = buildShapes(S, pose, { top: 'bare', bottom: 'dhoti' }, 'front');
+  const { m } = headView(headAnchor.R, [view]);
+  const [hx, hy] = headAnchor.at;
+  // m is a rotation or reflection: its inverse is its transpose
+  const loc = (pts) => pts.map(([x, y]) => [m[0] * (x - hx) + m[1] * (y - hy), m[2] * (x - hx) + m[3] * (y - hy)]);
+  return [
+    ...shapes.filter((sh) => sh.part === 'neck').map((sh) => `<path d="${pathD(loc(sh.pts))}" fill="${GUIDE.neck}"/>`),
+    '<path d="M-0.08 0H0.08M0 -0.08V0.08" stroke="#b04040" stroke-width="0.01" fill="none"/>',
+  ].join('\n');
+}
+// the base's mouth-3 of a view (character guides: on top of the drawing,
+// layer guide-mouth, half transparent)
+const baseMouth = (B, view) => B[view]?.layers['mouth-3'] || '';
+const ownMouths = (X) => ['mouth-1', 'mouth-2', 'mouth-3'].some((m) => X.front?.layers[m]);
 // the base face (level) for a guide: skin in a neutral colour, eyes as drawn
 const baseFace = (B, view) => {
   const L = B[view]?.layers || {};
@@ -54,13 +82,23 @@ for (const species of Object.keys(all)) {
   const baseFile = join(dir, 'base', `${species}.svg`);
   const B = readFile(baseFile);
   // base: body only on the level faces, the level face too on up / down
+  const more = Object.fromEntries(Object.keys(VIEW_POSE).map((v) => [v, viewGuide(S, v)]));
   writeFileSync(baseFile, replaceGuides(readFileSync(baseFile, 'utf8'), {
-    front: G.front.markup, side: G.side.markup,
-    'front-up': G.front.markup + baseFace(B, 'front'), 'front-down': G.front.markup + baseFace(B, 'front') }));
+    front: G.front.markup, side: G.side.markup, 'front-up': G.front.markup + baseFace(B, 'front'),
+    'front-down': more['front-down'], quarter: more.quarter },
+    B.quarter ? { offsets: BASE_X, page: PAGE_BASE } : {}));
   const charGuides = { front: G.front.markup + baseFace(B, 'front'), side: G.side.markup + baseFace(B, 'side') };
+  const mouthTop = { quarter: baseMouth(B, 'quarter'), 'front-down': baseMouth(B, 'front-down') };
   for (const c of cast.filter((x) => x.species === species)) {
     const f = join(dir, `${c.id}.svg`);
-    writeFileSync(f, replaceGuides(readFileSync(f, 'utf8'), charGuides));
+    const X = readFile(f);
+    // a character with views beyond front and side: their guides, laid out in a row
+    const all = Object.keys(VIEW_POSE).some((v) => X[v]);
+    // quarter and front-down: the base face too (the character draws only its own parts there)
+    const viewGuides = { ...more, quarter: more.quarter + baseFace(B, 'quarter'), 'front-down': more['front-down'] + baseFace(B, 'front-down') };
+    writeFileSync(f, replaceGuides(readFileSync(f, 'utf8'), all ? { ...charGuides, ...viewGuides } : charGuides,
+      // the base's mouth on top, where the character draws no mouths of its own
+      all ? { offsets: VIEW_X, page: PAGE_ALL_VIEWS, top: ownMouths(X) ? null : mouthTop } : {}));
   }
   // template for a new character
   const layer = (name, inner = '') => `    <g inkscape:groupmode="layer" inkscape:label="${name}">${inner}</g>\n`;

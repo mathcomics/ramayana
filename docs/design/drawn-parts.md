@@ -110,8 +110,8 @@ move the legs.
   the torso when the head is in front of it, else just before the head. The head's centre sits where
   the `head` / `side-head` anchors put it from the neck top (front x,
   side depth); the head tilts with lean + chest + neck + head and turns
-  by `spine.turn` (`headMatrix`), and is drawn by `src/headturn.js` from
-  the face drawings (`docs/design/faces.md`).
+  by `spine.turn` (`headMatrix`), and is drawn as the nearest of the
+  face's drawn views (`docs/design/faces.md`).
 - The pointing finger always goes on the side toward the body (the drawn
   point hand is mirrored across the forearm).
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn

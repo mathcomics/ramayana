@@ -145,3 +145,24 @@ test('drawn parts: every pose builds in side and front, standing on the ground',
     }
   }
 });
+
+test('a head is drawn as the nearest drawn view (front, quarter, side, back, down, top)', async () => {
+  const { headView, htRot, headMatrix, INTENDED_VIEWS } = await import('../src/headturn.js');
+  const at = (yaw, pitch, have = INTENDED_VIEWS) => headView(htRot(yaw, pitch), have);
+  assert.equal(at(0, 0).view, 'front');
+  assert.equal(at(-5, -10).view, 'front');
+  assert.equal(at(28, 0).view, 'quarter');
+  assert.deepEqual([at(-35, 0).view, at(-35, 0).mirror], ['quarter', true]);
+  assert.deepEqual([at(90, 0).view, at(90, 0).mirror], ['side', false]);
+  assert.deepEqual([at(-90, 0).view, at(-90, 0).mirror], ['side', true]);
+  assert.equal(at(170, 0).view, 'back-view');
+  assert.equal(at(0, -35).view, 'front-down');
+  assert.equal(at(0, -80).view, 'top');
+  // a missing view: the nearest drawn one stands in
+  assert.equal(at(30, 0, ['front', 'side']).view, 'front');
+  assert.equal(at(180, 0, ['front', 'side']).view, 'side');
+  // a side-view head tilted is the side drawing rotated, never the top
+  const r = headView(headMatrix(70, 0, false), INTENDED_VIEWS);
+  assert.equal(r.view, 'side');
+  assert.ok(Math.abs(Math.abs(Math.atan2(r.m[1], r.m[0]) * 180 / Math.PI) - 70) < 1e-6, 'rotated by the tilt');
+});

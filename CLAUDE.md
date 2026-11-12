@@ -78,6 +78,9 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
     node tools/prop-gaps.mjs                       # docs/issues/missing-props.md; placeholder props per panel
     node tools/import-held.mjs                     # data/props/held/{sword,club,bow}.svg -> data/held.json
+    node tools/import-faces.mjs                    # data/faces/*.svg -> data/faces.json
+    node tools/bake-views.mjs [--force] [ids]      # generate the head views a face file lacks
+    node tools/view-gaps.mjs                       # docs/issues/missing-views.md: head views to draw
 
 Pose lab (published artifact; edits bases, gestures and the pose list
 separately, saving to its database, collections `bases`, `gestures`,
@@ -157,10 +160,12 @@ Bodies, faces and poses all come from the artist's drawings
 code still decides by a rule instead: `docs/issues/rules-to-migrate.md`;
 what looks wrong: `docs/issues/problem-poses.md`.
 
-- **17 characters** in `data/characters.json` — the cast is complete.
+- **18 characters** in `data/characters.json` — the cast is complete.
   More generic monkeys and rakshasas come from cloth colour and a cloth
   pattern, never from new characters. Every character has a front and a
-  side face drawing; there is no generated fallback.
+  side face drawing; there is no generated fallback — except the
+  side-only kaikeyi and raxas_f1–f3 (`sideOnly`), which have a side face only and are
+  never drawn in front view.
 - **56 poses** in `data/poses.json`, all side view (the front view is
   derived by the renderer). Each is named `<base>-<gesture>` and is
   exactly one of the **27 bases** (`data/bases.json`: legs, lean, tail)
@@ -168,8 +173,11 @@ what looks wrong: `docs/issues/problem-poses.md`.
   head, mouth); `src/compose.js` composes it when the assets load, so
   retuning a base or gesture changes every pose using it. A pose has no
   angles of its own — `poses.json` holds only its finding fields.
-- Heads turn and tilt to any angle from the front and side face drawings,
-  and show the drawn face exactly as drawn at the drawn angles.
+- A head is always one of six drawn views, shown as drawn: front,
+  three-quarter, side, back, down 40°, top (mirrored for the other side;
+  `docs/design/faces.md`). The four beyond front and side were generated
+  once from those two and are redrawn by hand over time:
+  `docs/issues/missing-views.md`.
 - Weapons are drawn along a reference line in the hand
   (`data/props/held/`, a per-character version where one exists);
   `grip: "both"` solves the second arm onto the hilt.

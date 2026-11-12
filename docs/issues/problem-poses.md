@@ -3,8 +3,8 @@
 Open problems seen in the poses and faces: all 28 poses, side and front,
 for Rama (male), Hanuman (monkey) and Sita (female). Contact sheets:
 `node tools/contact-sheet.mjs male --who rama`, `monkey --who hanuman`,
-`female --who sita`; faces: `node tools/face-sheet.mjs`; turned heads:
-`node tools/head-turn-sheet.mjs`. Rules in the code that cause some of
+`female --who sita`; faces: `node tools/face-sheet.mjs` and the pose lab's Face tab (head
+views; to draw: `docs/issues/missing-views.md`). Rules in the code that cause some of
 these: `docs/issues/rules-to-migrate.md`.
 
 ## To fix in the drawings or the poses
@@ -20,11 +20,7 @@ these: `docs/issues/rules-to-migrate.md`.
 | arch-overhead (side) | all | The head is tipped far back and hidden behind the raised arm | Pose: less head tilt, or the arm a little lower |
 | fallback-flung (front) | all | The raised legs come over the belly | Correct for the pose (legs toward the viewer); change the pose if not wanted |
 | (faces) | rakshasa men, sugriva, monkey1, raxas_m2, dasharatha | Keep their own eyes or mouths after the face split, so base edits don't reach them | Face files: delete the character's `eyes` / `mouth-*` layers where the base should be used |
-| (turned heads, 30° and 60°) | all | The in-between turns are computed from the two drawings and look less hand-made; Hanuman's muzzle and mouth flatten | Face files: adjust the front / side drawings |
 | all (side) | female characters | A small bump on top of the head: the front hair reaches 0.11 head-units higher than the side hair, so the side gets a rounded cap | Face files: match the hair heights in front and side (`import-faces` lists every mismatch) |
-| (turned heads) | every character | Front and side drawings disagree on heights: skin top about 0.09 higher in front (all bases), hair masses and buns by 0.03–0.12 | Face files: line up the heights; `node tools/import-faces.mjs` prints each mismatch (`~` lines) |
-| (turned heads, 90° and level) | Rama, Sita | A thin sliver of skin under the hairline, or a hair band across the forehead | Matching heights first; else tuning the layer bias (`docs/issues/rules-to-migrate.md`) |
-| (turned heads, 60° down 20–40°) | Sita | Small holes in the hair mass | Painter's order of the row slabs (`docs/issues/rules-to-migrate.md`) |
 | front poses with the head turned away (`look: right`, side view) | all | The back of the head shows the skin colour where no hair is drawn behind | Face files: hair or a cap drawn to cover the back, if wanted |
 | kneel, kneel-bow, kneel-palms (side) | all | The forward foot hovers ~0.35 head-units above the ground (the back shin and foot carry the ground contact); seen from the new `joints.low` measurements | Pose lab: forward leg's hip / knee so the foot lands; the pin-feet toggle will then keep it there |
 | sit (side) | all | The stretched left foot's heel hovers ~0.65 above the ground | Pose lab: left knee / ankle so the heel rests |

@@ -36,7 +36,8 @@ cast.forEach((c, i) => {
 
   // two full figures, scaled to the cell height
   const ground = y0 + ch - 12;
-  [[front(2), x0 + 0.2 * cw], [side(2), x0 + 0.45 * cw]].forEach(([{ pose, view }, x]) => {
+  // a sideOnly character: the side figure and close-ups only
+  [[front(2), x0 + 0.2 * cw], [side(2), x0 + 0.45 * cw]].filter(([f]) => !(opts.sideOnly && f.view === 'front')).forEach(([{ pose, view }, x]) => {
     const { bbox } = buildShapes(S, pose, opts.outfit, view, opts.bodyScale);
     const scale = FIG / (bbox.y1 - bbox.y0);
     s += renderFigure(S, pose, { ...opts, view, x, y: ground, scale }).svg;
@@ -44,6 +45,7 @@ cast.forEach((c, i) => {
 
   // head close-ups: front (left column) and side (right column), mouths 1–3
   [front, side].forEach((make, col) => {
+    if (opts.sideOnly && make === front) return;
     [1, 2, 3].forEach((mouth, row) => {
       const { pose, view } = make(mouth);
       const { headAnchor } = buildShapes(S, pose, opts.outfit, view, opts.bodyScale);

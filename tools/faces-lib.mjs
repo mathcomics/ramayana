@@ -4,7 +4,20 @@ import { readFileSync } from 'node:fs';
 import { parse, serialize, label, esc, withoutDisplay } from './svg.mjs';
 
 const LAYERS = ['skin', 'eyes', 'mouth-1', 'mouth-2', 'mouth-3', 'under', 'over', 'head', 'back', 'hair-body'];
-export const VIEWS = ['front', 'side', 'front-up', 'front-down'];
+// views of a face (docs/proposals/2026-11-12-head-rendering-survey.md): front,
+// side, front-down (head lowered 40°), quarter (turned 30°, looking right),
+// back-view (180°), top (head lowered 90°: the top of the head); front-up
+// is read when drawn but not one of the intended views
+export const VIEWS = ['front', 'side', 'front-up', 'front-down', 'quarter', 'back-view', 'top'];
+// where each view's layer sits in a character file (x offset, head-units;
+// ignored on import): front and side as always, the others in a row after
+// them, and the page wide enough to show them all
+export const VIEW_X = { front: 0, side: 3, quarter: 5, 'back-view': 6.6, 'front-down': 8.2, top: 9.8 };
+export const PAGE_ALL_VIEWS = { viewBox: '-1.5 -1.2 12.5 5', width: '2500', height: '1000' };
+// a base face file: front, side and (mouths only) quarter in the first row,
+// front-up / front-down in the second (y 4)
+export const BASE_X = { front: 0, side: 3, quarter: 5 };
+export const PAGE_BASE = { viewBox: '-1.5 -1.2 7.6 9', width: '1520', height: '1800' };
 const r4 = (v) => Math.round(v * 1e4) / 1e4;
 
 // Find the named layers anywhere in a view; keep the transforms of their ancestors.
@@ -12,7 +25,7 @@ function findLayers(node, chain, found) {
   for (const c of node.children || []) {
     if (!c.tag) continue;
     const name = c.tag === 'g' ? label(c) : '';
-    if (name.startsWith('guide') || name === 'anchors') continue;
+    if (name.startsWith('guide') || name === 'anchors' || name === 'generated') continue;
     if (LAYERS.includes(name)) { found[name] = { chain, node: c }; continue; }
     findLayers(c, c.tag === 'g' ? [...chain, c.attrs.transform].filter(Boolean) : chain, found);
   }
@@ -45,7 +58,7 @@ function readView(v, where) {
   const found = findLayers(v, [], {});
   // loose drawing outside any named layer belongs to "over"
   const loose = v.children.filter((c) => c.tag && !/^(defs|metadata|sodipodi:|inkscape:|title|desc)/.test(c.tag)
-    && !(c.tag === 'g' && (LAYERS.includes(label(c)) || label(c).startsWith('guide') || label(c) === 'anchors' || Object.values(found).some((f) => contains(c, f.node)))));
+    && !(c.tag === 'g' && (LAYERS.includes(label(c)) || label(c).startsWith('guide') || label(c) === 'anchors' || label(c) === 'generated' || Object.values(found).some((f) => contains(c, f.node)))));
   if (loose.length) console.error(`  ! ${where}: ${loose.length} element(s) outside a layer, put in "over"`);
   const layers = {};
   for (const [name, { chain: chain0, node }] of Object.entries(found)) {
@@ -59,7 +72,10 @@ function readView(v, where) {
   const anchorsG = v.children.find((c) => c.tag === 'g' && label(c) === 'anchors');
   const anchors = Object.fromEntries(Object.entries(anchorsG ? findCircles(anchorsG) : {}).map(([k, p]) => [k, [r4(p[0] - off[0]), r4(p[1] - off[1])]]));
   const defs = v.children.filter((c) => c.tag === 'defs').map((d) => d.children.map(serialize).join('')).join('');
-  return { layers, anchors, defs };
+  // an empty `generated` layer marks a view written by tools/bake-views.mjs
+  // (delete it once the view is redrawn by hand)
+  const generated = v.children.some((c) => c.tag === 'g' && label(c) === 'generated');
+  return { layers, anchors, defs, generated };
 }
 // Hiding something in the editor (a layer or a single element) is only an
 // editing state: it is still drawn.
@@ -93,8 +109,11 @@ export function writeNode(n, depth = 0) {
   return `${pad}<${n.tag}${attrs}>\n${n.children.map((c) => writeNode(c, depth + 1)).join('')}${pad}</${n.tag}>\n`;
 }
 // Replace the guide layer's drawing in every view of a face file (src text);
-// guides: { view: markup }. Everything else is kept.
-export function replaceGuides(src, guides) {
+// guides: { view: markup }. Everything else is kept, except: offsets
+// ({ view: x }) moves those views' layers, page ({ viewBox, width, height })
+// resizes the page, top ({ view: markup }) sets a second guide on top of the
+// view's drawing (layer `guide-mouth`; ignored on import like any guide).
+export function replaceGuides(src, guides, { offsets = null, page = null, top = null } = {}) {
   const comment = (src.match(/^(?:<\?xml[^>]*\?>\s*)?(<!--[\s\S]*?-->)/) || [])[1] || '';
   const tree = parse(src);
   const svg = tree.children.find((c) => c.tag === 'svg');
@@ -102,6 +121,16 @@ export function replaceGuides(src, guides) {
     let g = v.children.find((c) => c.tag === 'g' && label(c).startsWith('guide'));
     if (!g) { g = { tag: 'g', attrs: { 'inkscape:groupmode': 'layer', 'inkscape:label': 'guide', 'sodipodi:insensitive': 'true', opacity: '0.7' }, children: [] }; v.children.unshift(g); }
     g.children = parse(`<g>${guides[label(v)]}</g>`).children[0].children;
+  }
+  if (offsets) for (const v of svg.children.filter((c) => c.tag === 'g' && offsets[label(c)] != null)) {
+    const x = offsets[label(v)];
+    if (x) v.attrs.transform = `translate(${x} 0)`; else delete v.attrs.transform;
+  }
+  if (page) Object.assign(svg.attrs, page);
+  if (top) for (const v of svg.children.filter((c) => c.tag === 'g' && top[label(c)] != null)) {
+    v.children = v.children.filter((c) => !(c.tag === 'g' && label(c) === 'guide-mouth'));
+    v.children.push({ tag: 'g', attrs: { 'inkscape:groupmode': 'layer', 'inkscape:label': 'guide-mouth', 'sodipodi:insensitive': 'true', opacity: '0.5' },
+      children: parse(`<g>${top[label(v)]}</g>`).children[0].children });
   }
   return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n${comment ? `${comment}\n` : ''}${writeNode(svg)}`;
 }

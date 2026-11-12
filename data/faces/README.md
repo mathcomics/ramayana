@@ -12,6 +12,42 @@ The artist's face drawings, in two parts (since 2026-11-06):
 2026-11-04): there is no generated fallback. `import-faces` reports a
 missing file or view.
 
+**Side-only characters** (`sideOnly: true` in `data/characters.json`;
+kaikeyi and raxas_f1–f3, since 2026-11-12; only sita and surpanakha of the women
+keep a front view) are only ever drawn in side view: only the
+`side` layer is imported (`front` is ignored, it may stay empty). A
+panel asking for their front view gets the side view and an issue.
+
+## Views (since 2026-11-12)
+
+A head is always one of its drawn views, shown as drawn (no in-between
+angles; `docs/design/faces.md`):
+
+| Top-level layer | The head |
+|---|---|
+| `front` | facing the viewer |
+| `quarter` | turned 30°, looking right |
+| `side` | turned 90°, looking right |
+| `back-view` | from behind |
+| `front-down` | facing the viewer, lowered 40° |
+| `top` | lowered 90°: the top of the head |
+
+The **bases** draw the face in front, side, three-quarter and down-40°
+(`skin`, `eyes`, `mouth-1/2/3`). In those views a character's file
+holds **only its own parts** — `under` (behind the face), `over` (hair,
+crown, beard, marks), `back` — and its own `eyes` / mouths only where it
+draws its own in front (rakshasa men's eyes, raxas_m2's mouths); its guide
+shows the base face, and a locked `guide-mouth` layer on top shows the
+base's widest mouth, half transparent. The back and top views have no base
+drawing: the character's file holds the **whole head** there (skin
+included, in `over`). They were **generated**
+by `node tools/bake-views.mjs` from the front and side drawings and placed
+to the right of the side view in the file (x 6, 9, 12, 15). To redraw one,
+edit or replace its layers and **delete its empty `generated` layer**:
+from then on the view is yours and `bake-views --force` leaves it alone.
+The pose lab's Face tab shows every view of a character; the list of views
+still to draw: `docs/issues/missing-views.md` (`node tools/view-gaps.mjs`).
+
 ## Workflow
 
 1. Edit a base face, or start a new character from
@@ -40,8 +76,10 @@ drawing, the importer measures from where it now is.
 
 ### Base face (`base/<species>.svg`)
 
-Views: `front`, `side`, and optional `front-up`, `front-down` (the front
-face with the head raised / lowered; empty = the level face is used).
+Views: `front`, `side`, and optional others (above); a character view
+the base doesn't draw is the whole head in the character's file. A base
+`front-up` / `front-down` with `top` and `chin` anchors makes a
+character's raised / lowered view from its front parts when it has none.
 
 | Layer | Use |
 |---|---|
@@ -52,13 +90,12 @@ face with the head raised / lowered; empty = the level face is used).
 
 ### Character (`<character-id>.svg`)
 
-Views: `front`, `side`, and optional `front-up`, `front-down` (the
-character's own parts for the raised / lowered head; without them the
-level parts follow the base's anchors).
+Views: `front`, `side`, and the others above (`quarter`, `back-view`,
+`front-down`, `top`, optional `front-up`).
 
 | Layer | Use |
 |---|---|
-| `under` | Behind the base face, turning with the head: e.g. hair behind the head in front view, the back of a beard. |
+| `under` | Behind the base face: e.g. hair behind the head in front view, the back of a beard. |
 | `over` | Over the base face: hair, crown, beard, earrings, face marks. |
 | `back` | Optional. Behind the whole body (e.g. long locks in front view). |
 | `hair-body` | Optional. Long hair on the back and shoulders: moves with the upper body, pinned at the `nape` anchor and turned with the chest; the front view sees its up-down part, like the torso. Drawn just behind the torso in the front view and just over it in the side view. |
@@ -66,15 +103,6 @@ level parts follow the base's anchors).
 | `anchors` | `nape`: where the body hair joins the body (the template puts it at the neck base). |
 
 Draw order of a face: `under`, base skin, eyes, `over`, mouth.
-
-### Matching front and side shapes (for blending later)
-
-Where a hair shape is drawn in both views, give the front and side
-versions the same number of nodes, so a head turn can later blend one
-into the other (step 4). In sita, raxas_f2 (then queen1) and raxas_f1 (2026-11-06): the
-front `back` hair pairs with the side `over` hair, and the front
-`hair-body` with the side `hair-body`; the two topmost nodes of a front
-shape correspond to the two rightmost nodes of its side partner.
 
 Save as **Inkscape SVG**: a plain SVG drops the layer names, and the
 importer needs them.

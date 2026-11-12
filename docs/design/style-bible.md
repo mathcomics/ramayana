@@ -179,15 +179,14 @@ figures. Signature features (necklaces, crowns, top bun…) come later.
 
 ## 5.6 Drawn faces
 
-How the files are read and the head turned: `docs/design/faces.md`.
+How the files are read and a head's view picked: `docs/design/faces.md`.
 
 Faces are drawn by the artist (`data/faces/`, see its README), in two
 parts:
 
 - **Base face**, one per species (`data/faces/base/<species>.svg`): the
   face shape and ears (`skin`), `eyes` and three mouths, front and side,
-  plus optional front versions with the head raised and lowered
-  (`front-up`, `front-down`). Editing it changes every character of the
+  plus optional other views (`docs/design/faces.md`). Editing it changes every character of the
   species. Its skin is painted in the character's body colour; eyes and
   mouths keep their drawn colours.
 - **Character parts**, one file per character (`data/faces/<id>.svg`):
@@ -197,23 +196,17 @@ parts:
   dasharatha's side mouths). Colours as drawn. A guide shows the base
   face.
 
-**Every character has both a front and a side face; there is no
-generated fallback**. Drawings are never edited by
-code. **The head is turned in 3D from its two drawings** (`src/headturn.js`): matching front and side elements (the
-skin, hair masses, buns) become volumes, at each height an ellipse as
-wide as the front drawing and as deep as the side drawing; eyes, mouths,
-ears and marks are flat pieces on their surface (front ones up to a 45°
-turn, side ones past it). The head tilts with lean + chest + neck + head
-and turns with `spine.turn`, in both views, so the drawings show exactly in the
-straight front and side views and everything else (three-quarter, up,
-down, upside down, the back of the head) comes from them. Front and side
-drawings must agree on heights (the importer lists where they don't).
-Drawn layering wins near the front (`under` behind the face, `over` in
-front), depth toward the back of the head; a part in `back` (as drawn in
-the nearer view) goes behind the whole body. The face is drawn over the
-neck and body (in side view the right arm still crosses in front);
-`mouth-1/2/3` follow the pose's mouth size. The base's `front-up` /
-`front-down` layers are not used.
+**Every character has a front and a side face** (side-only characters:
+the side), drawn by the artist; drawings are never edited by code.
+**A head is always one of its drawn views, shown as drawn**: front,
+three-quarter (30°), side, back, down 40°, top (down 90°), turns to the
+other side mirrored; the head shows the view seen from the nearest
+direction, rotated in the picture by its tilt, never an in-between angle.
+The views beyond front and side were generated once from those two, to
+keep or redraw (`docs/issues/missing-views.md`). A part in `back` goes
+behind the whole body. The face is drawn over the neck and body (in side
+view the right arm still crosses in front); `mouth-1/2/3` follow the
+pose's mouth size.
 
 **Size guide.** A species head is only `size` and `width`: a plain rectangle `size` tall and `size × width` wide,
 centred where the face goes. It is the only head the renderer draws itself
@@ -311,8 +304,7 @@ male 0.88, female 0.74.
 - **The neck is always behind the head**, and is drawn 1.5 × the length
   of the drawn neck.
   - A head bent far forward or below the shoulders (e.g. `fallfront-armsdown`)
-    shows its top and back in the front view, from the turned head (no
-    back-head drawing needed). A full back view of the body (arms behind
+    shows its top in the front view (the `top` view). A full back view of the body (arms behind
     the torso) is still not built.
 - Foreshortening only by projection: a part turned out of the paper
   shortens (never widens); otherwise flat.

@@ -1,5 +1,5 @@
 {
-  "_doc": "Characters inherit a species and fix body colour (hex; must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from the cloth palette below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later. scale (optional, default 1): body scale, torso and legs only (head, neck and arms keep their size); e.g. 0.8 for a small generic monkey.",
+  "_doc": "Characters inherit a species and fix body colour (hex; must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from the cloth palette below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later. scale (optional, default 1): body scale, torso and legs only (head, neck and arms keep their size); e.g. 0.8 for a small generic monkey. sideOnly (optional): the character is only ever drawn in side view — its face file has a side drawing only (the front layer is ignored), there is no head-turn data, and a panel asking for the front view gets the side view.",
   "palette": {
     "cloth": {
       "orange": "#f5b56e",
@@ -51,7 +51,8 @@
       "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
-      "cloth": "yellow"
+      "cloth": "yellow",
+      "sideOnly": true
     },
     {
       "id": "hanuman",
@@ -124,7 +125,8 @@
       "body": "#c8504a",
       "top": "full",
       "bottom": "dhoti",
-      "cloth": "red-stripe"
+      "cloth": "red-stripe",
+      "sideOnly": true
     },
     {
       "id": "raxas_f2",
@@ -133,7 +135,18 @@
       "body": "#c87137",
       "top": "full",
       "bottom": "dhoti",
-      "cloth": "red-stripe"
+      "cloth": "red-stripe",
+      "sideOnly": true
+    },
+    {
+      "id": "raxas_f3",
+      "name": "raxas_f3",
+      "species": "female",
+      "body": "#c87137",
+      "top": "full",
+      "bottom": "dhoti",
+      "cloth": "red-stripe",
+      "sideOnly": true
     },
     {
       "id": "surpanakha",

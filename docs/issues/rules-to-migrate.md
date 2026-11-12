@@ -2,7 +2,7 @@
 
 The aim is a figure built only from the artist's drawings and projection.
 This list is what is still decided by a rule in the code (`src/parts.js`,
-`src/figure.js`, `src/headturn.js`, `tools/face-turn.mjs`) and what has
+`src/figure.js`, `src/headturn.js`, `tools/bake-views.mjs`) and what has
 to exist before each rule can go. How things work now: `docs/design/`.
 Problems seen in the poses: `docs/issues/problem-poses.md`.
 
@@ -24,13 +24,13 @@ Larger pieces of work that several rows below wait for:
 | A foot blends its front, side and sole drawings by (c·toes)², (c·side)², (c·sole)², each turned in the picture to match (side drawing and sole by where the toes point, front drawing by where the sole faces); toes pointing the other way use the side drawing mirrored (re-matched node for node). The leg's `out` doesn't turn the foot (a foot stays flat) | feet | None: a decision; a foot turned with the leg would need a toe-turn link to `out` |
 | `look` (front / left / right) is kept as a shortcut for `spine.turn` 0 / 90 / −90° (poses without `turn`) | head | None: old poses; the pose lab saves `turn` |
 | The neck is stretched to 1.5 × its drawn length | neck | A longer drawn neck in the parts files (then the factor goes back to 1) |
-| Turned head: eyes, mouths, ears and marks are flat cards that switch from their front to their side drawing at a 45° turn (no in-between) | head | Front and side drawings of each piece with matching node counts, then blend like the limbs |
+| A head is the nearest of its drawn views (front, three-quarter, side, back, down 40°, top; mirrored for the other side), rotated in the picture by its tilt: no in-between angles (`src/headturn.js`, `headView`) | head | None: a decision (`docs/proposals/2026-11-12-head-rendering-survey.md`) |
+| The views beyond front and side were generated from those two by the slice model (`tools/bake-views.mjs`); eyes and mouths not clipped to the face | head | Redraw each by hand (`docs/issues/missing-views.md`) |
 | Turned head: front cards lie in the face plane on the head volume's front surface at their centre; side cards in the side plane at the eyes' distance from the middle; ears are front cards at the volume's middle depth | head | None: placement rules; a drawn depth per piece if one sits wrong |
-| Turned head: volumes are drawn as one slab per height row, sorted by the row centre's depth (a painter's order), with a layer bias: `under` −0.15, `back` −0.3 (times how much the face points at the viewer; reversed for the back of the head), `over` +0.15, blended toward the side drawing's layer near the side view. Close surfaces can interleave (stripes, small holes, a hair band crossing the face at some angles) | head | Per-pixel depth (true hidden-surface removal), or tuning the bias |
 | Turned head: front and side elements are paired by kind and height overlap (IoU > 0.4); only the largest skin element becomes the head volume; small paired elements (< 0.03 head-units²) stay cards | head | Naming the pairs in the face files, if the guess goes wrong |
 | Turned head: a volume row is a full ellipse spanning the drawing's leftmost to rightmost point at that height (gaps and concave bits are filled, e.g. two locks become one mass) | head, hair | Separate elements per lock / mass in both drawings |
 | Turned head: where the front drawing reaches higher or lower than the side drawing, the missing side rows get a depth of the row width × the volume's usual depth-to-width ratio (a rounded cap; shows as a bump on side heads) | head, hair | Front and side drawings with matching heights (the importer lists the mismatches) |
-| Turned head: a `back` part (as drawn in the view the camera is nearer: the front layer under a 45° turn, else the side layer) goes behind the whole body; everything else is drawn with the head | hair | None: needed so front locks stay behind the shoulders |
+| A head's `back` layer (of the view drawn) goes behind the whole body | hair | None: needed so long hair stays behind the shoulders |
 | Turned head: row ellipses seen nearly edge-on are left out, and the clip for eyes / mouths uses only the outline and well-open ellipses (rsvg loses coverage where many thin shapes overlap in a clip path) | head | None: a rendering workaround |
 | Head centre from the neck top: front x from the `head` anchor, depth from `side-head`, height the average of the two (they differ only where the drawings disagree) | head | None: matching anchor heights in the parts files |
 | The neck is one drawing (front) seen in both views, shortened by projection; it doesn't turn with the head | neck | A side neck drawing, and an end-on one, if a pose shows the difference |

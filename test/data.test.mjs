@@ -5,6 +5,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { parseCloth } from '../src/figure.js';
+import { HEAD_VIEWS } from '../src/headturn.js';
 import { root, SPECIES, POSES, CAST, FACES } from './helpers.mjs';
 
 // A pose name starts with a style bible §7 base word, or — for a pose
@@ -90,10 +91,14 @@ test('characters: known species, hex body, known outfit and cloth', () => {
   assert.ok(!CAST.characters.some((c) => c.species === 'monkey' && /female/.test(c.id)), 'no female monkeys');
 });
 
-test('faces: every face belongs to a character; every character has both views', () => {
+test('faces: every face belongs to a character; front and side drawn (sideOnly: the side only); only known views', () => {
   const ids = new Set(CAST.characters.map((c) => c.id));
+  const known = HEAD_VIEWS.map(([v]) => v);
   for (const id of Object.keys(FACES.faces)) assert.ok(ids.has(id), `face for unknown character ${id}`);
-  for (const id of ids) for (const view of ['front', 'side']) {
+  for (const [id, F] of Object.entries(FACES.faces)) for (const v of Object.keys(F)) assert.ok(known.includes(v), `${id}: unknown view ${v}`);
+  for (const c of CAST.characters.filter((c) => c.sideOnly))
+    assert.deepEqual(Object.keys(FACES.faces[c.id] || {}), ['side'], `${c.id}: sideOnly, but has other views`);
+  for (const { id, sideOnly } of CAST.characters) for (const view of sideOnly ? ['side'] : ['front', 'side']) {
     assert.ok(FACES.faces[id]?.[view]?.head, `${id}: no ${view} face`);
     assert.ok(existsSync(join(root, `data/faces/${id}.svg`)), `${id}.svg missing`);
   }

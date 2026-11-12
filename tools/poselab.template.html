@@ -259,8 +259,8 @@ body.mode-pose .only-edit, body.face-mode .only-edit { display: none !important;
     <div class="strip" id="family"></div>
   </section>
 
-  <section class="faces face-only" id="facePane" aria-label="Head turned and tilted" hidden>
-    <p class="hint">The head turned (0° front, 90° side, 180° back) and tilted up and down (to 90°), built only from the character's front and side face drawings. The 0° and 90° columns are the drawings themselves.</p>
+  <section class="faces face-only" id="facePane" aria-label="Head views" hidden>
+    <p class="hint">The character's head views, each drawn as it is in the face file; a head in a panel is the nearest of them (turns to the other side mirror the drawing). <b>generated</b>: made once from the front and side drawings, to keep or redraw. A blank space: not drawn yet (the nearest drawn view stands in). The list: docs/issues/missing-views.md.</p>
     <div class="field"><span>Mouth</span><div class="seg" id="faceMouth"></div></div>
     <div class="facegrid" id="faceGrid"></div>
   </section>
@@ -296,7 +296,8 @@ const REPO = /*__POSEDATA__*/;
   // Character and facing change only the view
   const LOOK = new Set(['facing', 'faceMouth']);
   const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
-  const look = () => { const c = charById(state.character); return characterLook(c, CAST.palette, FACES, c.cloth); };
+  // locks: true draws a face's hair locks (lock-* layers; panels do not yet)
+  const look = () => { const c = charById(state.character); return { ...characterLook(c, CAST.palette, FACES, c.cloth), locks: true }; };
 
   // Joint angles are set by dragging on the figures (handles below); their
   // ranges live here. The panels keep only what has no handle.
@@ -868,21 +869,24 @@ const REPO = /*__POSEDATA__*/;
   $('character').innerHTML = CAST.characters.map((c) => `<option value="${c.id}">${c.name}</option>`).join('');
   $('character').addEventListener('change', (e) => { state.character = e.target.value; syncControls(); draw(); renderGallery(); if (state.tab === 'face') drawFaces(); });
 
-  // ---------- the face pane (the head turned, no controls)
-  const YAWS = [0, 30, 60, 90, 120, 150, 180], PITCHES = [90, 40, 20, 0, -20, -40, -90];
+  // ---------- the face pane: the character's head views (no controls)
+  const VIEW_NAMES = { front: 'front', quarter: '3/4 (30°)', side: 'side', 'back-view': 'back', 'front-down': 'down 40°', top: 'top (down 90°)' };
   function drawFaces() {
-    const c = charById(state.character), turn = FACES.faces?.[c.id]?.turn;
-    if (!turn) { $('faceGrid').innerHTML = '<p class="hint">No face drawings for this character.</p>'; return; }
-    const C = 1.5, L = 1.3, T = 0.5;
+    const c = charById(state.character), F = FACES.faces?.[c.id];
+    if (!F) { $('faceGrid').innerHTML = '<p class="hint">No face drawings for this character.</p>'; return; }
+    // the intended views only (a side-only character: the side); a view not
+    // drawn is a blank space
+    const views = c.sideOnly ? ['side'] : INTENDED_VIEWS;
+    const COLS = Math.min(3, views.length), C = 1.6, CH = 1.75;
     let body = '';
-    YAWS.forEach((y, j) => { body += `<text x="${L + j * C + C / 2}" y="0.32" font-size="0.2" text-anchor="middle" fill="#000" fill-opacity="0.55" font-family="sans-serif">${y}°</text>`; });
-    PITCHES.forEach((p, i) => {
-      body += `<text x="0.15" y="${T + i * C + C / 2 + 0.07}" font-size="0.2" fill="#000" fill-opacity="0.55" font-family="sans-serif">${p > 0 ? 'up ' + p + '°' : p < 0 ? 'down ' + -p + '°' : 'level'}</text>`;
-      YAWS.forEach((y, j) => {
-        body += `<g transform="translate(${L + j * C + C / 2} ${T + i * C + C / 2})" color="${c.body}">${headTurn(turn, y, p, { id: `ft${i}-${j}`, mouth: state.faceMouth, drawn: FACES.faces[c.id] })}</g>`;
-      });
+    views.forEach((v, k) => {
+      const x = (k % COLS) * C + C / 2, y = Math.floor(k / COLS) * CH;
+      const d = F[v];
+      body += `<text x="${x}" y="${y + 0.25}" font-size="0.15" text-anchor="middle" fill="#000" fill-opacity="0.6" font-family="sans-serif">${VIEW_NAMES[v]}${d?.generated ? ' · generated' : ''}</text>`;
+      body += d ? `<g transform="translate(${x} ${y + 1.0})">${drawnView(F, v, state.faceMouth, c.body)}</g>`
+        : `<text x="${x}" y="${y + 1.05}" font-size="0.13" text-anchor="middle" fill="#000" fill-opacity="0.35" font-family="sans-serif">not drawn</text>`;
     });
-    $('faceGrid').innerHTML = `<svg viewBox="0 0 ${L + YAWS.length * C} ${T + PITCHES.length * C}" role="img" aria-label="${c.name}'s head turned and tilted">${body}</svg>`;
+    $('faceGrid').innerHTML = `<svg viewBox="0 0 ${COLS * C} ${Math.ceil(views.length / COLS) * CH}" role="img" aria-label="${c.name}'s head views">${body}</svg>`;
   }
   state.faceMouth = 2;
   seg('faceMouth', [['Small', 1], ['Medium', 2], ['Wide', 3]], () => state.faceMouth, (v) => { state.faceMouth = v; drawFaces(); });

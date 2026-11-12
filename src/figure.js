@@ -11,7 +11,7 @@
 
 import { dir, add, mul, lerp, rot, quad, circlePts, pathD, bbox } from './geom.js';
 import { buildParts, dpSegD } from './parts.js';
-import { headTurn, headMatrix } from './headturn.js';
+import { headView } from './headturn.js';
 
 const ELBOW = +1; // forearm rotates toward +θ when the elbow flexes
 const KNEE = -1;  // shin rotates toward -θ when the knee flexes
@@ -458,19 +458,16 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1, who = null) {
   const front = view === 'front';
   const pose = front ? normalizePose(frontOf(S, side).pose) : side;
   const { shapes, H, headRot, headR, hair, joints } = buildParts(S.parts, S, side, outfit, front ? 'front' : 'side', bodyScale, who);
-  // The head is drawn turned in 3D (src/headturn.js) by headR from
-  // buildParts. Which face drawing's body hair and defs go with it: the
-  // drawing the camera sees more of (front view: the front drawing while
-  // the head turns less than 45°; side view: the side drawing).
-  const tr = side.spine.turn * Math.PI / 180;
-  const sideish = Math.abs(Math.sin(tr)) > Math.abs(Math.cos(tr));
+  // The head is drawn as the nearest of the face's drawn views to its
+  // orientation headR (src/headturn.js, headView; renderFigure picks it).
   // The front view is mirrored: the character faces the viewer, so its
   // right side (the side view's near side) is on picture-left. The parts are
   // built with the near side on picture-right and flipped here; the head
   // keeps its drawing unmirrored (R conjugated by the flip), so it turns to
   // the same side of the body in both views.
   const F = front ? -1 : 1;
-  const R = front ? headR.map((r, i) => r.map((v, j) => ((i === 0) !== (j === 0) ? -v : v))) : headR;
+  const flipR = (M) => (front ? M.map((r, i) => r.map((v, j) => ((i === 0) !== (j === 0) ? -v : v))) : M);
+  const R = flipR(headR);
   if (front) {
     const fl = (q) => [-q[0], q[1]];
     for (const s of shapes) {
@@ -481,7 +478,6 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1, who = null) {
   }
   const Hm = [F * H[0], H[1]], hairAt = [F * hair.at[0], hair.at[1]];
   const jf = (q) => [F * q[0], q[1]];
-  const face = { view: front !== sideish ? 'front' : 'side', mirror: front && sideish && Math.sin(tr) > 0, R };
   // centred on the body: held props don't move the figure
   const bb = bbox(shapes.filter((s) => s.role !== 'prop').map((s) => s.pts));
   const dx = -(bb.x0 + bb.x1) / 2, dy = -bb.y1;
@@ -494,7 +490,7 @@ function partsShapes(S, poseIn, outfit, view, bodyScale = 1, who = null) {
   // joints in the figure's own frame (for the pose lab's handles)
   const jm = (g) => Object.fromEntries(Object.entries(g).map(([k, q]) => [k, mv(jf(q))]));
   const J = { near: jm(joints.near), far: jm(joints.far), spine: jm(joints.spine) };
-  return { shapes, joints: J, sk: { pose, front }, headAnchor: { at: mv(Hm), rot: F * headRot, ...face }, hairAnchor: { ...hair, rot: F * hair.rot, at: mv(hairAt) }, bbox: bbox(shapes.map((s) => s.pts)) };
+  return { shapes, joints: J, sk: { pose, front }, headAnchor: { at: mv(Hm), rot: F * headRot, R }, hairAnchor: { ...hair, rot: F * hair.rot, at: mv(hairAt) }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
 
 // Every body part as its own list of shapes, for inspection
@@ -560,25 +556,40 @@ function shade(c, k) {
   const n = parseInt(m[1], 16);
   return '#' + [16, 8, 0].map((b) => { const v = (n >> b) & 255; return Math.round(v + (255 - v) * k).toString(16).padStart(2, '0'); }).join('');
 }
+// One drawn view of a face alone (pose lab, face sheets): its back layer,
+// head and mouth as drawn, head centre at (0, 0); '' when not drawn.
+export function drawnView(face, view, mouth = 2, color = DEFAULT_COLORS.body) {
+  const d = face?.[view];
+  if (!d) return '';
+  return `<g color="${color}">${d.defs ? `<defs>${d.defs}</defs>` : ''}${d.back || ''}${d.head || ''}${d.mouth?.[mouth] || ''}</g>`;
+}
+
 let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
   const { x = 0, y = 0, scale = 20, facing = 1, headOnly = false } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
-  const { shapes, headAnchor, hairAnchor, sk, bbox: bb, joints } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, opts.view, opts.bodyScale ?? 1, opts.who);
+  // a sideOnly character (data/characters.json) is always drawn in side
+  // view, with its side face as drawn (it has no front face, no turn data)
+  const view = opts.sideOnly ? 'side' : opts.view;
+  const { shapes, headAnchor, hairAnchor, sk, bbox: bb, joints } = buildShapes(species, pose, { ...DEFAULT_OUTFIT, ...(opts.outfit || {}) }, view, opts.bodyScale ?? 1, opts.who);
   // Drawn face (data/faces): replaces the guide head (every character has
-  // one; the guide shows on species sheets only). Its layers are
-  // copied unchanged, colours included, and placed with one transform.
-  const drawn = opts.face?.[headAnchor.view ?? (sk.pose.headView === 'front' ? 'front' : 'side')];
-  const place = (g) => `<g transform="translate(${headAnchor.at[0]} ${headAnchor.at[1]}) rotate(${headAnchor.rot})${headAnchor.mirror ? ' scale(-1 1)' : ''}">${g}</g>`;
-  // a raised / lowered head uses that version of the face when drawn
-  const ver = (headAnchor.nod && drawn?.[headAnchor.nod]) || drawn;
+  // one; the guide shows on species sheets only). The head is the face's
+  // drawn view nearest to its orientation (headView: front, quarter, side,
+  // back-view, front-down, top; mirrored for the other side), its layers
+  // copied unchanged, colours included, and placed with one transform. A
+  // sideOnly character (data/characters.json) only has its side view.
+  const have = opts.face ? (opts.sideOnly ? ['side'] : Object.keys(opts.face)) : [];
+  // (a figure without drawn parts has no head orientation: the figure's own
+  // view, turned by the head's angle)
+  const r = (headAnchor.rot || 0) * Math.PI / 180;
+  const plain = () => { const v = sk.front && have.includes('front') ? 'front' : 'side'; return have.includes(v) ? { view: v, mirror: false, m: [Math.cos(r), Math.sin(r), -Math.sin(r), Math.cos(r)] } : null; };
+  const hv = headAnchor.R ? headView(headAnchor.R, have) : plain();
+  const drawn = hv ? opts.face[hv.view] : null;
+  const place = (g) => `<g transform="matrix(${hv.m.map((v) => Math.round(v * 1e4) / 1e4).join(' ')} ${headAnchor.at[0]} ${headAnchor.at[1]})">${g}</g>`;
   // the base face's skin is currentColor: the body colour
-  const clipId0 = opts.id ?? `face${clipSeq + 1}`;
-  // a face with turn data is drawn in 3D (src/headturn.js) at the head's place
-  const turned = opts.face?.turn && headAnchor.R;
-  const at = `translate(${headAnchor.at[0]} ${headAnchor.at[1]})`;
-  const turnPart = (part) => `<g transform="${at}" color="${colors.body}">${headTurn(opts.face.turn, 0, 0, { R: headAnchor.R, part, mouth: sk.pose.mouth, id: `${clipId0}${part}`, drawn: opts.face })}</g>`;
-  const faceHead = turned ? turnPart('head') : drawn && place(`<g color="${colors.body}">${ver.head || ''}${ver.mouth?.[sk.pose.mouth] || ''}</g>`);
+  const faceHead = drawn && place(`<g color="${colors.body}">${drawn.head || ''}${drawn.mouth?.[sk.pose.mouth] || ''}</g>`);
+  // body hair lies on the body: the figure's own view's drawing
+  const bodyFace = opts.face?.[sk.front && !opts.sideOnly ? 'front' : 'side'];
   // A head alone, for a prop's `face` anchor (the sound-cry burst carries
   // the crier's face). The drawn face and the hair behind it, nothing else:
   // with no torso there is no neck, and the face's `hair-body` layer is
@@ -589,8 +600,7 @@ export function renderFigure(species, pose, opts = {}) {
     const [ax, ay] = headAnchor.at;
     let h = `<g transform="translate(${x} ${y}) scale(${facing * scale} ${scale}) translate(${-ax} ${-ay})">`;
     if (drawn?.defs) h += `<defs>${drawn.defs}</defs>`;
-    if (turned) h += turnPart('back');
-    else if (drawn?.back) h += place(drawn.back);
+    if (drawn?.back) h += place(drawn.back);
     h += `${faceHead || ''}</g>`;
     const hw = (species.head?.width ?? 1) / 2;
     return { svg: h, bbox: { x0: -hw, x1: hw, y0: -0.5, y1: 0.5 }, joints };
@@ -601,17 +611,16 @@ export function renderFigure(species, pose, opts = {}) {
   const clipId = opts.id ?? `face${++clipSeq}`;
   let inBody = false;
   if (drawn?.defs) svg += `<defs>${drawn.defs}</defs>`;
-  if (turned) svg += turnPart('back');                 // behind the whole body
-  else if (drawn?.back) svg += place(drawn.back);
+  if (drawn?.back) svg += place(drawn.back);          // behind the whole body
   let headDone = false;
   // the far leg and the torso (skin or cloth) a shade darker than the rest
   const fill = (s, c) => (SHADED.test(s.part || '') ? shade(c, SHADE) : c);
   for (const s of shapes) {
     if (s.hairBody) {                                   // the face's body hair, moved with the upper body
-      if (drawn?.hairBody && hairAnchor) {
+      if (bodyFace?.hairBody && hairAnchor) {
         if (inBody) { svg += '</g>'; inBody = false; }
-        const [nx, ny] = drawn.nape || [0, 0.65];
-        svg += `<g transform="translate(${hairAnchor.at[0]} ${hairAnchor.at[1]}) rotate(${hairAnchor.rot}) scale(1 ${hairAnchor.sy}) translate(${-nx} ${-ny})">${drawn.hairBody}</g>`;
+        const [nx, ny] = bodyFace.nape || [0, 0.65];
+        svg += `<g transform="translate(${hairAnchor.at[0]} ${hairAnchor.at[1]}) rotate(${hairAnchor.rot}) scale(1 ${hairAnchor.sy}) translate(${-nx} ${-ny})">${bodyFace.hairBody}</g>`;
       }
       continue;
     }
@@ -658,6 +667,7 @@ export function characterLook(character, palette, faces, cloth = character.cloth
   return {
     face: faces?.faces?.[character.id],
     who: character.id,                                 // picks the character's own held weapons
+    ...(character.sideOnly ? { sideOnly: true } : {}), // side view only, side face as drawn
     species: character.species,
     pattern: c.pattern,
     colors: { body: character.body, cloth: c.color },

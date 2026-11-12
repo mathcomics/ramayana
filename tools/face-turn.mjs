@@ -1,4 +1,4 @@
-// Turn data for a face (step 4, branch head-turn): what src/headturn.js
+// Turn data for a face (step 4, branch head-turn): what tools/head-loft.mjs
 // needs to draw the head at any turn and tilt from the front and side
 // drawings alone (tools/proto/head-turn was the raster study).
 //
@@ -146,7 +146,7 @@ function rowSpan(polys, y) {
 const group = (e) => ({ skin: 'skin', eyes: 'eyes' }[e.layer] || (/^mouth-/.test(e.layer) ? 'mouth' : 'char'));
 
 // views: { front: {layer: markup}, side: {...} } (the composed base + character
-// layers); returns { volumes, cards } for src/headturn.js
+// layers); returns { volumes, cards } for tools/head-loft.mjs
 export function turnData(views) {
   const names = ['back', 'under', 'skin', 'eyes', 'mouth-1', 'mouth-2', 'mouth-3', 'over'];
   const F = leaves(views.front.layers, names), S = leaves(views.side.layers, names);

@@ -5,7 +5,8 @@
 // Delivery is a vertical scroll of panels. Every panel is the full width
 // (360 units) and `tall` × its width high.
 
-import { renderFigure, buildShapes, characterLook, normalizePose, parseCloth } from './figure.js';
+import { renderFigure, buildShapes, characterLook, parseCloth } from './figure.js';
+import { headView, INTENDED_VIEWS } from './headturn.js';
 
 export const PANEL_W = 360;
 export const DEFAULT_TALL = 1.5;
@@ -54,6 +55,8 @@ export const panelHeight = (panel) => Math.round(PANEL_W * (validTall(panel) ?? 
 export function renderPanel(panel, assets, { id = 'panel', background = '' } = {}) {
   const W = PANEL_W, H = panelHeight(panel);
   const issues = [];
+  // each figure's head: the view it wants and the drawn view used (tools/view-gaps.mjs)
+  const heads = [];
   if (validTall(panel) == null) issues.push(`tall ${JSON.stringify(panel.tall)}: use ${TALLS.join(', ')}`);
   if (panel.size != null) issues.push(`size is now tall (height ÷ width): 0.75 → 1.5, 0.5 → 1, 0.3 → 0.6`);
   const grounds = assets.grounds?.grounds || {};
@@ -116,7 +119,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const S = assets.species[look.species];
     const r = row(f.row);
     const unit = r.unit * (f.scale ?? 1);
-    const view = f.view === 'front' ? 'front' : 'side';
+    if (f.view === 'front' && look.sideOnly) issues.push(`figure ${i} (${who}): side view only (sideOnly in data/characters.json); drawn in side view`);
+    const view = f.view === 'front' && !look.sideOnly ? 'front' : 'side';
     // every character has a drawn face; there is no generated fallback
     const { bbox, headAnchor, joints, shapes } = buildShapes(S, pose, look.outfit, view, look.bodyScale, look.who);
     // where the hips rest when seated (a "seat" anchor): the underside of
@@ -125,8 +129,14 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const thighY = pv ? shapes.filter((s) => /-thigh$/.test(s.part || '')).flatMap((s) => s.pts)
       .filter((q) => Math.abs(q[0] - pv[0]) <= 0.25).reduce((m, q) => Math.max(m, q[1]), -Infinity) : -Infinity;
     const seatY = thighY > -Infinity ? thighY : pv?.[1] ?? 0;
-    const headView = headAnchor.view ?? (view === 'front' ? 'front' : normalizePose(pose).headView);
-    if (!look.face?.[headView]?.head) issues.push(`figure ${i} (${who}): no drawn ${headView} face (the ${headView} layer of data/faces/${who}.svg)`);
+    // the head is the nearest drawn view (src/headturn.js); say when the
+    // view it wants is not drawn and a neighbour stands in
+    const have = look.face ? (look.sideOnly ? ['side'] : Object.keys(look.face)) : [];
+    const want = headAnchor.R ? headView(headAnchor.R, look.sideOnly ? ['side'] : INTENDED_VIEWS)?.view : null;
+    const got = headAnchor.R ? headView(headAnchor.R, have)?.view : have[0];
+    if (!got) issues.push(`figure ${i} (${who}): no drawn face (data/faces/${who}.svg)`);
+    else if (want && want !== got) issues.push(`figure ${i} (${who}): head wants the ${want} view, not drawn; drawn as ${got} (docs/issues/missing-views.md)`);
+    heads.push({ character: who, want: want ?? got, got });
     const groundY = r.top ? -bbox.y0 * unit : r.y;
     return { f, fi: i - 1, name: f.id || who, pose, view, look, S, groundY, unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0, seatY, h1: -bbox.y0, rot: f.rotate ?? 0,
@@ -353,7 +363,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
         view: o.view, headOnly: o.headOnly, id: `${pre}-f${o.fi}` }).svg);
   });
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
-  return { svg, w: W, h: H, issues };
+  return { svg, w: W, h: H, issues, heads };
 }
 
 // Background SVG files: keep only the drawing (everything inside <svg>),
