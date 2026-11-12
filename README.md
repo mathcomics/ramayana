@@ -46,7 +46,7 @@ tools/renumber-panels.mjs a settled chapter's ids made consecutive (inserts are 
 tools/merge-panel-drafts.mjs panel-lab drafts → panels/ (commit-panel-lab skill)
 tools/pose-saves.mjs     what pose-lab saves change (commit-pose-lab skill)
 .claude/skills/          commit-panel-lab, commit-pose-lab: merging the labs' saves
-tools/lib.mjs            shared tool helpers (paths, data, sections, rsvg, lab bundling)
+tools/lib.mjs            shared tool helpers (paths, data, sections, chapters, options, PNG, lab bundling)
 tools/svg.mjs            SVG parsing for import-faces
 test/                    npm test: unit, data integrity and render snapshot
 panels (with "tags")     approved reference panels: the artist-reviewed yardstick
@@ -61,6 +61,7 @@ src/compose.js           a pose from its base and gesture
 data/characters.json     cast: species + body colour + outfit + cloth colour
 tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
 tools/pose-catalogue.mjs poses with their story moments, by base → out/pose-catalogue.png
+tools/catalogue.mjs      the base and gesture catalogues (tools/base-catalogue.mjs, gesture-catalogue.mjs)
 tools/pose-gaps.mjs      story moments without a pose → docs/issues/missing-poses.md
 tools/figure-svg.mjs     one character, one pose → editable SVG, one path per body part
 tools/build-poselab.mjs  builds the pose lab page → out/poselab.html
