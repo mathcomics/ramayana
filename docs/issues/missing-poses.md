@@ -71,7 +71,6 @@ chapter). Moments with no pose come first.
 - 02.09: sit-hand-on-head (slumped on the throne, hand to the head): sit for now
 - 03.05: sit-cross-legged (sage teaching, raised hand)
 - 03.06: stand-palms-joined
-- 04.12: stand-embrace
 - 05.11: run-bow (running with the bow drawn)
 - 06.02: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now
 - 06.03: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now

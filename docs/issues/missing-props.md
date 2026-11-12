@@ -12,7 +12,6 @@ placeholder box. Held props (sword, club, bow) live in
 
 | prop | panels |
 |---|---|
-| cave | 04.09 |
 | chariot | 05.21, 05.22 |
 | deer | 03.04 |
 | golden-deer-fallen | 05.13 |
@@ -33,9 +32,10 @@ docs/design/panel-writing.md, Lessons).
 
 | need | panels |
 |---|---|
+| prop: arrow (in flight from the right edge, and stuck in the struck) | 04.12 |
+| prop: arrow (in flight, leaving the bows to the left) | 04.11 |
 | prop: bow in hand while running | 05.11 |
 | prop: branch (the ashoka branch Sita sits under) | 10.08 |
-| prop: cave | 04.09 |
 | prop: deer (creature art) | 03.04 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
 | prop: flying chariot | 05.21, 05.22 |
@@ -53,7 +53,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: mountain | 09.06, 09.11 |
 | prop: ring | 09.04, 10.09, 10.10 |
 | prop: ring (Rama's ring; it reaches Sita in 10) | 09.03 |
-| prop: spear (held) | 04.10 |
 | prop: staff and pot (held) | 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
 | prop: tree | 02.17, 03.06, 04.02, 05.14, 06.10, 08.05, 08.07, 09.05, 10.09 |
