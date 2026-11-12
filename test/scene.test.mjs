@@ -7,12 +7,10 @@ import { buildShapes, characterLook } from '../src/figure.js';
 const assets = loadAssets();
 const xOf = (svg, n) => [...svg.matchAll(/<g transform="translate\(([-\d.e]+) ([-\d.e]+)\) scale\(/g)].map((m) => +m[1])[n];
 
-test('panel height is tall × width (1.5, 1, 0.6, 0.4), with a fallback', () => {
+test('panel height is tall × width (1.5, 1, 0.6), with a fallback', () => {
   assert.equal(panelHeight({}), 540);
   assert.equal(panelHeight({ tall: 1 }), 360);
   assert.equal(panelHeight({ tall: 0.6 }), Math.round(0.6 * PANEL_W));
-  assert.equal(panelHeight({ tall: 0.4 }), Math.round(0.4 * PANEL_W));
-  assert.equal(renderPanel({ tall: 0.5 }, assets).issues.length, 1);  // only the listed heights
   assert.equal(panelHeight({ tall: 2 }), 540);            // nothing taller than 1.5
   assert.equal(panelHeight({ tall: -1 }), 540);
   assert.equal(renderPanel({ tall: 'big' }, assets).issues.length, 1);

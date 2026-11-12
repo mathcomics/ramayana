@@ -36,8 +36,8 @@ continuity-and-motifs list: the cry travels in 5 *and* in 6.
 
 ## Chapter 4 after the wound: a strip sequence, no Khara (2026-11-11)
 
-The artist redrew everything after 04.07 as seven 0.4 strips (04.07 kept,
-now 0.4; 04.08–04.13 new, the old 04.08–04.12 gone):
+The artist redrew everything after 04.07 as seven 0.6 strips (04.07 kept,
+still 0.6; 04.08–04.13 new, the old 04.08–04.12 gone):
 
 - **04.08** Surpanakha comes back in from the left, pointing ahead, two
   armed rakshasas running in behind her.

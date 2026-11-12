@@ -42,9 +42,8 @@ const setPath = (o, path, v) => { const k = path.split('.'); let t = o; while (k
 const clone = (o) => JSON.parse(JSON.stringify(o));
 
 // Panel heights, as a multiple of the panel's width: 1.5 (the usual
-// panel), 1 (square), 0.6 (a strip) and 0.4 (a thin strip, front row and
-// closeup only: the back row is too small to read). Anything taller is too tall.
-export const TALLS = [0.4, 0.6, 1, 1.5];
+// panel), 1 (square) and 0.6 (a strip). Anything taller is too tall.
+export const TALLS = [0.6, 1, 1.5];
 const validTall = (panel) => { const t = Number(panel.tall ?? DEFAULT_TALL); return TALLS.includes(t) ? t : null; };
 export const panelHeight = (panel) => Math.round(PANEL_W * (validTall(panel) ?? DEFAULT_TALL));
 
