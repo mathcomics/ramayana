@@ -4,7 +4,7 @@
   "ground": "night",
   "figures": [
     {
-      "prop": "palace-roof",
+      "prop": "city-roof",
       "at": 0.5,
       "scale": 8,
       "row": -0.36
@@ -14,7 +14,7 @@
       "pose": "runlow-pumplow",
       "facing": "right",
       "mouth": 1,
-      "on": "palace-roof#stand",
+      "on": "city-roof#stand",
       "scale": 0.06
     }
   ]

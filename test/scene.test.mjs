@@ -79,7 +79,7 @@ test('one list: later entries draw over earlier; legacy props/who/layer still re
 });
 
 test('sky: a colour above the horizon; row "horizon" stands things on it', () => {
-  const r = renderPanel({ tall: 1, sky: 'sky', horizon: 0.25, figures: [{ prop: 'golden-deer-run', row: 'horizon' }] }, assets);
+  const r = renderPanel({ tall: 1, sky: 'sky', horizon: 0.25, figures: [{ prop: 'stag-run', row: 'horizon' }] }, assets);
   assert.match(r.svg, /<rect width="360" height="270" fill="url\(#panel-sky\)"\/>/);
   assert.ok(r.svg.includes(`<stop offset="0" stop-color="${assets.grounds.grounds.sky[0]}"/>`), 'sky gradient from grounds.json');
   // a hex sky (or ground) is a flat fill; a hex ground draws no gradient
@@ -93,9 +93,9 @@ test('sky: a colour above the horizon; row "horizon" stands things on it', () =>
 
 test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', () => {
   const propY = (row, extra = {}) => {
-    const r = renderPanel({ figures: [{ prop: 'golden-deer-run', row, ...extra }] }, assets);
+    const r = renderPanel({ figures: [{ prop: 'stag-run', row, ...extra }] }, assets);
     const [, y, sc] = r.svg.match(/<g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/);
-    return { top: +y, unit: +sc, bottom: +y + assets.props.props['golden-deer-run'].size[1] * +sc, issues: r.issues };
+    return { top: +y, unit: +sc, bottom: +y + assets.props.props['stag-run'].size[1] * +sc, issues: r.issues };
   };
   const man = (t) => 0.75 * (1 - t) * 540 / MAN;
   const near = (a, b) => Math.abs(a - b) < 0.01;
@@ -104,7 +104,7 @@ test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', (
     assert.ok(near(p.unit, man(t)) && near(p.bottom, 540 * (1 - t * 0.37)), `${row} row`);
   }
   // the horizon moves a row's ground line, not its size
-  const low = renderPanel({ horizon: 0.2, figures: [{ prop: 'golden-deer-run', row: 'back' }] }, assets).svg;
+  const low = renderPanel({ horizon: 0.2, figures: [{ prop: 'stag-run', row: 'back' }] }, assets).svg;
   assert.ok(near(+low.match(/scale\(([-\d.]+)/)[1], man(0.7)), 'the horizon leaves sizes alone');
   const c = propY('closeup');
   assert.ok(near(c.unit, 1.75 * 540 / MAN) && near(c.bottom, 1080), 'closeup: ground a panel below, head at 75 %');
@@ -168,8 +168,8 @@ test('a foreground: a band of ground in the list; "on" stands entries on its lin
 });
 
 test('a "hand" anchor: the figure hangs by its higher hand, or the one "hand" names', () => {
-  const wall = { prop: 'palace-side', at: 0.5, row: 'front' }, def = assets.props.props['palace-side'];
-  const fig = (extra) => ({ character: 'hanuman', pose: 'leap-reach', on: 'palace-side#hand', ...extra });
+  const wall = { prop: 'city-side', at: 0.5, row: 'front' }, def = assets.props.props['city-side'];
+  const fig = (extra) => ({ character: 'hanuman', pose: 'leap-reach', on: 'city-side#hand', ...extra });
   const r = renderPanel({ tall: 1, figures: [wall, fig({})] }, assets);
   assert.deepEqual(r.issues, []);
   const [, fx, fy, fs] = r.svg.match(/<\/g><g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)/).map(Number);
@@ -182,7 +182,7 @@ test('a "hand" anchor: the figure hangs by its higher hand, or the one "hand" na
   const g = [joints.near.grip, joints.far.grip].sort((a, b) => a[1] - b[1])[0];
   assert.ok(Math.abs(fx + g[0] * unit - ax) < 1e-6 && Math.abs(fy + g[1] * unit - ay) < 1e-6, 'the higher grip on the anchor');
   assert.match(renderPanel({ figures: [fig({ hand: 'left', on: undefined })] }, assets).issues.join(' '), /"hand" picks the hand/);
-  assert.match(renderPanel({ figures: [wall, { prop: 'golden-deer', on: 'palace-side#hand' }] }, assets).issues.join(' '), /takes a figure/);
+  assert.match(renderPanel({ figures: [wall, { prop: 'stag-stand', on: 'city-side#hand' }] }, assets).issues.join(' '), /takes a figure/);
 });
 
 test('a seat anchor takes the hips, a stand anchor the feet', () => {
@@ -194,8 +194,8 @@ test('a seat anchor takes the hips, a stand anchor the feet', () => {
 });
 
 test('rotate on a figure: about its anchor when on a prop; else about its centre, standing on its turned box', () => {
-  const wall = { prop: 'palace-side', at: 0.5, scale: 4, row: -0.1 };
-  const fig = { character: 'hanuman', pose: 'crawl-onhands', facing: 'left', on: 'palace-side#hand', scale: 0.09 };
+  const wall = { prop: 'city-side', at: 0.5, scale: 4, row: -0.1 };
+  const fig = { character: 'hanuman', pose: 'crawl-onhands', facing: 'left', on: 'city-side#hand', scale: 0.09 };
   const plain = renderPanel({ tall: 1.5, figures: [wall, fig] }, assets);
   const turned = renderPanel({ tall: 1.5, figures: [wall, { ...fig, rotate: 90 }] }, assets);
   assert.deepEqual(turned.issues, []);

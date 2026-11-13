@@ -4,7 +4,8 @@
   "ground": "dry-grass",
   "figures": [
     {
-      "prop": "golden-deer-fallen",
+      "prop": "stag-lie",
+      "body": "#ffd42a",
       "at": 0.42
     },
     {
@@ -21,6 +22,6 @@
     }
   ],
   "needs": [
-    "prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank)"
+    "prop: an arrow in the dying deer's flank"
   ]
 }

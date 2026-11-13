@@ -5,7 +5,8 @@
   "sky": "sky",
   "figures": [
     {
-      "prop": "golden-deer",
+      "prop": "stag-stand",
+      "body": "#ffd42a",
       "at": 0.78,
       "row": "horizon",
       "facing": "left"

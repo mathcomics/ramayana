@@ -4,7 +4,7 @@
   "ground": "night",
   "figures": [
     {
-      "prop": "palace-side",
+      "prop": "city-side",
       "at": 0.1,
       "scale": 4,
       "row": -0.1
@@ -14,7 +14,7 @@
       "pose": "crawl-onhands",
       "facing": "left",
       "mouth": 1,
-      "on": "palace-side#hand",
+      "on": "city-side#hand",
       "scale": 0.09
     }
   ]

@@ -13,8 +13,6 @@ placeholder box. Held props (sword, club, bow) live in
 | prop | panels |
 |---|---|
 | chariot | 05.21, 05.22 |
-| deer | 03.04 |
-| golden-deer-fallen | 05.13 |
 | hut | 04.02, 05.16, 05.22, 06.09 |
 | jewels | 06.06, 06.07, 07.10, 10.11 |
 | lanka-wall | 10.01, 10.02 |
@@ -32,15 +30,14 @@ docs/design/panel-writing.md, Lessons).
 
 | need | panels |
 |---|---|
+| prop: an arrow in the dying deer's flank | 05.13 |
 | prop: arrow (in flight from the right edge, and stuck in the struck) | 04.12 |
 | prop: arrow (in flight, leaving the bows to the left) | 04.11 |
 | prop: bow in hand while running | 05.11 |
 | prop: branch (the ashoka branch Sita sits under) | 10.08 |
-| prop: deer (creature art) | 03.04 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
 | prop: flying chariot | 05.21, 05.22 |
 | prop: fruit | 05.19 |
-| prop: golden-deer-fallen (collapsed, legs folded, arrow in the flank) | 05.13 |
 | prop: hut | 04.02, 05.16, 05.22, 06.09 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
 | prop: jewels (held to the chest) | 07.12 |
@@ -63,4 +60,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-fire, flower-yellow, giant-grab, golden-deer, golden-deer-run, hut-top, kishkindha, lanka-island, monkey-top, palace-ayodhya, palace-gap, palace-lanka, palace-roof, palace-side, rock-circle, rock-rectangle, rock-square, sound-cry, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+city-gap, city-roof, city-side, deer-stand, fire, flower-yellow, giant-grab, hut-top, lanka-island, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

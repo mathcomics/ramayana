@@ -4,19 +4,19 @@
   "ground": "sand",
   "figures": [
     {
-      "prop": "deer",
+      "prop": "stag-stand",
       "id": "deer1",
       "at": 0.56,
       "row": "back"
     },
     {
-      "prop": "deer",
+      "prop": "deer-stand",
       "id": "deer2",
       "at": 0.72,
       "row": "back"
     },
     {
-      "prop": "deer",
+      "prop": "deer-stand",
       "id": "deer3",
       "at": 0.88,
       "row": "back"
@@ -35,8 +35,5 @@
       "at": 0.38,
       "mouth": 2
     }
-  ],
-  "needs": [
-    "prop: deer (creature art)"
   ]
 }

@@ -4,7 +4,7 @@
   "ground": "night",
   "figures": [
     {
-      "prop": "palace-gap",
+      "prop": "city-gap",
       "at": 0.5,
       "scale": 6,
       "row": -0.3
@@ -14,7 +14,7 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "mouth": 1,
-      "on": "palace-gap#stand",
+      "on": "city-gap#stand",
       "scale": 0.07
     }
   ]

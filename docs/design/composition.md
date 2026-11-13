@@ -17,7 +17,7 @@ action. The same opener can return when the story comes back to a place.
 | 4 Surpanakha | the forest hut from above again (04.01), before she comes | done |
 | 5 The golden deer | Lanka on its island across the sea (05.01); then Surpanakha before Ravana (05.03) | done |
 | 6 Jatayu | Jatayu alone on his bluff, the cry coming over the forest (06.01) | done |
-| 7 Sugriva | Kishkindha on the horizon, sky above (07.01, the drawn `kishkindha`) | done |
+| 7 Sugriva | Kishkindha on the horizon, sky above (07.01, the drawn `palace-kishkindha`) | done |
 | 8 Bali | Kishkindha's gates, near (08.01) | done |
 | 9 The leap | Kishkindha on the horizon again (09.01, as 07.01) | done |
 | 10 The ring | night: Lanka's wall (10.01) | done |
@@ -56,7 +56,7 @@ action. The same opener can return when the story comes back to a place.
   check heads against what's behind them. Three thrones:
   `throne-ayodhya` (gold-backed, Dasharatha's), `throne-lanka` (dark seat
   and steps under the red disc, its centre dark, Ravana's) and
-  `throne-kishkindha` (gold stupa dome echoing the `kishkindha` palace —
+  `throne-kishkindha` (gold stupa dome echoing the `palace-kishkindha` palace —
   Sugriva's coronation, 08.10 and 09.02). The names do not match what the
   drawings' own comments claim: the assignment above is the artist's and
   deliberate — don't swap them.
@@ -80,10 +80,10 @@ action. The same opener can return when the story comes back to a place.
 
 ## Kishkindha and rocks
 
-- `kishkindha`: the monkey city's domed palace on its dark hill, with the
+- `palace-kishkindha`: the monkey city's domed palace on its dark hill, with the
   flat-topped Rishyamukha mountain in front — where the exiles watch Sita
   carried over (08.05) and later meet Rama. Figures stand on the plateau
-  with `on`: `"kishkindha#stand"` (also `#stand-left`, `#stand-right`).
+  with `on`: `"palace-kishkindha#stand"` (also `#stand-left`, `#stand-right`).
   A figure on an anchor takes the prop's scale: for small figures on a
   big mountain, scale the prop up and give the figure a `scale` below 1.
 - **Rocks** (artist, 2026-11-10): rocky scenes use the plain

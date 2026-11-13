@@ -78,7 +78,7 @@ repeated inside the JSON.
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `top` · `horizon` · `back` · `mid` · `front` · `floor` · `closeup`, or a number | Where it stands and how big: see Rows. Default `front`. Rows don't change the overlap order. |
-| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at` and `row` do nothing and are flagged; `scale` and `nudge` still apply, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
+| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at` and `row` do nothing and are flagged; `scale` and `nudge` still apply, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "palace-kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
@@ -88,7 +88,7 @@ repeated inside the JSON.
 | `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. Can also give a hand a held prop: `"left.arm.prop": { "kind": "bow", "angle": 90 }`, or swap one (`"right.arm.prop.kind": "club"`). |
 | `scale` | number | This figure only (a child, a giant). |
 | `nudge` | head-units: a number (across) or `[dx, dy]` (across, up +) | The one fine shift after placement — by `at`/`row`, a relation or `on` — in the entry's own head-units (a hop, feet on a rock, a figure settled on a seat). Anything placed high — flight, a top view — takes a numeric `row`. Whatever sits on or is placed against a nudged entry follows it. The retired `lift` is flagged (`lift: n` is `nudge: [0, n]`). |
-| `rotate` | degrees, clockwise | Turns the whole figure, after the pose and `facing`. On a prop's anchor it turns about that point, so the grip, seat or footing stays put (`"on": "palace-side#hand", "rotate": 90`: Hanuman's body upright against the wall, still hanging by the hand); on a foreground, about its feet; otherwise about its centre, then it stands on the bottom of its turned box, as a prop does. The layout spaces it by its unturned width. |
+| `rotate` | degrees, clockwise | Turns the whole figure, after the pose and `facing`. On a prop's anchor it turns about that point, so the grip, seat or footing stays put (`"on": "city-side#hand", "rotate": 90`: Hanuman's body upright against the wall, still hanging by the hand); on a foreground, about its feet; otherwise about its centre, then it stands on the bottom of its turned box, as a prop does. The layout spaces it by its unturned width. |
 | `id` | text | Name for relations when the same character appears twice. |
 
 ### Props
@@ -118,15 +118,15 @@ behind them, after = in front; the retired `layer` field is an issue).
   the top of the seat (a rock's top, a throne's cushion), and the legs
   hang as the pose has them.
   `stand`, `stand-left`, `stand-right`: where a standing figure's feet
-  rest (`on` with `#`, e.g. `"on": "kishkindha#stand"`; the rocks
-  `rock-circle`, `rock-square`, `rock-rectangle` and `kishkindha` have
+  rest (`on` with `#`, e.g. `"on": "palace-kishkindha#stand"`; the rocks
+  `rock-circle`, `rock-square`, `rock-rectangle` and `palace-kishkindha` have
   them). A prop can stand `on` another prop's anchor
   too — its bottom centre lands there, at the carrying prop's scale
   (`palace-lanka` on `"lanka-island#stand"`).
 - **Naming an anchor**: after *what of the figure lands on it*, never
   after where it sits in the drawing — `seat` (hips), `stand` (feet),
   `hand` (the figure hangs from it by one hand: its higher hand, or the
-  one the figure's `hand` field names; `palace-side`), `face` (the head
+  one the figure's `hand` field names; `city-side`), `face` (the head
   alone, as in `sound-cry`). Any other name places the feet, as `stand`. Lowercase, one word, the
   bare name for the only or default one, `-left`/`-right` for variants
   of the same kind (two places a figure could stand) — never for parts
@@ -156,7 +156,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   a group `id="anchors"`.
 - Drawn so far: `palace-ayodhya`, `palace-lanka` (the golden rework,
   Lanka's palaces; also small on `lanka-island`'s `stand` anchor),
-  `golden-deer`, `golden-deer-run`,
+  `stag-stand`, `stag-run`, `stag-lie`, `deer-stand` (brown; the golden deer is `"body": "#ffd42a"`),
   `hut-top`, `trees-top`, `tree-top`, `lanka-island` (the bare island —
   the city split off into `palace-lanka`, 2026-11-08),
   `vulture-fly`, `-swoop`, `-fall`,
@@ -168,7 +168,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   centre, Ravana's) and `throne-kishkindha` (gold
   stupa dome on a dark post, Sugriva's coronation),
   the rocks `rock-circle`, `rock-square`, `rock-rectangle` (plain stone,
-  for every rocky scene; Jatayu perches on a `rock-circle`'s `seat`, 03.06), `kishkindha` (rocky; seeded-random outlines, stand anchors),
+  for every rocky scene; Jatayu perches on a `rock-circle`'s `seat`, 03.06), `palace-kishkindha` (rocky; seeded-random outlines, stand anchors),
   the giant's parts for chapter 14 `giant-feet`, `giant-fist`,
   `giant-grab` (reaching down from above), `giant-lie-waist` (the
   sleeping giant's middle) — each cut off at the frame edge it enters

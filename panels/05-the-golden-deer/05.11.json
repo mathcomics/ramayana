@@ -9,7 +9,8 @@
   "sky": "sky",
   "figures": [
     {
-      "prop": "golden-deer-run",
+      "prop": "stag-run",
+      "body": "#ffd42a",
       "at": 0.86,
       "row": "horizon"
     },
