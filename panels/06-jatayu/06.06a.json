@@ -6,14 +6,15 @@
     {
       "character": "ravana",
       "pose": "stepwide-swordcarry",
-      "facing": "right",
       "at": 0.15,
-      "row": 0.4,
+      "row": 0.3,
       "mouth": 2,
       "adjust": {
         "spine.head": 14
       },
-      "view": "front"
+      "view": "front",
+      "rotate": 20,
+      "turn": 90
     },
     {
       "character": "sita",
@@ -24,21 +25,17 @@
       "mouth": 3
     },
     {
-      "prop": "rock-circle",
+      "prop": "pole",
       "at": 0.43,
-      "row": 0.19,
-      "scale": 0.5,
-      "body": "gold"
+      "row": 0.3
     },
     {
-      "prop": "rock-rectangle",
-      "at": 0.46,
-      "row": "closeup",
-      "scale": 1.4
+      "prop": "bag",
+      "at": 0.43,
+      "row": 0.19
     }
   ],
   "needs": [
-    "prop: jewels (the bundle): a gold rock-circle for now",
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view for now"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
   ]
 }

@@ -4,39 +4,28 @@
   "ground": "sky-blue",
   "figures": [
     {
-      "character": "sita",
-      "pose": "arch-overhead",
-      "view": "front",
-      "facing": "right",
-      "at": 0.43,
-      "row": 0.51,
-      "scale": 0.65
-    },
-    {
       "character": "ravana",
-      "pose": "step-hang",
+      "pose": "stepwide-swordcarry",
+      "view": "front",
       "facing": "right",
       "at": 0.26,
       "row": 0.47,
-      "mouth": 3,
+      "scale": 0.65,
       "adjust": {
-        "left.arm.shoulder": 70,
-        "left.arm.elbow": 40,
-        "right.arm.shoulder": 112,
-        "right.arm.elbow": 6,
-        "right.arm.prop": {
-          "kind": "sword",
-          "angle": 15
-        },
-        "right.leg.hip": 12,
-        "right.leg.knee": 8,
-        "right.leg.ankle": -45,
-        "left.leg.hip": -2,
-        "left.leg.knee": 0,
-        "left.leg.ankle": -45,
-        "spine.head": 26
+        "spine.head": 14
       },
-      "scale": 0.74
+      "mouth": 2,
+      "rotate": 20,
+      "turn": 90
+    },
+    {
+      "character": "sita",
+      "pose": "arch-overhead",
+      "facing": "right",
+      "at": 0.43,
+      "row": 0.51,
+      "scale": 0.65,
+      "view": "front"
     },
     {
       "prop": "vulture-wing",
@@ -52,6 +41,6 @@
   ],
   "needs": [
     "prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now",
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
   ]
 }
