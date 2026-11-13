@@ -14,7 +14,7 @@ placeholder box. Held props (sword, club, bow) live in
 |---|---|
 | chariot | 05.21, 05.22 |
 | hut | 05.16, 05.22, 06.09 |
-| jewels | 06.06, 07.10, 10.11 |
+| jewels | 07.10, 10.11 |
 | lanka-wall | 10.01, 10.02 |
 | line | 05.17 |
 | line-top | 05.18 |
@@ -39,7 +39,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: hut | 05.16, 05.22, 06.09 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
 | prop: jewels (held to the chest) | 07.12 |
-| prop: jewels (the bundle) | 06.06 |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
 | prop: lanka-wall | 10.02 |
 | prop: lanka-wall (the city wall by night) | 10.01 |

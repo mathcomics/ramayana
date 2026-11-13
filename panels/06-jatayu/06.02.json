@@ -16,11 +16,7 @@
       "at": 0.48,
       "row": "closeup",
       "mouth": 2,
-      "adjust": {
-        "spine.head": 14
-      },
-      "rotate": 20,
-      "turn": 90
+      "rotate": 20
     },
     {
       "character": "sita",

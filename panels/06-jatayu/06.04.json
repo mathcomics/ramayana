@@ -4,33 +4,33 @@
   "ground": "sky-blue",
   "figures": [
     {
+      "character": "sita",
+      "pose": "crawl-onhands",
+      "facing": "left",
+      "at": 0.23,
+      "row": 0.251,
+      "scale": 0.574,
+      "mouth": 3
+    },
+    {
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
       "facing": "left",
-      "at": 0.78,
+      "at": 0.3,
       "row": "mid",
       "scale": 0.88,
       "mouth": 2,
       "adjust": {
         "spine.head": 14
       },
-      "rotate": -20,
-      "turn": 90
-    },
-    {
-      "character": "sita",
-      "pose": "crawl-onhands",
-      "facing": "left",
-      "at": 0.711,
-      "row": 0.251,
-      "scale": 0.574,
-      "mouth": 3
+      "rotate": -30,
+      "turn": -150
     },
     {
       "prop": "vulture-swoop",
-      "at": 0.24,
-      "facing": "right",
+      "at": 0.84,
+      "facing": "left",
       "scale": 0.6,
       "row": 0.6
     }

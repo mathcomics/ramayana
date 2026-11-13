@@ -17,29 +17,20 @@
       "turn": 90
     },
     {
+      "prop": "bag",
+      "at": 0.83,
+      "row": 0.68
+    },
+    {
       "character": "sita",
       "pose": "crawl-onhands",
       "facing": "right",
       "at": 0.6,
       "row": 0.64,
-      "scale": 1,
       "mouth": 3
-    },
-    {
-      "prop": "jewels",
-      "at": 0.73,
-      "row": 0.49,
-      "scale": 1.03
-    },
-    {
-      "prop": "rock-rectangle",
-      "at": 0.46,
-      "scale": 1.4,
-      "row": "closeup"
     }
   ],
   "needs": [
-    "prop: jewels (the bundle)",
     "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
   ]
 }

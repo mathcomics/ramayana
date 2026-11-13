@@ -14,7 +14,7 @@
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
-      "at": 0.89,
+      "at": 0.79,
       "row": 0.1,
       "mouth": 2,
       "adjust": {
@@ -27,10 +27,11 @@
       "character": "sita",
       "pose": "crawl-onhands",
       "facing": "right",
-      "at": 0.938,
+      "at": 0.84,
       "row": 0.28,
       "scale": 1,
-      "mouth": 3
+      "mouth": 3,
+      "turn": 120
     }
   ],
   "needs": [
