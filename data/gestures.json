@@ -1301,34 +1301,34 @@
       }
     },
     "unicorn": {
-      "desc": "both hands raised high, the blade pointing up and forward (longsword guard: Einhorn)",
       "chest": 5,
-      "neck": 8,
+      "desc": "both hands raised high, the blade pointing up and forward (longsword guard: Einhorn)",
       "head": 15,
-      "mouth": 1,
-      "right": {
-        "shoulder": 115,
-        "out": 10,
-        "elbow": 30,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist",
-        "prop": {
-          "kind": "sword",
-          "angle": -15,
-          "out": 0,
-          "grip": "both"
-        }
-      },
       "left": {
-        "shoulder": 115,
-        "out": 10,
         "elbow": 30,
         "elbowOut": 0,
-        "wrist": 0,
+        "hand": "fist",
+        "out": 10,
+        "shoulder": 115,
         "twist": 0,
-        "hand": "fist"
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 8,
+      "right": {
+        "elbow": 30,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": 90,
+          "grip": "both",
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 115,
+        "twist": 0,
+        "wrist": -90
       }
     },
     "wrath": {
