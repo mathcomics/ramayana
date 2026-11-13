@@ -18,7 +18,6 @@
       "character": "sita",
       "pose": "step-hang",
       "at": 0.28,
-      "mouth": 1,
       "adjust": {
         "spine.head": 15
       }

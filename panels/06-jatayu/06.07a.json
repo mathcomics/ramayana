@@ -11,8 +11,7 @@
       "facing": "right",
       "at": 0.63,
       "row": 0.48,
-      "scale": 0.44,
-      "mouth": 3
+      "scale": 0.44
     },
     {
       "character": "ravana",
@@ -55,7 +54,6 @@
       "facing": "right",
       "on": "rock-rectangle#stand-left",
       "scale": 0.308,
-      "mouth": 3,
       "adjust": {
         "spine.head": -30
       }

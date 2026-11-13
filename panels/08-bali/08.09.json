@@ -19,8 +19,7 @@
       "cloth": "red",
       "pose": "kneel-bow",
       "facing": "left",
-      "at": 0.62,
-      "mouth": 1
+      "at": 0.62
     },
     {
       "character": "monkey1",
@@ -28,8 +27,7 @@
       "pose": "kneel-handslow",
       "facing": "right",
       "at": 0.26,
-      "scale": 0.75,
-      "mouth": 1
+      "scale": 0.75
     },
     {
       "character": "monkey1",

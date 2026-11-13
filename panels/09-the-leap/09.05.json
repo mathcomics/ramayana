@@ -25,7 +25,6 @@
       "facing": "right",
       "at": 0.5,
       "cloth": "red",
-      "mouth": 1,
       "on": "foreground",
       "scale": 0.4
     },
@@ -34,7 +33,6 @@
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.66,
-      "mouth": 1,
       "on": "foreground",
       "scale": 0.4
     }

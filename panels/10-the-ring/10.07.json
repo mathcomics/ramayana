@@ -21,7 +21,6 @@
       "pose": "sit-armknee",
       "facing": "left",
       "at": 0.52,
-      "mouth": 1,
       "adjust": {
         "spine.chest": 20,
         "spine.head": 16

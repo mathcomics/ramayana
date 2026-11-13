@@ -12,8 +12,7 @@
       "character": "ravana",
       "pose": "chair-armrest",
       "view": "front",
-      "on": "throne-lanka",
-      "mouth": 1
+      "on": "throne-lanka"
     }
   ]
 }

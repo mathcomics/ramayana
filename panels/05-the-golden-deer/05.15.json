@@ -32,8 +32,7 @@
       "character": "lakshman",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.66,
-      "mouth": 1
+      "at": 0.66
     }
   ],
   "needs": [

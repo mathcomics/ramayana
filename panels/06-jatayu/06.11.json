@@ -13,7 +13,6 @@
       "facing": "right",
       "at": 0.14,
       "row": "mid",
-      "mouth": 1,
       "adjust": {
         "spine.head": 15
       }

@@ -18,7 +18,6 @@
       "pose": "leap-reach",
       "facing": "left",
       "at": 0.38,
-      "mouth": 3,
       "cloth": "red-check",
       "row": 0.12
     },
@@ -28,7 +27,6 @@
       "pose": "run-pump",
       "facing": "left",
       "at": 0.62,
-      "mouth": 3,
       "cloth": "orange"
     },
     {

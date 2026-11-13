@@ -17,8 +17,7 @@
       "id": "flee1",
       "pose": "run-pump",
       "facing": "left",
-      "at": 0.27,
-      "mouth": 3
+      "at": 0.27
     },
     {
       "character": "monkey1",
@@ -37,7 +36,6 @@
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.7,
-      "mouth": 3,
       "row": 0.46
     },
     {
@@ -45,8 +43,7 @@
       "id": "flee3",
       "pose": "run-pump",
       "facing": "right",
-      "at": 0.9,
-      "mouth": 3
+      "at": 0.9
     },
     {
       "at": 0.57,

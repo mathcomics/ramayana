@@ -7,8 +7,7 @@
       "character": "sita",
       "pose": "stepturn-armface",
       "facing": "right",
-      "at": 0.17,
-      "mouth": 3
+      "at": 0.17
     },
     {
       "character": "rama",
@@ -22,7 +21,6 @@
       "pose": "lunge-armfront",
       "facing": "left",
       "at": 0.74,
-      "mouth": 3,
       "hands": {
         "right": "out"
       }

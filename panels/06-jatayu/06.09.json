@@ -13,8 +13,7 @@
       "pose": "step-hang",
       "facing": "right",
       "at": 0.18,
-      "row": "mid",
-      "mouth": 1
+      "row": "mid"
     },
     {
       "character": "rama",

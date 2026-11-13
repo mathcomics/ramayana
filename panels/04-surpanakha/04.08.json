@@ -9,7 +9,6 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.06,
-      "mouth": 3,
       "cloth": "red-diamond",
       "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
     },
@@ -19,7 +18,6 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.3,
-      "mouth": 3,
       "cloth": "red-stripe",
       "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
     },

@@ -15,8 +15,7 @@
       "character": "sugriva",
       "pose": "step-point",
       "facing": "right",
-      "at": 0.25,
-      "mouth": 2
+      "at": 0.25
     },
     {
       "character": "rama",

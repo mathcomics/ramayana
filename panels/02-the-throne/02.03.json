@@ -12,8 +12,7 @@
       "character": "dasharatha",
       "pose": "chair-armrest",
       "view": "front",
-      "on": "throne-ayodhya",
-      "mouth": 1
+      "on": "throne-ayodhya"
     }
   ],
   "tags": ["throne"]

@@ -14,8 +14,7 @@
       "id": "hanuman",
       "pose": "arch-overhead",
       "view": "front",
-      "at": 0.25,
-      "mouth": 3
+      "at": 0.25
     },
     {
       "character": "raxas_m3",

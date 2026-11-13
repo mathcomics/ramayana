@@ -8,15 +8,13 @@
       "pose": "arch-overhead",
       "facing": "left",
       "at": 0.49,
-      "mouth": 3,
       "row": 0.3
     },
     {
       "character": "ravana",
       "pose": "kneeup-armsup",
       "facing": "left",
-      "at": 0.66,
-      "mouth": 3
+      "at": 0.66
     }
   ],
   "needs": []

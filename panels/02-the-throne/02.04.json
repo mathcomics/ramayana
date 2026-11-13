@@ -13,7 +13,6 @@
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.34,
-      "mouth": 1,
       "adjust": {
         "right.arm.shoulder": 55,
         "right.arm.elbow": 5
@@ -24,7 +23,6 @@
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.56,
-      "mouth": 1,
       "adjust": {
         "left.arm.shoulder": -70,
         "left.arm.elbow": 10

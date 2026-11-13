@@ -301,3 +301,13 @@ test('every panel tag is listed in panels/layouts.md (Tags)', () => {
   for (const sec of loadSections()) for (const { id, def } of sec.panels)
     for (const t of def.tags || []) assert.ok(listed.has(t), `${id}: tag ${t} is not in panels/layouts.md`);
 });
+
+test('a figure sets "mouth" only to override its gesture\'s mouth', () => {
+  const G = JSON.parse(readFileSync(join(import.meta.dirname, '../data/gestures.json'), 'utf8')).gestures;
+  for (const sec of loadSections()) for (const { id, def } of sec.panels)
+    for (const e of def.figures || []) {
+      const g = e.pose?.includes('-') && G[e.pose.slice(e.pose.indexOf('-') + 1)];
+      if (e.mouth != null && g) assert.notEqual(e.mouth, g.mouth ?? 2,
+        `${id} ${e.id || e.character} (${e.pose}): mouth ${e.mouth} is already the gesture's — leave it out`);
+    }
+});

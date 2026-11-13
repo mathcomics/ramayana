@@ -8,7 +8,6 @@
       "pose": "leanback-armsback",
       "facing": "right",
       "at": 0.28,
-      "mouth": 3,
       "adjust": {
         "right.arm.shoulder": 80,
         "right.arm.elbow": 5,
@@ -23,7 +22,6 @@
       "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.56,
-      "mouth": 3,
       "scale": 1.1,
       "adjust": {
         "left.arm.shoulder": -65,

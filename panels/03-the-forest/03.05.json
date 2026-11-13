@@ -7,22 +7,19 @@
       "character": "lakshman",
       "pose": "sit-armknee",
       "facing": "right",
-      "at": 0.18,
-      "mouth": 1
+      "at": 0.18
     },
     {
       "character": "sita",
       "pose": "sit-armknee",
       "facing": "right",
-      "at": 0.37,
-      "mouth": 1
+      "at": 0.37
     },
     {
       "character": "rama",
       "pose": "sit-armknee",
       "facing": "right",
-      "at": 0.56,
-      "mouth": 1
+      "at": 0.56
     },
     {
       "character": "raxas_m2",

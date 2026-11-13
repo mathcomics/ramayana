@@ -44,8 +44,7 @@
       "facing": "right",
       "on": "ladder#stand-high",
       "scale": 0.38,
-      "cloth": "red",
-      "mouth": 3
+      "cloth": "red"
     },
     {
       "character": "raxas_m1",

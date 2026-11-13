@@ -15,7 +15,6 @@
       "pose": "run-pump",
       "facing": "left",
       "on": "steps#stand",
-      "mouth": 3,
       "hands": {
         "right": "out",
         "left": "out"

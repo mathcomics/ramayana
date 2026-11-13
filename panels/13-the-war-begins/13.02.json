@@ -29,8 +29,7 @@
       "pose": "arch-overhead",
       "view": "front",
       "at": 0.14,
-      "cloth": "orange",
-      "mouth": 3
+      "cloth": "orange"
     },
     {
       "character": "monkey1",
@@ -38,8 +37,7 @@
       "pose": "leanback-armsback",
       "facing": "right",
       "at": 0.4,
-      "cloth": "red",
-      "mouth": 3
+      "cloth": "red"
     },
     {
       "character": "monkey1",
@@ -47,8 +45,7 @@
       "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.7,
-      "cloth": "red-diamond",
-      "mouth": 3
+      "cloth": "red-diamond"
     }
   ],
   "needs": [

@@ -23,8 +23,7 @@
       "view": "front",
       "facing": "right",
       "at": 0.7,
-      "row": "closeup",
-      "mouth": 3
+      "row": "closeup"
     }
   ],
   "needs": [

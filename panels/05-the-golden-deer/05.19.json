@@ -8,7 +8,6 @@
       "pose": "step-point",
       "facing": "right",
       "at": 0.3,
-      "mouth": 2,
       "hands": {
         "right": "in"
       },
@@ -24,7 +23,6 @@
       "facing": "left",
       "at": 0.72,
       "id": "ascetic",
-      "mouth": 1,
       "adjust": {
         "right.arm.prop": {
           "kind": "club",

@@ -21,7 +21,6 @@
       "pose": "kneel-handslow",
       "facing": "right",
       "at": 0.36,
-      "mouth": 1,
       "adjust": {
         "spine.head": -18
       }

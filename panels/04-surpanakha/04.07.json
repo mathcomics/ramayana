@@ -8,7 +8,6 @@
       "pose": "run-pump",
       "facing": "left",
       "at": 0.45,
-      "mouth": 3,
       "hands": {
         "right": "out",
         "left": "out"

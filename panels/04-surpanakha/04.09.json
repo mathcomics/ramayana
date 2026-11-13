@@ -9,7 +9,6 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.05,
-      "mouth": 3,
       "cloth": "red",
       "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
     },
@@ -19,7 +18,6 @@
       "pose": "runlow-pumplow",
       "facing": "right",
       "at": 0.24,
-      "mouth": 3,
       "cloth": "red-check",
       "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
     },
@@ -29,7 +27,6 @@
       "pose": "leap-reach",
       "facing": "right",
       "at": 0.44,
-      "mouth": 3,
       "cloth": "red-diamond",
       "row": 0.12,
       "adjust": { "right.arm.prop": { "kind": "sword", "angle": 120 } }
@@ -40,7 +37,6 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.66,
-      "mouth": 3,
       "cloth": "red-stripe",
       "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
     },
@@ -50,7 +46,6 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.88,
-      "mouth": 3,
       "cloth": "orange",
       "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
     }

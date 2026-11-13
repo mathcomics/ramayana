@@ -24,7 +24,6 @@
       "character": "sugriva",
       "pose": "chair-armrest",
       "facing": "right",
-      "mouth": 1,
       "on": "rock#seat",
       "scale": 0.5
     }

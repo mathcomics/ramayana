@@ -7,22 +7,19 @@
       "character": "lakshman",
       "pose": "walk-swing",
       "facing": "left",
-      "at": 0.74,
-      "mouth": 1
+      "at": 0.74
     },
     {
       "character": "sita",
       "pose": "pass-swing",
       "facing": "left",
-      "at": 0.5,
-      "mouth": 1
+      "at": 0.5
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "facing": "left",
-      "at": 0.27,
-      "mouth": 1
+      "at": 0.27
     }
   ]
 }

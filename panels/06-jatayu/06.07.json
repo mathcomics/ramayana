@@ -42,7 +42,6 @@
       "pose": "step-point",
       "facing": "left",
       "cloth": "red",
-      "mouth": 2,
       "adjust": {
         "spine.head": 20,
         "right.arm.shoulder": 55

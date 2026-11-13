@@ -13,7 +13,6 @@
       "character": "hanuman",
       "pose": "crawl-onhands",
       "facing": "left",
-      "mouth": 1,
       "on": "city-side#hand",
       "scale": 0.36,
       "rotate": 60

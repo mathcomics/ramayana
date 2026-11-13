@@ -8,7 +8,6 @@
       "pose": "step-hang",
       "facing": "right",
       "at": 0.25,
-      "mouth": 1,
       "row": "closeup"
     },
     {
@@ -16,7 +15,6 @@
       "pose": "step-point",
       "facing": "right",
       "at": 0.68,
-      "mouth": 2,
       "row": "closeup"
     }
   ]

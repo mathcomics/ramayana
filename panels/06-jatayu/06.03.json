@@ -25,8 +25,7 @@
       "view": "front",
       "facing": "right",
       "at": 1,
-      "row": 0.1,
-      "mouth": 3
+      "row": 0.1
     }
   ],
   "needs": [

@@ -8,7 +8,6 @@
       "pose": "step-hang",
       "facing": "left",
       "at": 0.4,
-      "mouth": 1,
       "adjust": {
         "spine.head": 15
       },

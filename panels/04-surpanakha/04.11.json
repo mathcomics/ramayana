@@ -7,15 +7,13 @@
       "character": "rama",
       "pose": "step-bowdraw",
       "facing": "left",
-      "at": 0.82,
-      "mouth": 1
+      "at": 0.82
     },
     {
       "character": "lakshman",
       "pose": "step-bowloose",
       "facing": "left",
       "at": 0.49,
-      "mouth": 2,
       "row": "closeup"
     }
   ],

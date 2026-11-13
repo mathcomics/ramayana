@@ -20,15 +20,13 @@
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.24,
-      "row": "mid",
-      "mouth": 1
+      "row": "mid"
     },
     {
       "character": "rama",
       "pose": "run-pump",
       "facing": "right",
-      "at": 0.56,
-      "mouth": 3
+      "at": 0.56
     }
   ],
   "needs": [

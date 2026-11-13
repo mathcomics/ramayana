@@ -17,8 +17,7 @@
       "facing": "left",
       "at": 0.25,
       "row": 0.12,
-      "cloth": "red-check",
-      "mouth": 3
+      "cloth": "red-check"
     },
     {
       "prop": "rock-square",
@@ -35,7 +34,6 @@
       "facing": "left",
       "at": 0.52,
       "cloth": "red-stripe",
-      "mouth": 3,
       "adjust": { "right.arm.prop": { "kind": "club", "angle": 150 } }
     },
     {
@@ -44,8 +42,7 @@
       "pose": "liefront-dive",
       "facing": "left",
       "at": 0.82,
-      "cloth": "red",
-      "mouth": 3
+      "cloth": "red"
     }
   ]
 }

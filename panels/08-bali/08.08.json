@@ -10,8 +10,7 @@
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.5,
-      "scale": 1.1,
-      "mouth": 3
+      "scale": 1.1
     }
   ],
   "needs": [

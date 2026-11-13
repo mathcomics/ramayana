@@ -18,7 +18,6 @@
       "pose": "fallback-flung",
       "facing": "right",
       "at": 0.32,
-      "mouth": 3,
       "cloth": "red",
       "row": 0.1
     },
@@ -28,7 +27,6 @@
       "pose": "stepback-armsout",
       "facing": "right",
       "at": 0.52,
-      "mouth": 3,
       "cloth": "red-diamond"
     },
     {
@@ -37,7 +35,6 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "at": 0.7,
-      "mouth": 3,
       "cloth": "orange",
       "row": 0.1
     },
@@ -47,7 +44,6 @@
       "pose": "fallback-flung",
       "facing": "right",
       "at": 0.9,
-      "mouth": 3,
       "cloth": "red-stripe"
     }
   ],

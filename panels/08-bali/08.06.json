@@ -9,15 +9,13 @@
       "pose": "leanfront-fists",
       "facing": "left",
       "at": 0.58,
-      "scale": 0.9,
-      "mouth": 3
+      "scale": 0.9
     },
     {
       "character": "sugriva",
       "pose": "lunge-armfront",
       "facing": "right",
-      "at": 0.36,
-      "mouth": 3
+      "at": 0.36
     }
   ],
   "needs": [

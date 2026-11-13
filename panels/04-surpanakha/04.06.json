@@ -7,15 +7,13 @@
       "character": "lakshman",
       "pose": "leanback-wrath",
       "facing": "right",
-      "at": 0.36,
-      "mouth": 3
+      "at": 0.36
     },
     {
       "character": "surpanakha",
       "pose": "stepturn-armface",
       "facing": "left",
-      "at": 0.7,
-      "mouth": 3
+      "at": 0.7
     }
   ]
 }

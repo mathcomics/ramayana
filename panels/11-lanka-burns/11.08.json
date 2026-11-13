@@ -31,7 +31,6 @@
       "facing": "left",
       "at": 0.26,
       "cloth": "red",
-      "mouth": 3,
       "row": 0.16
     },
     {
@@ -41,7 +40,6 @@
       "facing": "left",
       "at": 0.45,
       "cloth": "red-diamond",
-      "mouth": 3,
       "adjust": {
         "left.arm.shoulder": 150,
         "left.arm.elbow": 20,
@@ -54,8 +52,7 @@
       "pose": "run-pump",
       "facing": "left",
       "at": 0.74,
-      "cloth": "red-check",
-      "mouth": 3
+      "cloth": "red-check"
     },
     {
       "character": "raxas_f1",

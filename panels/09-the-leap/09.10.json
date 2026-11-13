@@ -8,7 +8,6 @@
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.2,
-      "mouth": 1,
       "adjust": {
         "spine.chest": 18,
         "spine.head": 14
@@ -19,7 +18,6 @@
       "pose": "step-point",
       "facing": "right",
       "at": 0.5,
-      "mouth": 2,
       "adjust": {
         "spine.head": -16
       }

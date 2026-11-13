@@ -25,7 +25,6 @@
       "pose": "step-hang",
       "facing": "right",
       "at": 0.3,
-      "mouth": 1,
       "adjust": {
         "spine.head": -25
       },

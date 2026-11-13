@@ -9,8 +9,7 @@
       "view": "front",
       "at": 0.66,
       "scale": 0.6,
-      "cloth": "orange",
-      "mouth": 1
+      "cloth": "orange"
     },
     {
       "character": "monkey1",
@@ -18,8 +17,7 @@
       "view": "front",
       "at": 0.46,
       "scale": 0.8,
-      "cloth": "red",
-      "mouth": 1
+      "cloth": "red"
     },
     {
       "foreground": [0.11, 0.22],
@@ -30,8 +28,7 @@
       "pose": "walk-swing",
       "view": "front",
       "at": 0.28,
-      "scale": 1.05,
-      "mouth": 1
+      "scale": 1.05
     }
   ]
 }

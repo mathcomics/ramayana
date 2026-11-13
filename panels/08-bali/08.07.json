@@ -11,16 +11,14 @@
       "facing": "left",
       "at": 0.75,
       "row": "back",
-      "scale": 1.1,
-      "mouth": 3
+      "scale": 1.1
     },
     {
       "character": "sugriva",
       "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.6,
-      "row": "back",
-      "mouth": 3
+      "row": "back"
     },
     {
       "character": "rama",

@@ -7,15 +7,13 @@
       "character": "rama",
       "pose": "kneel-bow",
       "facing": "left",
-      "at": 0.42,
-      "mouth": 1
+      "at": 0.42
     },
     {
       "character": "sugriva",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.72,
-      "mouth": 1,
       "adjust": {
         "spine.head": 20
       }
