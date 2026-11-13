@@ -8,6 +8,8 @@
     "dusty-pink": { "horizontal": ["#e9cfc4", "#c8b2a9"] },
     "sky-blue": { "horizontal": ["#cfe0e6", "#93b6c4"] },
     "sand": ["#f1ead9", "#ded7c9"],
+    "yellow": ["#f6e6a6", "#e9d07c"],
+    "sunrise": ["#f6dcc0", "#e8b98e"],
     "geru": { "horizontal": ["#9c4a2f", "#864028"] },
     "sage": ["#9dac93", "#87947e"],
     "dry-grass": { "horizontal": ["#a7ac93", "#90947e"] },

@@ -54,16 +54,6 @@
       "prop": "tree-trunk",
       "at": -0.04,
       "row": "closeup"
-    },
-    {
-      "character": "surpanakha",
-      "pose": "step-hang",
-      "at": 0.2,
-      "row": -0.2,
-      "turn": -90,
-      "adjust": {
-        "spine.head": 15
-      }
     }
   ],
   "sky": "sand"
