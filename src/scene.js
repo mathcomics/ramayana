@@ -139,7 +139,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     else if (want && want !== got) issues.push(`figure ${i} (${who}): head wants the ${want} view, not drawn; drawn as ${got} (docs/issues/missing-views.md)`);
     heads.push({ character: who, want: want ?? got, got });
     const groundY = r.top ? -bbox.y0 * unit : r.y;
-    return { f, fi: i - 1, name: f.id || who, pose, view, look, S, built, groundY, unit,
+    return { f, fi: i - 1, name: f.id || who, pose, view, look, S, built, groundY, unit, rowUnit: r.unit,
       halfW: ((bbox.x1 - bbox.x0) / 2) * unit, halfW1: (bbox.x1 - bbox.x0) / 2, pelvisX: joints?.spine?.pelvis?.[0] ?? 0, seatY, h1: -bbox.y0, rot: f.rotate ?? 0,
       // each hand's grip, in the figure's own frame (y up is negative): a "hand" anchor
       grips: { right: joints?.near?.grip ?? joints?.near?.Wr, left: joints?.far?.grip ?? joints?.far?.Wr },
@@ -241,15 +241,60 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     }
   }
   const RELS = ['before', 'behind', 'beside', 'left-of', 'right-of'];
+  // a figure's rotate: degrees clockwise. On a prop's anchor it turns about
+  // that point (keeps its grip, seat or footing); on a foreground, about its
+  // feet; otherwise about its centre, then stands on the bottom of its
+  // turned box, as a prop does. Returns the pivot and that drop.
+  const turnOf = (o) => {
+    const r = o.rot * Math.PI / 180, e = ent(o);
+    if (e.on && o.pivot) return { px: o.pivot[0], py: o.pivot[1], dy: 0 };
+    if (e.on) return { px: o.x, py: o.groundY, dy: 0 };
+    const h = o.h1 * o.unit, w = 2 * o.halfW;
+    return { px: o.x, py: o.groundY - h / 2, dy: h / 2 - (Math.abs(w * Math.sin(r)) + Math.abs(h * Math.cos(r))) / 2 };
+  };
+  // A figure's own anchors, from its skeleton in the view drawn (nothing to
+  // draw): what it carries goes "on": "<figure>#hands". In the figure's
+  // frame (y up is negative); right is the near hand, left the far one.
+  const FIG_POINTS = {
+    'hand-right': (t) => t.grips.right,
+    'hand-left': (t) => t.grips.left,
+    hands: (t) => t.grips.right && t.grips.left && [(t.grips.right[0] + t.grips.left[0]) / 2, (t.grips.right[1] + t.grips.left[1]) / 2],
+    head: (t) => t.built.headAnchor?.at && [t.built.headAnchor.at[0], t.built.headAnchor.at[1] - (t.S.head?.size ?? 1) / 2],
+    shoulder: (t) => t.built.joints?.near?.sh,
+  };
+  // the point in the panel: mirrored with the figure, turned with it
+  const figPoint = (t, [jx, jy]) => {
+    let x = t.x + t.facing * jx * t.unit, y = t.groundY + jy * t.unit;
+    if (t.rot) {
+      const { px, py, dy } = turnOf(t), r = t.rot * Math.PI / 180, c = Math.cos(r), sn = Math.sin(r);
+      [x, y] = [px + (x - px) * c - (y - py) * sn, py + (x - px) * sn + (y - py) * c + dy];
+    }
+    return [x, y];
+  };
   // "on": a figure (or another prop) sits or stands on a prop's anchor, at
   // the prop's row and its own scale — not the prop's (a big rock does not
-  // make its sitter big). "<prop>" uses the seat anchor; "<prop>#<anchor>"
+  // make its sitter big). On a figure's anchor (FIG_POINTS: carried) the
+  // same: a prop's bottom centre (or its feet anchor) lands there, a
+  // figure's hips. "<prop>" uses the seat anchor; "<prop>#<anchor>"
   // names another (e.g. stand). A prop stands with its bottom centre on it.
   // A `face` anchor is different: it takes the head alone, centred on the
   // anchor and drawn to the anchor circle's size — a face in a sound bubble.
   const seatOn = (o) => {
     const e = ent(o);
     const [tname, aname = 'seat'] = String(e.on).split('#');
+    const carrier = !props.some((x) => x !== o && x.name === tname) && all.find((x) => x !== o && x.f && x.name === tname);
+    if (carrier) {
+      const pt = FIG_POINTS[aname]?.(carrier);
+      if (!pt) { issues.push(`${o.name}: a figure's anchor is ${Object.keys(FIG_POINTS).map((k) => `#${k}`).join(', ')} ("${e.on}")`); if (o.f) o.f = { ...o.f, on: undefined }; else o.p = { ...o.p, on: undefined }; return; }
+      // A on B on A: flagged, and A dropped off
+      for (let c = carrier, k = 0; c && k <= all.length; k++) {
+        if (c === o) { issues.push(`${o.name}: "on" goes round in a circle ("${e.on}")`); if (o.f) o.f = { ...o.f, on: undefined }; else o.p = { ...o.p, on: undefined }; return; }
+        const on = ent(c).on;
+        c = on && !onBand(ent(c)) ? all.find((x) => x !== c && x.name === String(on).split('#')[0]) : null;
+      }
+      if (carrier.x == null) return;
+      return placeOn(o, e, carrier, ...figPoint(carrier, pt), 'carry');
+    }
     const t = props.find((x) => x !== o && x.name === tname);
     const seat = t?.def?.anchors?.[aname];
     if (!seat) { issues.push(`${o.name}: "on" needs a prop with a "${aname}" anchor in the panel ("${e.on}")`); if (o.f) o.f = { ...o.f, on: undefined }; else o.p = { ...o.p, on: undefined }; return; }
@@ -266,6 +311,11 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       o.pivot = [o.x, o.groundY];
       return;
     }
+    placeOn(o, e, t, sx, sy, aname);
+  };
+  // put o on the point (sx, sy) of t: aname is the prop anchor's name, or
+  // "carry" for a figure's anchor
+  const placeOn = (o, e, t, sx, sy, aname) => {
     o.rowUnit = t.rowUnit;
     o.unit = o.rowUnit * (e.scale ?? 1);
     // the anchor point, nudged: a rotated figure turns about it
@@ -295,8 +345,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       o.x = ax - o.facing * (feet[0] * o.unit - o.halfW);
       return;
     }
-    // a seat anchor takes the hips; any other (stand …) the lowest point
-    const hips = o.f && aname === 'seat' ? o.seatY * o.unit : 0;
+    // a seat anchor or a carrier's takes the hips; any other (stand …) the lowest point
+    const hips = o.f && (aname === 'seat' || aname === 'carry') ? o.seatY * o.unit : 0;
     o.groundY = sy - hips - o.dy * o.unit;
     o.x = sx - (o.f ? o.pelvisX * o.unit * o.facing : 0) + o.dx * o.unit;
   };
@@ -353,21 +403,10 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const from = defs.length, paint = fill(o.color, `band${k}`), d = defs.slice(from);
     return (d ? `<defs>${d}</defs>` : '') + `<path d="M0 ${H}L0 ${+lineY(o, 0).toFixed(2)}L${W} ${+lineY(o, W).toFixed(2)}L${W} ${H}Z" fill="${paint}"/>`;
   };
-  // a figure's rotate: degrees clockwise. On a prop's anchor it turns about
-  // that point (keeps its grip, seat or footing); on a foreground, about its
-  // feet; otherwise about its centre, then stands on the bottom of its
-  // turned box, as a prop does
+  // a figure's rotate (turnOf, above)
   const turn = (o, g) => {
     if (!o.rot) return g;
-    const r = o.rot * Math.PI / 180, e = ent(o);
-    let px, py, dy = 0;
-    if (e.on && o.pivot) [px, py] = o.pivot;
-    else if (e.on) [px, py] = [o.x, o.groundY];
-    else {
-      const h = o.h1 * o.unit, w = 2 * o.halfW;
-      [px, py] = [o.x, o.groundY - h / 2];
-      dy = h / 2 - (Math.abs(w * Math.sin(r)) + Math.abs(h * Math.cos(r))) / 2;
-    }
+    const { px, py, dy } = turnOf(o);
     return `<g transform="${dy ? `translate(0 ${+dy.toFixed(3)}) ` : ''}rotate(${o.rot} ${+px.toFixed(3)} ${+py.toFixed(3)})">${g}</g>`;
   };
   all.forEach((o, k) => {

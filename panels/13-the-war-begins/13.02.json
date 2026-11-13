@@ -21,9 +21,7 @@
     {
       "prop": "rock-rectangle",
       "id": "rock-lifted",
-      "at": 0.14,
-      "row": 0.5,
-      "scale": 1
+      "on": "lifter#hands"
     },
     {
       "character": "monkey1",

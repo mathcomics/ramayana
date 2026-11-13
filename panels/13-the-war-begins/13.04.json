@@ -6,12 +6,12 @@
     {
       "prop": "rock-circle",
       "id": "boulder",
-      "at": 0.25,
-      "row": 0.52,
+      "on": "hanuman#hands",
       "scale": 1.2
     },
     {
       "character": "hanuman",
+      "id": "hanuman",
       "pose": "arch-overhead",
       "view": "front",
       "at": 0.25,

@@ -191,6 +191,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   because her rock was). For people on a prop seen from a distance, give
   the figures their own `scale` (06.07's monkeys at 0.25 on a rock at 2.5).
   A `face` anchor still takes the prop's size: the head is part of the burst.
+- **Carried things go `on` the carrier** (2026-11-13): `"on": "hanuman#hands"`
+  (also `#hand-right`, `#hand-left`, `#head`, `#shoulder`), not an `at`/`row`
+  lined up by eye — it then follows the pose. List the rock before the
+  lifter so his hands are in front of it (13.02, 13.04).
 - **Rocks** (artist, 2026-11-10): build rocky ground from
   `rock-circle`, `rock-square` and `rock-rectangle`, often a big one with
   a smaller one before it (`composition.md`, Kishkindha and rocks).

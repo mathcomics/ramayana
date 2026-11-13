@@ -148,6 +148,35 @@ test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale
   assert.match(renderPanel({ figures: [throne, { ...king, at: 0.2, row: 'back' }] }, assets).issues.join(' '), /"at" does nothing with "on"[\s\S]*"row" does nothing with "on"/);
 });
 
+test('"on" a figure: a carried prop on its hands, head or shoulder, from the skeleton', () => {
+  const look = characterLook(assets.characters.characters.find((c) => c.id === 'hanuman'), assets.characters.palette, assets.faces);
+  const pose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'arch-overhead')));
+  const num = (v) => +v;
+  for (const [view, facing] of [['front', 'right'], ['side', 'right'], ['side', 'left']]) {
+    const { joints } = buildShapes(assets.species.monkey, pose, look.outfit, view, look.bodyScale, look.who);
+    const r = renderPanel({ figures: [
+      { character: 'hanuman', id: 'h', pose: 'arch-overhead', view, facing, at: 0.4, row: 'mid' },
+      { prop: 'rock-circle', on: 'h#hands', scale: 0.5 },
+    ] }, assets);
+    assert.deepEqual(r.issues, [], view);
+    const [fx, fy, fu] = r.svg.match(/data-panel[\s\S]*?<g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)/).slice(1).map(num);
+    const [px, py, pu] = [...r.svg.matchAll(/<g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+) /g)].at(-1).slice(1).map(num);
+    const size = assets.props.props['rock-circle'].size, f = facing === 'left' ? -1 : 1;
+    const mid = [(joints.near.grip[0] + joints.far.grip[0]) / 2, (joints.near.grip[1] + joints.far.grip[1]) / 2];
+    // the rock's bottom centre on the hands' midpoint, at the carrier's row × its own scale
+    const u = Math.abs(fu);
+    assert.ok(Math.abs(Math.abs(pu) - u * 0.5) < 1e-9, `${view}: the row's size × scale`);
+    // (the rock keeps its own facing: right)
+    assert.ok(Math.abs(px + size[0] * Math.abs(pu) / 2 - (fx + f * mid[0] * u)) < 1e-6, `${view} ${facing}: centred between the hands`);
+    assert.ok(Math.abs(py + size[1] * Math.abs(pu) - (fy + mid[1] * u)) < 1e-6, `${view} ${facing}: resting on them`);
+  }
+  // the others place without issues; a wrong anchor and a circle are flagged
+  for (const a of ['hand-right', 'hand-left', 'head', 'shoulder'])
+    assert.deepEqual(renderPanel({ figures: [{ character: 'rama', pose: 'step-hang' }, { prop: 'rock-circle', on: `rama#${a}`, scale: 0.3 }] }, assets).issues, [], a);
+  assert.match(renderPanel({ figures: [{ character: 'rama', pose: 'step-hang' }, { prop: 'rock-circle', on: 'rama#knee' }] }, assets).issues.join(' '), /a figure's anchor is #hand-right/);
+  assert.match(renderPanel({ figures: [{ character: 'rama', id: 'a', pose: 'step-hang', on: 'b#shoulder' }, { character: 'sita', id: 'b', pose: 'step-hang', on: 'a#shoulder' }] }, assets).issues.join(' '), /goes round in a circle/);
+});
+
 test('a foreground: a band of ground in the list; "on" stands entries on its line at their own x', () => {
   const fg = { foreground: [0.1, 0.3], color: '#667456' };
   const place = (figs) => renderPanel({ tall: 1, figures: figs }, assets);
