@@ -16,7 +16,7 @@
       "facing": "left",
       "at": 0.84,
       "mouth": 2,
-      "adjust": { "left.arm.prop": { "kind": "bow", "angle": 90 } }
+      "adjust": { "left.arm.prop": { "kind": "bow", "angle": 0 } }
     }
   ]
 }

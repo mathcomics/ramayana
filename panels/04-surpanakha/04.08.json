@@ -10,7 +10,7 @@
       "facing": "right",
       "at": 0.06,
       "cloth": "red-diamond",
-      "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": -30 } }
     },
     {
       "character": "raxas_m1",
@@ -19,7 +19,7 @@
       "facing": "right",
       "at": 0.3,
       "cloth": "red-stripe",
-      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
+      "adjust": { "right.arm.prop": { "kind": "sword", "angle": -30 } }
     },
     {
       "character": "surpanakha",

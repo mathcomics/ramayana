@@ -34,7 +34,7 @@
       "facing": "left",
       "at": 0.52,
       "cloth": "red-stripe",
-      "adjust": { "right.arm.prop": { "kind": "club", "angle": 150 } }
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
     },
     {
       "character": "raxas_m1",

@@ -273,7 +273,7 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -16,
+          "angle": -106,
           "grip": "both",
           "kind": "sword",
           "out": 0
@@ -335,7 +335,7 @@
         "hand": "fist",
         "prop": {
           "kind": "bow",
-          "angle": 83,
+          "angle": -7,
           "out": 0,
           "draw": true
         }
@@ -366,7 +366,7 @@
         "hand": "fist",
         "prop": {
           "kind": "bow",
-          "angle": 83,
+          "angle": -7,
           "out": 0,
           "draw": true
         }
@@ -397,7 +397,7 @@
         "hand": "fist",
         "prop": {
           "kind": "bow",
-          "angle": 48,
+          "angle": -42,
           "out": 0
         }
       }
@@ -424,7 +424,7 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -4,
+          "angle": -94,
           "grip": "both",
           "kind": "sword",
           "out": 0
@@ -475,7 +475,7 @@
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": 35,
+          "angle": -55,
           "out": 0,
           "grip": "both"
         }
@@ -561,7 +561,7 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -40,
+          "angle": -130,
           "grip": "both",
           "kind": "sword",
           "out": 0
@@ -617,7 +617,7 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": 6,
+          "angle": -84,
           "grip": "both",
           "kind": "sword",
           "out": 0
@@ -718,7 +718,7 @@
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": -90,
+          "angle": 180,
           "out": 0,
           "grip": "both"
         }
@@ -774,7 +774,7 @@
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": -40,
+          "angle": -130,
           "out": 0,
           "grip": "both"
         }
@@ -810,7 +810,7 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": 8,
+          "angle": -82,
           "grip": "both",
           "kind": "sword",
           "out": 0
@@ -830,7 +830,7 @@
         "hand": "fist",
         "out": -13.6,
         "prop": {
-          "angle": 25,
+          "angle": -65,
           "grip": "both",
           "kind": "sword",
           "out": 13
@@ -942,7 +942,7 @@
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": -85,
+          "angle": -175,
           "out": 0,
           "grip": "both"
         }
@@ -1004,7 +1004,7 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": 103,
+          "angle": 13,
           "grip": "both",
           "kind": "sword",
           "out": 0
@@ -1205,7 +1205,7 @@
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": 10,
+          "angle": -80,
           "out": 0,
           "grip": "both"
         }
@@ -1286,7 +1286,7 @@
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": 10,
+          "angle": -80,
           "out": 0
         }
       },
@@ -1321,7 +1321,7 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": 90,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 0
@@ -1352,7 +1352,7 @@
         "hand": "fist",
         "out": -52.7,
         "prop": {
-          "angle": 5,
+          "angle": -85,
           "grip": "both",
           "kind": "sword",
           "out": 0

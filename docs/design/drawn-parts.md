@@ -141,7 +141,10 @@ move the legs.
   - A figure uses its character's version (`who`, from `characterLook`),
     else `base`.
   - In a figure: the line starts at the grip (the middle of the hand)
-    and points along the hand's side-view angle + `angle`, with the arm's
+    and points across the fist: the hand's side-view angle + 90 +
+    `angle`, so `angle: 0` stands the weapon out of the closed hand on
+    the thumb side, at right angles to it (how a fist holds a hilt), and
+    ±90 lies it along the hand; with the arm's
     `out` + `out`; each view is its projection (lengths shorten, widths
     stay). The drawing is laid along it by one affine transform and drawn
     with its arm, at the hand's depth. A bow's belly faces away from the

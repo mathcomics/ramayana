@@ -316,6 +316,10 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // the hilt. An arm keeps one `out` for both bones, so its hand's
   // sideways reach is (upper + forearm) × sin out: that fixes out, and
   // the rest is a two-bone reach in the arm's plane.
+  // A held prop's angle is measured from across the fist: 0 is the weapon
+  // standing out of the closed hand on the thumb side, at right angles to
+  // the hand (how a fist holds a hilt); ±90 lies it along the hand.
+  const propAngle = (P) => 90 + (P.angle ?? 0);
   const armOf = { near: pose.near.arm, far: pose.far.arm };
   for (const hs of ['near', 'far']) {
     const A = armOf[hs], P = A.prop;
@@ -324,7 +328,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const v3 = (theta, o, sg) => [sg * Math.sin(o * RAD), Math.cos(o * RAD) * Math.cos(theta * RAD), Math.cos(o * RAD) * Math.sin(theta * RAD)];
     const add3 = (p, d, L) => [p[0] + d[0] * L, p[1] + d[1] * L, p[2] + d[2] * L];
     const sg1 = hs === 'far' ? -1 : 1, sg2 = -sg1;
-    const t0 = -(sp.lean + sp.chest), su = t0 + A.shoulder, sl = su + A.elbow, sh = sl + A.wrist, tp = sh + (P.angle ?? 0);
+    const t0 = -(sp.lean + sp.chest), su = t0 + A.shoulder, sl = su + A.elbow, sh = sl + A.wrist, tp = sh + propAngle(P);
     const S1 = joint3('shoulder', hs === 'far'), S2 = joint3('shoulder', os === 'far');
     const oL = A.out + (A.elbowOut ?? 0);                          // the forearm's own out
     const E1 = add3(S1, v3(su, A.out, sg1), M.upperArm.len), W1 = add3(E1, v3(sl, oL, sg1), M.forearm.len);
@@ -451,7 +455,8 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // line through the hand's grip; the weapon drawing (data/props/held/
   // <kind>.svg: the character's own layer, else base) is laid along it by
   // its own line (straight for a sword or club, curved for a bow). The line turns with the hand: its
-  // direction is the hand's side-view angle + prop.angle, out of the paper
+  // direction is the hand's side-view angle + 90 + prop.angle (0 = across
+  // the fist), out of the paper
   // by the arm's out + prop.out; each view is its projection (lengths
   // shorten, widths stay). A bow's belly faces away from the hip; in the
   // front view the bow is seen nearly edge-on. A drawn bow (prop.draw) has
@@ -462,7 +467,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     // the character's own version of the weapon, else the base one
     const V = P && HELD?.[P.kind], W = V && (V[who] || V.base), bow = P?.kind.split('-')[0] === 'bow';
     if (!W) continue;
-    const pr = dpProject(H.theta + (P.angle ?? 0), H.out + (P.out ?? 0), front);
+    const pr = dpProject(H.theta + propAngle(P), H.out + (P.out ?? 0), front);
     const u = H.dirM(pr.ang), g = limbs[s].grip;
     let v = [-u[1], u[0]];
     if (bow && (g[0] - limbs[s].joints.hp[0]) * v[0] + (g[1] - limbs[s].joints.hp[1]) * v[1] < 0) v = mul(v, -1);

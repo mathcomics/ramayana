@@ -10,7 +10,7 @@
       "facing": "right",
       "at": 0.05,
       "cloth": "red",
-      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
+      "adjust": { "right.arm.prop": { "kind": "sword", "angle": -30 } }
     },
     {
       "character": "raxas_m1",
@@ -19,7 +19,7 @@
       "facing": "right",
       "at": 0.24,
       "cloth": "red-check",
-      "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": -30 } }
     },
     {
       "character": "raxas_m1",
@@ -29,7 +29,7 @@
       "at": 0.44,
       "cloth": "red-diamond",
       "row": 0.12,
-      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 120 } }
+      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 30 } }
     },
     {
       "character": "raxas_m1",
@@ -38,7 +38,7 @@
       "facing": "right",
       "at": 0.66,
       "cloth": "red-stripe",
-      "adjust": { "right.arm.prop": { "kind": "club", "angle": 60 } }
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": -30 } }
     },
     {
       "character": "raxas_m2",
@@ -47,7 +47,7 @@
       "facing": "right",
       "at": 0.88,
       "cloth": "orange",
-      "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
+      "adjust": { "right.arm.prop": { "kind": "sword", "angle": -30 } }
     }
   ],
   "tags": ["frieze"]
