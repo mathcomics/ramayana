@@ -33,11 +33,11 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="4.72"
-     inkscape:cx="76.165254"
+     inkscape:cx="38.241525"
      inkscape:cy="168.96186"
-     inkscape:window-width="2880"
-     inkscape:window-height="1514"
-     inkscape:window-x="3829"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="g463" />
@@ -47,7 +47,7 @@
      id="g463">
     <path
        inkscape:label="blade"
-       d="M -3.5,-12 C 2.4766464,-76.800621 4.2077062,-142.38746 -5,-210 H 7 c 5.116103,67.4959 3.239459,133.326855 -3.5,198 z"
+       d="m -14.940678,-20.474576 c 5.9766464,-64.800621 5.3771978,-122.972204 -3.830508,-190.584744 L 7,-210 c 5.116103,67.4959 3.239459,133.326855 -3.5,198 z"
        style="fill:#241f1c"
        id="path455"
        sodipodi:nodetypes="ccccc" />

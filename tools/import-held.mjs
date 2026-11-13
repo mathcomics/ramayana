@@ -1,6 +1,9 @@
-// Held props: one file per weapon in data/props/held/ (sword.svg,
-// club.svg, bow.svg), each with a layer "base" (everyone's) and optional
-// layers named by a character id (that character's own version).
+// Held props: one file per weapon in data/props/held/, its name the
+// weapon's kind: a family (sword, club, bow) optionally followed by a
+// variant ("sword-broad", "club-spike-long"). Each has a layer "base"
+// (everyone's) and optional layers named by a character id (that
+// character's own version). The family sets the line: straight for sword
+// and club, the curve and a grip for bow.
 //
 //   node tools/import-held.mjs   ->  data/held.json
 //
@@ -14,12 +17,16 @@
 // the grip, +x along the line (sword, club: toward the tip; bow: toward the
 // top tip), +y to the line's right (bow: the belly side). Curves and
 // colours are kept; the drawing is only moved and turned.
+import { readdirSync } from 'node:fs';
 import { parse, serialize, label } from './svg.mjs';
 import { read, writeOut } from './lib.mjs';
 import { mm, ap, parseTransform, pathPolys, r4 } from './svg-geom.mjs';
 import { sub } from '../src/geom.js';
 
-const KINDS = ['sword', 'club', 'bow'];
+const FAMILIES = ['sword', 'club', 'bow'];
+const KINDS = readdirSync('data/props/held').filter((f) => f.endsWith('.svg')).map((f) => f.slice(0, -4)).sort()
+  .filter((k) => FAMILIES.includes(k.split('-')[0]) || console.warn(`  ! ${k}.svg: not a sword, club or bow (or a variant "<family>-<name>"); skipped`));
+const family = (kind) => kind.split('-')[0];
 const K = 100;
 const I = [1, 0, 0, 1, 0, 0];
 
@@ -61,9 +68,9 @@ function refOf(L, where) {
 // the frame of a line: origin at the grip, x along it (start -> end for a
 // sword, end -> start for a bow, so +x points at the top tip)
 function frameOf(ref, kind) {
-  const o = kind === 'bow' ? ref.grip : ref.a;
+  const bow = family(kind) === 'bow', o = bow ? ref.grip : ref.a;
   if (!o) throw new Error(`${kind}: the bow line needs a "grip" anchor`);
-  const d = kind === 'bow' ? sub(ref.a, ref.b) : sub(ref.b, ref.a), len = Math.hypot(...d);
+  const d = bow ? sub(ref.a, ref.b) : sub(ref.b, ref.a), len = Math.hypot(...d);
   const ux = [d[0] / len, d[1] / len], uy = [-ux[1], ux[0]];
   // file point -> line frame (head-units)
   const to = (p) => { const v = sub(p, o); return [(v[0] * ux[0] + v[1] * ux[1]) / K, (v[0] * uy[0] + v[1] * uy[1]) / K]; };

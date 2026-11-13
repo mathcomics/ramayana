@@ -33,7 +33,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: arrow (in flight from the right edge, and stuck in the struck) | 04.12 |
 | prop: arrow (in flight, leaving the bows to the left) | 04.11 |
 | prop: bow in hand while running | 05.11 |
-| prop: branch (the ashoka branch Sita sits under) | 10.08 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
 | prop: flying chariot | 05.21, 05.22 |
 | prop: fruit | 05.19 |
@@ -58,4 +57,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-city-gap, city-roof, city-side, deer-stand, fire, flower-yellow, giant-grab, hut-side, hut-top, ladder, lanka-island, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+branch, city-gap, city-roof, city-side, deer-stand, fire, flower-yellow, giant-grab, hut-side, hut-top, ladder, lanka-island, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

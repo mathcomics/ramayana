@@ -46,7 +46,7 @@ export function loadSpecies() {
   const held = existsSync(join(root, 'data/held.json')) ? json('data/held.json') : null;
   return Object.fromEntries(ids.map((id) => {
     const S = json(`data/species/${id}.json`);
-    if (held) S.held = { sword: held.sword, club: held.club, bow: held.bow };
+    if (held) { const { _doc, ...kinds } = held; S.held = kinds; }
     if (typeof S.parts === 'string') {
       if (!parts[S.parts]) throw new Error(`species ${id}: no parts "${S.parts}" in data/parts.json`);
       S.parts = parts[S.parts];

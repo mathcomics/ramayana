@@ -7,9 +7,9 @@
      length is the line's length: 100 px = 1 head-unit. -->
 
 <svg
-   width="200"
-   height="400"
-   viewBox="-100 -260 200 400"
+   width="71.490776"
+   height="240"
+   viewBox="-100 -260 71.490776 240"
    version="1.1"
    id="svg8"
    sodipodi:docname="club.svg"
@@ -30,28 +30,29 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="3.337544"
-     inkscape:cx="-20.823695"
-     inkscape:cy="130.48517"
-     inkscape:window-width="2880"
-     inkscape:window-height="1514"
-     inkscape:window-x="3829"
+     inkscape:zoom="2.36"
+     inkscape:cx="-138.77119"
+     inkscape:cy="216.31356"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="g6" />
   <g
      inkscape:groupmode="layer"
      inkscape:label="base"
-     id="g6">
+     id="g6"
+     transform="translate(-63.947649,-50)">
     <path
        inkscape:label="club"
-       d="m -4,30 -4,-154 c -40.197321,-12.70767 -36.914482,-82.97369 8.04649804,-79.28376 C 45.981829,-204.34429 45.663839,-127.9089 8,-124 L 4,30 Z"
+       d="m -4,12 -4,-114 c -40.197321,-12.70767 -36.914482,-82.97369 8.04649804,-79.28376 C 45.981829,-182.34429 45.663839,-105.9089 8,-102 L 4,12 Z"
        style="fill:#483737"
        id="path2"
        sodipodi:nodetypes="cccccc" />
     <path
        inkscape:label="line"
-       d="M 0 0 L 0 -210"
+       d="M 0,0 V -210"
        fill="none"
        stroke="#d02020"
        stroke-width="1"

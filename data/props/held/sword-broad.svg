@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Broad sword, a variant of the sword (kind "sword-broad";
+     tools/import-held.mjs -> data/held.json). A panel swaps it in with
+     adjust: "right.arm.prop.kind": "sword-broad". One layer per version:
+     "base" for everyone, and a layer named by a character id for that
+     character's own. Each layer: the drawing, plus a path labelled "line"
+     (not drawn): a straight line from the grip (start, where the hand
+     closes) to the tip (end); its length is the sword's length: 100 px =
+     1 head-unit. A two-handed grip puts the other hand 0.42 below the grip. -->
+
+<svg
+   width="200"
+   height="400"
+   viewBox="-100 -260 200 400"
+   version="1.1"
+   id="svg465"
+   sodipodi:docname="sword-broad.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs469" />
+  <sodipodi:namedview
+     id="namedview467"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.72"
+     inkscape:cx="38.241525"
+     inkscape:cy="168.96186"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g463" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="base"
+     id="g463">
+    <path
+       inkscape:label="blade"
+       d="m -18.118644,-21.110169 c 7.95854,-65.49309 5.844846,-126.660721 -43.025424,-180.415251 L 6.1525424,-215.9322 C 28.523159,-132.932 13.710641,-72.746272 3.5,-12 Z"
+       style="fill:#241f1c"
+       id="path455"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:label="guard"
+       d="M -17 -15 L 17 -15 L 17 -9 L -17 -9 Z"
+       style="fill:#a02c2c"
+       id="path457" />
+    <path
+       inkscape:label="hilt"
+       d="M -3,-12 H 3 C 8.3163445,2.6666667 7.8486908,17.333333 3,32 H -3 C -7.7378167,16.497248 -7.8663505,1.8078989 -3,-12 Z"
+       style="fill:#a02c2c"
+       id="path459"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:label="line"
+       d="M 0 0 L 0 -210"
+       fill="none"
+       stroke="#d02020"
+       stroke-width="1"
+       id="path461" />
+  </g>
+</svg>

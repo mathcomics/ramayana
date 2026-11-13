@@ -14,9 +14,12 @@
       "facing": "right",
       "on": "rock-square#seat",
       "mouth": 1
+    },
+    {
+      "prop": "branch",
+      "at": 0.55,
+      "row": 0.5,
+      "scale": 2.2
     }
-  ],
-  "needs": [
-    "prop: branch (the ashoka branch Sita sits under)"
   ]
 }

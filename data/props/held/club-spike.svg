@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Spiked club, a variant of the club (kind "club-spike";
+     tools/import-held.mjs -> data/held.json). A panel swaps it in with
+     adjust: "right.arm.prop.kind": "club-spike". One layer per version:
+     "base" for everyone, and a layer named by a character id for that
+     character's own. Each layer: the drawing, plus a path labelled "line"
+     (not drawn): straight, from the grip (start) to the far end of the
+     head (end). Its length is the line's length: 100 px = 1 head-unit. -->
+
+<svg
+   width="71.490776"
+   height="240"
+   viewBox="-100 -260 71.490776 240"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="club-spike.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.36"
+     inkscape:cx="-138.77119"
+     inkscape:cy="216.31356"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g6" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="base"
+     id="g6"
+     transform="translate(-63.947649,-50)">
+    <path
+       inkscape:label="club"
+       d="M -4,12 -8,-102 H 8 L 4,12 Z"
+       style="fill:#483737"
+       id="path2"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:label="line"
+       d="M 0,0 V -210"
+       fill="none"
+       stroke="#d02020"
+       stroke-width="1"
+       id="path4" />
+    <path
+       sodipodi:type="star"
+       style="fill:#483737;fill-opacity:1;stroke:none;stroke-width:7.97996"
+       id="path2004"
+       inkscape:flatsided="false"
+       sodipodi:sides="12"
+       sodipodi:cx="-275.42374"
+       sodipodi:cy="54.661018"
+       sodipodi:r1="82.195747"
+       sodipodi:r2="57.537022"
+       sodipodi:arg1="0.68681765"
+       sodipodi:arg2="0.94861704"
+       inkscape:rounded="0"
+       inkscape:randomized="0.08"
+       d="m -208.82707,103.08545 -32.89471,2.32838 -2.98748,22.8321 -20.10579,-17.45939 -22.10355,19.49449 -15.82545,-21.33539 -23.52622,8.99396 3.33253,-33.456891 -31.91863,-6.808198 17.06905,-11.968622 -13.90932,-28.424563 21.70604,-12.18969 -13.29448,-17.9912373 38.10639,-1.2963163 2.75738,-28.9948054 18.35997,20.1310796 25.26733,-23.1771686 13.38419,32.2243514 16.66668,-13.721562 -0.44459,33.7572246 24.70151,1.895224 -12.50997,21.287794 22.50133,17.649214 -23.45206,13.405203 z"
+       transform="matrix(0.49795641,0,0,0.50457805,136.21801,-153.9305)"
+       inkscape:transform-center-x="-0.37252766"
+       inkscape:transform-center-y="-1.3315438" />
+  </g>
+</svg>

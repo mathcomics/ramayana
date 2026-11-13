@@ -447,7 +447,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
       ],
     };
   }
-  // Held props (arm.prop: sword, club or bow). The pose places a reference
+  // Held props (arm.prop: sword, club or bow, or a variant: "club-spike"). The pose places a reference
   // line through the hand's grip; the weapon drawing (data/props/held/
   // <kind>.svg: the character's own layer, else base) is laid along it by
   // its own line (straight for a sword or club, curved for a bow). The line turns with the hand: its
@@ -460,7 +460,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   for (const s of ['near', 'far']) {
     const H = limbs[s].held, P = H.prop;
     // the character's own version of the weapon, else the base one
-    const V = P && HELD?.[P.kind], W = V && (V[who] || V.base), bow = P?.kind === 'bow';
+    const V = P && HELD?.[P.kind], W = V && (V[who] || V.base), bow = P?.kind.split('-')[0] === 'bow';
     if (!W) continue;
     const pr = dpProject(H.theta + (P.angle ?? 0), H.out + (P.out ?? 0), front);
     const u = H.dirM(pr.ang), g = limbs[s].grip;
