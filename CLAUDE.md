@@ -134,9 +134,10 @@ and Sita in the swan chariot **waving back at the reader**.
 | `09-the-leap` | 12 | written against the brief (09.09 approved and locked) |
 | `10-the-ring` | 11 | written against the brief |
 | `11-lanka-burns` | 1 | the approved reference panel 11.08 only |
+| `13-the-war-begins` | 5 | battle scenes only (siege ladder, rocks hurled, the fall, a chief, the fallen field); no opener yet |
 | `14-kumbhakarna` | 1 | the approved reference panel 14.05 only |
 
-Chapters 12–13 and 15–18 have briefs and no panels; the site marks them
+Chapters 12 and 15–18 have briefs and no panels; the site marks them
 "to come". Every drawn chapter's folder number matches its brief number.
 The five approved reference panels (03.02, 05.11, 09.09, 11.08, 14.05)
 are the models other panels are judged against and are locked:
@@ -189,7 +190,7 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
 
 ### Open
 
-- **14 wanted poses** in `data/poses.json` (`wanted`), each with the
+- **15 wanted poses** in `data/poses.json` (`wanted`), each with the
   stand-in to use meanwhile; `docs/issues/missing-poses.md` is the
   generated queue.
 - **Sword postures are unreviewed.** They are the 14 two-handed

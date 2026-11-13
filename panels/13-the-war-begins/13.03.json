@@ -1,0 +1,51 @@
+{
+  "scene": "The rocks land: the rakshasas' row tumbles back",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "rock-circle",
+      "id": "rock-in",
+      "at": 0.06,
+      "row": 0.6,
+      "scale": 0.35
+    },
+    {
+      "character": "raxas_m1",
+      "id": "struck",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.25,
+      "row": 0.12,
+      "cloth": "red-check",
+      "mouth": 3
+    },
+    {
+      "prop": "rock-square",
+      "id": "rock-hit",
+      "at": 0.36,
+      "row": 0.62,
+      "scale": 0.3,
+      "rotate": -20
+    },
+    {
+      "character": "raxas_m2",
+      "id": "reeling",
+      "pose": "leanback-armsback",
+      "facing": "left",
+      "at": 0.52,
+      "cloth": "red-stripe",
+      "mouth": 3,
+      "adjust": { "right.arm.prop": { "kind": "club", "angle": 150 } }
+    },
+    {
+      "character": "raxas_m1",
+      "id": "down",
+      "pose": "liefront-dive",
+      "facing": "left",
+      "at": 0.82,
+      "cloth": "red",
+      "mouth": 3
+    }
+  ]
+}

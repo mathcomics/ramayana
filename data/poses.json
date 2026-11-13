@@ -1238,6 +1238,13 @@
     "standard"
   ],
   "wanted": {
+    "climb-ladder": {
+      "desc": "climbing a ladder or wall: both hands up on a high rung, one knee raised onto a lower one, body close to the rungs",
+      "use": [
+        "reach"
+      ],
+      "until": "leapup-reachup on the ladder's stand anchors"
+    },
     "stand-carry-overhead": {
       "desc": "standing, both arms straight up holding something above the head",
       "use": [

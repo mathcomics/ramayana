@@ -12,6 +12,19 @@ the new generic characters — were applied in the v0.5 rewrite of
 
 
 
+
+## Chapter 13: first battle panels (2026-11-12)
+
+Five battle panels, not the whole chapter (no opener, no Indrajit yet):
+13.01 a siege ladder against Lanka's wall, monkeys climbing, a rakshasa
+with a club on top; 13.02 monkeys hurl rocks; 13.03 the rocks land and
+the rakshasas' row tumbles; 13.04 a rakshasa chief lunges with his
+sword, Hanuman lifts a boulder over his head; 13.05 the field before
+the walls strewn with the dead and the thrown rocks. The **siege
+ladder** is new to the brief: beat 1 could say the monkeys scale the
+walls on ladders as well as hurl rocks. Ids will be renumbered when the
+rest of the chapter is written.
+
 ## Chapter 5: Surpanakha arrives at Lanka (2026-11-12)
 
 - **New 05.02a**: after the two Lanka openers, Surpanakha runs up the

@@ -1,0 +1,59 @@
+{
+  "scene": "The monkeys hurl rocks toward the walls",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "rock-circle",
+      "id": "rock-flying1",
+      "at": 0.7,
+      "row": 0.78,
+      "scale": 0.35
+    },
+    {
+      "prop": "rock-square",
+      "id": "rock-flying2",
+      "at": 0.93,
+      "row": 0.62,
+      "scale": 0.3,
+      "rotate": 25
+    },
+    {
+      "prop": "rock-rectangle",
+      "id": "rock-lifted",
+      "at": 0.14,
+      "row": 0.5,
+      "scale": 1
+    },
+    {
+      "character": "monkey1",
+      "id": "lifter",
+      "pose": "arch-overhead",
+      "view": "front",
+      "at": 0.14,
+      "cloth": "orange",
+      "mouth": 3
+    },
+    {
+      "character": "monkey1",
+      "id": "thrower",
+      "pose": "leanback-armsback",
+      "facing": "right",
+      "at": 0.4,
+      "cloth": "red",
+      "mouth": 3
+    },
+    {
+      "character": "monkey1",
+      "id": "follower",
+      "pose": "lunge-armfront",
+      "facing": "right",
+      "at": 0.7,
+      "cloth": "red-diamond",
+      "mouth": 3
+    }
+  ],
+  "needs": [
+    "pose: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now"
+  ]
+}

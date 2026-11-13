@@ -1,0 +1,34 @@
+{
+  "scene": "A rakshasa chief strides out with his sword; Hanuman lifts a boulder over his head",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "rock-circle",
+      "id": "boulder",
+      "at": 0.25,
+      "row": 0.52,
+      "scale": 1.2
+    },
+    {
+      "character": "hanuman",
+      "pose": "arch-overhead",
+      "view": "front",
+      "at": 0.25,
+      "mouth": 3
+    },
+    {
+      "character": "raxas_m3",
+      "id": "chief",
+      "pose": "lunge-longpoint",
+      "facing": "left",
+      "at": 0.72,
+      "row": "mid",
+      "cloth": "red-diamond",
+      "mouth": 3
+    }
+  ],
+  "needs": [
+    "pose: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now"
+  ]
+}
