@@ -66,6 +66,20 @@ from 05.13–05.15 — the cry is now how Jatayu knows, which is what sends
 him up. Worth a line in beat 1 of chapter 6, and in the
 continuity-and-motifs list: the cry travels in 5 *and* in 6.
 
+## Chapter 6: the jewels fall, then the monkeys look up (2026-11-13)
+
+The artist's rework of beat 2 follows the bundle down instead of
+cutting to the monkeys first. Sita holds the bundle out high in the sky
+(06.06), lets it go (06.06a), it falls alone (06.06b), lands on the
+rocks where one monkey bends to pick it up and the others crowd round
+(06.07), and only then do the monkeys look up to see Ravana and Sita
+pass small overhead (06.07a). The order is intentional (the artist).
+Beat 2 of chapter 6 has the monkeys look up before one picks the bundle
+up; it could follow the panels: she drops it — it falls — it lands among
+the monkeys and one picks it up — they look up at the pair passing. The
+**bag** (`data/props/bag.svg`) is the bundle from here on (a travelling
+object: worth a line in the continuity-and-motifs list).
+
 ## Chapter 4 after the wound: a strip sequence, no Khara (2026-11-11)
 
 The artist redrew everything after 04.07 as seven 0.6 strips (04.07 kept,
