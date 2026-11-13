@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- The forest hut seen from the side (eye level): the same thatched hut as
+     hut-top. The artist's drawing. 100 px = 1 head-unit; the bottom edge
+     sits on the ground line. -->
+
+<svg
+   viewBox="0 0 382.0885 199.70717"
+   width="382.0885"
+   height="199.70717"
+   version="1.1"
+   id="svg13"
+   sodipodi:docname="hut-side.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs17" />
+  <sodipodi:namedview
+     id="namedview15"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.8213067"
+     inkscape:cx="136.97684"
+     inkscape:cy="29.830513"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3701" />
+  <g
+     transform="matrix(6.501951,0,0,6.501951,-938.27988,-1134.6887)"
+     id="g11">
+    <g
+       id="g3701">
+      <path
+         style="fill:#786721;stroke:#241f1c;stroke-width:0.61519996;stroke-dasharray:none"
+         d="m 194.17726,175.484 c 3.36185,3.17834 5.78209,6.67681 8.16847,11.93326 l -3.51687,0.55408 -8.11974,-10.81774 z"
+         id="path3647"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#fff6d5;stroke:#241f1c;stroke-width:0.6152;stroke-dasharray:none"
+         d="m 183.99344,185.45582 0.70075,18.93078 16.74516,0.0396 -1.15354,-19.57022 -7.20219,-8.70135 z"
+         id="path3380"
+         sodipodi:nodetypes="cccccc" />
+      <path
+         style="fill:#ffedad;fill-opacity:1;stroke:#241f1c;stroke-width:0.61519996;stroke-dasharray:none"
+         d="m 148.86646,180.60639 0.52483,23.70041 35.46021,0.19316 -0.65483,-23.01606 z"
+         id="path3378"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#c8ab37;stroke:#241f1c;stroke-width:0.61519996;stroke-dasharray:none"
+         d="m 152.51494,175.02293 c -7.25038,2.69408 -7.98189,7.50008 -7.64046,10.26468 14.4301,-0.42579 28.18689,-0.58513 41.62116,1.31571 2.75556,-3.61795 3.44371,-7.2359 8.63667,-10.85385 -14.12591,-0.41788 -24.72469,0.82082 -42.61737,-0.72654 z"
+         id="path3376"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#552200;stroke:#241f1c;stroke-width:0.6152;stroke-dasharray:none"
+         d="m 190.11694,203.66393 c 0.0704,-0.38848 -0.21134,-14.82649 -0.21134,-14.82649 l 3.24044,0.11816 0.24655,14.76185 z"
+         id="path3382"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#552200;stroke:#241f1c;stroke-width:0.61519996;stroke-dasharray:none"
+         d="m 174.8901,194.88003 0.17188,-5.9868 3.83102,0.11795 v 5.92453 z"
+         id="path3384-2"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#552200;stroke:#241f1c;stroke-width:0.61519996;stroke-dasharray:none"
+         d="m 196.74052,195.02062 0.10744,-5.9868 2.39473,0.11795 v 5.92453 z"
+         id="path3384-2-2"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#552200;stroke:#241f1c;stroke-width:0.61519996;stroke-dasharray:none"
+         d="m 163.76976,195.33882 0.17188,-5.9868 3.83102,0.11795 v 5.92453 z"
+         id="path3384-2-6"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#552200;stroke:#241f1c;stroke-width:0.61519996;stroke-dasharray:none"
+         d="m 154.5939,195.02063 0.17188,-5.9868 3.83102,0.11795 v 5.92453 z"
+         id="path3384-2-5"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+  </g>
+</svg>

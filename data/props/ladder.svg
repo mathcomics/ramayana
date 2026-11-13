@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Kishkindha: the monkey city's palace on its hill, with the Rishyamukha
-     mountain in front - the flat-topped rock where Hanuman and the exiles
-     watch Sita carried over, and later meet Rama. Rock outlines perturbed
-     with seeded randomness (seed 11; the result is the drawing). Palace in
-     the palace sepia with rounded stupa domes; stone palette from the
-     artist's Lanka layout. 100 px = 1 head-unit; bottom edge on the ground.
-     Anchors: stand-left / stand / stand-right on the plateau (feet); use
-     "on": "palace-kishkindha#stand" etc. -->
+<!-- Ladder, leaning to the right (its top against a wall on its right: a
+     siege ladder, 13.01). The artist's drawing. 100 px = 1 head-unit;
+     bottom edge on the ground. Anchors (feet): stand-low, stand,
+     stand-high on a low, middle and high rung; "on": "ladder#stand". -->
 
 <svg
    viewBox="0 0 74.495806 254.58061"
@@ -33,11 +29,11 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="2.0538732"
-     inkscape:cx="83.257329"
-     inkscape:cy="176.98268"
-     inkscape:window-width="2880"
-     inkscape:window-height="1514"
-     inkscape:window-x="3829"
+     inkscape:cx="-6.5729472"
+     inkscape:cy="176.98269"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg38" />
@@ -112,24 +108,28 @@
        id="path6076-9-0-3-4" />
   </g>
   <g
-     id="anchors">
+     id="anchors"
+     transform="translate(-0.97376995,-3.8950798)">
     <circle
        id="stand-low"
        cx="23"
        cy="225.25"
        r="3"
-       fill="none" />
+       fill="none"
+       style="fill:#ffeeaa" />
     <circle
        id="stand"
        cx="37"
        cy="134.5"
        r="3"
-       fill="none" />
+       fill="none"
+       style="fill:#ffeeaa" />
     <circle
        id="stand-high"
        cx="47"
        cy="45.75"
        r="3"
-       fill="none" />
+       fill="none"
+       style="fill:#c8beb7" />
   </g>
 </svg>

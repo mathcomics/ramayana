@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Kishkindha: the monkey city's palace on its hill, with the Rishyamukha
-     mountain in front - the flat-topped rock where Hanuman and the exiles
-     watch Sita carried over, and later meet Rama. Rock outlines perturbed
-     with seeded randomness (seed 11; the result is the drawing). Palace in
-     the palace sepia with rounded stupa domes; stone palette from the
-     artist's Lanka layout. 100 px = 1 head-unit; bottom edge on the ground.
-     Anchors: stand-left / stand / stand-right on the plateau (feet); use
-     "on": "palace-kishkindha#stand" etc. -->
+<!-- A flight of steps rising to the left (the palace steps, 05.02a). The
+     artist's drawing. 100 px = 1 head-unit; bottom edge on the ground.
+     Anchors (feet): stand-low, stand, stand-high on a low, middle and high
+     tread; "on": "steps#stand". -->
 
 <svg
    viewBox="0 0 208.52503 114.47081"
@@ -32,15 +28,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.72615385"
-     inkscape:cx="42.690678"
-     inkscape:cy="-30.985169"
-     inkscape:window-width="2880"
-     inkscape:window-height="1514"
-     inkscape:window-x="3829"
+     inkscape:zoom="4.1077465"
+     inkscape:cx="65.120864"
+     inkscape:cy="27.143837"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg38" />
+     inkscape:current-layer="anchors" />
   <!-- the city hill -->
   <!-- city wall with crenellations -->
   <!-- flanking towers with stupa domes -->
@@ -145,21 +141,24 @@
      id="anchors">
     <circle
        id="stand-low"
-       cx="200"
-       cy="99.25"
+       cx="200.24344"
+       cy="96.815575"
        r="3"
-       fill="none" />
+       fill="none"
+       style="fill:#c8b7b7" />
     <circle
        id="stand"
-       cx="115.5"
-       cy="56.75"
+       cx="115.98689"
+       cy="53.098362"
        r="3"
-       fill="none" />
+       fill="none"
+       style="fill:#c8beb7" />
     <circle
        id="stand-high"
        cx="11"
-       cy="0"
+       cy="-2"
        r="3"
-       fill="none" />
+       fill="none"
+       style="fill:#ffaaaa" />
   </g>
 </svg>
