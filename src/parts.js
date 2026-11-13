@@ -331,10 +331,27 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     const sg1 = hs === 'far' ? -1 : 1, sg2 = -sg1;
     const t0 = -(sp.lean + sp.chest), su = t0 + A.shoulder, sl = su + A.elbow, sh = sl + A.wrist, tp = sh + propAngle(P);
     const S1 = joint3('shoulder', hs === 'far'), S2 = joint3('shoulder', os === 'far');
-    const oL = A.out + (A.elbowOut ?? 0);                          // the forearm's own out
-    const E1 = add3(S1, v3(su, A.out, sg1), M.upperArm.len), W1 = add3(E1, v3(sl, oL, sg1), M.forearm.len);
-    const grip = add3(W1, v3(sh, oL, sg1), 0.18);
-    const pd = v3(tp, oL + (P.out ?? 0), sg1);
+    // Both fists on one hilt sit between the shoulders: the holding arm's
+    // sideways reach (its out) is solved so the hilt, halfway between the
+    // two fists, is on the body's midline (seen from the front); its own
+    // out is ignored, elbowOut kept.
+    const fk = (o) => {
+      const oL = o + (A.elbowOut ?? 0);
+      const E1 = add3(S1, v3(su, o, sg1), M.upperArm.len), W1 = add3(E1, v3(sl, oL, sg1), M.forearm.len);
+      const grip = add3(W1, v3(sh, oL, sg1), 0.18), pd = v3(tp, oL + (P.out ?? 0), sg1);
+      return { oL, grip, pd, mid: grip[0] - pd[0] * FIST_W / 2 };
+    };
+    const xMid = (S1[0] + S2[0]) / 2, eo = A.elbowOut ?? 0;
+    let oA = Math.max(-90, -90 - eo), oB = Math.min(90, 90 - eo);
+    const f = (o) => fk(o).mid - xMid;
+    let out;
+    if (Math.sign(f(oA)) === Math.sign(f(oB))) out = Math.abs(f(oA)) < Math.abs(f(oB)) ? oA : oB;
+    else {
+      for (let i = 0; i < 40; i++) { const m = (oA + oB) / 2; if (Math.sign(f(m)) === Math.sign(f(oA))) oA = m; else oB = m; }
+      out = (oA + oB) / 2;
+    }
+    armOf[hs] = { ...A, out };
+    const { oL, grip, pd } = fk(out);
     // the other fist: one fist-width below this one on the hilt, parallel
     // to it (the same hand direction), so its wrist is its grip less half
     // a hand along that direction
