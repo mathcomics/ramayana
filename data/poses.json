@@ -711,6 +711,21 @@
         "leanback-unicorn"
       ]
     },
+    "step-search": {
+      "desc": "standing bent forward from the hips, peering ahead, right hand raised at the brow, left arm hanging (searching, looking out)",
+      "ground": "feet",
+      "hold": [
+        "left"
+      ],
+      "like": [
+        "bend-reach",
+        "step-holdhead"
+      ],
+      "use": [
+        "search",
+        "stand"
+      ]
+    },
     "stepback-armback": {
       "desc": "wide stance, right arm swung back behind, left arm out forward",
       "ground": "feet",

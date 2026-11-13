@@ -126,7 +126,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `01-intro` | 1 | the opener only |
 | `02-the-throne` | 17 | written against the brief |
 | `03-the-forest` | 8 | predates the briefs — to revisit (03.02 is approved and locked) |
-| `04-surpanakha` | 12 | predates the briefs — to revisit |
+| `04-surpanakha` | 14 | predates the briefs — to revisit |
 | `05-the-golden-deer` | 23 | artist-reviewed; the model chapter (05.11 tagged) |
 | `06-jatayu` | 13 | written against the brief |
 | `07-sugriva` | 15 | written against the brief |
@@ -165,10 +165,10 @@ what looks wrong: `docs/issues/problem-poses.md`.
   side face drawing; there is no generated fallback — except the
   side-only kaikeyi and raxas_f1–f3 (`sideOnly`), which have a side face only and are
   never drawn in front view.
-- **56 poses** in `data/poses.json`, all side view (the front view is
+- **57 poses** in `data/poses.json`, all side view (the front view is
   derived by the renderer). Each is named `<base>-<gesture>` and is
   exactly one of the **27 bases** (`data/bases.json`: legs, lean, tail)
-  with one of the **49 gestures** (`data/gestures.json`: arms, chest,
+  with one of the **50 gestures** (`data/gestures.json`: arms, chest,
   head, mouth); `src/compose.js` composes it when the assets load, so
   retuning a base or gesture changes every pose using it. A pose has no
   angles of its own — `poses.json` holds only its finding fields.

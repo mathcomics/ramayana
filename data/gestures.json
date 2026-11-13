@@ -1220,6 +1220,31 @@
         "hand": "fist"
       }
     },
+    "search": {
+      "chest": 63.6,
+      "desc": "bent forward peering ahead, right hand raised at the brow, left arm hanging",
+      "head": -90,
+      "left": {
+        "elbow": 42.7,
+        "elbowOut": -24.3,
+        "hand": "out",
+        "out": 25,
+        "shoulder": 55.2,
+        "twist": 0,
+        "wrist": -14
+      },
+      "mouth": 1,
+      "neck": 18.1,
+      "right": {
+        "elbow": 0,
+        "elbowOut": -65,
+        "hand": "in",
+        "out": 25,
+        "shoulder": 201.2,
+        "twist": 0,
+        "wrist": -31.2
+      }
+    },
     "swing": {
       "desc": "arms swinging with the step",
       "chest": -6,
