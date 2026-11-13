@@ -6,7 +6,7 @@
   "figures": [
     {
       "prop": "stag-stand",
-      "body": "#ffd42a",
+      "body": "gold",
       "at": 0.78,
       "row": "horizon",
       "facing": "left"

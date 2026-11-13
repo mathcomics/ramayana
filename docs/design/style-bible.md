@@ -166,7 +166,7 @@ the pose.
 - Body colour: a name from that list per character; it also paints the
   skin of the base face.
 - Cloth colours: orange (light, #f5b56e; was white until 2026-11-10), yellow, red (saturated, #d21d20).
-- Prop colours: `stone` (the rocks).
+- Prop colours: `stone` (the rocks), `gold` (the golden deer).
 - **Cloth patterns** (for rakshasas only): a cloth name can add a pattern
   to the colour: `red-check`, `red-diamond`, `red-stripe` (any colour
   in the list works). The pattern goes on the upper body only (a `full` top);
