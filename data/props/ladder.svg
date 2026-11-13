@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Kishkindha: the monkey city's palace on its hill, with the Rishyamukha
+     mountain in front - the flat-topped rock where Hanuman and the exiles
+     watch Sita carried over, and later meet Rama. Rock outlines perturbed
+     with seeded randomness (seed 11; the result is the drawing). Palace in
+     the palace sepia with rounded stupa domes; stone palette from the
+     artist's Lanka layout. 100 px = 1 head-unit; bottom edge on the ground.
+     Anchors: stand-left / stand / stand-right on the plateau (feet); use
+     "on": "palace-kishkindha#stand" etc. -->
+
+<svg
+   viewBox="0 0 74.495806 254.58061"
+   width="74.495804"
+   height="254.58061"
+   version="1.1"
+   id="svg38"
+   sodipodi:docname="ladder.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs42" />
+  <sodipodi:namedview
+     id="namedview40"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0538732"
+     inkscape:cx="83.257329"
+     inkscape:cy="176.98268"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg38" />
+  <!-- the city hill -->
+  <!-- city wall with crenellations -->
+  <!-- flanking towers with stupa domes -->
+  <!-- the palace block and its great dome -->
+  <!-- the gate, dark -->
+  <!-- Rishyamukha, in front -->
+  <g
+     id="g6586"
+     transform="translate(40.212868,265.00305)">
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:5;stroke-dasharray:none"
+       d="M -34.139518,-11.898517 -4.9615601,-264.71643"
+       id="path4858"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:5;stroke-dasharray:none"
+       d="M 0.65718873,-10.688477 27.400725,-260.58508"
+       id="path4858-8"
+       inkscape:transform-center-x="-140.4661"
+       inkscape:transform-center-y="-112.23517"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m -12.255154,-237.20869 46.460389,2.40996"
+       id="path6076" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m -16.383691,-217.65394 46.574921,-0.55018"
+       id="path6076-9" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m 24.57722,-181.26449 -46.246253,-4.00806"
+       id="path6076-1" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m 29.047212,-200.6545 -46.558065,-1.05527"
+       id="path6076-9-0" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m -20.90731,-165.33789 46.460384,2.40996"
+       id="path6076-95" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m -25.035847,-145.78314 46.574921,-0.55018"
+       id="path6076-9-9" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m 15.925064,-109.39369 -46.246253,-4.00806"
+       id="path6076-1-7" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m 20.395054,-128.7837 -46.558063,-1.05527"
+       id="path6076-9-0-3" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m -30.669472,-92.726006 46.46038,2.40996"
+       id="path6076-95-3" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m -34.798012,-73.171256 46.57492,-0.55018"
+       id="path6076-9-9-3" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m 6.1628981,-36.781806 -46.2462501,-4.00806"
+       id="path6076-1-7-5" />
+    <path
+       style="fill:#5e5149;fill-opacity:1;stroke:#2b2200;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+       d="m 10.632888,-56.171816 -46.55806,-1.05527"
+       id="path6076-9-0-3-4" />
+  </g>
+</svg>
