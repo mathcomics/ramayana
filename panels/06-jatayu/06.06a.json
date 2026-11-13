@@ -2,42 +2,33 @@
   "scene": "Ravana passes high over the hill; Sita lets the bundle of jewels fall; the monkeys on the rocks look up",
   "tall": 1,
   "ground": "sky-blue",
-  "horizon": 0.34,
   "figures": [
+    {
+      "character": "ravana",
+      "pose": "stepwide-swordcarry",
+      "facing": "right",
+      "at": 0.15,
+      "row": 0.4,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 14
+      },
+      "view": "front"
+    },
     {
       "character": "sita",
       "pose": "crawl-onhands",
       "facing": "right",
-      "at": 0.63,
+      "at": 0.23,
       "row": 0.48,
       "mouth": 3
     },
     {
-      "character": "ravana",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.52,
-      "row": 0.46,
-      "mouth": 2,
-      "adjust": {
-        "left.arm.elbow": 40,
-        "left.arm.shoulder": 70,
-        "left.leg.ankle": -45,
-        "left.leg.hip": -2,
-        "left.leg.knee": 0,
-        "right.arm.elbow": 8,
-        "right.arm.shoulder": -50,
-        "right.leg.ankle": -45,
-        "right.leg.hip": 12,
-        "right.leg.knee": 8,
-        "spine.head": 14
-      }
-    },
-    {
-      "prop": "jewels",
-      "at": 0.73,
-      "row": 0.49,
-      "scale": 1.03
+      "prop": "rock-circle",
+      "at": 0.43,
+      "row": 0.19,
+      "scale": 0.5,
+      "body": "gold"
     },
     {
       "prop": "rock-rectangle",
@@ -47,7 +38,7 @@
     }
   ],
   "needs": [
-    "prop: jewels (the bundle)",
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
+    "prop: jewels (the bundle): a gold rock-circle for now",
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view for now"
   ]
 }

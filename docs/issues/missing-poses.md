@@ -78,7 +78,7 @@ chapter). Moments with no pose come first.
 - 06.04: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
 - 06.05: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
 - 06.06: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
-- 06.06a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
+- 06.06a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view for now
 - 06.07a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
 - 06.09: stand-arms-out (grief, both arms thrown open): step-hang with both arms adjusted (as 05.06) for now
 - 07.13: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now

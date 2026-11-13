@@ -20,20 +20,7 @@
       "at": 0.52,
       "row": 0.46,
       "scale": 0.48,
-      "mouth": 2,
-      "adjust": {
-        "left.arm.elbow": 40,
-        "left.arm.shoulder": 70,
-        "left.leg.ankle": -45,
-        "left.leg.hip": -2,
-        "left.leg.knee": 0,
-        "right.arm.elbow": 8,
-        "right.arm.shoulder": -50,
-        "right.leg.ankle": -45,
-        "right.leg.hip": 12,
-        "right.leg.knee": 8,
-        "spine.head": 14
-      }
+      "mouth": 2
     },
     {
       "prop": "jewels",
