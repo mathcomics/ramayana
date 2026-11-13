@@ -7,25 +7,24 @@
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
-      "facing": "right",
       "at": 0.26,
       "row": 0.47,
       "scale": 0.65,
+      "mouth": 2,
       "adjust": {
         "spine.head": 14
       },
-      "mouth": 2,
       "rotate": 20,
       "turn": 90
     },
     {
       "character": "sita",
-      "pose": "arch-overhead",
+      "pose": "crawl-onhands",
       "facing": "right",
-      "at": 0.43,
-      "row": 0.51,
+      "at": 0.338,
+      "row": 0.587,
       "scale": 0.65,
-      "view": "front"
+      "mouth": 3
     },
     {
       "prop": "vulture-wing",

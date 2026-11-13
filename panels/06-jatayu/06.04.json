@@ -4,39 +4,27 @@
   "ground": "sky-blue",
   "figures": [
     {
-      "character": "sita",
-      "pose": "arch-overhead",
+      "character": "ravana",
+      "pose": "stepwide-swordcarry",
       "view": "front",
-      "facing": "right",
-      "at": 0.38,
+      "at": 0.22,
+      "row": "mid",
       "scale": 0.88,
-      "row": "mid"
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 14
+      },
+      "rotate": 20,
+      "turn": 90
     },
     {
-      "character": "ravana",
-      "pose": "step-hang",
+      "character": "sita",
+      "pose": "crawl-onhands",
       "facing": "right",
-      "at": 0.22,
-      "mouth": 3,
-      "adjust": {
-        "left.arm.shoulder": 70,
-        "left.arm.elbow": 40,
-        "right.arm.shoulder": 138,
-        "right.arm.elbow": 72,
-        "right.arm.prop": {
-          "kind": "sword",
-          "angle": 80
-        },
-        "right.leg.hip": 12,
-        "right.leg.knee": 8,
-        "right.leg.ankle": -45,
-        "left.leg.hip": -2,
-        "left.leg.knee": 0,
-        "left.leg.ankle": -45,
-        "spine.head": 10
-      },
-      "row": "mid",
-      "scale": 0.88
+      "at": 0.289,
+      "row": 0.251,
+      "scale": 0.574,
+      "mouth": 3
     },
     {
       "prop": "vulture-swoop",
@@ -47,6 +35,6 @@
     }
   ],
   "needs": [
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
   ]
 }

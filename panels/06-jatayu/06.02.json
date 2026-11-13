@@ -15,18 +15,24 @@
       "view": "front",
       "at": 0.48,
       "row": "closeup",
-      "mouth": 2
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 14
+      },
+      "rotate": 20,
+      "turn": 90
     },
     {
       "character": "sita",
-      "pose": "arch-overhead",
-      "view": "front",
+      "pose": "crawl-onhands",
       "facing": "right",
-      "at": 0.7,
-      "row": "closeup"
+      "at": 0.602,
+      "row": -0.543,
+      "scale": 2.536,
+      "mouth": 3
     }
   ],
   "needs": [
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
   ]
 }

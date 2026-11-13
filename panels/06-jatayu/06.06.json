@@ -4,33 +4,26 @@
   "ground": "sky-blue",
   "figures": [
     {
-      "character": "sita",
-      "pose": "kneel-bow",
-      "facing": "right",
-      "at": 0.63,
-      "row": "top",
-      "mouth": 3
-    },
-    {
       "character": "ravana",
-      "pose": "step-hang",
-      "facing": "right",
+      "pose": "stepwide-swordcarry",
+      "view": "front",
       "at": 0.52,
       "row": 0.46,
       "mouth": 2,
       "adjust": {
-        "left.arm.shoulder": 70,
-        "left.arm.elbow": 40,
-        "right.arm.shoulder": -50,
-        "right.arm.elbow": 8,
-        "right.leg.hip": 12,
-        "right.leg.knee": 8,
-        "right.leg.ankle": -45,
-        "left.leg.hip": -2,
-        "left.leg.knee": 0,
-        "left.leg.ankle": -45,
         "spine.head": 14
-      }
+      },
+      "rotate": 20,
+      "turn": 90
+    },
+    {
+      "character": "sita",
+      "pose": "crawl-onhands",
+      "facing": "right",
+      "at": 0.6,
+      "row": 0.64,
+      "scale": 1,
+      "mouth": 3
     },
     {
       "prop": "jewels",
@@ -47,6 +40,6 @@
   ],
   "needs": [
     "prop: jewels (the bundle)",
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
   ]
 }

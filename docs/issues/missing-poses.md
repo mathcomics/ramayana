@@ -73,11 +73,11 @@ chapter). Moments with no pose come first.
 - 03.05: sit-cross-legged (sage teaching, raised hand)
 - 03.06: stand-palms-joined
 - 05.11: run-bow (running with the bow drawn)
-- 06.02: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now
-- 06.03: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in close-up (legs out of frame) for now
-- 06.04: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
+- 06.02: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
+- 06.03: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
+- 06.04: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.05: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
-- 06.06: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): step-hang lifted, legs adjusted, the far arm across her, for now
+- 06.06: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.06a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.07a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.09: stand-arms-out (grief, both arms thrown open): step-hang with both arms adjusted (as 05.06) for now
