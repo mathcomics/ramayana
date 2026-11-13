@@ -1238,7 +1238,7 @@
     "standard"
   ],
   "wanted": {
-    "climb-ladder": {
+    "leapup-climb": {
       "desc": "climbing a ladder or wall: both hands up on a high rung, one knee raised onto a lower one, body close to the rungs",
       "use": [
         "reach"

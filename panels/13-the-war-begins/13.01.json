@@ -63,6 +63,6 @@
     }
   ],
   "needs": [
-    "pose: climb-ladder (hands on a high rung, one knee up on a lower one): leapup-reachup for now"
+    "pose: leapup-climb (hands on a high rung, one knee up on a lower one): leapup-reachup for now"
   ]
 }
