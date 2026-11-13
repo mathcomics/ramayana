@@ -43,7 +43,7 @@ tag goes in this table in the same commit as the review that adds it
 | `giant` | a giant among ordinary figures | only part of the giant is in frame — the hand reaching down from above (`giant-grab`); the figures under it break around it — one crawling, one flung, one turned back |
 | `grapple` | two fighters locked | the two alone at the centre of an empty panel, side on, facing each other, chests together and arms over each other's shoulders, a long braced leg behind each, `mouth` 3 |
 | `chase` | one figure pursuing another | both facing the same way, the fleeing one ahead at the far edge, the chaser behind |
-| `far` | the action far off | sky over plain ground and nothing in between: the figures small on the `horizon` row. The horizon and the size do all the work |
+| `horizon` | the action far off, on the horizon | sky over plain ground and nothing in between: the figures small on the `horizon` row. The horizon and the size do all the work |
 | `topview` | a crowd or place seen from above | no sky; top-view props (`monkey-top`, `male-top`) on numeric rows up the ground as distance, the leader nearest the bottom edge; water as `wave-top` on the `floor` row |
 | `mountain` | a figure on a summit | a tall panel; a big rock (`rock-square` at scale 2) on the `closeup` row fills the lower half, cut by the edges, the figure small on its top against the sky |
 | `fly` | a figure flying across a great space | sky over `sea` with a low `horizon`; the figure tiny, high in the panel, in a diving pose — the empty space is the subject |

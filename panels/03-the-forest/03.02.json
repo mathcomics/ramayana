@@ -18,7 +18,7 @@
       "pose": "walk-swing",
       "view": "front",
       "facing": "left",
-      "at": 0.4,
+      "at": 0.45,
       "on": "foreground",
       "scale": 0.8
     },
