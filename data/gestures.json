@@ -1221,28 +1221,28 @@
       }
     },
     "search": {
-      "chest": 63.6,
       "desc": "bent forward peering ahead, right hand raised at the brow, left arm hanging",
-      "head": -90,
-      "left": {
-        "elbow": 42.7,
-        "elbowOut": -24.3,
-        "hand": "out",
-        "out": 25,
-        "shoulder": 55.2,
-        "twist": 0,
-        "wrist": -14
-      },
-      "mouth": 1,
+      "chest": 63.6,
       "neck": 18.1,
+      "head": -90,
+      "mouth": 1,
       "right": {
+        "shoulder": 201.2,
+        "out": 25,
         "elbow": 0,
         "elbowOut": -65,
-        "hand": "in",
-        "out": 25,
-        "shoulder": 201.2,
+        "wrist": -31.2,
         "twist": 0,
-        "wrist": -31.2
+        "hand": "in"
+      },
+      "left": {
+        "shoulder": 55.2,
+        "out": 25,
+        "elbow": 42.7,
+        "elbowOut": -24.3,
+        "wrist": -14,
+        "twist": 0,
+        "hand": "out"
       }
     },
     "swing": {
@@ -1277,7 +1277,7 @@
       "head": -4,
       "mouth": 3,
       "right": {
-        "shoulder": -110,
+        "shoulder": -118.7,
         "out": 20,
         "elbow": 15,
         "elbowOut": 0,
@@ -1291,10 +1291,10 @@
         }
       },
       "left": {
-        "shoulder": 70,
+        "shoulder": 36,
         "out": 15,
         "elbow": 30,
-        "elbowOut": 0,
+        "elbowOut": 54.6,
         "wrist": 0,
         "twist": 0,
         "hand": "out"
