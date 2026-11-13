@@ -30,5 +30,6 @@
   "needs": [
     "prop: mountain",
     "pose: crouch-ready (deep knees, arms back): crouch-cross for now"
-  ]
+  ],
+  "tags": ["mountain"]
 }

@@ -54,5 +54,6 @@
       "mouth": 1,
       "pose": "walk-swing"
     }
-  ]
+  ],
+  "tags": ["layers"]
 }

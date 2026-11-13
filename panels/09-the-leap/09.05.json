@@ -38,5 +38,6 @@
       "on": "foreground",
       "scale": 0.4
     }
-  ]
+  ],
+  "tags": ["foreground"]
 }

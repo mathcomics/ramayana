@@ -54,5 +54,6 @@
       "cloth": "orange",
       "adjust": { "right.arm.prop": { "kind": "sword", "angle": 60 } }
     }
-  ]
+  ],
+  "tags": ["frieze"]
 }

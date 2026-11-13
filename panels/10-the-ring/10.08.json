@@ -6,20 +6,21 @@
     {
       "prop": "rock-square",
       "at": 0.2,
-      "scale": 0.7
+      "scale": 0.3
     },
     {
       "character": "sita",
       "pose": "chair-grief",
       "facing": "right",
       "on": "rock-square#seat",
-      "mouth": 1
+      "mouth": 1,
+      "scale": 0.5
     },
     {
       "prop": "branch",
-      "at": 0.55,
-      "row": 0.5,
-      "scale": 2.2
+      "at": 0.75,
+      "row": 0.8,
+      "scale": 1.2
     }
   ]
 }
