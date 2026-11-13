@@ -68,4 +68,13 @@
        id="path331"
        sodipodi:nodetypes="csssssssssssssssssssssssssscsscssssscc" />
   </g>
+  <g
+     id="anchors">
+    <circle
+       id="feet"
+       cx="352"
+       cy="518.5"
+       r="6"
+       fill="none" />
+  </g>
 </svg>

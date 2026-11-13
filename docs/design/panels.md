@@ -122,7 +122,9 @@ behind them, after = in front; the retired `layer` field is an issue).
   `rock-circle`, `rock-square`, `rock-rectangle` and `palace-kishkindha` have
   them). A prop can stand `on` another prop's anchor
   too — its bottom centre lands there, at the carrying prop's scale
-  (`palace-lanka` on `"lanka-island#stand"`).
+  (`palace-lanka` on `"lanka-island#stand"`), or its own `feet` anchor
+  when it has one: a creature whose wing or tail pulls its box off its
+  feet (`vulture-stand`, `vulture-lookback` on `"rock-circle#stand"`).
 - **Naming an anchor**: after *what of the figure lands on it*, never
   after where it sits in the drawing — `seat` (hips), `stand` (feet),
   `hand` (the figure hangs from it by one hand: its higher hand, or the

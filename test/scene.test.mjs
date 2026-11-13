@@ -185,6 +185,21 @@ test('a "hand" anchor: the figure hangs by its higher hand, or the one "hand" na
   assert.match(renderPanel({ figures: [wall, { prop: 'stag-stand', on: 'city-side#hand' }] }, assets).issues.join(' '), /takes a figure/);
 });
 
+test('a prop with a "feet" anchor stands on it, facing either way', () => {
+  const rock = { prop: 'rock-circle', at: 0.5 }, def = assets.props.props['vulture-lookback'];
+  const rd = assets.props.props['rock-circle'];
+  for (const facing of ['right', 'left']) {
+    const r = renderPanel({ tall: 1, figures: [rock, { prop: 'vulture-lookback', facing, on: 'rock-circle#stand' }] }, assets);
+    assert.deepEqual(r.issues, []);
+    const g = [...r.svg.matchAll(/<g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)(?: ([-\d.]+))?\)/g)].map((m) => m.slice(1).map(Number));
+    const [rx, ry, ru] = g[0], [vx, vy, vs] = g[1];
+    // the rock's stand anchor, and the vulture's feet, in the panel
+    const ax = rx + rd.anchors.stand[0] * ru, ay = ry + rd.anchors.stand[1] * ru;
+    const fx = vx + def.anchors.feet[0] * vs, fy = vy + def.anchors.feet[1] * Math.abs(vs);
+    assert.ok(Math.abs(fx - ax) < 1e-6 && Math.abs(fy - ay) < 1e-6, `${facing}: feet (${fx}, ${fy}) on the anchor (${ax}, ${ay})`);
+  }
+});
+
 test('a seat anchor takes the hips, a stand anchor the feet', () => {
   const rock = { prop: 'rock-square', at: 0.5, scale: 0.5 };
   const y = (on) => +renderPanel({ figures: [rock, { character: 'sita', pose: 'chair-grief', on }] }, assets).svg.match(/<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(/)[1];
