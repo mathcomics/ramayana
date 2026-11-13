@@ -6,6 +6,7 @@
      "on": "rock-square#stand" / "rock-square#stand-left" / "rock-square#seat". -->
 
 <svg
+   data-recolor-body="#ac9393"
    viewBox="0 0 181.5791 180.76694"
    width="181.5791"
    height="180.76694"

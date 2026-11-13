@@ -6,6 +6,7 @@
      "on": "rock-rectangle#stand-left" etc. -->
 
 <svg
+   data-recolor-body="#ac9393"
    viewBox="0 0 262.68496 180.76694"
    width="262.68497"
    height="180.76694"

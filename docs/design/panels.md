@@ -117,7 +117,8 @@ behind them, after = in front; the retired `layer` field is an issue).
   `character` (a character id: that character's body and cloth colours), or
   explicit `body` / `cloth` (hex, or a cloth palette name; a pattern
   suffix keeps the base colour). So one drawing serves many characters:
-  `{ "prop": "male-top", "character": "rama" }`.
+  `{ "prop": "male-top", "character": "rama" }`. The rocks recolour
+  too (`body`: `{ "prop": "rock-square", "body": "#d9c9a3" }`).
 - Anchors: a group `id="anchors"` in the prop's SVG holds named circles
   (not drawn). `seat`: where a seated figure's hips rest (`on`) — the
   underside of its thighs at the pelvis lands on the point, so it goes on
