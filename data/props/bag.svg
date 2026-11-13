@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A tied cloth bag or bundle, yellow (#ffe680) with a darker fold; scale it to
+     the scene. 100 px = 1 head-unit; bottom edge on the ground.
+     Recolour: "body" (the bag cloth, #ffe680). No anchors. -->
+
+<svg
+   data-recolor-body="#ffe680"
+   viewBox="0 0 105.96228 133.39218"
+   width="105.96228"
+   height="133.39218"
+   version="1.1"
+   id="svg731"
+   sodipodi:docname="bag.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs735" />
+  <sodipodi:namedview
+     id="namedview733"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0521739"
+     inkscape:cx="25.582627"
+     inkscape:cy="86.980933"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg731" />
+  <path
+     id="path652-5"
+     style="fill:#ffe680;stroke:#241c1c;stroke-width:1"
+     d="M 50.212045,0.33450761 C 61.994247,13.424055 74.094414,25.718689 90.978932,26.052446 L 59.982045,63.170408 46.659993,50.12195 C 51.648858,34.287105 63.379316,19.800579 50.212045,0.33450761 Z"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     id="path652"
+     style="fill:#ffe680;stroke:#241c1c;stroke-width:0.999997"
+     d="M 30.008089,35.130881 C 57.106478,29.818318 84.788923,35.558078 95.876043,60.848823 106.96317,86.13957 94.495518,113.66932 70.158098,126.71678 44.143654,140.6633 14.373016,130.52666 4.2901476,100.99883 -4.9004832,74.083938 2.2431411,40.574121 30.008089,35.130881 Z"
+     sodipodi:nodetypes="sssss" />
+  <path
+     id="path652-5-6"
+     style="fill:#d4aa00;stroke:none;stroke-width:1"
+     d="m 74.362211,60.32695 11.04231,17.43404 c 4.404141,23.6801 -6.495418,40.88555 -35.869768,50.27474 l -7.474594,-4.27727 C 77.41037,112.78684 75.770329,86.508911 74.362211,60.32695 Z"
+     sodipodi:nodetypes="ccccc" />
+</svg>
