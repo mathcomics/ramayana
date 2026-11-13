@@ -1,21 +1,22 @@
 {
   "scene": "Rama and Lakshman shoot to the left",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "forest",
   "figures": [
-    {
-      "character": "lakshman",
-      "pose": "step-bowloose",
-      "facing": "left",
-      "at": 0.58,
-      "mouth": 2
-    },
     {
       "character": "rama",
       "pose": "step-bowdraw",
       "facing": "left",
       "at": 0.82,
       "mouth": 1
+    },
+    {
+      "character": "lakshman",
+      "pose": "step-bowloose",
+      "facing": "left",
+      "at": 0.49,
+      "mouth": 2,
+      "row": "closeup"
     }
   ],
   "needs": [

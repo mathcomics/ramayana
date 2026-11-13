@@ -7,9 +7,24 @@
   "figures": [
     {
       "prop": "palace-kishkindha",
-      "at": 0.55,
-      "row": "horizon",
-      "scale": 2.6
+      "at": 0.85,
+      "row": "horizon"
+    },
+    {
+      "id": "rock",
+      "prop": "rock-rectangle",
+      "at": 0.15,
+      "nudge": [
+        0,
+        -0.5
+      ],
+      "scale": 4
+    },
+    {
+      "character": "sugriva",
+      "pose": "chair-armrest",
+      "facing": "right",
+      "mouth": 1
     }
   ]
 }

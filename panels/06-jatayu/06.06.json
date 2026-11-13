@@ -1,19 +1,15 @@
 {
   "scene": "Ravana passes high over the hill; Sita lets the bundle of jewels fall; the monkeys on the rocks look up",
-  "tall": 1.5,
-  "ground": "sand",
-  "sky": "sky-blue",
-  "horizon": 0.34,
+  "tall": 1,
+  "ground": "sky-blue",
   "figures": [
     {
       "character": "sita",
-      "pose": "arch-overhead",
-      "view": "front",
+      "pose": "kneel-bow",
       "facing": "right",
       "at": 0.63,
-      "row": 0.48,
-      "mouth": 3,
-      "scale": 0.44
+      "row": "top",
+      "mouth": 3
     },
     {
       "character": "ravana",
@@ -22,7 +18,6 @@
       "at": 0.52,
       "row": 0.46,
       "mouth": 2,
-      "scale": 0.48,
       "adjust": {
         "left.arm.shoulder": 70,
         "left.arm.elbow": 40,
@@ -46,41 +41,8 @@
     {
       "prop": "rock-rectangle",
       "at": 0.46,
-      "scale": 1.4
-    },
-    {
-      "character": "monkey1",
-      "id": "m1",
-      "pose": "stand-pointup",
-      "facing": "right",
-      "on": "rock-rectangle#stand-left",
-      "scale": 0.22,
-      "mouth": 3,
-      "adjust": {
-        "spine.head": -30
-      }
-    },
-    {
-      "character": "sugriva",
-      "pose": "step-akimbo",
-      "facing": "right",
-      "on": "rock-rectangle#stand",
-      "scale": 0.22,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": -30
-      }
-    },
-    {
-      "character": "hanuman",
-      "pose": "stepback-armsout",
-      "facing": "right",
-      "on": "rock-rectangle#stand-right",
-      "scale": 0.22,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": -20
-      }
+      "scale": 1.4,
+      "row": "closeup"
     }
   ],
   "needs": [

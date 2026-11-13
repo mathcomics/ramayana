@@ -4,33 +4,51 @@
   "ground": "forest",
   "figures": [
     {
+      "prop": "hut-side",
+      "at": 0.85,
+      "row": "horizon",
+      "id": "hut",
+      "scale": 2
+    },
+    {
+      "id": "trees-far",
       "prop": "trees-side",
       "at": 0.86,
       "row": "horizon",
-      "id": "trees-far",
       "scale": 5
     },
     {
       "character": "lakshman",
-      "pose": "pass-swing",
+      "pose": "walk-swing",
       "facing": "right",
-      "at": 0.32,
+      "at": 0.33,
       "row": "horizon"
     },
     {
       "character": "sita",
-      "pose": "walk-swing",
+      "pose": "kneel-palms",
       "facing": "right",
       "at": 0.52,
       "row": "horizon",
-      "mouth": 1
+      "mouth": 1,
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
       "character": "rama",
-      "pose": "walk-swing",
+      "pose": "pass-swing",
       "facing": "right",
-      "at": 0.62,
+      "at": 0.42,
       "row": "horizon"
+    },
+    {
+      "prop": "deer-stand",
+      "facing": "left",
+      "at": 0.62,
+      "row": "horizon",
+      "scale": 2
     },
     {
       "prop": "tree-trunk",

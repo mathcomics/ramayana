@@ -1,55 +1,66 @@
 {
   "scene": "A monkey picks the bundle up; the others crowd round it",
-  "tall": 1,
+  "tall": 1.5,
   "ground": "sand",
   "figures": [
     {
       "prop": "rock-rectangle",
-      "at": 0.9,
-      "row": "mid",
-      "scale": 1.6
+      "at": -0.45,
+      "row": "closeup",
+      "scale": 2.5
     },
     {
       "character": "monkey1",
       "id": "m1",
       "pose": "stand-pointup",
       "facing": "right",
-      "at": 0.26,
-      "row": "mid",
       "mouth": 2,
       "adjust": {
         "spine.head": -18
-      }
+      },
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.1
     },
     {
       "character": "sugriva",
       "pose": "step-akimbo",
       "facing": "right",
-      "at": 0.14,
       "mouth": 2,
       "adjust": {
         "spine.head": 18
-      }
+      },
+      "nudge": [
+        1,
+        0
+      ],
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.1
     },
     {
       "character": "monkey1",
       "id": "m2",
       "pose": "step-point",
       "facing": "left",
-      "at": 0.82,
       "cloth": "red",
       "mouth": 2,
       "adjust": {
         "spine.head": 20,
         "right.arm.shoulder": 55
-      }
+      },
+      "nudge": [
+        5,
+        -0.2
+      ],
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.1
     },
     {
       "character": "hanuman",
       "pose": "bend-reach",
       "facing": "right",
-      "at": 0.44,
-      "mouth": 2
+      "mouth": 2,
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.1
     },
     {
       "prop": "jewels",
