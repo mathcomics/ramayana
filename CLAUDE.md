@@ -33,10 +33,10 @@ scene spec (JSON) → layout → figure geometry → SVG
   the same commit.
 - `docs/design/composition.md` — how panels are arranged (chapter
   openers, sky and horizon, throne, top view).
-- `panels/layouts.md` — the model panel for each kind of scene, and how the
-  rows are set.
-- **Approved reference panels** — panels carrying `tags` (e.g. `panic`,
-  `crowd`, `giant`): artist-reviewed models that output is judged
+- `panels/layouts.md` — the tags: each kind of scene the artist has
+  approved a model for and how it is built; and how the rows are set.
+- **Approved reference panels** — panels carrying `tags` (e.g. `frieze`,
+  `spy`, `giant`): artist-reviewed models that output is judged
   against; locked without the artist's consent (`docs/design/panels.md`,
   Panel fields).
 
@@ -139,9 +139,10 @@ and Sita in the swan chariot **waving back at the reader**.
 
 Chapters 12 and 15–18 have briefs and no panels; the site marks them
 "to come". Every drawn chapter's folder number matches its brief number.
-The five approved reference panels (03.02, 05.11, 09.09, 11.08, 14.05)
-are the models other panels are judged against and are locked:
-`panels/layouts.md`.
+The approved reference panels (every panel with `tags`; 20 after the
+artist's tagging round of 2026-11-13) are the models other panels are
+judged against and are locked; the tags and what each kind of scene
+looks like: `panels/layouts.md`.
 
 On the chapters that predate the briefs: they are too complex (the
 artist), and each is reworked against its brief when it comes up —

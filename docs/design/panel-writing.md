@@ -15,17 +15,15 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
    at the top** (returning places, travelling objects, mirrors) — and
    the cast in `data/characters.json` (who is who: below).
 2. `node tools/pose-gaps.mjs --scenes NN`: candidate poses per beat.
-3. For a scene of a known kind (a far place, a throne, a top view,
-   something seen far off, travelling, a crowd in panic) follow the model
-   panel in `panels/layouts.md` and its section in `composition.md`.
+3. For each kind of scene in the chapter, find its tag in
+   `panels/layouts.md` (an opener, a throne, a crowd running, a spy, a
+   top view …), then render and follow the **approved reference panels**
+   carrying it: `grep -rl '"tags".*"frieze"' panels/`. The rules behind
+   them: `composition.md`. Tagged panels are artist-reviewed and locked:
+   never rework one without the artist's consent (`panels/CLAUDE.md`).
 4. Check the chapter opener (`composition.md`, Chapter openers).
-5. Look for **approved reference panels** whose `tags` cover the
-   chapter's kinds of scene, and follow their composition:
-   `grep -rl '"tags"' panels/` lists them all,
-   `grep -rl '"tags".*panic' panels/` narrows to one tag (so far:
-   `panic`, `crowd`, `flee`, `giant`, `chase`, `far`). Tagged panels are
-   artist-reviewed and locked: never rework one without the artist's
-   consent (`panels/CLAUDE.md`).
+5. A kind of scene with no tag yet: follow `composition.md` alone, and
+   offer the panel to the artist for tagging once it is reviewed.
 
 ## Panel by panel
 

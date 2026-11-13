@@ -1,42 +1,53 @@
 # Reference compositions
 
-The model panels to follow when a panel is a scene of a known kind, and
-how the rows are set. The rules these panels taught:
-`docs/design/composition.md`. The panel language, heights and the rows:
-`docs/design/panels.md`.
+The kinds of scene the artist has approved a model for, named by tag, and
+how the rows are set. The rules behind them: `docs/design/composition.md`.
+The panel language, heights and the rows: `docs/design/panels.md`.
 
 ## Where composition is kept
 
 | What | Where |
 |---|---|
-| Models to follow for a kind of scene | the panels below |
+| Models to follow for a kind of scene | the tagged panels; the tags below |
 | The rules they taught | `docs/design/composition.md` |
 | Row geometry | `DEPTH`, `HEAD_TOP` in `src/scene.js`; the table in `docs/design/panels.md` |
 | Scene props (throne, deer, hut from above, Lanka …) | `data/props/` (any SVG there is a prop) |
 
+## Tags
+
 A panel carrying `tags` is an **approved reference panel**: artist-reviewed
-and locked — follow it, never rework it (`panels/CLAUDE.md`).
-`grep -rl '"tags"' panels/` lists them all; `grep -rl '"tags".*panic'
-panels/` narrows to one tag. The untagged models below are the best panel
-of their kind so far: follow them, but they can still change.
+and locked — follow it, never rework it (`panels/CLAUDE.md`). Only the
+artist's review adds a tag; untagged panels are not models, however good.
 
-## Model panels by kind of scene
+The panels themselves are the examples, so this list names none — ids
+change and models are added. Before writing a scene of one of these kinds,
+find its models and render them:
 
-| Kind of scene | Model | What it does |
+    grep -rl '"tags".*"frieze"' panels/
+
+A panel can carry several tags (a `frieze` with a `giant` in it). A new
+tag goes in this table in the same commit as the review that adds it
+(`npm test` checks every panel tag is listed here).
+
+| Tag | Kind of scene | How it is built |
 |---|---|---|
-| the forest home from above | 03.01 (= 04.01) | top view, no sky: ground `sage`, the hut on a numeric `row` in the middle of it, a clump of trees near the top-left corner and the same clump again bottom-right |
-| travelling: the three walk toward the reader | **03.02** — `travel` | front views on and behind a rising fold of ground (a `foreground`, standing `on` it); the farther the figure, the deeper behind the fold; flowers at the near edge |
-| a crowd seen from above | **09.09** — `travel`, `topview` | top-view props (`monkey-top`) on numeric rows up the ground as distance, the leader nearest the bottom edge, `wave-top` on the `floor` row |
-| a king on his throne | 02.01–02.03 (Ayodhya), 05.03–05.04 (Lanka) | three panels: the throne alone on the `mid` row, centred, as the chapter opener; then the king seated `on` it in `view: front`, still far; then the same pair closer (`closeup` for Lanka). The hall is a flat ground colour — `dusty-pink`, `geru` |
-| someone sees something far off | 05.09 | sky above the horizon: the watcher big in front (1.5×, on row −0.2 so the bottom edge cuts them) with `turn` −90 to look off, the subject small on the `horizon` row across the panel |
-| something flees into the distance | **05.11** — `chase`, `far` | sky over `dry-grass` and nothing in between: both figures on the `horizon` row, the fleeing one at the far edge, the chaser small behind. The horizon and the size do all the work |
-| a far place across the sea | 05.01 | no figures: `mist` sky over `sea`, the island on the `horizon` row a little right of centre, `palace-lanka` on the island's `stand` anchor at half scale |
-| a crowd in panic, fleeing | **11.08** — `panic`, `crowd`, `flee` | a 0.6 strip: five figures all `facing` one way at different runs (`run-pump`, `runwide-hang`, `leap-reach`), `mouth` 3 throughout, cloth colours and patterns all different, the fire they flee at the far edge |
-| a crowd in panic under a giant | **14.05** — `panic`, `crowd`, `giant` | the same strip; only the giant's hand is in frame, reaching down from the `top` row; the crowd breaks around it — one crawling, one flung, one turned back the other way |
-
-Any court works from the throne model — Ayodhya's (`throne-ayodhya`),
-Ravana's (`throne-lanka`), Kishkindha's (`throne-kishkindha`: 08.10,
-09.02); any "arrival at a far place" from 05.01.
+| `opening` | a chapter opener: the place before anyone is in it | no figures — the chapter's place prop alone, centred: a palace on the `horizon` row over open ground, or an empty throne on the `mid` row in a flat-coloured hall. Which chapter opens on what: `composition.md`, Chapter openers |
+| `throne` | a king on his throne | the throne centred on the `mid` row, the king seated `on` it in `view: front`; the hall a flat ground colour (`dusty-pink`, `geru`), no sky. It follows an `opening` of the empty throne |
+| `closeup` | one figure close, reacting | a 0.6 strip, one figure on the `closeup` row, cut at the chest by the bottom edge: head and shoulders only, against the flat colour of the place |
+| `forest` | travelling through the forest, side on | the walkers small on the `horizon` row, all facing one way; `trees-side` on the horizon at the far side; a `tree-trunk` on the `closeup` row cut by the near edge frames the panel |
+| `spy` | someone watched from hiding | the `forest` layout with the watched at the back on the `horizon` row, and the watcher big in front on the `closeup` row behind the near trunk, seen from behind (`turn` −90): the reader looks over their shoulder |
+| `travel` | the travellers come toward the reader | front views on and behind a rising fold of ground (a `foreground`, standing `on` it); the farther the figure, the deeper behind the fold; flowers at the near edge |
+| `foreground` | a band crossing the land | a sloped `foreground` across the lower panel; the figures small and evenly spaced `on` it, side on, all facing up the slope, plain sky above |
+| `layers` | a court sending people out | depth by row: the throne and the far figures on `back`, the speaker on `mid`, the ones setting off big on the near rows — one in `view: front`, coming at the reader, some cut by the edges |
+| `frieze` | a crowd in one movement — running in, fleeing | a 0.6 strip, no sky: five or so figures side on across it, all `facing` one way (one may turn back), different runs (`run-pump`, `runlow-pumplow`, `runwide-hang`, `leap-reach`, one raised on a `row`), cloth colours and patterns all different, `mouth` 3 for panic. What they run from or toward sits at the far edge (fire) |
+| `giant` | a giant among ordinary figures | only part of the giant is in frame — the hand reaching down from above (`giant-grab`); the figures under it break around it — one crawling, one flung, one turned back |
+| `grapple` | two fighters locked | the two alone at the centre of an empty panel, side on, facing each other, chests together and arms over each other's shoulders, a long braced leg behind each, `mouth` 3 |
+| `chase` | one figure pursuing another | both facing the same way, the fleeing one ahead at the far edge, the chaser behind |
+| `far` | the action far off | sky over plain ground and nothing in between: the figures small on the `horizon` row. The horizon and the size do all the work |
+| `topview` | a crowd or place seen from above | no sky; top-view props (`monkey-top`, `male-top`) on numeric rows up the ground as distance, the leader nearest the bottom edge; water as `wave-top` on the `floor` row |
+| `mountain` | a figure on a summit | a tall panel; a big rock (`rock-square` at scale 2) on the `closeup` row fills the lower half, cut by the edges, the figure small on its top against the sky |
+| `fly` | a figure flying across a great space | sky over `sea` with a low `horizon`; the figure tiny, high in the panel, in a diving pose — the empty space is the subject |
+| `city` | moving over a city at night | a 0.6 strip, ground `night`; the rooftops (`city-gap`) big and cut by the edges at the bottom, lit windows, the figure small leaping between them `on` the gap's `stand` anchor |
 
 ## Setting the rows
 

@@ -1,4 +1,6 @@
 import { test } from 'node:test';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 import { renderPanel, panelHeight, backgroundInner, PANEL_W, MAN } from '../src/scene.js';
 import { loadAssets, loadSections } from '../tools/lib.mjs';
@@ -291,4 +293,11 @@ test('MAN is the drawn male standing straight (feet to head top)', async () => {
   }
   const { bbox } = renderFigure(assets.species.male, p, { scale: 1 });
   assert.ok(Math.abs(bbox.y1 - bbox.y0 - MAN) < 0.1, `drawn male is ${(bbox.y1 - bbox.y0).toFixed(2)} head-units, MAN is ${MAN}`);
+});
+
+test('every panel tag is listed in panels/layouts.md (Tags)', () => {
+  const md = readFileSync(join(import.meta.dirname, '../panels/layouts.md'), 'utf8');
+  const listed = new Set([...md.matchAll(/^\| `([a-z-]+)` \|/gm)].map((m) => m[1]));
+  for (const sec of loadSections()) for (const { id, def } of sec.panels)
+    for (const t of def.tags || []) assert.ok(listed.has(t), `${id}: tag ${t} is not in panels/layouts.md`);
 });
