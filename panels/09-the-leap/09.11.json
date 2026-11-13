@@ -1,22 +1,30 @@
 {
   "scene": "Hanuman crouches on the mountaintop, ready",
-  "tall": 1,
+  "tall": 1.5,
   "ground": "off-white",
-  "sky": "sky",
-  "horizon": 0.55,
   "figures": [
     {
-      "prop": "mountain",
-      "at": 0.5,
-      "scale": 1.1
+      "prop": "rock-square",
+      "at": 0.3,
+      "scale": 2,
+      "nudge": [
+        0,
+        0.5
+      ],
+      "rotate": 150,
+      "row": "closeup"
     },
     {
       "character": "hanuman",
       "pose": "crouch-cross",
       "facing": "right",
-      "at": 0.47,
       "mouth": 2,
-      "row": 0.49
+      "nudge": [
+        6,
+        0
+      ],
+      "on": "rock-square",
+      "scale": 0.2
     }
   ],
   "needs": [

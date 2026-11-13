@@ -15,7 +15,8 @@
       "facing": "left",
       "mouth": 1,
       "on": "city-side#hand",
-      "scale": 0.36
+      "scale": 0.36,
+      "rotate": 60
     }
   ]
 }

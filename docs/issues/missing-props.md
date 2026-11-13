@@ -18,9 +18,8 @@ placeholder box. Held props (sword, club, bow) live in
 | lanka-wall | 10.01, 10.02 |
 | line | 05.17 |
 | line-top | 05.18 |
-| mountain | 09.06, 09.11 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
-| tree | 02.17, 05.14, 06.10, 08.05, 08.07, 09.05, 10.07, 10.09 |
+| tree | 02.17, 05.14, 06.10, 08.05, 08.07, 10.07, 10.09 |
 | vulture-lie | 06.11 |
 
 ## Prop wishes from the panels' needs
@@ -47,12 +46,12 @@ docs/design/panel-writing.md, Lessons).
 | prop: lanka-wall (the city wall by night) | 10.01 |
 | prop: line (scratched in the earth, under his hand) | 05.17 |
 | prop: line-top (the line as a closed ring round the hut, seen from above) | 05.18 |
-| prop: mountain | 09.06, 09.11 |
+| prop: mountain | 09.11 |
 | prop: ring | 09.04, 10.09, 10.10 |
 | prop: ring (Rama's ring; it reaches Sita in 10) | 09.03 |
 | prop: staff and pot (held) | 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
-| prop: tree | 02.17, 03.06, 05.14, 06.10, 08.05, 08.07, 09.05, 10.09 |
+| prop: tree | 02.17, 03.06, 05.14, 06.10, 08.05, 08.07, 10.09 |
 | prop: tree (the ashoka; Hanuman hidden in its branches) | 10.07 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing) | 06.11 |

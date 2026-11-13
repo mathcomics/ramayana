@@ -131,7 +131,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `06-jatayu` | 13 | written against the brief |
 | `07-sugriva` | 15 | written against the brief |
 | `08-bali` | 10 | written against the brief |
-| `09-the-leap` | 12 | written against the brief (09.09 approved and locked) |
+| `09-the-leap` | 13 | written against the brief (09.09 approved and locked) |
 | `10-the-ring` | 11 | written against the brief |
 | `11-lanka-burns` | 1 | the approved reference panel 11.08 only |
 | `13-the-war-begins` | 5 | battle scenes only (siege ladder, rocks hurled, the fall, a chief, the fallen field); no opener yet |

@@ -1,15 +1,14 @@
 {
   "scene": "The search: over the mountains, the other way",
   "tall": 1,
-  "ground": "stone-grey",
   "sky": "sky",
-  "horizon": 0.25,
   "figures": [
     {
-      "prop": "mountain",
+      "prop": "rock-square",
       "at": 0.6,
-      "row": "horizon",
-      "scale": 1.5
+      "row": 0.5,
+      "scale": 2,
+      "rotate": 30
     },
     {
       "character": "monkey1",
@@ -37,8 +36,5 @@
       "cloth": "red",
       "mouth": 1
     }
-  ],
-  "needs": [
-    "prop: mountain"
   ]
 }
