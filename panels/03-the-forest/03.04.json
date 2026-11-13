@@ -13,13 +13,15 @@
       "prop": "deer-stand",
       "id": "deer2",
       "at": 0.72,
-      "row": "back"
+      "row": "back",
+      "scale": 0.4629
     },
     {
       "prop": "deer-stand",
       "id": "deer3",
       "at": 0.88,
-      "row": "back"
+      "row": "back",
+      "scale": 0.4629
     },
     {
       "character": "rama",

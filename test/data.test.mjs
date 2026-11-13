@@ -115,6 +115,23 @@ test('props: recolouring roles on a drawing name colours it uses', async () => {
   }
 });
 
+test('props: data-height sets the real height; anchors scale with the drawing', async () => {
+  const { loadProps } = await import('../tools/lib.mjs');
+  const { props } = loadProps();
+  let n = 0;
+  for (const id of Object.keys(props)) {
+    const text = readFileSync(join(root, `data/props/${id}.svg`), 'utf8');
+    const h = text.match(/<svg\b[^>]*\bdata-height="([^"]+)"/)?.[1];
+    if (h == null) continue;
+    n++;
+    const def = props[id];
+    assert.ok(Math.abs(def.size[1] - Number(h)) < 1e-9, `${id}: height ${def.size[1]} != data-height ${h}`);
+    for (const [a, [x, y]] of Object.entries(def.anchors ?? {}))
+      assert.ok(x >= -0.5 && x <= def.size[0] + 0.5 && y >= -0.5 && y <= def.size[1] + 0.5, `${id}#${a}: outside the scaled drawing`);
+  }
+  assert.ok(n >= 4, 'ladder, trees-side, hut-side, deer-stand carry data-height');
+});
+
 // The renderer reads data/faces.json, not the drawings: a face drawing
 // committed without re-running the import never reaches the site.
 test('data/faces.json is up to date with data/faces/*.svg', () => {

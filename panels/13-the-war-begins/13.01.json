@@ -15,7 +15,7 @@
       "prop": "ladder",
       "at": 0.66,
       "row": 0,
-      "scale": 2
+      "scale": 0.5092
     },
     {
       "character": "monkey1",
@@ -23,7 +23,7 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "on": "ladder#stand-low",
-      "scale": 0.1,
+      "scale": 0.3928,
       "cloth": "orange",
       "mouth": 1
     },
@@ -33,7 +33,7 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "on": "ladder#stand",
-      "scale": 0.1,
+      "scale": 0.3928,
       "cloth": "red-diamond",
       "mouth": 1
     },
@@ -43,7 +43,7 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "on": "ladder#stand-high",
-      "scale": 0.2,
+      "scale": 0.7856,
       "cloth": "red",
       "mouth": 3
     },

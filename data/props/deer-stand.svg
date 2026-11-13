@@ -3,7 +3,8 @@
      100 px = 1 head-unit; the bottom edge sits on the ground line.
      Body recolourable (data-recolor-body): the golden deer is "body": "#ffd42a". -->
 
-<svg data-recolor-body="#784421"
+<svg
+   data-height="3.4" data-recolor-body="#784421"
    viewBox="0 0 173.48149 157.38079"
    width="173.48149"
    height="157.3808"

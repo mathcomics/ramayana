@@ -8,14 +8,14 @@
       "at": 0.85,
       "row": "horizon",
       "id": "hut",
-      "scale": 2
+      "scale": 0.5706
     },
     {
       "id": "trees-far",
       "prop": "trees-side",
       "at": 0.86,
       "row": "horizon",
-      "scale": 5
+      "scale": 1.7994
     },
     {
       "character": "lakshman",
@@ -48,7 +48,7 @@
       "facing": "left",
       "at": 0.62,
       "row": "horizon",
-      "scale": 2
+      "scale": 0.9258
     },
     {
       "prop": "tree-trunk",

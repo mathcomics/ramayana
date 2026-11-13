@@ -22,7 +22,9 @@ wrong: `docs/issues/problem-poses.md`.
   (`import-faces`, `import-parts`, `import-held`); they report
   mismatches for the artist to fix in the drawings.
 - **Props**: art in `data/props/<id>.svg` (any SVG there is a prop, no
-  registration), 100 px = 1 head-unit, size from the viewBox, anchors (`seat` for hips, `stand`/`stand-left`/
+  registration), 100 px = 1 head-unit, size from the viewBox (or the
+  real height in head-units from `data-height` on the root, which scales
+  the drawing and its anchors), anchors (`seat` for hips, `stand`/`stand-left`/
   `stand-right` for feet, `hand` for a figure hanging by one hand, `face`
   for a head alone) in a group
   `id="anchors"` — an anchor is named after what of the figure lands on

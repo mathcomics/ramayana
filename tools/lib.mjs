@@ -58,16 +58,22 @@ export function loadSpecies() {
 // The props are the artist's drawings data/props/<id>.svg (100 px = 1
 // head-unit, bottom edge on the ground; size from the viewBox). A prop id
 // with no drawing renders as a fixed-size placeholder box (src/scene.js).
+// data-height="10" on the root element gives the prop's real height in
+// head-units (a man is 6.1): the drawing, its size and its anchors are
+// scaled to it, so `scale` 1 in a panel is life-size beside a figure.
 export function loadProps() {
   const props = {};
   for (const f of readdirSync(join(root, 'data/props')).filter((f) => f.endsWith('.svg')).sort()) {
     const id = f.slice(0, -4), def = props[id] = {};
     const text = readFileSync(join(root, 'data/props', f), 'utf8');
     const vb = text.match(/viewBox="([^"]+)"/)[1].split(/[\s,]+/).map(Number);
-    def.size = [vb[2] / 100, vb[3] / 100];
+    const svgTag = text.match(/<svg\b[^>]*>/)[0];
+    const height = svgTag.match(/\bdata-height="([^"]+)"/)?.[1];
+    if (height != null && !(Number(height) > 0)) throw new Error(`data/props/${id}.svg: data-height "${height}" is not a positive number`);
+    const k = height != null ? Number(height) / (vb[3] / 100) : 1;
+    def.size = [vb[2] / 100 * k, vb[3] / 100 * k];
     // Recolouring roles on the root element: data-recolor-body="#a05a2c",
     // data-recolor-cloth="#c8ab37" name the drawing's colours a use may swap.
-    const svgTag = text.match(/<svg\b[^>]*>/)[0];
     for (const [, role, c] of svgTag.matchAll(/\bdata-recolor-(\w+)="([^"]+)"/g)) (def.recolor ??= {})[role] = c;
     // A group id="anchors" holds named points (circles), e.g. seat; not drawn.
     // [x, y, d]: d is the circle's diameter in head-units. An anchor that
@@ -85,15 +91,15 @@ export function loadProps() {
       const [tx, ty] = tm ? [Number(tm[1]), Number(tm[2] ?? 0)] : [0, 0];
       for (const c of anch[1].matchAll(/<circle\b[^>]*>/g)) {
         const a = (k) => c[0].match(new RegExp(`\\b${k}="([^"]+)"`))?.[1];
-        if (a('id')) def.anchors[a('id')] = [(Number(a('cx')) + tx - vb[0]) / 100, (Number(a('cy')) + ty - vb[1]) / 100,
-          Number(a('r')) * 2 / 100];
+        if (a('id')) def.anchors[a('id')] = [(Number(a('cx')) + tx - vb[0]) / 100 * k, (Number(a('cy')) + ty - vb[1]) / 100 * k,
+          Number(a('r')) * 2 / 100 * k];
       }
     }
     const drawing = text.replace(/<g\b[^>]*id="anchors"[^>]*>[\s\S]*?<\/g>/, '');
     // a prop can appear many times on a page: drop its ids unless something refers to them
     let inner = backgroundInner(drawing);
     if (!/url\(#|href=/.test(inner)) inner = inner.replace(/\s+id="[^"]*"/g, '');
-    def.svg = `<g transform="scale(0.01) translate(${-vb[0]} ${-vb[1]})">${inner}</g>`;
+    def.svg = `<g transform="scale(${0.01 * k}) translate(${-vb[0]} ${-vb[1]})">${inner}</g>`;
   }
   return { props };
 }

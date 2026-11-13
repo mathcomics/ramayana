@@ -8,14 +8,14 @@
       "id": "trees-far",
       "at": 0.25,
       "row": "back",
-      "scale": 2
+      "scale": 0.7198
     },
     {
       "prop": "trees-side",
       "id": "trees-far2",
       "at": 0.66,
       "row": "back",
-      "scale": 1.6
+      "scale": 0.5758
     },
     {
       "prop": "stag-stand",
@@ -28,7 +28,8 @@
       "id": "deer2",
       "facing": "left",
       "at": 0.62,
-      "row": "mid"
+      "row": "mid",
+      "scale": 0.4629
     },
     {
       "foreground": [

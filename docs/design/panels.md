@@ -100,7 +100,13 @@ behind them, after = in front; the retired `layer` field is an issue).
 - `prop`: a drawing's id (`data/props/<id>.svg`); a prop scales with its
   row.
 - Artwork: `data/props/<id>.svg`, 100 px = 1 head-unit, bottom edge on the
-  ground; its viewBox sets the prop's size. Any SVG there is a prop — no
+  ground; its viewBox sets the prop's size — unless the root element
+  carries **`data-height`**, the prop's real height in head-units (a man
+  is 6.1): the drawing, its size and its anchors are scaled to it, so
+  `scale` 1 is life-size beside a figure (`ladder` 10, `trees-side` 18,
+  `hut-side` 7, `deer-stand` 3.4). A panel `scale` is then a choice —
+  distance, exaggeration — not a correction, and a figure `on` such a
+  prop at `scale` 1 is life-size against it. Any SVG there is a prop — no
   registry. A prop id with no artwork yet renders as a **labelled dashed
   box** of a fixed 2 × 2 head-units (`PLACEHOLDER` in `src/scene.js`).
 - `at`, `row`, `scale`, `nudge`, `on`, `id` as for figures.
@@ -149,7 +155,9 @@ behind them, after = in front; the retired `layer` field is an issue).
   `data/props/<id>.svg`; the header comment says what *this* drawing is
   (a copied header from another file is the commonest fix); the page
   cropped to the drawing (Inkscape *Resize page to drawing*), 100 px =
-  1 head-unit at the size it should appear at `scale` 1; facing right;
+  1 head-unit at the size it should appear at `scale` 1 — or drawn at
+  any size with `data-height="<real height in head-units>"` on the root
+  `<svg>`; facing right;
   the bottom edge on the ground, or a part that enters from outside the
   panel cut straight at that edge; colours that a panel should change
   drawn in one exact fill each (the skin one hex, the cloth one hex —
