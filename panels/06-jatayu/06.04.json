@@ -7,29 +7,30 @@
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
-      "at": 0.22,
+      "facing": "left",
+      "at": 0.78,
       "row": "mid",
       "scale": 0.88,
       "mouth": 2,
       "adjust": {
         "spine.head": 14
       },
-      "rotate": 20,
+      "rotate": -20,
       "turn": 90
     },
     {
       "character": "sita",
       "pose": "crawl-onhands",
-      "facing": "right",
-      "at": 0.289,
+      "facing": "left",
+      "at": 0.711,
       "row": 0.251,
       "scale": 0.574,
       "mouth": 3
     },
     {
       "prop": "vulture-swoop",
-      "at": 0.76,
-      "facing": "left",
+      "at": 0.24,
+      "facing": "right",
       "scale": 0.6,
       "row": 0.6
     }
