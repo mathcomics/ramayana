@@ -190,7 +190,7 @@ export function toPng(svgPath, zoom = 1, { tagZoom = true } = {}) {
 export function characterById(A, id, characterLook) {
   const who = A.characters.characters.find((c) => c.id === id);
   if (!who) throw new Error(`no character "${id}"`);
-  const look = characterLook(who, A.characters.palette, A.faces);
+  const look = characterLook(who, A.characters.colors, A.faces);
   return { who, look, species: A.species[who.species] };
 }
 

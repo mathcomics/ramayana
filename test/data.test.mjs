@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { parseCloth } from '../src/figure.js';
+import { parseColor } from '../src/figure.js';
 import { HEAD_VIEWS } from '../src/headturn.js';
 import { splitPoseName } from '../src/compose.js';
 import { root, SPECIES, POSES, CAST, FACES } from './helpers.mjs';
@@ -77,15 +77,23 @@ test('bases and gestures: one-word names, a desc, the half they own, each used',
   }
 });
 
-test('characters: known species, hex body, known outfit and cloth', () => {
+test('colors: hex values; names that are not hex and do not end in a pattern', () => {
+  for (const [n, v] of Object.entries(CAST.colors)) {
+    assert.match(v, /^#[0-9a-f]{6}$/i, `colors.${n}`);
+    assert.match(n, /^[a-z]+(-[a-z]+)*$/, `colors.${n}: lowercase words joined by -`);
+    assert.ok(!/-(check|diamond|stripe)$/.test(n), `colors.${n}: ends in a pattern name`);
+  }
+});
+
+test('characters: known species, a named body colour, known outfit and cloth', () => {
   const ids = CAST.characters.map((c) => c.id);
   assert.equal(new Set(ids).size, ids.length, 'duplicate character id');
   for (const c of CAST.characters) {
     assert.ok(SPECIES[c.species], `${c.id}: species ${c.species}`);
-    assert.match(c.body, /^#[0-9a-f]{3}([0-9a-f]{3})?$/i, `${c.id}: body colour`);
+    assert.ok(CAST.colors[c.body], `${c.id}: body "${c.body}" is not a name in colors`);
     assert.ok(['briefs', 'dhoti'].includes(c.bottom), `${c.id}: bottom ${c.bottom}`);
     assert.ok(['bare', 'full'].includes(c.top), `${c.id}: top ${c.top}`);
-    const cl = parseCloth(c.cloth, CAST.palette.cloth);
+    const cl = parseColor(c.cloth, CAST.colors);
     assert.ok(cl.color, `${c.id}: cloth ${c.cloth}`);
     if (cl.pattern) assert.equal(c.top, 'full', `${c.id}: a pattern needs a full top`);
   }

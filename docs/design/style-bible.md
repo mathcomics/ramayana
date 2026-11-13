@@ -157,12 +157,19 @@ the pose.
 - Bottom: the thighs, from hip to knee, in the cloth colour (`dhoti`;
   `briefs` draws the same).
 - Top: `bare` or `full` (the whole torso in the cloth colour).
-- Body colour: a hex per character; it also paints the skin of the base
-  face (no named body palette).
+- **One named colour list** (`colors` in `data/characters.json`) for
+  skin, cloth and props alike, named by how the colour looks, not who
+  wears it, so a skin is shared across humans, rakshasas and monkeys:
+  `skin-brown`, `skin-red`, `skin-dark-brown`, `skin-dark-red`;
+  `skin-rama` is Rama's alone. Grounds are a separate list
+  (`data/grounds.json`).
+- Body colour: a name from that list per character; it also paints the
+  skin of the base face.
 - Cloth colours: orange (light, #f5b56e; was white until 2026-11-10), yellow, red (saturated, #d21d20).
+- Prop colours: `stone` (the rocks).
 - **Cloth patterns** (for rakshasas only): a cloth name can add a pattern
-  to the colour: `red-check`, `red-diamond`, `red-stripe` (any palette
-  colour works). The pattern goes on the upper body only (a `full` top);
+  to the colour: `red-check`, `red-diamond`, `red-stripe` (any colour
+  in the list works). The pattern goes on the upper body only (a `full` top);
   the dhoti stays plain. It is drawn in black (red-black), in
   head-units so it scales with the figure: check = squares, diamond =
   small diamonds, stripe = horizontal bands, all on a 0.54 head-unit
@@ -171,8 +178,8 @@ the pose.
 ## 5.5 Characters
 
 `data/characters.json` defines every figure the story uses. A character
-picks a species and fixes body colour (hex), outfit (top, bottom) and cloth
-colour (a name from the cloth palette in the same file). Ids
+picks a species and fixes body colour, outfit (top, bottom) and cloth
+colour (names from `colors` in the same file). Ids
 like `monkey1`, `raxas_m1` and `raxas_f1` are generic types for unnamed
 figures. Signature features (necklaces, crowns, top bun…) come later.
 

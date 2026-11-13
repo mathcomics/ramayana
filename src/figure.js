@@ -101,14 +101,19 @@ export function buildShapes(S, poseIn, outfit = DEFAULT_OUTFIT, view = 'side', b
   return { shapes, joints: J, sk: { pose, front }, headAnchor: { at: mv(Hm), rot: F * headRot, R }, hairAnchor: { ...hair, rot: F * hair.rot, at: mv(hairAt) }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
 
-// Cloth patterns for the upper body (a full top), style bible §5.4. A cloth
-// name is a palette colour, optionally followed by a pattern:
-// "red", "red-check", "red-diamond", "red-stripe". The pattern is drawn in
-// black, in head-units, so it scales with the figure.
+// Colours: a name from data/characters.json "colors" (skin, cloth, stone
+// alike: "skin-dark-red", "red", "stone") or a hex, optionally followed by
+// a cloth pattern for the upper body (a full top, style bible §5.4):
+// "red-check", "red-diamond", "skin-brown-stripe". The pattern is drawn in
+// black, in head-units, so it scales with the figure. An unknown name has
+// no color.
 export const CLOTH_PATTERNS = ['check', 'diamond', 'stripe'];
-export function parseCloth(name, palette = {}) {
-  const [base, pattern] = String(name || '').split('-');
-  return { color: palette[base] ?? palette[name], pattern: CLOTH_PATTERNS.includes(pattern) ? pattern : null };
+export function parseColor(name, colors = {}) {
+  const s = String(name ?? '');
+  const known = (b) => colors[b] ?? (/^#[0-9a-f]{3}([0-9a-f]{3})?$/i.test(b) ? b : undefined);
+  const m = s.match(new RegExp(`^(.+)-(${CLOTH_PATTERNS.join('|')})$`));
+  if (m && known(m[1])) return { color: known(m[1]), pattern: m[2] };
+  return { color: known(s), pattern: null };
 }
 function patternDef(id, kind, ink) {
   const t = 0.54;                                   // tile, head-units
@@ -240,15 +245,15 @@ export function renderFigure(species, pose, opts = {}) {
 // Look of a character from data/characters.json: species id plus the
 // render options (colours, outfit) for renderFigure.
 // `cloth` overrides the character's cloth (e.g. a pattern for one figure).
-export function characterLook(character, palette, faces, cloth = character.cloth) {
-  const c = parseCloth(cloth, palette.cloth);
+export function characterLook(character, colors, faces, cloth = character.cloth) {
+  const c = parseColor(cloth, colors);
   return {
     face: faces?.faces?.[character.id],
     who: character.id,                                 // picks the character's own held weapons
     ...(character.sideOnly ? { sideOnly: true } : {}), // side view only, side face as drawn
     species: character.species,
     pattern: c.pattern,
-    colors: { body: character.body, cloth: c.color },
+    colors: { body: parseColor(character.body, colors).color, cloth: c.color },
     outfit: { top: character.top, bottom: character.bottom },
     bodyScale: character.scale ?? 1,
   };

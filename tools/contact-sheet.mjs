@@ -23,7 +23,7 @@ const species = A.species[speciesId];
 const { poses } = A;
 const who = A.characters.characters.find((c) => (flag('--who') ? c.id === flag('--who') : c.species === speciesId));
 if (!species || !who || who.species !== speciesId) throw new Error(`no ${speciesId} character${flag('--who') ? ` "${flag('--who')}"` : ''}`);
-const look = characterLook(who, A.characters.palette, A.faces);
+const look = characterLook(who, A.characters.colors, A.faces);
 
 const cols = 3;                       // poses per row (each a side + front pair)
 const cellW = scale * 13, cellH = scale * 8.2;

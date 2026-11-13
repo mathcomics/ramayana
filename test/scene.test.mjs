@@ -122,7 +122,7 @@ test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale
   const seat = assets.props.props['throne-ayodhya'].anchors.seat;
   // the hips: the underside of the thighs at the pelvis, in the figure's frame
   const kingPose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'sit-armknee')));
-  const kingLook = characterLook(assets.characters.characters.find((c) => c.id === 'dasharatha'), assets.characters.palette, assets.faces);
+  const kingLook = characterLook(assets.characters.characters.find((c) => c.id === 'dasharatha'), assets.characters.colors, assets.faces);
   const { joints: kj, shapes: ks } = buildShapes(assets.species[kingLook.species], kingPose, kingLook.outfit, 'side', kingLook.bodyScale, kingLook.who);
   const hipsY = Math.max(...ks.filter((s) => /-thigh$/.test(s.part || '')).flatMap((s) => s.pts).filter((q) => Math.abs(q[0] - kj.spine.pelvis[0]) <= 0.25).map((q) => q[1]));
   for (const facing of ['right', 'left']) {
@@ -149,7 +149,7 @@ test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale
 });
 
 test('"on" a figure: a carried prop on its hands, head or shoulder, from the skeleton', () => {
-  const look = characterLook(assets.characters.characters.find((c) => c.id === 'hanuman'), assets.characters.palette, assets.faces);
+  const look = characterLook(assets.characters.characters.find((c) => c.id === 'hanuman'), assets.characters.colors, assets.faces);
   const pose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'arch-overhead')));
   const num = (v) => +v;
   for (const [view, facing] of [['front', 'right'], ['side', 'right'], ['side', 'left']]) {
@@ -209,7 +209,7 @@ test('a "hand" anchor: the figure hangs by its higher hand, or the one "hand" na
   const unit = fs, H = 360, ground = H * (1 - 0.08 * 0.37), top = ground - def.size[1] * unit;
   const ax = 180 + (def.anchors.hand[0] - def.size[0] / 2) * unit, ay = top + def.anchors.hand[1] * unit;
   const pose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'leap-reach')));
-  const look = characterLook(assets.characters.characters.find((c) => c.id === 'hanuman'), assets.characters.palette, assets.faces);
+  const look = characterLook(assets.characters.characters.find((c) => c.id === 'hanuman'), assets.characters.colors, assets.faces);
   const { joints } = buildShapes(assets.species[look.species], pose, look.outfit, 'side', look.bodyScale, look.who);
   const g = [joints.near.grip, joints.far.grip].sort((a, b) => a[1] - b[1])[0];
   assert.ok(Math.abs(fx + g[0] * unit - ax) < 1e-6 && Math.abs(fy + g[1] * unit - ay) < 1e-6, 'the higher grip on the anchor');

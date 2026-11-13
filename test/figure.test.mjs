@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizePose, buildShapes, renderFigure, parseCloth, characterLook } from '../src/figure.js';
+import { normalizePose, buildShapes, renderFigure, parseColor, characterLook } from '../src/figure.js';
 import { bbox as geomBbox } from '../src/geom.js';
 import { SPECIES, POSES, CAST, FACES, allFinite, stableIds } from './helpers.mjs';
 
@@ -73,26 +73,31 @@ test('the guide head is a plain rectangle, size × (size · width)', () => {
   }
 });
 
-test('cloth names: colour plus optional pattern', () => {
-  const pal = CAST.palette.cloth;
-  assert.deepEqual(parseCloth('red', pal), { color: pal.red, pattern: null });
-  assert.deepEqual(parseCloth('red-check', pal), { color: pal.red, pattern: 'check' });
-  assert.deepEqual(parseCloth('yellow-stripe', pal), { color: pal.yellow, pattern: 'stripe' });
-  assert.equal(parseCloth('red-tartan', pal).pattern, null);
-  assert.equal(parseCloth('mauve', pal).color, undefined);
+test('colour names: a name or a hex, plus an optional pattern; multi-word names', () => {
+  const pal = CAST.colors;
+  assert.deepEqual(parseColor('red', pal), { color: pal.red, pattern: null });
+  assert.deepEqual(parseColor('red-check', pal), { color: pal.red, pattern: 'check' });
+  assert.deepEqual(parseColor('yellow-stripe', pal), { color: pal.yellow, pattern: 'stripe' });
+  assert.equal(parseColor('red-tartan', pal).pattern, null);
+  assert.equal(parseColor('mauve', pal).color, undefined);
+  assert.deepEqual(parseColor('skin-dark-red', pal), { color: pal['skin-dark-red'], pattern: null });
+  assert.deepEqual(parseColor('skin-dark-red-check', pal), { color: pal['skin-dark-red'], pattern: 'check' });
+  assert.deepEqual(parseColor('#d9c9a3', pal), { color: '#d9c9a3', pattern: null });
+  assert.deepEqual(parseColor('#d9c9a3-stripe', pal), { color: '#d9c9a3', pattern: 'stripe' });
+  assert.equal(parseColor('tan', pal).color, undefined, 'CSS names are not colours here');
 });
 
 test('a patterned top draws its pattern; a bare top does not', () => {
   const ravana = CAST.characters.find((c) => c.id === 'ravana');
-  const L = characterLook(ravana, CAST.palette, FACES);
+  const L = characterLook(ravana, CAST.colors, FACES);
   const svg = renderFigure(SPECIES.male, stand, { ...L, scale: 20 }).svg;
   assert.match(svg, /<pattern /);
-  const rama = characterLook(CAST.characters.find((c) => c.id === 'rama'), CAST.palette, FACES);
+  const rama = characterLook(CAST.characters.find((c) => c.id === 'rama'), CAST.colors, FACES);
   assert.doesNotMatch(renderFigure(SPECIES.male, stand, { ...rama }).svg, /<pattern /);
 });
 
 test('a drawn face replaces the generated head', () => {
-  const rama = characterLook(CAST.characters.find((c) => c.id === 'rama'), CAST.palette, FACES);
+  const rama = characterLook(CAST.characters.find((c) => c.id === 'rama'), CAST.colors, FACES);
   const withFace = renderFigure(SPECIES.male, stand, { ...rama }).svg;
   const without = renderFigure(SPECIES.male, stand, { ...rama, face: null }).svg;
   assert.ok(withFace.includes(FACES.faces.rama.side.head));

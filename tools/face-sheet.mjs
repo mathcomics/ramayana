@@ -28,7 +28,7 @@ s += `<text x="${M}" y="32" ${font} font-size="16" fill="#333">Faces</text>`;
 s += `<text x="${W - M}" y="32" ${font} font-size="10" fill="#888" text-anchor="end">figures: front, side (stand) · close-ups: front / side, mouths 1 2 3</text>`;
 
 cast.forEach((c, i) => {
-  const opts = characterLook(c, C.palette, F);
+  const opts = characterLook(c, C.colors, F);
   const S = SPECIES[opts.species];
   const x0 = M + (i % COLS) * cw, y0 = TOP + Math.floor(i / COLS) * ch;
   s += `<rect x="${x0 + 3}" y="${y0 + 3}" width="${cw - 6}" height="${ch - 6}" rx="6" fill="#f6f1e8" stroke="#ddd3c3"/>`;

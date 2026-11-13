@@ -5,7 +5,7 @@
 // Delivery is a vertical scroll of panels. Every panel is the full width
 // (360 units) and `tall` × its width high.
 
-import { renderFigure, buildShapes, characterLook, parseCloth, DEFAULT_OUTFIT } from './figure.js';
+import { renderFigure, buildShapes, characterLook, parseColor, DEFAULT_OUTFIT } from './figure.js';
 import { headView, INTENDED_VIEWS } from './headturn.js';
 
 export const PANEL_W = 360;
@@ -114,7 +114,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const side = (k) => k.replace(/^near\./, 'right.').replace(/^far\./, 'left.');
     if (f.hands) for (const [h, v] of Object.entries(f.hands)) setPath(pose, side(`${h}.arm.hand`), v);
     for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, side(k), v);
-    const look = characterLook(c, assets.characters.palette, assets.faces, f.cloth);
+    const look = characterLook(c, assets.characters.colors, assets.faces, f.cloth);
     if (f.cloth && !look.colors.cloth) issues.push(`figure ${i} (${who}): unknown cloth "${f.cloth}"`);
     const S = assets.species[look.species];
     const r = row(f.row);
@@ -159,16 +159,22 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const [w, h] = rot ? [Math.abs(w0 * Math.cos(rr)) + Math.abs(h0 * Math.sin(rr)), Math.abs(w0 * Math.sin(rr)) + Math.abs(h0 * Math.cos(rr))] : [w0, h0];
     if (rot && p.on) issues.push(`prop "${p.prop}": "rotate" with "on" — the anchors are not rotated`);
     // recolor: def.recolor names the drawing's role colours ({ body, cloth }).
-    // "character" takes a character's colours; "body" / "cloth" override (hex,
-    // or a cloth palette name; a pattern suffix keeps the base colour).
+    // "character" takes a character's colours; "body" / "cloth" override (a
+    // name from data/characters.json "colors", or a hex; a pattern suffix
+    // keeps the base colour).
     const cid = p.character ?? p.who;
     let svg = def?.svg;
+    if (svg && !def.recolor && (p.body || p.cloth)) issues.push(`prop "${p.prop}": "${p.body ? 'body' : 'cloth'}" does nothing — the drawing names no recolour colours (data-recolor-body / -cloth)`);
     if (svg && def.recolor && (cid || p.body || p.cloth)) {
       const c = cid ? chars.find((x) => x.id === cid) : null;
       if (cid && !c) issues.push(`prop "${p.prop}": unknown character "${cid}"`);
-      const clothName = p.cloth ?? c?.cloth;
-      const want = { body: p.body ?? c?.body,
-        cloth: clothName && (parseCloth(clothName, assets.characters.palette.cloth).color ?? clothName) };
+      const colour = (role, name) => {
+        if (!name) return undefined;
+        const col = parseColor(name, assets.characters.colors).color;
+        if (!col) issues.push(`prop "${p.prop}": ${role} "${name}" is not in the colours (data/characters.json) or a hex`);
+        return col;
+      };
+      const want = { body: colour('body', p.body ?? c?.body), cloth: colour('cloth', p.cloth ?? c?.cloth) };
       for (const [role, from] of Object.entries(def.recolor)) {
         if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
       }

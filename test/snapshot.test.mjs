@@ -21,7 +21,7 @@ function fingerprints() {
     for (const facing of [1, -1]) out[`figure ${sp} ${p.name} ${view} ${facing}`] = hash(stableIds(renderFigure(S, p, { view, facing, scale: 20 }).svg));
   const stand = POSES.find((p) => p.name === 'step-hang');
   for (const c of CAST.characters) for (const view of c.sideOnly ? ['side'] : ['side', 'front']) {
-    const L = characterLook(c, CAST.palette, FACES);
+    const L = characterLook(c, CAST.colors, FACES);
     out[`character ${c.id} ${view}`] = hash(stableIds(renderFigure(SPECIES[L.species], stand,
       { scale: 20, view, pattern: L.pattern, colors: L.colors, outfit: L.outfit, face: L.face, sideOnly: L.sideOnly }).svg));
   }

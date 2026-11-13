@@ -297,7 +297,7 @@ const REPO = /*__POSEDATA__*/;
   const LOOK = new Set(['facing', 'faceMouth']);
   const charById = (id) => CAST.characters.find((c) => c.id === id) || CAST.characters[0];
   // locks: true draws a face's hair locks (lock-* layers; panels do not yet)
-  const look = () => { const c = charById(state.character); return { ...characterLook(c, CAST.palette, FACES, c.cloth), locks: true }; };
+  const look = () => { const c = charById(state.character); return { ...characterLook(c, CAST.colors, FACES, c.cloth), locks: true }; };
 
   // Joint angles are set by dragging on the figures (handles below); their
   // ranges live here. The panels keep only what has no handle.
@@ -874,7 +874,7 @@ const REPO = /*__POSEDATA__*/;
       const x = (k % COLS) * C + C / 2, y = Math.floor(k / COLS) * CH;
       const d = F[v];
       body += `<text x="${x}" y="${y + 0.25}" font-size="0.15" text-anchor="middle" fill="#000" fill-opacity="0.6" font-family="sans-serif">${VIEW_NAMES[v]}${d?.generated ? ' · generated' : ''}</text>`;
-      body += d ? `<g transform="translate(${x} ${y + 1.0})">${drawnView(F, v, state.faceMouth, c.body)}</g>`
+      body += d ? `<g transform="translate(${x} ${y + 1.0})">${drawnView(F, v, state.faceMouth, parseColor(c.body, CAST.colors).color)}</g>`
         : `<text x="${x}" y="${y + 1.05}" font-size="0.13" text-anchor="middle" fill="#000" fill-opacity="0.35" font-family="sans-serif">not drawn</text>`;
     });
     $('faceGrid').innerHTML = `<svg viewBox="0 0 ${COLS * C} ${Math.ceil(views.length / COLS) * CH}" role="img" aria-label="${c.name}'s head views">${body}</svg>`;

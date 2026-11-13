@@ -79,7 +79,7 @@ repeated inside the JSON.
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `top` · `horizon` · `back` · `mid` · `front` · `floor` · `closeup`, or a number | Where it stands and how big: see Rows. Default `front`. Rows don't change the overlap order. |
 | `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's row and the figure's own `scale` — not the prop's (`at` and `row` do nothing and are flagged; `nudge` still applies, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "palace-kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). On a **figure** (its `id`, else its character): something it carries — `#hands` (midway between the two hands: a rock overhead), `#hand-right`, `#hand-left` (the near and far hand), `#head` (top of the head: a load on it), `#shoulder` (the near shoulder). The points come from the figure's skeleton in the view drawn, so nothing is drawn for them and they follow the pose, facing and `rotate`; a prop's bottom centre (or its `feet` anchor) lands there, a figure's hips; sized by the carrier's row × its own `scale` (`"prop": "rock-circle", "on": "hanuman#hands"`). The pose must still hold the arms there. Order sets which is in front: the carried entry before the carrier sits behind its hands. |
-| `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
+| `cloth` | a colour name (`colors` in `data/characters.json`) or hex, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
 | `turn` | degrees, −180 … 180 | Head turn from the body's own front, + to its right; overrides the pose's `spine.turn`. ±90 faces the viewer; ±180 is a full look back (profile facing backward, 11.08). |
@@ -115,10 +115,11 @@ behind them, after = in front; the retired `layer` field is an issue).
 - Recolouring: a prop whose drawing names role colours on its root
   element (`<svg data-recolor-body="#a05a2c" data-recolor-cloth="#c8ab37" …>`) takes
   `character` (a character id: that character's body and cloth colours), or
-  explicit `body` / `cloth` (hex, or a cloth palette name; a pattern
+  explicit `body` / `cloth` (a name from `colors` in `data/characters.json`, or a hex — not a CSS name; a pattern
   suffix keeps the base colour). So one drawing serves many characters:
   `{ "prop": "male-top", "character": "rama" }`. The rocks recolour
-  too (`body`: `{ "prop": "rock-square", "body": "#d9c9a3" }`).
+  too (`{ "prop": "rock-square", "body": "skin-dark-brown" }`). `body` or
+  `cloth` on a prop that names no role colours is flagged.
 - Anchors: a group `id="anchors"` in the prop's SVG holds named circles
   (not drawn). `seat`: where a seated figure's hips rest (`on`) — the
   underside of its thighs at the pelvis lands on the point, so it goes on
@@ -163,7 +164,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   panel cut straight at that edge; colours that a panel should change
   drawn in one exact fill each (the skin one hex, the cloth one hex —
   a nail or sole in another colour will not follow a recolour), using
-  the character's or palette hex where it belongs to one; stroke width
+  the character's or a `colors` hex where it belongs to one; stroke width
   matching the props it will stand beside; anchors as named circles in
   a group `id="anchors"`.
 - Drawn so far: `palace-ayodhya`, `palace-lanka` (the golden rework,

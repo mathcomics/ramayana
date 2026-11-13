@@ -1,18 +1,22 @@
 {
-  "_doc": "Characters inherit a species and fix body colour (hex; must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from the cloth palette below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later. scale (optional, default 1): body scale, torso and legs only (head, neck and arms keep their size); e.g. 0.8 for a small generic monkey. sideOnly (optional): the character is only ever drawn in side view — its face file has a side drawing only (the front layer is ignored), there is no head-turn data, and a panel asking for the front view gets the side view.",
-  "palette": {
-    "cloth": {
-      "orange": "#f5b56e",
-      "yellow": "#f0d23a",
-      "red": "#d21d20"
-    }
+  "_doc": "Characters inherit a species and fix body colour (a name from colors below; it must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from colors below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later. scale (optional, default 1): body scale, torso and legs only (head, neck and arms keep their size); e.g. 0.8 for a small generic monkey. sideOnly (optional): the character is only ever drawn in side view — its face file has a side drawing only (the front layer is ignored), there is no head-turn data, and a panel asking for the front view gets the side view.",
+  "colors": {
+    "orange": "#f5b56e",
+    "yellow": "#f0d23a",
+    "red": "#d21d20",
+    "skin-brown": "#c87137",
+    "skin-red": "#c8504a",
+    "skin-dark-brown": "#5a2a12",
+    "skin-dark-red": "#7c1d1d",
+    "skin-rama": "#916f6f",
+    "stone": "#ac9393"
   },
   "characters": [
     {
       "id": "rama",
       "name": "Rama",
       "species": "male",
-      "body": "#916f6f",
+      "body": "skin-rama",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -21,7 +25,7 @@
       "id": "sita",
       "name": "Sita",
       "species": "female",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -30,7 +34,7 @@
       "id": "lakshman",
       "name": "Lakshman",
       "species": "male",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "orange"
@@ -39,7 +43,7 @@
       "id": "dasharatha",
       "name": "Dasharatha",
       "species": "male",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -48,7 +52,7 @@
       "id": "kaikeyi",
       "name": "Kaikeyi",
       "species": "female",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "yellow",
@@ -58,7 +62,7 @@
       "id": "hanuman",
       "name": "Hanuman",
       "species": "monkey",
-      "body": "#7c1d1d",
+      "body": "skin-dark-red",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "red"
@@ -67,7 +71,7 @@
       "id": "sugriva",
       "name": "Sugriva",
       "species": "monkey",
-      "body": "#5a2a12",
+      "body": "skin-dark-brown",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "yellow"
@@ -76,7 +80,7 @@
       "id": "monkey1",
       "name": "monkey1",
       "species": "monkey",
-      "body": "#5a2a12",
+      "body": "skin-dark-brown",
       "top": "bare",
       "bottom": "briefs",
       "cloth": "yellow",
@@ -86,7 +90,7 @@
       "id": "ravana",
       "name": "Ravana",
       "species": "male",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-check"
@@ -95,7 +99,7 @@
       "id": "indrajit",
       "name": "Indrajit",
       "species": "male",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-check"
@@ -104,7 +108,7 @@
       "id": "vibhishana",
       "name": "Vibhishana",
       "species": "male",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-diamond"
@@ -113,7 +117,7 @@
       "id": "raxas_m1",
       "name": "raxas_m1",
       "species": "male",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe"
@@ -122,7 +126,7 @@
       "id": "raxas_f1",
       "name": "raxas_f1",
       "species": "female",
-      "body": "#c8504a",
+      "body": "skin-red",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe",
@@ -132,7 +136,7 @@
       "id": "raxas_f2",
       "name": "raxas_f2",
       "species": "female",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe",
@@ -142,7 +146,7 @@
       "id": "raxas_f3",
       "name": "raxas_f3",
       "species": "female",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe",
@@ -152,7 +156,7 @@
       "id": "surpanakha",
       "name": "Surpanakha",
       "species": "female",
-      "body": "#c8504a",
+      "body": "skin-red",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-check"
@@ -161,7 +165,7 @@
       "id": "raxas_m2",
       "name": "raxas_m2",
       "species": "male",
-      "body": "#c87137",
+      "body": "skin-brown",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe"
@@ -170,7 +174,7 @@
       "id": "raxas_m3",
       "name": "raxas_m3",
       "species": "male",
-      "body": "#7c1d1d",
+      "body": "skin-dark-red",
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe"
