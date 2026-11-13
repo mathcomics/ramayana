@@ -54,7 +54,7 @@
       "pose": "stand-pointup",
       "facing": "right",
       "on": "rock-rectangle#stand-left",
-      "scale": 0.22,
+      "scale": 0.308,
       "mouth": 3,
       "adjust": {
         "spine.head": -30
@@ -65,7 +65,7 @@
       "pose": "step-akimbo",
       "facing": "right",
       "on": "rock-rectangle#stand",
-      "scale": 0.22,
+      "scale": 0.308,
       "mouth": 2,
       "adjust": {
         "spine.head": -30
@@ -76,7 +76,7 @@
       "pose": "stepback-armsout",
       "facing": "right",
       "on": "rock-rectangle#stand-right",
-      "scale": 0.22,
+      "scale": 0.308,
       "mouth": 2,
       "adjust": {
         "spine.head": -20

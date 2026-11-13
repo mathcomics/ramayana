@@ -184,10 +184,13 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   view, at Sita's head height) lay over her face: lower the arm to cross
   her body below the chin and give the faces room (Sita `at` 0.45 → 0.5).
   Check every face against the limbs drawn after it.
-- **Figures `on` a prop's anchor take the prop's scale**: three monkeys
-  on `rock-rectangle#stand-left/#stand/#stand-right` at the rock's own scale fill
-  the panel. Scale the prop up and the figures down for people on
-  a rock seen from a distance (06.06).
+- **Figures `on` a prop's anchor take the prop's row, not its scale**
+  (2026-11-13): a prop's `scale` says *this* rock or ladder is bigger, not
+  that it is nearer, so it leaves the people on it alone — resizing a rock
+  in the lab no longer resizes its sitters (10.08's Sita was half-size
+  because her rock was). For people on a prop seen from a distance, give
+  the figures their own `scale` (06.07's monkeys at 0.25 on a rock at 2.5).
+  A `face` anchor still takes the prop's size: the head is part of the burst.
 - **Rocks** (artist, 2026-11-10): build rocky ground from
   `rock-circle`, `rock-square` and `rock-rectangle`, often a big one with
   a smaller one before it (`composition.md`, Kishkindha and rocks).

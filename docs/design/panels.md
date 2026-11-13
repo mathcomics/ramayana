@@ -78,7 +78,7 @@ repeated inside the JSON.
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `top` · `horizon` · `back` · `mid` · `front` · `floor` · `closeup`, or a number | Where it stands and how big: see Rows. Default `front`. Rows don't change the overlap order. |
-| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's scale (`at` and `row` do nothing and are flagged; `scale` and `nudge` still apply, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "palace-kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
+| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's row and the figure's own `scale` — not the prop's (`at` and `row` do nothing and are flagged; `nudge` still applies, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "palace-kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). |
 | `cloth` | palette colour, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `mouth` | 1 · 2 · 3 | Overrides the pose. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
@@ -128,8 +128,8 @@ behind them, after = in front; the retired `layer` field is an issue).
   `rock-circle`, `rock-square`, `rock-rectangle` and `palace-kishkindha` have
   them; `ladder` and `steps` have `stand-low`, `stand` and `stand-high`, a
   low, middle and high rung or tread). A prop can stand `on` another prop's anchor
-  too — its bottom centre lands there, at the carrying prop's scale
-  (`palace-lanka` on `"lanka-island#stand"`), or its own `feet` anchor
+  too — its bottom centre lands there, at the carrying prop's row and
+  its own `scale` (`palace-lanka` at 4 on `"lanka-island#stand"`), or its own `feet` anchor
   when it has one: a creature whose wing or tail pulls its box off its
   feet (`vulture-stand`, `vulture-lookback` on `"rock-circle#stand"`).
 - **Naming an anchor**: after *what of the figure lands on it*, never

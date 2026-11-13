@@ -118,7 +118,7 @@ test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', (
   for (const k of ['shot', 'zoom']) assert.match(renderPanel({ [k]: 'wide' }, assets).issues.join(' '), new RegExp(`"${k}" is retired`));
 });
 
-test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirror the seat', () => {
+test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale); mirrored props mirror the seat', () => {
   const seat = assets.props.props['throne-ayodhya'].anchors.seat;
   // the hips: the underside of the thighs at the pelvis, in the figure's frame
   const kingPose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'sit-armknee')));
@@ -142,6 +142,9 @@ test('"on": a figure sits on the prop\'s seat, at its scale; mirrored props mirr
   assert.ok(Math.abs(x1 - x0 - 0.5 * u) < 0.01 && Math.abs(y0 - y1 - u) < 0.01, 'nudge on a seated figure');
   const [x2, y2] = at([{ ...throne, nudge: [1, 1] }, king]);
   assert.ok(Math.abs(x2 - x0 - u) < 0.01 && Math.abs(y0 - y2 - u) < 0.01, 'the sitter follows a nudged prop');
+  // a bigger throne does not make a bigger king: the sitter keeps its row's size × its own scale
+  assert.equal(at([{ ...throne, scale: 2 }, king])[2], u, 'the prop\'s scale stays with the prop');
+  assert.ok(Math.abs(at([{ ...throne, scale: 2 }, { ...king, scale: 0.5 }])[2] - u / 2) < 1e-9, 'the figure\'s own scale');
   assert.match(renderPanel({ figures: [throne, { ...king, at: 0.2, row: 'back' }] }, assets).issues.join(' '), /"at" does nothing with "on"[\s\S]*"row" does nothing with "on"/);
 });
 

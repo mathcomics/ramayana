@@ -173,7 +173,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
         if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
       }
     }
-    return { p, name: p.id || p.prop, def, svg, groundY: r.top ? h : r.y, unit, w, h, w0, h0, rot, halfW: w / 2, x: null,
+    return { p, name: p.id || p.prop, def, svg, groundY: r.top ? h : r.y, unit, rowUnit: r.unit, w, h, w0, h0, rot, halfW: w / 2, x: null,
       facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
   };
 
@@ -242,7 +242,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   }
   const RELS = ['before', 'behind', 'beside', 'left-of', 'right-of'];
   // "on": a figure (or another prop) sits or stands on a prop's anchor, at
-  // the prop's scale. "<prop>" uses the seat anchor; "<prop>#<anchor>"
+  // the prop's row and its own scale — not the prop's (a big rock does not
+  // make its sitter big). "<prop>" uses the seat anchor; "<prop>#<anchor>"
   // names another (e.g. stand). A prop stands with its bottom centre on it.
   // A `face` anchor is different: it takes the head alone, centred on the
   // anchor and drawn to the anchor circle's size — a face in a sound bubble.
@@ -265,7 +266,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       o.pivot = [o.x, o.groundY];
       return;
     }
-    o.unit = t.unit * (e.scale ?? 1);
+    o.rowUnit = t.rowUnit;
+    o.unit = o.rowUnit * (e.scale ?? 1);
     // the anchor point, nudged: a rotated figure turns about it
     const ax = sx + o.dx * o.unit;
     const ay = sy - o.dy * o.unit;

@@ -23,7 +23,7 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "on": "ladder#stand-low",
-      "scale": 0.3928,
+      "scale": 0.2,
       "cloth": "orange",
       "mouth": 1
     },
@@ -33,7 +33,7 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "on": "ladder#stand",
-      "scale": 0.3928,
+      "scale": 0.2,
       "cloth": "red-diamond",
       "mouth": 1
     },
@@ -43,7 +43,7 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "on": "ladder#stand-high",
-      "scale": 0.7856,
+      "scale": 0.4,
       "cloth": "red",
       "mouth": 3
     },

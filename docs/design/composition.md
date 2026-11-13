@@ -83,8 +83,9 @@ action. The same opener can return when the story comes back to a place.
 - `palace-kishkindha`: the monkey city's domed palaces on their green hill,
   a zigzag stair up to the great door. A figure stands on the stair
   (its lower flight) with `on`: `"palace-kishkindha#stand"`.
-  A figure on an anchor takes the prop's scale: for small figures on a
-  big mountain, scale the prop up and give the figure a `scale` below 1.
+  A figure on an anchor takes the prop's row, not its scale: a big
+  mountain (prop `scale` 4) leaves the figure on it at its row's size, so
+  a figure seen from far off gets its own `scale` below 1.
 - **Rocks** (artist, 2026-11-10): rocky scenes use the plain
   rocks `rock-circle` (round boulder), `rock-square` (squat block) and
   `rock-rectangle` (long and low), often **one big with a smaller one

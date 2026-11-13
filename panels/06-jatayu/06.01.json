@@ -13,7 +13,7 @@
       "prop": "vulture-lookback",
       "facing": "left",
       "on": "rock-circle#stand",
-      "scale": 0.83
+      "scale": 0.996
     },
     {
       "prop": "sound-cry",
