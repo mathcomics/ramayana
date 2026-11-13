@@ -141,4 +141,25 @@
        x="1363.3475"
        y="454.44916" />
   </g>
+  <g
+     id="anchors">
+    <circle
+       id="stand-low"
+       cx="200"
+       cy="99.25"
+       r="3"
+       fill="none" />
+    <circle
+       id="stand"
+       cx="115.5"
+       cy="56.75"
+       r="3"
+       fill="none" />
+    <circle
+       id="stand-high"
+       cx="11"
+       cy="0"
+       r="3"
+       fill="none" />
+  </g>
 </svg>

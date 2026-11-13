@@ -80,10 +80,9 @@ action. The same opener can return when the story comes back to a place.
 
 ## Kishkindha and rocks
 
-- `palace-kishkindha`: the monkey city's domed palace on its dark hill, with the
-  flat-topped Rishyamukha mountain in front — where the exiles watch Sita
-  carried over (08.05) and later meet Rama. Figures stand on the plateau
-  with `on`: `"palace-kishkindha#stand"` (also `#stand-left`, `#stand-right`).
+- `palace-kishkindha`: the monkey city's domed palaces on their green hill,
+  a zigzag stair up to the great door. A figure stands on the stair
+  (its lower flight) with `on`: `"palace-kishkindha#stand"`.
   A figure on an anchor takes the prop's scale: for small figures on a
   big mountain, scale the prop up and give the figure a `scale` below 1.
 - **Rocks** (artist, 2026-11-10): rocky scenes use the plain

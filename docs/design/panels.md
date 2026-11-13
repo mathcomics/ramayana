@@ -120,7 +120,8 @@ behind them, after = in front; the retired `layer` field is an issue).
   `stand`, `stand-left`, `stand-right`: where a standing figure's feet
   rest (`on` with `#`, e.g. `"on": "palace-kishkindha#stand"`; the rocks
   `rock-circle`, `rock-square`, `rock-rectangle` and `palace-kishkindha` have
-  them). A prop can stand `on` another prop's anchor
+  them; `ladder` and `steps` have `stand-low`, `stand` and `stand-high`, a
+  low, middle and high rung or tread). A prop can stand `on` another prop's anchor
   too — its bottom centre lands there, at the carrying prop's scale
   (`palace-lanka` on `"lanka-island#stand"`), or its own `feet` anchor
   when it has one: a creature whose wing or tail pulls its box off its
@@ -170,7 +171,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   centre, Ravana's) and `throne-kishkindha` (gold
   stupa dome on a dark post, Sugriva's coronation),
   the rocks `rock-circle`, `rock-square`, `rock-rectangle` (plain stone,
-  for every rocky scene; Jatayu perches on a `rock-circle`'s `seat`, 03.06), `palace-kishkindha` (rocky; seeded-random outlines, stand anchors),
+  for every rocky scene; Jatayu perches on a `rock-circle`'s `seat`, 03.06), `palace-kishkindha` (domed palaces on a hill; a `stand` anchor on the stair),
   the giant's parts for chapter 14 `giant-feet`, `giant-fist`,
   `giant-grab` (reaching down from above), `giant-lie-waist` (the
   sleeping giant's middle) — each cut off at the frame edge it enters

@@ -510,4 +510,13 @@
        x="1363.3475"
        y="454.44916" />
   </g>
+  <g
+     id="anchors">
+    <circle
+       id="stand"
+       cx="728"
+       cy="495.5"
+       r="6"
+       fill="none" />
+  </g>
 </svg>

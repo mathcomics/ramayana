@@ -111,4 +111,25 @@
        d="m 10.632888,-56.171816 -46.55806,-1.05527"
        id="path6076-9-0-3-4" />
   </g>
+  <g
+     id="anchors">
+    <circle
+       id="stand-low"
+       cx="23"
+       cy="225.25"
+       r="3"
+       fill="none" />
+    <circle
+       id="stand"
+       cx="37"
+       cy="134.5"
+       r="3"
+       fill="none" />
+    <circle
+       id="stand-high"
+       cx="47"
+       cy="45.75"
+       r="3"
+       fill="none" />
+  </g>
 </svg>
