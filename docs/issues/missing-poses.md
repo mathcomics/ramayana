@@ -90,3 +90,10 @@ chapter). Moments with no pose come first.
 - 13.01: leapup-climb (hands on a high rung, one knee up on a lower one): leapup-reachup for now
 - 13.02: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 13.04: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
+
+## Unlisted pairs in panels
+
+Base-gesture pairs the panels use that are not in `data/poses.json`.
+Used by two panels or more: list it, with its finding fields.
+
+(none)

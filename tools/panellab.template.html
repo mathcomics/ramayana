@@ -269,9 +269,11 @@ const SECTIONS = /*__SECTIONS__*/;
   // Reference: the names a panel may use.
   const ch = ASSETS.characters.characters.map((c) => c.id).join(', ');
   const po = ASSETS.poses.map((p) => p.name).join(', ');
+  const ba = Object.keys(ASSETS.poseParts.bases).join(', ');
+  const ge = Object.keys(ASSETS.poseParts.gestures).join(', ');
   const pr = Object.keys(ASSETS.props.props).join(', ');
   const gr = Object.keys(ASSETS.grounds.grounds).join(', ');
-  $('ref').innerHTML = `<b>character</b> ${ch}<br><b>pose</b> ${po}<br><b>prop</b> ${pr}<br><b>ground</b> ${gr}<br>` +
+  $('ref').innerHTML = `<b>character</b> ${ch}<br><b>pose</b> any &lt;base&gt;-&lt;gesture&gt;; reviewed: ${po}<br><b>base</b> ${ba}<br><b>gesture</b> ${ge}<br><b>prop</b> ${pr}<br><b>ground</b> ${gr}<br>` +
     `<b>tall</b> height ÷ width: 1.5 (default), 1, 0.6<br><b>at</b> 0–1 across the width, or ${Object.keys(SLOTS).join(', ')}, or {"before"|"behind"|"beside"|"left-of"|"right-of": name, "gap": h}<br><b>order</b> one figures list of figures ("character"), props ("prop") and foregrounds ("foreground"), drawn in order (last is in front)<br><b>foreground</b> {"foreground": [left, right] heights (shares of the height), "color": ground name}: a band of ground; stand on it with "on": "foreground" plus "at"<br>` +
     `<b>row</b> top, horizon, back, mid, front (default), floor, closeup, or a number: the bottom edge as a share of the height (0 bottom, 1 top)<br><b>figure</b> facing, mouth, turn (head, degrees, + to its right), hands {right, left}, adjust {"right.arm.shoulder": 40}, scale, nudge (head-units: a number across, or [dx, dy], + up), on (a prop's anchor, a foreground, or a figure's #hands, #hand-right, #hand-left, #head, #shoulder: what it carries)<br><b>panel</b> tall, horizon, sky, ground, needs [..]`;
 

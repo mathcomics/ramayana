@@ -7,6 +7,26 @@
 
 import { renderFigure, buildShapes, characterLook, parseColor, DEFAULT_OUTFIT } from './figure.js';
 import { headView, INTENDED_VIEWS } from './headturn.js';
+import { poseComposer, splitPoseName } from './compose.js';
+
+// A figure's pose: a listed pose (data/poses.json, composed by the
+// loader), or any other <base>-<gesture> pair, composed here from
+// assets.poseParts with the same solves and cached per asset set.
+// -> { pose } or { error } naming the half that is unknown.
+const composedFor = new WeakMap();
+export function findPose(assets, name) {
+  const listed = assets.poses.find((p) => p.name === name);
+  if (listed) return { pose: listed };
+  const D = assets.poseParts;
+  if (!D || typeof name !== 'string') return { error: 'unknown pose' };
+  const [b, g] = splitPoseName(name);
+  if (!D.bases[b]) return { error: `no base "${b}"` };
+  if (!D.gestures[g]) return { error: `no gesture "${g}"` };
+  let c = composedFor.get(assets);
+  if (!c) composedFor.set(assets, (c = { compose: poseComposer(assets.species.male), poses: new Map() }));
+  if (!c.poses.has(name)) c.poses.set(name, c.compose(D.bases, D.gestures, name));
+  return { pose: c.poses.get(name) };
+}
 
 export const PANEL_W = 360;
 export const DEFAULT_TALL = 1.5;
@@ -105,9 +125,9 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const i = ++nFig, who = f.character ?? f.who;
     const c = chars.find((x) => x.id === who);
     if (!c) { issues.push(`figure ${i}: unknown character "${who}"`); return null; }
-    const base = assets.poses.find((p) => p.name === f.pose);
-    if (!base) issues.push(`figure ${i} (${who}): unknown pose "${f.pose}", using step-hang`);
-    const pose = clone(base || assets.poses.find((p) => p.name === 'step-hang') || {});
+    const found = findPose(assets, f.pose);
+    if (found.error) issues.push(`figure ${i} (${who}): unknown pose "${f.pose}" (${found.error}), using step-hang`);
+    const pose = clone(found.pose || assets.poses.find((p) => p.name === 'step-hang') || {});
     if (f.mouth) pose.mouth = f.mouth;
     if (typeof f.turn === 'number') setPath(pose, 'spine.turn', f.turn);   // head turn, degrees, + to its right
     // limbs are right / left (older panels: near = right, far = left)

@@ -74,7 +74,7 @@ repeated inside the JSON.
 | Field | Values | Notes |
 |---|---|---|
 | `character` | character id (`data/characters.json`) | Generic types (`monkey1`, `raxas_f2` …) can repeat. (Old name `who` still reads.) |
-| `pose` | pose name (`data/poses.json`) | Unknown pose → `stand`, with a warning. Picking: `docs/design/pose-picking.md`. |
+| `pose` | `<base>-<gesture>`: a listed pose (`data/poses.json`) or any other pair of a base and a gesture, composed when drawn | An unknown base or gesture → `step-hang`, with an issue naming it. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `top` · `horizon` · `back` · `mid` · `front` · `floor` · `closeup`, or a number | Where it stands and how big: see Rows. Default `front`. Rows don't change the overlap order. |

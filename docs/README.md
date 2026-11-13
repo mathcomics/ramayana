@@ -24,6 +24,7 @@
 - `proposals/2026-11-07-contact-constraints.md` — pin feet while editing in the pose lab (implemented), `lookAt` to aim gazes, `held-by` to put a prop in a hand.
 - `proposals/2026-11-07-pose-composition.md` — poses as a base × a gesture (partly implemented, now in `design/pose-picking.md`; open: chest on reclined bases, gaps as products, half-copy in the lab, composition as spec).
 - `proposals/2026-11-08-vertical-placement.md` — one `row` for vertical placement, by name or number; `shot` and `zoom` retired (implemented: `design/panels.md`, Rows; open: the row values, `top`'s size).
+- `proposals/2026-11-13-any-pair-in-panels.md` — a panel may name any base-gesture pair, composed when drawn; `poses.json` is the reviewed list (implemented: `design/pose-picking.md`; open: turning upper-body `adjust`s into pairs, a pose picker).
 
 ## Issues
 

@@ -50,6 +50,16 @@ documents the angle conventions (the same paths a panel's `adjust` uses).
 `npm test` checks every pose names a known base and gesture, holds only
 those fields, and that every base and gesture is used by some pose.
 
+**The list is what has been reviewed, not what a panel may draw.** A
+panel may name any `<base>-<gesture>` pair: a name not in the list is
+composed when the panel is drawn (`src/scene.js`, `findPose`), with the
+same solves as a listed pose, from the bases and gestures the assets
+carry (`poseParts`). An unknown base or gesture is a panel issue naming
+the wrong half; the figure falls back to `step-hang`. The list is what
+the catalogue shows and the gap report and pose picking search: a pair
+used by two panels or more is listed, with its finding fields (the gap
+report names them, **list it**).
+
 ## Composition
 
 Every pose is exactly its base and its gesture — nothing per pose
@@ -94,7 +104,8 @@ pose made from `wanted` moves from `wanted` to `poses`.
   size: what reads in the catalogue reads in a panel.
 - **Gaps**: counts the moments in `manuscript/scenes.md` against the poses
   that cover them and the panels' `needs`, and rewrites
-  `docs/issues/missing-poses.md`. With `--scenes` it prints, per scene,
+  `docs/issues/missing-poses.md`, with the unlisted base-gesture pairs
+  the panels use and their panels. With `--scenes` it prints, per scene,
   its moments and the candidate poses: the starting point for writing a
   section's panels.
 
@@ -121,9 +132,12 @@ pose made from `wanted` moves from `wanted` to `poses`.
    | pride, mockery | step-akimbo | leanback-armsback |
    | joy, victory | kneeup-armsup | leapup-reachup |
    | respect, pleading | kneel | step-palms, kneel-palms |
-5. **Adjust a little, then make a pose.** `adjust` is for one-off changes
-   of two or three joints. A gesture adjusted the same way twice becomes a
-   pose (in the pose lab), with an entry in `data/poses.json`.
+5. **Pair before adjusting; adjust a little, then make a gesture.** A
+   different upper body on the same legs is another gesture on that base:
+   name the pair (`stepwide-unicorn`) rather than rebuilding the arms with
+   `adjust`. `adjust` is for one-off changes of two or three joints. A
+   gesture adjusted the same way twice becomes a gesture of its own (in
+   the pose lab), and a pair used twice is listed in `data/poses.json`.
 6. **No silent stand.** If nothing fits, use the nearest pose (`like`, or
    the wanted pose's `until`) and add a `needs` entry naming the missing
    pose. `step-hang` is only right when the figure really just stands.

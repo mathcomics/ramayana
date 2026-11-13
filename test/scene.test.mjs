@@ -311,3 +311,20 @@ test('a figure sets "mouth" only to override its gesture\'s mouth', () => {
         `${id} ${e.id || e.character} (${e.pose}): mouth ${e.mouth} is already the gesture's — leave it out`);
     }
 });
+
+test('a panel may name any <base>-<gesture>; listed or not, it composes the same', async () => {
+  const { composePoses } = await import('../src/compose.js');
+  const { findPose } = await import('../src/scene.js');
+  const D = assets.poseParts;
+  // an unlisted pair is drawn without an issue, as the composer makes it
+  const r = renderPanel({ figures: [{ character: 'rama', pose: 'stepwide-unicorn' }] }, assets);
+  assert.deepEqual(r.issues, []);
+  assert.ok(!assets.poses.some((p) => p.name === 'stepwide-unicorn'), 'the test pair must stay unlisted');
+  assert.deepEqual(findPose(assets, 'stepwide-unicorn').pose, composePoses(assets.species.male, D.bases, D.gestures, ['stepwide-unicorn'])[0]);
+  // a listed pose is the loader's
+  assert.equal(findPose(assets, 'step-hang').pose, assets.poses.find((p) => p.name === 'step-hang'));
+  // an unknown half is named, and the figure falls back to step-hang
+  const bad = renderPanel({ figures: [{ character: 'rama', pose: 'stepwide-wave2' }, { character: 'rama', pose: 'hop-unicorn' }] }, assets);
+  assert.match(bad.issues[0], /no gesture "wave2"/);
+  assert.match(bad.issues[1], /no base "hop"/);
+});

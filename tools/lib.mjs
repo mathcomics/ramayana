@@ -122,9 +122,13 @@ export function loadPoses(species = loadSpecies()) {
 
 export function loadAssets() {
   const species = loadSpecies();
+  const D = loadPoseData();
   return {
     species,
-    poses: loadPoses(species),
+    poses: composePoses(species.male, D.bases, D.gestures, Object.keys(D.poses)),
+    // any other <base>-<gesture> a panel names is composed from these
+    // (src/scene.js, findPose)
+    poseParts: { bases: D.bases, gestures: D.gestures },
     characters: json('data/characters.json'),
     faces: json('data/faces.json'),
     props: loadProps(),

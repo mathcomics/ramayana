@@ -172,7 +172,10 @@ what looks wrong: `docs/issues/problem-poses.md`.
   with one of the **50 gestures** (`data/gestures.json`: arms, chest,
   head, mouth); `src/compose.js` composes it when the assets load, so
   retuning a base or gesture changes every pose using it. A pose has no
-  angles of its own — `poses.json` holds only its finding fields.
+  angles of its own — `poses.json` holds only its finding fields. The
+  list is the reviewed, findable poses, not a gate: a panel may name
+  any base-gesture pair, composed when drawn; a pair used by two
+  panels is listed (`docs/design/pose-picking.md`).
 - A head is always one of six drawn views, shown as drawn: front,
   three-quarter, side, back, down 40°, top (mirrored for the other side;
   `docs/design/faces.md`). All are drawn by hand; a missing one shows
