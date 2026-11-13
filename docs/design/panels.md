@@ -160,7 +160,10 @@ behind them, after = in front; the retired `layer` field is an issue).
 - Drawn so far: `palace-ayodhya`, `palace-lanka` (the golden rework,
   Lanka's palaces; also small on `lanka-island`'s `stand` anchor),
   `stag-stand`, `stag-run`, `stag-lie`, `deer-stand` (brown; the golden deer is `"body": "#ffd42a"`),
-  `hut-top`, `trees-top`, `tree-top`, `lanka-island` (the bare island —
+  `hut-top`, `trees-top`, `tree-top`, `trees-side` (a clump of three
+  trees seen side on; `scale` ~2 on the `back` row), `tree-trunk` (a near
+  trunk cut straight at both ends: on `closeup` it runs off the top and
+  bottom edges, framing a panel — 03.02a, 03.03a), `lanka-island` (the bare island —
   the city split off into `palace-lanka`, 2026-11-08),
   `vulture-fly`, `-swoop`, `-fall`,
   `-stand` and `vulture-wing` (the wing Ravana cuts off — a lone wing,

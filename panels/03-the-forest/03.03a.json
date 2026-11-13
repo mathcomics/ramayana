@@ -1,0 +1,54 @@
+{
+  "scene": "Through the trees: deer graze beyond, framed by two near trunks",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "trees-side",
+      "id": "trees-far",
+      "at": 0.25,
+      "row": "back",
+      "scale": 2
+    },
+    {
+      "prop": "trees-side",
+      "id": "trees-far2",
+      "at": 0.66,
+      "row": "back",
+      "scale": 1.6
+    },
+    {
+      "prop": "stag-stand",
+      "id": "deer1",
+      "at": 0.42,
+      "row": "mid"
+    },
+    {
+      "prop": "deer-stand",
+      "id": "deer2",
+      "facing": "left",
+      "at": 0.62,
+      "row": "mid"
+    },
+    {
+      "foreground": [
+        0.12,
+        0.12
+      ],
+      "color": "forest"
+    },
+    {
+      "prop": "tree-trunk",
+      "id": "trunk-left",
+      "at": 0,
+      "row": "closeup"
+    },
+    {
+      "prop": "tree-trunk",
+      "id": "trunk-right",
+      "at": 1,
+      "row": "closeup",
+      "facing": "left"
+    }
+  ]
+}

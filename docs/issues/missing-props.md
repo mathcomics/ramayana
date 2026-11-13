@@ -20,7 +20,7 @@ placeholder box. Held props (sword, club, bow) live in
 | line-top | 05.18 |
 | mountain | 09.06, 09.11 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
-| tree | 02.17, 03.07, 04.02, 05.14, 06.10, 08.05, 08.07, 09.05, 10.07, 10.09 |
+| tree | 02.17, 04.02, 05.14, 06.10, 08.05, 08.07, 09.05, 10.07, 10.09 |
 | vulture-lie | 06.11 |
 
 ## Prop wishes from the panels' needs
@@ -54,10 +54,9 @@ docs/design/panel-writing.md, Lessons).
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
 | prop: tree | 02.17, 03.06, 04.02, 05.14, 06.10, 08.05, 08.07, 09.05, 10.09 |
 | prop: tree (the ashoka; Hanuman hidden in its branches) | 10.07 |
-| prop: tree with thirteen tally marks | 03.07 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing) | 06.11 |
 
 ## Drawn props in use
 
-city-gap, city-roof, city-side, deer-stand, fire, flower-yellow, giant-grab, hut-top, lanka-island, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, throne-ayodhya, throne-kishkindha, throne-lanka, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+city-gap, city-roof, city-side, deer-stand, fire, flower-yellow, giant-grab, hut-top, lanka-island, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

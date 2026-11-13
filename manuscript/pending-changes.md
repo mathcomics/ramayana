@@ -10,6 +10,17 @@ openers and renumbering, panel sizes, Surpanakha without a fair form,
 the new generic characters — were applied in the v0.5 rewrite of
 `scenes.md` as chapter briefs.)*
 
+
+## Chapter 3: walking into the forest; the deer seen first; no tally mark (2026-11-12)
+
+- **New 03.02a**: the three walk on side by side through the trees,
+  past a near trunk (after the walk toward the reader, 03.02).
+- **New 03.03a**: the deer seen through the trees, framed by two
+  trunks, before 03.04 (Sita watching them).
+- **03.07 removed** (Sita scratching the thirteenth tally mark). The
+  brief already has the thirteen years as season icons, still to be
+  drawn; the chapter has no years-passing panel until they are.
+
 ## Chapter 7: who watches from the rock; a seated meeting (2026-11-10)
 
 Rocks replace the ledges (artist). Two changes the brief may want to

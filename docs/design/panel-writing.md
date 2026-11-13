@@ -147,6 +147,15 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   toward the reader (`view: front`) read larger and more alive there than
   small profile walkers (shrinking them all cut them down).
 
+- **A near tree trunk is clipped at both ends** (artist, 2026-11-12):
+  `tree-trunk` on `closeup` (or `front` scaled up), so it leaves the
+  panel at the top and the bottom — a frame the scene is seen past, not a
+  log standing in the clearing. Put it half off the edge (`at` 0 or
+  below) so it frames without hiding the figures; two, one mirrored, make
+  a window onto something seen through the trees (03.03a). With
+  `trees-side` on the `back` row behind and a `foreground` band before
+  the walkers it gives a forest in three depths (03.02a).
+
 - **The throne goes in the `mid` row**, a row behind the people in front:
   in the front row it is as tall as the men and runs off the edge.
 - **A figure in the air needs its legs closed and its toes pointed**
