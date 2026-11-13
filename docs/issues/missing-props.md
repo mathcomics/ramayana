@@ -13,14 +13,14 @@ placeholder box. Held props (sword, club, bow) live in
 | prop | panels |
 |---|---|
 | chariot | 05.21, 05.22 |
-| hut | 04.02, 05.16, 05.22, 06.09 |
+| hut | 05.16, 05.22, 06.09 |
 | jewels | 06.06, 06.07, 07.10, 10.11 |
 | lanka-wall | 10.01, 10.02 |
 | line | 05.17 |
 | line-top | 05.18 |
 | mountain | 09.06, 09.11 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
-| tree | 02.17, 04.02, 05.14, 06.10, 08.05, 08.07, 09.05, 10.07, 10.09 |
+| tree | 02.17, 05.14, 06.10, 08.05, 08.07, 09.05, 10.07, 10.09 |
 | vulture-lie | 06.11 |
 
 ## Prop wishes from the panels' needs
@@ -38,7 +38,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
 | prop: flying chariot | 05.21, 05.22 |
 | prop: fruit | 05.19 |
-| prop: hut | 04.02, 05.16, 05.22, 06.09 |
+| prop: hut | 05.16, 05.22, 06.09 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
 | prop: jewels (held to the chest) | 07.12 |
 | prop: jewels (the bundle) | 06.06, 06.07 |
@@ -52,7 +52,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: ring (Rama's ring; it reaches Sita in 10) | 09.03 |
 | prop: staff and pot (held) | 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
-| prop: tree | 02.17, 03.06, 04.02, 05.14, 06.10, 08.05, 08.07, 09.05, 10.09 |
+| prop: tree | 02.17, 03.06, 05.14, 06.10, 08.05, 08.07, 09.05, 10.09 |
 | prop: tree (the ashoka; Hanuman hidden in its branches) | 10.07 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing) | 06.11 |

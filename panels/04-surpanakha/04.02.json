@@ -1,53 +1,52 @@
 {
   "scene": "Back: the hut and the three. Front: Surpanakha watches them from behind a tree",
   "tall": 1,
-  "ground": "sand",
+  "ground": "forest",
   "figures": [
     {
-      "prop": "hut",
-      "at": 0.7,
-      "row": "back"
+      "prop": "trees-side",
+      "at": 0.86,
+      "row": "horizon",
+      "id": "trees-far",
+      "scale": 5
     },
     {
       "character": "lakshman",
-      "pose": "step-akimbo",
+      "pose": "pass-swing",
       "facing": "right",
-      "at": 0.36,
-      "row": "back",
-      "mouth": 1
+      "at": 0.32,
+      "row": "horizon"
     },
     {
       "character": "sita",
-      "pose": "step-hang",
+      "pose": "walk-swing",
       "facing": "right",
-      "at": 0.47,
-      "row": "back",
+      "at": 0.52,
+      "row": "horizon",
       "mouth": 1
     },
     {
       "character": "rama",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.57,
-      "row": "back",
-      "mouth": 1
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.62,
+      "row": "horizon"
+    },
+    {
+      "prop": "tree-trunk",
+      "at": -0.04,
+      "row": "closeup"
     },
     {
       "character": "surpanakha",
-      "pose": "bend-reach",
-      "facing": "right",
+      "pose": "step-hang",
       "at": 0.2,
-      "mouth": 1,
-      "turn": 0
-    },
-    {
-      "prop": "tree",
-      "at": 0.2,
-      "nudge": 0.6
+      "row": -0.2,
+      "turn": -90,
+      "adjust": {
+        "spine.head": 15
+      }
     }
   ],
-  "needs": [
-    "prop: hut",
-    "prop: tree"
-  ]
+  "sky": "sand"
 }

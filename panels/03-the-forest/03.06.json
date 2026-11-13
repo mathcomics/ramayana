@@ -10,6 +10,12 @@
       "scale": 1.2
     },
     {
+      "prop": "rock-circle",
+      "scale": 0.8,
+      "at": 0.44,
+      "row": "mid"
+    },
+    {
       "prop": "vulture-stand",
       "facing": "left",
       "on": "rock-circle",
