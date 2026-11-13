@@ -1,0 +1,26 @@
+{
+  "scene": "Lanka: Surpanakha runs up the palace steps, crying out",
+  "tall": 1,
+  "ground": ["#f6e3a1", "#e8c96a"],
+  "figures": [
+    {
+      "prop": "steps",
+      "at": 0.5,
+      "row": "floor",
+      "scale": 4
+    },
+    {
+      "character": "surpanakha",
+      "cloth": "red-check",
+      "pose": "run-pump",
+      "facing": "left",
+      "on": "steps#stand",
+      "scale": 0.25,
+      "mouth": 3,
+      "hands": {
+        "right": "out",
+        "left": "out"
+      }
+    }
+  ]
+}

@@ -11,6 +11,14 @@ the new generic characters — were applied in the v0.5 rewrite of
 `scenes.md` as chapter briefs.)*
 
 
+
+## Chapter 5: Surpanakha arrives at Lanka (2026-11-12)
+
+- **New 05.02a**: after the two Lanka openers, Surpanakha runs up the
+  palace steps, crying out, on a gold ground — her arrival before she
+  falls at Ravana's feet (05.03 on). Beat 1 could open with her
+  running up to the palace.
+
 ## Chapter 3: walking into the forest; the deer seen first; no tally mark (2026-11-12)
 
 - **New 03.02a**: the three walk on side by side through the trees,

@@ -59,4 +59,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-city-gap, city-roof, city-side, deer-stand, fire, flower-yellow, giant-grab, hut-top, lanka-island, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+city-gap, city-roof, city-side, deer-stand, fire, flower-yellow, giant-grab, hut-top, lanka-island, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
