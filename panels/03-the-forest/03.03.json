@@ -4,25 +4,46 @@
   "ground": "off-white",
   "figures": [
     {
+      "prop": "rock-rectangle",
+      "at": -0.45,
+      "row": "closeup",
+      "scale": 2.5
+    },
+    {
       "character": "lakshman",
       "pose": "sitback-propback",
       "facing": "right",
-      "at": 0.24,
-      "mouth": 1
-    },
-    {
-      "character": "rama",
-      "pose": "sit-armknee",
-      "facing": "right",
-      "at": 0.5,
-      "mouth": 1
+      "mouth": 1,
+      "nudge": [
+        0.3,
+        -0.8
+      ],
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.08
     },
     {
       "character": "sita",
       "pose": "sit-armknee",
       "facing": "left",
-      "at": 0.76,
-      "mouth": 2
+      "mouth": 2,
+      "nudge": [
+        5,
+        -0.8
+      ],
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.08
+    },
+    {
+      "character": "rama",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "mouth": 1,
+      "nudge": [
+        0.7,
+        -0.9
+      ],
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.08
     }
   ],
   "needs": [
