@@ -80,6 +80,7 @@ its gestures on any base. Moments with neither come first.
 - 06.03: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.04: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.05: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
+- 06.05b: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.06: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.06a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.07a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now

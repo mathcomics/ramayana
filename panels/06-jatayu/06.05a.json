@@ -1,0 +1,18 @@
+{
+  "scene": "The sword has struck: the cut wing goes one way and Jatayu drops the other; Ravana flies on with Sita",
+  "tall": 1.5,
+  "ground": "sky-blue",
+  "figures": [
+    {
+      "prop": "pole",
+      "at": 0.5,
+      "row": 0.4
+    },
+    {
+      "prop": "vulture-swoop",
+      "at": 0.5,
+      "scale": 0.55,
+      "rotate": 120
+    }
+  ]
+}

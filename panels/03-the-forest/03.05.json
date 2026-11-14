@@ -20,26 +20,9 @@
       "pose": "sit-armknee",
       "facing": "right",
       "at": 0.56
-    },
-    {
-      "character": "raxas_m2",
-      "cloth": "orange",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.8,
-      "mouth": 2,
-      "hands": {
-        "right": "out"
-      },
-      "adjust": {
-        "spine.lean": 0,
-        "right.arm.shoulder": 120,
-        "right.arm.elbow": 40
-      }
     }
   ],
   "needs": [
-    "pose: sit-cross-legged (sage teaching, raised hand)",
-    "character: the sage (sage1 retired 2026-11-10; raxas_m2 in orange stands in)"
+    "pose: sit-cross-legged (sage teaching, raised hand)"
   ]
 }

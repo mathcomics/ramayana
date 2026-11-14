@@ -1,0 +1,28 @@
+{
+  "scene": "Close: Ravana carries Sita off through the sky, sword swung back; far behind, Jatayu rises toward them",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "stepwide-swordcarry",
+      "view": "right",
+      "at": 0.48,
+      "row": "closeup",
+      "mouth": 2,
+      "rotate": 20
+    },
+    {
+      "character": "sita",
+      "pose": "crawl-onhands",
+      "facing": "right",
+      "at": 0.602,
+      "row": -0.543,
+      "scale": 2.536,
+      "mouth": 3
+    }
+  ],
+  "needs": [
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
+  ]
+}

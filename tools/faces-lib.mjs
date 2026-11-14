@@ -62,7 +62,7 @@ function readView(v, where) {
   if (loose.length) console.error(`  ! ${where}: ${loose.length} element(s) outside a layer, put in "over"`);
   const layers = {};
   for (const [name, { chain: chain0, node }] of Object.entries(found)) {
-    const inner = node.children.map((c) => serialize(shown(c))).join('');
+    const inner = node.children.filter(drawn).map((c) => serialize(shown(c))).join('');
     if (!inner.trim()) continue;
     const t = [...shift, ...chain0, ...(node.attrs.transform ? [node.attrs.transform] : [])];
     const style = withoutDisplay(node.attrs.style);
@@ -81,8 +81,11 @@ const shown = (n) => {
   const attrs = { ...n.attrs };
   delete attrs.display;
   if (attrs.style) attrs.style = withoutDisplay(attrs.style);
-  return { ...n, attrs, children: (n.children || []).map(shown) };
+  return { ...n, attrs, children: (n.children || []).filter(drawn).map(shown) };
 };
+// A placed picture (<image>) is a reference to draw over, never part of
+// the drawing: dropped on import.
+const drawn = (n) => n.tag !== 'image';
 const contains = (a, b) => a === b || (a.children || []).some((c) => c.tag && contains(c, b));
 export function readFile(file) {
   const svg = parse(readFileSync(file, 'utf8')).children.find((c) => c.tag === 'svg');

@@ -60,7 +60,6 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.88,
-      "cloth": "orange",
       "adjust": {
         "right.arm.prop": {
           "kind": "sword",
