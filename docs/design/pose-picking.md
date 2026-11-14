@@ -88,7 +88,8 @@ live, and a new one-word name saves a new base or gesture. *Pose* picks a
 base and a gesture, and saves the combination with its finding fields —
 or removes it from the list. Saves go to the lab's database (collections
 `bases`, `gestures`, `poses`) and are merged by the `commit-pose-lab`
-skill. Panels name a pose, never a base and gesture pair.
+skill. A panel names a pose by its `<base>-<gesture>` name, listed or
+not (above).
 
 When a pose is added, or a base or gesture changes so a pose's meaning
 changes, its entry in `data/poses.json` changes in the same commit. A
