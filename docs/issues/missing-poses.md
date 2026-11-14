@@ -84,7 +84,6 @@ its gestures on any base. Moments with neither come first.
 - 06.06: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.06a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.07a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
-- 06.09: stand-arms-out (grief, both arms thrown open): step-hang with both arms adjusted (as 05.06) for now
 - 07.13: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now
 - 08.02: stand-chest-beat (fists to the chest, challenge): stepwide with bent arms for now
 - 08.06: grapple (two bodies locked): lunge and lean for now

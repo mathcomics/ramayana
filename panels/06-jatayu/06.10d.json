@@ -1,0 +1,25 @@
+{
+  "scene": "Close and fast: Rama and Lakshman run past the trunks",
+  "tall": 0.6,
+  "ground": "forest",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.3
+    },
+    {
+      "character": "rama",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "at": 0.56
+    },
+    {
+      "prop": "tree-trunk",
+      "at": 0.97,
+      "row": "closeup",
+      "facing": "left"
+    }
+  ]
+}

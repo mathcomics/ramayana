@@ -1,39 +1,41 @@
 {
-  "scene": "At the empty hut, Rama throws his arms out; Lakshman behind him",
+  "scene": "Rama and Lakshman run back through the trees to the hut",
   "tall": 1,
-  "ground": "sand",
+  "ground": "forest",
+  "sky": "sand",
   "figures": [
     {
-      "prop": "hut",
-      "at": 0.84,
-      "row": "back"
+      "id": "hut",
+      "prop": "hut-side",
+      "at": 0.85,
+      "row": "horizon",
+      "scale": 0.5706
+    },
+    {
+      "prop": "trees-side",
+      "id": "trees-far",
+      "at": 0.86,
+      "row": "horizon",
+      "scale": 1.7994
     },
     {
       "character": "lakshman",
-      "pose": "step-hang",
+      "pose": "runwide-hang",
       "facing": "right",
-      "at": 0.18,
-      "row": "mid"
+      "at": 0.3,
+      "row": "horizon"
     },
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "run-pump",
       "facing": "right",
-      "at": 0.46,
-      "mouth": 3,
-      "adjust": {
-        "spine.head": -14,
-        "right.arm.shoulder": 115,
-        "right.arm.elbow": 20,
-        "right.arm.hand": "out",
-        "left.arm.shoulder": 50,
-        "left.arm.elbow": 15,
-        "left.arm.hand": "out"
-      }
+      "at": 0.45,
+      "row": "horizon"
+    },
+    {
+      "prop": "tree-trunk",
+      "at": -0.04,
+      "row": "closeup"
     }
-  ],
-  "needs": [
-    "prop: hut",
-    "pose: stand-arms-out (grief, both arms thrown open): step-hang with both arms adjusted (as 05.06) for now"
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "scene": "Close: Rama, arms thrown wide, cries out",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-flung",
+      "view": "front",
+      "at": 0.5,
+      "row": "closeup",
+      "adjust": {
+        "spine.head": -10
+      }
+    }
+  ]
+}
