@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A curved brass horn, blown from the left: mouthpiece at the left end,
+     the tube runs right through the fist, bends up in an S and flares into
+     a bell at the top. 100 px = 1 head-unit. Faces right.
+     Played by step-fists: "on": "<who>#hand-right", same "facing" as the
+     figure, listed after the figure. The "feet" anchor is the fist's grip;
+     the mouthpiece is 0.62 head-units behind it (fitted on step-fists). -->
+<svg
+   viewBox="0 0 160 170"
+   width="160"
+   height="170"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg">
+  <g id="tube-outline" style="fill:none;stroke:#241c1c;stroke-width:8;stroke-linecap:round;stroke-linejoin:round">
+    <path d="M 8,150 L 100,150 C 128,150 130,118 108,106 C 86,94 88,64 112,52 C 122,47 124,40 122,34" />
+  </g>
+  <g id="tube" style="fill:none;stroke:#e0aa22;stroke-width:6;stroke-linecap:round;stroke-linejoin:round">
+    <path d="M 8,150 L 100,150 C 128,150 130,118 108,106 C 86,94 88,64 112,52 C 122,47 124,40 122,34" />
+  </g>
+  <path
+     id="bell"
+     style="fill:#e0aa22;stroke:#241c1c;stroke-width:1"
+     d="M 118,38 C 122,28 134,14 146,4 C 150,8 155,16 157,22 C 142,26 130,32 127,40 Z" />
+  <path
+     id="bell-inside"
+     style="fill:#a87612;stroke:#241c1c;stroke-width:1"
+     d="M 146,4 C 151,7 155,15 157,22 C 153,19 149,11 146,4 Z" />
+  <ellipse
+     id="mouthpiece"
+     style="fill:#a87612;stroke:#241c1c;stroke-width:1"
+     cx="6" cy="150" rx="3" ry="6" />
+  <g id="anchors">
+    <circle id="feet" cx="68" cy="150" r="5" style="fill:#ff0000" />
+  </g>
+</svg>
