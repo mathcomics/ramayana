@@ -1,59 +1,55 @@
 {
-  "scene": "Top view: Kumbhakarna asleep across the floor, small rakshasas gathered around him",
+  "scene": "Top view: the sleeping giant's face from above, small rakshasas gathered round it",
   "tall": 1,
   "ground": "light-grey",
   "figures": [
     {
-      "character": "raxas_m3",
-      "id": "kumbhakarna",
-      "pose": "stand-hang",
-      "facing": "left",
+      "prop": "giant-face-front",
+      "id": "face",
       "rotate": 90,
-      "at": 0.48,
-      "scale": 1.3,
-      "cloth": "yellow",
-      "view": "front",
+      "at": 0.29,
+      "scale": 1.8,
       "row": 0.3
     },
     {
       "prop": "male-top",
       "character": "raxas_m1",
-      "at": 0.88,
-      "row": 0.72,
+      "at": 0.82,
+      "row": 0.62,
       "scale": 0.8
     },
     {
       "prop": "male-top",
       "character": "raxas_m2",
-      "at": 0.7,
-      "row": 0.78,
+      "at": 0.88,
+      "row": 0.32,
       "scale": 0.8,
-      "cloth": "orange"
+      "cloth": "red-check"
     },
     {
       "prop": "male-top-back",
       "character": "raxas_m1",
-      "at": 0.55,
+      "at": 0.6,
       "row": 0.08,
       "scale": 0.8,
       "cloth": "red-diamond"
     },
     {
-      "prop": "male-top-back",
+      "prop": "male-top",
       "character": "raxas_m2",
-      "at": 0.3,
-      "row": 0.1,
+      "at": 0.76,
+      "row": 0.88,
       "scale": 0.8
     },
     {
       "prop": "female-top",
       "character": "raxas_f2",
-      "at": 0.2,
-      "row": 0.75,
+      "at": 0.6,
+      "row": 0.82,
       "scale": 0.8
     }
   ],
   "needs": [
-    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now"
+    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw"
   ]
 }

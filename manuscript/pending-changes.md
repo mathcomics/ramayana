@@ -20,10 +20,9 @@ cut to 5–6 by the artist: 14.01 Lanka opener (as 05.01); 14.01a/b the
 giant asleep (side; top view); 14.02/a musicians with drum and horn (as
 01.04, rakshasas); 14.02b one hauls on his finger; 14.03 water; 14.03a
 food; 14.04 the eye opens; 14.04a the yawn blows them away; 14.04b they
-flee; 14.04c he stands, only his legs in frame. **Cast:** Kumbhakarna is
-drawn as `raxas_m3` (maroon skin) scaled up, cloth `yellow` — the
-yellow dhoti of the artist's `giant-lie-waist`; `characters.md` could
-name him so. Ids renumber once the chapter settles.
+flee; 14.04c he stretches, a fist sweeping them over. Kumbhakarna is
+only ever drawn as his giant parts (face, feet, fist, hand, waist),
+never as a character. Ids renumber once the chapter settles.
 
 ## Chapter 13: first battle panels (2026-11-12)
 

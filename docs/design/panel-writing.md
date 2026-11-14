@@ -221,11 +221,21 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Surpanakha before Ravana** opens the golden deer chapter, after the
   Lanka opener (05.03).
 - **Khara** = `raxas_m1` (id `khara`, cloth `red-diamond`).
-  **Maricha** = `raxas_m1` (id `maricha`, cloth `orange`).
-  **The ascetic** (Ravana disguised) = `raxas_m2` (id `ascetic`, cloth `orange`) until
+  **Maricha** = `raxas_m1` (id `maricha`).
+  **The ascetic** (Ravana disguised) = `raxas_m2` (id `ascetic`) until
   Ravana's own disguise exists.
 - Generic monkeys and rakshasas vary by `cloth` (colour, pattern), not by
-  new characters.
+  new characters. **A rakshasa's cloth is only ever `red-check`,
+  `red-stripe` or `red-diamond`** (artist, 2026-11-14) — never `orange`,
+  `yellow` or plain `red`; three red patterns are the rakshasa variety.
+- **Kumbhakarna is never a character figure** (artist, 2026-11-14): a
+  scaled-up `raxas_*` laid down with `rotate` was tried for chapter 14
+  and rejected. He is only ever his hand-drawn parts — `giant-face-side`,
+  `giant-face-front`, `giant-feet`, `giant-fist`, `giant-grab`,
+  `giant-lie-waist` — each cut off at the frame edge it enters from,
+  all at one skin (`body: "#9a7a7a"`, the waist's own). Lying on his
+  back, face up: `giant-face-side` `facing: "left"`, `rotate: 90`, the
+  neck leaving the left edge.
 
 ## After writing
 

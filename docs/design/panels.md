@@ -191,7 +191,9 @@ behind them, after = in front; the retired `layer` field is an issue).
   for every rocky scene; Jatayu perches on a `rock-circle`'s `seat`, 03.06), `palace-kishkindha` (domed palaces on a hill; a `stand` anchor on the stair),
   the giant's parts for chapter 14 `giant-feet`, `giant-fist`,
   `giant-grab` (reaching down from above), `giant-lie-waist` (the
-  sleeping giant's middle) — each cut off at the frame edge it enters
+  sleeping giant's middle), and the placeholder heads `giant-face-side`,
+  `giant-face-front` (eyes shut; drawn by Claude for the artist to
+  redraw) — each cut off at the frame edge it enters
   from, and recolourable (`body`, and `cloth` on the waist) so the four
   share one skin in a panel; the placeholder `giant-fingers` in the
   locked 14.05 stays until the artist swaps it,

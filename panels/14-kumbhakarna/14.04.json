@@ -1,17 +1,15 @@
 {
-  "scene": "His eye opens; a small drummer freezes, looking up",
+  "scene": "Close on his face: the eye opens; a small drummer freezes, looking up",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
     {
-      "character": "raxas_m3",
-      "id": "kumbhakarna",
-      "pose": "stand-hang",
+      "prop": "giant-face-side",
+      "id": "face",
       "facing": "left",
       "rotate": 90,
-      "at": -0.47,
-      "scale": 7,
-      "cloth": "yellow"
+      "at": 0.16,
+      "scale": 2.8
     },
     {
       "prop": "drum",
@@ -22,8 +20,8 @@
       "id": "player",
       "character": "raxas_m1",
       "pose": "stepback-armsout",
-      "facing": "right",
-      "at": 0.2,
+      "facing": "left",
+      "at": 0.88,
       "scale": 0.4,
       "adjust": {
         "spine.head": -30
@@ -31,6 +29,7 @@
     }
   ],
   "needs": [
-    "face: raxas_m3 eyes shut in the panels before, so this open eye is the change"
+    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw",
+    "prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now"
   ]
 }

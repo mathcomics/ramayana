@@ -6,8 +6,6 @@
     {
       "prop": "giant-lie-waist",
       "id": "belly",
-      "character": "raxas_m3",
-      "cloth": "yellow",
       "at": 0.47,
       "row": "floor",
       "scale": 6.4
@@ -32,7 +30,7 @@
       "facing": "left",
       "at": 0.72,
       "scale": 0.4,
-      "cloth": "orange"
+      "cloth": "red-check"
     },
     {
       "prop": "trumpet",

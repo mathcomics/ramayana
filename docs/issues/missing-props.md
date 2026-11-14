@@ -40,6 +40,8 @@ docs/design/panel-writing.md, Lessons).
 | prop: food-heap (a heap of fruit, rice and sweets) | 14.03a |
 | prop: food-platter (a round platter piled with food, held up) | 14.03a |
 | prop: fruit | 05.19 |
+| prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now | 14.04a, 14.04b |
+| prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.04 |
 | prop: hut | 05.16 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
 | prop: jewels (held to the chest) | 07.12 |
@@ -62,4 +64,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-bag, branch, city-gap, city-roof, city-side, deer-stand, drum, female-top, fire, flower-white, flower-yellow, giant-grab, giant-lie-waist, hut-side, hut-top, ladder, lanka-island, male-top, male-top-back, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+bag, branch, city-gap, city-roof, city-side, deer-stand, drum, female-top, fire, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, hut-side, hut-top, ladder, lanka-island, male-top, male-top-back, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

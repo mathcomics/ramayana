@@ -4,19 +4,17 @@
   "ground": "light-grey",
   "figures": [
     {
-      "character": "raxas_m3",
-      "id": "kumbhakarna",
-      "pose": "stand-hang",
+      "prop": "giant-face-side",
+      "id": "face",
       "facing": "left",
       "rotate": 90,
-      "at": -0.23,
-      "scale": 4,
-      "cloth": "yellow"
+      "at": 0.16,
+      "scale": 1.7
     },
     {
       "prop": "ladder",
       "id": "ladder",
-      "at": 0.66,
+      "at": 0.4,
       "row": 0,
       "scale": 0.55
     },
@@ -32,7 +30,7 @@
       "facing": "left",
       "on": "ladder#stand-high",
       "scale": 0.4,
-      "cloth": "orange"
+      "cloth": "red-check"
     },
     {
       "prop": "water-pot",
@@ -44,12 +42,12 @@
       "character": "raxas_m1",
       "pose": "walk-overhead",
       "facing": "left",
-      "at": 0.88,
+      "at": 0.82,
       "scale": 0.4
     }
   ],
   "needs": [
-    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now",
+    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw",
     "prop: water-pot (a round clay water pot, carried and tipped)",
     "prop: water-pour (water spilling from a tipped pot onto the face)"
   ]

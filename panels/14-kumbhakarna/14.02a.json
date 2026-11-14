@@ -1,17 +1,15 @@
 {
-  "scene": "Drums and horns blast at his head; he sleeps on",
+  "scene": "Drums and horn blast at his head; he sleeps on",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
     {
-      "character": "raxas_m3",
-      "id": "kumbhakarna",
-      "pose": "stand-hang",
+      "prop": "giant-face-side",
+      "id": "face",
       "facing": "left",
       "rotate": 90,
-      "at": -0.23,
-      "scale": 4,
-      "cloth": "yellow"
+      "at": 0.16,
+      "scale": 1.7
     },
     {
       "prop": "trumpet",
@@ -23,7 +21,7 @@
       "character": "raxas_m1",
       "pose": "step-fists",
       "facing": "left",
-      "at": 0.68,
+      "at": 0.58,
       "scale": 0.4
     },
     {
@@ -36,9 +34,9 @@
       "character": "raxas_m2",
       "pose": "stepwide-armsout",
       "facing": "left",
-      "at": 0.82,
+      "at": 0.74,
       "scale": 0.4,
-      "cloth": "orange"
+      "cloth": "red-check"
     },
     {
       "prop": "drum",
@@ -50,12 +48,12 @@
       "character": "raxas_m1",
       "pose": "kneeup-armsout",
       "facing": "left",
-      "at": 0.95,
+      "at": 0.9,
       "scale": 0.4,
       "cloth": "red-diamond"
     }
   ],
   "needs": [
-    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now"
+    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw"
   ]
 }

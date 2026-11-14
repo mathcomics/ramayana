@@ -1,40 +1,47 @@
 {
-  "scene": "Awake: he stands, and only his legs fit the panel; the rakshasas tumble at his feet",
-  "tall": 1.5,
+  "scene": "He stretches: a great fist swings out and the rakshasas tumble before it",
+  "tall": 0.6,
   "ground": "light-grey",
   "figures": [
     {
-      "character": "raxas_m3",
-      "id": "kumbhakarna",
-      "pose": "stand-reachup",
-      "view": "front",
-      "at": 0.42,
-      "scale": 2,
-      "cloth": "yellow"
+      "prop": "giant-fist",
+      "body": "#9a7a7a",
+      "at": 0.2,
+      "row": 0.25,
+      "scale": 2.4
     },
     {
       "prop": "drum",
-      "at": 0.86,
-      "scale": 0.3,
-      "rotate": 70
+      "at": 0.66,
+      "row": 0.6,
+      "scale": 0.4,
+      "rotate": 60
     },
     {
       "character": "raxas_m1",
-      "pose": "fallback-armsout",
+      "pose": "fallback-flung",
       "facing": "left",
-      "at": 0.72,
-      "scale": 0.3
+      "at": 0.6,
+      "row": 0.2,
+      "scale": 0.4
     },
     {
       "character": "raxas_m2",
-      "pose": "stepback-armface",
-      "facing": "left",
-      "at": 0.95,
-      "scale": 0.3,
-      "cloth": "orange",
-      "adjust": {
-        "spine.head": -30
-      }
+      "pose": "leap-flung",
+      "facing": "right",
+      "at": 0.8,
+      "row": 0.4,
+      "scale": 0.4,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "runwide-hang",
+      "facing": "right",
+      "at": 0.94,
+      "scale": 0.4,
+      "cloth": "red-diamond",
+      "mouth": 3
     }
   ]
 }
