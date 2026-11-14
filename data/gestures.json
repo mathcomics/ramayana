@@ -1,8 +1,13 @@
 {
-  "_doc": "Gestures: the distinct upper bodies, one-word names set by the artist (docs/design/pose-picking.md). Per gesture: desc; chest, neck, head; mouth (1 slit, 2 arch, 3 wide shout); right / left = the arm of the character's right / left (shoulder, out, elbow, elbowOut, wrist, twist, hand, optional prop). Optional lean: degrees added to the base's lean, for a gesture that tips the whole body (a bow), with the base's planted feet kept; optional join: true re-solves joined palms on each base. A held prop and its angle keep two gestures apart. A pose <base>-<gesture> takes all of these from its gesture. Angles: _angles in data/poses.json.",
+  "_doc": "Gestures: the distinct upper bodies, one-word names set by the artist (docs/design/pose-picking.md). Per gesture: desc; hold = hands (right, left) free to carry a prop; use = story moments of the arms (tags in data/poses.json: point, strike, plead …); chest, neck, head; mouth (1 slit, 2 arch, 3 wide shout); right / left = the arm of the character's right / left (shoulder, out, elbow, elbowOut, wrist, twist, hand, optional prop). Optional lean: degrees added to the base's lean, for a gesture that tips the whole body (a bow), with the base's planted feet kept; optional join: true re-solves joined palms on each base. A held prop and its angle keep two gestures apart. A pose <base>-<gesture> takes all of these from its gesture. Angles: _angles in data/poses.json.",
   "gestures": {
     "akimbo": {
       "desc": "both fists on the hips",
+      "hold": [],
+      "use": [
+        "threaten",
+        "proud"
+      ],
       "chest": -15,
       "neck": 15,
       "head": -5,
@@ -28,6 +33,13 @@
     },
     "armback": {
       "desc": "right arm swung far back, left out forward",
+      "hold": [
+        "right"
+      ],
+      "use": [
+        "strike",
+        "throw"
+      ],
       "chest": -15,
       "neck": 10,
       "head": 5,
@@ -53,6 +65,15 @@
     },
     "armface": {
       "desc": "right arm raised across the face",
+      "hold": [
+        "left"
+      ],
+      "use": [
+        "grieve",
+        "fear",
+        "shock",
+        "shield"
+      ],
       "chest": 30,
       "neck": 0,
       "head": 10,
@@ -78,6 +99,14 @@
     },
     "armfront": {
       "desc": "right arm thrust straight ahead, left arm back",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "strike",
+        "reach"
+      ],
       "chest": 20,
       "neck": 0,
       "head": -30,
@@ -103,6 +132,13 @@
     },
     "armknee": {
       "desc": "right forearm resting on the raised knee",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "grieve"
+      ],
       "chest": 15,
       "neck": 0,
       "head": -5,
@@ -128,6 +164,13 @@
     },
     "armrest": {
       "desc": "forearms resting wide, as on armrests",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "proud"
+      ],
       "chest": -18,
       "neck": 24,
       "head": -10,
@@ -153,6 +196,15 @@
     },
     "armsback": {
       "desc": "both arms straight down and back",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "carry",
+        "proud"
+      ],
       "chest": -10,
       "neck": 10,
       "head": 10,
@@ -178,6 +230,8 @@
     },
     "armsdown": {
       "desc": "both arms thrown toward the ground",
+      "hold": [],
+      "use": [],
       "chest": 43,
       "neck": -2,
       "head": 10,
@@ -203,6 +257,14 @@
     },
     "armsout": {
       "desc": "both arms out to the front, elbows bent",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "fear",
+        "shock"
+      ],
       "chest": -15,
       "neck": 15,
       "head": 10,
@@ -228,6 +290,14 @@
     },
     "armsup": {
       "desc": "both arms up and out",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "celebrate"
+      ],
       "chest": -15,
       "neck": 10,
       "head": 10,
@@ -252,8 +322,16 @@
       }
     },
     "barrier": {
-      "chest": 20.1,
       "desc": "both hands low and forward, the point at the ground ahead (longsword guard: Schrankhut, the barrier guard)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
+      "chest": 20.1,
       "head": -33,
       "lean": 19.9,
       "left": {
@@ -285,6 +363,11 @@
     },
     "bow": {
       "desc": "chest bowed forward, palms together, head low",
+      "hold": [],
+      "use": [
+        "plead",
+        "grieve"
+      ],
       "lean": 24,
       "join": true,
       "chest": 42,
@@ -312,6 +395,12 @@
     },
     "bowdraw": {
       "desc": "bow held forward, string drawn back to the ear, the draw elbow behind",
+      "hold": [
+        "left"
+      ],
+      "use": [
+        "shoot"
+      ],
       "chest": -4,
       "neck": -0.1,
       "head": -6,
@@ -343,6 +432,12 @@
     },
     "bowhigh": {
       "desc": "the full draw tipped back from the chest, bow aimed high",
+      "hold": [
+        "left"
+      ],
+      "use": [
+        "shoot"
+      ],
       "chest": -30,
       "neck": -0.1,
       "head": -6,
@@ -374,6 +469,12 @@
     },
     "bowloose": {
       "desc": "bow tipped level forward, right hand flung open past the ear",
+      "hold": [
+        "left"
+      ],
+      "use": [
+        "shoot"
+      ],
       "chest": -4,
       "neck": 10,
       "head": -6,
@@ -403,8 +504,16 @@
       }
     },
     "change": {
-      "chest": 21.8,
       "desc": "both hands low, the sword trailing down and back beside the leg (longsword guard: Wechsel)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
+      "chest": 21.8,
       "head": -12.7,
       "lean": -2.8,
       "left": {
@@ -436,6 +545,11 @@
     },
     "cross": {
       "desc": "both arms crossed over the head",
+      "hold": [],
+      "use": [
+        "fear",
+        "shield"
+      ],
       "chest": 60,
       "neck": 0,
       "head": 0,
@@ -461,6 +575,14 @@
     },
     "crown": {
       "desc": "both hands at the chest, the sword upright before the face (longsword guard: Kron)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
       "chest": -4,
       "neck": 8,
       "head": -12,
@@ -492,6 +614,8 @@
     },
     "dive": {
       "desc": "both arms stretched straight ahead past the head",
+      "hold": [],
+      "use": [],
       "chest": -10,
       "neck": 0,
       "head": -20,
@@ -517,6 +641,15 @@
     },
     "fists": {
       "desc": "both fists up in front",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "strike",
+        "fear"
+      ],
       "chest": 15,
       "neck": 0,
       "head": -25,
@@ -541,8 +674,16 @@
       }
     },
     "flank": {
-      "chest": 0,
       "desc": "both hands at the hip, the blade sweeping down behind the leg (longsword guard: Nebenhut)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
+      "chest": 0,
       "head": -4,
       "left": {
         "elbow": 20,
@@ -573,6 +714,10 @@
     },
     "flung": {
       "desc": "arms flung out and up",
+      "hold": [],
+      "use": [
+        "shock"
+      ],
       "chest": 10,
       "neck": 20,
       "head": -37,
@@ -597,8 +742,16 @@
       }
     },
     "fool": {
-      "chest": 5,
       "desc": "both hands low in front, the blade sloping down ahead (longsword guard: Alber)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
+      "chest": 5,
       "head": -21,
       "left": {
         "elbow": 25,
@@ -628,8 +781,12 @@
       }
     },
     "grief": {
-      "chest": 47.6,
       "desc": "both arms raised across the face",
+      "hold": [],
+      "use": [
+        "grieve"
+      ],
+      "chest": 47.6,
       "head": -1.6,
       "left": {
         "elbow": 122.7,
@@ -654,6 +811,14 @@
     },
     "handslow": {
       "desc": "forearms low in front",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "hold",
+        "plead"
+      ],
       "chest": -10,
       "neck": 10,
       "head": -5,
@@ -679,6 +844,13 @@
     },
     "hang": {
       "desc": "arms hanging at the sides",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "hold"
+      ],
       "chest": -18,
       "neck": 24,
       "head": -10,
@@ -704,6 +876,14 @@
     },
     "hanging": {
       "desc": "both hands high and forward, the blade hanging down at the opponent (longsword guard: Hängetort)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "strike",
+        "shield"
+      ],
       "chest": -10,
       "neck": 8,
       "head": -23,
@@ -735,6 +915,14 @@
     },
     "holdhead": {
       "desc": "right hand on top of the head",
+      "hold": [
+        "left"
+      ],
+      "use": [
+        "grieve",
+        "shock",
+        "search"
+      ],
       "chest": -10,
       "neck": 10,
       "head": 0,
@@ -760,6 +948,14 @@
     },
     "key": {
       "desc": "both hands tight at the chest, the blade level ahead (longsword guard: Schlüssel)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
       "chest": -4,
       "neck": 8,
       "head": -12,
@@ -790,8 +986,16 @@
       }
     },
     "longpoint": {
-      "chest": -10,
       "desc": "both arms straight forward, the sword level at the opponent (longsword guard: Langort)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "strike"
+      ],
+      "chest": -10,
       "head": -35,
       "left": {
         "elbow": 0,
@@ -821,8 +1025,16 @@
       }
     },
     "middle": {
-      "chest": 0,
       "desc": "both hands at the waist, the blade level ahead (longsword guard: Mittelhut)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
+      "chest": 0,
       "head": -4,
       "left": {
         "elbow": 10.3,
@@ -853,6 +1065,8 @@
     },
     "onarms": {
       "desc": "the chest raised on the forearms",
+      "hold": [],
+      "use": [],
       "chest": -45,
       "neck": -6,
       "head": -30,
@@ -878,6 +1092,10 @@
     },
     "onhands": {
       "desc": "arms reaching to the ground, hands planted",
+      "hold": [],
+      "use": [
+        "search"
+      ],
       "chest": 46,
       "neck": 0,
       "head": -55,
@@ -903,6 +1121,14 @@
     },
     "overhead": {
       "desc": "both arms bent back over the head",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "throw",
+        "lift"
+      ],
       "chest": 15,
       "neck": 56,
       "head": -67,
@@ -928,6 +1154,14 @@
     },
     "ox": {
       "desc": "both hands at the temple, the blade level at the opponent's face (longsword guard: Ochs)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
       "chest": 0,
       "neck": 8,
       "head": -4,
@@ -959,6 +1193,10 @@
     },
     "palms": {
       "desc": "both forearms up, palms together at the chest",
+      "hold": [],
+      "use": [
+        "plead"
+      ],
       "join": true,
       "chest": -10,
       "neck": 18,
@@ -984,8 +1222,16 @@
       }
     },
     "plow": {
-      "chest": 5,
       "desc": "both hands at the front hip, the blade angled up at the throat (longsword guard: Pflug)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
+      "chest": 5,
       "head": -9,
       "left": {
         "elbow": 15,
@@ -1016,6 +1262,13 @@
     },
     "point": {
       "desc": "right arm straight out, pointing finger",
+      "hold": [
+        "left"
+      ],
+      "use": [
+        "point",
+        "threaten"
+      ],
       "chest": -4,
       "neck": 20,
       "head": -26,
@@ -1041,6 +1294,14 @@
     },
     "pointup": {
       "desc": "right arm straight up, pointing finger",
+      "hold": [
+        "left"
+      ],
+      "use": [
+        "point",
+        "threaten",
+        "plead"
+      ],
       "chest": -10,
       "neck": 10,
       "head": -10,
@@ -1066,6 +1327,10 @@
     },
     "propback": {
       "desc": "leaning back on straight arms, the hands propped behind",
+      "hold": [],
+      "use": [
+        "shock"
+      ],
       "chest": 10,
       "neck": 10,
       "head": 0,
@@ -1091,6 +1356,11 @@
     },
     "pump": {
       "desc": "fists swinging, elbows deep",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [],
       "chest": 0,
       "neck": 13,
       "head": -69,
@@ -1116,6 +1386,11 @@
     },
     "pumplow": {
       "desc": "fists swinging, head down in the stride",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [],
       "chest": 39,
       "neck": 29,
       "head": -90,
@@ -1141,6 +1416,15 @@
     },
     "reach": {
       "desc": "both arms reaching forward and down",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "lift",
+        "reach",
+        "search"
+      ],
       "chest": 19,
       "neck": 0,
       "head": -55,
@@ -1166,6 +1450,15 @@
     },
     "reachup": {
       "desc": "both arms stretched high",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "lift",
+        "reach",
+        "celebrate"
+      ],
       "chest": -20,
       "neck": -19,
       "head": -30,
@@ -1191,6 +1484,14 @@
     },
     "roof": {
       "desc": "both hands before the chin, the sword up and back over the shoulder (longsword guard: vom Tag)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "strike"
+      ],
       "chest": -6,
       "neck": 8,
       "head": -10,
@@ -1222,6 +1523,12 @@
     },
     "search": {
       "desc": "bent forward peering ahead, right hand raised at the brow, left arm hanging",
+      "hold": [
+        "left"
+      ],
+      "use": [
+        "search"
+      ],
       "chest": 63.6,
       "neck": 18.1,
       "head": -90,
@@ -1247,6 +1554,11 @@
     },
     "swing": {
       "desc": "arms swinging with the step",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [],
       "chest": -6,
       "neck": 14,
       "head": -8,
@@ -1272,6 +1584,13 @@
     },
     "swordcarry": {
       "desc": "one hand the sword, swung far back; the other arm carrying a figure against the chest",
+      "hold": [
+        "right"
+      ],
+      "use": [
+        "strike",
+        "carry"
+      ],
       "chest": -10,
       "neck": 10,
       "head": -4,
@@ -1301,8 +1620,16 @@
       }
     },
     "unicorn": {
-      "chest": 5,
       "desc": "both hands raised high, the blade pointing up and forward (longsword guard: Einhorn)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "shield"
+      ],
+      "chest": 5,
       "head": 15,
       "left": {
         "elbow": 30,
@@ -1332,8 +1659,16 @@
       }
     },
     "wrath": {
-      "chest": 10,
       "desc": "both hands at the shoulder, the sword swept back over it (longsword guard: Zornhut)",
+      "hold": [
+        "right",
+        "left"
+      ],
+      "use": [
+        "threaten",
+        "strike"
+      ],
+      "chest": 10,
       "head": -32.3,
       "left": {
         "elbow": 150,

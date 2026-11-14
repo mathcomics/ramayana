@@ -1,8 +1,10 @@
 # Any base with any gesture in a panel
 
 2026-11-13 · status: **implemented** (2026-11-13), in
-`design/pose-picking.md` (The pose list and unlisted pairs) and
-`design/panels.md` (`pose`)
+`design/pose-picking.md` (Any pair is a pose) and `design/panels.md`
+(`pose`). The reviewed list this kept was dropped on 2026-11-14: its
+finding fields moved onto the bases and gestures, and there is no list
+of poses any more.
 
 ## The problem
 

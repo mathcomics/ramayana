@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import assert from 'node:assert/strict';
-import { renderPanel, panelHeight, backgroundInner, PANEL_W, MAN } from '../src/scene.js';
+import { renderPanel, panelHeight, backgroundInner, findPose, PANEL_W, MAN } from '../src/scene.js';
 import { loadAssets, loadSections } from '../tools/lib.mjs';
 import { buildShapes, characterLook } from '../src/figure.js';
 
@@ -123,7 +123,7 @@ test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', (
 test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale); mirrored props mirror the seat', () => {
   const seat = assets.props.props['throne-ayodhya'].anchors.seat;
   // the hips: the underside of the thighs at the pelvis, in the figure's frame
-  const kingPose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'sit-armknee')));
+  const kingPose = JSON.parse(JSON.stringify(findPose(assets, 'sit-armknee').pose));
   const kingLook = characterLook(assets.characters.characters.find((c) => c.id === 'dasharatha'), assets.characters.colors, assets.faces);
   const { joints: kj, shapes: ks } = buildShapes(assets.species[kingLook.species], kingPose, kingLook.outfit, 'side', kingLook.bodyScale, kingLook.who);
   const hipsY = Math.max(...ks.filter((s) => /-thigh$/.test(s.part || '')).flatMap((s) => s.pts).filter((q) => Math.abs(q[0] - kj.spine.pelvis[0]) <= 0.25).map((q) => q[1]));
@@ -152,7 +152,7 @@ test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale
 
 test('"on" a figure: a carried prop on its hands, head or shoulder, from the skeleton', () => {
   const look = characterLook(assets.characters.characters.find((c) => c.id === 'hanuman'), assets.characters.colors, assets.faces);
-  const pose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'arch-overhead')));
+  const pose = JSON.parse(JSON.stringify(findPose(assets, 'arch-overhead').pose));
   const num = (v) => +v;
   for (const [view, facing] of [['front', 'right'], ['side', 'right'], ['side', 'left']]) {
     const { joints } = buildShapes(assets.species.monkey, pose, look.outfit, view, look.bodyScale, look.who);
@@ -210,7 +210,7 @@ test('a "hand" anchor: the figure hangs by its higher hand, or the one "hand" na
   // where the anchor is in the panel
   const unit = fs, H = 360, ground = H * (1 - 0.08 * 0.37), top = ground - def.size[1] * unit;
   const ax = 180 + (def.anchors.hand[0] - def.size[0] / 2) * unit, ay = top + def.anchors.hand[1] * unit;
-  const pose = JSON.parse(JSON.stringify(assets.poses.find((p) => p.name === 'leap-reach')));
+  const pose = JSON.parse(JSON.stringify(findPose(assets, 'leap-reach').pose));
   const look = characterLook(assets.characters.characters.find((c) => c.id === 'hanuman'), assets.characters.colors, assets.faces);
   const { joints } = buildShapes(assets.species[look.species], pose, look.outfit, 'side', look.bodyScale, look.who);
   const g = [joints.near.grip, joints.far.grip].sort((a, b) => a[1] - b[1])[0];
@@ -285,7 +285,7 @@ test('a character without a drawn face is an issue (no generated fallback)', () 
 
 test('MAN is the drawn male standing straight (feet to head top)', async () => {
   const { renderFigure } = await import('../src/figure.js');
-  const p = JSON.parse(JSON.stringify(assets.poses.find((q) => q.name === 'walk-swing')));
+  const p = JSON.parse(JSON.stringify(findPose(assets, 'walk-swing').pose));
   p.spine = { lean: 0, chest: 0, neck: 0, head: 0, turn: 0 };
   for (const s of ['right', 'left']) {
     Object.assign(p[s].leg, { hip: 0, knee: 0, ankle: 0, out: 0, kneeOut: 0, toe: 0 });
@@ -312,17 +312,13 @@ test('a figure sets "mouth" only to override its gesture\'s mouth', () => {
     }
 });
 
-test('a panel may name any <base>-<gesture>; listed or not, it composes the same', async () => {
+test('a panel may name any <base>-<gesture>: composed from its base and gesture', async () => {
   const { composePoses } = await import('../src/compose.js');
-  const { findPose } = await import('../src/scene.js');
   const D = assets.poseParts;
-  // an unlisted pair is drawn without an issue, as the composer makes it
   const r = renderPanel({ figures: [{ character: 'rama', pose: 'stepwide-unicorn' }] }, assets);
   assert.deepEqual(r.issues, []);
-  assert.ok(!assets.poses.some((p) => p.name === 'stepwide-unicorn'), 'the test pair must stay unlisted');
   assert.deepEqual(findPose(assets, 'stepwide-unicorn').pose, composePoses(assets.species.male, D.bases, D.gestures, ['stepwide-unicorn'])[0]);
-  // a listed pose is the loader's
-  assert.equal(findPose(assets, 'step-hang').pose, assets.poses.find((p) => p.name === 'step-hang'));
+  assert.equal(findPose(assets, 'step-hang').pose, findPose(assets, 'step-hang').pose, 'composed once per asset set');
   // an unknown half is named, and the figure falls back to step-hang
   const bad = renderPanel({ figures: [{ character: 'rama', pose: 'stepwide-wave2' }, { character: 'rama', pose: 'hop-unicorn' }] }, assets);
   assert.match(bad.issues[0], /no gesture "wave2"/);

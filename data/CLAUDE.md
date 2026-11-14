@@ -7,14 +7,15 @@ You are working on the figure and prop data the renderer draws from.
 panels need: `docs/issues/missing-props.md` (generated). What looks
 wrong: `docs/issues/problem-poses.md`.
 
-- **Poses** are a base (`bases.json`: legs, lean, tail) with a gesture
-  (`gestures.json`: arms, chest, head, mouth), named `<base>-<gesture>`
-  and listed in `poses.json` with their finding fields only (desc,
-  ground, hold, use, like; known tags — `npm test` enforces it). Edit
-  angles on the base or gesture, never per pose
+- **Poses** are a base (`bases.json`: legs, lean, tail; ground, use)
+  with a gesture (`gestures.json`: arms, chest, head, mouth; hold, use),
+  named `<base>-<gesture>`. Any pair is a pose; there is no list of
+  poses, and `poses.json` holds only the story-moment tags and the
+  wanted poses (known tags — `npm test` enforces it). Edit angles and
+  finding fields on the base or gesture, never per pose
   (`docs/design/pose-picking.md`). They are refined in the pose lab (URL
   in the root CLAUDE.md); saves land in its database (collections
-  `bases`, `gestures`, `poses`) and are merged after review (the
+  `bases`, `gestures`) and are merged after review (the
   `commit-pose-lab` skill; merged saves are then deleted from the lab,
   since a save overrides the repo entry there).
 - **Faces and parts are the artist's drawings**: never edit their curves

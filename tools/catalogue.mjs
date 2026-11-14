@@ -1,7 +1,8 @@
 // The base and gesture catalogues (tools/base-catalogue.mjs,
 // tools/gesture-catalogue.mjs): every base or gesture, alphabetically,
 // drawn as a full figure (side + front) composed as a pose is
-// (src/compose.js); each cell names the poses that use it. Writes
+// (src/compose.js); each cell gives its finding fields and the poses the
+// panels use it in. Writes
 // out/<kind>-catalogue.{svg,png,html}; the page is published as an
 // artifact (URL in CLAUDE.md).
 //
@@ -9,18 +10,22 @@
 
 import { renderFigure, characterLook } from '../src/figure.js';
 import { poseComposer, splitPoseName } from '../src/compose.js';
-import { loadAssets, loadPoseData, writeOut, toPng, cliArgs, characterById } from './lib.mjs';
+import { loadAssets, loadPoseData, panelPairs, writeOut, toPng, cliArgs, characterById } from './lib.mjs';
 
 const KINDS = {
   // each base under the hang gesture (both arms hanging), so a gesture's
   // own solves never show here
   base: { data: 'bases', half: 0, pose: (n) => `${n}-hang`, id: 'b', pad: 10, title: 'Base Catalogue',
-    intro: (n, poses) => `The ${n} bases (distinct lower bodies) of the ${poses} poses, from
-<code>data/bases.json</code>, alphabetical, each drawn with the hang gesture.` },
+    find: (e) => `${e.ground} · ${e.use.join(', ') || '–'}`,
+    intro: (n) => `The ${n} bases (distinct lower bodies), from
+<code>data/bases.json</code>, alphabetical, each drawn with the hang gesture; under each, what touches
+the ground and its story moments.` },
   // each gesture on the step base: a bow's lean and joined palms' solves included
   gesture: { data: 'gestures', half: 1, pose: (n) => `step-${n}`, id: 'g', pad: 14, title: 'Gesture Catalogue',
-    intro: (n, poses) => `The ${n} gestures (distinct upper bodies) of the ${poses} poses, from
-<code>data/gestures.json</code>, alphabetical, each drawn on the step base.` },
+    find: (e) => `hold ${e.hold.join(', ') || 'none'} · ${e.use.join(', ') || '–'}`,
+    intro: (n) => `The ${n} gestures (distinct upper bodies), from
+<code>data/gestures.json</code>, alphabetical, each drawn on the step base; under each, the hands free
+to hold a prop and its story moments.` },
 };
 
 export function catalogue(kind) {
@@ -32,12 +37,12 @@ export function catalogue(kind) {
 
   const D = loadPoseData();
   const compose = poseComposer(A.species.male);
-  const names = Object.keys(D.poses);
+  const names = Object.keys(panelPairs(D)).sort();
   const cells = Object.entries(D[K.data]).sort(([a], [b]) => a.localeCompare(b)).map(([name, e]) => ({
-    name, desc: e.desc, pose: compose(D.bases, D.gestures, K.pose(name)),
+    name, desc: e.desc, find: K.find(e), pose: compose(D.bases, D.gestures, K.pose(name)),
     members: names.filter((n) => splitPoseName(n)[K.half] === name),
   }));
-  console.log(`${A.poses.length} poses -> ${cells.length} ${K.data}`);
+  console.log(`${cells.length} ${K.data}; ${names.length} pairs in panels`);
   for (const c of cells) console.log('  ' + c.name.padEnd(K.pad) + ' <- ' + c.members.join(', '));
 
   const scale = 20, cols = 4;
@@ -53,13 +58,14 @@ export function catalogue(kind) {
     body += renderFigure(species, c.pose, { ...look, id: `${K.id}${i}f`, x: cx + cellW * 0.73, y: groundY, scale, view: 'front' }).svg;
     const text = (y, t, size, weight = 400) =>
       `<text x="${cx + cellW / 2}" y="${y}" font-family="sans-serif" font-size="${size}" font-weight="${weight}" fill="#7a6e5e" text-anchor="middle">${t}</text>`;
-    body += text(cy + cellH - scale * 1.8, c.name + (c.members.length > 1 ? ` (${c.members.length})` : ''), scale * 0.55, 600);
+    body += text(cy + cellH - scale * 2.2, c.name + (c.members.length ? ` (${c.members.length})` : ''), scale * 0.55, 600);
+    body += text(cy + cellH - scale * 1.65, c.find, scale * 0.38);
     // the member poses, a line of up to three names at a time
     c.members.reduce((lines, m) => {
       if (!lines.length || lines[lines.length - 1].length === 3) lines.push([]);
       lines[lines.length - 1].push(m);
       return lines;
-    }, []).forEach((line, li) => { body += text(cy + cellH - scale * (1.25 - li * 0.5), line.join('  '), scale * 0.38); });
+    }, []).forEach((line, li) => { body += text(cy + cellH - scale * (1.1 - li * 0.45), line.join('  '), scale * 0.34); });
   });
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">` +
@@ -77,8 +83,8 @@ p { color: var(--muted); font-size: 12.5px; max-width: 60ch; margin: 0 0 12px; }
 svg { display: block; width: 100%; height: auto; max-width: ${W}px; border-radius: 8px; }
 </style>
 <h1>${K.title}</h1>
-<p>${K.intro(cells.length, A.poses.length)}
-A cell named "x&nbsp;(n)" is used by the n poses listed under it.
+<p>${K.intro(cells.length)}
+A cell named "x&nbsp;(n)" is used in the panels by the n poses listed under it.
 Regenerate: <code>node tools/${kind}-catalogue.mjs</code>.</p>
 ${svg.replace(/ width="\d+" height="\d+">/, '>')}`;
   console.log(writeOut(`out/${kind}-catalogue.html`, html));

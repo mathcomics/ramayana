@@ -27,53 +27,37 @@ test('species heads are only a size guide (faces are drawn)', () => {
   }
 });
 
-test('poses: unique, alphabetical, named <base>-<gesture> of a known base and gesture', () => {
-  const names = Object.keys(D.poses);
-  assert.deepEqual(names, [...names].sort(), 'poses.json is not alphabetical');
-  for (const n of names) {
-    const i = n.indexOf('-');
-    assert.ok(i > 0, `${n}: a pose is named <base>-<gesture>`);
-    assert.ok(D.bases[n.slice(0, i)], `${n}: no base ${n.slice(0, i)}`);
-    assert.ok(D.gestures[n.slice(i + 1)], `${n}: no gesture ${n.slice(i + 1)}`);
-  }
-  assert.deepEqual(POSES.map((p) => p.name), names, 'composed poses follow poses.json');
+test('poses: no list; the example poses compose, side view; step-hang exists', () => {
+  assert.equal(D.poses, undefined, 'data/poses.json holds no pose list: a pose is any <base>-<gesture>');
+  assert.ok(D.bases.step && D.gestures.hang, 'the fallback pose "step-hang" needs the step base and the hang gesture');
   for (const p of POSES) assert.notEqual(p.view, 'front', `${p.name}: poses are side view only`);
-  assert.ok(names.includes('step-hang'), 'the fallback pose "step-hang" is missing');
 });
 
-test('poses: finding fields, known tags and neighbours; wanted', () => {
-  const names = Object.keys(D.poses);
-  const GROUND = ['feet', 'one-knee', 'seat', 'front', 'back', 'air', 'feet-hands'];
-  for (const [name, e] of Object.entries(D.poses)) {
-    assert.deepEqual(Object.keys(e).filter((k) => !['desc', 'ground', 'hold', 'use', 'like'].includes(k)), [],
-      `${name}: a pose holds only finding fields (its angles come from its base and gesture)`);
-    assert.ok(e.desc, `${name}: desc`);
-    assert.ok(GROUND.includes(e.ground), `${name}: ground ${e.ground}`);
-    for (const h of e.hold) assert.ok(['right', 'left'].includes(h), `${name}: hold ${h}`);
-    assert.ok(e.use.length, `${name}: no use tags`);
-    for (const t of e.use) assert.ok(D.tags[t], `${name}: unknown tag ${t}`);
-    for (const l of e.like) assert.ok(names.includes(l) && l !== name, `${name}: like ${l}`);
-  }
-  for (const [name, w] of Object.entries(D.wanted)) {
-    assert.ok(!names.includes(name), `wanted ${name} already exists: move it to poses`);
-    assert.ok(BASES.includes(splitPoseName(name)[0]), `wanted ${name}: base`);
-    for (const t of w.use) assert.ok(D.tags[t], `wanted ${name}: unknown tag ${t}`);
-  }
-});
-
-test('bases and gestures: one-word names, a desc, the half they own, each used', () => {
-  const used = (k, i) => Object.keys(D.poses).some((n) => splitPoseName(n)[i] === k);
+const GROUND = ['feet', 'one-knee', 'seat', 'front', 'back', 'air', 'feet-hands'];
+test('bases and gestures: one-word names, a desc, finding fields, the half they own', () => {
   for (const [b, e] of Object.entries(D.bases)) {
     assert.match(b, /^[a-z]+$/, `base ${b}: one word`);
     assert.ok(e.desc, `base ${b}: desc`);
-    assert.deepEqual(Object.keys(e).sort(), ['desc', 'lean', 'left', 'right', 'tail'], `base ${b}: desc, lean, right, left, tail`);
-    assert.ok(used(b, 0), `base ${b}: no pose uses it`);
+    assert.deepEqual(Object.keys(e).sort(), ['desc', 'ground', 'lean', 'left', 'right', 'tail', 'use'], `base ${b}: desc, ground, use, lean, right, left, tail`);
+    assert.ok(GROUND.includes(e.ground), `base ${b}: ground ${e.ground}`);
+    for (const t of e.use) assert.ok(D.tags[t], `base ${b}: unknown tag ${t}`);
   }
   for (const [g, e] of Object.entries(D.gestures)) {
     assert.match(g, /^[a-z]+$/, `gesture ${g}: one word`);
     assert.ok(e.desc, `gesture ${g}: desc`);
-    for (const k of Object.keys(e)) assert.ok(['desc', 'lean', 'join', 'chest', 'neck', 'head', 'mouth', 'right', 'left'].includes(k), `gesture ${g}: unknown field ${k}`);
-    assert.ok(used(g, 1), `gesture ${g}: no pose uses it`);
+    for (const k of ['hold', 'use']) assert.ok(Array.isArray(e[k]), `gesture ${g}: ${k}`);
+    for (const k of Object.keys(e)) assert.ok(['desc', 'hold', 'use', 'lean', 'join', 'chest', 'neck', 'head', 'mouth', 'right', 'left'].includes(k), `gesture ${g}: unknown field ${k}`);
+    for (const h of e.hold) assert.ok(['right', 'left'].includes(h), `gesture ${g}: hold ${h}`);
+    for (const t of e.use) assert.ok(D.tags[t], `gesture ${g}: unknown tag ${t}`);
+  }
+});
+
+test('wanted poses: not made yet, known tags', () => {
+  for (const [name, w] of Object.entries(D.wanted)) {
+    const [b, g] = splitPoseName(name);
+    assert.ok(!(D.bases[b] && D.gestures[g]), `wanted ${name} already exists: take it out of wanted`);
+    assert.ok(BASES.includes(b), `wanted ${name}: base`);
+    for (const t of w.use) assert.ok(D.tags[t], `wanted ${name}: unknown tag ${t}`);
   }
 });
 

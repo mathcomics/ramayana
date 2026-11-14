@@ -9,14 +9,12 @@ import { renderFigure, buildShapes, characterLook, parseColor, DEFAULT_OUTFIT } 
 import { headView, INTENDED_VIEWS } from './headturn.js';
 import { poseComposer, splitPoseName } from './compose.js';
 
-// A figure's pose: a listed pose (data/poses.json, composed by the
-// loader), or any other <base>-<gesture> pair, composed here from
-// assets.poseParts with the same solves and cached per asset set.
+// A figure's pose: any <base>-<gesture> pair, composed from
+// assets.poseParts (src/compose.js) and cached per asset set. There is no
+// list of poses (docs/design/pose-picking.md).
 // -> { pose } or { error } naming the half that is unknown.
 const composedFor = new WeakMap();
 export function findPose(assets, name) {
-  const listed = assets.poses.find((p) => p.name === name);
-  if (listed) return { pose: listed };
   const D = assets.poseParts;
   if (!D || typeof name !== 'string') return { error: 'unknown pose' };
   const [b, g] = splitPoseName(name);
@@ -68,7 +66,7 @@ export const TALLS = [0.6, 1, 1.5];
 const validTall = (panel) => { const t = Number(panel.tall ?? DEFAULT_TALL); return TALLS.includes(t) ? t : null; };
 export const panelHeight = (panel) => Math.round(PANEL_W * (validTall(panel) ?? DEFAULT_TALL));
 
-// assets: { species, poses, characters, faces, props, grounds }
+// assets: { species, poseParts, characters, faces, props, grounds }
 // id: the panel's id (its file name); not part of the JSON.
 // background: optional SVG markup in the panel's coordinates (360 × h).
 // Returns { svg (complete <svg>), w, h, issues: [..] }.
@@ -127,7 +125,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (!c) { issues.push(`figure ${i}: unknown character "${who}"`); return null; }
     const found = findPose(assets, f.pose);
     if (found.error) issues.push(`figure ${i} (${who}): unknown pose "${f.pose}" (${found.error}), using step-hang`);
-    const pose = clone(found.pose || assets.poses.find((p) => p.name === 'step-hang') || {});
+    const pose = clone(found.pose || findPose(assets, 'step-hang').pose || {});
     if (f.mouth) pose.mouth = f.mouth;
     if (typeof f.turn === 'number') setPath(pose, 'spine.turn', f.turn);   // head turn, degrees, + to its right
     // limbs are right / left (older panels: near = right, far = left)

@@ -335,7 +335,7 @@ const SECTIONS = /*__SECTIONS__*/;
     const sorted = (xs) => [...new Set(xs)].sort((a, b) => a.localeCompare(b));
     const groups = [
       ['character', ASSETS.characters.characters.map((c) => c.id)],
-      ['pose', sorted([...ASSETS.poses.map((p) => p.name), ...usedOf('pose')]), 'any <base>-<gesture>; dashed = listed, unused'],
+      ['pose', sorted(usedOf('pose')), 'any <base>-<gesture>; these are the ones panels use'],
       ['base', sorted(Object.keys(ASSETS.poseParts.bases))],
       ['gesture', sorted(Object.keys(ASSETS.poseParts.gestures))],
       ['prop', sorted(Object.keys(ASSETS.props.props))],

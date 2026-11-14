@@ -57,7 +57,7 @@ src/figure.js            a figure's shapes from the parts, SVG output
 data/species/*.json      per species: its drawn parts, head guide size, tail
 data/bases.json          bases: lower bodies (legs, lean, tail)
 data/gestures.json       gestures: upper bodies (arms, prop, chest, head, mouth)
-data/poses.json          the poses (<base>-<gesture>), how to find one, wanted poses
+data/poses.json          story-moment tags, wanted poses (a pose is any <base>-<gesture>)
 src/compose.js           a pose from its base and gesture; the two-bone reach (shared with the pose lab)
 data/characters.json     cast: species + body colour + outfit + cloth colour
 tools/contact-sheet.mjs  every pose for a species → out/contact-<species>.png
@@ -139,9 +139,10 @@ The full rules, with the reasoning behind each, are in
 
 A phone-friendly page with three modes: **Base** edits a lower body
 (legs, lean, tail), **Gesture** an upper body (arms, prop, chest, head,
-mouth), each showing every pose that uses it, live; **Pose** picks a base
-and a gesture and saves the combination with its finding fields (a pose
-has no angles of its own). A new one-word name saves a new base or
+mouth), each with its finding fields (ground or free hands, story
+moments) and showing the panels' poses that use it, live; **Pose** picks
+a base and a gesture and shows the pair (any pair is a pose; nothing is
+saved per pose). A new one-word name saves a new base or
 gesture. Angles are set on the figures themselves: every joint shows a dot; tap one and drag the knob on its ring
 to turn it (side view: the angles in the paper; front view: shoulder and
 hip `out`). The selected joint shows its name and angle. A "Joints" toggle hides the dots. A character menu shows the

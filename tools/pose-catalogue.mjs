@@ -1,7 +1,8 @@
-// The pose catalogue: every pose as a thumbnail pair (side + front) with its
-// name, what touches the ground and its story moments from
-// data/poses.json, grouped by base. For picking poses for panels
-// (docs/design/pose-picking.md).
+// The pose catalogue: every pose the panels use, plus one for each base and
+// gesture no panel uses yet (tools/lib.mjs shownPairs), as a thumbnail
+// pair (side + front) with its name, the panels using it, what touches the
+// ground and its story moments (from its base and gesture), grouped by
+// base. For picking poses for panels (docs/design/pose-picking.md).
 //
 //   node tools/pose-catalogue.mjs [--who rama] [--scale 16] [--zoom 2]
 //
@@ -9,7 +10,7 @@
 
 import { renderFigure, characterLook } from '../src/figure.js';
 import { splitPoseName } from '../src/compose.js';
-import { loadAssets, loadPoseData, writeOut, toPng, cliArgs, characterById, escXml as esc } from './lib.mjs';
+import { loadAssets, loadPoseData, loadPoses, panelPairs, shownPairs, poseInfo, writeOut, toPng, cliArgs, characterById, escXml as esc } from './lib.mjs';
 
 const args = cliArgs();
 const scale = args.num('--scale', 16);
@@ -17,6 +18,8 @@ const zoom = args.num('--zoom', 1);
 
 const A = loadAssets();
 const index = loadPoseData();
+const used = panelPairs(index);
+const POSES = loadPoses(A.species, shownPairs(index, used));
 const { look, species } = characterById(A, args.str('--who', 'rama'), characterLook);
 
 const cols = 3, cellW = scale * 13, figH = scale * 8.2, textH = scale * 1.9, headH = scale * 1.6;
@@ -28,7 +31,7 @@ const BASES = ['stand', 'walk', 'run', 'leap', 'crouch', 'bend', 'crawl', 'kneel
 for (const b of Object.keys(index.bases)) if (!BASES.includes(b)) BASES.push(b);
 const wanted = Object.entries(index.wanted);
 const baseOf = (n) => splitPoseName(n)[0];
-const groups = BASES.map((b) => [b, A.poses.filter((p) => baseOf(p.name) === b)]).filter(([b, ps]) => ps.length || wanted.some(([n]) => baseOf(n) === b));
+const groups = BASES.map((b) => [b, POSES.filter((p) => baseOf(p.name) === b)]).filter(([b, ps]) => ps.length || wanted.some(([n]) => baseOf(n) === b));
 
 let y = 0, body = '';
 const W = cols * cellW;
@@ -42,11 +45,11 @@ for (const [base, poses] of groups) {
   poses.forEach((pose, i) => {
     const cx = (i % cols) * cellW, cy = y + Math.floor(i / cols) * (figH + textH);
     const groundY = cy + figH - scale * 0.6;
-    const e = index.poses[pose.name] || { use: [], ground: '?' };
+    const e = poseInfo(index, pose.name), n = used[pose.name]?.length || 0;
     body += `<line x1="${cx + 8}" x2="${cx + cellW - 8}" y1="${groundY}" y2="${groundY}" stroke="#c9bfae" stroke-width="1"/>`;
     body += renderFigure(species, pose, { ...look, x: cx + cellW * 0.27, y: groundY, scale, id: `s${base}${i}` }).svg;
     body += renderFigure(species, pose, { ...look, x: cx + cellW * 0.73, y: groundY, scale, view: 'front', id: `f${base}${i}` }).svg;
-    body += `<text x="${cx + cellW / 2}" y="${groundY + scale * 0.95}" ${font} font-weight="bold" font-size="${scale * 0.6}" fill="#4a4033" text-anchor="middle">${esc(pose.name)}</text>`;
+    body += `<text x="${cx + cellW / 2}" y="${groundY + scale * 0.95}" ${font} font-weight="bold" font-size="${scale * 0.6}" fill="#4a4033" text-anchor="middle">${esc(pose.name)}${n ? ` (${n})` : ''}</text>`;
     body += `<text x="${cx + cellW / 2}" y="${groundY + scale * 1.65}" ${font} font-size="${scale * 0.48}" fill="#7a6e5e" text-anchor="middle">${esc(e.ground)} · ${esc(e.use.join(', '))}</text>`;
   });
   y += Math.ceil(poses.length / cols) * (figH + textH) + scale * 0.6;

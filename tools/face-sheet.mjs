@@ -6,12 +6,13 @@
 
 import { renderFigure, buildShapes, characterLook } from '../src/figure.js';
 import { loadAssets, writeOut, rsvg } from './lib.mjs';
+import { findPose } from '../src/scene.js';
 
-const { characters: C, faces: F, poses: P, species: SPECIES } = loadAssets();
+const A = loadAssets(), { characters: C, faces: F, species: SPECIES } = A;
 const cast = C.characters;
 
 // the stand pose, looking ahead, in front and side view
-const stand = (mouth) => ({ ...P.find((p) => p.name === 'step-hang'), mouth });
+const stand = (mouth) => ({ ...findPose(A, 'step-hang').pose, mouth });
 const front = (mouth) => ({ pose: stand(mouth), view: 'front' });
 const side = (mouth) => ({ pose: stand(mouth), view: 'side' });
 

@@ -1,4 +1,5 @@
-// Render every pose for a species into a contact-sheet SVG (+ PNG if
+// Render one example pose per base and per gesture (tools/lib.mjs
+// examplePairs) for a species into a contact-sheet SVG (+ PNG if
 // rsvg-convert is available): each pose in side view and, next to it, the
 // front view derived from it. Figures are drawn as a character of that
 // species (its drawn face and outfit): the first in data/characters.json
@@ -10,7 +11,7 @@
 // --zoom multiplies the PNG resolution for close inspection.
 
 import { renderFigure, characterLook } from '../src/figure.js';
-import { loadAssets, writeOut, toPng, cliArgs } from './lib.mjs';
+import { loadAssets, loadPoses, writeOut, toPng, cliArgs } from './lib.mjs';
 
 const args = cliArgs();
 const flag = (k) => args.str(k);
@@ -20,7 +21,7 @@ const zoom = args.num('--zoom', 1);
 
 const A = loadAssets();
 const species = A.species[speciesId];
-const { poses } = A;
+const poses = loadPoses(A.species);           // one example pose per base and per gesture
 const who = A.characters.characters.find((c) => (flag('--who') ? c.id === flag('--who') : c.species === speciesId));
 if (!species || !who || who.species !== speciesId) throw new Error(`no ${speciesId} character${flag('--who') ? ` "${flag('--who')}"` : ''}`);
 const look = characterLook(who, A.characters.colors, A.faces);

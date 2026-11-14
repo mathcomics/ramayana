@@ -80,11 +80,11 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/import-faces.mjs                    # data/faces/*.svg -> data/faces.json
     node tools/view-gaps.mjs                       # docs/issues/missing-views.md: head views to draw
 
-Pose lab (published artifact; edits bases, gestures and the pose list
-separately, saving to its database, collections `bases`, `gestures`,
-`poses`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
-Saves are reviewed and then merged into `data/bases.json`,
-`data/gestures.json` and `data/poses.json`: the `commit-pose-lab`
+Pose lab (published artifact; edits bases and gestures, angles and
+finding fields, saving to its database, collections `bases`,
+`gestures`): https://claude.ai/artifact/631NuGY6VEftsybpaEDWUA
+Saves are reviewed and then merged into `data/bases.json` and
+`data/gestures.json`: the `commit-pose-lab`
 skill (`.claude/skills/`), which also deletes the merged saves — a save
 overrides the repo entry in the lab.
 
@@ -167,16 +167,15 @@ what looks wrong: `docs/issues/problem-poses.md`.
   side face drawing; there is no generated fallback — except the
   side-only kaikeyi, kausalya and raxas_f1–f3 (`sideOnly`), which have a side face only and are
   never drawn in front view.
-- **57 poses** in `data/poses.json`, all side view (the front view is
-  derived by the renderer). Each is named `<base>-<gesture>` and is
-  exactly one of the **27 bases** (`data/bases.json`: legs, lean, tail)
-  with one of the **50 gestures** (`data/gestures.json`: arms, chest,
-  head, mouth); `src/compose.js` composes it when the assets load, so
-  retuning a base or gesture changes every pose using it. A pose has no
-  angles of its own — `poses.json` holds only its finding fields. The
-  list is the reviewed, findable poses, not a gate: a panel may name
-  any base-gesture pair, composed when drawn; a pair used by two
-  panels is listed (`docs/design/pose-picking.md`).
+- **Poses: any base with any gesture**, named `<base>-<gesture>`, all
+  side view (the front view is derived by the renderer). **27 bases**
+  (`data/bases.json`: legs, lean, tail; `ground` and story moments
+  `use`) and **50 gestures** (`data/gestures.json`: arms, chest, head,
+  mouth; `hold` and `use`); `src/compose.js` composes a pair when a panel
+  names it, so retuning a base or gesture changes every pose using it.
+  There is no list of poses (dropped 2026-11-14: the finding fields moved
+  onto the halves); the panels use 52 pairs today
+  (`docs/design/pose-picking.md`).
 - A head is always one of six drawn views, shown as drawn: front,
   three-quarter, side, back, down 40°, top (mirrored for the other side;
   `docs/design/faces.md`). All are drawn by hand; a missing one shows
@@ -195,7 +194,7 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
 
 ### Open
 
-- **15 wanted poses** in `data/poses.json` (`wanted`), each with the
+- **16 wanted poses** in `data/poses.json` (`wanted`), each with the
   stand-in to use meanwhile; `docs/issues/missing-poses.md` is the
   generated queue.
 - **Sword postures are unreviewed.** They are the 14 two-handed

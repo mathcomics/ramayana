@@ -9,7 +9,8 @@ export const json = (p) => JSON.parse(readFileSync(join(root, p), 'utf8'));
 const lib = await import('../tools/lib.mjs');
 // the species as the renderer gets them: drawn parts and held props attached
 export const SPECIES = lib.loadSpecies();
-// every pose composed from its base and gesture, as the renderer gets them
+// one example pose per base and per gesture (tools/lib.mjs examplePairs),
+// composed as the renderer gets them
 export const POSES = lib.loadPoses(SPECIES);
 export const CAST = json('data/characters.json');
 export const FACES = json('data/faces.json');

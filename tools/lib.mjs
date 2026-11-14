@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { backgroundInner } from '../src/scene.js';
-import { composePoses } from '../src/compose.js';
+import { composePoses, splitPoseName } from '../src/compose.js';
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const read = (p) => readFileSync(join(root, p), 'utf8');
@@ -104,20 +104,64 @@ export function loadProps() {
   return { props };
 }
 
-// The pose data: bases (lower bodies), gestures (upper bodies) and the
-// pose list with its finding fields (data/poses.json: poses, tags,
-// notWords, wanted). baseOf / gestureOf split a pose name.
+// The pose data: bases (lower bodies: legs, lean, tail; ground, use),
+// gestures (upper bodies: arms, chest, neck, head, mouth; hold, use) and
+// data/poses.json's tags, notWords and wanted. There is no pose list: any
+// <base>-<gesture> is a pose (docs/design/pose-picking.md).
 export function loadPoseData() {
   const P = json('data/poses.json');
   return { bases: json('data/bases.json').bases, gestures: json('data/gestures.json').gestures,
-    poses: P.poses, tags: P.tags, notWords: P.notWords, wanted: P.wanted };
+    tags: P.tags, notWords: P.notWords, wanted: P.wanted };
 }
 
-// Every pose composed from its base and gesture (src/compose.js), in
-// data/poses.json order: the whole stored-form poses the renderer takes.
-export function loadPoses(species = loadSpecies()) {
+// A pose's finding fields, from its two halves: what touches the ground
+// (the base), the hands free to hold (the gesture), the story moments of
+// both. Null when a half is unknown.
+export function poseInfo(D, name) {
+  const [b, g] = splitPoseName(name), B = D.bases[b], G = D.gestures[g];
+  if (!B || !G) return null;
+  return { desc: `${B.desc}; ${G.desc}`, ground: B.ground, hold: G.hold, use: [...B.use, ...G.use.filter((t) => !B.use.includes(t))] };
+}
+
+// One example pose for every base (with the hang gesture: both arms
+// hanging) and every gesture (on the step base), alphabetical: what the
+// figure tests, the render snapshot and the contact sheet draw.
+export function examplePairs(D = loadPoseData()) {
+  return [...new Set([...Object.keys(D.bases).map((b) => `${b}-hang`), ...Object.keys(D.gestures).map((g) => `step-${g}`)])].sort();
+}
+
+// The base-gesture pairs the repo's panels name: pair -> [panel ids]
+// (pairs with an unknown half left out).
+export function panelPairs(D = loadPoseData(), sections = loadSections()) {
+  const out = {};
+  const walk = (v, id) => {
+    if (Array.isArray(v)) v.forEach((x) => walk(x, id));
+    else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) {
+      if (k === 'pose' && typeof x === 'string') {
+        const [b, g] = splitPoseName(x);
+        if (D.bases[b] && D.gestures[g] && !(out[x] ||= []).includes(id)) out[x].push(id);
+      } else walk(x, id);
+    }
+  };
+  for (const sec of sections) for (const p of sec.panels) walk(p.def, p.id);
+  return out;
+}
+
+// The poses worth showing (pose catalogue, pose lab): every pair a panel
+// uses, plus the example pair of each base and gesture no panel uses.
+export function shownPairs(D = loadPoseData(), used = panelPairs(D)) {
+  const out = new Set(Object.keys(used));
+  const has = (i, n) => [...out].some((p) => splitPoseName(p)[i] === n);
+  for (const b of Object.keys(D.bases)) if (!has(0, b)) out.add(`${b}-hang`);
+  for (const g of Object.keys(D.gestures)) if (!has(1, g)) out.add(`step-${g}`);
+  return [...out].sort();
+}
+
+// Poses composed from their base and gesture (src/compose.js): the whole
+// stored-form poses the renderer takes; by default the example pairs.
+export function loadPoses(species = loadSpecies(), names = null) {
   const D = loadPoseData();
-  return composePoses(species.male, D.bases, D.gestures, Object.keys(D.poses));
+  return composePoses(species.male, D.bases, D.gestures, names || examplePairs(D));
 }
 
 export function loadAssets() {
@@ -125,8 +169,7 @@ export function loadAssets() {
   const D = loadPoseData();
   return {
     species,
-    poses: composePoses(species.male, D.bases, D.gestures, Object.keys(D.poses)),
-    // any other <base>-<gesture> a panel names is composed from these
+    // every <base>-<gesture> a panel names is composed from these
     // (src/scene.js, findPose)
     poseParts: { bases: D.bases, gestures: D.gestures },
     characters: json('data/characters.json'),

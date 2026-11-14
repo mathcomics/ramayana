@@ -146,7 +146,7 @@ species: they are male or female figures, set apart by character
 definitions (colours, outfit, later props and markings). There are no
 female monkeys.
 
-All species share the same poses (`data/poses.json`). A species changes how
+All species share the same poses (`data/bases.json`, `data/gestures.json`). A species changes how
 a pose looks, never the pose.
 
 ## 5.4 Outfit and colours
@@ -343,9 +343,10 @@ found from a scene description:
   never (they are set per figure).
 
 Every pose is a base with a gesture (`data/bases.json`,
-`data/gestures.json`) and has an entry in `data/poses.json` (what it
-shows, what touches the ground, story moments, nearest poses); poses are picked by the
-rules in `docs/design/pose-picking.md`.
+`data/gestures.json`); each half says what it shows, and the base what
+touches the ground and the gesture which hands are free, with the story
+moments each serves. Poses are picked by the rules in
+`docs/design/pose-picking.md`.
 
 44 poses, many drawn from pose reference sheets and still
 being refined. Poses are tuned visually in the pose lab and stored as data,

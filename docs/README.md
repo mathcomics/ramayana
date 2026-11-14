@@ -15,7 +15,7 @@
 - `design/panel-writing.md` — the checklist for writing a section's panels: the artist's directions and the lessons from reviews. Read before writing panels; add every new lesson.
 - `design/composition.md` — how things are arranged in a panel (sky and horizon, throne, top view). The model panel for each kind of scene: `panels/layouts.md`.
 - `design/sequential-grammar.md` — wordless storytelling principles (the clear-line school): camera discipline, cause and effect across the gutter, repetition as time, direction grammar (proposed).
-- `design/pose-picking.md` — the pose data (bases, gestures, the pose list), composition (`src/compose.js`), the catalogues and gap report, and the rules for picking a pose.
+- `design/pose-picking.md` — the pose data (bases and gestures with their finding fields; any pair is a pose), composition (`src/compose.js`), the catalogues and gap report, and the rules for picking a pose.
 
 ## Proposals
 
@@ -24,7 +24,7 @@
 - `proposals/2026-11-07-contact-constraints.md` — pin feet while editing in the pose lab (implemented), `lookAt` to aim gazes, `held-by` to put a prop in a hand.
 - `proposals/2026-11-07-pose-composition.md` — poses as a base × a gesture (partly implemented, now in `design/pose-picking.md`; open: chest on reclined bases, gaps as products, half-copy in the lab, composition as spec).
 - `proposals/2026-11-08-vertical-placement.md` — one `row` for vertical placement, by name or number; `shot` and `zoom` retired (implemented: `design/panels.md`, Rows; open: the row values, `top`'s size).
-- `proposals/2026-11-13-any-pair-in-panels.md` — a panel may name any base-gesture pair, composed when drawn; `poses.json` is the reviewed list (implemented: `design/pose-picking.md`; open: turning upper-body `adjust`s into pairs, a pose picker).
+- `proposals/2026-11-13-any-pair-in-panels.md` — a panel may name any base-gesture pair, composed when drawn (implemented: `design/pose-picking.md`; the reviewed list it kept was dropped 2026-11-14; open: turning upper-body `adjust`s into pairs, a pose picker).
 
 ## Issues
 

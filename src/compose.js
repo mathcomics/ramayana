@@ -143,7 +143,7 @@ export function poseComposer(S) {
   };
 }
 
-// Every pose named in data/poses.json, composed, in its order.
+// The named poses (<base>-<gesture>), composed, in the order given.
 export function composePoses(S, bases, gestures, names) {
   const compose = poseComposer(S);
   return names.map((n) => compose(bases, gestures, n));

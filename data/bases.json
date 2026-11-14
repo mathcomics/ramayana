@@ -1,8 +1,10 @@
 {
-  "_doc": "Bases: the distinct lower bodies, one-word names set by the artist (docs/design/pose-picking.md). Per base: desc; lean (spine.lean); right / left = the leg of the character's right / left (hip, out, knee, kneeOut, ankle, toe); tail (lift, curl, turn). A pose <base>-<gesture> takes all of these from its base. Angles: _angles in data/poses.json.",
+  "_doc": "Bases: the distinct lower bodies, one-word names set by the artist (docs/design/pose-picking.md). Per base: desc; ground = what touches the ground (feet, one-knee, seat, front, back, air, feet-hands); use = story moments of the legs (tags in data/poses.json: stand, walk, run, sit …); lean (spine.lean); right / left = the leg of the character's right / left (hip, out, knee, kneeOut, ankle, toe); tail (lift, curl, turn). A pose <base>-<gesture> takes all of these from its base. Angles: _angles in data/poses.json.",
   "bases": {
     "arch": {
       "desc": "a slight arch back, knees bent",
+      "ground": "feet",
+      "use": [],
       "lean": -16,
       "right": {
         "hip": 22,
@@ -28,6 +30,10 @@
     },
     "bend": {
       "desc": "deep bend from the hips, knees bent",
+      "ground": "feet",
+      "use": [
+        "sneak"
+      ],
       "lean": 70,
       "right": {
         "hip": 112,
@@ -53,6 +59,10 @@
     },
     "chair": {
       "desc": "seated on a chair or throne, legs down",
+      "ground": "seat",
+      "use": [
+        "sit"
+      ],
       "lean": 8,
       "right": {
         "hip": 89,
@@ -78,6 +88,10 @@
     },
     "crawl": {
       "desc": "low on hands and feet",
+      "ground": "feet-hands",
+      "use": [
+        "sneak"
+      ],
       "lean": 55,
       "right": {
         "hip": 47,
@@ -103,6 +117,10 @@
     },
     "crouch": {
       "desc": "a deep squat",
+      "ground": "feet",
+      "use": [
+        "sneak"
+      ],
       "lean": 30,
       "right": {
         "hip": 114,
@@ -128,6 +146,11 @@
     },
     "fallback": {
       "desc": "tipped onto the back, legs kicked up",
+      "ground": "back",
+      "use": [
+        "fall",
+        "die"
+      ],
       "lean": -70,
       "right": {
         "hip": 25,
@@ -153,6 +176,11 @@
     },
     "fallfront": {
       "desc": "pitched forward head first",
+      "ground": "feet-hands",
+      "use": [
+        "fall",
+        "die"
+      ],
       "lean": 72,
       "right": {
         "hip": 106,
@@ -178,6 +206,10 @@
     },
     "kneel": {
       "desc": "one knee down, the other foot forward",
+      "ground": "one-knee",
+      "use": [
+        "kneel"
+      ],
       "lean": -2,
       "right": {
         "hip": 98,
@@ -203,6 +235,8 @@
     },
     "kneeup": {
       "desc": "upright, one knee lifted",
+      "ground": "feet",
+      "use": [],
       "lean": -15,
       "right": {
         "hip": 45,
@@ -228,6 +262,8 @@
     },
     "leanback": {
       "desc": "leaning far back from the hips, legs braced",
+      "ground": "feet",
+      "use": [],
       "lean": -30,
       "left": {
         "ankle": -2,
@@ -253,6 +289,8 @@
     },
     "leanfront": {
       "desc": "leaning forward, front knee deep in a stride",
+      "ground": "feet",
+      "use": [],
       "lean": 25,
       "left": {
         "ankle": -2,
@@ -278,6 +316,11 @@
     },
     "leap": {
       "desc": "mid-air jump forward, front knee high, back leg trailing",
+      "ground": "air",
+      "use": [
+        "run",
+        "leap"
+      ],
       "lean": -17,
       "right": {
         "hip": 107,
@@ -303,6 +346,10 @@
     },
     "leapup": {
       "desc": "in the air, legs tucked",
+      "ground": "air",
+      "use": [
+        "leap"
+      ],
       "lean": 55,
       "right": {
         "hip": 150,
@@ -328,6 +375,14 @@
     },
     "liefront": {
       "desc": "flat on the belly â€” on the ground, or lifted in the air for flying",
+      "ground": "front",
+      "use": [
+        "leap",
+        "fly",
+        "die",
+        "lie",
+        "sneak"
+      ],
       "lean": 90,
       "right": {
         "hip": 26,
@@ -353,6 +408,10 @@
     },
     "lunge": {
       "desc": "a very long stride, front knee bent deep",
+      "ground": "feet",
+      "use": [
+        "run"
+      ],
       "lean": 40,
       "right": {
         "hip": 107.9,
@@ -378,6 +437,10 @@
     },
     "pass": {
       "desc": "walking, one leg passing the other",
+      "ground": "feet",
+      "use": [
+        "walk"
+      ],
       "lean": 5,
       "right": {
         "hip": 40,
@@ -403,6 +466,10 @@
     },
     "run": {
       "desc": "a long running stride",
+      "ground": "feet",
+      "use": [
+        "run"
+      ],
       "lean": 41,
       "right": {
         "hip": 123,
@@ -428,6 +495,11 @@
     },
     "runlow": {
       "desc": "a crouched running stride",
+      "ground": "feet",
+      "use": [
+        "run",
+        "sneak"
+      ],
       "lean": 54,
       "right": {
         "hip": 92,
@@ -453,6 +525,10 @@
     },
     "runwide": {
       "desc": "a running stride, the back shin swung high",
+      "ground": "feet",
+      "use": [
+        "run"
+      ],
       "lean": 40,
       "right": {
         "hip": 110,
@@ -478,6 +554,10 @@
     },
     "sit": {
       "desc": "on the ground, one knee up, one leg out",
+      "ground": "seat",
+      "use": [
+        "sit"
+      ],
       "lean": -10,
       "right": {
         "hip": 115,
@@ -503,6 +583,11 @@
     },
     "sitback": {
       "desc": "seated leaning back on the hands, legs out",
+      "ground": "seat",
+      "use": [
+        "fall",
+        "sit"
+      ],
       "lean": -35,
       "right": {
         "hip": 85,
@@ -528,6 +613,10 @@
     },
     "stand": {
       "desc": "upright, feet together",
+      "ground": "feet",
+      "use": [
+        "stand"
+      ],
       "lean": -5,
       "right": {
         "hip": 5,
@@ -553,6 +642,10 @@
     },
     "step": {
       "desc": "a small open stance, one foot a little ahead",
+      "ground": "feet",
+      "use": [
+        "stand"
+      ],
       "lean": 8,
       "right": {
         "hip": 27,
@@ -578,6 +671,10 @@
     },
     "stepback": {
       "desc": "weight back, one leg stretched behind",
+      "ground": "feet",
+      "use": [
+        "fall"
+      ],
       "lean": -25,
       "right": {
         "hip": 5,
@@ -603,6 +700,8 @@
     },
     "stepturn": {
       "desc": "stepping back, the body leaning away",
+      "ground": "feet",
+      "use": [],
       "lean": -20,
       "right": {
         "hip": 0,
@@ -628,6 +727,8 @@
     },
     "stepwide": {
       "desc": "a wide stride, weight on the back leg",
+      "ground": "feet",
+      "use": [],
       "lean": -4,
       "left": {
         "ankle": 0,
@@ -653,6 +754,10 @@
     },
     "walk": {
       "desc": "a walking step, back heel up",
+      "ground": "feet",
+      "use": [
+        "walk"
+      ],
       "lean": 4,
       "right": {
         "hip": 35,

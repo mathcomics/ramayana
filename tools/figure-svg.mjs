@@ -12,13 +12,14 @@ import { readFileSync } from 'node:fs';
 import { buildShapes, characterLook, normalizePose } from '../src/figure.js';
 import { headView } from '../src/headturn.js';
 import { loadAssets, writeOut, cliArgs, characterById } from './lib.mjs';
+import { findPose } from '../src/scene.js';
 
 const args = cliArgs();
 const flag = (k) => args.str(k);
 const A = loadAssets();
 const { who: c, look, species: S } = characterById(A, args.words[0] || 'rama', characterLook);
 const pose = flag('--pose-file') ? JSON.parse(readFileSync(flag('--pose-file'), 'utf8'))
-  : A.poses.find((p) => p.name === (flag('--pose') || 'step-hang'));
+  : findPose(A, flag('--pose') || 'step-hang').pose;
 if (!pose) throw new Error(`unknown pose "${flag('--pose')}"`);
 const views = (flag('--view') || 'both') === 'both' ? ['side', 'front'] : [flag('--view')];
 const K = 100;                                         // px per head-unit
