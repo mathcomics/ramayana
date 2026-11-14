@@ -2,7 +2,7 @@
 <!-- A plain straight pole, white (#f9f9f9), 0.19 x 2.2 head-units; scale it
      to the scene. 100 px = 1 head-unit; bottom edge on the ground.
      Recolour: "body" (the pole, #f9f9f9).
-     Fades from opaque at the top to 50% at the bottom (mask pole-fade). -->
+     Fades from invisible at the top to 50% at the bottom (mask pole-fade). -->
 
 <svg
    data-recolor-body="#f9f9f9"
@@ -19,7 +19,7 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs id="defs735">
     <linearGradient id="pole-fade-g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0" />
       <stop offset="1" stop-color="#ffffff" stop-opacity="0.5" />
     </linearGradient>
     <mask id="pole-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="18.516949" height="219.76695">

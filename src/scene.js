@@ -166,6 +166,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       facing: f.facing === 'left' ? -1 : 1, x: null };
   };
 
+  let propUses = 0;
   const makeProp = (p) => {
     const def = lib[p.prop];
     if (!def) issues.push(`prop "${p.prop}" not drawn yet: no data/props/${p.prop}.svg (placeholder)`);
@@ -198,6 +199,12 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       for (const [role, from] of Object.entries(def.recolor)) {
         if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
       }
+    }
+    // a drawing that keeps ids (a mask, a gradient) gets them renamed per use,
+    // unique on the page: renderers mishandle a mask id defined twice
+    if (svg && /\sid="/.test(svg)) {
+      const tag = `${String(id).replace(/\W/g, '_')}-p${++propUses}-`;
+      svg = svg.replace(/(\sid="|url\(#|href="#)([^")]+)/g, `$1${tag}$2`);
     }
     return { p, name: p.id || p.prop, def, svg, groundY: r.top ? h : r.y, unit, rowUnit: r.unit, w, h, w0, h0, rot, halfW: w / 2, x: null,
       facing: p.facing === 'left' ? -1 : 1 };   // drawings face right; left mirrors
