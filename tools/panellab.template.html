@@ -3,8 +3,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap">
 <style>
-/* Layout: the section as it scrolls on a phone, beside the selected
-   panel's JSON. Wide: two columns. Narrow: phone on top, editor below. */
+/* Layout: the panels shown (a chapter, or every panel using a name) as
+   they scroll on a phone, beside the selected panel's JSON, beside the
+   names. Wide: three columns. Medium: names below the editor. Narrow:
+   phone on top, editor and names below. */
 :root {
   --bg: #eef0ee; --panel: #ffffff; --fg: #1d2420; --muted: #66706a; --line: #d6dbd7;
   --accent: #8e3b1c; --accent-fg: #ffffff; --warn: #9a5b00; --ok: #2f6b3f;
@@ -27,7 +29,7 @@ body {
   margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.4 var(--font-body);
   padding: 12px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px));
 }
-.wrap { max-width: 1040px; margin: 0 auto; display: grid; gap: 12px; }
+.wrap { max-width: 1480px; margin: 0 auto; display: grid; gap: 12px; }
 header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 h1 { font-family: var(--font-display); font-size: 1.15rem; margin: 0; letter-spacing: -0.01em; }
 select, button, textarea { font: inherit; color: var(--fg); }
@@ -39,7 +41,14 @@ select { background: var(--panel); border: 1px solid var(--line); border-radius:
 .panels button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .draft-dot { color: var(--warn); }
 .main { display: grid; grid-template-columns: minmax(0, 390px) minmax(0, 1fr); gap: 16px; align-items: start; }
-@media (max-width: 760px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.main > .phone { grid-row: span 2; }
+.names { grid-column: 2; }
+@media (min-width: 1200px) {
+  .main { grid-template-columns: minmax(0, 390px) minmax(0, 1fr) minmax(260px, 380px); }
+  .main > .phone { grid-row: auto; }
+  .names { grid-column: 3; position: sticky; top: 8px; max-height: calc(100vh - 80px); overflow-y: auto; overscroll-behavior: contain; }
+}
+@media (max-width: 760px) { .main { grid-template-columns: minmax(0, 1fr); } .main > .phone { grid-row: auto; } .names { grid-column: auto; } }
 .phone {
   background: #fffdf8; border-radius: 18px; padding: 10px; border: 1px solid var(--line);
   position: sticky; top: 8px; max-width: 390px; width: 100%; margin: 0 auto;
@@ -71,6 +80,21 @@ details { font-size: 12.5px; }
 details summary { cursor: pointer; color: var(--muted); }
 .ref { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.6; color: var(--fg); overflow-wrap: anywhere; }
 .ref b { font-family: var(--font-body); font-weight: 600; color: var(--muted); }
+.phone .cap { font: 600 11px/1.2 var(--font-body); text-transform: uppercase; letter-spacing: 0.06em; color: #66706a; margin: 10px 2px 6px; }
+.phone .cap:first-child { margin-top: 2px; }
+#names { display: grid; gap: 10px; }
+.names .group { display: grid; gap: 5px; }
+.names .group h3 { margin: 0; font: 600 12px/1.3 var(--font-body); color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chips button {
+  border: 1px solid var(--line); background: var(--bg); border-radius: 4px; padding: 2px 6px; cursor: pointer;
+  font: 11.5px/1.4 var(--font-mono); color: var(--fg);
+}
+.chips button.wide { font-family: var(--font-body); font-size: 12px; }
+.chips button .n { color: var(--muted); margin-left: 4px; }
+.chips button.unused { color: var(--muted); border-style: dashed; }
+.chips button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.chips button[aria-pressed="true"] .n { color: inherit; }
 </style>
 
 <div class="wrap">
@@ -98,12 +122,15 @@ details summary { cursor: pointer; color: var(--muted); }
         <div class="status" id="status" role="status"></div>
         <ul class="issues" id="issues"></ul>
       </div>
-      <div class="card">
-        <details>
-          <summary>Names you can use</summary>
-          <div class="ref" id="ref"></div>
-        </details>
-      </div>
+    </div>
+    <div class="card names">
+      <h2>Names you can use</h2>
+      <div class="status">Tap a chapter for its panels, or a name for every panel that uses it (count shown; dashed = unused).</div>
+      <div id="names"></div>
+      <details>
+        <summary>Other fields</summary>
+        <div class="ref" id="ref"></div>
+      </details>
     </div>
   </div>
 </div>
@@ -118,21 +145,63 @@ const SECTIONS = /*__SECTIONS__*/;
   const $ = (id) => document.getElementById(id);
   const slug = (id) => String(id).replace(/[^\w-]/g, '-');
   // added: panels inserted here and not saved yet (id -> section name)
-  const state = { section: 0, panelId: null, edits: {}, drafts: {}, added: {}, bad: false };
+  // view: null shows the chapter state.section; { group, name } shows every
+  // panel, in any chapter, that uses that name.
+  const state = { section: 0, view: null, panelId: null, edits: {}, drafts: {}, added: {}, bad: false };
   let db = null;
-  try { const v = JSON.parse(localStorage.getItem('panellab') || '{}'); state.section = v.section || 0; state.panelId = v.panelId || null; } catch (e) {}
-  const remember = () => { try { localStorage.setItem('panellab', JSON.stringify({ section: state.section, panelId: state.panelId })); } catch (e) {} };
+  try {
+    const v = JSON.parse(localStorage.getItem('panellab') || '{}');
+    state.section = v.section || 0; state.panelId = v.panelId || null;
+    if (v.view && v.view.group && v.view.name) state.view = { group: v.view.group, name: v.view.name };
+  } catch (e) {}
+  const remember = () => { try { localStorage.setItem('panellab', JSON.stringify({ section: state.section, panelId: state.panelId, view: state.view })); } catch (e) {} };
   const byNum = (a, b) => String(a.id).localeCompare(String(b.id), 'en', { numeric: true });
 
   // A section's panels: repo panels, replaced by saved drafts, plus
   // draft-only panels, plus panels inserted and not saved yet; unsaved
-  // edits on top. Each item: { id, def }.
+  // edits on top. Each item: { id, def, si } (si: the section's index).
   function sectionPanels(si) {
     const sec = SECTIONS[si];
     const list = sec.panels.map((p) => ({ id: p.id, def: state.drafts[p.id]?.panel || p.def }));
     for (const [id, d] of Object.entries(state.drafts)) if (d.section === sec.name && !sec.panels.some((p) => p.id === id)) list.push({ id, def: d.panel });
     for (const [id, name] of Object.entries(state.added)) if (name === sec.name && !list.some((p) => p.id === id)) list.push({ id, def: state.edits[id] });
-    return list.filter((p) => p.def).map((p) => ({ id: p.id, def: state.edits[p.id] || p.def })).sort(byNum);
+    return list.filter((p) => p.def).map((p) => ({ id: p.id, def: state.edits[p.id] || p.def, si })).sort(byNum);
+  }
+  const allPanels = () => SECTIONS.flatMap((_, si) => sectionPanels(si));
+
+  // The names a panel uses, as "group:name": a plain search of every string
+  // in its JSON for a known name; a pose also counts as its base and gesture.
+  const NAMES = {
+    character: new Set(ASSETS.characters.characters.map((c) => c.id)),
+    prop: new Set(Object.keys(ASSETS.props.props)),
+    ground: new Set(Object.keys(ASSETS.grounds.grounds)),
+  };
+  function usesOf(def) {
+    const out = new Set();
+    const walk = (v, key) => {
+      if (Array.isArray(v)) v.forEach((x) => walk(x, key));
+      else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) walk(x, k);
+      else if (typeof v === 'string') {
+        if (key === 'pose') {
+          out.add('pose:' + v);
+          const i = v.indexOf('-');
+          if (i > 0) { out.add('base:' + v.slice(0, i)); out.add('gesture:' + v.slice(i + 1)); }
+          return;
+        }
+        const s = v.split('#')[0];
+        for (const [g, set] of Object.entries(NAMES)) if (set.has(s)) out.add(g + ':' + s);
+      }
+    };
+    walk(def);
+    return out;
+  }
+
+  // The panels shown: the chapter, or every panel using the chosen name
+  // (the selected panel stays while its edit drops the name).
+  function shownList() {
+    if (!state.view) return sectionPanels(state.section);
+    const key = state.view.group + ':' + state.view.name;
+    return allPanels().filter((p) => p.id === state.panelId || usesOf(p.def).has(key));
   }
 
   // The id for a panel inserted after `x`: it must sort between x and the
@@ -152,20 +221,22 @@ const SECTIONS = /*__SECTIONS__*/;
     cands.push(x + 'a');
     return cands.find((c) => !taken.has(c) && cmp(x, c) < 0 && (!next || cmp(c, next) < 0)) || null;
   }
-  const shown = (id) => sectionPanels(state.section).find((p) => p.id === id);
+  const shown = (id) => shownList().find((p) => p.id === id);
 
   function draw(scroll) {
-    const sec = SECTIONS[state.section];
-    const list = sectionPanels(state.section);
-    if (!list.some((p) => p.id === state.panelId)) state.panelId = list[0]?.id;
-    // phone: the whole section as it scrolls
+    let list = shownList();
+    if (!list.some((p) => p.id === state.panelId)) { state.panelId = list[0]?.id; list = shownList(); }
+    // phone: the chapter, or the panels using a name, as they scroll
+    // (a chapter caption wherever the chapter changes)
     const phone = $('phone'), top = phone.scrollTop;
-    let issuesOfSel = [];
-    phone.innerHTML = list.map(({ id, def }) => {
-      const r = renderPanel(def, ASSETS, { id, background: sec.backgrounds[id] || '' });
+    let issuesOfSel = [], lastSi = -1;
+    phone.innerHTML = list.map(({ id, def, si }) => {
+      const r = renderPanel(def, ASSETS, { id, background: SECTIONS[si].backgrounds[id] || '' });
       if (id === state.panelId) issuesOfSel = r.issues;
-      return id === state.panelId ? r.svg.replace('<svg ', '<svg class="sel" ') : r.svg;
-    }).join('');
+      const cap = state.view && si !== lastSi ? `<div class="cap">${SECTIONS[si].title}</div>` : '';
+      lastSi = si;
+      return cap + (id === state.panelId ? r.svg.replace('<svg ', '<svg class="sel" ') : r.svg);
+    }).join('') || (state.view ? `<div class="cap">No panel uses ${state.view.name}.</div>` : '');
     phone.scrollTop = top;
     if (scroll) phone.querySelector('svg.sel')?.scrollIntoView({ block: 'nearest' });
     // panel buttons
@@ -180,7 +251,9 @@ const SECTIONS = /*__SECTIONS__*/;
       $('panels').appendChild(b);
     });
     const p = shown(state.panelId);
-    $('scene').textContent = p?.def.scene || '';
+    $('scene').textContent = (state.view && p ? SECTIONS[p.si].title + ' · ' : '') + (p?.def.scene || '');
+    drawSelect();
+    drawNames();
     if (document.activeElement !== $('json')) $('json').value = p ? JSON.stringify(p.def, null, 2) : '';
     $('json').setAttribute('aria-invalid', String(state.bad));
     const ul = $('issues'); ul.innerHTML = '';
@@ -203,11 +276,11 @@ const SECTIONS = /*__SECTIONS__*/;
   }
 
   $('insertBtn').addEventListener('click', () => {
-    const list = sectionPanels(state.section), from = state.panelId, p = shown(from);
+    const from = state.panelId, p = shown(from);
     if (!p) return;
-    const id = idAfter(list, from);
+    const id = idAfter(sectionPanels(p.si), from);
     if (!id) { setStatus(`No id fits right after ${from}. Insert after the panel that follows it, or ask Claude to renumber the chapter.`); return; }
-    state.added[id] = SECTIONS[state.section].name;
+    state.added[id] = SECTIONS[p.si].name;
     state.edits[id] = JSON.parse(JSON.stringify(p.def));
     select(id);
     setStatus(`New panel ${id}, a copy of ${from}. Edit it, then Save draft to keep it.`);
@@ -229,9 +302,59 @@ const SECTIONS = /*__SECTIONS__*/;
     if (el && el.dataset.panel !== state.panelId) select(el.dataset.panel);
   });
 
-  $('section').innerHTML = SECTIONS.map((s, i) => `<option value="${i}">${s.title}</option>`).join('');
-  $('section').value = String(state.section = Math.min(state.section, SECTIONS.length - 1));
-  $('section').addEventListener('change', () => { state.section = Number($('section').value); state.panelId = null; remember(); $('phone').scrollTop = 0; draw(); });
+  state.section = Math.min(state.section, SECTIONS.length - 1);
+  // The chapter menu (handy on a phone, where the names are far below);
+  // while a name is chosen it carries one more entry naming it.
+  function drawSelect() {
+    const opts = SECTIONS.map((s, i) => `<option value="${i}">${s.title}</option>`);
+    if (state.view) opts.unshift(`<option value="name">Panels using ${state.view.name} (${state.view.group})</option>`);
+    const html = opts.join('');
+    if ($('section').dataset.html !== html) { $('section').innerHTML = html; $('section').dataset.html = html; }
+    $('section').value = state.view ? 'name' : String(state.section);
+  }
+  function showChapter(si) { state.view = null; state.section = si; state.panelId = null; remember(); $('phone').scrollTop = 0; draw(); }
+  function showName(group, name) {
+    state.view = { group, name };
+    const key = group + ':' + name, cur = shown(state.panelId);
+    if (!cur || !usesOf(cur.def).has(key)) state.panelId = null;
+    remember(); $('phone').scrollTop = 0; draw(true);
+  }
+  $('section').addEventListener('change', () => { if ($('section').value !== 'name') showChapter(Number($('section').value)); });
+
+  // Names column: chapters first, then every name a panel may use, each
+  // with the number of panels using it; tap to show those panels.
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  function drawNames() {
+    const all = allPanels(), count = {};
+    all.forEach((p) => usesOf(p.def).forEach((k) => { count[k] = (count[k] || 0) + 1; }));
+    const usedOf = (g) => Object.keys(count).filter((k) => k.startsWith(g + ':')).map((k) => k.slice(g.length + 1));
+    const chip = (g, n) => {
+      const c = count[g + ':' + n] || 0, on = state.view?.group === g && state.view?.name === n;
+      return `<button data-group="${g}" data-name="${esc(n)}" class="${c ? '' : 'unused'}" aria-pressed="${on}">${esc(n)}<span class="n">${c}</span></button>`;
+    };
+    const sorted = (xs) => [...new Set(xs)].sort((a, b) => a.localeCompare(b));
+    const groups = [
+      ['character', ASSETS.characters.characters.map((c) => c.id)],
+      ['pose', sorted([...ASSETS.poses.map((p) => p.name), ...usedOf('pose')]), 'any <base>-<gesture>; dashed = listed, unused'],
+      ['base', sorted(Object.keys(ASSETS.poseParts.bases))],
+      ['gesture', sorted(Object.keys(ASSETS.poseParts.gestures))],
+      ['prop', sorted(Object.keys(ASSETS.props.props))],
+      ['ground', sorted(Object.keys(ASSETS.grounds.grounds))],
+    ];
+    const chapters = SECTIONS.map((s, i) => {
+      const n = all.filter((p) => p.si === i).length;
+      return `<button class="wide" data-chapter="${i}" aria-pressed="${!state.view && state.section === i}">${esc(s.title)}<span class="n">${n}</span></button>`;
+    }).join('');
+    const html = `<div class="group"><h3>Chapters</h3><div class="chips">${chapters}</div></div>` +
+      groups.map(([g, names, note]) => `<div class="group"><h3>${g}${note ? ` <span style="font-weight:400">· ${esc(note)}</span>` : ''}</h3><div class="chips">${names.map((n) => chip(g, n)).join('')}</div></div>`).join('');
+    if ($('names').dataset.html !== html) { $('names').innerHTML = html; $('names').dataset.html = html; }
+  }
+  $('names').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    if (b.dataset.chapter !== undefined) showChapter(Number(b.dataset.chapter));
+    else showName(b.dataset.group, b.dataset.name);
+  });
 
   function setStatus(t) { $('status').textContent = t; }
 
@@ -252,11 +375,11 @@ const SECTIONS = /*__SECTIONS__*/;
   });
 
   $('saveBtn').addEventListener('click', async () => {
-    const id = state.panelId, panel = state.edits[id];
-    if (!db || !panel) return;
+    const id = state.panelId, panel = state.edits[id], p = shown(id);
+    if (!db || !panel || !p) return;
     $('saveBtn').disabled = true;
     try {
-      await db.collection('panels').doc(slug(id)).set({ id, panel, section: SECTIONS[state.section].name, savedAt: new Date().toISOString() });
+      await db.collection('panels').doc(slug(id)).set({ id, panel, section: SECTIONS[p.si].name, savedAt: new Date().toISOString() });
       delete state.edits[id];
       setStatus(`Saved draft of ${id}. Ask Claude to merge drafts into the repo.`);
     } catch (e) {
@@ -266,15 +389,8 @@ const SECTIONS = /*__SECTIONS__*/;
     draw();
   });
 
-  // Reference: the names a panel may use.
-  const ch = ASSETS.characters.characters.map((c) => c.id).join(', ');
-  const po = ASSETS.poses.map((p) => p.name).join(', ');
-  const ba = Object.keys(ASSETS.poseParts.bases).join(', ');
-  const ge = Object.keys(ASSETS.poseParts.gestures).join(', ');
-  const pr = Object.keys(ASSETS.props.props).join(', ');
-  const gr = Object.keys(ASSETS.grounds.grounds).join(', ');
-  $('ref').innerHTML = `<b>character</b> ${ch}<br><b>pose</b> any &lt;base&gt;-&lt;gesture&gt;; reviewed: ${po}<br><b>base</b> ${ba}<br><b>gesture</b> ${ge}<br><b>prop</b> ${pr}<br><b>ground</b> ${gr}<br>` +
-    `<b>tall</b> height ÷ width: 1.5 (default), 1, 0.6<br><b>at</b> 0–1 across the width, or ${Object.keys(SLOTS).join(', ')}, or {"before"|"behind"|"beside"|"left-of"|"right-of": name, "gap": h}<br><b>order</b> one figures list of figures ("character"), props ("prop") and foregrounds ("foreground"), drawn in order (last is in front)<br><b>foreground</b> {"foreground": [left, right] heights (shares of the height), "color": ground name}: a band of ground; stand on it with "on": "foreground" plus "at"<br>` +
+  // Reference: the other fields a panel may use.
+  $('ref').innerHTML = `<b>tall</b> height ÷ width: 1.5 (default), 1, 0.6<br><b>at</b> 0–1 across the width, or ${Object.keys(SLOTS).join(', ')}, or {"before"|"behind"|"beside"|"left-of"|"right-of": name, "gap": h}<br><b>order</b> one figures list of figures ("character"), props ("prop") and foregrounds ("foreground"), drawn in order (last is in front)<br><b>foreground</b> {"foreground": [left, right] heights (shares of the height), "color": ground name}: a band of ground; stand on it with "on": "foreground" plus "at"<br>` +
     `<b>row</b> top, horizon, back, mid, front (default), floor, closeup, or a number: the bottom edge as a share of the height (0 bottom, 1 top)<br><b>figure</b> facing, mouth, turn (head, degrees, + to its right), hands {right, left}, adjust {"right.arm.shoulder": 40}, scale, nudge (head-units: a number across, or [dx, dy], + up), on (a prop's anchor, a foreground, or a figure's #hands, #hand-right, #hand-left, #head, #shoulder: what it carries)<br><b>panel</b> tall, horizon, sky, ground, needs [..]`;
 
   draw(true);

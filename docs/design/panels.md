@@ -13,7 +13,11 @@ artist's scene SVG) comes later.
 | Rendered panels | `_site/` (not committed): an index of chapters (all `## N.` headings of `manuscript/scenes.md`; those without panels marked "to come") and one scrolling page per chapter with previous / next links | Built by `tools/build-site.mjs`; published to Cloudflare Pages by hand (GitHub Action calls a deploy hook). |
 
 The **panel lab** (`tools/build-panellab.mjs`, published artifact) shows any
-section as it will scroll on a phone while you edit a panel's JSON.
+section as it will scroll on a phone while you edit a panel's JSON. Its
+third column lists the chapters and every name a panel may use
+(characters, poses, bases, gestures, props, grounds) with a count of the
+panels using each; tapping a name shows all those panels, across
+chapters, in place of a chapter.
 
 ## Delivery: a scroll of panels
 
