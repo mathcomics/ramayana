@@ -7,7 +7,7 @@
       "prop": "rock-circle",
       "id": "boulder",
       "on": "hanuman#hands",
-      "scale": 1.2
+      "scale": 3
     },
     {
       "character": "hanuman",

@@ -10,24 +10,32 @@
       "facing": "right",
       "at": 0.06,
       "cloth": "red-diamond",
-      "adjust": { "right.arm.prop": { "kind": "club", "angle": -30 } }
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "club"
+        }
+      }
     },
     {
       "character": "raxas_m1",
       "id": "r2",
-      "pose": "run-pump",
+      "pose": "run-longpoint",
       "facing": "right",
       "at": 0.3,
       "cloth": "red-stripe",
-      "adjust": { "right.arm.prop": { "kind": "sword", "angle": -30 } }
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "sword",
+          "angle": -30
+        }
+      }
     },
     {
       "character": "surpanakha",
-      "pose": "step-point",
+      "pose": "stepwide-point",
       "facing": "right",
-      "at": 0.6,
-      "mouth": 3,
-      "cloth": "red-check"
+      "at": 0.7,
+      "mouth": 3
     }
   ],
   "tags": ["frieze"]

@@ -1,7 +1,7 @@
 {
   "scene": "Ravana rises from the throne in rage",
   "tall": 1,
-  "ground": "geru",
+  "ground": "yellow",
   "figures": [
     {
       "prop": "throne-lanka",
