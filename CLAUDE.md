@@ -123,10 +123,10 @@ and Sita in the swan chariot **waving back at the reader**.
 
 | Chapter | Panels | State |
 |---|---|---|
-| `01-intro` | 1 | the opener only |
+| `01-intro` | 7 | the opener, and the artist's drafts of the court (2026-11-14) |
 | `02-the-throne` | 17 | written against the brief |
-| `03-the-forest` | 8 | predates the briefs — to revisit (03.02 is approved and locked) |
-| `04-surpanakha` | 14 | predates the briefs — to revisit |
+| `03-the-forest` | 10 | predates the briefs — to revisit (03.02 is approved and locked) |
+| `04-surpanakha` | 15 | predates the briefs — to revisit |
 | `05-the-golden-deer` | 23 | artist-reviewed; the model chapter (05.11 tagged) |
 | `06-jatayu` | 13 | written against the brief |
 | `07-sugriva` | 15 | written against the brief |
@@ -150,8 +150,8 @@ splitting single paintings into more, simpler panels, dropping what the
 brief does not show, and swapping the `adjust` stand-ins for the real
 poses now that they exist. Chapter 6 has been through that pass: the sea
 crossing, the arrival in the grove and the funeral pyre are gone, the
-chariot with them. **Chapter 5 still has the chariot** in 05.21 and
-05.22 — the last two panels to lose it.
+chariot with them. **Chapter 5 still has the chariot** in 05.21 —
+the last panel to lose it (05.22 lost it 2026-11-14).
 
 ### Figures
 

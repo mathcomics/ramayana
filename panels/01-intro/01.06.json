@@ -1,0 +1,39 @@
+{
+  "scene": "Kaikeyi pulls the king back by the arm",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.85,
+      "row": "mid"
+    },
+    {
+      "character": "dasharatha",
+      "pose": "stepback-armsout",
+      "facing": "right",
+      "at": 0.56,
+      "row": "mid",
+      "mouth": 2
+    },
+    {
+      "character": "kausalya",
+      "pose": "step-armsout",
+      "facing": "right",
+      "at": 0.3,
+      "row": "mid"
+    },
+    {
+      "character": "kaikeyi",
+      "pose": "step-armrest",
+      "facing": "right",
+      "at": 0.1,
+      "row": "mid"
+    }
+  ],
+  "needs": [
+    "pose: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now"
+  ]
+}

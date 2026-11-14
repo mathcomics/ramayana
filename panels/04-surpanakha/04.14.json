@@ -1,0 +1,42 @@
+{
+  "scene": "Arrows come in from the right; the rakshasas are struck, flung back and falling",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "id": "r2",
+      "character": "raxas_m1",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "at": 0.32,
+      "row": 0.05,
+      "cloth": "red"
+    },
+    {
+      "id": "r1",
+      "character": "raxas_m1",
+      "pose": "fallfront-armsdown",
+      "facing": "right",
+      "at": 0.1,
+      "mouth": 3,
+      "cloth": "red-check"
+    },
+    {
+      "id": "r4",
+      "character": "raxas_m1",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "at": 0.9,
+      "cloth": "red-stripe"
+    },
+    {
+      "character": "surpanakha",
+      "pose": "stepwide-armface",
+      "facing": "left",
+      "at": 0.6
+    }
+  ],
+  "needs": [
+    "prop: arrow (in flight from the right edge, and stuck in the struck)"
+  ]
+}

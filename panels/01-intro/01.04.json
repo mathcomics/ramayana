@@ -1,0 +1,47 @@
+{
+  "scene": "Lakshman and Sita join him; the three walk on",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "trumpet",
+      "on": "player1#hand-left"
+    },
+    {
+      "id": "player1",
+      "character": "male1",
+      "pose": "walk-fists",
+      "facing": "right",
+      "at": 0.2
+    },
+    {
+      "prop": "drum",
+      "on": "player2#hand-right"
+    },
+    {
+      "id": "player2",
+      "character": "male1",
+      "pose": "walk-armsout",
+      "facing": "right",
+      "at": 0.05
+    },
+    {
+      "character": "lakshman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.5
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.87
+    },
+    {
+      "character": "sita",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.75
+    }
+  ]
+}

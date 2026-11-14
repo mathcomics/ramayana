@@ -1,26 +1,13 @@
 {
-  "scene": "Opening: the forest hut from above (as 03.01), before Surpanakha comes",
+  "scene": "Lakshman points back to Rama; she looks from one to the other",
   "tall": 1,
-  "ground": "forest",
+  "ground": "sand",
   "figures": [
     {
-      "prop": "trees-top",
-      "id": "trees-nw",
-      "at": 0.257,
-      "scale": 0.4,
-      "row": 0.71
-    },
-    {
-      "prop": "hut-top",
-      "at": 0.505,
-      "scale": 0.4,
-      "row": 0.42
-    },
-    {
-      "prop": "trees-top",
-      "id": "trees-se",
-      "at": 0.743,
-      "scale": 0.4
+      "character": "surpanakha",
+      "pose": "pass-akimbo",
+      "at": 0.47,
+      "mouth": 2
     }
   ]
 }

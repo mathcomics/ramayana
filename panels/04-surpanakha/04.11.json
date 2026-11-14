@@ -5,13 +5,13 @@
   "figures": [
     {
       "character": "rama",
-      "pose": "step-bowdraw",
+      "pose": "leanfront-bowdraw",
       "facing": "left",
       "at": 0.82
     },
     {
       "character": "lakshman",
-      "pose": "step-bowloose",
+      "pose": "leanfront-bowloose",
       "facing": "left",
       "at": 0.49,
       "row": "closeup"

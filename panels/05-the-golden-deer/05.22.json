@@ -4,53 +4,30 @@
   "ground": "sky-blue",
   "figures": [
     {
-      "prop": "hut",
-      "at": 0.5,
-      "scale": 0.6
+      "prop": "pole",
+      "at": 0.4,
+      "scale": 0.6,
+      "rotate": 180,
+      "row": 0.45
     },
     {
       "character": "ravana",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.6,
+      "pose": "stepwide-swordcarry",
+      "at": 0.48,
       "mouth": 2,
-      "row": 0.72,
-      "adjust": {
-        "right.arm.shoulder": 65,
-        "right.arm.elbow": 25,
-        "left.arm.shoulder": 55,
-        "left.arm.elbow": 30
-      },
-      "scale": 0.52
+      "row": 0.6,
+      "scale": 0.5,
+      "rotate": 20,
+      "view": "front"
     },
     {
       "character": "sita",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.4,
+      "pose": "crawl-onhands",
+      "facing": "right",
+      "at": 0.602,
       "mouth": 3,
-      "row": 0.72,
-      "adjust": {
-        "spine.chest": 30,
-        "spine.head": 20,
-        "right.arm.shoulder": 10,
-        "right.arm.elbow": 0,
-        "right.arm.hand": "out",
-        "left.arm.shoulder": 30,
-        "left.arm.elbow": 0,
-        "left.arm.hand": "out"
-      },
-      "scale": 0.52
-    },
-    {
-      "prop": "chariot",
-      "at": 0.5,
-      "row": 0.7,
-      "scale": 0.52
+      "row": 0.69,
+      "scale": 0.5
     }
-  ],
-  "needs": [
-    "prop: flying chariot",
-    "prop: hut"
   ]
 }

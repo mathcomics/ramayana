@@ -1,69 +1,13 @@
 {
-  "scene": "Back: the hut and the three. Front: Surpanakha watches them from behind a tree",
-  "tall": 1,
-  "ground": "forest",
-  "sky": "sand",
+  "scene": "Lakshman points back to Rama; she looks from one to the other",
+  "tall": 0.6,
+  "ground": "sand",
   "figures": [
     {
-      "id": "hut",
-      "prop": "hut-side",
-      "at": 0.85,
-      "row": "horizon",
-      "scale": 0.5706
-    },
-    {
-      "id": "trees-far",
-      "prop": "trees-side",
-      "at": 0.86,
-      "row": "horizon",
-      "scale": 1.7994
-    },
-    {
-      "character": "lakshman",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.33,
-      "row": "horizon"
-    },
-    {
-      "character": "sita",
-      "pose": "kneel-palms",
-      "facing": "right",
-      "at": 0.52,
-      "row": "horizon",
-      "nudge": [
-        0,
-        -0.4
-      ]
-    },
-    {
-      "character": "rama",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.42,
-      "row": "horizon"
-    },
-    {
-      "prop": "deer-stand",
-      "facing": "left",
-      "at": 0.62,
-      "row": "horizon",
-      "scale": 0.9258
-    },
-    {
-      "prop": "tree-trunk",
-      "at": -0.04,
-      "row": "closeup"
-    },
-    {
       "character": "surpanakha",
-      "pose": "step-hang",
-      "at": 0.2,
-      "row": "closeup",
-      "turn": -90,
-      "adjust": {
-        "spine.head": 20
-      }
+      "pose": "walk-armrest",
+      "at": 0.47,
+      "mouth": 2
     }
   ],
   "tags": ["spy"]

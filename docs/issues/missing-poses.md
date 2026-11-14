@@ -68,6 +68,8 @@ chapter). Moments with no pose come first.
 
 ## Asked for by panels
 
+- 01.06: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
+- 01.07: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
 - 02.07: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
 - 02.09: sit-hand-on-head (slumped on the throne, hand to the head): sit for now
 - 03.05: sit-cross-legged (sage teaching, raised hand)
@@ -96,4 +98,16 @@ chapter). Moments with no pose come first.
 Base-gesture pairs the panels use that are not in `data/poses.json`.
 Used by two panels or more: list it, with its finding fields.
 
-(none)
+| pose | panels |
+|---|---|
+| pass-akimbo **(list it)** | 04.01, 04.02 |
+| run-longpoint **(list it)** | 04.08, 04.09 |
+| stepwide-point **(list it)** | 01.03, 04.08 |
+| leanfront-bowdraw | 04.11 |
+| leanfront-bowloose | 04.11 |
+| step-armrest | 01.06 |
+| step-armsout | 01.06 |
+| stepwide-armface | 04.14 |
+| walk-armrest | 04.02a |
+| walk-armsout | 01.04 |
+| walk-fists | 01.04 |

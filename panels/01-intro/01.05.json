@@ -1,0 +1,28 @@
+{
+  "scene": "Lakshman and Sita join him; the three walk on",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.2,
+      "row": "closeup"
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.85,
+      "row": "closeup"
+    },
+    {
+      "character": "sita",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.67,
+      "row": "closeup"
+    }
+  ]
+}

@@ -12,8 +12,8 @@ placeholder box. Held props (sword, club, bow) live in
 
 | prop | panels |
 |---|---|
-| chariot | 05.21, 05.22 |
-| hut | 05.16, 05.22, 06.09 |
+| chariot | 05.21 |
+| hut | 05.16, 06.09 |
 | jewels | 07.10, 10.11 |
 | lanka-wall | 10.01, 10.02 |
 | line | 05.17 |
@@ -30,13 +30,13 @@ docs/design/panel-writing.md, Lessons).
 | need | panels |
 |---|---|
 | prop: an arrow in the dying deer's flank | 05.13 |
-| prop: arrow (in flight from the right edge, and stuck in the struck) | 04.12 |
+| prop: arrow (in flight from the right edge, and stuck in the struck) | 04.12, 04.14 |
 | prop: arrow (in flight, leaving the bows to the left) | 04.11 |
 | prop: bow in hand while running | 05.11 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
-| prop: flying chariot | 05.21, 05.22 |
+| prop: flying chariot | 05.21 |
 | prop: fruit | 05.19 |
-| prop: hut | 05.16, 05.22, 06.09 |
+| prop: hut | 05.16, 06.09 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
 | prop: jewels (held to the chest) | 07.12 |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
@@ -56,4 +56,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-bag, branch, city-gap, city-roof, city-side, deer-stand, fire, flower-yellow, giant-grab, hut-side, hut-top, ladder, lanka-island, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+bag, branch, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-yellow, giant-grab, hut-side, hut-top, ladder, lanka-island, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
