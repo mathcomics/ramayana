@@ -4,8 +4,10 @@
   "ground": "sand",
   "figures": [
     {
-      "prop": "vulture-lie",
-      "at": 0.76
+      "prop": "vulture-swoop",
+      "at": 0.9,
+      "rotate": 200,
+      "row": -0.6
     },
     {
       "character": "lakshman",
@@ -21,16 +23,17 @@
       "character": "rama",
       "pose": "kneel-handslow",
       "facing": "right",
-      "at": 0.42,
+      "at": 0.3,
       "mouth": 2,
       "adjust": {
         "right.arm.shoulder": 60,
         "right.arm.elbow": 20,
         "spine.head": 18
-      }
+      },
+      "row": "mid"
     }
   ],
   "needs": [
-    "prop: vulture-lie (lying, the one remaining wing raised and pointing)"
+    "prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now"
   ]
 }

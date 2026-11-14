@@ -5,13 +5,6 @@
   "sky": "sand",
   "figures": [
     {
-      "id": "hut",
-      "prop": "hut-side",
-      "at": 0.85,
-      "row": "horizon",
-      "scale": 0.5706
-    },
-    {
       "prop": "trees-side",
       "id": "trees-far",
       "at": 0.86,
@@ -20,22 +13,10 @@
     },
     {
       "character": "lakshman",
-      "pose": "runwide-hang",
-      "facing": "right",
-      "at": 0.3,
-      "row": "horizon"
-    },
-    {
-      "character": "rama",
       "pose": "run-pump",
       "facing": "right",
       "at": 0.45,
       "row": "horizon"
-    },
-    {
-      "prop": "tree-trunk",
-      "at": -0.04,
-      "row": "closeup"
     }
   ]
 }

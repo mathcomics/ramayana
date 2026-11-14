@@ -16,10 +16,17 @@
       "at": 0.56
     },
     {
-      "prop": "tree-trunk",
-      "at": 0.97,
-      "row": "closeup",
+      "prop": "flower-white",
+      "at": 0.9,
+      "row": "front",
       "facing": "left"
+    },
+    {
+      "prop": "flower-white",
+      "facing": "left",
+      "at": 0.95,
+      "row": "front",
+      "scale": 1.2
     }
   ]
 }

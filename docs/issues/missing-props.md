@@ -20,7 +20,6 @@ placeholder box. Held props (sword, club, bow) live in
 | line-top | 05.18 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
 | tree | 02.17, 05.14, 08.05, 08.07, 10.07, 10.09 |
-| vulture-lie | 06.11 |
 
 ## Prop wishes from the panels' needs
 
@@ -52,8 +51,8 @@ docs/design/panel-writing.md, Lessons).
 | prop: tree | 02.17, 03.06, 05.14, 08.05, 08.07, 10.09 |
 | prop: tree (the ashoka; Hanuman hidden in its branches) | 10.07 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
-| prop: vulture-lie (lying, the one remaining wing raised and pointing) | 06.11 |
+| prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
 
 ## Drawn props in use
 
-bag, branch, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-yellow, giant-grab, hut-side, hut-top, ladder, lanka-island, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+bag, branch, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-white, flower-yellow, giant-grab, hut-side, hut-top, ladder, lanka-island, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

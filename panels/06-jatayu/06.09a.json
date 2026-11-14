@@ -1,5 +1,5 @@
 {
-  "scene": "At the empty hut Rama flings his arms out; Lakshman stops behind him, hand to his head",
+  "scene": "At the empty hut Rama flings his arms out; Lakshman starts back",
   "tall": 1,
   "ground": "forest",
   "sky": "sand",
@@ -8,15 +8,7 @@
       "prop": "trees-side",
       "id": "trees-far",
       "at": 1.02,
-      "row": "horizon",
-      "scale": 2.2
-    },
-    {
-      "id": "hut",
-      "prop": "hut-side",
-      "at": 0.72,
-      "row": "back",
-      "scale": 0.9
+      "row": "mid"
     },
     {
       "character": "lakshman",
@@ -28,8 +20,8 @@
     {
       "character": "rama",
       "pose": "step-flung",
-      "facing": "right",
-      "at": 0.5,
+      "facing": "left",
+      "at": 0.7,
       "row": "mid"
     }
   ]
