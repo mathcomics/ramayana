@@ -1,0 +1,40 @@
+{
+  "scene": "Awake: he stands, and only his legs fit the panel; the rakshasas tumble at his feet",
+  "tall": 1.5,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-reachup",
+      "view": "front",
+      "at": 0.42,
+      "scale": 2,
+      "cloth": "yellow"
+    },
+    {
+      "prop": "drum",
+      "at": 0.86,
+      "scale": 0.3,
+      "rotate": 70
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "fallback-armsout",
+      "facing": "left",
+      "at": 0.72,
+      "scale": 0.3
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "stepback-armface",
+      "facing": "left",
+      "at": 0.95,
+      "scale": 0.3,
+      "cloth": "orange",
+      "adjust": {
+        "spine.head": -30
+      }
+    }
+  ]
+}

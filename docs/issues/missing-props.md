@@ -13,6 +13,8 @@ placeholder box. Held props (sword, club, bow) live in
 | prop | panels |
 |---|---|
 | chariot | 05.21 |
+| food-heap | 14.03a |
+| food-platter | 14.03a |
 | hut | 05.16 |
 | jewels | 07.10, 10.11 |
 | lanka-wall | 10.01, 10.02 |
@@ -20,6 +22,7 @@ placeholder box. Held props (sword, club, bow) live in
 | line-top | 05.18 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
 | tree | 02.17, 05.14, 08.05, 08.07, 10.07, 10.09 |
+| water-pot | 14.03 |
 
 ## Prop wishes from the panels' needs
 
@@ -34,6 +37,8 @@ docs/design/panel-writing.md, Lessons).
 | prop: bow in hand while running | 05.11 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
 | prop: flying chariot | 05.21 |
+| prop: food-heap (a heap of fruit, rice and sweets) | 14.03a |
+| prop: food-platter (a round platter piled with food, held up) | 14.03a |
 | prop: fruit | 05.19 |
 | prop: hut | 05.16 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
@@ -52,7 +57,9 @@ docs/design/panel-writing.md, Lessons).
 | prop: tree (the ashoka; Hanuman hidden in its branches) | 10.07 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
+| prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |
+| prop: water-pour (water spilling from a tipped pot onto the face) | 14.03 |
 
 ## Drawn props in use
 
-bag, branch, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-white, flower-yellow, giant-grab, hut-side, hut-top, ladder, lanka-island, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+bag, branch, city-gap, city-roof, city-side, deer-stand, drum, female-top, fire, flower-white, flower-yellow, giant-grab, giant-lie-waist, hut-side, hut-top, ladder, lanka-island, male-top, male-top-back, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

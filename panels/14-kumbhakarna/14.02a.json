@@ -1,0 +1,61 @@
+{
+  "scene": "Drums and horns blast at his head; he sleeps on",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-hang",
+      "facing": "left",
+      "rotate": 90,
+      "at": -0.23,
+      "scale": 4,
+      "cloth": "yellow"
+    },
+    {
+      "prop": "trumpet",
+      "on": "player1#hand-right",
+      "scale": 0.4
+    },
+    {
+      "id": "player1",
+      "character": "raxas_m1",
+      "pose": "step-fists",
+      "facing": "left",
+      "at": 0.68,
+      "scale": 0.4
+    },
+    {
+      "prop": "drum",
+      "on": "player2#hand-right",
+      "scale": 0.4
+    },
+    {
+      "id": "player2",
+      "character": "raxas_m2",
+      "pose": "stepwide-armsout",
+      "facing": "left",
+      "at": 0.82,
+      "scale": 0.4,
+      "cloth": "orange"
+    },
+    {
+      "prop": "drum",
+      "on": "player3#hand-right",
+      "scale": 0.4
+    },
+    {
+      "id": "player3",
+      "character": "raxas_m1",
+      "pose": "kneeup-armsout",
+      "facing": "left",
+      "at": 0.95,
+      "scale": 0.4,
+      "cloth": "red-diamond"
+    }
+  ],
+  "needs": [
+    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now"
+  ]
+}

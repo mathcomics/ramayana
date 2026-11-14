@@ -1,0 +1,59 @@
+{
+  "scene": "Top view: Kumbhakarna asleep across the floor, small rakshasas gathered around him",
+  "tall": 1,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-hang",
+      "facing": "left",
+      "rotate": 90,
+      "at": 0.48,
+      "scale": 1.3,
+      "cloth": "yellow",
+      "view": "front",
+      "row": 0.3
+    },
+    {
+      "prop": "male-top",
+      "character": "raxas_m1",
+      "at": 0.88,
+      "row": 0.72,
+      "scale": 0.8
+    },
+    {
+      "prop": "male-top",
+      "character": "raxas_m2",
+      "at": 0.7,
+      "row": 0.78,
+      "scale": 0.8,
+      "cloth": "orange"
+    },
+    {
+      "prop": "male-top-back",
+      "character": "raxas_m1",
+      "at": 0.55,
+      "row": 0.08,
+      "scale": 0.8,
+      "cloth": "red-diamond"
+    },
+    {
+      "prop": "male-top-back",
+      "character": "raxas_m2",
+      "at": 0.3,
+      "row": 0.1,
+      "scale": 0.8
+    },
+    {
+      "prop": "female-top",
+      "character": "raxas_f2",
+      "at": 0.2,
+      "row": 0.75,
+      "scale": 0.8
+    }
+  ],
+  "needs": [
+    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now"
+  ]
+}

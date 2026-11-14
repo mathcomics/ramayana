@@ -1,0 +1,55 @@
+{
+  "scene": "Food: rakshasas heap food by his mouth and hold platters up to his nose",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-hang",
+      "facing": "left",
+      "rotate": 90,
+      "at": -0.23,
+      "scale": 4,
+      "cloth": "yellow"
+    },
+    {
+      "prop": "food-heap",
+      "at": 0.3,
+      "row": 0.5,
+      "scale": 1
+    },
+    {
+      "prop": "food-platter",
+      "on": "server#hands",
+      "scale": 0.4
+    },
+    {
+      "id": "server",
+      "character": "raxas_m2",
+      "pose": "step-reachup",
+      "facing": "left",
+      "at": 0.7,
+      "scale": 0.4
+    },
+    {
+      "prop": "food-platter",
+      "on": "carrier#hands",
+      "scale": 0.4
+    },
+    {
+      "id": "carrier",
+      "character": "raxas_m1",
+      "pose": "walk-reachup",
+      "facing": "left",
+      "at": 0.88,
+      "scale": 0.4,
+      "cloth": "red-diamond"
+    }
+  ],
+  "needs": [
+    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now",
+    "prop: food-heap (a heap of fruit, rice and sweets)",
+    "prop: food-platter (a round platter piled with food, held up)"
+  ]
+}

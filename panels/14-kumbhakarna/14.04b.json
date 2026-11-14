@@ -1,0 +1,58 @@
+{
+  "scene": "The yawn scatters them: the musicians run, the drum rolling after",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-hang",
+      "facing": "right",
+      "rotate": -90,
+      "at": 1.55,
+      "scale": 4,
+      "cloth": "yellow",
+      "mouth": 3
+    },
+    {
+      "prop": "drum",
+      "at": 0.6,
+      "scale": 0.45,
+      "rotate": 90
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "run-pump",
+      "facing": "left",
+      "at": 0.06,
+      "scale": 0.45
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "runwide-hang",
+      "facing": "left",
+      "at": 0.2,
+      "scale": 0.45,
+      "cloth": "orange",
+      "mouth": 3
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "leap-reach",
+      "facing": "left",
+      "at": 0.35,
+      "row": 0.15,
+      "scale": 0.45,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "runlow-pumplow",
+      "facing": "left",
+      "at": 0.5,
+      "scale": 0.45,
+      "cloth": "red-diamond",
+      "turn": 180
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "scene": "Kumbhakarna asleep across the whole panel; one small rakshasa looks up at him",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-hang",
+      "facing": "left",
+      "rotate": 90,
+      "at": 0.41,
+      "scale": 2.2,
+      "cloth": "yellow"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.95,
+      "scale": 0.3,
+      "adjust": {
+        "spine.head": -30
+      }
+    }
+  ],
+  "needs": [
+    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now"
+  ]
+}

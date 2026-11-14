@@ -1,0 +1,56 @@
+{
+  "scene": "Water: from a ladder at his head a rakshasa tips a pot over his face; another brings more",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-hang",
+      "facing": "left",
+      "rotate": 90,
+      "at": -0.23,
+      "scale": 4,
+      "cloth": "yellow"
+    },
+    {
+      "prop": "ladder",
+      "id": "ladder",
+      "at": 0.66,
+      "row": 0,
+      "scale": 0.55
+    },
+    {
+      "prop": "water-pot",
+      "on": "pourer#hands",
+      "scale": 0.4
+    },
+    {
+      "id": "pourer",
+      "character": "raxas_m2",
+      "pose": "step-reach",
+      "facing": "left",
+      "on": "ladder#stand-high",
+      "scale": 0.4,
+      "cloth": "orange"
+    },
+    {
+      "prop": "water-pot",
+      "on": "carrier#hands",
+      "scale": 0.4
+    },
+    {
+      "id": "carrier",
+      "character": "raxas_m1",
+      "pose": "walk-overhead",
+      "facing": "left",
+      "at": 0.88,
+      "scale": 0.4
+    }
+  ],
+  "needs": [
+    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now",
+    "prop: water-pot (a round clay water pot, carried and tipped)",
+    "prop: water-pour (water spilling from a tipped pot onto the face)"
+  ]
+}

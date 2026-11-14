@@ -135,7 +135,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `10-the-ring` | 11 | written against the brief |
 | `11-lanka-burns` | 1 | the approved reference panel 11.08 only |
 | `13-the-war-begins` | 5 | battle scenes only (siege ladder, rocks hurled, the fall, a chief, the fallen field); no opener yet |
-| `14-kumbhakarna` | 1 | the approved reference panel 14.05 only |
+| `14-kumbhakarna` | 13 | 12 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6) and the approved reference panel 14.05 |
 
 Chapters 12 and 15–18 have briefs and no panels; the site marks them
 "to come". Every drawn chapter's folder number matches its brief number.

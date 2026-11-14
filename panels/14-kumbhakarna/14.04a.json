@@ -1,0 +1,59 @@
+{
+  "scene": "The yawn: he rolls his head toward us, mouth agape, and the musicians are blown away, drum and horn flying",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-hang",
+      "facing": "left",
+      "rotate": 90,
+      "at": -0.23,
+      "scale": 4,
+      "cloth": "yellow",
+      "mouth": 3,
+      "turn": 90
+    },
+    {
+      "prop": "drum",
+      "at": 0.62,
+      "row": 0.75,
+      "scale": 0.4,
+      "rotate": 40
+    },
+    {
+      "prop": "trumpet",
+      "at": 0.95,
+      "row": 0.6,
+      "scale": 0.4,
+      "rotate": -60
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.75,
+      "row": 0.45,
+      "scale": 0.4
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "leap-flung",
+      "facing": "right",
+      "at": 0.88,
+      "row": 0.2,
+      "scale": 0.4,
+      "cloth": "orange"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "fallback-armsout",
+      "facing": "left",
+      "at": 0.95,
+      "row": 0.02,
+      "scale": 0.4,
+      "cloth": "red-diamond"
+    }
+  ]
+}

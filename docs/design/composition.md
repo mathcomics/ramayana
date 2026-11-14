@@ -23,6 +23,7 @@ action. The same opener can return when the story comes back to a place.
 | 10 The ring | night: Lanka's wall (10.01) | done |
 | 12 The bridge | Lanka across the sea, as 05.01 | when chapter 12 is made |
 | 13 The war begins | — | to choose (before Lanka's walls?) |
+| 14 Kumbhakarna | Lanka across the sea, as 05.01 (14.01) | draft |
 
 ## Sky and distance
 

@@ -1,0 +1,47 @@
+{
+  "scene": "The rakshasa musicians come in with drum and horn, as the musicians of 01.04, toward the sleeping giant's head",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "raxas_m3",
+      "id": "kumbhakarna",
+      "pose": "stand-hang",
+      "facing": "left",
+      "rotate": 90,
+      "at": -0.2,
+      "scale": 3,
+      "cloth": "yellow"
+    },
+    {
+      "prop": "trumpet",
+      "on": "player1#hand-left",
+      "scale": 0.5
+    },
+    {
+      "id": "player1",
+      "character": "raxas_m1",
+      "pose": "walk-fists",
+      "facing": "left",
+      "at": 0.66,
+      "scale": 0.5
+    },
+    {
+      "prop": "drum",
+      "on": "player2#hand-right",
+      "scale": 0.5
+    },
+    {
+      "id": "player2",
+      "character": "raxas_m2",
+      "pose": "walk-armsout",
+      "facing": "left",
+      "at": 0.88,
+      "scale": 0.5,
+      "cloth": "orange"
+    }
+  ],
+  "needs": [
+    "face: raxas_m3 with eyes shut (the sleeping Kumbhakarna); open eyes for now"
+  ]
+}

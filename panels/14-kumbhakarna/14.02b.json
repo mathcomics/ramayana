@@ -1,0 +1,52 @@
+{
+  "scene": "Close on his belly: a drummer beats under his hanging hand, another hauls on a finger; he sleeps on",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "prop": "giant-lie-waist",
+      "id": "belly",
+      "character": "raxas_m3",
+      "cloth": "yellow",
+      "at": 0.47,
+      "row": "floor",
+      "scale": 6.4
+    },
+    {
+      "id": "puller",
+      "character": "raxas_m1",
+      "pose": "leanback-reach",
+      "facing": "right",
+      "at": 0.12,
+      "scale": 0.4
+    },
+    {
+      "prop": "drum",
+      "on": "player1#hand-right",
+      "scale": 0.4
+    },
+    {
+      "id": "player1",
+      "character": "raxas_m2",
+      "pose": "stepwide-armsout",
+      "facing": "left",
+      "at": 0.72,
+      "scale": 0.4,
+      "cloth": "orange"
+    },
+    {
+      "prop": "trumpet",
+      "on": "player2#hand-right",
+      "scale": 0.4
+    },
+    {
+      "id": "player2",
+      "character": "raxas_m1",
+      "pose": "step-fists",
+      "facing": "left",
+      "at": 0.9,
+      "scale": 0.4,
+      "cloth": "red-diamond"
+    }
+  ]
+}
