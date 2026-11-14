@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- A plain straight pole, white (#f9f9f9), 0.19 x 2.2 head-units; scale it
      to the scene. 100 px = 1 head-unit; bottom edge on the ground.
-     Recolour: "body" (the pole, #f9f9f9). -->
+     Recolour: "body" (the pole, #f9f9f9).
+     Fades from opaque at the top to 50% at the bottom (mask pole-fade). -->
 
 <svg
    data-recolor-body="#f9f9f9"
@@ -16,8 +17,15 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs735" />
+  <defs id="defs735">
+    <linearGradient id="pole-fade-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.5" />
+    </linearGradient>
+    <mask id="pole-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="18.516949" height="219.76695">
+      <rect x="0" y="0" width="18.516949" height="219.76695" fill="url(#pole-fade-g)" />
+    </mask>
+  </defs>
   <sodipodi:namedview
      id="namedview733"
      pagecolor="#ffffff"
@@ -40,6 +48,7 @@
   <rect
      style="fill:#f9f9f9;stroke:none;stroke-width:4;stroke-opacity:0"
      id="rect2976"
+     mask="url(#pole-fade)"
      width="18.516949"
      height="219.76695"
      x="0"
