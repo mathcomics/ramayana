@@ -5,31 +5,53 @@
      Played by step-fists: "on": "<who>#hand-right", same "facing" as the
      figure, listed after the figure. The "feet" anchor is the fist's grip;
      the mouthpiece is 0.62 head-units behind it (fitted on step-fists). -->
+
 <svg
-   viewBox="0 0 160 170"
-   width="160"
-   height="170"
+   viewBox="0 0 169.42436 174.21147"
+   width="169.42436"
+   height="174.21147"
    version="1.1"
-   xmlns="http://www.w3.org/2000/svg">
-  <g id="tube-outline" style="fill:none;stroke:#241c1c;stroke-width:8;stroke-linecap:round;stroke-linejoin:round">
-    <path d="M 8,150 L 100,150 C 128,150 130,118 108,106 C 86,94 88,64 112,52 C 122,47 124,40 122,34" />
-  </g>
-  <g id="tube" style="fill:none;stroke:#e0aa22;stroke-width:6;stroke-linecap:round;stroke-linejoin:round">
-    <path d="M 8,150 L 100,150 C 128,150 130,118 108,106 C 86,94 88,64 112,52 C 122,47 124,40 122,34" />
+   id="svg13"
+   sodipodi:docname="trumpet.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs17" />
+  <sodipodi:namedview
+     id="namedview15"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.7764706"
+     inkscape:cx="106.43008"
+     inkscape:cy="102.46822"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <g
+     id="anchors"
+     transform="translate(-22.741224,15.667373)">
+    <circle
+       id="feet"
+       cx="68"
+       cy="150"
+       r="5"
+       style="fill:#ff0000" />
   </g>
   <path
-     id="bell"
-     style="fill:#e0aa22;stroke:#241c1c;stroke-width:1"
-     d="M 118,38 C 122,28 134,14 146,4 C 150,8 155,16 157,22 C 142,26 130,32 127,40 Z" />
-  <path
-     id="bell-inside"
-     style="fill:#a87612;stroke:#241c1c;stroke-width:1"
-     d="M 146,4 C 151,7 155,15 157,22 C 153,19 149,11 146,4 Z" />
-  <ellipse
-     id="mouthpiece"
-     style="fill:#a87612;stroke:#241c1c;stroke-width:1"
-     cx="6" cy="150" rx="3" ry="6" />
-  <g id="anchors">
-    <circle id="feet" cx="68" cy="150" r="5" style="fill:#ff0000" />
-  </g>
+     style="fill:#e0aa22;fill-opacity:1;stroke:none;stroke-width:4"
+     d="m 0.12953944,150.73093 c 0,0 37.93230856,22.8326 56.18643956,23.41102 89.096561,2.82319 -18.865952,-81.085031 46.822041,-117.775424 12.42585,-6.122881 56.00639,-1.988935 56.72669,-1.980932 15.83389,0.175919 9.23878,-53.862644 0,-54.385594 -42.32172,19.480846 -102.249597,39.1172 -97.966103,89.862288 1.873513,22.194872 28.539799,62.795952 4.283428,72.744642 -11.213539,4.59921 -35.302026,-4.54458 -62.4508006,-17.99888 -2.77777596,0.68906 -4.18290896,2.55468 -3.60169496,6.12288 z"
+     id="path300"
+     sodipodi:nodetypes="cscscsscc" />
 </svg>
