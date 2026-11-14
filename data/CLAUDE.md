@@ -25,7 +25,8 @@ wrong: `docs/issues/problem-poses.md`.
   registration), 100 px = 1 head-unit, size from the viewBox (or the
   real height in head-units from `data-height` on the root, which scales
   the drawing and its anchors), anchors (`seat` for hips, `stand`/`stand-left`/
-  `stand-right` for feet, `hand` for a figure hanging by one hand, `face`
+  `stand-right` for feet, `hand` for a figure hanging by one hand — or, on a prop carried in a
+  hand (`"on": "<who>#hand-right"`), where the hand holds it — `face`
   for a head alone) in a group
   `id="anchors"` — an anchor is named after what of the figure lands on
   it, not after where it sits in the drawing. A whole-figure anchor is a

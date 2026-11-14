@@ -326,7 +326,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
         c = on && !onBand(ent(c)) ? all.find((x) => x !== c && x.name === String(on).split('#')[0]) : null;
       }
       if (carrier.x == null) return;
-      return placeOn(o, e, carrier, ...figPoint(carrier, pt), 'carry');
+      return placeOn(o, e, carrier, ...figPoint(carrier, pt), aname.startsWith('hand') ? 'carry-hand' : 'carry');
     }
     const t = props.find((x) => x !== o && x.name === tname);
     const seat = t?.def?.anchors?.[aname];
@@ -371,15 +371,17 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     if (o.f) o.halfW = o.halfW1 * o.unit;
     else { [o.w, o.h] = (o.def?.size || PLACEHOLDER).map((v) => v * o.unit); o.halfW = o.w / 2; }
     // a prop with a "feet" anchor stands on it (a bird whose wing pulls its
-    // box off its feet); otherwise on its bottom centre
-    const feet = !o.f && o.def?.anchors?.feet;
+    // box off its feet); carried in a hand (#hand-right, #hand-left, #hands), on
+    // its "hand" anchor if it has one (where the hand holds a drum); otherwise
+    // on its bottom centre
+    const feet = !o.f && ((aname === 'carry-hand' && o.def?.anchors?.hand) || o.def?.anchors?.feet);
     if (feet) {
       o.groundY = ay + o.h - feet[1] * o.unit;
       o.x = ax - o.facing * (feet[0] * o.unit - o.halfW);
       return;
     }
     // a seat anchor or a carrier's takes the hips; any other (stand …) the lowest point
-    const hips = o.f && (aname === 'seat' || aname === 'carry') ? o.seatY * o.unit : 0;
+    const hips = o.f && (aname === 'seat' || aname.startsWith('carry')) ? o.seatY * o.unit : 0;
     o.groundY = sy - hips - o.dy * o.unit;
     o.x = sx - (o.f ? o.pelvisX * o.unit * o.facing : 0) + o.dx * o.unit;
   };
