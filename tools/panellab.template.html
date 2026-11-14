@@ -46,6 +46,7 @@ select { background: var(--panel); border: 1px solid var(--line); border-radius:
 @media (min-width: 1200px) {
   .main { grid-template-columns: minmax(0, 390px) minmax(0, 1fr) minmax(260px, 380px); }
   .main > .phone { grid-row: auto; }
+  #section { display: none; }            /* the chapters are in the names column beside */
   .names { grid-column: 3; position: sticky; top: 8px; max-height: calc(100vh - 80px); overflow-y: auto; overscroll-behavior: contain; }
 }
 @media (max-width: 760px) { .main { grid-template-columns: minmax(0, 1fr); } .main > .phone { grid-row: auto; } .names { grid-column: auto; } }
@@ -303,7 +304,8 @@ const SECTIONS = /*__SECTIONS__*/;
   });
 
   state.section = Math.min(state.section, SECTIONS.length - 1);
-  // The chapter menu (handy on a phone, where the names are far below);
+  // The chapter menu, only on narrower screens (on a phone the names are
+  // far below; wide, the chapters are in the names column beside);
   // while a name is chosen it carries one more entry naming it.
   function drawSelect() {
     const opts = SECTIONS.map((s, i) => `<option value="${i}">${s.title}</option>`);
