@@ -14,6 +14,7 @@ characters (`sideOnly` in `data/characters.json`) have the side view only.
 | sita | drawn | drawn | drawn | drawn | drawn | drawn |
 | lakshman | drawn | drawn | drawn | drawn | drawn | drawn |
 | dasharatha | drawn | drawn | drawn | drawn | drawn | drawn |
+| kausalya | · | · | drawn | · | · | · |
 | kaikeyi | · | · | drawn | · | · | · |
 | hanuman | drawn | drawn | drawn | drawn | drawn | drawn |
 | sugriva | drawn | drawn | drawn | drawn | drawn | drawn |
@@ -28,6 +29,9 @@ characters (`sideOnly` in `data/characters.json`) have the side view only.
 | surpanakha | drawn | drawn | drawn | drawn | drawn | drawn |
 | raxas_m2 | drawn | drawn | drawn | drawn | drawn | drawn |
 | raxas_m3 | drawn | drawn | drawn | drawn | drawn | drawn |
+| sage | drawn | drawn | drawn | drawn | drawn | drawn |
+| male1 | drawn | drawn | drawn | drawn | drawn | drawn |
+| male2 | drawn | drawn | drawn | drawn | drawn | drawn |
 
 ## To draw (0), most used first
 

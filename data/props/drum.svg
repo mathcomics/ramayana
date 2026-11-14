@@ -3,9 +3,9 @@
      behind. 100 px = 1 head-unit. Anchor "hand": the centre of the face. -->
 
 <svg
-   viewBox="0 0 105.74306 108.45099"
-   width="105.74306"
-   height="108.45099"
+   viewBox="0 0 166.19547 174.26218"
+   width="166.19547"
+   height="174.26218"
    version="1.1"
    id="svg731"
    sodipodi:docname="drum.svg"
@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="2.9022122"
-     inkscape:cx="67.190125"
-     inkscape:cy="186.92637"
+     inkscape:zoom="2.0521739"
+     inkscape:cx="67.002118"
+     inkscape:cy="68.951271"
      inkscape:window-width="2880"
      inkscape:window-height="1514"
      inkscape:window-x="3829"
@@ -36,23 +36,48 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="svg731" />
   <path
-     style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:3"
-     d="M 8.9658859,74.384598 0.00719594,38.89443 C -0.45352406,32.384638 21.208466,-7.7684546 65.129939,1.3368724 L 87.18208,18.909675"
-     id="path1387"
-     sodipodi:nodetypes="cccc" />
-  <circle
+     style="fill:#552200;stroke:none;stroke-width:3"
+     d="M 4.872881,20.129519 81.377118,107.84138 71.631355,114.17613 0,33.773587 Z"
+     id="path994" />
+  <path
+     style="fill:#552200;stroke:#ffdd55;stroke-width:3"
+     d="M 68.463982,44.981214 C 52.426203,78.933021 54.347553,114.59522 50.921609,149.74816 c 32.343709,29.92857 50.866651,22.75931 71.387711,20.95339 24.76732,-31.99938 35.43911,-67.52264 42.15043,-104.036019 z"
+     id="path345"
+     sodipodi:nodetypes="ccccc" />
+  <ellipse
      style="fill:#ff6600;fill-opacity:1;stroke:#552200;stroke-width:3"
      id="path233"
-     cx="55.743053"
-     cy="58.450989"
-     r="48.5" />
-  <circle
+     cx="124.44501"
+     cy="33.303783"
+     rx="48.5"
+     ry="23.002209"
+     transform="rotate(10.272334)" />
+  <ellipse
      style="fill:#2b1100;stroke:#ff6600;stroke-width:3"
      id="path233-6"
-     cx="55.743053"
-     cy="58.450989"
-     r="23.5" />
-  <g id="anchors">
-    <circle id="hand" cx="55.743053" cy="58.450989" r="5" style="fill:#ff0000" />
+     cx="124.44501"
+     cy="33.303783"
+     rx="23.5"
+     ry="11.1454"
+     transform="rotate(10.272334)" />
+  <g
+     id="anchors"
+     transform="translate(60.423728,-53.450989)">
+    <circle
+       id="hand"
+       cx="55.743053"
+       cy="58.450989"
+       r="5"
+       style="fill:#ff0000" />
   </g>
+  <path
+     style="fill:#552200;stroke:#ffdd55;stroke-width:3"
+     d="M 97.213982,72.512991 C 83.416073,100.93021 77.163758,132.58125 72.362287,164.85409"
+     id="path980"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:#552200;stroke:#ffdd55;stroke-width:3"
+     d="m 132.78602,77.873161 c -4.42189,33.145829 -16.30011,63.628689 -29.72458,93.559319"
+     id="path982"
+     sodipodi:nodetypes="cc" />
 </svg>

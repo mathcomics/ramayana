@@ -160,11 +160,12 @@ Bodies, faces and poses all come from the artist's drawings
 code still decides by a rule instead: `docs/issues/rules-to-migrate.md`;
 what looks wrong: `docs/issues/problem-poses.md`.
 
-- **18 characters** in `data/characters.json` — the cast is complete.
+- **22 characters** in `data/characters.json` (Kausalya, the sage and the
+  generic men male1, male2 added 2026-11-14).
   More generic monkeys and rakshasas come from cloth colour and a cloth
   pattern, never from new characters. Every character has a front and a
   side face drawing; there is no generated fallback — except the
-  side-only kaikeyi and raxas_f1–f3 (`sideOnly`), which have a side face only and are
+  side-only kaikeyi, kausalya and raxas_f1–f3 (`sideOnly`), which have a side face only and are
   never drawn in front view.
 - **57 poses** in `data/poses.json`, all side view (the front view is
   derived by the renderer). Each is named `<base>-<gesture>` and is

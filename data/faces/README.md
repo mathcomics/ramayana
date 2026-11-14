@@ -13,7 +13,7 @@ The artist's face drawings, in two parts (since 2026-11-06):
 missing file or view.
 
 **Side-only characters** (`sideOnly: true` in `data/characters.json`;
-kaikeyi and raxas_f1–f3, since 2026-11-12; only sita and surpanakha of the women
+kaikeyi and raxas_f1–f3 since 2026-11-12, kausalya since 2026-11-14; only sita and surpanakha of the women
 keep a front view) are only ever drawn in side view: only the
 `side` layer is imported (`front` is ignored, it may stay empty). A
 panel asking for their front view gets the side view and an issue.

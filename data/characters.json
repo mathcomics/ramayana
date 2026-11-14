@@ -50,6 +50,16 @@
       "cloth": "yellow"
     },
     {
+      "id": "kausalya",
+      "name": "Kausalya",
+      "species": "female",
+      "body": "skin-brown",
+      "top": "full",
+      "bottom": "dhoti",
+      "cloth": "yellow",
+      "sideOnly": true
+    },
+    {
       "id": "kaikeyi",
       "name": "Kaikeyi",
       "species": "female",
@@ -179,6 +189,33 @@
       "top": "full",
       "bottom": "dhoti",
       "cloth": "red-stripe"
+    },
+    {
+      "id": "sage",
+      "name": "Sage",
+      "species": "male",
+      "body": "skin-brown",
+      "top": "bare",
+      "bottom": "dhoti",
+      "cloth": "orange"
+    },
+    {
+      "id": "male1",
+      "name": "male1",
+      "species": "male",
+      "body": "skin-brown",
+      "top": "bare",
+      "bottom": "dhoti",
+      "cloth": "yellow"
+    },
+    {
+      "id": "male2",
+      "name": "male2",
+      "species": "male",
+      "body": "skin-brown",
+      "top": "bare",
+      "bottom": "dhoti",
+      "cloth": "orange"
     }
   ]
 }
