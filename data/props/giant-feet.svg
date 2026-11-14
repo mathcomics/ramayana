@@ -4,7 +4,7 @@
      facing left. Skin #d38d5f, sole #deaa87 (recolor: body = the skin;
      the sole keeps its colour). 100 px = 1 head-unit; no anchors. -->
 
-<svg data-recolor-body="#d38d5f"
+<svg data-height="6.5" data-recolor-body="#d38d5f"
    viewBox="386 398 224.84856 317.12689"
    width="224.84856"
    height="317.12689"

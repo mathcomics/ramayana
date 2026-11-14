@@ -193,7 +193,10 @@ behind them, after = in front; the retired `layer` field is an issue).
   `giant-grab` (reaching down from above), `giant-lie-waist` (the
   sleeping giant's middle), and the placeholder heads `giant-face-side`,
   `giant-face-front` (eyes shut; drawn by Claude for the artist to
-  redraw) — each cut off at the frame edge it enters
+  redraw) — each sized by its `data-height` to one giant (`giant-grab`
+  6.9, the reference; `giant-fist` 3.4, `giant-feet` 6.5,
+  `giant-lie-waist` 5.9, the faces 6.7 / 6.64), so a panel places them
+  by row with no `scale`; each cut off at the frame edge it enters
   from, and recolourable (`body`, and `cloth` on the waist) so the four
   share one skin in a panel; the placeholder `giant-fingers` in the
   locked 14.05 stays until the artist swaps it,

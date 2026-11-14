@@ -1,5 +1,5 @@
 {
-  "scene": "The rakshasa musicians, drum and horn as in 01.04, walk in past the giant's upturned soles",
+  "scene": "The rakshasa musicians, drum and horn as in 01.04, walk in past the giant's upturned sole",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
@@ -7,34 +7,29 @@
       "prop": "giant-feet",
       "facing": "left",
       "body": "#9a7a7a",
-      "at": 0.14,
-      "scale": 2.2
+      "at": 0.1
     },
     {
       "prop": "trumpet",
-      "on": "player1#hand-left",
-      "scale": 0.5
+      "on": "player1#hand-left"
     },
     {
       "id": "player1",
       "character": "raxas_m1",
       "pose": "walk-fists",
       "facing": "right",
-      "at": 0.82,
-      "scale": 0.5
+      "at": 0.82
     },
     {
       "prop": "drum",
-      "on": "player2#hand-right",
-      "scale": 0.5
+      "on": "player2#hand-right"
     },
     {
       "id": "player2",
       "character": "raxas_m2",
       "pose": "walk-armsout",
       "facing": "right",
-      "at": 0.6,
-      "scale": 0.5,
+      "at": 0.52,
       "cloth": "red-check"
     }
   ]

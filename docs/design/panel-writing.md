@@ -236,6 +236,13 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   all at one skin (`body: "#9a7a7a"`, the waist's own). Lying on his
   back, face up: `giant-face-side` `facing: "left"`, `rotate: 90`, the
   neck leaving the left edge.
+- **The giant's parts carry their true size; panels never `scale` them**
+  (artist, 2026-11-14). Each drawing's `data-height` puts it on one
+  giant, with `giant-grab` as the reference (it is the size the locked
+  14.05 uses) and the others matched to it by forearm and hand. Place
+  them by row (`front` mostly, `closeup` for a close face), with the
+  rakshasas and monkeys beside them at their own size too: a man is
+  about as tall as the giant's head.
 
 ## After writing
 

@@ -8,18 +8,15 @@
       "id": "face",
       "facing": "left",
       "rotate": 90,
-      "at": 0.16,
-      "scale": 1.7
+      "at": 0.18
     },
     {
       "prop": "food-heap",
-      "at": 0.4,
-      "scale": 0.9
+      "at": 0.48
     },
     {
       "prop": "food-platter",
-      "on": "server#hands",
-      "scale": 0.4
+      "on": "server#hands"
     },
     {
       "id": "server",
@@ -27,21 +24,18 @@
       "pose": "step-reachup",
       "facing": "left",
       "at": 0.66,
-      "scale": 0.4,
       "cloth": "red-check"
     },
     {
       "prop": "food-platter",
-      "on": "carrier#hands",
-      "scale": 0.4
+      "on": "carrier#hands"
     },
     {
       "id": "carrier",
       "character": "raxas_m1",
       "pose": "walk-reachup",
       "facing": "left",
-      "at": 0.86,
-      "scale": 0.4,
+      "at": 0.88,
       "cloth": "red-diamond"
     }
   ],

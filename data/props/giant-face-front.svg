@@ -5,7 +5,7 @@
      Lying on his back seen from above, or rolled toward the reader:
      "rotate": 90 (the neck then leaves the left edge). Skin #9a7a7a, as
      giant-lie-waist (recolor: body). 100 px = 1 head-unit; no anchors. -->
-<svg data-recolor-body="#9a7a7a" viewBox="0 0 320 360" width="320" height="360"
+<svg data-height="6.64" data-recolor-body="#9a7a7a" viewBox="0 0 320 360" width="320" height="360"
    version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path style="fill:#9a7a7a;stroke:#000000;stroke-width:3"
      d="M 112 360 L 116 280 L 204 280 L 208 360 Z" />

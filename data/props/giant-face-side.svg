@@ -5,7 +5,7 @@
      panel). Laid on his back, face up: "facing": "left", "rotate": 90
      (the neck then leaves the left edge). Skin #9a7a7a, as
      giant-lie-waist (recolor: body). 100 px = 1 head-unit; no anchors. -->
-<svg data-recolor-body="#9a7a7a" viewBox="0 0 300 340" width="300" height="340"
+<svg data-height="6.7" data-recolor-body="#9a7a7a" viewBox="0 0 300 340" width="300" height="340"
    version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path style="fill:#9a7a7a;stroke:#000000;stroke-width:3"
      d="M 95 340 L 100 262 L 195 262 L 190 340 Z" />

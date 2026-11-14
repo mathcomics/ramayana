@@ -1,5 +1,5 @@
 {
-  "scene": "Kumbhakarna asleep, his head on the ground; one small rakshasa looks up at it",
+  "scene": "Kumbhakarna asleep, his head on the ground; a rakshasa looks down at it",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
@@ -8,17 +8,15 @@
       "id": "face",
       "facing": "left",
       "rotate": 90,
-      "at": 0.18,
-      "scale": 2
+      "at": 0.18
     },
     {
       "character": "raxas_m1",
       "pose": "step-hang",
       "facing": "left",
-      "at": 0.78,
-      "scale": 0.4,
+      "at": 0.62,
       "adjust": {
-        "spine.head": -20
+        "spine.head": 25
       }
     }
   ],

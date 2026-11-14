@@ -5,7 +5,7 @@
      top and right; bottom edge on the ground. Skin #9a7a7a, cloth #ffcc00
      (recolor: body, cloth). 100 px = 1 head-unit; no anchors. -->
 
-<svg data-recolor-body="#9a7a7a" data-recolor-cloth="#ffcc00"
+<svg data-height="5.9" data-recolor-body="#9a7a7a" data-recolor-cloth="#ffcc00"
    viewBox="386 398 257.29792 191.31954"
    width="257.29791"
    height="191.31953"

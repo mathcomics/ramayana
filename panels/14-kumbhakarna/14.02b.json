@@ -1,50 +1,34 @@
 {
-  "scene": "Close on his belly: a drummer beats under his hanging hand, another hauls on a finger; he sleeps on",
+  "scene": "At his belly: a rakshasa hauls on a finger of his hanging hand, a drummer beats beside it; he sleeps on",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
     {
       "prop": "giant-lie-waist",
       "id": "belly",
-      "at": 0.47,
-      "row": "floor",
-      "scale": 6.4
+      "at": 0.82
     },
     {
       "id": "puller",
       "character": "raxas_m1",
       "pose": "leanback-reach",
       "facing": "right",
-      "at": 0.12,
-      "scale": 0.4
+      "at": 0.5
     },
     {
       "prop": "drum",
-      "on": "player1#hand-right",
-      "scale": 0.4
+      "on": "player1#hand-right"
     },
     {
       "id": "player1",
       "character": "raxas_m2",
       "pose": "stepwide-armsout",
-      "facing": "left",
-      "at": 0.72,
-      "scale": 0.4,
+      "facing": "right",
+      "at": 0.2,
       "cloth": "red-check"
-    },
-    {
-      "prop": "trumpet",
-      "on": "player2#hand-right",
-      "scale": 0.4
-    },
-    {
-      "id": "player2",
-      "character": "raxas_m1",
-      "pose": "step-fists",
-      "facing": "left",
-      "at": 0.9,
-      "scale": 0.4,
-      "cloth": "red-diamond"
     }
+  ],
+  "needs": [
+    "prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row"
   ]
 }

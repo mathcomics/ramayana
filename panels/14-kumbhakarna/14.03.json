@@ -1,5 +1,5 @@
 {
-  "scene": "Water: from a ladder at his head a rakshasa tips a pot over his face; another brings more",
+  "scene": "Water: a rakshasa tips a pot over his face; another brings more",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
@@ -8,42 +8,30 @@
       "id": "face",
       "facing": "left",
       "rotate": 90,
-      "at": 0.16,
-      "scale": 1.7
-    },
-    {
-      "prop": "ladder",
-      "id": "ladder",
-      "at": 0.4,
-      "row": 0,
-      "scale": 0.55
+      "at": 0.18
     },
     {
       "prop": "water-pot",
-      "on": "pourer#hands",
-      "scale": 0.4
+      "on": "pourer#hands"
     },
     {
       "id": "pourer",
       "character": "raxas_m2",
-      "pose": "step-reach",
+      "pose": "step-reachup",
       "facing": "left",
-      "on": "ladder#stand-high",
-      "scale": 0.4,
+      "at": 0.5,
       "cloth": "red-check"
     },
     {
       "prop": "water-pot",
-      "on": "carrier#hands",
-      "scale": 0.4
+      "on": "carrier#hands"
     },
     {
       "id": "carrier",
       "character": "raxas_m1",
       "pose": "walk-overhead",
       "facing": "left",
-      "at": 0.82,
-      "scale": 0.4
+      "at": 0.82
     }
   ],
   "needs": [

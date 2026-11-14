@@ -1,5 +1,5 @@
 {
-  "scene": "Top view: the sleeping giant's face from above, small rakshasas gathered round it",
+  "scene": "Top view: the sleeping giant's face from above, rakshasas gathered round it",
   "tall": 1,
   "ground": "light-grey",
   "figures": [
@@ -7,46 +7,34 @@
       "prop": "giant-face-front",
       "id": "face",
       "rotate": 90,
-      "at": 0.29,
-      "scale": 1.8,
+      "at": 0.3,
       "row": 0.3
     },
     {
       "prop": "male-top",
       "character": "raxas_m1",
-      "at": 0.82,
-      "row": 0.62,
-      "scale": 0.8
+      "at": 0.86,
+      "row": 0.7
     },
     {
       "prop": "male-top",
       "character": "raxas_m2",
       "at": 0.88,
-      "row": 0.32,
-      "scale": 0.8,
+      "row": 0.3,
       "cloth": "red-check"
     },
     {
       "prop": "male-top-back",
       "character": "raxas_m1",
-      "at": 0.6,
-      "row": 0.08,
-      "scale": 0.8,
+      "at": 0.55,
+      "row": 0.04,
       "cloth": "red-diamond"
-    },
-    {
-      "prop": "male-top",
-      "character": "raxas_m2",
-      "at": 0.76,
-      "row": 0.88,
-      "scale": 0.8
     },
     {
       "prop": "female-top",
       "character": "raxas_f2",
-      "at": 0.6,
-      "row": 0.82,
-      "scale": 0.8
+      "at": 0.66,
+      "row": 0.9
     }
   ],
   "needs": [

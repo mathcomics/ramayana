@@ -7,13 +7,11 @@
       "prop": "giant-face-front",
       "id": "face",
       "rotate": 90,
-      "at": 0.07,
-      "scale": 1.5
+      "at": 0.07
     },
     {
       "prop": "drum",
-      "at": 0.4,
-      "scale": 0.45,
+      "at": 0.36,
       "rotate": 90
     },
     {
@@ -21,7 +19,6 @@
       "pose": "runlow-pumplow",
       "facing": "right",
       "at": 0.5,
-      "scale": 0.45,
       "cloth": "red-diamond",
       "turn": 180
     },
@@ -29,25 +26,15 @@
       "character": "raxas_m2",
       "pose": "leap-reach",
       "facing": "right",
-      "at": 0.66,
-      "row": 0.15,
-      "scale": 0.45,
+      "at": 0.7,
+      "row": 0.12,
       "cloth": "red-check"
-    },
-    {
-      "character": "raxas_m2",
-      "pose": "runwide-hang",
-      "facing": "right",
-      "at": 0.8,
-      "scale": 0.45,
-      "mouth": 3
     },
     {
       "character": "raxas_m1",
       "pose": "run-pump",
       "facing": "right",
-      "at": 0.95,
-      "scale": 0.45,
+      "at": 0.92,
       "cloth": "red-check"
     }
   ],

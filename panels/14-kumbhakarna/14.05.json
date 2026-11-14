@@ -49,8 +49,7 @@
       "at": 0.57,
       "facing": "left",
       "prop": "giant-grab",
-      "row": 0.5,
-      "scale": 4
+      "row": 0.5
     }
   ]
 }
