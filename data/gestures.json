@@ -322,44 +322,44 @@
       }
     },
     "barrier": {
+      "chest": 20.1,
       "desc": "both hands low and forward, the point at the ground ahead (longsword guard: Schrankhut, the barrier guard)",
+      "head": -33,
       "hold": [
         "right",
         "left"
       ],
-      "use": [
-        "threaten",
-        "shield"
-      ],
-      "chest": 20.1,
-      "head": -33,
       "lean": 19.9,
       "left": {
         "elbow": 10,
-        "elbowOut": -18.1,
+        "elbowOut": -19.1,
         "hand": "fist",
         "out": 10,
         "shoulder": 80,
         "twist": 0,
         "wrist": 0
       },
-      "mouth": 1,
+      "mouth": 2,
       "neck": 8,
       "right": {
-        "elbow": 10,
+        "elbow": 0,
         "elbowOut": 0,
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -106,
+          "angle": -20,
           "grip": "both",
           "kind": "sword",
           "out": 0
         },
         "shoulder": 104.3,
         "twist": 0,
-        "wrist": 0
-      }
+        "wrist": -90
+      },
+      "use": [
+        "threaten",
+        "shield"
+      ]
     },
     "beckon": {
       "chest": -10,
