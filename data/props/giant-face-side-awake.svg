@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- PLACEHOLDER, to be redrawn by the artist: the giant Kumbhakarna's head
-     in side view, facing right, eyes shut (asleep), a tusk at the mouth;
-     the neck cut straight at the bottom edge (it enters from outside the
-     panel). Laid on his back, face up: "facing": "left", "rotate": 90
-     (the neck then leaves the left edge). Skin #9a7a7a, as
-     giant-lie-waist (recolor: body). 100 px = 1 head-unit; no anchors. -->
+<!-- The giant Kumbhakarna's head, side view, facing right, eyes open; the neck cut straight at
+     the bottom edge (it enters from outside the panel). Laid on his back, face up: "facing": "left", "rotate": 90 (the neck
+     then leaves the left edge).
+     Skin #9a7a7a, as giant-lie-waist (recolor: body). 100 px = 1
+     head-unit; no anchors. -->
 
 <svg
    data-height="6.7"
