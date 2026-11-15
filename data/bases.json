@@ -435,6 +435,35 @@
         "turn": 35
       }
     },
+    "oneleg": {
+      "desc": "standing on one leg, the other knee bent and the foot raised behind (as in courting)",
+      "ground": "feet",
+      "lean": 5,
+      "left": {
+        "ankle": -3,
+        "hip": 5,
+        "knee": 5,
+        "kneeOut": 0,
+        "out": 2,
+        "toe": 0
+      },
+      "right": {
+        "ankle": -88.5,
+        "hip": 33.1,
+        "knee": 104.7,
+        "kneeOut": 0,
+        "out": 2,
+        "toe": 0
+      },
+      "tail": {
+        "curl": 220,
+        "lift": -30,
+        "turn": 35
+      },
+      "use": [
+        "walk"
+      ]
+    },
     "pass": {
       "desc": "walking, one leg passing the other",
       "ground": "feet",

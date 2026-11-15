@@ -361,6 +361,39 @@
         "wrist": 0
       }
     },
+    "beckon": {
+      "chest": -10,
+      "desc": "right arm reaching forward at shoulder height, the open hand bent down, calling someone near; left arm low",
+      "head": -5,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 59,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 11,
+        "shoulder": -53,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 2,
+      "neck": 10,
+      "right": {
+        "elbow": 28.5,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 11,
+        "shoulder": 76.6,
+        "twist": 0,
+        "wrist": -49.5
+      },
+      "use": [
+        "hold",
+        "plead"
+      ]
+    },
     "bow": {
       "desc": "chest bowed forward, palms together, head low",
       "hold": [],
