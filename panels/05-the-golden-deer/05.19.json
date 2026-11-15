@@ -1,13 +1,13 @@
 {
   "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
-  "tall": 1.5,
+  "tall": 1,
   "ground": "sand",
   "figures": [
     {
       "character": "sita",
-      "pose": "leanback-flung",
+      "pose": "arch-flung",
       "facing": "right",
-      "at": 0.3,
+      "at": 0.45,
       "hands": {
         "right": "in"
       }
@@ -17,8 +17,12 @@
       "cloth": "orange",
       "pose": "leanfront-beckon",
       "facing": "left",
-      "at": 0.65,
-      "id": "ascetic"
+      "at": 0.7,
+      "id": "ascetic",
+      "nudge": [
+        0,
+        0.15
+      ]
     }
   ],
   "needs": [
