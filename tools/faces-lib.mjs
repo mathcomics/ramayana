@@ -1,6 +1,8 @@
-// Reading the face SVGs (base faces and character faces): shared by
-// tools/import-faces.mjs and tools/face-templates.mjs.
-import { readFileSync } from 'node:fs';
+// Reading the face SVGs (base faces and character faces) and composing
+// them into the faces the renderer draws (composeFaces): used by
+// tools/lib.mjs (loadFaces), tools/check-faces.mjs and tools/face-templates.mjs.
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { parse, serialize, label, esc, withoutDisplay } from './svg.mjs';
 import { r4 } from './svg-geom.mjs';
 
@@ -40,7 +42,7 @@ function findCircles(node, out = {}) {
   return out;
 }
 // one view group -> { layers: {name: '<g…>'}, anchors: {name: [x, y]}, defs }
-function readView(v, where) {
+function readView(v, where, warn) {
   // layers named only by id ("front-over"): drop the view prefix
   const pre = `${label(v)}-`;
   (function relabel(n) {
@@ -59,7 +61,7 @@ function readView(v, where) {
   // loose drawing outside any named layer belongs to "over"
   const loose = v.children.filter((c) => c.tag && !/^(defs|metadata|sodipodi:|inkscape:|title|desc)/.test(c.tag)
     && !(c.tag === 'g' && (LAYERS.includes(label(c)) || label(c).startsWith('guide') || label(c) === 'anchors' || Object.values(found).some((f) => contains(c, f.node)))));
-  if (loose.length) console.error(`  ! ${where}: ${loose.length} element(s) outside a layer, put in "over"`);
+  if (loose.length) warn(`${where}: ${loose.length} element(s) outside a layer, put in "over"`);
   const layers = {};
   for (const [name, { chain: chain0, node }] of Object.entries(found)) {
     const inner = node.children.filter(drawn).map((c) => serialize(shown(c))).join('');
@@ -87,17 +89,116 @@ const shown = (n) => {
 // the drawing: dropped on import.
 const drawn = (n) => n.tag !== 'image';
 const contains = (a, b) => a === b || (a.children || []).some((c) => c.tag && contains(c, b));
-export function readFile(file) {
+// warn: where problems in the drawing are reported (default: printed)
+export function readFile(file, warn = (m) => console.error(`  ! ${m}`)) {
   const svg = parse(readFileSync(file, 'utf8')).children.find((c) => c.tag === 'svg');
   if (!svg) throw new Error(`${file}: no <svg>`);
   const out = {};
-  for (const v of svg.children.filter((c) => c.tag === 'g' && VIEWS.includes(label(c)))) out[label(v)] = readView(v, `${file} (${label(v)})`);
+  for (const v of svg.children.filter((c) => c.tag === 'g' && VIEWS.includes(label(c)))) out[label(v)] = readView(v, `${file} (${label(v)})`, warn);
   return out;
 }
 // the base's skin is painted with the character's body colour
 export const paintSkin = (g) => recolorFills(g, 'currentColor');
 // every fill in markup (style or attribute; not "none") set to one colour
 export const recolorFills = (g, c) => g.replace(/fill\s*:\s*(?!none)[^;"]+/g, `fill:${c}`).replace(/fill="(?!none)[^"]*"/g, `fill="${c}"`);
+
+// ---- composing the faces (data/faces/README.md)
+// Views (top-level layers; docs/proposals/2026-11-12-head-rendering-survey.md):
+// front, side, and the optional quarter (30°, looking right), back-view
+// (180°), front-down (40° down), top (90° down) and front-up.
+// <dir>/base/<species>.svg: per view skin, eyes, mouth-1/2/3, anchors
+// (top, chin).
+// <dir>/<id>.svg: per view back, hair-body, under, over, optional eyes
+// and mouth-1/2/3 (replace the base's), anchors (nape). A view the base has
+// no face drawing for is the whole head as drawn in the character's file,
+// with the base's mouths for that view (quarter, front-down) unless it has
+// its own.
+// Layer offsets (the top-level layers' own transforms) are ignored; a moved
+// guide moves the origin with it. The drawings are copied unchanged (with
+// the transforms of their groups); only the base's skin is painted
+// currentColor, so the renderer fills it with the character's body colour.
+//
+// For each character and view:
+//   head  = under, skin, eyes, over
+//   mouth = { 1, 2, 3 }                     (drawn over the head)
+//   back, hairBody, nape, defs
+//   front-up / front-down: when the base draws that version and the
+//     character does not, the character's front under / over moved and
+//     stretched so that the base's top and chin anchors land on that
+//     version's.
+//   A sideOnly character (data/characters.json) gets the side view only.
+//
+// Coordinates: head-units, head centre at (0, 0). Returns { faces: { <id>:
+// { <view>: entry } }, bases: { <species>: [views with a skin] }, errors,
+// warnings }; errors are what leaves a character without a face (no file,
+// no base, no front / side layer), warnings what the artist should fix.
+export function composeFaces(dir, cast) {
+  const errors = [], warnings = [];
+  const warn = (m) => warnings.push(m);
+  const bases = {}, baseViews = {};
+  for (const f of readdirSync(join(dir, 'base')).filter((x) => x.endsWith('.svg'))) {
+    const species = f.replace(/\.svg$/, '');
+    const B = readFile(join(dir, 'base', f), warn);
+    for (const v of ['front', 'side']) if (!B[v]?.layers.skin) warn(`base ${species}: no ${v} skin`);
+    bases[species] = B;
+    baseViews[species] = Object.entries(B).filter(([, x]) => x.layers.skin).map(([k]) => k);
+  }
+  const faces = {};
+  const compose = (bv, L, own) => {
+    const BL = bv.layers;
+    const head = (L.under || '') + (BL.skin ? paintSkin(BL.skin) : '') + (own.eyes ?? BL.eyes ?? '') + (L.over || '');
+    const mouth = {};
+    for (const k of ['1', '2', '3']) { const m = own[`mouth-${k}`] ?? BL[`mouth-${k}`]; if (m) mouth[k] = m; }
+    return { head, mouth };
+  };
+  for (const c of cast) {
+    const file = join(dir, `${c.id}.svg`);
+    if (!existsSync(file)) { errors.push(`${c.id}: no data/faces/${c.id}.svg`); continue; }
+    const B = bases[c.species];
+    if (!B) { errors.push(`${c.id}: no base face for ${c.species}`); continue; }
+    const X = readFile(file, warn);
+    for (const view of c.sideOnly ? ['side'] : ['front', 'side']) if (!X[view]) errors.push(`${c.id}: no ${view} layer`);
+    for (const view of c.sideOnly ? ['side'] : VIEWS) {
+      const x = X[view];
+      let e;
+      if (x) {
+        const own = { eyes: x.layers.eyes, 'mouth-1': x.layers['mouth-1'], 'mouth-2': x.layers['mouth-2'], 'mouth-3': x.layers['mouth-3'] };
+        // on the base's drawing of this view, or (no base face drawn there)
+        // the whole head as drawn in the character's file, with the base's
+        // eyes / mouths for this view where the base has them (the base's
+        // quarter and front-down hold only mouths)
+        e = compose(B[view] || { layers: {} }, x.layers, own);
+        if (x.layers.back) e.back = x.layers.back;
+        if (x.layers['hair-body']) {
+          e.hairBody = x.layers['hair-body'];
+          if (x.anchors.nape) e.nape = x.anchors.nape;
+          else warn(`${c.id} ${view}: hair-body layer but no nape anchor (using 0, 0.65)`);
+        }
+        const defs = (B[view]?.defs || '') + (x.defs || '');
+        if (!B[view]?.layers.skin && !Object.keys(e.mouth).length && ['quarter', 'front-down'].includes(view)) warn(`${c.id} ${view}: no mouths (the base's ${view} view or the character's own)`);
+        if (defs.trim()) e.defs = defs;
+      } else if ((view === 'front-up' || view === 'front-down') && B[view]?.layers.skin && X.front) {
+        // the base draws the raised / lowered head and the character does not:
+        // its front layers (and anything the version lacks: eyes, mouths)
+        // follow the anchors, moved and stretched so that the level face's top
+        // and chin land on this version's
+        const bv = B[view], xf = X.front;
+        const a0 = B.front.anchors, a1 = bv.anchors;
+        if (!a0.top || !a0.chin || !a1.top || !a1.chin) { warn(`base ${c.species} ${view}: needs top and chin anchors`); continue; }
+        const sc = (a1.chin[1] - a1.top[1]) / (a0.chin[1] - a0.top[1]);
+        const t = `matrix(1 0 0 ${r4(sc)} ${r4(a1.top[0] - a0.top[0])} ${r4(a1.top[1] - a0.top[1] * sc)})`;
+        const follow = (g) => g && `<g transform="${t}">${g}</g>`;
+        const pick = (k) => (xf.layers[k] ? follow(xf.layers[k]) : bv.layers[k] ? undefined : follow(B.front.layers[k]));
+        e = compose(bv, { under: follow(xf.layers.under), over: follow(xf.layers.over) }, { eyes: pick('eyes'), 'mouth-1': pick('mouth-1'), 'mouth-2': pick('mouth-2'), 'mouth-3': pick('mouth-3') });
+        if (xf.layers.back) e.back = follow(xf.layers.back);
+      } else continue;
+      (faces[c.id] ||= {})[view] = e;
+    }
+  }
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.svg')))
+    if (!cast.some((c) => `${c.id}.svg` === f)) warn(`${f}: face for a character not in data/characters.json`);
+  return { faces, bases: baseViews, errors, warnings };
+}
 
 
 // ---- writing a parsed SVG back (pretty-printed; for refreshing guides)

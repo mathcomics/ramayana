@@ -77,7 +77,7 @@ scene spec (JSON) → layout → figure geometry → SVG
     node tools/pose-gaps.mjs --scenes 04           # docs/issues/missing-poses.md; candidates per scene
     node tools/prop-gaps.mjs                       # docs/issues/missing-props.md; placeholder props per panel
     node tools/import-held.mjs                     # data/props/held/{sword,club,bow}.svg -> data/held.json
-    node tools/import-faces.mjs                    # data/faces/*.svg -> data/faces.json
+    node tools/check-faces.mjs                     # face drawings: what composes, what to fix
     node tools/view-gaps.mjs                       # docs/issues/missing-views.md: head views to draw
 
 Pose lab (published artifact; edits bases and gestures, angles and

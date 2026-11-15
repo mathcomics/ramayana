@@ -19,9 +19,10 @@ wrong: `docs/issues/problem-poses.md`.
   `commit-pose-lab` skill; merged saves are then deleted from the lab,
   since a save overrides the repo entry there).
 - **Faces and parts are the artist's drawings**: never edit their curves
-  or colours; only place, rotate, mirror. Import with the tools
-  (`import-faces`, `import-parts`, `import-held`); they report
-  mismatches for the artist to fix in the drawings.
+  or colours; only place, rotate, mirror. Parts and held props are
+  imported (`import-parts`, `import-held`); faces are composed from the
+  drawings when loaded, with no import (`check-faces` reports). The tools
+  report mismatches for the artist to fix in the drawings.
 - **Props**: art in `data/props/<id>.svg` (any SVG there is a prop, no
   registration), 100 px = 1 head-unit, size from the viewBox (or the
   real height in head-units from `data-height` on the root, which scales

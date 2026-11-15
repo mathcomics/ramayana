@@ -37,10 +37,12 @@ character (`sideOnly` in `data/characters.json`) has the side view only.
 - Coordinates: head-units, head centre at (0, 0), y down; the face looks
   picture-right in the side and three-quarter views.
 
-`node tools/import-faces.mjs` composes base + character into
-`data/faces.json`: per character, per view, `head` (under, skin, eyes,
-over), `mouth` (1–3), `back`, `hairBody`, `nape` and `defs`. It reports a missing file, or a missing
-front or side view.
+The faces are composed from the drawings each time they are loaded
+(`loadFaces` in `tools/lib.mjs`, `composeFaces` in `tools/faces-lib.mjs`;
+no generated file): per character, per view, `head` (under, skin, eyes,
+over), `mouth` (1–3), `back`, `hairBody`, `nape` and `defs`.
+`node tools/check-faces.mjs` lists the composition and reports a missing
+file, a missing front or side view, and anything else to fix in a drawing.
 
 ## Views to draw
 

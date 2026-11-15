@@ -1,4 +1,4 @@
-// Small SVG helpers for tools/import-faces.mjs: a minimal XML tree (enough
+// Small SVG helpers for tools/faces-lib.mjs: a minimal XML tree (enough
 // for SVG written by drawing apps).
 
 // ---- a minimal XML tree (enough for SVG written by drawing apps) ---------

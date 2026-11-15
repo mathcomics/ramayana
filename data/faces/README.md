@@ -9,7 +9,7 @@ The artist's face drawings, in two parts (since 2026-11-06):
   base face (hair, crown, beard, marks…), in its own colours.
 
 **Every character must have a front and a side face** (decided
-2026-11-04): there is no generated fallback. `import-faces` reports a
+2026-11-04): there is no generated fallback. `check-faces` reports a
 missing file or view.
 
 **Side-only characters** (`sideOnly: true` in `data/characters.json`;
@@ -58,9 +58,11 @@ still to draw: `docs/issues/missing-views.md` (`node tools/view-gaps.mjs`).
    attribute per line), so the first diff after an Inkscape save is large.
    The guide shows the species' torso and neck (no limbs) and, in
    character files, the base face.
-3. Run `node tools/import-faces.mjs` (writes `data/faces.json`, used by the
-   renderer and the labs), then `node tools/face-sheet.mjs` to check all
-   characters on one page.
+3. Run `node tools/check-faces.mjs` (what each face is composed of, and
+   anything to fix in the drawings), then `node tools/face-sheet.mjs` to
+   check all characters on one page. There is no import step: the faces
+   are composed from these drawings whenever the renderer, the labs or
+   the site load them.
 
 The drawings are never edited by the renderer: each layer is copied
 unchanged (with its groups' transforms) and the whole face is moved,

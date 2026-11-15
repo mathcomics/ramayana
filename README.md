@@ -68,7 +68,6 @@ tools/figure-svg.mjs     one character, one pose → editable SVG, one path per 
 tools/build-poselab.mjs  builds the pose lab page → out/poselab.html
 tools/poselab.template.html  pose lab source
 data/faces/              the artist's faces: base/<species>.svg + <character>.svg (own README)
-data/faces.json          imported faces (generated; do not edit)
 out/, _site/             generated (not committed)
 ```
 
@@ -85,7 +84,7 @@ node tools/pose-gaps.mjs --scenes 04           # missing poses; candidate poses 
 node tools/figure-svg.mjs rama --pose stand      # out/figure-rama-stand-side/front.svg (or --pose-file x.json)
 node tools/build-poselab.mjs                   # rebuild the pose lab page
 node tools/face-templates.mjs                  # character templates; refresh guides after a base change
-node tools/import-faces.mjs                    # data/faces/base + data/faces/*.svg → data/faces.json
+node tools/check-faces.mjs                     # face drawings: what composes, what to fix
 node tools/face-sheet.mjs                      # all characters on one US-letter page (PNG + PDF)
 node tools/render-panels.mjs [02]              # panel screens → out/panels/, lists issues and needs
 node tools/build-site.mjs                      # reader site → _site/

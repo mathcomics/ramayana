@@ -20,7 +20,7 @@ these: `docs/issues/rules-to-migrate.md`.
 | arch-overhead (side) | all | The head is tipped far back and hidden behind the raised arm | Pose: less head tilt, or the arm a little lower |
 | fallback-flung (front) | all | The raised legs come over the belly | Correct for the pose (legs toward the viewer); change the pose if not wanted |
 | (faces) | rakshasa men, sugriva, monkey1, raxas_m2, dasharatha | Keep their own eyes or mouths after the face split, so base edits don't reach them | Face files: delete the character's `eyes` / `mouth-*` layers where the base should be used |
-| all (side) | female characters | A small bump on top of the head: the front hair reaches 0.11 head-units higher than the side hair, so the side gets a rounded cap | Face files: match the hair heights in front and side (`import-faces` lists every mismatch) |
+| all (side) | female characters | A small bump on top of the head: the front hair reaches 0.11 head-units higher than the side hair, so the side gets a rounded cap | Face files: match the hair heights in front and side (`check-faces` lists every mismatch) |
 | front poses with the head turned away (`look: right`, side view) | all | The back of the head shows the skin colour where no hair is drawn behind | Face files: hair or a cap drawn to cover the back, if wanted |
 | kneel, kneel-bow, kneel-palms (side) | all | The forward foot hovers ~0.35 head-units above the ground (the back shin and foot carry the ground contact); seen from the new `joints.low` measurements | Pose lab: forward leg's hip / knee so the foot lands; the pin-feet toggle will then keep it there |
 | sit (side) | all | The stretched left foot's heel hovers ~0.65 above the ground | Pose lab: left knee / ankle so the heel rests |

@@ -6,6 +6,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { backgroundInner } from '../src/scene.js';
 import { composePoses, splitPoseName } from '../src/compose.js';
+import { composeFaces } from './faces-lib.mjs';
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const read = (p) => readFileSync(join(root, p), 'utf8');
@@ -164,6 +165,16 @@ export function loadPoses(species = loadSpecies(), names = null) {
   return composePoses(species.male, D.bases, D.gestures, names || examplePairs(D));
 }
 
+// The faces, composed from the artist's drawings each time they are loaded
+// (data/faces/base/<species>.svg + data/faces/<id>.svg; tools/faces-lib.mjs
+// composeFaces): { faces: { <id>: { <view>: { head, mouth, back, hairBody,
+// nape, defs } } } }. A character whose drawing is missing is left out
+// (npm test fails); node tools/check-faces.mjs reports every problem.
+let facesCache;
+export function loadFaces() {
+  return facesCache ||= { faces: composeFaces(join(root, 'data/faces'), json('data/characters.json').characters).faces };
+}
+
 export function loadAssets() {
   const species = loadSpecies();
   const D = loadPoseData();
@@ -173,7 +184,7 @@ export function loadAssets() {
     // (src/scene.js, findPose)
     poseParts: { bases: D.bases, gestures: D.gestures },
     characters: json('data/characters.json'),
-    faces: json('data/faces.json'),
+    faces: loadFaces(),
     props: loadProps(),
     grounds: json('data/grounds.json'),
   };

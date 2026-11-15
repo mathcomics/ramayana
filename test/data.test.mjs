@@ -124,9 +124,8 @@ test('props: data-height sets the real height; anchors scale with the drawing', 
   assert.ok(n >= 4, 'ladder, trees-side, hut-side, deer-stand carry data-height');
 });
 
-// The renderer reads data/faces.json, not the drawings: a face drawing
-// committed without re-running the import never reaches the site.
-test('data/faces.json is up to date with data/faces/*.svg', () => {
-  const r = spawnSync(process.execPath, [join(root, 'tools/import-faces.mjs'), '--check'], { encoding: 'utf8' });
-  assert.equal(r.status, 0, r.stderr.split('\n').filter((l) => /out of date/.test(l)).join('\n') || r.stderr);
+// Every character's face composes from its drawing and its species' base.
+test('faces: every drawing composes (node tools/check-faces.mjs)', () => {
+  const r = spawnSync(process.execPath, [join(root, 'tools/check-faces.mjs')], { encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr);
 });

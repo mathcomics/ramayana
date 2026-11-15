@@ -13,7 +13,8 @@ export const SPECIES = lib.loadSpecies();
 // composed as the renderer gets them
 export const POSES = lib.loadPoses(SPECIES);
 export const CAST = json('data/characters.json');
-export const FACES = json('data/faces.json');
+// the faces composed from the drawings (tools/lib.mjs loadFaces)
+export const FACES = lib.loadFaces();
 
 // SVG with page-global clip/pattern ids replaced, so a render's hash does not
 // depend on how many figures were drawn before it.

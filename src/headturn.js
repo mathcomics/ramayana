@@ -37,7 +37,7 @@ export function headMatrix(tilt, turn, front) {
   return front ? [B[0], B[1], B[2]] : [B[2], B[1], B[0].map((v) => -v)];
 }
 
-// The face's views (data/faces.json), each the head as drawn at a yaw and
+// The face's views (tools/lib.mjs loadFaces), each the head as drawn at a yaw and
 // pitch (htRot): quarter looks picture-right; turns to the other side use the
 // drawing mirrored. front-up is not one of the intended views but is used
 // when drawn.

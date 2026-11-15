@@ -73,7 +73,7 @@ for (const sp of ['male', 'female', 'monkey']) {
   const { face, mouths } = baseViews(sp);
   md += `| ${sp} | ${face.join(', ')} | ${mouths.join(', ') || '—'} |\n`;
 }
-// a base draws a view's face when it has a skin layer (as import-faces
+// a base draws a view's face when it has a skin layer (as composeFaces
 // reads it); mouths only: mouths and no skin
 function baseViews(sp) {
   const B = readFile(join(root, 'data/faces/base', `${sp}.svg`));

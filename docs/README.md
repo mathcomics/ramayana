@@ -9,6 +9,7 @@
 ## Design
 
 - `design/style-bible.md` — the visual rules; the renderer is judged against them.
+- `design/pipeline.md` — how drawings and JSON reach the renderer, the labs and the reader site (a Mermaid diagram).
 - `design/drawn-parts.md` — bodies from the artist's part drawings: the parts files, how a figure is built.
 - `design/faces.md` — faces: the drawing files, and how a head is turned and tilted from its front and side drawings.
 - `design/panels.md` — the panel language, the panel lab and publishing.
