@@ -12,13 +12,12 @@
    id="svg14"
    sodipodi:docname="trees-top.svg"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs18" />
-  <sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs18" /><sodipodi:namedview
      id="namedview16"
      pagecolor="#ffffff"
      bordercolor="#000000"
@@ -28,87 +27,72 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.0414203"
-     inkscape:cx="441.22434"
-     inkscape:cy="324.07664"
-     inkscape:window-width="2560"
-     inkscape:window-height="1494"
-     inkscape:window-x="-11"
+     inkscape:zoom="0.52071015"
+     inkscape:cx="454.18742"
+     inkscape:cy="413.85788"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg14" />
-  <path
-     style="fill:#45563b;fill-opacity:1"
-     d="m 46.0909,564.61352 c 42.927064,15.57945 98.27331,90.63372 266.94313,49.93181 L 465.71013,326.4772 C 574.31217,314.287 682.99852,303.19281 794.10779,323.59652 L 797.9487,154.59656 C 264.07526,137.6442 166.51926,330.01195 46.0909,564.61352 Z"
+     inkscape:current-layer="g12" /><path
      id="path247"
-     sodipodi:nodetypes="cccccc" />
-  <g
+     style="fill:#45563b;fill-opacity:1"
+     d="M 578.38086 147.71875 C 453.34219 147.74518 358.90466 163.65863 309.76758 238.30469 C 291.66599 231.75035 287.41661 242.59844 283.72266 253.94336 C 278.60087 265.18201 265.79479 269.38603 258.5 254.93555 C 237.92722 261.82881 236.79249 279.5461 238.80469 286.94922 C 225.41647 287.9991 219.35463 295.68573 216.79102 300.41016 C 142.711 367.31921 85.043198 465.64496 56.884766 543.60742 C 46.998314 546.20618 39.558837 550.54674 46.091797 564.61328 C 54.393392 591.39324 66.266183 583.93063 79.693359 583.1582 C 103.37501 597.9142 128.91665 631.16343 179.6875 623.35742 C 190.3261 634.62527 205.61514 634.09795 224.20703 626.48242 C 255.13464 632.35385 282.64191 626.75965 313.0332 614.54492 L 465.71094 326.47656 C 492.77467 323.43878 519.84273 320.47026 546.95312 318.03906 C 587.05041 331.72697 621.24937 326.15957 654.87695 312.30664 C 663.83431 324.57264 669.97916 317.19343 676.49023 312.41406 C 691.44997 320.32117 706.09314 329.65434 731.11133 315.17773 C 749.81288 331.42432 772.95491 320.1902 794.10742 323.5957 L 797.94922 154.5957 C 717.77181 152.04982 643.87727 147.70491 578.38086 147.71875 z M 262.38281 277.98633 A 7.4417601 7.2017031 0 0 1 269.82422 285.1875 A 7.4417601 7.2017031 0 0 1 262.38281 292.38867 A 7.4417601 7.2017031 0 0 1 254.93945 285.1875 A 7.4417601 7.2017031 0 0 1 262.38281 277.98633 z M 325.51758 277.98633 A 7.4417601 7.2017031 0 0 1 332.95898 285.1875 A 7.4417601 7.2017031 0 0 1 325.51758 292.38867 A 7.4417601 7.2017031 0 0 1 318.07617 285.1875 A 7.4417601 7.2017031 0 0 1 325.51758 277.98633 z M 700.96484 296.71094 A 7.4417601 7.2017031 0 0 1 708.4082 303.91211 A 7.4417601 7.2017031 0 0 1 700.96484 311.11328 A 7.4417601 7.2017031 0 0 1 693.52344 303.91211 A 7.4417601 7.2017031 0 0 1 700.96484 296.71094 z M 64.095703 563.17383 A 5.281249 5.281249 0 0 1 69.376953 568.45508 A 5.281249 5.281249 0 0 1 64.095703 573.73633 A 5.281249 5.281249 0 0 1 58.814453 568.45508 A 5.281249 5.281249 0 0 1 64.095703 563.17383 z M 194.92578 604.94336 A 7.4417601 7.2017031 0 0 1 202.36719 612.14453 A 7.4417601 7.2017031 0 0 1 194.92578 619.3457 A 7.4417601 7.2017031 0 0 1 187.48438 612.14453 A 7.4417601 7.2017031 0 0 1 194.92578 604.94336 z " /><g
      transform="scale(6.501951) translate(-22.11 -5.43)"
-     id="g12">
-    <rect
+     id="g12"><rect
        style="fill:#594426;stroke:none;fill-opacity:1"
        id="rect4370"
        width="9.1684189"
        height="17.2582"
        x="36.673676"
-       y="83.055084" />
-    <circle
+       y="83.055084" /><circle
        style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040"
        cx="41.612061"
        cy="69.656654"
-       r="19.5" />
-    <rect
-       style="fill:#594426;stroke:none;fill-opacity:1"
+       r="19.5" /><rect
+       style="fill:#46351e;stroke:none;fill-opacity:1"
        id="rect4370-8"
        width="9.1684189"
        height="17.2582"
        x="109.14301"
-       y="38.326382" />
-    <rect
+       y="38.326382" /><rect
        style="fill:#594426;stroke:none;fill-opacity:1"
        id="rect4370-4"
        width="9.1684189"
        height="17.2582"
        x="86.968407"
-       y="51.67606" />
-    <circle
+       y="51.67606" /><circle
        style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040-8"
        cx="114.08139"
        cy="24.927954"
-       r="19.5" />
-    <circle
+       r="19.5" /><circle
        style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040-5"
        cx="91.906784"
        cy="38.277622"
-       r="19.5" />
-    <rect
-       style="fill:#594426;stroke:none;fill-opacity:1"
+       r="19.5" /><rect
+       style="fill:#46351e;stroke:none;fill-opacity:1"
        id="rect4370-2"
        width="9.1684189"
        height="17.2582"
        x="66.375175"
-       y="86.760796" />
-    <circle
+       y="86.760796" /><circle
        style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040-0"
        cx="71.31356"
        cy="73.362366"
-       r="19.5" />
-    <rect
+       r="19.5" /><rect
        style="fill:#594426;stroke:none;fill-opacity:1"
        id="rect4370-2-2"
        width="9.1684189"
        height="17.2582"
        x="138.84451"
-       y="42.032093" />
-    <circle
+       y="42.032093" /><circle
        style="fill:#78a060;stroke:none;stroke-width:0.999999;fill-opacity:1"
        id="path4040-0-9"
        cx="143.7829"
        cy="28.633665"
-       r="19.5" />
-  </g>
-</svg>
+       r="19.5" /></g></svg>
