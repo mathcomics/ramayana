@@ -453,8 +453,11 @@ const REPO = /*__POSEDATA__*/;
         const lim = (part, key, piv, child, label) => out.push({ view, side: sd, path: `${sd}.${part}.${key}`, label: `${n} ${label}`, piv: j(piv), dir: (J) => ang(J[sd][piv], J[sd][child]) });
         // a two-handed grip's solved arm keeps its shoulder: the elbow's free
         // swivel about the pinned hand, seen as the upper arm's angle here
+        // (its dot drawn on the elbow, the part that moves; it still turns
+        // about the shoulder)
         lim('arm', 'shoulder', 'sh', 'E', 'shoulder');
-        if (!solved(sd)) { lim('arm', 'elbow', 'E', 'Wr', 'elbow'); lim('arm', 'wrist', 'Wr', 'grip', 'wrist'); }
+        if (solved(sd)) { out[out.length - 1].at = j('E'); out[out.length - 1].label = `${n} elbow swivel`; }
+        else { lim('arm', 'elbow', 'E', 'Wr', 'elbow'); lim('arm', 'wrist', 'Wr', 'grip', 'wrist'); }
         lim('leg', 'hip', 'hp', 'Kn', 'hip'); lim('leg', 'knee', 'Kn', 'A', 'knee');
         // the foot: its angle from the ground (toes forward = 90° in this frame)
         out.push({ view, side: sd, path: `${sd}.leg.ankle`, label: `${n} ankle`, piv: j('A'), dir: (J, p) => 90 + p[sd].leg.ankle });
@@ -481,7 +484,7 @@ const REPO = /*__POSEDATA__*/;
   function layoutDots() {
     const placed = [], at = {};
     for (const view of ['side', 'front']) for (const c of controls(view)) {
-      let p = toPic(view, c.piv(state.J[view]));
+      let p = toPic(view, (c.at || c.piv)(state.J[view]));
       for (let it = 0; it < 6; it++) {
         const q = placed.find((o) => Math.hypot(o[0] - p[0], o[1] - p[1]) < GAP);
         if (!q) break;
@@ -493,7 +496,7 @@ const REPO = /*__POSEDATA__*/;
     }
     state.dots = at;
   }
-  const dotPic = (c) => state.dots?.[c.view + ':' + c.path] || toPic(c.view, c.piv(state.J[c.view]));
+  const dotPic = (c) => state.dots?.[c.view + ':' + c.path] || toPic(c.view, (c.at || c.piv)(state.J[c.view]));
   const dirPic = (a) => [state.facing * Math.sin(a * Math.PI / 180), Math.cos(a * Math.PI / 180)];
   function handlesSvg() {
     if (!state.J || !state.showJ) return '';
