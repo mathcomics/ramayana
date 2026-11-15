@@ -6,44 +6,15 @@
     {
       "character": "hanuman",
       "pose": "crouch-cross",
-      "facing": "left",
-      "at": 0.38,
-      "scale": 0.7,
-      "row": 0.33
+      "facing": "right",
+      "scale": 0.3,
+      "on": "city-gap#stand-left"
     },
     {
-      "prop": "tree",
-      "at": 0.42,
-      "scale": 1.4
-    },
-    {
-      "character": "sita",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.52,
-      "adjust": {
-        "spine.chest": 20,
-        "spine.head": 16
-      }
-    },
-    {
-      "character": "raxas_f1",
-      "pose": "step-akimbo",
-      "facing": "left",
-      "at": 0.12,
-      "mouth": 2
-    },
-    {
-      "character": "raxas_f1",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.85,
-      "cloth": "red-check",
-      "mouth": 2
+      "prop": "city-gap",
+      "at": 0.5,
+      "scale": 4,
+      "row": "closeup"
     }
-  ],
-  "needs": [
-    "prop: tree (the ashoka; Hanuman hidden in its branches)",
-    "pose: sit-slump (Sita captive): sit-armknee bowed for now"
   ]
 }

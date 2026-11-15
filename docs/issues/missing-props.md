@@ -17,11 +17,10 @@ placeholder box. Held props (sword, club, bow) live in
 | food-platter | 14.03a |
 | hut | 05.16 |
 | jewels | 07.10, 10.11 |
-| lanka-wall | 10.01, 10.02 |
 | line | 05.17 |
 | line-top | 05.18 |
 | ring | 09.03, 09.04, 10.09, 10.10 |
-| tree | 02.17, 05.14, 08.05, 08.07, 10.07, 10.09 |
+| tree | 02.17, 05.14, 08.05, 08.07, 10.09 |
 | water-pot | 14.03 |
 
 ## Prop wishes from the panels' needs
@@ -46,8 +45,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
 | prop: jewels (held to the chest) | 07.12 |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
-| prop: lanka-wall | 10.02 |
-| prop: lanka-wall (the city wall by night) | 10.01 |
 | prop: line (scratched in the earth, under his hand) | 05.17 |
 | prop: line-top (the line as a closed ring round the hut, seen from above) | 05.18 |
 | prop: mountain | 09.11 |
@@ -56,7 +53,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: staff (held) | 05.18a, 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
 | prop: tree | 02.17, 03.06, 05.14, 08.05, 08.07, 10.09 |
-| prop: tree (the ashoka; Hanuman hidden in its branches) | 10.07 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
 | prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |

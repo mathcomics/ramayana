@@ -1,24 +1,19 @@
 {
-  "scene": "Night: Hanuman, small, scurries through the dark above Lanka's wall",
-  "tall": 1,
+  "scene": "Lanka, closer: the golden palace on its island",
+  "tall": 0.6,
   "ground": "night",
   "figures": [
     {
-      "prop": "lanka-wall",
-      "at": 0.5,
-      "scale": 1.1
+      "prop": "lanka-island",
+      "at": 0.6,
+      "scale": 4,
+      "row": "horizon"
     },
     {
-      "character": "hanuman",
-      "pose": "runlow-pumplow",
-      "facing": "right",
-      "at": 0.35,
-      "mouth": 1,
-      "row": 0.36,
-      "scale": 0.5
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand",
+      "scale": 4
     }
   ],
-  "needs": [
-    "prop: lanka-wall"
-  ]
+  "sky": "night"
 }

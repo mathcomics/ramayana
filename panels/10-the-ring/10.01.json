@@ -1,15 +1,19 @@
 {
-  "scene": "Opening: night; Lanka's wall",
+  "scene": "The leap: across the whole sky, the ocean far below",
   "tall": 1,
-  "ground": "night",
+  "ground": "geru",
   "figures": [
     {
-      "prop": "lanka-wall",
-      "at": 0.5,
-      "scale": 1.1
+      "character": "hanuman",
+      "pose": "liefront-dive",
+      "facing": "right",
+      "at": 0.42,
+      "row": 0.74,
+      "scale": 0.3,
+      "mouth": 2
     }
   ],
-  "needs": [
-    "prop: lanka-wall (the city wall by night)"
-  ]
+  "horizon": 0.25,
+  "sky": "#ffa500",
+  "tags": ["fly"]
 }

@@ -1,25 +1,25 @@
 {
   "scene": "Sita sits alone on a rock, head bowed in grief, under a bare branch",
-  "tall": 1.5,
-  "ground": "geru",
+  "tall": 0.6,
+  "ground": "night",
   "figures": [
-    {
-      "prop": "rock-square",
-      "at": 0.2,
-      "scale": 0.3
-    },
-    {
-      "character": "sita",
-      "pose": "chair-grief",
-      "facing": "right",
-      "on": "rock-square#seat",
-      "scale": 0.5
-    },
     {
       "prop": "branch",
       "at": 0.75,
-      "row": 0.8,
-      "scale": 1.2
+      "row": "mid",
+      "scale": 7
+    },
+    {
+      "character": "hanuman",
+      "pose": "crouch-cross",
+      "facing": "left",
+      "scale": 2,
+      "at": 0.55,
+      "nudge": [
+        1,
+        1.6
+      ],
+      "row": "mid"
     }
   ]
 }
