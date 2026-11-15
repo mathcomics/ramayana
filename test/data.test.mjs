@@ -124,6 +124,16 @@ test('props: data-height sets the real height; anchors scale with the drawing', 
   assert.ok(n >= 4, 'ladder, trees-side, hut-side, deer-stand carry data-height');
 });
 
+// A base mouth part in the base's skin colour is skin: it takes the
+// character's body colour, so no composed mouth keeps that colour.
+test('faces: base mouth parts in the skin colour are painted with the body colour', () => {
+  const skin = { male: '#916f6f', female: '#c87137', monkey: '#7c1d1d' };
+  for (const c of CAST.characters) for (const [view, e] of Object.entries(FACES.faces[c.id] || {}))
+    for (const [k, m] of Object.entries(e.mouth || {}))
+      assert.ok(!m.toLowerCase().includes(skin[c.species]), `${c.id} ${view} mouth ${k}: fill ${skin[c.species]} (the base skin) not painted`);
+  assert.ok(FACES.faces.rama.side.mouth['1'].includes('currentColor'), 'rama side mouth 1: the lip line takes the body colour');
+});
+
 // Every character's face composes from its drawing and its species' base.
 test('faces: every drawing composes (node tools/check-faces.mjs)', () => {
   const r = spawnSync(process.execPath, [join(root, 'tools/check-faces.mjs')], { encoding: 'utf8' });

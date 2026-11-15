@@ -87,7 +87,7 @@ character's raised / lowered view from its front parts when it has none.
 |---|---|
 | `skin` | Face shape, ears, nose: **painted in the character's body colour** (`data/characters.json`), whatever colour it has here. |
 | `eyes` | Eyes, as drawn. |
-| `mouth-1`, `mouth-2`, `mouth-3` | The pose's mouth size (1 small … 3 wide), as drawn. |
+| `mouth-1`, `mouth-2`, `mouth-3` | The pose's mouth size (1 small … 3 wide), as drawn, except that a part filled with this view's skin colour (the lip line of the side mouth 1) is painted in the character's body colour. |
 | `anchors` | `top` (top of the head) and `chin`. In up / down, the character's parts are moved and stretched (vertically) so that the level face's top and chin land on this version's. Eyes and mouths a version doesn't draw follow the same way. |
 
 ### Character (`<character-id>.svg`)
@@ -117,8 +117,10 @@ looks **right**.
 
 ## Colours
 
-Only the base's `skin` changes colour (to the character's body colour);
-everything else is used exactly as drawn.
+Only the base's `skin`, and any part of a base mouth filled with the same
+colour as that view's skin, change colour (to the character's body
+colour); everything else is used exactly as drawn. To keep a mouth part
+fixed, give it a colour that differs from the skin's.
 
 ## History
 

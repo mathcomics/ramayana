@@ -101,6 +101,12 @@ export function readFile(file, warn = (m) => console.error(`  ! ${m}`)) {
 export const paintSkin = (g) => recolorFills(g, 'currentColor');
 // every fill in markup (style or attribute; not "none") set to one colour
 export const recolorFills = (g, c) => g.replace(/fill\s*:\s*(?!none)[^;"]+/g, `fill:${c}`).replace(/fill="(?!none)[^"]*"/g, `fill="${c}"`);
+// the fill colours a layer uses (lower case; not "none")
+const skinColors = (g) => [...new Set([...(g || '').matchAll(/fill\s*:\s*(#[0-9a-f]{3,8})|fill="(#[0-9a-f]{3,8})"/gi)].map((m) => (m[1] || m[2]).toLowerCase()))];
+// every fill in markup that is one of `colors` set to c; other fills kept
+const paintColors = (g, colors, c) => g
+  .replace(/fill\s*:\s*(#[0-9a-f]{3,8})/gi, (m, x) => (colors.includes(x.toLowerCase()) ? `fill:${c}` : m))
+  .replace(/fill="(#[0-9a-f]{3,8})"/gi, (m, x) => (colors.includes(x.toLowerCase()) ? `fill="${c}"` : m));
 
 // ---- composing the faces (data/faces/README.md)
 // Views (top-level layers; docs/proposals/2026-11-12-head-rendering-survey.md):
@@ -140,6 +146,12 @@ export function composeFaces(dir, cast) {
     const species = f.replace(/\.svg$/, '');
     const B = readFile(join(dir, 'base', f), warn);
     for (const v of ['front', 'side']) if (!B[v]?.layers.skin) warn(`base ${species}: no ${v} skin`);
+    // a base mouth part filled with the base's skin colour (the lip line of
+    // the side mouth-1) is skin: painted with the character's body colour
+    for (const { layers: L } of Object.values(B)) {
+      const skin = skinColors(L.skin);
+      if (skin.length) for (const k of ['mouth-1', 'mouth-2', 'mouth-3']) if (L[k]) L[k] = paintColors(L[k], skin, 'currentColor');
+    }
     bases[species] = B;
     baseViews[species] = Object.entries(B).filter(([, x]) => x.layers.skin).map(([k]) => k);
   }

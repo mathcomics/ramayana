@@ -40,7 +40,10 @@ character (`sideOnly` in `data/characters.json`) has the side view only.
 The faces are composed from the drawings each time they are loaded
 (`loadFaces` in `tools/lib.mjs`, `composeFaces` in `tools/faces-lib.mjs`;
 no generated file): per character, per view, `head` (under, skin, eyes,
-over), `mouth` (1–3), `back`, `hairBody`, `nape` and `defs`.
+over), `mouth` (1–3), `back`, `hairBody`, `nape` and `defs`. The base
+skin is painted with the character's body colour, and so is any part of a
+base mouth filled with the base's skin colour (the lip line of the side
+mouth 1).
 `node tools/check-faces.mjs` lists the composition and reports a missing
 file, a missing front or side view, and anything else to fix in a drawing.
 
