@@ -39,7 +39,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: flying chariot | 05.21 |
 | prop: food-heap (a heap of fruit, rice and sweets) | 14.03a |
 | prop: food-platter (a round platter piled with food, held up) | 14.03a |
-| prop: fruit | 05.19 |
+| prop: fruit | 05.19, 05.19a, 05.19b |
 | prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now | 14.04a, 14.04b |
 | prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.04 |
 | prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.02b |
@@ -54,7 +54,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: mountain | 09.11 |
 | prop: ring | 09.04, 10.09, 10.10 |
 | prop: ring (Rama's ring; it reaches Sita in 10) | 09.03 |
-| prop: staff and pot (held) | 05.19 |
+| prop: staff and pot (held) | 05.19, 05.19a, 05.19b |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
 | prop: tree | 02.17, 03.06, 05.14, 08.05, 08.07, 10.09 |
 | prop: tree (the ashoka; Hanuman hidden in its branches) | 10.07 |

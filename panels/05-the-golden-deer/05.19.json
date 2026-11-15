@@ -14,14 +14,13 @@
     },
     {
       "character": "sage",
-      "cloth": "orange",
       "pose": "leanfront-beckon",
       "facing": "left",
-      "at": 0.7,
+      "at": 0.72,
       "id": "ascetic",
       "nudge": [
         0,
-        0.15
+        0.22
       ]
     }
   ],
