@@ -14,12 +14,7 @@
       "pose": "crouch-cross",
       "facing": "left",
       "scale": 2,
-      "at": 0.55,
-      "nudge": [
-        1,
-        1.6
-      ],
-      "row": "mid"
+      "on": "branch#stand"
     }
   ]
 }

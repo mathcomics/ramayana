@@ -2,7 +2,8 @@
 <!-- A bare branch, the artist's drawing: a brown bough forking to the left
      (the ashoka branch Sita sits under, 10.08; any tree's overhang). Its
      thick end on the right: cut it at the panel edge, as if entering from
-     the trunk outside. 100 px = 1 head-unit. -->
+     the trunk outside. 100 px = 1 head-unit.
+     Anchor: stand (feet) on the bough, where Hanuman crouches in 10.08. -->
 
 <svg
    viewBox="157.6 388 285.18804 62.433828"
@@ -65,4 +66,13 @@
      style="fill:#502d16;fill-opacity:1;stroke:none;stroke-width:4;stroke-opacity:0"
      d="m 237.50185,435.38348 -13.125,-9.12077 10.45551,10.23305"
      id="path7418" />
+  <g
+     id="anchors">
+    <circle
+     id="stand"
+     cx="277.31"
+     cy="404.72"
+     r="6"
+     fill="none" />
+  </g>
 </svg>

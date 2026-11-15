@@ -1,27 +1,28 @@
 {
-  "scene": "Sita, close, with Rama's ring",
+  "scene": "By day, close: Sita on her rock holds out Rama's ring in her hand",
   "tall": 0.6,
-  "ground": "geru",
+  "ground": "off-white",
   "figures": [
     {
-      "character": "sita",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.42,
-      "mouth": 2,
-      "adjust": {
-        "right.arm.shoulder": 65,
-        "right.arm.elbow": 30,
-        "right.arm.hand": "in"
-      },
-      "row": "front",
-      "scale": 2.22
+      "prop": "rock-square",
+      "at": 0.62,
+      "scale": 1.15
     },
     {
       "prop": "ring",
-      "at": 0.56,
-      "scale": 2,
-      "row": 0.5
+      "on": "sita#hand-right",
+      "scale": 0.27
+    },
+    {
+      "character": "sita",
+      "pose": "chair-handslow",
+      "facing": "left",
+      "on": "rock-square#seat",
+      "mouth": 2,
+      "scale": 1.7,
+      "adjust": {
+        "spine.head": 14
+      }
     }
   ],
   "needs": [

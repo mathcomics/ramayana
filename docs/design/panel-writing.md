@@ -203,7 +203,14 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Carried things go `on` the carrier** (2026-11-13): `"on": "hanuman#hands"`
   (also `#hand-right`, `#hand-left`, `#head`, `#shoulder`), not an `at`/`row`
   lined up by eye — it then follows the pose. List the rock before the
-  lifter so his hands are in front of it (13.02, 13.04).
+  lifter so his hands are in front of it (13.02, 13.04). A carried prop
+  is sized by the carrier's **row**, not the carrier's `scale`: when the
+  figure is scaled up in a close strip, scale the prop up with it (10.10:
+  Sita at 1.7, the ring at 0.27, not 0.15), or it shrinks to a speck. A
+  figure on a prop's `stand` anchor (`"on": "branch#stand"`, 10.08) stands
+  where the drawing says, with no `nudge` to tune.
+- **Seated figures in a 0.6 strip** stay at `scale` 1.6–1.7 on the
+  `front` row: at 2 and above the head leaves the top (10.09a–10.11a).
 - **Rocks** (artist, 2026-11-10): build rocky ground from
   `rock-circle`, `rock-square` and `rock-rectangle`, often a big one with
   a smaller one before it (`composition.md`, Kishkindha and rocks).

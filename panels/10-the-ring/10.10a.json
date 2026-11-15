@@ -1,0 +1,30 @@
+{
+  "scene": "By day, close: Sita on her rock holds Rama's ring to her chest in both hands",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.62,
+      "scale": 1.15
+    },
+    {
+      "prop": "ring",
+      "on": "sita#hands",
+      "scale": 0.27
+    },
+    {
+      "character": "sita",
+      "pose": "chair-palms",
+      "facing": "left",
+      "on": "rock-square#seat",
+      "scale": 1.7,
+      "adjust": {
+        "spine.head": 10
+      }
+    }
+  ],
+  "needs": [
+    "prop: ring"
+  ]
+}

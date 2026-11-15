@@ -1,34 +1,42 @@
 {
-  "scene": "Sita holds out the jewel from her hair to the kneeling Hanuman",
+  "scene": "By day: Sita on her rock holds out the jewel from her hair to the kneeling Hanuman",
   "tall": 1,
-  "ground": "geru",
+  "ground": "off-white",
   "figures": [
     {
+      "prop": "branch",
+      "at": 0.8,
+      "row": 0.62,
+      "scale": 1.2
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.74,
+      "scale": 0.67
+    },
+    {
+      "prop": "jewels",
+      "on": "sita#hand-right",
+      "scale": 0.15
+    },
+    {
       "character": "sita",
-      "pose": "sit-armknee",
+      "pose": "chair-handslow",
       "facing": "left",
-      "at": 0.64,
+      "on": "rock-square#seat",
       "mouth": 2,
       "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 30,
-        "right.arm.hand": "out"
+        "spine.head": 14
       }
     },
     {
       "character": "hanuman",
       "pose": "kneel-palms",
       "facing": "right",
-      "at": 0.34,
+      "at": 0.3,
       "adjust": {
         "spine.head": -14
       }
-    },
-    {
-      "prop": "jewels",
-      "at": 0.5,
-      "scale": 0.6,
-      "row": 0.17
     }
   ],
   "needs": [

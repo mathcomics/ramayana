@@ -1,0 +1,42 @@
+{
+  "scene": "By day, closer: Hanuman reaches up with both hands for the jewel Sita holds out",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.72,
+      "scale": 1.05
+    },
+    {
+      "prop": "jewels",
+      "on": "sita#hand-right",
+      "scale": 0.25
+    },
+    {
+      "character": "sita",
+      "pose": "chair-handslow",
+      "facing": "left",
+      "on": "rock-square#seat",
+      "mouth": 2,
+      "scale": 1.6,
+      "adjust": {
+        "spine.head": 14
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "kneel-reach",
+      "facing": "right",
+      "at": 0.22,
+      "scale": 1.6,
+      "mouth": 1,
+      "adjust": {
+        "spine.head": -14
+      }
+    }
+  ],
+  "needs": [
+    "prop: jewel (Sita's hair jewel; it travels home in 11)"
+  ]
+}

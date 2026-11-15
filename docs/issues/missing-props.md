@@ -16,11 +16,11 @@ placeholder box. Held props (sword, club, bow) live in
 | food-heap | 14.03a |
 | food-platter | 14.03a |
 | hut | 05.16 |
-| jewels | 07.10, 10.11 |
+| jewels | 07.10, 10.11, 10.11a |
 | line | 05.17 |
 | line-top | 05.18 |
-| ring | 09.03, 09.04, 10.09, 10.10 |
-| tree | 02.17, 05.14, 08.05, 08.07, 10.09 |
+| ring | 09.03, 09.04, 10.09, 10.09a, 10.10, 10.10a |
+| tree | 02.17, 05.14, 08.05, 08.07 |
 | water-pot | 14.03 |
 
 ## Prop wishes from the panels' needs
@@ -42,17 +42,17 @@ docs/design/panel-writing.md, Lessons).
 | prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.04 |
 | prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.02b |
 | prop: hut | 05.16 |
-| prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11 |
+| prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11, 10.11a |
 | prop: jewels (held to the chest) | 07.12 |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
 | prop: line (scratched in the earth, under his hand) | 05.17 |
 | prop: line-top (the line as a closed ring round the hut, seen from above) | 05.18 |
 | prop: mountain | 09.11 |
-| prop: ring | 09.04, 10.09, 10.10 |
+| prop: ring | 09.04, 10.09, 10.09a, 10.10, 10.10a |
 | prop: ring (Rama's ring; it reaches Sita in 10) | 09.03 |
 | prop: staff (held) | 05.18a, 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
-| prop: tree | 02.17, 03.06, 05.14, 08.05, 08.07, 10.09 |
+| prop: tree | 02.17, 03.06, 05.14, 08.05, 08.07 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
 | prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |

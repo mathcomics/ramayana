@@ -1,37 +1,45 @@
 {
-  "scene": "Hanuman kneels before Sita and holds out the ring",
+  "scene": "By day: Sita on her rock under the branch; Hanuman, down from the tree, kneels and holds out the ring",
   "tall": 1,
-  "ground": "geru",
+  "ground": "off-white",
   "figures": [
     {
-      "prop": "tree",
-      "at": 0.2,
-      "scale": 1.3
+      "prop": "branch",
+      "at": 0.8,
+      "row": 0.62,
+      "scale": 1.2
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.74,
+      "scale": 0.67
     },
     {
       "character": "sita",
-      "pose": "sit-armknee",
+      "pose": "chair-hang",
       "facing": "left",
-      "at": 0.68,
-      "mouth": 2
+      "on": "rock-square#seat",
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 14
+      }
+    },
+    {
+      "prop": "ring",
+      "on": "hanuman#hand-right",
+      "scale": 0.15
     },
     {
       "character": "hanuman",
       "pose": "kneel-handslow",
       "facing": "right",
-      "at": 0.38,
+      "at": 0.3,
       "adjust": {
-        "spine.head": -16
+        "spine.head": -14
       }
-    },
-    {
-      "prop": "ring",
-      "at": 0.53,
-      "row": 0.25
     }
   ],
   "needs": [
-    "prop: ring",
-    "prop: tree"
+    "prop: ring"
   ]
 }

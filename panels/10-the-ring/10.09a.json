@@ -1,0 +1,41 @@
+{
+  "scene": "By day, closer: Hanuman kneels with the ring held out to Sita on her rock",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.72,
+      "scale": 1.05
+    },
+    {
+      "character": "sita",
+      "pose": "chair-hang",
+      "facing": "left",
+      "on": "rock-square#seat",
+      "mouth": 2,
+      "scale": 1.6,
+      "adjust": {
+        "spine.head": 14
+      }
+    },
+    {
+      "prop": "ring",
+      "on": "hanuman#hand-right",
+      "scale": 0.25
+    },
+    {
+      "character": "hanuman",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.26,
+      "scale": 1.6,
+      "adjust": {
+        "spine.head": -14
+      }
+    }
+  ],
+  "needs": [
+    "prop: ring"
+  ]
+}
