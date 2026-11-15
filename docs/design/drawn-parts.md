@@ -152,7 +152,14 @@ move the legs.
     The string (tip to tip, or through the other hand's grip when
     `draw`) and the arrow are generated.
   - `grip: both` (sword, club): the other arm is solved in 3D so its fist
-    closes on the hilt 0.42 below the holding hand's grip, along the
-    line; its own arm angles are ignored. Its `out` is set by the
-    sideways reach, the rest is a two-bone reach in the arm's plane.
+    closes on the hilt one fist-width (0.24) below the holding fist,
+    parallel to it. The holding arm's `out` is solved so the hilt is on
+    the body's midline. With the shoulder and the wrist pinned the elbow
+    has one freedom, a swivel on a circle about the shoulder-to-wrist
+    line; the other arm's own `shoulder` (its side-view angle) picks the
+    place on that circle, and its other angles are solved (`elbowOut`
+    ignored). The angle stops where either bone would turn more than 75°
+    from the paper, or where the hilt is at arm's reach (the arm then
+    straight). The hand gets its own sideways flick (`wristOut`, set only
+    here) so it stays parallel to the holding hand in 3D.
   - Props don't move the figure: it is centred on its body.

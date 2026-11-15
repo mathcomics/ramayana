@@ -34,7 +34,7 @@ Larger pieces of work that several rows below wait for:
 | Side view: the top of the thigh (above the hip) folds into the body, shortened by cos(angle between thigh and body), flat at 90° and beyond; not in the front view | thigh | Bent-hip thigh drawings; the end-on thigh doesn't cover a thigh turned against a leaning body |
 | The bow string and arrow are generated (a thin band from the tips, through the drawing hand) | props | String and arrow drawings in `bow.svg` |
 | A bow's belly faces away from the hip, and in the front view the bow's width is × 0.15 (nearly edge-on) | props | A front bow drawing, or the bow's plane from the hand's twist |
-| A two-handed grip puts the other fist 0.42 below the holding hand along the line, as a fist, wrist straight along the hilt | arms, props | Grip points on the weapon drawing (`grip-2`) |
+| A two-handed grip puts the other fist one fist-width (0.24) below the holding fist along the line, as a fist parallel to it | arms, props | Grip points on the weapon drawing (`grip-2`) |
 | One set of hands for every body, scaled uniformly to the body's guide hand | hands | None: a body that needs different hands would need its own hand file |
 
 ## Draw order (by depth)
