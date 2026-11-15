@@ -5,23 +5,19 @@
   "figures": [
     {
       "character": "sita",
-      "pose": "step-point",
+      "pose": "leanback-flung",
       "facing": "right",
       "at": 0.3,
       "hands": {
         "right": "in"
-      },
-      "adjust": {
-        "right.arm.shoulder": 60,
-        "right.arm.elbow": 30
       }
     },
     {
       "character": "sage",
       "cloth": "orange",
-      "pose": "walk-swing",
+      "pose": "leanfront-beckon",
       "facing": "left",
-      "at": 0.72,
+      "at": 0.65,
       "id": "ascetic"
     }
   ],
