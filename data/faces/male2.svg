@@ -273,7 +273,7 @@
      inkscape:label="quarter"
      id="quarter"
      transform="translate(5 0)"
-     style="color:#c87137">
+     style="color:#9f582a">
     <g
        inkscape:groupmode="layer"
        inkscape:label="guide"
@@ -393,7 +393,7 @@
      inkscape:label="back-view"
      id="back-view"
      transform="translate(6.6 0)"
-     style="color:#c87137">
+     style="color:#9f582a">
     <g
        inkscape:groupmode="layer"
        inkscape:label="guide"
@@ -449,7 +449,7 @@
      inkscape:label="front-down"
      id="front-down"
      transform="translate(8.2 0)"
-     style="color:#c87137">
+     style="color:#9f582a">
     <g
        inkscape:groupmode="layer"
        inkscape:label="guide"
@@ -548,7 +548,7 @@
        inkscape:label="over"
        id="front-down-over">
       <path
-         style="color:#c87137;fill:#2b2200;fill-opacity:1;stroke-width:0.015"
+         style="color:#9f582a;fill:#2b2200;fill-opacity:1;stroke-width:0.015"
          d="m 1.3094476,-0.05751333 c 0,0 -0.200953,0.22290196 -0.2039258,0.16344666 -0.00297,-0.059456 0,-0.34781468 0.038646,-0.41024303 0.038646,-0.0624282 0.2299854,-0.17242084 0.3072775,-0.18431199 0.077292,-0.011891 0.1843121,-0.0267549 0.249713,-0.005945 0.065401,0.0208093 0.3280871,0.11296527 0.3399782,0.16052969 0.011891,0.0475644 0.029728,0.37456953 0.029728,0.43997073 0,0.065401 -0.1373229,-0.19355901 -0.1373229,-0.19355901"
          id="path32-7-5"
          transform="translate(-1.6)"
@@ -590,7 +590,7 @@
      inkscape:label="top"
      id="top"
      transform="translate(9.8 0)"
-     style="color:#c87137">
+     style="color:#9f582a">
     <g
        inkscape:groupmode="layer"
        inkscape:label="guide"
@@ -630,7 +630,7 @@
          d="m -0.40332049,0.22782752 0.17537,0.13339707 0.352392,0.0355908 0.2580747,-0.0932958 0.055491,0.21195476 -0.1699408,-0.0747804 -0.1082392,0.14144491 -0.1566628,-0.0967505 -0.2124209,0.0588291 -0.088648,-0.14511219 -0.1950985,-0.0408556 z"
          id="path88-98" />
       <path
-         style="color:#c87137;fill:#2b2200;fill-opacity:1;stroke-width:0.015"
+         style="color:#9f582a;fill:#2b2200;fill-opacity:1;stroke-width:0.015"
          d="m 2.8267938,0.37687652 c 0,0 -0.128911,-0.2021489 -0.1318838,-0.2616042 -0.00297,-0.059456 0,-0.3478147 0.038646,-0.410243 0.038646,-0.062428 0.2299854,-0.1724209 0.3072775,-0.184312 0.077292,-0.011891 0.1843121,-0.026755 0.249713,-0.00594 0.065401,0.020809 0.3211886,0.11524482 0.3399782,0.1605297 0.062498,0.15062548 0.092509,0.29949978 0.0563,0.44480431 -0.0029,0.1259105 -0.067261,0.21237247 -0.1554825,0.28352549 C 3.451861,0.5316831 3.1058092,0.62845869 2.8267938,0.37687652 Z"
          id="path32-7-0"
          transform="translate(-3.2)"

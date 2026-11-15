@@ -160,7 +160,8 @@ the pose.
 - **One named colour list** (`colors` in `data/characters.json`) for
   skin, cloth and props alike, named by how the colour looks, not who
   wears it, so a skin is shared across humans, rakshasas and monkeys:
-  `skin-brown`, `skin-red`, `skin-dark-brown`, `skin-dark-red`;
+  `skin-brown`, `skin-deep-brown`, `skin-red`, `skin-dark-brown`,
+  `skin-dark-red`;
   `skin-rama` is Rama's alone. Grounds are a separate list
   (`data/grounds.json`).
 - Body colour: a name from that list per character; it also paints the

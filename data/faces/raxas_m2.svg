@@ -308,7 +308,7 @@
      inkscape:label="quarter"
      id="quarter"
      transform="translate(5 0)"
-     style="color:#c87137">
+     style="color:#9f582a">
     <g
        inkscape:groupmode="layer"
        inkscape:label="guide"
@@ -427,7 +427,7 @@
      inkscape:label="back-view"
      id="back-view"
      transform="translate(6.6 0)"
-     style="color:#c87137">
+     style="color:#9f582a">
     <g
        inkscape:groupmode="layer"
        inkscape:label="guide"
@@ -483,7 +483,7 @@
      inkscape:label="front-down"
      id="front-down"
      transform="translate(8.2 0)"
-     style="color:#c87137">
+     style="color:#9f582a">
     <g
        inkscape:groupmode="layer"
        inkscape:label="guide"
@@ -582,7 +582,7 @@
        inkscape:label="over"
        id="front-down-over">
       <path
-         style="color:#c87137;fill:#241f1c;fill-opacity:1;stroke:none;stroke-width:0.0150001"
+         style="color:#9f582a;fill:#241f1c;fill-opacity:1;stroke:none;stroke-width:0.0150001"
          d="m 1.2973433,-0.21602336 0.5707382,8.4767e-4 0.1169794,0.33886889 0.035743,-0.4167888 C 2.0306739,-0.416462 1.9243859,-0.57 1.5772295,-0.57 1.2300739,-0.57 1.11665,-0.41640354 1.1272247,-0.2930956 l 0.035743,0.4167888 z"
          id="path10-4"
          sodipodi:nodetypes="ccccsscc"
@@ -619,7 +619,7 @@
      inkscape:label="top"
      id="top"
      transform="translate(9.8 0)"
-     style="color:#c87137">
+     style="color:#9f582a">
     <g
        inkscape:groupmode="layer"
        inkscape:label="guide"
@@ -655,7 +655,7 @@
        inkscape:label="over"
        id="top-over">
       <ellipse
-         style="color:#c87137;fill:#241f1c;fill-opacity:1;stroke:none;stroke-width:0.01"
+         style="color:#9f582a;fill:#241f1c;fill-opacity:1;stroke:none;stroke-width:0.01"
          id="path5125"
          cx="3.1963933"
          cy="0.010384196"
