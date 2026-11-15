@@ -127,7 +127,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `02-the-throne` | 17 | written against the brief |
 | `03-the-forest` | 10 | predates the briefs — to revisit (03.02 is approved and locked) |
 | `04-surpanakha` | 15 | predates the briefs — to revisit |
-| `05-the-golden-deer` | 23 | artist-reviewed; the model chapter (05.11 tagged) |
+| `05-the-golden-deer` | 26 | artist-reviewed; the model chapter (05.11 tagged) |
 | `06-jatayu` | 13 | written against the brief |
 | `07-sugriva` | 15 | written against the brief |
 | `08-bali` | 10 | written against the brief |
@@ -186,7 +186,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
 
 ### Props
 
-Every `data/props/<id>.svg` is a prop (61, of which giant-face-side and -front are placeholders); there is no registry.
+Every `data/props/<id>.svg` is a prop (62, of which giant-face-side and -front are placeholders); there is no registry.
 A prop id with no drawing renders as a fixed 2 × 2 head-unit labelled
 box. A prop can carry anchors a figure stands or sits on
 (`on: "<prop>#<anchor>"`) and can be recoloured per use (roles named on

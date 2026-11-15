@@ -1,0 +1,37 @@
+{
+  "scene": "An ascetic with a bowl stands at a distance; Sita offers him fruit",
+  "tall": 1,
+  "ground": "sand",
+  "figures": [
+    {
+      "id": "sita",
+      "character": "sita",
+      "pose": "stand-handslow",
+      "facing": "right",
+      "at": 0.3
+    },
+    {
+      "id": "ascetic",
+      "character": "sage",
+      "pose": "stand-handslow",
+      "facing": "left",
+      "at": 0.78
+    },
+    {
+      "prop": "rock-circle",
+      "id": "fruit",
+      "on": "sita#hand-right",
+      "scale": 0.15,
+      "body": "red"
+    },
+    {
+      "prop": "half-circle",
+      "id": "bowl",
+      "on": "ascetic#hand-right"
+    }
+  ],
+  "needs": [
+    "prop: staff (held)",
+    "Ravana's ascetic disguise (the sage for now)"
+  ]
+}

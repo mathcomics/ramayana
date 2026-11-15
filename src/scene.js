@@ -86,6 +86,10 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   const sky = panel.sky ? (grounds[panel.sky] || panel.sky) : null;
   if (panel.sky && !grounds[panel.sky] && !/^#/.test(panel.sky)) issues.push(`sky "${panel.sky}" not in data/grounds.json`);
   const horizonY = H * (1 - (panel.horizon ?? HORIZON));
+  // mode "negative": the dramatic beat (a transformation, a major death) —
+  // the whole ground black, every figure and prop a white silhouette
+  const negative = panel.mode === 'negative';
+  if (panel.mode != null && !negative) issues.push(`mode "${panel.mode}": the only mode is "negative"`);
 
   for (const k of ['shot', 'zoom']) if (panel[k] != null) issues.push(`"${k}" is retired: rows set every size (docs/design/panels.md, Rows)`);
   const hz = panel.horizon ?? HORIZON;
@@ -421,10 +425,10 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
       c.map((col, i) => `<stop offset="${c.length > 1 ? i / (c.length - 1) : 0}" stop-color="${esc(col)}"/>`).join('') + `</linearGradient>`;
     return `url(#${gid})`;
   };
-  let s = `<rect width="${W}" height="${H}" fill="${fill(ground, 'ground')}"/>`;
-  if (sky) s += `<rect width="${W}" height="${Math.max(0, horizonY)}" fill="${fill(sky, 'sky')}"/>`;
+  let s = negative ? `<rect width="${W}" height="${H}" fill="#000"/>` : `<rect width="${W}" height="${H}" fill="${fill(ground, 'ground')}"/>`;
+  if (sky && !negative) s += `<rect width="${W}" height="${Math.max(0, horizonY)}" fill="${fill(sky, 'sky')}"/>`;
   if (defs) s = `<defs>${defs}</defs>` + s;
-  if (background) s += `<g class="background">${background}</g>`;
+  if (background && !negative) s += `<g class="background">${background}</g>`;
   const drawProp = (o) => {
     const x = o.x - o.halfW, y = o.groundY - o.h;
     if (o.svg && o.rot) return `<g transform="translate(${o.x} ${o.groundY - o.h / 2}) rotate(${o.rot}) translate(${o.facing < 0 ? o.w0 / 2 : -o.w0 / 2} ${-o.h0 / 2}) scale(${o.facing * o.unit} ${o.unit})">${o.svg}</g>`;
@@ -442,11 +446,20 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const { px, py, dy } = turnOf(o);
     return `<g transform="${dy ? `translate(0 ${+dy.toFixed(3)}) ` : ''}rotate(${o.rot} ${+px.toFixed(3)} ${+py.toFixed(3)})">${g}</g>`;
   };
+  // negative: bands are ground (black); figures and props flooded white
+  // through their own outline (alpha), so overlapping shapes merge
+  const neg = `${pre}-negative`;
+  if (negative) s += `<defs><filter id="${neg}" x="0" y="0" width="${W}" height="${H}" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">` +
+    `<feFlood flood-color="#fff"/><feComposite in2="SourceAlpha" operator="in"/></filter></defs>`;
+  let body = '';
+  const flush = () => { s += negative && body ? `<g filter="url(#${neg})">${body}</g>` : body; body = ''; };
   all.forEach((o, k) => {
-    s += o.b ? drawBand(o, k) : o.p ? drawProp(o)
+    if (o.b) { flush(); s += negative ? `<path d="M0 ${H}L0 ${+lineY(o, 0).toFixed(2)}L${W} ${+lineY(o, W).toFixed(2)}L${W} ${H}Z" fill="#000"/>` : drawBand(o, k); return; }
+    body += o.p ? drawProp(o)
       : turn(o, renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
         view: o.view, headOnly: o.headOnly, built: o.built, id: `${pre}-f${o.fi}` }).svg);
   });
+  flush();
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
   return { svg, w: W, h: H, issues, heads };
 }

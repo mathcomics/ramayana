@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A half circle, flat side up: a bowl (the ascetic's begging bowl), seen
+     from the side. Wood brown (#7a4a26), recolour per use with "body".
+     100 px = 1 head-unit: 0.7 wide, 0.35 deep. Anchor "hand": under the
+     middle of the bowl, where a palm holds it ("on": "<who>#hand-right"). -->
+<svg
+   data-recolor-body="#7a4a26"
+   viewBox="0 0 70 35"
+   width="70"
+   height="35"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg">
+  <path
+     d="M 0,0 H 70 A 35,35 0 0 1 0,0 Z"
+     style="fill:#7a4a26" />
+  <g
+     id="anchors">
+    <circle
+       id="hand"
+       cx="35"
+       cy="35"
+       r="3"
+       style="fill:#ff0000" />
+  </g>
+</svg>

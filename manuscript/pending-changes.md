@@ -13,6 +13,14 @@ the new generic characters — were applied in the v0.5 rewrite of
 
 
 
+## Chapter 5: the ascetic at the hut, four panels (2026-11-15)
+
+The artist's sequence: 05.18a Sita offers fruit to the ascetic, standing
+apart, he holds a bowl; 05.19 he lunges, she arches away; 05.19a the
+same in negative (black ground, white silhouettes): the change into
+Ravana; 05.19b Ravana himself has her by the arm. Negative mode is now
+the picture for a transformation and for a major character's death.
+
 ## Chapter 14: waking Kumbhakarna, exploratory set (2026-11-14)
 
 Twelve drafts for beat 1 (14.01–14.04c, before the locked 14.05), to be

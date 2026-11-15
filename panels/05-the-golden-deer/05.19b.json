@@ -1,5 +1,5 @@
 {
-  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
+  "scene": "Ravana, his disguise gone, has Sita by the arm",
   "tall": 1,
   "ground": "sand",
   "figures": [
@@ -23,10 +23,5 @@
         0.22
       ]
     }
-  ],
-  "needs": [
-    "prop: staff and pot (held)",
-    "prop: fruit",
-    "Ravana's ascetic disguise (the sage in orange for now)"
   ]
 }

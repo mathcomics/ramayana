@@ -78,6 +78,16 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   creature becoming someone else reads as a new character, so it is cut —
   the shot deer just dies (05.13). A disguise thrown off is different:
   the same figure, revealed (05.20).
+- **Negative for the dramatic beat** (artist, 2026-11-15): a
+  transformation and the death of a major character get a panel with
+  `"mode": "negative"` — black ground, white silhouettes. The silhouette
+  hides who is who, so it carries a change of shape (05.19a: the ascetic
+  becoming Ravana, between 05.19 and 05.19b). Keep it to one panel per
+  beat; the panels either side are in colour.
+- **An offering is held out**: the thing offered sits `on` the giver's
+  hand (`"on": "sita#hand-right"`) on a `handslow` gesture, and the two
+  stand apart (05.18a: fruit, a red `rock-circle` at `scale` 0.15; the
+  ascetic's bowl, `half-circle`).
 - **Sound travels as a picture**: a cry is the `sound-cry` burst with the
   shouter's face on its `face` anchor (`"on": "sound-cry#face"`),
   repeated across consecutive panels as it crosses the land — from

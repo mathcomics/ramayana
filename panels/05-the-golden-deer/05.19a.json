@@ -1,7 +1,8 @@
 {
-  "scene": "An ascetic with staff and pot approaches; Sita offers him fruit",
+  "scene": "The ascetic becomes Ravana: the picture turns negative, both one white shape",
   "tall": 1,
   "ground": "sand",
+  "mode": "negative",
   "figures": [
     {
       "character": "sita",
@@ -25,8 +26,6 @@
     }
   ],
   "needs": [
-    "prop: staff and pot (held)",
-    "prop: fruit",
-    "Ravana's ascetic disguise (the sage in orange for now)"
+    "the change itself: the sage's silhouette giving way to Ravana's (the sage alone for now)"
   ]
 }
