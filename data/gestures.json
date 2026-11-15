@@ -537,44 +537,44 @@
       }
     },
     "change": {
+      "chest": 45.7,
       "desc": "both hands low, the sword trailing down and back beside the leg (longsword guard: Wechsel)",
+      "head": -12.7,
       "hold": [
         "right",
         "left"
       ],
-      "use": [
-        "threaten",
-        "shield"
-      ],
-      "chest": 21.8,
-      "head": -12.7,
       "lean": -2.8,
       "left": {
         "elbow": 10,
         "elbowOut": 0,
         "hand": "fist",
         "out": 10,
-        "shoulder": -3.3,
+        "shoulder": 57.9,
         "twist": 0,
         "wrist": 0
       },
       "mouth": 1,
-      "neck": -4.2,
+      "neck": -29.2,
       "right": {
         "elbow": 57.6,
         "elbowOut": 0,
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -94,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 0
         },
         "shoulder": -5,
         "twist": 0,
-        "wrist": 4.2
-      }
+        "wrist": -59.8
+      },
+      "use": [
+        "threaten",
+        "shield"
+      ]
     },
     "cross": {
       "desc": "both arms crossed over the head",
@@ -775,17 +775,13 @@
       }
     },
     "fool": {
+      "chest": 46.1,
       "desc": "both hands low in front, the blade sloping down ahead (longsword guard: Alber)",
+      "head": -21,
       "hold": [
         "right",
         "left"
       ],
-      "use": [
-        "threaten",
-        "shield"
-      ],
-      "chest": 5,
-      "head": -21,
       "left": {
         "elbow": 25,
         "elbowOut": 0,
@@ -796,22 +792,26 @@
         "wrist": 0
       },
       "mouth": 1,
-      "neck": 8,
+      "neck": -28.5,
       "right": {
-        "elbow": 0,
+        "elbow": 6.4,
         "elbowOut": 0,
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -84,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 0
         },
-        "shoulder": 73.8,
+        "shoulder": 102.9,
         "twist": 0,
-        "wrist": 0
-      }
+        "wrist": -80.6
+      },
+      "use": [
+        "threaten",
+        "shield"
+      ]
     },
     "grief": {
       "desc": "both arms raised across the face",
