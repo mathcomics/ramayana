@@ -90,7 +90,6 @@
         </g>
       </g>
     </g>
-    
     <g inkscape:groupmode="layer" inkscape:label="eyes" id="quarter-eyes">
       <g>
         <g transform="matrix(0.866 0 0 1 0.2037 0)">
@@ -133,7 +132,6 @@
         </g>
       </g>
     </g>
-    
   </g>
   <g inkscape:groupmode="layer" inkscape:label="front-down" id="front-down" transform="translate(8.2 0)" style="color:#5a2a12">
     <g inkscape:groupmode="layer" inkscape:label="guide" sodipodi:insensitive="true" opacity="0.7">
@@ -163,7 +161,6 @@
         </g>
       </g>
     </g>
-    
     <g inkscape:groupmode="layer" inkscape:label="eyes" id="front-down-eyes">
       <g>
         <g transform="matrix(1 0 0 0.766 0 0.2619)">
@@ -202,6 +199,5 @@
         </g>
       </g>
     </g>
-    
   </g>
 </svg>
