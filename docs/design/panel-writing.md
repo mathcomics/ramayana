@@ -89,8 +89,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   stand apart (05.18a: fruit, a red `rock-circle` at `scale` 0.15; the
   ascetic's bowl, `half-circle`).
 - **Sound travels as a picture**: a cry is the `sound-cry` burst with the
-  shouter's face on its `face` anchor (`"on": "sound-cry#face"`),
-  repeated across consecutive panels as it crosses the land — from
+  shouter's face on its `face` anchor (`"on": "sound-cry#face"`), always
+  in front view (`"view": "front"`, the artist: the face cries out at
+  the reader, not along the tail), repeated across consecutive panels as it crosses the land — from
   the dying deer (05.13), over the forest (05.14), to the hut (05.15).
   The same device carries any far-off sound; its tail points back the way
   the sound came.

@@ -13,6 +13,7 @@
       "facing": "right",
       "mouth": 3,
       "on": "sound-cry#face",
+      "view": "front",
       "pose": "step-hang"
     },
     {

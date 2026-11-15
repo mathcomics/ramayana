@@ -28,7 +28,8 @@
       "pose": "step-hang",
       "facing": "right",
       "mouth": 3,
-      "on": "sound-cry#face"
+      "on": "sound-cry#face",
+      "view": "front"
     }
   ]
 }

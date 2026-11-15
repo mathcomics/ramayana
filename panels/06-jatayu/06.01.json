@@ -24,6 +24,7 @@
       "character": "sita",
       "pose": "step-hang",
       "on": "sound-cry#face",
+      "view": "front",
       "mouth": 3
     }
   ],
