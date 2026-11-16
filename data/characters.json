@@ -194,6 +194,16 @@
       "eyes": "eye-white"
     },
     {
+      "id": "raxas_m4",
+      "name": "raxas_m4",
+      "species": "male",
+      "body": "skin-dark-red",
+      "top": "full",
+      "bottom": "dhoti",
+      "cloth": "red-diamond",
+      "eyes": "eye-white"
+    },
+    {
       "id": "sage",
       "name": "Sage",
       "species": "male",
