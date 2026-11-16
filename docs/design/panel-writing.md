@@ -212,8 +212,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   lined up by eye — it then follows the pose. List the rock before the
   lifter so his hands are in front of it (13.02, 13.04). A carried prop
   is sized by the carrier's **row**, not the carrier's `scale`: when the
-  figure is scaled up in a close strip, scale the prop up with it (10.10:
-  Sita at 1.7, the ring at 0.27, not 0.15), or it shrinks to a speck. A
+  figure is scaled up in a close strip, scale the prop up with it, or it
+  shrinks to a speck. The ring (drawn to the giant fist's scale, 2026-11-16)
+  takes its carrier's scale: 1 beside life-size figures (09.03, 10.09),
+  1.6–1.7 in the close strips (10.10), 0.62 with the giant hands (09.03a). A
   figure on a prop's `stand` anchor (`"on": "branch#stand"`, 10.08) stands
   where the drawing says, with no `nudge` to tune.
 - **Seated figures in a 0.6 strip** stay at `scale` 1.6–1.7 on the

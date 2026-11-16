@@ -27,7 +27,7 @@
     {
       "prop": "ring",
       "on": "hanuman#hand-right",
-      "scale": 0.15
+      "scale": 1
     },
     {
       "character": "hanuman",
@@ -38,8 +38,5 @@
         "spine.head": -14
       }
     }
-  ],
-  "needs": [
-    "prop: ring"
   ]
 }

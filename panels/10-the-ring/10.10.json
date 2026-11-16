@@ -11,7 +11,7 @@
     {
       "prop": "ring",
       "on": "sita#hand-right",
-      "scale": 0.27
+      "scale": 1.7
     },
     {
       "character": "sita",
@@ -24,8 +24,5 @@
         "spine.head": 14
       }
     }
-  ],
-  "needs": [
-    "prop: ring"
   ]
 }

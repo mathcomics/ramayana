@@ -5,9 +5,9 @@
 
 <svg
    data-height="1.62548"
-   viewBox="0 0 500 406.37"
-   width="500"
-   height="406.37"
+   viewBox="0 0 649.04718 415.31785"
+   width="649.04718"
+   height="415.31784"
    version="1.1"
    id="svg13"
    sodipodi:docname="hut-top.svg"
@@ -29,19 +29,24 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.58075154"
-     inkscape:cx="-59.405783"
-     inkscape:cy="204.04595"
-     inkscape:window-width="2560"
-     inkscape:window-height="1494"
-     inkscape:window-x="-11"
+     inkscape:cx="-222.98692"
+     inkscape:cy="207.48976"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="g3701" />
   <g
-     transform="scale(6.501951) translate(-143.2 -147.4)"
+     transform="matrix(6.501951,0,0,6.501951,-786.49777,-954.96118)"
      id="g11">
     <g
        id="g3701">
+      <path
+         style="fill:#483e37;fill-opacity:1;stroke:none;stroke-width:1"
+         d="m 142.41934,160.86193 -16.52397,2.64004 -4.93202,34.36232 c 12.69828,2.14835 51.98995,6.58936 63.26728,12.35206 l 16.29424,-37.78756 z"
+         id="path3378-4"
+         sodipodi:nodetypes="cccccc" />
       <path
          style="fill:#786721;stroke:#241f1c;stroke-width:1"
          d="m 203.72765,158.61121 c 10.63466,6.21127 13.20594,12.42253 16.31439,18.6338 l -16.71888,3.08658 -8.49427,-20.69152 z"
@@ -53,7 +58,7 @@
          id="path3380"
          sodipodi:nodetypes="cccccc" />
       <path
-         style="fill:#ffedad;stroke:#241f1c;stroke-width:1;fill-opacity:1"
+         style="fill:#ffedad;fill-opacity:1;stroke:#241f1c;stroke-width:1"
          d="m 148.86646,171.7445 0.52483,24.82021 c 12.69828,2.14835 24.18288,7.38385 35.46021,13.14655 l -0.65483,-33.55029 z"
          id="path3378"
          sodipodi:nodetypes="ccccc" />

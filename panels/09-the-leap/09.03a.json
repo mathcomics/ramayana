@@ -32,10 +32,7 @@
       "prop": "ring",
       "at": 0.49,
       "row": 0.47,
-      "scale": 0.3
+      "scale": 0.62
     }
-  ],
-  "needs": [
-    "prop: ring (Rama's ring; it reaches Sita in 10)"
   ]
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Rama's ring, the artist's drawing. Drawn at the same scale as
+     giant-fist (data-height 5.0 on a 247.6 px drawing: 2.019 px per px), so
+     data-height = 24.05 px × 2.019 / 100 = 0.486: at scale 1 it is a ring
+     for a giant's hand; beside life-size figures give it a small scale. -->
+
+<svg
+   data-height="0.4857"
+   viewBox="157.6 388 22.065132 24.052707"
+   width="22.065132"
+   height="24.052708"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="ring.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="12.714453"
+     inkscape:cx="-14.668346"
+     inkscape:cy="-0.58987988"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <ellipse
+     style="fill:#d40000;fill-opacity:1;stroke-width:2"
+     id="path1880"
+     cx="-103.71017"
+     cy="411.46057"
+     rx="4.837049"
+     ry="3.7296727"
+     transform="rotate(-36.601778)" />
+  <circle
+     style="fill:none;fill-opacity:1;stroke:#ffcc00;stroke-width:2;stroke-opacity:1"
+     id="path1880-3"
+     cx="-103.51578"
+     cy="423.93756"
+     r="9"
+     transform="rotate(-36.601778)" />
+  <rect
+     style="fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:2.00001;stroke-opacity:1"
+     id="rect4103"
+     width="0.38930085"
+     height="2.3196759"
+     x="-103.68442"
+     y="413.66992"
+     transform="rotate(-36.601778)" />
+  <rect
+     style="fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:2.02038;stroke-opacity:1"
+     id="rect4103-4"
+     width="0.38930085"
+     height="2.3671904"
+     x="-18.24367"
+     y="422.18561"
+     transform="matrix(0.80279897,-0.59624979,0.42424235,0.90554869,0,0)" />
+  <rect
+     style="fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:2.02038;stroke-opacity:1"
+     id="rect4103-4-4"
+     width="0.38930085"
+     height="2.3671904"
+     x="188.67853"
+     y="422.18561"
+     transform="matrix(-0.80279897,0.59624979,0.74432133,0.66782165,0,0)" />
+</svg>

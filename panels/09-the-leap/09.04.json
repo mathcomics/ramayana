@@ -9,8 +9,5 @@
       "scale": 3,
       "row": 0.34
     }
-  ],
-  "needs": [
-    "prop: ring"
   ]
 }

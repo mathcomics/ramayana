@@ -188,7 +188,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
 
 ### Props
 
-Every `data/props/<id>.svg` is a prop (65); there is no registry.
+Every `data/props/<id>.svg` is a prop (68); there is no registry.
 A prop id with no drawing renders as a fixed 2 × 2 head-unit labelled
 box. A prop can carry anchors a figure stands or sits on
 (`on: "<prop>#<anchor>"`) and can be recoloured per use (roles named on
