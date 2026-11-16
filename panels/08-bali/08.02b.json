@@ -1,0 +1,25 @@
+{
+  "scene": "Sugriva launches himself through the air at Bali, who braces low, fists up",
+  "tall": 1,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "pose": "leap-reach",
+      "facing": "right",
+      "at": 0.3,
+      "row": 0.38,
+      "scale": 0.85,
+      "rotate": 20
+    },
+    {
+      "character": "sugriva",
+      "id": "bali",
+      "cloth": "orange",
+      "pose": "crouch-fists",
+      "facing": "left",
+      "at": 0.74,
+      "scale": 0.85
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "scene": "Sugriva's leap drives into Bali; Bali is thrown back, off his feet",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "id": "bali",
+      "cloth": "orange",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.62,
+      "row": 0.08,
+      "scale": 0.9,
+      "rotate": -25
+    },
+    {
+      "character": "sugriva",
+      "pose": "lunge-armfront",
+      "facing": "right",
+      "at": 0.36,
+      "scale": 0.9,
+      "rotate": 15
+    }
+  ]
+}

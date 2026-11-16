@@ -1,26 +1,33 @@
 {
-  "scene": "Sugriva plants his feet, fists to his chest, and roars",
+  "scene": "From far: Sugriva, out on the open ground, throws up his arms and roars; by the gates of Kishkindha Bali strides out to meet him",
   "tall": 1,
   "ground": "sand",
+  "sky": "off-white",
+  "horizon": 0.4,
   "figures": [
     {
+      "prop": "palace-kishkindha",
+      "at": 0.8,
+      "row": "horizon",
+      "scale": 1.1
+    },
+    {
       "character": "sugriva",
-      "pose": "stepwide-middle",
+      "pose": "stepwide-armsup",
       "facing": "right",
-      "at": 0.4,
-      "mouth": 3,
-      "adjust": {
-        "right.arm.prop": null,
-        "right.arm.shoulder": 55,
-        "right.arm.elbow": 115,
-        "right.arm.hand": "fist",
-        "left.arm.shoulder": 40,
-        "left.arm.elbow": 120,
-        "left.arm.hand": "fist"
-      }
+      "at": 0.12,
+      "row": "horizon",
+      "scale": 0.8
+    },
+    {
+      "character": "sugriva",
+      "id": "bali",
+      "cloth": "orange",
+      "pose": "walk-fists",
+      "facing": "left",
+      "at": 0.58,
+      "row": "horizon",
+      "scale": 0.8
     }
-  ],
-  "needs": [
-    "pose: stand-chest-beat (fists to the chest, challenge): stepwide with bent arms for now"
   ]
 }

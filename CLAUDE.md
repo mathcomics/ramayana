@@ -130,7 +130,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `05-the-golden-deer` | 26 | artist-reviewed; the model chapter (05.11 tagged) |
 | `06-jatayu` | 13 | written against the brief |
 | `07-sugriva` | 15 | written against the brief |
-| `08-bali` | 10 | written against the brief |
+| `08-bali` | 14 | written against the brief |
 | `09-the-leap` | 13 | written against the brief (09.09 approved and locked) |
 | `10-the-ring` | 24 | written against the brief; variations to choose from (10.04a–f the night search, 10.09–10.11a the grove by day) |
 | `11-lanka-burns` | 1 | the approved reference panel 11.08 only |
