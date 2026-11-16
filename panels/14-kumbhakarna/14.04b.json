@@ -4,10 +4,11 @@
   "ground": "light-grey",
   "figures": [
     {
-      "prop": "giant-face-front-awake",
+      "prop": "giant-face-side",
       "id": "face",
-      "at": 0.07,
-      "row": "closeup"
+      "at": 0.47,
+      "row": "closeup",
+      "rotate": -90
     },
     {
       "prop": "drum",

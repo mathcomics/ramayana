@@ -21,9 +21,9 @@
     {
       "id": "player2",
       "character": "male1",
-      "pose": "walk-armsout",
+      "pose": "kneeup-armsout",
       "facing": "right",
-      "at": 0.05
+      "at": 0.09
     },
     {
       "character": "lakshman",

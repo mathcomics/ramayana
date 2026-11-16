@@ -5,7 +5,7 @@
   "figures": [
     {
       "prop": "throne-ayodhya",
-      "at": 0.88,
+      "at": 0.75,
       "row": "mid"
     },
     {
@@ -17,11 +17,10 @@
     },
     {
       "character": "dasharatha",
-      "pose": "stepback-armsout",
+      "pose": "step-beckon",
       "facing": "right",
       "at": 0.56,
-      "row": "mid",
-      "mouth": 2
+      "row": "mid"
     },
     {
       "character": "kaikeyi",
