@@ -1,7 +1,7 @@
 {
   "scene": "He searches over the roofs of the sleeping city",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "night-blue",
   "figures": [
     {
       "prop": "city-gap",

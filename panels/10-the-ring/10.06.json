@@ -1,7 +1,7 @@
 {
   "scene": "Nowhere: Hanuman at a loss in the dark",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "night-blue",
   "figures": [
     {
       "character": "hanuman",
