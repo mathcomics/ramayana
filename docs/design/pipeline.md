@@ -5,7 +5,7 @@ labs and the reader site. Solid arrows are automatic (read on load);
 dashed arrows are a step someone runs.
 
 ```mermaid
-flowchart LR
+flowchart 
   subgraph art["Artist's drawings (SVG, Inkscape)"]
     PARTS_SVG["data/parts/*.svg<br/>body parts, hands"]
     HELD_SVG["data/props/held/*.svg<br/>sword, club, bow"]

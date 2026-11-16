@@ -40,16 +40,14 @@
       "prop": "monkey-top",
       "character": "monkey1",
       "at": 0.4,
-      "row": 0.6,
-      "scale": 0.8
+      "row": 0.6
     },
     {
       "prop": "monkey-top",
       "character": "monkey1",
       "cloth": "red",
       "at": 0.6,
-      "row": 0.62,
-      "scale": 0.8
+      "row": 0.62
     },
     {
       "prop": "rock-circle",

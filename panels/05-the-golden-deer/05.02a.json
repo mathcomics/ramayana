@@ -6,8 +6,7 @@
     {
       "prop": "steps",
       "at": 0.5,
-      "row": "floor",
-      "scale": 4
+      "row": "floor"
     },
     {
       "character": "surpanakha",

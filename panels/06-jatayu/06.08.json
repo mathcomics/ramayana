@@ -7,20 +7,17 @@
       "prop": "trees-top",
       "id": "trees-nw",
       "at": 0.257,
-      "scale": 0.4,
       "row": 0.71
     },
     {
       "prop": "hut-top",
       "at": 0.505,
-      "scale": 0.4,
       "row": 0.42
     },
     {
       "prop": "trees-top",
       "id": "trees-se",
-      "at": 0.743,
-      "scale": 0.4
+      "at": 0.743
     }
   ],
   "needs": []

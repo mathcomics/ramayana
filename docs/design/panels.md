@@ -109,7 +109,8 @@ behind them, after = in front; the retired `layer` field is an issue).
   carries **`data-height`**, the prop's real height in head-units (a man
   is 6.1): the drawing, its size and its anchors are scaled to it, so
   `scale` 1 is life-size beside a figure (`ladder` 10, `trees-side` 18,
-  `hut-side` 7, `deer-stand` 3.4). A panel `scale` is then a choice —
+  `hut-side` 7, `deer-stand` 3.4, `steps` 4.6; the top views `hut-top` 1.6,
+  `trees-top` 2.6). A panel `scale` is then a choice —
   distance, exaggeration — not a correction, and a figure `on` such a
   prop at `scale` 1 is life-size against it. Any SVG there is a prop — no
   registry. A prop id with no artwork yet renders as a **labelled dashed

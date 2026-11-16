@@ -7,7 +7,6 @@
       "prop": "monkey-top",
       "character": "monkey1",
       "at": 0.15,
-      "scale": 0.9,
       "row": 0.55
     },
     {
@@ -15,7 +14,6 @@
       "character": "monkey1",
       "cloth": "red",
       "at": 0.27,
-      "scale": 0.9,
       "row": 0.7
     },
     {
@@ -23,7 +21,6 @@
       "character": "monkey1",
       "cloth": "orange",
       "at": 0.38,
-      "scale": 0.9,
       "row": 0.6
     },
     {
@@ -37,14 +34,12 @@
       "character": "monkey1",
       "cloth": "red-diamond",
       "at": 0.62,
-      "scale": 0.9,
       "row": 0.72
     },
     {
       "prop": "monkey-top",
       "character": "monkey1",
       "at": 0.75,
-      "scale": 0.9,
       "row": 0.62
     },
     {
@@ -52,7 +47,6 @@
       "character": "monkey1",
       "cloth": "red",
       "at": 0.88,
-      "scale": 0.9,
       "row": 0.7
     },
     {
