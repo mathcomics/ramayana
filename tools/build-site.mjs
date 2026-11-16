@@ -2,10 +2,11 @@
 // (phone portrait, each the full width). Static files only; Cloudflare Pages serves _site/.
 //
 //   node tools/build-site.mjs        ->  _site/index.html (chapters), _site/<NN-name>.html
-import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
+import { writeFileSync, readFileSync, mkdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, loadAssets, loadSections, loadChapters, escXml as esc } from './lib.mjs';
-import { renderPanel } from '../src/scene.js';
+import { renderPanel, findPose } from '../src/scene.js';
+import { renderFigure, characterLook } from '../src/figure.js';
 
 const out = join(root, '_site');
 rmSync(out, { recursive: true, force: true });
@@ -36,13 +37,11 @@ h1 { font-size: 22px; margin: 2px 0 0; font-weight: 600; }
 .kicker { color: var(--muted); font-size: 13px; text-decoration: none; letter-spacing: .04em; text-transform: uppercase; }
 figure { margin: 0 0 6px; }
 figure svg { display: block; width: 100%; height: auto; }
-ol.chapters { list-style: none; margin: 0; padding: 0 16px 32px; }
-ol.chapters li { border-bottom: 1px solid var(--line); }
-ol.chapters a, ol.chapters span.soon { display: flex; gap: 12px; align-items: baseline; padding: 14px 0; text-decoration: none; }
-ol.chapters .num { width: 1.6em; text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
-ol.chapters .title { flex: 1; }
-ol.chapters .meta { color: var(--muted); font-size: 13px; }
-ol.chapters span.soon { color: var(--muted); }
+ol.tiles { list-style: none; margin: 0; padding: 20px 16px 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+ol.tiles .tile { display: block; aspect-ratio: 1; border-radius: 18%; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+ol.tiles a.tile:active { transform: scale(.97); }
+ol.tiles .tile svg { display: block; width: 100%; height: 100%; }
+ol.tiles .soon { opacity: .35; filter: grayscale(.6); }
 .pager { display: flex; justify-content: space-between; gap: 12px; padding: 24px 16px 40px; font-size: 15px; }
 .pager a { text-decoration: none; }
 .pager .next { margin-left: auto; text-align: right; }
@@ -69,9 +68,52 @@ ready.forEach((c, i) => {
     `<header><a class="kicker" href="index.html">Ramayana · Chapter ${c.n}</a><h1>${esc(c.title)}</h1></header>${body}${pager}`));
 });
 
-const items = chapters.map((c) => c.sec && c.sec.panels.length
-  ? `<li><a href="${file(c)}"><span class="num">${c.n}</span><span class="title">${esc(c.title)}</span><span class="meta">${c.sec.panels.length} panels</span></a></li>`
-  : `<li><span class="soon"><span class="num">${c.n}</span><span class="title">${esc(c.title)}</span><span class="meta">to come</span></span></li>`);
-writeFileSync(join(out, 'index.html'), page('Ramayana',
-  `<header><span class="kicker">Chapters</span><h1>Ramayana</h1></header><ol class="chapters">${items.join('')}</ol>`));
+// The index, wordless: a grid of square tiles, three to a row, one per
+// chapter (panels/icons.json): a drawn face or a prop on the chapter's
+// typical ground. Chapters to come are dimmed and not links; the title is
+// only for screen readers.
+const ICONS = JSON.parse(readFileSync(join(root, 'panels/icons.json'), 'utf8')).icons;
+const GROUNDS = assets.grounds.grounds;
+const NEUTRAL = new Set(['off-white', 'white']);
+const typicalGround = (sec) => {
+  const n = {};
+  for (const { def } of sec?.panels || []) { const g = def.ground || assets.grounds.default; n[g] = (n[g] || 0) + 1; }
+  const ranked = Object.entries(n).sort((a, b) => b[1] - a[1]).map(([g]) => g);
+  return ranked.find((g) => !NEUTRAL.has(g)) || ranked[0] || assets.grounds.default;
+};
+// a ground (name or hex) as a CSS background, its gradient as the panels draw it
+const cssGround = (g) => {
+  const v = GROUNDS[g] ?? g;
+  if (Array.isArray(v)) return `linear-gradient(to bottom, ${v.join(', ')})`;
+  if (v && typeof v === 'object' && v.horizontal) return `linear-gradient(to right, ${v.horizontal.join(', ')})`;
+  return /^#[0-9a-f]{3,8}$/i.test(v) ? v : '#eee';
+};
+let iconSeq = 0;
+const iconArt = (spec) => {
+  const tag = `i${++iconSeq}-`, uniq = (s) => s.replace(/(\sid="|url\(#|href="#)([^")]+)/g, `$1${tag}$2`);
+  if (spec?.character) {
+    const c = assets.characters.characters.find((x) => x.id === spec.character);
+    if (!c) throw new Error(`panels/icons.json: unknown character "${spec.character}"`);
+    const look = characterLook(c, assets.characters.colors, assets.faces);
+    const pose = JSON.parse(JSON.stringify(findPose(assets, 'step-hang').pose));
+    // the head alone (as a sound-cry burst draws it), its centre in the tile's
+    return uniq(renderFigure(assets.species[look.species], pose, { ...look, x: 50, y: 52, scale: 58, view: look.sideOnly ? 'side' : 'front', headOnly: true }).svg);
+  }
+  const def = assets.props.props[spec?.prop];
+  if (!def?.svg) throw new Error(`panels/icons.json: no drawing for prop "${spec?.prop}"`);
+  // "rotate": degrees clockwise about the tile centre (the sideways fire stands up at 90)
+  const rot = spec.rotate || 0, r = rot * Math.PI / 180;
+  const [w, h] = def.size, bw = Math.abs(w * Math.cos(r)) + Math.abs(h * Math.sin(r)), bh = Math.abs(w * Math.sin(r)) + Math.abs(h * Math.cos(r));
+  const k = 72 / Math.max(bw, bh);                                // fit in 72 of the tile's 100
+  return uniq(`<g transform="rotate(${rot} 50 50) translate(${50 - (w * k) / 2} ${50 - (h * k) / 2}) scale(${k})">${def.svg}</g>`);
+};
+const tiles = chapters.map((c) => {
+  const spec = ICONS[String(c.n)];
+  const art = spec ? `<svg viewBox="0 0 100 100" aria-hidden="true">${iconArt(spec)}</svg>` : '';
+  const style = `background:${cssGround(spec?.ground || typicalGround(c.sec))}`;
+  return c.sec && c.sec.panels.length
+    ? `<li><a class="tile" href="${file(c)}" style="${style}" aria-label="${c.n}. ${esc(c.title)}">${art}</a></li>`
+    : `<li><span class="tile soon" style="${style}" aria-label="${c.n}. ${esc(c.title)} (to come)">${art}</span></li>`;
+});
+writeFileSync(join(out, 'index.html'), page('Ramayana', `<ol class="tiles">${tiles.join('')}</ol>`));
 console.log(`_site/: ${ready.length} of ${chapters.length} chapter(s) with panels`);

@@ -1,0 +1,23 @@
+{
+  "_doc": "The reader site's index: one square tile per chapter (by number), no words. Each shows a drawn face (\"character\", head only) or a prop drawing (\"prop\", optionally \"rotate\": degrees clockwise), on the chapter's typical ground: the most common panel ground that is not off-white or white, unless \"ground\" names one (data/grounds.json). Chapters with no panels yet show dimmed and are not links. Built by tools/build-site.mjs.",
+  "icons": {
+    "1": { "character": "rama" },
+    "2": { "prop": "throne-ayodhya" },
+    "3": { "prop": "hut-side" },
+    "4": { "character": "surpanakha" },
+    "5": { "prop": "deer-stand" },
+    "6": { "prop": "vulture-fly" },
+    "7": { "character": "sugriva" },
+    "8": { "prop": "arrow-stuck" },
+    "9": { "character": "hanuman" },
+    "10": { "character": "sita" },
+    "11": { "prop": "fire", "rotate": 90 },
+    "12": { "prop": "rock-rectangle" },
+    "13": { "prop": "ladder" },
+    "14": { "prop": "giant-face-side" },
+    "15": { "character": "indrajit", "ground": "night" },
+    "16": { "prop": "flower-white", "ground": "green" },
+    "17": { "character": "ravana", "ground": "geru" },
+    "18": { "prop": "palace-ayodhya", "ground": "sunrise" }
+  }
+}
