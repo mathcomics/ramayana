@@ -120,7 +120,54 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     ...legacy.filter((e) => !e.front).map((e) => e.p),
     ...(panel.figures || []),
     ...legacy.filter((e) => e.front).map((e) => e.p),
-  ];
+  ].flatMap((e) => (e && e.repeat != null ? repeatProp(e) : [e]));
+
+  // "repeat": a prop drawn several times in a row — a cluster of rocks, a
+  // clump of lotuses. The entry as written is the middle copy; the others
+  // stand beside it, left and right alternately outwards, on its ground line
+  // (or its anchor), each a little smaller and turned, and drawn behind it.
+  // `"repeat": 3`, or { n, gap, scale: [left, right], rotate: [left, right] }:
+  // gap is the space between neighbours in the middle's head-units (negative
+  // overlaps); scale and rotate are each step's factor and degrees, compounding
+  // outwards. The copies are named "<name>-left" / "-right" ("-left2" … further
+  // out), so an entry can stand "on" one of them.
+  function repeatProp(e) {
+    const { repeat, ...mid } = e;
+    const name = e.id || e.prop || e.character || e.who;
+    if (!e.prop) { issues.push(`${name}: "repeat" is for props`); return [mid]; }
+    const o = typeof repeat === 'number' ? { n: repeat } : repeat || {};
+    const n = o.n ?? 3;
+    if (!Number.isInteger(n) || n < 1 || n > 9) { issues.push(`${name}: "repeat" takes a count 1–9, or { n, gap, scale, rotate }`); return [mid]; }
+    const pair = (k, d) => {
+      const v = o[k];
+      if (v == null) return d;
+      if (Array.isArray(v) && v.length === 2 && v.every((x) => typeof x === 'number')) return v;
+      issues.push(`${name}: repeat "${k}" takes [left, right]`);
+      return d;
+    };
+    const [scL, scR] = pair('scale', [0.8, 0.9]), [roL, roR] = pair('rotate', [-8, 6]);
+    const gap = typeof o.gap === 'number' ? o.gap : 0;
+    const w1 = (lib[e.prop]?.size || PLACEHOLDER)[0];          // head-units at scale 1
+    const sm = e.scale ?? 1, r0 = e.rotate ?? 0;
+    const n0 = e.nudge ?? 0, [mdx, mdy] = typeof n0 === 'number' ? [n0, 0] : Array.isArray(n0) ? n0 : [0, 0];
+    const side = (s, count) => {
+      const out = [];
+      let d = (w1 * sm) / 2, sc = sm, ro = r0;                  // d: centre distance, in row head-units
+      for (let k = 1; k <= count; k++) {
+        const prev = w1 * sc;
+        sc *= s < 0 ? scL : scR; ro += s < 0 ? roL : roR;
+        d += (k === 1 ? 0 : prev / 2) + gap * sm + (w1 * sc) / 2;
+        out.push({ ...mid, id: `${name}-${s < 0 ? 'left' : 'right'}${k > 1 ? k : ''}`, scale: sc, rotate: ro,
+          nudge: [(mdx * sm + s * d) / sc, (mdy * sm) / sc], _copy: true });
+      }
+      return out;
+    };
+    const left = side(-1, Math.floor((n - 1) / 2)), right = side(1, Math.ceil((n - 1) / 2));
+    // farthest first, so the middle is in front
+    const back = [];
+    for (let k = Math.max(left.length, right.length) - 1; k >= 0; k--) back.push(...[left[k], right[k]].filter(Boolean));
+    return [...back, mid];
+  }
 
   let nFig = 0;
   const makeFig = (f) => {
@@ -180,7 +227,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     // stands on the bottom of its rotated box (e.g. 90 turns the sideways fire upright)
     const rot = p.rotate ?? 0, rr = rot * Math.PI / 180;
     const [w, h] = rot ? [Math.abs(w0 * Math.cos(rr)) + Math.abs(h0 * Math.sin(rr)), Math.abs(w0 * Math.sin(rr)) + Math.abs(h0 * Math.cos(rr))] : [w0, h0];
-    if (rot && p.on) issues.push(`prop "${p.prop}": "rotate" with "on" — the anchors are not rotated`);
+    if (rot && p.on && !p._copy) issues.push(`prop "${p.prop}": "rotate" with "on" — the anchors are not rotated`);
     // recolor: def.recolor names the drawing's role colours ({ body, cloth }).
     // "character" takes a character's colours; "body" / "cloth" override (a
     // name from data/characters.json "colors", or a hex; a pattern suffix

@@ -1,0 +1,9 @@
+{
+  "scene": "Repeat: three ladders against a wall, spread (gap 0.8), barely turned; a monkey on the middle one's low rung",
+  "tall": 1.5,
+  "ground": "sand",
+  "figures": [
+    { "prop": "ladder", "at": 0.5, "row": "front", "scale": 0.7, "repeat": { "n": 3, "gap": 0.3, "scale": [0.92, 0.95], "rotate": [-4, 3] } },
+    { "character": "monkey1", "pose": "step-hang", "facing": "right", "on": "ladder#stand-low" }
+  ]
+}

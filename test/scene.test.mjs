@@ -324,3 +324,27 @@ test('a panel may name any <base>-<gesture>: composed from its base and gesture'
   assert.match(bad.issues[0], /no gesture "wave2"/);
   assert.match(bad.issues[1], /no base "hop"/);
 });
+
+test('"repeat": a prop drawn several times, the entry in the middle, smaller turned copies behind', () => {
+  const w = assets.props.props['rock-circle'].size[0];
+  const rock = { prop: 'rock-circle', at: 0.5, row: 'mid' };
+  const svg = (figs) => { const r = renderPanel({ tall: 1, figures: figs }, assets); assert.deepEqual(r.issues, []); return r.svg; };
+  // the defaults: left 0.8 turned -8, right 0.9 turned 6, edge to edge
+  assert.equal(svg([{ ...rock, repeat: 3 }]), svg([
+    { ...rock, id: 'rock-circle-left', scale: 0.8, rotate: -8, nudge: [-(w / 2 + 0.4 * w) / 0.8, 0] },
+    { ...rock, id: 'rock-circle-right', scale: 0.9, rotate: 6, nudge: [(w / 2 + 0.45 * w) / 0.9, 0] },
+    rock,
+  ]));
+  // gap (in the middle's head-units), scale and rotate per step, the middle's scale and nudge carried
+  const big = { ...rock, scale: 2, nudge: [1, 0.5] };
+  assert.equal(svg([{ ...big, repeat: { n: 2, gap: 0.5, scale: [0.5, 0.5], rotate: [0, 10] } }]), svg([
+    { ...big, id: 'rock-circle-right', scale: 1, rotate: 10, nudge: [(2 + w + 1 + w / 2) / 1, 1] },
+    big,
+  ]));
+  assert.equal(svg([{ ...rock, repeat: 1 }]), svg([rock]));
+  // the copies are named, so an entry can stand on one
+  assert.deepEqual(renderPanel({ figures: [{ ...rock, repeat: 3 }, { character: 'rama', pose: 'step-hang', on: 'rock-circle-left#stand' }] }, assets).issues, []);
+  // only props repeat; bad values are issues
+  for (const bad of [{ character: 'rama', pose: 'step-hang', repeat: 3 }, { ...rock, repeat: 20 }, { ...rock, repeat: { scale: 0.8 } }])
+    assert.equal(renderPanel({ figures: [bad] }, assets).issues.length, 1, JSON.stringify(bad));
+});

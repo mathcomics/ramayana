@@ -205,8 +205,11 @@ export function loadSections() {
       if (existsSync(bg)) backgrounds[p.id] = backgroundInner(readFileSync(bg, 'utf8'));
     }
     const m = name.match(/^(\d+)-(.*)$/);
-    const title = m ? `${Number(m[1])}. ${m[2].replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase())}` : name;
-    return { name, title, panels, backgrounds };
+    // a folder with no chapter number (panels/reference) holds reference
+    // drawings: in the panel lab, never on the reader site
+    const cap = (t) => t.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+    const title = m ? `${Number(m[1])}. ${cap(m[2])}` : cap(name);
+    return { name, title, panels, backgrounds, reference: !m };
   });
 }
 

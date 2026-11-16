@@ -9,7 +9,7 @@ artist's scene SVG) comes later.
 | Layer | Where | What |
 |---|---|---|
 | Scenes | `manuscript/scenes.md` | The story as chapter briefs: each chapter's arc in 3–6 beats, plus the continuity-and-motifs list. **Guidance**, not a definition: the panel side breaks beats into panels (one beat may be several panels) and owns ids, heights, shots and order. |
-| Panel definitions | `panels/<NN-section>/<id>.json` (+ optional `<id>.svg`) | What the renderer draws. One file per panel. |
+| Panel definitions | `panels/<NN-section>/<id>.json` (+ optional `<id>.svg`) | What the renderer draws. One file per panel. A folder with no chapter number (`panels/reference/`, ids `ref.NN`) holds reference drawings — models of a mechanism such as `repeat` — shown in the panel lab and checked by the tests, never published on the site. |
 | Rendered panels | `_site/` (not committed): an index of chapters (all `## N.` headings of `manuscript/scenes.md`; those without panels marked "to come") and one scrolling page per chapter with previous / next links | Built by `tools/build-site.mjs`; published to Cloudflare Pages by hand (GitHub Action calls a deploy hook). |
 
 The **panel lab** (`tools/build-panellab.mjs`, published artifact) shows any
@@ -118,6 +118,20 @@ behind them, after = in front; the retired `layer` field is an issue).
 - `at`, `row`, `scale`, `nudge`, `on`, `id` as for figures.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
 - `rotate`: degrees clockwise about the drawing's centre, after `facing`; the prop stands on the bottom of its turned box (`"rotate": 90` sets the sideways `fire` upright, 07.13). Anchors are not turned, so not with `on`.
+- `repeat`: the prop drawn several times in a row — a cluster of rocks, a
+  clump of lotuses or flowers, ladders against a wall. `"repeat": 3`, or
+  `{ "n": 3, "gap": 0.3, "scale": [0.8, 0.9], "rotate": [-8, 6] }`. The
+  entry as written (its `at`, `row`, `scale`, `nudge`, `on`, `rotate`,
+  colours) is the **middle** copy; the others stand left and right of it,
+  alternately outwards, on its ground line (or its anchor), drawn behind
+  it, farthest first. `scale` and `rotate` are `[left, right]`: each
+  step's factor and degrees, compounding outwards (defaults `[0.8, 0.9]`
+  and `[-8, 6]`); `gap` is the space between neighbours' edges in the
+  middle's head-units (default 0, edge to edge; negative overlaps). The
+  copies are named `<name>-left`, `<name>-right` (`-left2`, `-right2`
+  further out), so an entry can stand on one
+  (`"on": "rock-circle-left#stand"`). Models: `panels/reference/`
+  ref.01–ref.06.
 - Recolouring: a prop whose drawing names role colours on its root
   element (`<svg data-recolor-body="#a05a2c" data-recolor-cloth="#c8ab37" …>`) takes
   `character` (a character id: that character's body and cloth colours), or

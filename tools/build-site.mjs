@@ -11,7 +11,7 @@ const out = join(root, '_site');
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 const assets = loadAssets();
-const sections = loadSections();
+const sections = loadSections().filter((s) => !s.reference);   // panels/reference stays in the lab
 
 // Chapters: every "## N. Title" in manuscript/scenes.md, in order. A chapter
 // with a panel folder (panels/NN-*) gets a scrolling page; the others are
