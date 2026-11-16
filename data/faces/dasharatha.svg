@@ -59,21 +59,6 @@
     <g inkscape:groupmode="layer" inkscape:label="back" id="g64"/>
     <g inkscape:groupmode="layer" inkscape:label="hair-body" id="g66"/>
     <g inkscape:groupmode="layer" inkscape:label="under" id="g68"/>
-    <g inkscape:groupmode="layer" inkscape:label="mouth-1" id="g74">
-      <g transform="translate(0.05393187,0.02359519)" id="g72">
-        <path style="fill:#ffffff;fill-opacity:1;stroke-width:0.0150002" d="M 0.36723509,0.34551003 0.3559872,0.26743516 c -0.12618017,-0.002402 -0.16572313,0.008519 -0.16098973,0.0179858 l 0.0171437,0.0342855 c 0.004735,0.009467 0.0419049,0.0236511 0.15509392,0.0258036 z" id="path70"/>
-      </g>
-    </g>
-    <g inkscape:groupmode="layer" inkscape:label="mouth-2" id="g80">
-      <g id="g78">
-        <path style="fill:#ffffff;fill-opacity:1;stroke-width:0.0150002" d="m 0.40618856,0.38810788 -0.00993,-0.13848795 c -0.11139591,-0.004256 -0.14630571,0.0151107 -0.14212691,0.031903 l 0.015135,0.0608152 c 0.00418,0.0167915 0.036995,0.0419524 0.13692191,0.0457697 z" id="path76"/>
-      </g>
-    </g>
-    <g inkscape:groupmode="layer" inkscape:label="mouth-3" id="g86">
-      <g id="g84">
-        <path style="fill:#ffffff;fill-opacity:1;stroke-width:0.0150002" d="m 0.46068652,0.45903436 -0.0497876,-0.2322478 c -0.18038912,-0.008692 -0.21624621,0.0640284 -0.2132997,0.0988571 l 0.007655,0.0904845 c 0.002946,0.0348276 0.0936153,0.0351107 0.25543228,0.0429062 z" id="path82"/>
-      </g>
-    </g>
     <g inkscape:groupmode="layer" inkscape:label="over" id="g94">
       <path style="fill:#ffe680;fill-opacity:1;stroke-width:0.015;stroke:#2b1100" d="m -0.4269946,-0.34024612 0.17536998,-0.13339707 0.35239199,-0.0355908 0.25807472,0.0932958 0.0554913,-0.21195476 -0.16994082,0.0747804 -0.10823916,-0.14144493 -0.15666283,0.0967505 -0.21242092,-0.0588291 -0.0886481,0.14511219 -0.19509845,0.0408556 z" id="path88"/>
       <path style="fill:#782121;fill-opacity:1;stroke-width:0.0150001" d="m 0.36291228,0.57144744 c 0.1682124,-0.0803067 0.058001,-0.24353376 0.0428584,-0.38761619 l -0.48649632,0.0377258 -0.129348,-0.0210206 c -0.00142,0.13835737 0.26290633,0.39472314 0.57298593,0.37091102 z" id="path90"/>

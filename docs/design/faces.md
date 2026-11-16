@@ -33,7 +33,8 @@ character (`sideOnly` in `data/characters.json`) has the side view only.
 - `data/faces/<id>.svg`, one per character, per view: `under` (behind the
   face), `over` (hair, crown, beard, marks), `back` (behind the whole
   body), `hair-body` (long hair on the back, pinned at the `nape`
-  anchor), and optionally its own `eyes` / `mouth-*` replacing the base's.
+  anchor), and optionally its own `eyes` replacing the base's. Mouths
+  come from the base only.
 - Coordinates: head-units, head centre at (0, 0), y down; the face looks
   picture-right in the side and three-quarter views.
 

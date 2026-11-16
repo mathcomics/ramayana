@@ -36,8 +36,8 @@ The **bases** draw the face in front, side, three-quarter and down-40°
 (`skin`, `eyes`, `mouth-1/2/3`), and the head in the back view (the
 front's skin, no eyes or mouths) and the top view (a circle one head-unit
 across). In every view a character's file holds **only its own parts** — `under` (behind the face), `over` (hair,
-crown, beard, marks), `back` — and its own `eyes` / mouths only where it
-draws its own in front (rakshasa men's eyes, raxas_m2's mouths); its guide
+crown, beard, marks), `back` — and its own `eyes` only where it
+draws its own in front (rakshasa men's eyes; mouths always come from the base); its guide
 shows the base face, and a locked `guide-mouth` layer on top shows the
 base's widest mouth, half transparent. In the back and top views all of
 a character's parts are in `over`: hair covers the skull from behind and
