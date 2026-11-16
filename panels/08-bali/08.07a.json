@@ -11,10 +11,10 @@
     },
     {
       "character": "rama",
-      "pose": "stepwide-bowloose",
+      "pose": "chair-bowloose",
       "facing": "right",
       "at": 0.25,
-      "row": "closeup"
+      "row": "floor"
     }
   ]
 }

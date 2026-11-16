@@ -5,30 +5,19 @@
   "figures": [
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "stepwide-fool",
       "facing": "left",
-      "at": 0.64,
+      "at": 0.7,
       "mouth": 2,
       "adjust": {
-        "right.arm.shoulder": 55,
-        "right.arm.elbow": 25,
-        "right.arm.hand": "out",
-        "spine.head": 16
+        "right.arm.prop": null
       }
     },
     {
       "character": "hanuman",
       "pose": "kneel-handslow",
       "facing": "right",
-      "at": 0.36,
-      "adjust": {
-        "spine.head": -18
-      }
-    },
-    {
-      "prop": "ring",
-      "at": 0.5,
-      "row": 0.29
+      "at": 0.36
     }
   ]
 }

@@ -19,15 +19,17 @@
       "id": "angad",
       "pose": "step-hang",
       "facing": "left",
-      "at": 0.82,
-      "mouth": 2
+      "at": 0.8,
+      "mouth": 2,
+      "row": "mid"
     },
     {
       "character": "hanuman",
-      "pose": "step-palms",
+      "pose": "step-armrest",
       "facing": "right",
-      "at": 0.16,
-      "mouth": 2
+      "at": 0.2,
+      "mouth": 2,
+      "row": "mid"
     }
   ],
   "needs": [

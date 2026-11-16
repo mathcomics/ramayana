@@ -1,40 +1,29 @@
 {
-  "scene": "Monkeys crowd and mourn over Bali",
-  "tall": 1,
-  "ground": "off-white",
+  "scene": "Bali falls",
+  "tall": 0.6,
+  "ground": "sand",
   "figures": [
     {
       "character": "sugriva",
       "id": "bali",
-      "pose": "liefront-onarms",
+      "pose": "fallback-armknee",
       "facing": "left",
-      "at": 0.45,
-      "mouth": 1
+      "at": 0.5,
+      "rotate": 20,
+      "row": -0.3
     },
     {
-      "character": "monkey1",
-      "id": "tara",
-      "cloth": "red",
-      "pose": "kneel-bow",
-      "facing": "left",
-      "at": 0.62
-    },
-    {
-      "character": "monkey1",
-      "id": "angad",
-      "pose": "kneel-handslow",
+      "character": "sugriva",
+      "pose": "stepwide-armsup",
       "facing": "right",
-      "at": 0.26
+      "at": 0.12,
+      "row": 0,
+      "wear": "garland"
     },
     {
-      "character": "monkey1",
-      "pose": "step-holdhead",
+      "prop": "arrow-stuck",
       "facing": "left",
-      "at": 0.84,
-      "mouth": 2
+      "on": "bali#chest"
     }
-  ],
-  "needs": [
-    "pose: lie-back (fallen on the back): liefront-onarms for now"
   ]
 }

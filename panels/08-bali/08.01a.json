@@ -13,7 +13,8 @@
       "pose": "run-pump",
       "facing": "left",
       "on": "steps#stand",
-      "rotate": 30
+      "rotate": 30,
+      "wear": "garland"
     }
   ]
 }

@@ -11,10 +11,10 @@
     },
     {
       "character": "rama",
-      "pose": "stand-bowdraw",
+      "pose": "crouch-bowdraw",
       "facing": "right",
       "at": 0.15,
-      "row": "closeup"
+      "row": "floor"
     }
   ]
 }
