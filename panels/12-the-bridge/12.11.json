@@ -1,0 +1,39 @@
+{
+  "scene": "The Ocean points across the water; Rama lowers his bow and looks",
+  "tall": 1,
+  "ground": "sea",
+  "sky": "sky",
+  "horizon": 0.55,
+  "figures": [
+    {
+      "character": "male2",
+      "pose": "step-point",
+      "view": "front",
+      "facing": "left",
+      "at": 0.66,
+      "row": "front"
+    },
+    {
+      "foreground": 0.42,
+      "color": "sea"
+    },
+    {
+      "foreground": 0.12,
+      "color": "sand"
+    },
+    {
+      "character": "rama",
+      "pose": "step-bowloose",
+      "facing": "right",
+      "at": 0.18,
+      "adjust": {
+        "spine.head": -8
+      },
+      "scale": 0.75,
+      "row": "front"
+    }
+  ],
+  "needs": [
+    "character: the Ocean (a man risen from the waves, crowned with water, blue) — male2 in front view behind a sea band for now"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "scene": "From above: the stones laid one after another into the sea, monkeys at work on the end of the line",
+  "tall": 1.5,
+  "ground": "sea",
+  "figures": [
+    {
+      "prop": "wave-top",
+      "at": 0.5,
+      "row": "floor"
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.5,
+      "row": 0.05,
+      "scale": 0.6,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.48,
+      "row": 0.2,
+      "scale": 0.6,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.52,
+      "row": 0.35,
+      "scale": 0.6,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.5,
+      "row": 0.5,
+      "scale": 0.6,
+      "body": "stone"
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.4,
+      "row": 0.6,
+      "scale": 0.8
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "red",
+      "at": 0.6,
+      "row": 0.62,
+      "scale": 0.8
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.51,
+      "row": 0.66,
+      "scale": 0.35,
+      "body": "stone"
+    }
+  ]
+}

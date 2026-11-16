@@ -1,0 +1,23 @@
+{
+  "scene": "The Ocean, close, risen to the chest from the water, palms raised",
+  "tall": 0.6,
+  "ground": "sea",
+  "sky": "sky",
+  "horizon": 0.6,
+  "figures": [
+    {
+      "character": "male2",
+      "pose": "stand-armsup",
+      "view": "front",
+      "at": 0.5,
+      "row": "closeup"
+    },
+    {
+      "foreground": 0.18,
+      "color": "sea"
+    }
+  ],
+  "needs": [
+    "character: the Ocean (a man risen from the waves, crowned with water, blue) — male2 in front view behind a sea band for now"
+  ]
+}

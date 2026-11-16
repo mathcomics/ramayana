@@ -1,0 +1,86 @@
+{
+  "scene": "Far off on the horizon the line of stone reaches Lanka; the army small upon it",
+  "tall": 0.6,
+  "ground": "sea",
+  "sky": "mist",
+  "horizon": 0.42,
+  "figures": [
+    {
+      "prop": "lanka-island",
+      "at": 0.8,
+      "row": "horizon",
+      "scale": 1.6
+    },
+    {
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.2,
+      "row": "horizon",
+      "scale": 0.4,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.36,
+      "row": "horizon",
+      "scale": 0.4,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.52,
+      "row": "horizon",
+      "scale": 0.4,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.66,
+      "row": "horizon",
+      "scale": 0.4,
+      "body": "stone"
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.3,
+      "row": "horizon",
+      "scale": 0.5,
+      "nudge": [
+        0,
+        0.8
+      ]
+    },
+    {
+      "character": "monkey1",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.45,
+      "row": "horizon",
+      "scale": 0.5,
+      "nudge": [
+        0,
+        0.8
+      ],
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.58,
+      "row": "horizon",
+      "scale": 0.5,
+      "nudge": [
+        0,
+        0.8
+      ],
+      "cloth": "orange"
+    }
+  ]
+}

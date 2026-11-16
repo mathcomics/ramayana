@@ -1,0 +1,68 @@
+{
+  "scene": "The line of stone grows over the water toward Lanka on the horizon",
+  "tall": 1,
+  "ground": "sea",
+  "sky": "mist",
+  "horizon": 0.45,
+  "figures": [
+    {
+      "prop": "lanka-island",
+      "at": 0.82,
+      "row": "horizon"
+    },
+    {
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.62,
+      "row": 0.4,
+      "scale": 0.12,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.55,
+      "row": 0.36,
+      "scale": 0.18,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.47,
+      "row": 0.3,
+      "scale": 0.28,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.38,
+      "row": 0.21,
+      "scale": 0.42,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.25,
+      "row": 0.06,
+      "scale": 0.65,
+      "body": "stone",
+      "id": "near-stone"
+    },
+    {
+      "prop": "rock-circle",
+      "on": "carrier#hands",
+      "scale": 0.3
+    },
+    {
+      "character": "monkey1",
+      "id": "carrier",
+      "pose": "arch-overhead",
+      "view": "front",
+      "scale": 0.7,
+      "cloth": "red",
+      "on": "near-stone#stand"
+    }
+  ]
+}

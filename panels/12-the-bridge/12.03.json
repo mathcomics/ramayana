@@ -1,0 +1,31 @@
+{
+  "scene": "Vibhishana kneels before the throne, palms joined, pleading; Ravana looks down at him",
+  "tall": 1,
+  "ground": "yellow",
+  "figures": [
+    {
+      "prop": "throne-lanka",
+      "at": 0.8,
+      "row": "mid"
+    },
+    {
+      "character": "ravana",
+      "pose": "chair-armrest",
+      "facing": "left",
+      "on": "throne-lanka",
+      "adjust": {
+        "spine.head": 12
+      }
+    },
+    {
+      "character": "vibhishana",
+      "pose": "kneel-palms",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": -16
+      }
+    }
+  ]
+}

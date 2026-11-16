@@ -1,0 +1,59 @@
+{
+  "scene": "A frieze of monkeys running down to the water with rocks in their arms and on their shoulders",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "prop": "rock-circle",
+      "on": "m1#hands",
+      "scale": 0.5
+    },
+    {
+      "character": "monkey1",
+      "id": "m1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.12
+    },
+    {
+      "prop": "rock-rectangle",
+      "on": "m2#shoulder",
+      "scale": 0.45
+    },
+    {
+      "character": "monkey1",
+      "id": "m2",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "at": 0.36,
+      "cloth": "red"
+    },
+    {
+      "prop": "rock-square",
+      "on": "m3#hands",
+      "scale": 0.5
+    },
+    {
+      "character": "monkey1",
+      "id": "m3",
+      "pose": "runwide-hang",
+      "facing": "right",
+      "at": 0.6,
+      "cloth": "orange"
+    },
+    {
+      "prop": "rock-rectangle",
+      "on": "m4#hands",
+      "scale": 0.5
+    },
+    {
+      "character": "monkey1",
+      "id": "m4",
+      "pose": "leap-reach",
+      "facing": "right",
+      "at": 0.84,
+      "row": 0.15,
+      "cloth": "red-stripe"
+    }
+  ]
+}

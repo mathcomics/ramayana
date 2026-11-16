@@ -1,0 +1,15 @@
+{
+  "scene": "Ravana points, close (as Kaikeyi, 02.10)",
+  "tall": 0.6,
+  "ground": "yellow",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "step-point",
+      "facing": "left",
+      "at": 0.55,
+      "mouth": 3,
+      "row": "closeup"
+    }
+  ]
+}

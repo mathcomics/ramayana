@@ -1,0 +1,54 @@
+{
+  "scene": "The monkeys sit on the shore, heads bowed before the water",
+  "tall": 0.6,
+  "ground": "sea",
+  "sky": "sky",
+  "horizon": 0.55,
+  "figures": [
+    {
+      "foreground": 0.25,
+      "color": "sand"
+    },
+    {
+      "character": "monkey1",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.15,
+      "on": "foreground",
+      "adjust": {
+        "spine.chest": 18,
+        "spine.head": 16
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.42,
+      "on": "foreground",
+      "cloth": "red",
+      "adjust": {
+        "spine.chest": 18,
+        "spine.head": 16
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "crouch-holdhead",
+      "facing": "right",
+      "at": 0.66,
+      "on": "foreground",
+      "cloth": "orange"
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.88,
+      "on": "foreground",
+      "adjust": {
+        "spine.head": 12
+      }
+    }
+  ]
+}

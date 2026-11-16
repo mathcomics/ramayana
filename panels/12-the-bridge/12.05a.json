@@ -1,0 +1,17 @@
+{
+  "scene": "Vibhishana, close, turns away with his head bowed",
+  "tall": 0.6,
+  "ground": "yellow",
+  "figures": [
+    {
+      "character": "vibhishana",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.45,
+      "row": "closeup",
+      "adjust": {
+        "spine.head": 16
+      }
+    }
+  ]
+}

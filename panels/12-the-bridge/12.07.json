@@ -1,0 +1,26 @@
+{
+  "scene": "On Rama's shore Vibhishana kneels, palms joined; Rama stands before him",
+  "tall": 1,
+  "ground": "sand",
+  "sky": "sky",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.7,
+      "adjust": {
+        "spine.head": 10
+      }
+    },
+    {
+      "character": "vibhishana",
+      "pose": "kneel-palms",
+      "facing": "right",
+      "at": 0.32,
+      "adjust": {
+        "spine.head": -14
+      }
+    }
+  ]
+}

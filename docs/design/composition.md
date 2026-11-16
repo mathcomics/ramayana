@@ -21,7 +21,7 @@ action. The same opener can return when the story comes back to a place.
 | 8 Bali | Kishkindha's gates, near (08.01) | done |
 | 9 The leap | Kishkindha on the horizon again (09.01, as 07.01) | done |
 | 10 The ring | night: Lanka's wall (10.01) | done |
-| 12 The bridge | Lanka across the sea, as 05.01 | when chapter 12 is made |
+| 12 The bridge | Lanka across the sea, as 05.01 (12.01) | done |
 | 13 The war begins | — | to choose (before Lanka's walls?) |
 | 14 Kumbhakarna | Lanka across the sea, as 05.01 (14.01) | draft |
 

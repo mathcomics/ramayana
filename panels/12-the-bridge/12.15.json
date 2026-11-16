@@ -1,0 +1,62 @@
+{
+  "scene": "Rama crosses on Hanuman's shoulders, Lakshman and Vibhishana behind; Lanka, far for so long, stands near",
+  "tall": 1,
+  "ground": "sea",
+  "sky": "mist",
+  "horizon": 0.4,
+  "figures": [
+    {
+      "prop": "lanka-island",
+      "at": 0.85,
+      "row": "horizon",
+      "scale": 2
+    },
+    {
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand",
+      "scale": 2
+    },
+    {
+      "foreground": 0.16,
+      "color": "stone-grey"
+    },
+    {
+      "character": "vibhishana",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.12,
+      "on": "foreground",
+      "scale": 0.6
+    },
+    {
+      "character": "lakshman",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.26,
+      "on": "foreground",
+      "scale": 0.6
+    },
+    {
+      "character": "rama",
+      "pose": "chair-hang",
+      "facing": "right",
+      "on": "hanuman#shoulder",
+      "scale": 0.55,
+      "nudge": [
+        -0.5,
+        2.7
+      ]
+    },
+    {
+      "character": "hanuman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.5,
+      "on": "foreground",
+      "scale": 0.8
+    }
+  ],
+  "needs": [
+    "pose: sit-ride (Rama astride on Hanuman's shoulders): chair-hang on hanuman#shoulder for now"
+  ]
+}

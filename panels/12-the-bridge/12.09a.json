@@ -1,0 +1,17 @@
+{
+  "scene": "Rama, close, the bow drawn full at the water",
+  "tall": 0.6,
+  "ground": "sea",
+  "sky": "sky",
+  "horizon": 0.5,
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-bowdraw",
+      "facing": "right",
+      "at": 0.42,
+      "row": "closeup",
+      "mouth": 2
+    }
+  ]
+}
