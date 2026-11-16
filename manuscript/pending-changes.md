@@ -130,3 +130,5 @@ the "pointing back the way she came" gesture. Beats 5–7 of chapter 4
 want rewriting to match.
 
 - **New 02.01a–02.01f** (2026-11-16): six variations of Kaikeyi and Dasharatha arguing after the throne opener (demand at the throne, the king kneeling to her, the shouting close-up, the anger chamber, the quarrel, the king bowed in grief); the artist picks.
+
+- **New 10.08c–10.08n** (2026-11-16, the artist): after 10.08b, Ravana visits Sita in the grove and the rakshasis come and go, some frightening her, one (raxas_f3, red-diamond) consoling her: twelve variations, Sita on the same rock in the same spot, on the `chair` base throughout. The brief lists "Ravana threatening Sita in the grove" under *Not shown*; the artist now wants it shown — the brief needs updating.

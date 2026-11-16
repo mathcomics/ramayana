@@ -1,0 +1,38 @@
+{
+  "scene": "A rakshasi lunges at Sita, pointing; another laughs behind her; Sita shields her face",
+  "tall": 1,
+  "ground": "night",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.8,
+      "row": "mid"
+    },
+    {
+      "row": "mid",
+      "scale": 1.5,
+      "facing": "right",
+      "character": "raxas_f2",
+      "cloth": "red-check",
+      "pose": "step-akimbo",
+      "at": 0.12,
+      "mouth": 3
+    },
+    {
+      "row": "mid",
+      "scale": 1.5,
+      "facing": "right",
+      "character": "raxas_f1",
+      "pose": "lunge-point",
+      "at": 0.3,
+      "mouth": 3
+    },
+    {
+      "character": "sita",
+      "pose": "chair-armface",
+      "facing": "left",
+      "on": "rock-square#seat",
+      "scale": 1.5
+    }
+  ]
+}
