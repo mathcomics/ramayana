@@ -10,7 +10,6 @@
       "pose": "liefront-onarms",
       "facing": "left",
       "at": 0.45,
-      "scale": 1.1,
       "mouth": 1
     },
     {
@@ -26,8 +25,7 @@
       "id": "angad",
       "pose": "kneel-handslow",
       "facing": "right",
-      "at": 0.26,
-      "scale": 0.75
+      "at": 0.26
     },
     {
       "character": "monkey1",

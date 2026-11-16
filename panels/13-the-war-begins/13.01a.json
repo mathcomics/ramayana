@@ -1,0 +1,44 @@
+{
+  "scene": "Repeat: three ladders against a wall, spread (gap 0.8), barely turned; a monkey on the middle one's low rung",
+  "tall": 1.5,
+  "ground": "sand",
+  "figures": [
+    {
+      "foreground": [
+        0.81,
+        0.52
+      ],
+      "color": "stone-grey"
+    },
+    {
+      "prop": "ladder",
+      "at": 0.5,
+      "row": -0.4,
+      "repeat": {
+        "gap": 0.2,
+        "n": 3
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "scale": 0.7
+    },
+    {
+      "character": "monkey1",
+      "pose": "pass-onarms",
+      "facing": "left",
+      "at": 0.2,
+      "scale": 0.7
+    },
+    {
+      "character": "monkey1",
+      "pose": "kneeup-reach",
+      "facing": "left",
+      "at": 0.58,
+      "row": 0.37,
+      "scale": 0.7
+    }
+  ]
+}

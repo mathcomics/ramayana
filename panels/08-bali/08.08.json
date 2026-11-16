@@ -10,10 +10,12 @@
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.5
+    },
+    {
+      "prop": "arrow-stuck",
+      "facing": "left",
+      "on": "bali#chest"
     }
-  ],
-  "needs": [
-    "effect: the arrow in his chest"
   ],
   "mode": "negative"
 }

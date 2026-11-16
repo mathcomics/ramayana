@@ -18,26 +18,28 @@
     {
       "prop": "rock-circle",
       "at": 0.245,
-      "scale": 0.75
+      "scale": 0.75,
+      "id": "rock1"
     },
     {
       "prop": "rock-circle",
       "facing": "left",
       "at": 0.755,
-      "scale": 0.75
+      "scale": 0.75,
+      "id": "rock2"
     },
     {
       "character": "rama",
       "pose": "chair-armrest",
       "facing": "right",
-      "at": 0.3,
-      "mouth": 2
+      "mouth": 2,
+      "on": "rock1#seat"
     },
     {
       "character": "sugriva",
       "pose": "chair-armsup",
       "facing": "left",
-      "at": 0.7
+      "on": "rock2#seat"
     }
   ]
 }

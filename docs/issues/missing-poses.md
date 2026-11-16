@@ -90,6 +90,5 @@ its gestures on any base. Moments with neither come first.
 - 09.11: crouch-ready (deep knees, arms back): crouch-cross for now
 - 12.12: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 12.15: sit-ride (Rama astride on Hanuman's shoulders): chair-hang on hanuman#shoulder for now
-- 13.01: leapup-climb (hands on a high rung, one knee up on a lower one): leapup-reachup for now
 - 13.02: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 13.04: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now

@@ -1,0 +1,23 @@
+{
+  "scene": "Top view: a small hut in the middle of green ground, clumps of trees in two corners",
+  "tall": 1,
+  "ground": "green",
+  "figures": [
+    {
+      "id": "trees-nw",
+      "prop": "trees-top",
+      "at": 0.257,
+      "row": 0.71
+    },
+    {
+      "prop": "hut-top",
+      "at": 0.505,
+      "row": 0.42
+    },
+    {
+      "id": "trees-se",
+      "prop": "trees-top",
+      "at": 0.743
+    }
+  ]
+}

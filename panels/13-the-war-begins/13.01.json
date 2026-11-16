@@ -1,67 +1,18 @@
 {
-  "scene": "Siege: a ladder against Lanka's wall, monkeys swarm up it; a rakshasa on top raises his club",
-  "tall": 1.5,
-  "ground": "dry-grass",
-  "sky": "sky",
+  "scene": "Opening: Lanka, the golden city on its island, far across the sea",
+  "tall": 1,
+  "ground": "night",
+  "sky": "#ffa500",
   "figures": [
     {
-      "prop": "city-side",
-      "facing": "left",
-      "at": 0.98,
-      "row": -0.05,
-      "scale": 3
+      "prop": "lanka-island",
+      "at": 0.7,
+      "row": "horizon"
     },
     {
-      "prop": "ladder",
-      "at": 0.66,
-      "row": 0,
-      "scale": 0.7
-    },
-    {
-      "character": "monkey1",
-      "id": "climber-low",
-      "pose": "leapup-reachup",
-      "facing": "right",
-      "on": "ladder#stand-low",
-      "scale": 0.35,
-      "cloth": "orange",
-      "mouth": 1
-    },
-    {
-      "character": "monkey1",
-      "id": "climber-mid",
-      "pose": "leapup-reachup",
-      "facing": "right",
-      "on": "ladder#stand",
-      "scale": 0.35,
-      "cloth": "red-diamond",
-      "mouth": 1
-    },
-    {
-      "character": "monkey1",
-      "id": "climber-high",
-      "pose": "leapup-reachup",
-      "facing": "right",
-      "on": "ladder#stand-high",
-      "scale": 0.38,
-      "cloth": "red"
-    },
-    {
-      "character": "raxas_m1",
-      "id": "defender",
-      "pose": "step-roof",
-      "facing": "left",
-      "at": 0.88,
-      "row": 0.775,
-      "scale": 0.25,
-      "cloth": "red-check",
-      "mouth": 3,
-      "adjust": {
-        "right.arm.prop.kind": "club"
-      }
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand"
     }
   ],
-  "needs": [
-    "pose: leapup-climb (hands on a high rung, one knee up on a lower one): leapup-reachup for now"
-  ]
+  "horizon": 0.2
 }

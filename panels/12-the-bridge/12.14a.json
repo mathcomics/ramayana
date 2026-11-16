@@ -1,0 +1,25 @@
+{
+  "scene": "The army crosses on the stone, a line of monkeys walking over the sea",
+  "tall": 0.6,
+  "ground": "sea",
+  "sky": "mist",
+  "horizon": 0.25,
+  "figures": [
+    {
+      "character": "monkey1",
+      "pose": "runwide-swing",
+      "on": "rock-square#stand-left",
+      "scale": 5
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.45,
+      "row": "back",
+      "scale": 5,
+      "repeat": {
+        "gap": 0,
+        "n": 9
+      }
+    }
+  ]
+}

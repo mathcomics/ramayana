@@ -1,0 +1,33 @@
+{
+  "scene": "Repeat: a lotus pond: three full lotuses, three buds behind",
+  "tall": 1,
+  "ground": "sky",
+  "sky": "off-white",
+  "horizon": 0.2,
+  "figures": [
+    {
+      "character": "sita",
+      "pose": "sit-armrest",
+      "facing": "right",
+      "at": 0.25,
+      "row": 0.2,
+      "mouth": 2
+    },
+    {
+      "prop": "lotus-bud",
+      "at": 0.2,
+      "row": "mid",
+      "scale": 2.2,
+      "repeat": {
+        "n": 3
+      }
+    },
+    {
+      "prop": "lotus-full",
+      "at": 0.75,
+      "row": "front",
+      "scale": 1.8,
+      "repeat": 3
+    }
+  ]
+}
