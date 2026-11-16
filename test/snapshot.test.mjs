@@ -27,7 +27,7 @@ function fingerprints() {
   }
   const assets = loadAssets();
   for (const sec of loadSections()) for (const { id, def } of sec.panels)
-    out[`panel ${id}`] = hash(stableIds(renderPanel(def, assets, { id, background: sec.backgrounds[id] }).svg));
+    out[`panel ${id}`] = hash(stableIds(renderPanel(def, assets, { id }).svg));
   return out;
 }
 

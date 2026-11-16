@@ -56,7 +56,7 @@ const file = (c) => `${c.sec.name}.html`;
 ready.forEach((c, i) => {
   const sec = c.sec;
   const body = sec.panels.map(({ id, def }) => {
-    const { svg } = renderPanel(def, assets, { id, background: sec.backgrounds[id] });
+    const { svg } = renderPanel(def, assets, { id });
     return `<figure id="p${id}" aria-label="${esc(def.scene || id)}">${svg}</figure>`;
   }).join('\n');
   const prev = ready[i - 1], next = ready[i + 1];

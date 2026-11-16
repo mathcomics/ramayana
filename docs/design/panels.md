@@ -9,7 +9,7 @@ artist's scene SVG) comes later.
 | Layer | Where | What |
 |---|---|---|
 | Scenes | `manuscript/scenes.md` | The story as chapter briefs: each chapter's arc in 3–6 beats, plus the continuity-and-motifs list. **Guidance**, not a definition: the panel side breaks beats into panels (one beat may be several panels) and owns ids, heights, shots and order. |
-| Panel definitions | `panels/<NN-section>/<id>.json` (+ optional `<id>.svg`) | What the renderer draws. One file per panel. A folder with no chapter number (`panels/reference/`, ids `ref.NN`) holds reference drawings — models of a mechanism such as `repeat` — shown in the panel lab and checked by the tests, never published on the site. |
+| Panel definitions | `panels/<NN-section>/<id>.json` | What the renderer draws. One file per panel. A folder with no chapter number (`panels/reference/`, ids `ref.NN`) holds reference drawings — models of a mechanism such as `repeat` — shown in the panel lab and checked by the tests, never published on the site. |
 | Rendered panels | `_site/` (not committed): a wordless index — a grid of rounded square tiles, three to a row, one per chapter (all `## N.` headings of `manuscript/scenes.md`), each a drawn face, a prop, or a small cropped panel (figures in poses, props) on the chapter's typical ground (`panels/icons.json`; those without panels dimmed, not links) — and one scrolling page per chapter with previous / next links | Built by `tools/build-site.mjs`; Cloudflare Pages builds and publishes it on every push to `main`. |
 
 The **panel lab** (`tools/build-panellab.mjs`, published artifact) shows any
@@ -40,7 +40,7 @@ that chapter's lab drafts before renumbering — they are stored by id.
 
 ## Panel definition
 
-`panels/02-the-throne/02.03.json`; the **id is the file name** and is not
+`panels/02-the-throne/02.01.json`; the **id is the file name** and is not
 repeated inside the JSON.
 
 ```json
@@ -68,11 +68,10 @@ repeated inside the JSON.
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`night`), or `{ "horizontal": [left, right] }` (`sky-blue`) — set there, never in the panel. |
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
-| `mode` | `negative` | The dramatic beat: the background turns black and every figure and prop is a white silhouette (merged where they overlap). Ground, sky, background SVG and foreground bands all go black. For a transformation (05.19a, the ascetic becoming Ravana) and for the death of a major character (artist, 2026-11-15). Any other value is an issue. |
+| `mode` | `negative` | The dramatic beat: the background turns black and every figure and prop is a white silhouette (merged where they overlap). Ground, sky and foreground bands all go black. For a transformation (05.19a, the ascetic becoming Ravana) and for the death of a major character (artist, 2026-11-15). Any other value is an issue. |
 | `tags` | list of words from `panels/layouts.md`, Tags (`frieze`, `spy`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
 | `figures` | one list of figures **and** props | An entry with `character` is a figure, with `prop` a prop, with `foreground` a band of ground (Foregrounds). **One overlap rule: later entries draw over earlier ones** — a prop before the figures is scenery, after them a foreground that hides them (03.02's rising ground), and props and figures interleave freely. (The old separate `props` list with `layer` back/front still renders, folded in around the figures — old lab drafts only; migrate on merge.) |
 | `needs` | list of text | Missing poses, props, art. Collected into the to-do list. |
-| `background` | file name | Optional; default `<id>.svg` next to the JSON. |
 
 ### Figures
 
@@ -291,15 +290,6 @@ the panel; it takes `front` with a `scale`.
 only, in the entry's own head-units; anything placed high (flight, hanging, a top
 view) takes a numeric row, which does not move when its `scale` changes.
 
-## Background SVG
-
-`panels/<section>/<id>.svg`, drawn in the panel's coordinates: 360 wide,
-`tall` × 360 high (540 for 1.5). Draw anything (horizon, river, hills); the renderer
-fills the ground colour first, then the background, then the `figures`
-list in order.
-A layer labelled `guide` is ignored; editor attributes are stripped. The
-drawing is otherwise used as is.
-
 ## Commands
 
 ```sh
@@ -322,8 +312,7 @@ drafts show with a dot and survive reloads. **Insert after** adds a
 copy of the selected panel right after it, under the next free id (see
 Ids); it is kept once saved as a draft (**Discard new panel** drops it
 before that). Claude merges drafts into `panels/` when asked, as with
-poses — a draft with a new id becomes a new file. Background SVGs come
-from the repo.
+poses — a draft with a new id becomes a new file.
 
 A draft always overrides the repo panel in the lab, so a stale draft
 hides every later repo change to that panel. **After a merge is

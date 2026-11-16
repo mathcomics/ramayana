@@ -23,7 +23,7 @@ the artist's own work and the style bible. Read with
   previous one needs explaining, a beat is missing between them (a
   location panel, a glance, a partial view).
 - Repetition with one small change is the clock of the story: the same
-  walking figures across three panels is a journey (02.06-02.08); the
+  walking figures across three panels is a journey; the
   same bubble across three panels is a sound traveling (05.13-05.15).
   Keep everything else identical so the change carries the meaning.
 
@@ -43,8 +43,8 @@ The clear-line convention: movement **left to right** is outward,
 onward, into the unknown; **right to left** is return, retreat, home.
 Applied here it would mean: the exile sets out rightward, the return to
 Ayodhya flows leftward, and antagonists enter against the heroes'
-direction. Today's chapters are mixed (the exile walks left,
-02.04-02.08; the deer chase runs right). Adopting the rule means
+direction. Today's chapters are mixed (the exile walks left
+in chapter 2; the deer chase runs right). Adopting the rule means
 re-facing some existing panels — **not applied yet**; if the artist
 confirms, apply it chapter by chapter and note it in `composition.md`.
 

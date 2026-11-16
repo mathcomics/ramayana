@@ -5,7 +5,7 @@
 //   node tools/renumber-panels.mjs 05 --dry   # print the mapping only
 //   node tools/renumber-panels.mjs 05         # rename and rewrite references
 //
-// Renames the panel files (and a background <id>.svg) with git mv, and
+// Renames the panel files with git mv, and
 // rewrites every mention of a moved id in the live docs and data (not in
 // docs/proposals, which keep the ids of their day). Afterwards: regenerate
 // the issue lists, render and look, accept the snapshot, rebuild the lab.
@@ -34,7 +34,7 @@ if (dry) process.exit(0);
 
 // 1. rename, through temporary names so no rename lands on a file still to move
 const git = (...args) => execFileSync('git', args, { cwd: root, stdio: 'inherit' });
-const files = (id) => ['.json', '.svg'].map((e) => id + e).filter((f) => existsSync(join(dir, f)));
+const files = (id) => [id + '.json'].filter((f) => existsSync(join(dir, f)));
 for (const id of map.keys()) for (const f of files(id)) git('mv', join(dir, f), join(dir, '~' + f));
 for (const [a, b] of map) for (const f of files('~' + a)) git('mv', join(dir, f), join(dir, f.replace('~' + a, b)));
 

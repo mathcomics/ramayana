@@ -42,7 +42,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.01b |
 | prop: hut | 05.16 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11, 10.11a |
-| prop: jewels (held to the chest) | 07.12 |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
 | prop: line (scratched in the earth, under his hand) | 05.17 |
 | prop: line-top (the line as a closed ring round the hut, seen from above) | 05.18 |

@@ -242,7 +242,7 @@ const SECTIONS = /*__SECTIONS__*/;
     const phone = $('phone'), top = phone.scrollTop;
     let issuesOfSel = [], lastSi = -1;
     phone.innerHTML = list.map(({ id, def, si }) => {
-      const r = renderPanel(def, ASSETS, { id, background: SECTIONS[si].backgrounds[id] || '' });
+      const r = renderPanel(def, ASSETS, { id });
       if (id === state.panelId) issuesOfSel = r.issues;
       const cap = state.view && si !== lastSi ? `<div class="cap">${SECTIONS[si].title}</div>` : '';
       lastSi = si;

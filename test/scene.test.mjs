@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import assert from 'node:assert/strict';
-import { renderPanel, panelHeight, backgroundInner, findPose, PANEL_W, MAN } from '../src/scene.js';
+import { renderPanel, panelHeight, svgInner, findPose, PANEL_W, MAN } from '../src/scene.js';
 import { loadAssets, loadSections } from '../tools/lib.mjs';
 import { buildShapes, characterLook } from '../src/figure.js';
 
@@ -22,7 +22,7 @@ test('panel height is tall × width (1.5, 1, 0.6), with a fallback', () => {
 
 test('every committed panel renders without issues (placeholders aside)', () => {
   for (const sec of loadSections()) for (const { id, def } of sec.panels) {
-    const r = renderPanel(def, assets, { id, background: sec.backgrounds[id] });
+    const r = renderPanel(def, assets, { id });
     assert.deepEqual(r.issues.filter((m) => !/placeholder/.test(m)), [], id);
     assert.match(r.svg, /^<svg [^>]*viewBox="0 0 360 \d+"/);
   }
@@ -265,15 +265,15 @@ test('two panels on one page never share an id', () => {
   assert.deepEqual(ids(a).filter((x) => ids(b).includes(x)), []);
 });
 
-test('backgroundInner keeps the drawing, drops the guide layer and editor markup', () => {
+test('svgInner keeps the drawing, drops the guide layer and editor markup', () => {
   const src = `<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="x">
     <sodipodi:namedview id="nv"/><metadata>m</metadata><!-- note -->
     <g inkscape:label="guide"><rect width="1" height="1"/></g>
     <g inkscape:groupmode="layer" inkscape:label="hills"><path d="M0 0L1 1"/></g></svg>`;
-  const out = backgroundInner(src);
+  const out = svgInner(src);
   assert.match(out, /<path d="M0 0L1 1"\/>/);
   for (const s of ['namedview', 'metadata', 'note', 'rect', 'inkscape:']) assert.ok(!out.includes(s), s);
-  assert.equal(backgroundInner(''), '');
+  assert.equal(svgInner(''), '');
 });
 
 test('a character without a drawn face is an issue (no generated fallback)', () => {

@@ -1,4 +1,4 @@
-// Panels: a panel definition (JSON, optional background SVG) in, SVG out.
+// Panels: a panel definition (JSON) in, SVG out.
 // Browser-safe: no file access; the caller passes the assets.
 // Language: docs/design/panels.md.
 //
@@ -68,9 +68,8 @@ export const panelHeight = (panel) => Math.round(PANEL_W * (validTall(panel) ?? 
 
 // assets: { species, poseParts, characters, faces, props, grounds }
 // id: the panel's id (its file name); not part of the JSON.
-// background: optional SVG markup in the panel's coordinates (360 × h).
 // Returns { svg (complete <svg>), w, h, issues: [..] }.
-export function renderPanel(panel, assets, { id = 'panel', background = '' } = {}) {
+export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   const W = PANEL_W, H = panelHeight(panel);
   const issues = [];
   // each figure's head: the view it wants and the drawn view used (tools/view-gaps.mjs)
@@ -482,7 +481,7 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   const lineY = (b, x) => H * (1 - (b.line[0] + (b.line[1] - b.line[0]) * x / W));
   for (const o of all) { const b = bandOf(o); if (b) o.groundY = lineY(b, o.x) - o.dy * o.unit; }
 
-  // -- draw: ground, sky, background, then the list in order ---------------------
+  // -- draw: ground, sky, then the list in order -----------------------------------
   // ids are unique per panel and figure, so panels can share a page
   const pre = String(id).replace(/\W/g, '_');
   // a grounds.json colour is a hex; [top, bottom] (or { "vertical": [..] }),
@@ -501,7 +500,6 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   let s = negative ? `<rect width="${W}" height="${H}" fill="#000"/>` : `<rect width="${W}" height="${H}" fill="${fill(ground, 'ground')}"/>`;
   if (sky && !negative) s += `<rect width="${W}" height="${Math.max(0, horizonY)}" fill="${fill(sky, 'sky')}"/>`;
   if (defs) s = `<defs>${defs}</defs>` + s;
-  if (background && !negative) s += `<g class="background">${background}</g>`;
   const drawProp = (o) => {
     const x = o.x - o.halfW, y = o.groundY - o.h;
     // on a point: drawn upright there, then turned about the point
@@ -539,9 +537,9 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   return { svg, w: W, h: H, issues, heads };
 }
 
-// Background SVG files: keep only the drawing (everything inside <svg>),
+// A drawn SVG file (a prop): keep only the drawing (everything inside <svg>),
 // minus a layer labelled "guide" and editor-only markup.
-export function backgroundInner(svgText) {
+export function svgInner(svgText) {
   if (!svgText) return '';
   const m = svgText.match(/<svg\b[^>]*>([\s\S]*)<\/svg>/);
   let inner = m ? m[1] : svgText;

@@ -137,10 +137,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   chased (05.10), not big in front running parallel to a far-off quarry.
 - **No far props in a `closeup` strip**: a prop behind closeup figures
   shows only in part — the Ayodhya throne reduced to its red disc, a
-  stray ball (02.04 rework). Let the previous panel carry the geography.
+  stray ball. Let the previous panel carry the geography.
 - **A lone full-body action in a 0.6 strip wants `front`, not
-  `closeup`**: a closeup crops a single walker to a floating chest (02.07
-  rework); closeup strips are for waist-up reactions of one or two faces.
+  `closeup`**: a closeup crops a single walker to a floating chest;
+  closeup strips are for waist-up reactions of one or two faces.
 - **`closeup` fits standing figures only**: a seated or kneeling figure
   sinks below the crop (10.08 rework). A close seated figure is `front`
   with a `scale` (10.08: 2.2) — the whole seated body fills the strip,

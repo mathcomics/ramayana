@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 
 import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { backgroundInner } from '../src/scene.js';
+import { svgInner } from '../src/scene.js';
 import { composePoses, splitPoseName } from '../src/compose.js';
 import { composeFaces } from './faces-lib.mjs';
 
@@ -98,7 +98,7 @@ export function loadProps() {
     }
     const drawing = text.replace(/<g\b[^>]*id="anchors"[^>]*>[\s\S]*?<\/g>/, '');
     // a prop can appear many times on a page: drop its ids unless something refers to them
-    let inner = backgroundInner(drawing);
+    let inner = svgInner(drawing);
     if (!/url\(#|href=/.test(inner)) inner = inner.replace(/\s+id="[^"]*"/g, '');
     def.svg = `<g transform="scale(${0.01 * k}) translate(${-vb[0]} ${-vb[1]})">${inner}</g>`;
   }
@@ -190,7 +190,7 @@ export function loadAssets() {
   };
 }
 
-// panels/<NN-section-name>/<id>.json (+ optional <id>.svg background)
+// panels/<NN-section-name>/<id>.json
 export function loadSections() {
   const dir = join(root, 'panels');
   return readdirSync(dir, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort().map((name) => {
@@ -199,17 +199,12 @@ export function loadSections() {
     const panels = files.filter((f) => f.endsWith('.json')).map((f) => ({
       id: f.slice(0, -5), def: JSON.parse(readFileSync(join(dir, name, f), 'utf8')),
     })).sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }));
-    const backgrounds = {};
-    for (const p of panels) {
-      const bg = join(dir, name, `${p.def.background || p.id + '.svg'}`);
-      if (existsSync(bg)) backgrounds[p.id] = backgroundInner(readFileSync(bg, 'utf8'));
-    }
     const m = name.match(/^(\d+)-(.*)$/);
     // a folder with no chapter number (panels/reference) holds reference
     // drawings: in the panel lab, never on the reader site
     const cap = (t) => t.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
     const title = m ? `${Number(m[1])}. ${cap(m[2])}` : cap(name);
-    return { name, title, panels, backgrounds, reference: !m };
+    return { name, title, panels, reference: !m };
   });
 }
 

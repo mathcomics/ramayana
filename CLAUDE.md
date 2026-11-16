@@ -124,19 +124,19 @@ and Sita in the swan chariot **waving back at the reader**.
 | Chapter | Panels | State |
 |---|---|---|
 | `01-intro` | 7 | the opener, and the artist's drafts of the court (2026-11-14) |
-| `02-the-throne` | 17 | written against the brief |
-| `03-the-forest` | 12 | predates the briefs — to revisit (03.02 is approved and locked) |
+| `02-the-throne` | 12 | written against the brief |
+| `03-the-forest` | 11 | predates the briefs — to revisit (03.02 is approved and locked) |
 | `04-surpanakha` | 17 | predates the briefs — to revisit |
 | `05-the-golden-deer` | 26 | artist-reviewed; the model chapter (05.11 tagged) |
 | `06-jatayu` | 13 | written against the brief |
-| `07-sugriva` | 15 | written against the brief |
+| `07-sugriva` | 16 | written against the brief |
 | `08-bali` | 14 | written against the brief |
 | `09-the-leap` | 14 | written against the brief (09.09 approved and locked) |
-| `10-the-ring` | 24 | written against the brief; variations to choose from (10.04a–f the night search, 10.09–10.11a the grove by day) |
+| `10-the-ring` | 23 | written against the brief; variations to choose from (10.02a–c, 10.04a–c and 10.04f the night search, 10.09–10.11a the grove by day) |
 | `11-lanka-burns` | 1 | the approved reference panel 11.08 only |
 | `12-the-bridge` | 26 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
 | `13-the-war-begins` | 6 | the opener (Lanka across the sea, 13.01) and battle scenes (ladders against the wall, rocks hurled, the fall, a chief, the fallen field) |
-| `14-kumbhakarna` | 13 | 12 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6) and the approved reference panel 14.05 |
+| `14-kumbhakarna` | 12 | 11 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6) and the approved reference panel 14.05 |
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
 Chapters 15–18 have briefs and no panels; the site marks them

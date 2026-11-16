@@ -19,7 +19,7 @@ const state = (c, v) => (!intended(c).includes(v) ? '' : !F[c.id]?.[v] ? 'missin
 // panel heads by the view they want
 const uses = new Map();     // `${character} ${view}` -> [panel ids]
 for (const sec of loadSections()) for (const { id, def } of sec.panels) {
-  const { heads } = renderPanel(def, A, { id, background: sec.backgrounds[id] });
+  const { heads } = renderPanel(def, A, { id });
   for (const h of heads || []) {
     const k = `${h.character} ${h.want}`;
     if (!uses.has(k)) uses.set(k, []);

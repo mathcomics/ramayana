@@ -17,7 +17,7 @@ for (const sec of loadSections().filter((s) => !only || s.name.startsWith(only))
   const cols = Array(COLS).fill(0);
   let sheet = '';
   for (const { id, def } of sec.panels) {
-    const r = renderPanel(def, assets, { id, background: sec.backgrounds[id] });
+    const r = renderPanel(def, assets, { id });
     writeFileSync(join(out, `${id}.svg`), r.svg);
     rsvg(join(out, `${id}.svg`), join(out, `${id}.png`), ['-z', '2']);
     const c = cols.indexOf(Math.min(...cols));              // shortest column

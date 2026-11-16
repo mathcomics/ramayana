@@ -37,7 +37,7 @@ docs/design/             how things work now (style bible, drawn parts, faces, p
 docs/proposals/          dated proposals, each with its status at the top
 docs/issues/             open problems: rules still to migrate, problem poses
 src/scene.js             panels and screens: definition in, SVG out
-panels/<NN-section>/     panel definitions: <id>.json (+ optional <id>.svg background)
+panels/<NN-section>/     panel definitions: <id>.json
 data/grounds.json        ground colours
 tools/build-site.mjs     reader site → _site/ (Cloudflare Pages)
 tools/render-panels.mjs  screens → out/panels/*.png, with issues and needs
@@ -164,7 +164,7 @@ is reviewed after each merge. Republishing keeps the same URL.
 ### Panels and the site
 
 Scenes in `manuscript/scenes.md` are guidance; **panel definitions** in
-`panels/` say what is drawn (JSON per panel, optional background SVG);
+`panels/` say what is drawn (JSON per panel);
 the **site** is built from them into `_site/` by Cloudflare
 Pages on every push to `main` (a private site). The language, the lab and the publishing setup are in
 [docs/design/panels.md](docs/design/panels.md).

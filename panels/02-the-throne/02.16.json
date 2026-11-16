@@ -23,6 +23,6 @@
     }
   ],
   "needs": [
-    "background: river and boat (02.16.svg is a placeholder)"
+    "props: river and boat"
   ]
 }

@@ -49,7 +49,7 @@ action. The same opener can return when the story comes back to a place.
 - The throne stands in the middle with its steps; the king sits on it, not
   in front of it (figure `on: "<throne>"`, pose `chair-armrest`, which
   works in front view and in profile — the throne drawings read front-on
-  too: 02.02–02.03, 05.03–05.04). Courtiers stand at different depths on
+  too: 05.03–05.04). Courtiers stand at different depths on
   either side: one small (further back), one bigger (nearer).
 - The throne sits a row behind the people talking in front of it (`row:
   "mid"`), so it reads as the room's centre, not as one of them.

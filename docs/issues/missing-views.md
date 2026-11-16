@@ -29,6 +29,7 @@ characters (`sideOnly` in `data/characters.json`) have the side view only.
 | surpanakha | drawn | drawn | drawn | drawn | drawn | drawn |
 | raxas_m2 | drawn | drawn | drawn | drawn | drawn | drawn |
 | raxas_m3 | drawn | drawn | drawn | drawn | drawn | drawn |
+| raxas_m4 | drawn | drawn | drawn | drawn | drawn | drawn |
 | sage | drawn | drawn | drawn | drawn | drawn | drawn |
 | male1 | drawn | drawn | drawn | drawn | drawn | drawn |
 | male2 | drawn | drawn | drawn | drawn | drawn | drawn |

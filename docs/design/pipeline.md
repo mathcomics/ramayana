@@ -11,7 +11,6 @@ flowchart
     HELD_SVG["data/props/held/*.svg<br/>sword, club, bow"]
     FACE_SVG["data/faces/base/&lt;species&gt;.svg<br/>data/faces/&lt;id&gt;.svg"]
     PROP_SVG["data/props/*.svg<br/>props (anchors, recolour roles)"]
-    BG_SVG["panels/&lt;NN&gt;/&lt;id&gt;.svg<br/>panel backgrounds"]
   end
 
   subgraph hand["Hand-kept JSON"]
@@ -54,7 +53,6 @@ flowchart
   POSEDATA --> LA
   GROUNDS --> LA
   PANELS --> LSEC
-  BG_SVG --> LSEC
 
   REND["Renderer src/<br/>compose (base × gesture) → figure → scene → SVG"]
   LA --> REND
