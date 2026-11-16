@@ -210,11 +210,10 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
   0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) and the retired `shot` / `zoom` / `lift`
   (now `nudge: [0, n]`) (`docs/design/panels.md`, Rows) — fix them when a draft is merged.
 - The reader site is Cloudflare Pages project `ramayana`
-  (`https://ramayana-7fw.pages.dev`, open to account members only). It
-  builds from GitHub, but automatic builds are **off**: publishing is the
-  manual `.github/workflows/publish-site.yml`, which calls the deploy
-  hook. Once the site settles, turn automatic builds on and delete the
-  workflow.
+  (`https://ramayana-7fw.pages.dev`, open to account members only).
+  Cloudflare's GitHub integration builds and publishes it on every push
+  to `main` on origin: pushing **is** publishing, there is no other step
+  (the manual workflow and its deploy hook are gone, 2026-11-16).
 - Head views: body hair (`hair-body`) per head view, and the rakshasa
   men's props in their extra views (copied from Rama) —
   `docs/proposals/2026-11-12-head-rendering-survey.md`, Open.

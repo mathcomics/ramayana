@@ -85,15 +85,13 @@ flowchart
 
   subgraph pub["Reader site"]
     GH["GitHub main"]
-    WF["Actions: Publish the reader site<br/>(manual) → deploy hook"]
     CF["Cloudflare Pages runs build-site<br/>ramayana-7fw.pages.dev"]
   end
 
   art -. "commit + push" .-> GH
   hand -. "commit + push" .-> GH
   gen -. "commit + push" .-> GH
-  WF -. "run by hand" .-> CF
-  GH --> CF
+  GH -- "every push to main" --> CF
 ```
 
 ## Notes
@@ -114,5 +112,5 @@ flowchart
   reach the repo only through the commit skills, which also delete the
   merged saves.
 - **The site** is built by Cloudflare from `main`, not from a local
-  `_site/`. Publishing is the manual workflow
-  (`docs/design/panels.md`, Publishing).
+  `_site/`, on every push to `main` (`docs/design/panels.md`,
+  Publishing): a push is a publish.

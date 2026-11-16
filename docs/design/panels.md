@@ -10,7 +10,7 @@ artist's scene SVG) comes later.
 |---|---|---|
 | Scenes | `manuscript/scenes.md` | The story as chapter briefs: each chapter's arc in 3–6 beats, plus the continuity-and-motifs list. **Guidance**, not a definition: the panel side breaks beats into panels (one beat may be several panels) and owns ids, heights, shots and order. |
 | Panel definitions | `panels/<NN-section>/<id>.json` (+ optional `<id>.svg`) | What the renderer draws. One file per panel. A folder with no chapter number (`panels/reference/`, ids `ref.NN`) holds reference drawings — models of a mechanism such as `repeat` — shown in the panel lab and checked by the tests, never published on the site. |
-| Rendered panels | `_site/` (not committed): an index of chapters (all `## N.` headings of `manuscript/scenes.md`; those without panels marked "to come") and one scrolling page per chapter with previous / next links | Built by `tools/build-site.mjs`; published to Cloudflare Pages by hand (GitHub Action calls a deploy hook). |
+| Rendered panels | `_site/` (not committed): an index of chapters (all `## N.` headings of `manuscript/scenes.md`; those without panels marked "to come") and one scrolling page per chapter with previous / next links | Built by `tools/build-site.mjs`; Cloudflare Pages builds and publishes it on every push to `main`. |
 
 The **panel lab** (`tools/build-panellab.mjs`, published artifact) shows any
 section as it will scroll on a phone while you edit a panel's JSON. Its
@@ -334,12 +334,11 @@ lab. The whole procedure is the `commit-panel-lab` skill
 
 ## Publishing (Cloudflare Pages)
 
-One site, private, published by hand. The Pages project `ramayana` is
-connected to GitHub as in the sister project `kena`, so Cloudflare builds
-the site itself, but automatic builds are off. To publish: GitHub →
-**Actions → Publish the reader site → Run workflow**. The workflow
-(`.github/workflows/publish-site.yml`) only calls the project's deploy
-hook; follow the build in Cloudflare under Deployments. The site is at
+One site, private. The Pages project `ramayana` is connected to GitHub
+as in the sister project `kena`: Cloudflare builds and publishes the
+site itself on **every push to `main`** on origin, so pushing is
+publishing — there is no manual step (follow a build in Cloudflare under
+Deployments). The site is at
 `https://ramayana-7fw.pages.dev`, open to members of the Cloudflare
 account only (the default Access policy).
 
@@ -350,24 +349,17 @@ One-time setup by the repo owner:
 2. Build settings: project name `ramayana`; framework preset **None**;
    build command `node tools/build-site.mjs`; output directory `_site`;
    production branch `main`. Node version comes from `.node-version`.
-   Save and deploy (this first build publishes once).
-3. **Turn off automatic builds:** project → Settings → Builds → **Branch
-   control**: untick automatic production branch deployments; preview
+   Save and deploy.
+3. **Automatic builds:** project → Settings → Builds → **Branch
+   control**: automatic production branch deployments on; preview
    deployments **None**.
-4. **Deploy hook:** Settings → Builds → **Deploy hooks → Add**, name
-   `manual`, branch `main`. Copy the URL into GitHub → repo **Settings →
-   Secrets and variables → Actions** as `CLOUDFLARE_DEPLOY_HOOK`. Keep
-   it secret: anyone with the URL can start a build.
-5. **Make it private:** Settings → General → **Enable access policy**.
+4. **Make it private:** Settings → General → **Enable access policy**.
    This protects `*.ramayana.pages.dev` only, so also protect the main
    address: Zero Trust → Access → Applications → the `ramayana`
    application → edit → add the hostname `ramayana-7fw.pages.dev` → save. In
    its policy, list the email addresses allowed in (they sign in with a
    one-time code). Check in a private window that the site asks for a
    sign-in.
-
-**Later, automatic builds:** tick automatic production deployments again
-(step 3) and delete the workflow.
 
 The build needs no npm packages and no `rsvg-convert` (the site uses inline
 SVG).
