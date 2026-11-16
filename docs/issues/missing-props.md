@@ -20,7 +20,7 @@ placeholder box. Held props (sword, club, bow) live in
 | line | 05.17 |
 | line-top | 05.18 |
 | ring | 09.03, 09.04, 10.09, 10.09a, 10.10, 10.10a |
-| tree | 02.17, 05.14, 08.05, 08.07 |
+| tree | 02.17, 05.14, 08.07 |
 | water-pot | 14.03 |
 
 ## Prop wishes from the panels' needs
@@ -52,7 +52,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: ring (Rama's ring; it reaches Sita in 10) | 09.03 |
 | prop: staff (held) | 05.18a, 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
-| prop: tree | 02.17, 03.06, 05.14, 08.05, 08.07 |
+| prop: tree | 02.17, 03.06, 05.14, 08.07 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
 | prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |

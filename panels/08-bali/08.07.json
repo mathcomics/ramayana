@@ -4,14 +4,13 @@
   "ground": "sand",
   "figures": [
     {
-      "character": "monkey1",
+      "character": "sugriva",
       "id": "bali",
       "cloth": "orange",
       "pose": "leanfront-fists",
       "facing": "left",
       "at": 0.75,
-      "row": "back",
-      "scale": 1.1
+      "row": "back"
     },
     {
       "character": "sugriva",

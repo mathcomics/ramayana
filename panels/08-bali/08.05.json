@@ -4,18 +4,17 @@
   "ground": "off-white",
   "figures": [
     {
-      "character": "rama",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.48
+      "prop": "tree-trunk",
+      "at": 0.6,
+      "row": "closeup"
     },
     {
-      "prop": "tree",
-      "at": 0.6,
-      "scale": 1.1
+      "character": "rama",
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.48,
+      "row": "closeup",
+      "turn": -90
     }
-  ],
-  "needs": [
-    "prop: tree"
   ]
 }
