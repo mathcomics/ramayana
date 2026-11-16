@@ -1,0 +1,22 @@
+{
+  "scene": "Variation: the argument, close: Kaikeyi, finger raised, shouts; the king throws up his hands",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "dasharatha",
+      "pose": "step-armsout",
+      "facing": "left",
+      "at": 0.72,
+      "row": "closeup",
+      "scale": 0.85
+    },
+    {
+      "character": "kaikeyi",
+      "pose": "step-pointup",
+      "facing": "right",
+      "at": 0.3,
+      "row": "closeup"
+    }
+  ]
+}

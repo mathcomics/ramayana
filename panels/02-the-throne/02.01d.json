@@ -1,0 +1,21 @@
+{
+  "scene": "Variation: Kaikeyi lies on the floor in anger; the king kneels and reaches for her",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "kaikeyi",
+      "pose": "liefront-onarms",
+      "facing": "left",
+      "at": 0.38,
+      "mouth": 3
+    },
+    {
+      "character": "dasharatha",
+      "pose": "kneel-reach",
+      "facing": "left",
+      "at": 0.78,
+      "mouth": 2
+    }
+  ]
+}

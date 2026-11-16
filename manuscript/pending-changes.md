@@ -128,3 +128,5 @@ and Sita sent into the cave (**Lakshman now fights beside Rama**), and
 **Sita's embrace** at the end. Her pointing ahead in 04.08 still carries
 the "pointing back the way she came" gesture. Beats 5–7 of chapter 4
 want rewriting to match.
+
+- **New 02.01a–02.01f** (2026-11-16): six variations of Kaikeyi and Dasharatha arguing after the throne opener (demand at the throne, the king kneeling to her, the shouting close-up, the anger chamber, the quarrel, the king bowed in grief); the artist picks.
