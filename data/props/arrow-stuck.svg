@@ -2,9 +2,9 @@
 <!-- An arrow stuck in a body: the shaft and fletching sticking out to
      the right and a little up; nothing drawn past where it goes in.
      PLACEHOLDER drawn by Claude (2026-11-16), to be redrawn by the artist.
-     100 px = 1 head-unit. Anchor "feet": where it goes in (the left end);
+     Drawn at 100 px = 1 head-unit, shown at 75% (data-height 0.75). Anchor "feet": where it goes in (the left end);
      carry it on a figure: "on": "<figure>#chest", "facing" as the figure. -->
-<svg viewBox="0 -10 260 100" width="260" height="100" xmlns="http://www.w3.org/2000/svg">
+<svg data-height="0.75" viewBox="0 -10 260 100" width="260" height="100" xmlns="http://www.w3.org/2000/svg">
   <g transform="rotate(-14 6 76)">
     <rect x="6" y="72" width="232" height="8" rx="2" style="fill:#4a3424" />
     <path d="M 196,72 L 214,52 L 246,52 L 232,72 Z" style="fill:#e9e2d2;stroke:#4a3424;stroke-width:2" />
