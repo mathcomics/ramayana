@@ -131,7 +131,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `06-jatayu` | 13 | written against the brief |
 | `07-sugriva` | 15 | written against the brief |
 | `08-bali` | 14 | written against the brief |
-| `09-the-leap` | 13 | written against the brief (09.09 approved and locked) |
+| `09-the-leap` | 14 | written against the brief (09.09 approved and locked) |
 | `10-the-ring` | 24 | written against the brief; variations to choose from (10.04a–f the night search, 10.09–10.11a the grove by day) |
 | `11-lanka-burns` | 1 | the approved reference panel 11.08 only |
 | `12-the-bridge` | 25 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
