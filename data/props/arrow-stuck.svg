@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- An arrow stuck in a body: the shaft and fletching sticking out to
+     the right and a little up; nothing drawn past where it goes in.
+     PLACEHOLDER drawn by Claude (2026-11-16), to be redrawn by the artist.
+     100 px = 1 head-unit. Anchor "feet": where it goes in (the left end);
+     carry it on a figure: "on": "<figure>#chest", "facing" as the figure. -->
+<svg viewBox="0 -10 260 100" width="260" height="100" xmlns="http://www.w3.org/2000/svg">
+  <g transform="rotate(-14 6 76)">
+    <rect x="6" y="72" width="232" height="8" rx="2" style="fill:#4a3424" />
+    <path d="M 196,72 L 214,52 L 246,52 L 232,72 Z" style="fill:#e9e2d2;stroke:#4a3424;stroke-width:2" />
+    <path d="M 196,80 L 214,100 L 246,100 L 232,80 Z" style="fill:#e9e2d2;stroke:#4a3424;stroke-width:2" />
+    <rect x="236" y="70" width="8" height="12" rx="2" style="fill:#4a3424" />
+  </g>
+  <g id="anchors">
+    <circle id="feet" cx="6" cy="76" r="4" />
+  </g>
+</svg>

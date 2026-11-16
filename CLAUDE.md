@@ -137,7 +137,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `12-the-bridge` | 25 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
 | `13-the-war-begins` | 5 | battle scenes only (siege ladder, rocks hurled, the fall, a chief, the fallen field); no opener yet |
 | `14-kumbhakarna` | 13 | 12 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6) and the approved reference panel 14.05 |
-| `reference` | 6 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06) |
+| `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
 Chapters 15–18 have briefs and no panels; the site marks them
 "to come". Every drawn chapter's folder number matches its brief number.
@@ -188,7 +188,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
 
 ### Props
 
-Every `data/props/<id>.svg` is a prop (64); there is no registry.
+Every `data/props/<id>.svg` is a prop (65); there is no registry.
 A prop id with no drawing renders as a fixed 2 × 2 head-unit labelled
 box. A prop can carry anchors a figure stands or sits on
 (`on: "<prop>#<anchor>"`) and can be recoloured per use (roles named on

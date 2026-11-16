@@ -1,0 +1,46 @@
+{
+  "scene": "Arrows: \"on\": \"<figure>#chest\", the arrow given the figure's facing — a rakshasa struck standing; Ravana fallen back, the arrow turned (rotate, about where it goes in) to stand up out of his chest; a monkey struck in front view, a short arrow",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "raxas_m1",
+      "id": "struck",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.2,
+      "row": "back"
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "struck#chest",
+      "facing": "left"
+    },
+    {
+      "character": "ravana",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.55
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "ravana#chest",
+      "facing": "left",
+      "rotate": 55
+    },
+    {
+      "character": "monkey1",
+      "id": "front",
+      "view": "front",
+      "pose": "step-hang",
+      "at": 0.86,
+      "row": "mid"
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "front#chest",
+      "scale": 0.45,
+      "rotate": -35
+    }
+  ]
+}

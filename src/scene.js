@@ -224,10 +224,11 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     const unit = r.unit * (p.scale ?? 1);
     const [w0, h0] = (def?.size || PLACEHOLDER).map((v) => v * unit);
     // rotate: degrees clockwise about the drawing's centre; the prop then
-    // stands on the bottom of its rotated box (e.g. 90 turns the sideways fire upright)
+    // stands on the bottom of its rotated box (e.g. 90 turns the sideways fire upright).
+    // With "on" it turns about the point it lands on instead (an arrow in a
+    // chest turns about where it goes in). Its own anchors never turn.
     const rot = p.rotate ?? 0, rr = rot * Math.PI / 180;
     const [w, h] = rot ? [Math.abs(w0 * Math.cos(rr)) + Math.abs(h0 * Math.sin(rr)), Math.abs(w0 * Math.sin(rr)) + Math.abs(h0 * Math.cos(rr))] : [w0, h0];
-    if (rot && p.on && !p._copy) issues.push(`prop "${p.prop}": "rotate" with "on" — the anchors are not rotated`);
     // recolor: def.recolor names the drawing's role colours ({ body, cloth }).
     // "character" takes a character's colours; "body" / "cloth" override (a
     // name from data/characters.json "colors", or a hex; a pattern suffix
@@ -343,7 +344,25 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     hands: (t) => t.grips.right && t.grips.left && [(t.grips.right[0] + t.grips.left[0]) / 2, (t.grips.right[1] + t.grips.left[1]) / 2],
     head: (t) => t.built.headAnchor?.at && [t.built.headAnchor.at[0], t.built.headAnchor.at[1] - (t.S.head?.size ?? 1) / 2],
     shoulder: (t) => t.built.joints?.near?.sh,
+    chest: (t) => chestPoint(t),
   };
+  // the chest: a third of the way from the neck to the waist along the
+  // spine; in the side view moved out to the front edge of the torso
+  // drawing (where an arrow goes in), in the front view its middle
+  function chestPoint(t) {
+    const s = t.built.joints?.spine;
+    if (!s?.neck || !s?.waist) return null;
+    const P = [s.neck[0] + (s.waist[0] - s.neck[0]) * 0.35, s.neck[1] + (s.waist[1] - s.neck[1]) * 0.35];
+    if (t.view === 'front') return P;
+    const len = Math.hypot(s.waist[0] - s.neck[0], s.waist[1] - s.neck[1]) || 1;
+    const d = [(s.waist[0] - s.neck[0]) / len, (s.waist[1] - s.neck[1]) / len];   // down the spine
+    const n = [d[1], -d[0]];                                                        // forward
+    const along = (q) => (q[0] - P[0]) * d[0] + (q[1] - P[1]) * d[1];
+    const out = t.built.shapes.filter((x) => x.part === 'torso').flatMap((x) => x.pts || [])
+      .filter((q) => Math.abs(along(q)) <= 0.25)
+      .reduce((m, q) => Math.max(m, (q[0] - P[0]) * n[0] + (q[1] - P[1]) * n[1]), 0);
+    return [P[0] + n[0] * out, P[1] + n[1] * out];
+  }
   // the point in the panel: mirrored with the figure, turned with it
   const figPoint = (t, [jx, jy]) => {
     let x = t.x + t.facing * jx * t.unit, y = t.groundY + jy * t.unit;
@@ -400,10 +419,10 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   const placeOn = (o, e, t, sx, sy, aname) => {
     o.rowUnit = t.rowUnit;
     o.unit = o.rowUnit * (e.scale ?? 1);
-    // the anchor point, nudged: a rotated figure turns about it
+    // the anchor point, nudged: a rotated figure or prop turns about it
     const ax = sx + o.dx * o.unit;
     const ay = sy - o.dy * o.unit;
-    if (o.f) o.pivot = [ax, ay];
+    o.pivot = [ax, ay];
     // a hand anchor: the figure hangs from it by one hand — the higher one,
     // or the one its "hand" names (right / left) — its grip on the point
     if (aname === 'hand' || aname.startsWith('hand-')) {
@@ -478,6 +497,8 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
   if (background && !negative) s += `<g class="background">${background}</g>`;
   const drawProp = (o) => {
     const x = o.x - o.halfW, y = o.groundY - o.h;
+    // on a point: drawn upright there, then turned about the point
+    if (o.svg && o.rot && o.pivot) return `<g transform="rotate(${o.rot} ${+o.pivot[0].toFixed(3)} ${+o.pivot[1].toFixed(3)})"><g transform="translate(${o.facing < 0 ? x + o.w : x} ${y}) scale(${o.facing * o.unit} ${o.unit})">${o.svg}</g></g>`;
     if (o.svg && o.rot) return `<g transform="translate(${o.x} ${o.groundY - o.h / 2}) rotate(${o.rot}) translate(${o.facing < 0 ? o.w0 / 2 : -o.w0 / 2} ${-o.h0 / 2}) scale(${o.facing * o.unit} ${o.unit})">${o.svg}</g>`;
     if (o.svg) return `<g transform="translate(${o.facing < 0 ? x + o.w : x} ${y}) scale(${o.facing * o.unit} ${o.unit})">${o.svg}</g>`;
     return `<g class="placeholder"><rect x="${x}" y="${y}" width="${o.w}" height="${o.h}" fill="#000" fill-opacity="0.06" stroke="#7a6f62" stroke-width="1.2" stroke-dasharray="5 4"/>` +

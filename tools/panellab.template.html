@@ -281,7 +281,7 @@ const SECTIONS = /*__SECTIONS__*/;
   // name, as "on" names it) with the anchors its drawing carries, and the
   // carry points every figure has (docs/design/panels.md, Props).
   const ANCHOR_MEANS = (a) => a === 'seat' ? 'hips' : a === 'face' ? 'head only' : a === 'feet' ? 'its own foot point' : a === 'hand' ? 'hang by a hand / held here' : 'feet';
-  const FIGURE_POINTS = ['hands', 'hand-right', 'hand-left', 'head', 'shoulder'];
+  const FIGURE_POINTS = ['hands', 'hand-right', 'hand-left', 'head', 'shoulder', 'chest'];
   function drawAnchors(def) {
     const props = [], figs = [], seen = new Set();
     const walk = (v) => {
@@ -441,7 +441,7 @@ const SECTIONS = /*__SECTIONS__*/;
 
   // Reference: the other fields a panel may use.
   $('ref').innerHTML = `<b>tall</b> height ÷ width: 1.5 (default), 1, 0.6<br><b>at</b> 0–1 across the width, or ${Object.keys(SLOTS).join(', ')}, or {"before"|"behind"|"beside"|"left-of"|"right-of": name, "gap": h}<br><b>order</b> one figures list of figures ("character"), props ("prop") and foregrounds ("foreground"), drawn in order (last is in front)<br><b>foreground</b> {"foreground": [left, right] heights (shares of the height), "color": ground name}: a band of ground; stand on it with "on": "foreground" plus "at"<br>` +
-    `<b>row</b> top, horizon, back, mid, front (default), floor, closeup, or a number: the bottom edge as a share of the height (0 bottom, 1 top)<br><b>figure</b> facing, mouth, turn (head, degrees, + to its right), hands {right, left}, adjust {"right.arm.shoulder": 40}, scale, nudge (head-units: a number across, or [dx, dy], + up), on (a prop's anchor, a foreground, or a figure's #hands, #hand-right, #hand-left, #head, #shoulder: what it carries)<br><b>panel</b> tall, horizon, sky, ground, mode "negative" (black ground, white silhouettes), needs [..]`;
+    `<b>row</b> top, horizon, back, mid, front (default), floor, closeup, or a number: the bottom edge as a share of the height (0 bottom, 1 top)<br><b>figure</b> facing, mouth, turn (head, degrees, + to its right), hands {right, left}, adjust {"right.arm.shoulder": 40}, scale, nudge (head-units: a number across, or [dx, dy], + up), on (a prop's anchor, a foreground, or a figure's #hands, #hand-right, #hand-left, #head, #shoulder, #chest: what it carries (an arrow in the chest))<br><b>panel</b> tall, horizon, sky, ground, mode "negative" (black ground, white silhouettes), needs [..]`;
 
   draw(true);
 

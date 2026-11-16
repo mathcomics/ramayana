@@ -348,3 +348,27 @@ test('"repeat": a prop drawn several times, the entry in the middle, smaller tur
   for (const bad of [{ character: 'rama', pose: 'step-hang', repeat: 3 }, { ...rock, repeat: 20 }, { ...rock, repeat: { scale: 0.8 } }])
     assert.equal(renderPanel({ figures: [bad] }, assets).issues.length, 1, JSON.stringify(bad));
 });
+
+test('"#chest": a carried prop lands on the front of the chest; with "rotate" it turns about that point', () => {
+  const look = characterLook(assets.characters.characters.find((c) => c.id === 'rama'), assets.characters.colors, assets.faces);
+  const { joints: j, shapes } = buildShapes(assets.species[look.species], JSON.parse(JSON.stringify(findPose(assets, 'step-hang').pose)), look.outfit, 'side', look.bodyScale, look.who);
+  // a third of the way down the spine, out to the torso's front edge
+  const P = [j.spine.neck[0] + (j.spine.waist[0] - j.spine.neck[0]) * 0.35, j.spine.neck[1] + (j.spine.waist[1] - j.spine.neck[1]) * 0.35];
+  assert.ok(Math.max(...shapes.filter((s) => s.part === 'torso').flatMap((s) => s.pts).map((q) => q[0])) > P[0], 'the torso reaches in front of the spine');
+  const arrow = assets.props.props['arrow-stuck'];
+  const figs = (extra) => [{ character: 'rama', pose: 'step-hang', at: 0.5 }, { prop: 'arrow-stuck', on: 'rama#chest', ...extra }];
+  const r = renderPanel({ figures: figs() }, assets);
+  assert.deepEqual(r.issues, []);
+  const g = [...r.svg.matchAll(/<g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)(?: ([-\d.]+))?\)/g)].map((m) => m.slice(1).map(Number));
+  const [fx, fy, fu] = g[0], [ax, ay, au] = g[g.length - 1];
+  const feet = [ax + arrow.anchors.feet[0] * au, ay + arrow.anchors.feet[1] * au];
+  assert.ok(Math.abs(feet[1] - (fy + P[1] * fu)) < 0.3 * fu, 'at chest height');
+  assert.ok(feet[0] > fx + P[0] * fu, 'in front of the spine');
+  // turned: drawn the same, inside a rotate about the arrow's feet
+  const t = renderPanel({ figures: figs({ rotate: 40 }) }, assets);
+  assert.deepEqual(t.issues, []);
+  const [, px, py] = t.svg.match(/rotate\(40 ([-\d.]+) ([-\d.]+)\)/).map(Number);
+  assert.ok(Math.abs(px - feet[0]) < 0.01 && Math.abs(py - feet[1]) < 0.01, `turns about where it goes in (${px}, ${py}) vs (${feet})`);
+  // front view: the middle of the chest
+  assert.deepEqual(renderPanel({ figures: [{ character: 'rama', pose: 'step-hang', view: 'front' }, { prop: 'arrow-stuck', on: 'rama#chest' }] }, assets).issues, []);
+});
