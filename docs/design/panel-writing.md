@@ -193,6 +193,13 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   view, at Sita's head height) lay over her face: lower the arm to cross
   her body below the chin and give the faces room (Sita `at` 0.45 → 0.5).
   Check every face against the limbs drawn after it.
+- **Size by `row`, not `scale`** (artist, 2026-11-16): distance and size
+  come from the row (a named row or a number); `scale` is for the unusual
+  case where the right thing to do is unclear (a giant, a figure in a
+  close strip, a prop seen from far off). A panel full of `scale` values
+  is a sign the rows are wrong. A prop that always needs the same `scale`
+  gets its true size in the drawing instead (`data-height`, as `steps`,
+  `hut-top`, `trees-top`).
 - **Figures `on` a prop's anchor take the prop's row, not its scale**
   (2026-11-13): a prop's `scale` says *this* rock or ladder is bigger, not
   that it is nearer, so it leaves the people on it alone — resizing a rock
