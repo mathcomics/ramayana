@@ -6,7 +6,6 @@
     {
       "character": "sugriva",
       "id": "bali",
-      "cloth": "orange",
       "pose": "kneeup-fists",
       "facing": "left",
       "at": 0.56,
@@ -21,7 +20,8 @@
       "at": 0.44,
       "row": 0.18,
       "scale": 0.85,
-      "rotate": 40
+      "rotate": 40,
+      "wear": "garland"
     }
   ]
 }

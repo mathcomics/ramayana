@@ -15,12 +15,12 @@
       "nudge": [
         0,
         1.5
-      ]
+      ],
+      "wear": "garland"
     },
     {
       "character": "sugriva",
       "id": "bali",
-      "cloth": "orange",
       "pose": "stepwide-armsout",
       "facing": "left",
       "at": 0.66,

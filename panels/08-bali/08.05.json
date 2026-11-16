@@ -16,7 +16,8 @@
       "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.8,
-      "row": "back"
+      "row": "back",
+      "wear": "garland"
     },
     {
       "prop": "tree-trunk",

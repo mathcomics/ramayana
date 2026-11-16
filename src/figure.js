@@ -132,7 +132,8 @@ function patternDef(id, kind, ink) {
 // The other options are a character look (see characterLook): colors,
 // outfit, pattern, face, bodyScale (torso and legs; drawn parts only),
 // who (character id: its own held weapons, data/props/held/); built (the
-// figure's buildShapes result, if already made).
+// figure's buildShapes result, if already made); wear (props worn: [{ svg,
+// neck }], the drawing in head-units and the point that sits on the nape).
 // Two tones (style bible §4): the far leg (thigh with its cloth, shin,
 // foot) and the torso (bare skin or a full top) are 5% lighter than the
 // body or cloth colour (each channel 5% of the way to white), so they
@@ -199,6 +200,12 @@ export function renderFigure(species, pose, opts = {}) {
   let inBody = false;
   if (drawn?.defs) svg += `<defs>${drawn.defs}</defs>`;
   if (drawn?.back) svg += place(drawn.back);          // behind the whole body
+  // worn props (a panel figure's `wear`, a garland flying back): behind
+  // the whole body, their `neck` anchor on the neck base, not turned with
+  // the body (the motion carries them back), mirrored with the figure
+  if (opts.wear?.length && hairAnchor)
+    for (const w of opts.wear)
+      svg += `<g transform="translate(${hairAnchor.at[0] - w.neck[0]} ${hairAnchor.at[1] - w.neck[1]})">${w.svg}</g>`;
   let headDone = false;
   // the far leg and the torso (skin or cloth) a shade darker than the rest
   const fill = (s, c) => (SHADED.test(s.part || '') ? shade(c, SHADE) : c);

@@ -185,6 +185,13 @@ export function renderPanel(panel, assets, { id = 'panel', background = '' } = {
     for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, side(k), v);
     const look = characterLook(c, assets.characters.colors, assets.faces, f.cloth);
     if (f.cloth && !look.colors.cloth) issues.push(`figure ${i} (${who}): unknown cloth "${f.cloth}"`);
+    // props worn at the neck (a garland): drawn by the figure, hung at its
+    // nape by the prop's `neck` anchor (else its top centre)
+    if (f.wear) look.wear = [].concat(f.wear).flatMap((id) => {
+      const d = assets.props?.props?.[id];
+      if (!d?.svg) { issues.push(`figure ${i} (${who}): unknown wear "${id}" (no data/props/${id}.svg)`); return []; }
+      return [{ svg: d.svg, neck: d.anchors?.neck ?? [d.size[0] / 2, 0] }];
+    });
     const S = assets.species[look.species];
     const r = row(f.row);
     const unit = r.unit * (f.scale ?? 1);

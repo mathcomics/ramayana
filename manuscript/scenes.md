@@ -257,11 +257,12 @@ hidden arrow decides it, and the crown changes heads.
 Must show: the challenge as pure posture — feet planted, chest
 beaten, mouth wide, no parley; Rama shooting from hiding, exactly as
 the raised bow promised in 7; the coronation image returns for
-Vibhishana in 18; Bali, Tara and Angad are generic monkeys — only
-Hanuman and Sugriva are named. Not shown: Tara holding Bali back (a
-warning needs words); the first, undecided fight and the flower
-garland that marks Sugriva apart (telling the brothers apart is
-drawn, not told — Sugriva's own look already does it).
+Vibhishana in 18; Tara and Angad are generic monkeys — only
+Hanuman and Sugriva are named; Bali is Sugriva's double (same body,
+same cloth), and in the fights Sugriva wears a flower garland flying
+back from his neck, the one mark that tells the brothers apart. Not
+shown: Tara holding Bali back (a warning needs words); the first,
+undecided fight.
 
 ## 9. The leap
 

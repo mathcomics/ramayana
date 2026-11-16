@@ -17,12 +17,12 @@
       "facing": "right",
       "at": 0.12,
       "row": "horizon",
-      "scale": 0.8
+      "scale": 0.8,
+      "wear": "garland"
     },
     {
       "character": "sugriva",
       "id": "bali",
-      "cloth": "orange",
       "pose": "walk-fists",
       "facing": "left",
       "at": 0.58,

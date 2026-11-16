@@ -15,7 +15,8 @@
       "character": "sugriva",
       "pose": "lunge-armfront",
       "facing": "right",
-      "at": 0.36
+      "at": 0.36,
+      "wear": "garland"
     }
   ],
   "needs": [

@@ -12,12 +12,12 @@
       "at": 0.3,
       "row": 0.45,
       "scale": 0.75,
-      "rotate": 15
+      "rotate": 15,
+      "wear": "garland"
     },
     {
       "character": "sugriva",
       "id": "bali",
-      "cloth": "orange",
       "pose": "leap-fists",
       "facing": "left",
       "at": 0.68,

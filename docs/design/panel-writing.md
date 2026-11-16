@@ -251,6 +251,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   **Maricha** = `raxas_m1` (id `maricha`).
   **The ascetic** (Ravana disguised) = `raxas_m2` (id `ascetic`) until
   Ravana's own disguise exists.
+- **Bali** = `sugriva` (id `bali`), with no `cloth` override (artist,
+  2026-11-16): the brothers look the same in body and cloth. In the
+  fights Sugriva alone wears the garland flying back from his neck
+  (`"wear": "garland"`), the one mark that tells them apart.
 - Generic monkeys and rakshasas vary by `cloth` (colour, pattern), not by
   new characters. **A rakshasa's cloth is only ever `red-check`,
   `red-stripe` or `red-diamond`** (artist, 2026-11-14) — never `orange`,

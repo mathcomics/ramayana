@@ -6,7 +6,6 @@
     {
       "character": "sugriva",
       "id": "bali",
-      "cloth": "orange",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.62,
@@ -16,7 +15,8 @@
       "character": "sugriva",
       "pose": "leanfront-fists",
       "facing": "right",
-      "at": 0.18
+      "at": 0.18,
+      "wear": "garland"
     }
   ]
 }
