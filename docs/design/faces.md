@@ -44,7 +44,8 @@ no generated file): per character, per view, `head` (under, skin, eyes,
 over), `mouth` (1–3), `back`, `hairBody`, `nape` and `defs`. The base
 skin is painted with the character's body colour, and so is any part of a
 base mouth filled with the base's skin colour (the lip line of the side
-mouth 1).
+mouth 1). A character with `eyes` (a colour, `data/characters.json`) has
+the base eyes painted in it (raxas_m3: white); it draws no eyes of its own.
 `node tools/check-faces.mjs` lists the composition and reports a missing
 file, a missing front or side view, and anything else to fix in a drawing.
 

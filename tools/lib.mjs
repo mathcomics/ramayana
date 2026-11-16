@@ -172,7 +172,7 @@ export function loadPoses(species = loadSpecies(), names = null) {
 // (npm test fails); node tools/check-faces.mjs reports every problem.
 let facesCache;
 export function loadFaces() {
-  return facesCache ||= { faces: composeFaces(join(root, 'data/faces'), json('data/characters.json').characters).faces };
+  return facesCache ||= { faces: composeFaces(join(root, 'data/faces'), json('data/characters.json').characters, json('data/characters.json').colors).faces };
 }
 
 export function loadAssets() {

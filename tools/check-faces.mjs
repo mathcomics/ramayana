@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import { root, json } from './lib.mjs';
 import { composeFaces } from './faces-lib.mjs';
 
-const { faces, bases, errors, warnings } = composeFaces(join(root, 'data/faces'), json('data/characters.json').characters);
+const { faces, bases, errors, warnings } = composeFaces(join(root, 'data/faces'), json('data/characters.json').characters, json('data/characters.json').colors);
 for (const [species, views] of Object.entries(bases)) console.log(`base ${species}: ${views.join(', ')}`);
 for (const [id, F] of Object.entries(faces)) console.log(`${id}: ${Object.keys(F).join(', ')}`);
 for (const m of warnings) console.error(`  ! ${m}`);

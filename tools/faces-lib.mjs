@@ -138,7 +138,7 @@ const paintColors = (g, colors, c) => g
 // { <view>: entry } }, bases: { <species>: [views with a skin] }, errors,
 // warnings }; errors are what leaves a character without a face (no file,
 // no base, no front / side layer), warnings what the artist should fix.
-export function composeFaces(dir, cast) {
+export function composeFaces(dir, cast, colors = {}) {
   const errors = [], warnings = [];
   const warn = (m) => warnings.push(m);
   const bases = {}, baseViews = {};
@@ -156,9 +156,13 @@ export function composeFaces(dir, cast) {
     baseViews[species] = Object.entries(B).filter(([, x]) => x.layers.skin).map(([k]) => k);
   }
   const faces = {};
+  // the base eyes painted in the character's eye colour (`eyes` in
+  // data/characters.json: a name from colors or a hex), if it sets one
+  let eyeColor;
+  const baseEyes = (g) => (g && eyeColor ? recolorFills(g, eyeColor) : g);
   const compose = (bv, L, own) => {
     const BL = bv.layers;
-    const head = (L.under || '') + (BL.skin ? paintSkin(BL.skin) : '') + (own.eyes ?? BL.eyes ?? '') + (L.over || '');
+    const head = (L.under || '') + (BL.skin ? paintSkin(BL.skin) : '') + (own.eyes ?? baseEyes(BL.eyes) ?? '') + (L.over || '');
     const mouth = {};
     for (const k of ['1', '2', '3']) { const m = own[`mouth-${k}`] ?? BL[`mouth-${k}`]; if (m) mouth[k] = m; }
     return { head, mouth };
@@ -169,6 +173,9 @@ export function composeFaces(dir, cast) {
     const B = bases[c.species];
     if (!B) { errors.push(`${c.id}: no base face for ${c.species}`); continue; }
     const X = readFile(file, warn);
+    eyeColor = c.eyes && (colors[c.eyes] ?? (/^#[0-9a-f]{3}([0-9a-f]{3})?$/i.test(c.eyes) ? c.eyes : undefined));
+    if (c.eyes && !eyeColor) warn(`${c.id}: eyes "${c.eyes}" is not a colour name or hex`);
+    if (c.eyes) for (const [v, x] of Object.entries(X)) if (x.layers.eyes) warn(`${c.id} ${v}: own eyes layer, but eyes are coloured by "eyes" in data/characters.json`);
     for (const view of c.sideOnly ? ['side'] : ['front', 'side']) if (!X[view]) errors.push(`${c.id}: no ${view} layer`);
     for (const view of c.sideOnly ? ['side'] : VIEWS) {
       const x = X[view];
@@ -200,7 +207,7 @@ export function composeFaces(dir, cast) {
         const sc = (a1.chin[1] - a1.top[1]) / (a0.chin[1] - a0.top[1]);
         const t = `matrix(1 0 0 ${r4(sc)} ${r4(a1.top[0] - a0.top[0])} ${r4(a1.top[1] - a0.top[1] * sc)})`;
         const follow = (g) => g && `<g transform="${t}">${g}</g>`;
-        const pick = (k) => (xf.layers[k] ? follow(xf.layers[k]) : bv.layers[k] ? undefined : follow(B.front.layers[k]));
+        const pick = (k) => (xf.layers[k] ? follow(xf.layers[k]) : bv.layers[k] ? undefined : follow(k === 'eyes' ? baseEyes(B.front.layers.eyes) : B.front.layers[k]));
         e = compose(bv, { under: follow(xf.layers.under), over: follow(xf.layers.over) }, { eyes: pick('eyes'), 'mouth-1': pick('mouth-1'), 'mouth-2': pick('mouth-2'), 'mouth-3': pick('mouth-3') });
         if (xf.layers.back) e.back = follow(xf.layers.back);
       } else continue;
