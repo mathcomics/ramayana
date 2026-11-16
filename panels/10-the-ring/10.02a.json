@@ -16,10 +16,9 @@
     {
       "prop": "pole",
       "on": "hanuman#head",
-      "scale": 1.3,
       "nudge": [
-        0,
-        0.15
+        -0.1,
+        -0.1
       ]
     },
     {

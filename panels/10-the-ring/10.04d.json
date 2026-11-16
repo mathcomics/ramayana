@@ -8,18 +8,18 @@
       "facing": "left",
       "at": 0.78,
       "scale": 3,
-      "row": 0.08
+      "row": "closeup"
     },
     {
       "character": "hanuman",
       "pose": "step-search",
       "facing": "right",
-      "scale": 0.4,
+      "scale": 0.35,
       "adjust": {
         "spine.head": -30
       },
-      "at": 0.6,
-      "row": 0.08
+      "at": 0.8,
+      "row": 0.75
     }
   ]
 }
