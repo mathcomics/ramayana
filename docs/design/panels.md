@@ -298,7 +298,10 @@ node tools/renumber-panels.mjs 05 --dry  # a settled chapter's ids made consecut
 
 Pick a section; the phone shows it as it scrolls. Pick a panel (or tap it
 in the phone) and edit its JSON; it re-renders as you type and lists
-issues.
+issues. Below it, **Anchors in this panel** lists every prop in the panel
+(by its `id`, else its name) with the anchors its drawing carries, and
+each figure's carry points (`#hands`, `#head`, …); tap one to copy its
+`"on"`.
 **Save draft** stores the panel in the lab's database (collection `panels`);
 drafts show with a dot and survive reloads. **Insert after** adds a
 copy of the selected panel right after it, under the next free id (see
