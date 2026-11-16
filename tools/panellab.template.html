@@ -81,6 +81,11 @@ details { font-size: 12.5px; }
 details summary { cursor: pointer; color: var(--muted); }
 .ref { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.6; color: var(--fg); overflow-wrap: anywhere; }
 .ref b { font-family: var(--font-body); font-weight: 600; color: var(--muted); }
+.anchors { display: grid; gap: 8px; font-size: 12.5px; }
+.anchors .who { font: 600 12px/1.3 var(--font-mono); margin-bottom: 3px; }
+.anchors .who span { font-family: var(--font-body); font-weight: 400; color: var(--muted); }
+.anchors .chips button span { color: var(--muted); font-family: var(--font-body); margin-left: 4px; }
+.status code { font-family: var(--font-mono); font-size: 11.5px; }
 .phone .cap { font: 600 11px/1.2 var(--font-body); text-transform: uppercase; letter-spacing: 0.06em; color: #66706a; margin: 10px 2px 6px; }
 .phone .cap:first-child { margin-top: 2px; }
 #names { display: grid; gap: 10px; }
@@ -122,6 +127,11 @@ details summary { cursor: pointer; color: var(--muted); }
         </div>
         <div class="status" id="status" role="status"></div>
         <ul class="issues" id="issues"></ul>
+      </div>
+      <div class="card">
+        <h2>Anchors in this panel</h2>
+        <div class="status">What an entry can stand, sit or hang <code>on</code>. Tap one to copy its <code>"on"</code>.</div>
+        <div id="anchors" class="anchors"></div>
       </div>
     </div>
     <div class="card names">
@@ -263,8 +273,46 @@ const SECTIONS = /*__SECTIONS__*/;
     issuesOfSel.forEach((m) => add(m, /placeholder/.test(m) ? 'need' : 'warn'));
     (p?.def.needs || []).forEach((n) => add('needs ' + n, 'need'));
     if (!state.bad && !issuesOfSel.length && !(p?.def.needs || []).length) add('No issues.', 'ok');
+    drawAnchors(p?.def);
     updateButtons();
   }
+
+  // Anchors card: every prop in the panel (named by its id, else its prop
+  // name, as "on" names it) with the anchors its drawing carries, and the
+  // carry points every figure has (docs/design/panels.md, Props).
+  const ANCHOR_MEANS = (a) => a === 'seat' ? 'hips' : a === 'face' ? 'head only' : a === 'feet' ? 'its own foot point' : a === 'hand' ? 'hang by a hand / held here' : 'feet';
+  const FIGURE_POINTS = ['hands', 'hand-right', 'hand-left', 'head', 'shoulder'];
+  function drawAnchors(def) {
+    const props = [], figs = [], seen = new Set();
+    const walk = (v) => {
+      if (Array.isArray(v)) v.forEach(walk);
+      else if (v && typeof v === 'object') {
+        if (typeof v.prop === 'string') {
+          const ref = v.id || v.prop;
+          if (!seen.has('p:' + ref)) { seen.add('p:' + ref); props.push({ ref, prop: v.prop, anchors: Object.keys(ASSETS.props.props[v.prop]?.anchors || {}) }); }
+        } else if (typeof v.character === 'string') {
+          const ref = v.id || v.character;
+          if (!seen.has('f:' + ref)) { seen.add('f:' + ref); figs.push(ref); }
+        }
+        Object.values(v).forEach(walk);
+      }
+    };
+    if (def) walk(def);
+    const chip = (ref, a, note) => `<button data-on="${esc(ref + '#' + a)}">#${esc(a)}${note ? `<span>${esc(note)}</span>` : ''}</button>`;
+    const block = (title, sub, chips) => `<div><div class="who">${esc(title)}${sub ? ` <span>${esc(sub)}</span>` : ''}</div><div class="chips">${chips}</div></div>`;
+    const html = props.map(({ ref, prop, anchors }) => block(ref, ref !== prop ? prop : '',
+        anchors.length ? anchors.map((a) => chip(ref, a, ANCHOR_MEANS(a))).join('') : '<span class="status">no anchors</span>'))
+      .concat(figs.map((ref) => block(ref, 'figure · where a prop it carries goes', FIGURE_POINTS.map((a) => chip(ref, a)).join(''))))
+      .join('') || '<div class="status">No props or figures in this panel.</div>';
+    if ($('anchors').dataset.html !== html) { $('anchors').innerHTML = html; $('anchors').dataset.html = html; }
+  }
+  $('anchors').addEventListener('click', async (e) => {
+    const b = e.target.closest('button[data-on]');
+    if (!b) return;
+    const text = `"on": "${b.dataset.on}"`;
+    try { await navigator.clipboard.writeText(text); setStatus('Copied ' + text); }
+    catch (err) { setStatus(text + ' (select and copy)'); }
+  });
   function select(id) { state.panelId = id; state.bad = false; remember(); draw(true); }
 
   function updateButtons() {
