@@ -14,5 +14,6 @@
   ],
   "needs": [
     "effect: the arrow in his chest"
-  ]
+  ],
+  "mode": "negative"
 }

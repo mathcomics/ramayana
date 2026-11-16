@@ -1,38 +1,24 @@
 {
-  "scene": "Back: Sugriva and Bali grapple. Front: by the tree, Rama looses his bow",
-  "tall": 1,
-  "ground": "sand",
+  "scene": "Rama steps toward a tree",
+  "tall": 0.6,
+  "ground": "off-white",
   "figures": [
     {
-      "character": "sugriva",
-      "id": "bali",
-      "cloth": "orange",
-      "pose": "leanfront-fists",
-      "facing": "left",
-      "at": 0.75,
-      "row": "back"
+      "prop": "tree-trunk",
+      "at": 0.05,
+      "row": "closeup"
     },
     {
-      "character": "sugriva",
-      "pose": "lunge-armfront",
-      "facing": "right",
-      "at": 0.6,
-      "row": "back"
+      "prop": "tree-trunk",
+      "at": 0.45,
+      "row": "closeup"
     },
     {
       "character": "rama",
-      "pose": "step-bowloose",
+      "pose": "step-bowdraw",
       "facing": "right",
-      "at": 0.12
-    },
-    {
-      "prop": "tree",
-      "at": 0.22,
-      "scale": 1.2
+      "at": 0.48,
+      "row": "closeup"
     }
-  ],
-  "needs": [
-    "prop: tree",
-    "effect: the arrow in flight"
   ]
 }

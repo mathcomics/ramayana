@@ -4,14 +4,34 @@
   "ground": "off-white",
   "figures": [
     {
+      "id": "bali",
+      "character": "sugriva",
+      "pose": "leanfront-fists",
+      "facing": "left",
+      "at": 0.95,
+      "row": "back"
+    },
+    {
+      "character": "sugriva",
+      "pose": "lunge-armfront",
+      "facing": "right",
+      "at": 0.8,
+      "row": "back"
+    },
+    {
       "prop": "tree-trunk",
-      "at": 0.6,
+      "at": 0.05,
+      "row": "closeup"
+    },
+    {
+      "prop": "tree-trunk",
+      "at": 0.45,
       "row": "closeup"
     },
     {
       "character": "rama",
-      "pose": "pass-swing",
-      "facing": "left",
+      "pose": "leanfront-swing",
+      "facing": "right",
       "at": 0.48,
       "row": "closeup",
       "turn": -90
