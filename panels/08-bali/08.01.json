@@ -2,7 +2,7 @@
   "scene": "Opening: Kishkindha's gates, near",
   "tall": 1,
   "sky": "off-white",
-  "horizon": 0.3,
+  "horizon": -2,
   "figures": [
     {
       "prop": "palace-kishkindha",

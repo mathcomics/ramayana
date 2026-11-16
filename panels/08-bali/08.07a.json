@@ -1,0 +1,20 @@
+{
+  "scene": "Rama steps toward a tree",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "tree-trunk",
+      "facing": "left",
+      "at": 0.15,
+      "row": "closeup"
+    },
+    {
+      "character": "rama",
+      "pose": "stepwide-bowloose",
+      "facing": "right",
+      "at": 0.25,
+      "row": "closeup"
+    }
+  ]
+}

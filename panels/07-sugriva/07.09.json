@@ -1,31 +1,35 @@
 {
-  "scene": "Sugriva sits on the bare rock, gazing at the Kishkindha he is shut out of",
+  "scene": "Opening: Sugriva sits on the rock of Rishyamukha; Kishkindha, the monkey city, on its hill beyond",
   "tall": 1,
-  "ground": "sand",
+  "ground": "dry-grass",
   "sky": "sky",
-  "horizon": 0.4,
+  "horizon": 0,
   "figures": [
     {
       "prop": "palace-kishkindha",
-      "at": 0.8,
-      "row": "horizon",
-      "scale": 1.1
+      "at": 0.85,
+      "row": "back"
     },
     {
-      "prop": "rock-square",
-      "at": 0.14,
-      "scale": 1.3
+      "prop": "rock-rectangle",
+      "at": 0.25,
+      "scale": 3,
+      "id": "rock"
     },
     {
-      "prop": "rock-circle",
-      "at": 0.3,
-      "scale": 0.75
+      "character": "rama",
+      "pose": "leanfront-point",
+      "facing": "front",
+      "on": "rock#stand-right",
+      "scale": 0.4,
+      "turn": -180
     },
     {
       "character": "sugriva",
-      "pose": "chair-armrest",
-      "facing": "right",
-      "at": 0.35
+      "pose": "stand-swing",
+      "facing": "front",
+      "on": "rock#stand",
+      "scale": 0.4
     }
   ]
 }

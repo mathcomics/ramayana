@@ -1,0 +1,43 @@
+{
+  "scene": "Rama and Sugriva sit face to face, each on a round rock; Lakshman stands behind Rama, Hanuman sits behind Sugriva",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.08
+    },
+    {
+      "character": "hanuman",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.37
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.245,
+      "scale": 0.75
+    },
+    {
+      "prop": "rock-circle",
+      "facing": "left",
+      "at": 0.755,
+      "scale": 0.75
+    },
+    {
+      "character": "rama",
+      "pose": "chair-armrest",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 2
+    },
+    {
+      "character": "sugriva",
+      "pose": "chair-armsup",
+      "facing": "left",
+      "at": 0.7
+    }
+  ]
+}

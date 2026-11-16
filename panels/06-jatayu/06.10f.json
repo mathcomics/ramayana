@@ -13,16 +13,16 @@
     },
     {
       "character": "lakshman",
-      "pose": "stepback-armsout",
+      "pose": "crouch-hang",
       "facing": "right",
-      "at": 0.36,
+      "at": 0.6,
       "row": "horizon"
     },
     {
       "character": "rama",
       "pose": "step-point",
       "facing": "right",
-      "at": 0.46,
+      "at": 0.86,
       "row": "horizon",
       "mouth": 3
     },
@@ -30,7 +30,12 @@
       "prop": "vulture-wing",
       "at": 0.7,
       "row": "horizon",
-      "scale": 0.7
+      "scale": 0.7,
+      "nudge": [
+        0,
+        -4
+      ],
+      "rotate": -25
     }
   ]
 }

@@ -5,19 +5,15 @@
   "figures": [
     {
       "prop": "tree-trunk",
-      "at": 0.05,
-      "row": "closeup"
-    },
-    {
-      "prop": "tree-trunk",
-      "at": 0.45,
-      "row": "closeup"
+      "at": 0.15,
+      "row": "closeup",
+      "facing": "left"
     },
     {
       "character": "rama",
-      "pose": "step-bowdraw",
+      "pose": "stand-bowdraw",
       "facing": "right",
-      "at": 0.48,
+      "at": 0.15,
       "row": "closeup"
     }
   ]

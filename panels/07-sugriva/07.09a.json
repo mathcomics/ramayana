@@ -1,43 +1,20 @@
 {
-  "scene": "Rama and Sugriva sit face to face, each on a round rock; Lakshman stands behind Rama, Hanuman sits behind Sugriva",
+  "scene": "Opening: Sugriva sits on the rock of Rishyamukha; Kishkindha, the monkey city, on its hill beyond",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "dry-grass",
   "figures": [
     {
-      "character": "lakshman",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.08
-    },
-    {
-      "character": "hanuman",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.92
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.245,
-      "scale": 0.75
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.755,
-      "scale": 0.75,
-      "facing": "left"
-    },
-    {
       "character": "rama",
-      "pose": "chair-armrest",
-      "facing": "right",
-      "at": 0.3,
-      "mouth": 2
+      "pose": "stand-swing",
+      "facing": "left",
+      "at": 0.8
     },
     {
       "character": "sugriva",
-      "pose": "chair-armrest",
-      "facing": "left",
-      "at": 0.7
+      "pose": "stand-grief",
+      "facing": "front"
     }
-  ]
+  ],
+  "horizon": 0,
+  "sky": "sky"
 }
