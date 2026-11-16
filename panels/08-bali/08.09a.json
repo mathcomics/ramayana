@@ -1,0 +1,52 @@
+{
+  "scene": "Celebration: musicians and leaping monkeys lead Sugriva in procession",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "sugriva",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.1,
+      "mouth": 2
+    },
+    {
+      "prop": "trumpet",
+      "on": "horn#hand-left"
+    },
+    {
+      "id": "horn",
+      "character": "monkey1",
+      "pose": "walk-fists",
+      "facing": "right",
+      "at": 0.29,
+      "cloth": "red"
+    },
+    {
+      "prop": "drum",
+      "on": "drummer#hand-right"
+    },
+    {
+      "id": "drummer",
+      "character": "monkey1",
+      "pose": "kneeup-armsout",
+      "facing": "right",
+      "at": 0.55
+    },
+    {
+      "character": "monkey1",
+      "pose": "leapup-reachup",
+      "facing": "right",
+      "at": 0.75,
+      "row": 0.15,
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "kneeup-reach",
+      "facing": "right",
+      "at": 0.92,
+      "row": 0.08
+    }
+  ]
+}

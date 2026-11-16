@@ -13,6 +13,16 @@ the new generic characters — were applied in the v0.5 rewrite of
 
 
 
+## Chapter 8: one fight panel cut, a procession added (2026-11-16)
+
+The artist cut 08.02a (Bali roars back, Sugriva leaping behind him) and
+added 08.09a after the mourning: musicians (horn and drum, as 01.04) and
+leaping monkeys lead Sugriva in a celebration procession, before he is
+seated at the throne (08.10). Beat 3 of the brief could name it. (The
+garland line in the chapter 8 brief was edited directly from a panel
+session the same day, on the artist's word: Bali is Sugriva's double and
+the garland is the one mark. Check it reads right.)
+
 ## Chapter 5: the ascetic at the hut, four panels (2026-11-15)
 
 The artist's sequence: 05.18a Sita offers fruit to the ascetic, standing
