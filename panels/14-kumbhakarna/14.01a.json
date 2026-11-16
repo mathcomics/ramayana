@@ -1,26 +1,36 @@
 {
-  "scene": "Kumbhakarna asleep, his head on the ground; a rakshasa looks down at it",
+  "scene": "The rakshasa musicians, drum and horn as in 01.04, walk in past the giant's upturned sole",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
     {
-      "prop": "giant-face-side",
-      "id": "face",
-      "facing": "left",
-      "rotate": 90,
-      "at": 0.18
+      "prop": "giant-feet",
+      "facing": "right",
+      "at": 0.9,
+      "body": "#9a7a7a"
     },
     {
+      "prop": "trumpet",
+      "on": "player1#hand-left"
+    },
+    {
+      "id": "player1",
       "character": "raxas_m1",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.62,
-      "adjust": {
-        "spine.head": 25
-      }
+      "pose": "walk-fists",
+      "facing": "right",
+      "at": 0.52
+    },
+    {
+      "prop": "drum",
+      "on": "player2#hand-right"
+    },
+    {
+      "id": "player2",
+      "character": "raxas_m2",
+      "pose": "walk-armsout",
+      "facing": "right",
+      "at": 0.45,
+      "cloth": "red-check"
     }
-  ],
-  "needs": [
-    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw"
   ]
 }

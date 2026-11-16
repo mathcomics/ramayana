@@ -13,7 +13,6 @@
     }
   ],
   "needs": [
-    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw",
     "prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now"
   ]
 }

@@ -45,8 +45,5 @@
       "at": 0.9,
       "cloth": "red-diamond"
     }
-  ],
-  "needs": [
-    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw"
   ]
 }

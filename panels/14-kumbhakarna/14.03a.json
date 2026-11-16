@@ -40,7 +40,6 @@
     }
   ],
   "needs": [
-    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw",
     "prop: food-heap (a heap of fruit, rice and sweets)",
     "prop: food-platter (a round platter piled with food, held up)"
   ]

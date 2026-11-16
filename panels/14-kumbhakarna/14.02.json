@@ -5,9 +5,9 @@
   "figures": [
     {
       "prop": "giant-feet",
-      "facing": "left",
+      "facing": "right",
       "body": "#9a7a7a",
-      "at": 0.1
+      "at": 0.9
     },
     {
       "prop": "trumpet",
@@ -18,7 +18,7 @@
       "character": "raxas_m1",
       "pose": "walk-fists",
       "facing": "right",
-      "at": 0.82
+      "at": 0.52
     },
     {
       "prop": "drum",
@@ -29,7 +29,7 @@
       "character": "raxas_m2",
       "pose": "walk-armsout",
       "facing": "right",
-      "at": 0.52,
+      "at": 0.45,
       "cloth": "red-check"
     }
   ]

@@ -38,7 +38,6 @@
     }
   ],
   "needs": [
-    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw",
     "prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now"
   ]
 }

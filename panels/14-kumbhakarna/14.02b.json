@@ -1,34 +1,56 @@
 {
-  "scene": "At his waist: a rakshasa leans back, arms out to the giant's hanging hand; a drummer beats behind him",
-  "tall": 0.6,
+  "scene": "Drums and horn blast at his head; he sleeps on",
+  "tall": 1.5,
   "ground": "light-grey",
   "figures": [
     {
-      "prop": "giant-lie-waist",
-      "id": "belly",
-      "at": 0.82
+      "prop": "giant-face-side",
+      "id": "face",
+      "at": 0.18,
+      "facing": "left",
+      "rotate": 90,
+      "row": "mid"
     },
     {
-      "id": "puller",
-      "character": "raxas_m1",
-      "pose": "leanback-reach",
-      "facing": "right",
-      "at": 0.5
-    },
-    {
-      "prop": "drum",
+      "prop": "trumpet",
       "on": "player1#hand-right"
     },
     {
       "id": "player1",
+      "character": "raxas_m1",
+      "pose": "kneeup-fists",
+      "facing": "left",
+      "at": 0.63,
+      "nudge": [
+        0,
+        7
+      ],
+      "rotate": -120,
+      "row": "mid"
+    },
+    {
+      "prop": "drum",
+      "rotate": -90,
+      "at": 0.71,
+      "row": "mid",
+      "nudge": [
+        0,
+        6.5
+      ]
+    },
+    {
+      "id": "player2",
       "character": "raxas_m2",
-      "pose": "stepwide-armsout",
-      "facing": "right",
-      "at": 0.2,
-      "cloth": "red-check"
+      "pose": "kneeup-armsout",
+      "facing": "left",
+      "at": 0.88,
+      "row": "mid",
+      "nudge": [
+        0,
+        7
+      ],
+      "cloth": "red-check",
+      "rotate": -90
     }
-  ],
-  "needs": [
-    "prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row"
   ]
 }

@@ -35,7 +35,6 @@
     }
   ],
   "needs": [
-    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw",
     "prop: water-pot (a round clay water pot, carried and tipped)",
     "prop: water-pour (water spilling from a tipped pot onto the face)"
   ]

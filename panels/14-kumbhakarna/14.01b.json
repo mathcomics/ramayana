@@ -1,43 +1,40 @@
 {
-  "scene": "Top view: the sleeping giant's face from above; four rakshasas stand by it",
-  "tall": 1,
+  "scene": "At his waist: a rakshasa leans back, arms out to the giant's hanging hand; a drummer beats behind him",
+  "tall": 0.6,
   "ground": "light-grey",
   "figures": [
     {
-      "prop": "giant-face-front",
-      "id": "face",
-      "rotate": 90,
-      "at": 0.3,
-      "row": 0.3
+      "prop": "giant-lie-waist",
+      "id": "belly",
+      "at": 0.5,
+      "row": "closeup",
+      "nudge": [
+        0,
+        3
+      ],
+      "scale": 0.75
     },
     {
-      "prop": "male-top",
+      "id": "puller",
       "character": "raxas_m1",
-      "at": 0.86,
-      "row": 0.7
+      "pose": "leanback-reach",
+      "facing": "right",
+      "at": 0.5
     },
     {
-      "prop": "male-top",
+      "prop": "drum",
+      "on": "player1#hand-right"
+    },
+    {
+      "id": "player1",
       "character": "raxas_m2",
-      "at": 0.88,
-      "row": 0.3,
+      "pose": "stepwide-armsout",
+      "facing": "right",
+      "at": 0.2,
       "cloth": "red-check"
-    },
-    {
-      "prop": "male-top-back",
-      "character": "raxas_m1",
-      "at": 0.55,
-      "row": 0.04,
-      "cloth": "red-diamond"
-    },
-    {
-      "prop": "female-top",
-      "character": "raxas_f2",
-      "at": 0.66,
-      "row": 0.9
     }
   ],
   "needs": [
-    "art: giant-face-side / giant-face-front are placeholders for the artist to redraw"
+    "prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row"
   ]
 }

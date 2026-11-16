@@ -40,7 +40,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: food-platter (a round platter piled with food, held up) | 14.03a |
 | prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now | 14.04a, 14.04b |
 | prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.04 |
-| prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.02b |
+| prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.01b |
 | prop: hut | 05.16 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11, 10.11a |
 | prop: jewels (held to the chest) | 07.12 |
@@ -60,4 +60,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-bag, branch, city-gap, city-roof, city-side, deer-stand, drum, female-top, fire, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, hut-side, hut-top, ladder, lanka-island, male-top, male-top-back, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+bag, branch, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-white, flower-yellow, giant-face-front, giant-face-front-awake, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, hut-side, hut-top, ladder, lanka-island, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

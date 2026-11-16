@@ -5,10 +5,11 @@
   "figures": [
     {
       "character": "surpanakha",
-      "pose": "walk-armrest",
-      "at": 0.47,
-      "mouth": 2
+      "pose": "oneleg-beckon",
+      "at": 0.47
     }
   ],
-  "tags": ["spy"]
+  "tags": [
+    "spy"
+  ]
 }

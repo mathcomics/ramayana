@@ -5,9 +5,9 @@
   "figures": [
     {
       "character": "surpanakha",
-      "pose": "pass-akimbo",
+      "pose": "oneleg-armsout",
       "at": 0.47,
-      "row": "closeup",
+      "row": "mid",
       "mouth": 2
     }
   ]
