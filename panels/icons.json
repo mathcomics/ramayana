@@ -1,20 +1,43 @@
 {
-  "_doc": "The reader site's index: one square tile per chapter (by number), no words. Each shows a drawn face (\"character\", head only) or a prop drawing (\"prop\", optionally \"rotate\": degrees clockwise), on the chapter's typical ground: the most common panel ground that is not off-white or white, unless \"ground\" names one (data/grounds.json). Chapters with no panels yet show dimmed and are not links. Built by tools/build-site.mjs.",
+  "_doc": "The reader site's index: one square tile per chapter (by number), no words, on the chapter's typical ground (the most common panel ground that is not off-white or white) unless \"ground\" names one (data/grounds.json). An icon is { \"panel\": {...}, \"crop\": [x, y, size] } (a square panel, cropped; panel units, 360 across), { \"layers\": [...] } (heads { character, view, facing, x, y, size } and props { prop, x, y, size, rotate, facing, body } in tile units, 100 across, clipped at the edges), or a single { character } / { prop } centred. Chapters with no panels yet show dimmed and are not links. Built by tools/build-site.mjs (its comment has the details).",
   "icons": {
-    "1": { "character": "rama" },
-    "2": { "prop": "throne-ayodhya" },
-    "3": { "prop": "hut-side" },
-    "4": { "character": "surpanakha" },
-    "5": { "prop": "deer-stand" },
-    "6": { "prop": "vulture-fly" },
-    "7": { "character": "sugriva" },
-    "8": { "prop": "arrow-stuck" },
-    "9": { "character": "hanuman" },
-    "10": { "character": "sita" },
+    "1": { "prop": "palace-ayodhya", "size": 88 },
+    "2": { "layers": [
+      { "character": "dasharatha", "view": "side", "facing": "right", "x": 19, "y": 52, "size": 56 },
+      { "character": "kaikeyi", "view": "side", "facing": "left", "x": 81, "y": 52, "size": 56 }
+    ] },
+    "3": { "prop": "lotus-full", "size": 84 },
+    "4": { "crop": [70, 95, 240], "panel": { "figures": [
+      { "character": "surpanakha", "pose": "oneleg-propback", "facing": "right", "at": 0.5, "row": 0.04 }
+    ] } },
+    "5": { "prop": "deer-stand", "body": "gold", "size": 80 },
+    "6": { "prop": "vulture-fly", "ground": "sky", "size": 84 },
+    "7": { "crop": [20, 60, 300], "panel": { "figures": [
+      { "character": "sugriva", "pose": "step-point", "facing": "right", "at": 0.3, "row": 0 },
+      { "character": "hanuman", "pose": "stand-swing", "facing": "left", "at": 0.72, "row": 0 }
+    ] } },
+    "8": { "crop": [10, 65, 300], "panel": { "figures": [
+      { "character": "sugriva", "pose": "leap-reach", "facing": "right", "at": 0.3, "row": 0.25, "rotate": 15 },
+      { "character": "sugriva", "id": "bali", "cloth": "orange", "pose": "leap-fists", "facing": "left", "at": 0.7, "row": 0.3, "rotate": -15 }
+    ] } },
+    "9": { "crop": [95, 80, 210], "panel": { "ground": "sky", "figures": [
+      { "character": "hanuman", "pose": "leap-reach", "facing": "right", "at": 0.5, "row": 0.2, "rotate": -20 }
+    ] } },
+    "10": { "crop": [118, 118, 130], "panel": { "figures": [
+      { "character": "sita", "pose": "stand-grief", "facing": "right", "at": 0.5, "row": 0.04 }
+    ] } },
     "11": { "prop": "fire", "rotate": 90 },
-    "12": { "prop": "rock-rectangle" },
-    "13": { "prop": "ladder" },
-    "14": { "prop": "giant-face-side" },
+    "12": { "crop": [20, 130, 320], "panel": { "figures": [
+      { "prop": "rock-square", "body": "#7a6868", "at": 0.5, "row": 0.3, "repeat": { "n": 5, "gap": -0.3 } },
+      { "prop": "rock-rectangle", "body": "#5f5050", "at": 0.5, "row": 0.08, "repeat": { "n": 3, "gap": -0.2 } }
+    ] } },
+    "13": { "crop": [40, 60, 300], "panel": { "figures": [
+      { "prop": "ladder", "at": 0.9, "row": -0.25 },
+      { "character": "monkey1", "pose": "fallback-flung", "facing": "left", "at": 0.42, "row": 0.3, "rotate": -30 }
+    ] } },
+    "14": { "layers": [
+      { "prop": "giant-face-side", "rotate": -90, "x": 50, "y": 56, "size": 125 }
+    ] },
     "15": { "character": "indrajit", "ground": "night" },
     "16": { "prop": "flower-white", "ground": "green" },
     "17": { "character": "ravana", "ground": "geru" },
