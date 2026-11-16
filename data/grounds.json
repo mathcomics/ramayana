@@ -1,5 +1,5 @@
 {
-  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex. A panel's \"sky\" (above the horizon) takes the same names. A colour is a hex; [top, bottom], a vertical gradient (night); or { \"horizontal\": [left, right] } (sky-blue). Every ground carries a gradient, the direction picked arbitrarily (2026-11-11), to be reviewed; the first colour is the original flat one. Artist's rule (2026-11-08): backgrounds are light — off-white (light beige), light-grey, even white; greens only for top views (03.01) and the land strip under a sky/horizon (05.11); dusty-pink never.",
+  "_doc": "Ground colours for panels (style bible §3). A panel's \"ground\" is one of these names, or a hex. A panel's \"sky\" (above the horizon) takes the same names. A colour is a hex; [top, bottom], a vertical gradient (night); or { \"horizontal\": [left, right] } (sky-blue). Every ground carries a gradient, the direction picked arbitrarily (2026-11-11), to be reviewed; the first colour is the original flat one. Artist's rule (2026-11-08): backgrounds are light — off-white (light beige), light-grey, even white; greens only for top views (03.01) and the land strip under a sky/horizon (05.11); dusty-pink never. 2026-11-15: sage and forest dropped (too close to dry-grass and dark-green), green added (a brighter green).",
   "default": "off-white",
   "grounds": {
     "off-white": ["#f7f4ed", "#e3e0da"],
@@ -11,10 +11,9 @@
     "yellow": ["#f6e6a6", "#e9d07c"],
     "sunrise": ["#f6dcc0", "#e8b98e"],
     "geru": { "horizontal": ["#9c4a2f", "#864028"] },
-    "sage": ["#9dac93", "#87947e"],
+    "green": ["#9cc26a", "#86a85a"],
     "dry-grass": { "horizontal": ["#a7ac93", "#90947e"] },
     "dark-green": ["#5d6c53", "#505d47"],
-    "forest": ["#667456", "#59654b"],
     "stone-grey": { "horizontal": ["#b3b3b3", "#9a9a9a"] },
     "sky": ["#9fdff0", "#59b8d0"],
     "sea": { "horizontal": ["#5fbcd3", "#52a2b5"] },

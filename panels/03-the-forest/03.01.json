@@ -1,7 +1,7 @@
 {
   "scene": "Top view: a small hut in the middle of green ground, clumps of trees in two corners",
   "tall": 1,
-  "ground": "sage",
+  "ground": "dry-grass",
   "figures": [
     {
       "prop": "trees-top",

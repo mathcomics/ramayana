@@ -1,7 +1,7 @@
 {
   "scene": "Back in the forest: the hut from above (as 05.08), nobody there",
   "tall": 1,
-  "ground": "sage",
+  "ground": "dry-grass",
   "figures": [
     {
       "prop": "trees-top",

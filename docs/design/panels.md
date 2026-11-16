@@ -208,7 +208,7 @@ behind them, after = in front; the retired `layer` field is an issue).
 
 ### Foregrounds
 
-`{ "foreground": [0.11, 0.22], "color": "forest" }` — a band of ground,
+`{ "foreground": [0.11, 0.22], "color": "dark-green" }` — a band of ground,
 an entry of the same `figures` list, drawn from the panel's bottom edge
 up to a straight line. The two numbers are the line's height at the left
 and right edges, as shares of the panel height (one number: level). Its
