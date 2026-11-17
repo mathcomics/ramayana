@@ -1,0 +1,35 @@
+{
+  "scene": "The ropes burst: Hanuman leaps up, tail ablaze",
+  "tall": 1.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "fire",
+      "on": "hanuman#tail",
+      "rotate": 90
+    },
+    {
+      "character": "hanuman",
+      "pose": "leapup-flung",
+      "facing": "right",
+      "at": 0.5,
+      "row": 0.6
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.2,
+      "row": "mid",
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "stepturn-armface",
+      "facing": "right",
+      "at": 0.82,
+      "row": "mid",
+      "cloth": "red-stripe"
+    }
+  ]
+}

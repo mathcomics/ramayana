@@ -1,0 +1,14 @@
+{
+  "scene": "Indrajit, Ravana's son, draws his bow",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "indrajit",
+      "pose": "step-bowdraw",
+      "facing": "right",
+      "at": 0.42,
+      "row": "closeup"
+    }
+  ]
+}

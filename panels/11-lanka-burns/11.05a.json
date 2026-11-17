@@ -1,0 +1,39 @@
+{
+  "scene": "Variation: Hanuman bound on the ground; rakshasas stand over him with clubs",
+  "tall": 0.6,
+  "ground": "sunrise",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "liefront-armsback",
+      "facing": "left",
+      "at": 0.5
+    },
+    {
+      "prop": "rope-bind",
+      "on": "hanuman#chest"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "step-akimbo",
+      "facing": "right",
+      "at": 0.18,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "stepwide-wrath",
+      "facing": "left",
+      "at": 0.84,
+      "cloth": "red-stripe",
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "club"
+        }
+      }
+    }
+  ],
+  "needs": [
+    "prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now"
+  ]
+}

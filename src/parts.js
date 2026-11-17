@@ -678,7 +678,9 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // joints for the pose lab's handles: limbs, and the spine's pivots (the
   // pelvis at the hip middle, the waist part way up, the neck base and top)
   const spineJ = { pelvis: [0, 0], waist: lerp([0, 0], nb, 0.45), neck: nb, head: neckTop, H };
-  return { shapes: out, H, headRot, headR, hair, joints: { near: limbs.near.joints, far: limbs.far.joints, spine: spineJ } };
+  // the tail's tip (the centre of its end disc): where a carried prop goes
+  const tip = tail[2] && tail[2].reduce((m, q) => [m[0] + q[0] / tail[2].length, m[1] + q[1] / tail[2].length], [0, 0]);
+  return { shapes: out, H, headRot, headR, hair, joints: { near: limbs.near.joints, far: limbs.far.joints, spine: spineJ, tail: tip } };
 }
 
 const dpF = (v) => (Math.round(v * 1000) / 1000).toString();

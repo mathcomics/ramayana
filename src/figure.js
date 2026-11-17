@@ -97,7 +97,7 @@ export function buildShapes(S, poseIn, outfit = DEFAULT_OUTFIT, view = 'side', b
   }
   // joints in the figure's own frame (for the pose lab's handles)
   const jm = (g) => Object.fromEntries(Object.entries(g).map(([k, q]) => [k, mv(jf(q))]));
-  const J = { near: jm(joints.near), far: jm(joints.far), spine: jm(joints.spine) };
+  const J = { near: jm(joints.near), far: jm(joints.far), spine: jm(joints.spine), ...(joints.tail && { tail: mv(jf(joints.tail)) }) };
   return { shapes, joints: J, sk: { pose, front }, headAnchor: { at: mv(Hm), rot: F * headRot, R }, hairAnchor: { ...hair, rot: F * hair.rot, at: mv(hairAt) }, bbox: bbox(shapes.map((s) => s.pts)) };
 }
 

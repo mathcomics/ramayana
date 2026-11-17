@@ -1,0 +1,22 @@
+{
+  "scene": "The arrow-ropes coil round Hanuman and pin his arms",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "stepback-armsback",
+      "facing": "left",
+      "at": 0.5,
+      "scale": 1.6
+    },
+    {
+      "prop": "rope-bind",
+      "on": "hanuman#chest",
+      "scale": 0.8
+    }
+  ],
+  "needs": [
+    "prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now"
+  ]
+}

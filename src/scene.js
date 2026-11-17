@@ -351,6 +351,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     head: (t) => t.built.headAnchor?.at && [t.built.headAnchor.at[0], t.built.headAnchor.at[1] - (t.S.head?.size ?? 1) / 2],
     shoulder: (t) => t.built.joints?.near?.sh,
     chest: (t) => chestPoint(t),
+    tail: (t) => t.built.joints?.tail,                     // the tail's tip (monkeys): a fire on it
   };
   // the chest: a third of the way from the neck to the waist along the
   // spine; in the side view moved out to the front edge of the torso

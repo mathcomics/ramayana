@@ -1,0 +1,37 @@
+{
+  "scene": "Variation, closer: Ravana points down from the throne; Hanuman, bound, looks up at him unafraid",
+  "tall": 0.6,
+  "ground": "geru",
+  "figures": [
+    {
+      "prop": "throne-lanka",
+      "at": 0.68,
+      "scale": 1.2
+    },
+    {
+      "character": "ravana",
+      "pose": "chair-point",
+      "facing": "left",
+      "on": "throne-lanka",
+      "scale": 1.2,
+      "mouth": 3
+    },
+    {
+      "character": "hanuman",
+      "pose": "stand-armsback",
+      "facing": "right",
+      "at": 0.22,
+      "row": "closeup",
+      "adjust": {
+        "spine.head": -20
+      }
+    },
+    {
+      "prop": "rope-bind",
+      "on": "hanuman#chest"
+    }
+  ],
+  "needs": [
+    "prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now"
+  ]
+}

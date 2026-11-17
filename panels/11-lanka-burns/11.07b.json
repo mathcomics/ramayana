@@ -1,0 +1,39 @@
+{
+  "scene": "Over the roofs by night, tail aflame, the roofs catching behind him",
+  "tall": 0.6,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "city-gap",
+      "at": 0.5,
+      "scale": 6,
+      "row": -0.3,
+      "id": "roofs"
+    },
+    {
+      "prop": "fire",
+      "on": "roofs#stand-left",
+      "rotate": 90,
+      "scale": 3
+    },
+    {
+      "prop": "fire",
+      "on": "roofs#stand-right",
+      "rotate": 90,
+      "scale": 2
+    },
+    {
+      "prop": "fire",
+      "on": "hanuman#tail",
+      "rotate": 90,
+      "scale": 0.6
+    },
+    {
+      "character": "hanuman",
+      "pose": "leap-reach",
+      "facing": "right",
+      "on": "roofs#stand",
+      "scale": 0.42
+    }
+  ]
+}

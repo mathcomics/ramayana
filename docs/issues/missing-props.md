@@ -18,6 +18,7 @@ placeholder box. Held props (sword, club, bow) live in
 | jewels | 07.10 |
 | line | 05.17 |
 | line-top | 05.18 |
+| rope-bind | 11.05, 11.05a, 11.06, 11.06a, 11.07 |
 | tree | 05.14 |
 | water-pot | 14.03 |
 
@@ -44,9 +45,11 @@ docs/design/panel-writing.md, Lessons).
 | prop: line (scratched in the earth, under his hand) | 05.17 |
 | prop: line-top (the line as a closed ring round the hut, seen from above) | 05.18 |
 | prop: mountain | 09.11 |
+| prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.05, 11.05a, 11.06, 11.06a, 11.07 |
 | prop: staff (held) | 05.18a, 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
 | prop: tree | 03.05, 05.14 |
+| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.02, 11.02a, 11.03, 11.03a |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
 | prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |
