@@ -133,7 +133,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `08-bali` | 18 | written against the brief |
 | `09-the-leap` | 14 | written against the brief (09.09 approved and locked) |
 | `10-the-ring` | 33 | written against the brief; variations to choose from (10.02a–c, 10.04a–c and 10.04f the night search, 10.08c–o Sita's visitors, 10.09–10.11a the grove by day) |
-| `11-lanka-burns` | 26 | first draft (2026-11-17): the opener on the ledge and the walk back (11.01, 11.01a), the havoc (11.02–11.03a), swinging on vines (11.03b–d), the news and Ravana sending Indrajit (11.03e–h), Indrajit and the binding (11.04–11.05a), Ravana's throne (11.06, 11.06a), the burning tail and the leap (11.07–11.07c), panic (11.08a) and the sea (11.09), around the approved reference panel 11.08; the homecoming still to write |
+| `11-lanka-burns` | 27 | first draft (2026-11-17): the opener on the ledge, the turn back and the run in (11.01–11.01b), the havoc (11.02–11.03a), swinging on vines (11.03b–d), the news and Ravana sending Indrajit (11.03e–h), Indrajit and the binding (11.04–11.05a), Ravana's throne (11.06, 11.06a), the burning tail and the leap (11.07–11.07c), panic (11.08a) and the sea (11.09), around the approved reference panel 11.08; the homecoming still to write |
 | `12-the-bridge` | 26 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
 | `13-the-war-begins` | 8 | the opener (Lanka across the sea, 13.01) and battle scenes (ladders against the wall, rocks hurled, the fall, a chief, the fallen field) |
 | `14-kumbhakarna` | 12 | 11 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6) and the approved reference panel 14.05 |

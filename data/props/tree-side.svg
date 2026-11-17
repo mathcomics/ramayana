@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- A single tree from the side, the artist's drawing: one of trees-side
-     alone, on the same canvas (a slender trunk, one round crown).
-     data-height sets its height in head-units; the bottom edge sits on the
+     alone (a slender trunk, one round crown), the page trimmed to it.
+     data-height sets its height in head-units (16.2: the same scale as
+     trees-side, whose 647.8 px page is 18); the bottom edge sits on the
      ground line. -->
 
 <svg
-   data-height="18"
-   viewBox="0 0 509.41748 647.79203"
-   width="509.41748"
-   height="647.79205"
+   data-height="16.2"
+   viewBox="0 0 253.5761 581.89964"
+   width="253.5761"
+   height="581.89966"
    version="1.1"
    id="svg14"
    sodipodi:docname="tree-side.svg"
@@ -30,8 +31,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.0414203"
-     inkscape:cx="-22.565337"
-     inkscape:cy="335.59937"
+     inkscape:cx="-328.87778"
+     inkscape:cy="270.30393"
      inkscape:window-width="2880"
      inkscape:window-height="1514"
      inkscape:window-x="3829"
@@ -40,18 +41,18 @@
      inkscape:current-layer="svg14" />
   <path
      style="fill:#483e37;fill-opacity:1;stroke-width:2"
-     d="m 246.22834,402.93024 22.94183,-47.56477 9.70589,-75.3443 8.64204,7.68182 -6.60446,85.41443 -32.76485,48.05714"
+     d="m 111.48767,338.01324 22.94183,-47.56477 9.70589,-75.3443 8.64204,7.68182 -6.60446,85.41443 -32.76485,48.05714"
      id="path1375"
      sodipodi:nodetypes="cccccc" />
   <path
      id="rect4370-8"
      style="fill:#483e37;fill-opacity:1;stroke-width:6.50194"
-     d="m 215.97647,256.73572 h 33.68648 c -1.65745,65.15318 -7.3832,131.12002 8.1478,192.83551 l -8.1478,197.24543 H 215.97647 L 226.8402,450.86082 C 211.11454,380.10024 214.15702,318.72374 215.97647,256.73572 Z"
+     d="m 81.235801,191.81872 h 33.686479 c -1.65745,65.15318 -7.3832,131.12002 8.1478,192.83551 l -8.1478,197.24543 H 81.235801 L 92.099531,385.94382 C 76.373871,315.18324 79.416351,253.80674 81.235801,191.81872 Z"
      sodipodi:nodetypes="ccccccc" />
   <circle
      style="fill:#8cad76;fill-opacity:1;stroke:none;stroke-width:6.50194"
      id="path4040-8"
-     cx="261.52872"
-     cy="191.70505"
+     cx="126.78805"
+     cy="126.78805"
      r="126.78805" />
 </svg>

@@ -2,18 +2,18 @@
   "scene": "Opening: Hanuman stands on the ledge at the edge of Lanka, the sea before him, about to leave",
   "tall": 1,
   "ground": "sea",
-  "sky": "sunrise",
+  "sky": "white",
   "figures": [
     {
       "id": "ledge",
-      "prop": "rock-square",
+      "prop": "lanka-island",
       "at": 0.78,
-      "row": "front",
-      "scale": 1.6
+      "row": 0.2,
+      "scale": 1
     },
     {
       "character": "hanuman",
-      "pose": "step-hang",
+      "pose": "step-akimbo",
       "facing": "left",
       "on": "ledge#stand",
       "scale": 0.4

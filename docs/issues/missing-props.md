@@ -49,7 +49,8 @@ docs/design/panel-writing.md, Lessons).
 | prop: staff (held) | 05.18a, 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
 | prop: tree | 03.05, 05.14 |
-| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.02, 11.02a, 11.03, 11.03a |
+| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): a leaning tree-side for now | 11.02 |
+| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.02a, 11.03, 11.03a |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
 | prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |
@@ -57,4 +58,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
