@@ -12,7 +12,6 @@ placeholder box. Held props (sword, club, bow) live in
 
 | prop | panels |
 |---|---|
-| chariot | 05.21 |
 | food-heap | 14.03a |
 | food-platter | 14.03a |
 | hut | 05.16 |
@@ -34,7 +33,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: arrow (in flight, leaving the bows to the left) | 04.11 |
 | prop: bow in hand while running | 05.11 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
-| prop: flying chariot | 05.21 |
 | prop: food-heap (a heap of fruit, rice and sweets) | 14.03a |
 | prop: food-platter (a round platter piled with food, held up) | 14.03a |
 | prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now | 14.04a, 14.04b |

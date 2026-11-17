@@ -123,19 +123,19 @@ and Sita in the swan chariot **waving back at the reader**.
 
 | Chapter | Panels | State |
 |---|---|---|
-| `01-intro` | 7 | the opener, and the artist's drafts of the court (2026-11-14) |
-| `02-the-throne` | 12 | written against the brief |
-| `03-the-forest` | 11 | predates the briefs — to revisit (03.02 is approved and locked) |
+| `01-intro` | 9 | the opener, and the artist's drafts of the court (2026-11-14) |
+| `02-the-throne` | 18 | written against the brief |
+| `03-the-forest` | 13 | predates the briefs — to revisit (03.02 is approved and locked) |
 | `04-surpanakha` | 17 | predates the briefs — to revisit |
-| `05-the-golden-deer` | 26 | artist-reviewed; the model chapter (05.11 tagged) |
-| `06-jatayu` | 13 | written against the brief |
+| `05-the-golden-deer` | 25 | artist-reviewed; the model chapter (05.11 tagged) |
+| `06-jatayu` | 25 | written against the brief |
 | `07-sugriva` | 16 | written against the brief |
-| `08-bali` | 14 | written against the brief |
+| `08-bali` | 18 | written against the brief |
 | `09-the-leap` | 14 | written against the brief (09.09 approved and locked) |
-| `10-the-ring` | 23 | written against the brief; variations to choose from (10.02a–c, 10.04a–c and 10.04f the night search, 10.09–10.11a the grove by day) |
+| `10-the-ring` | 33 | written against the brief; variations to choose from (10.02a–c, 10.04a–c and 10.04f the night search, 10.08c–o Sita's visitors, 10.09–10.11a the grove by day) |
 | `11-lanka-burns` | 1 | the approved reference panel 11.08 only |
 | `12-the-bridge` | 26 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
-| `13-the-war-begins` | 6 | the opener (Lanka across the sea, 13.01) and battle scenes (ladders against the wall, rocks hurled, the fall, a chief, the fallen field) |
+| `13-the-war-begins` | 8 | the opener (Lanka across the sea, 13.01) and battle scenes (ladders against the wall, rocks hurled, the fall, a chief, the fallen field) |
 | `14-kumbhakarna` | 12 | 11 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6) and the approved reference panel 14.05 |
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
@@ -152,8 +152,8 @@ splitting single paintings into more, simpler panels, dropping what the
 brief does not show, and swapping the `adjust` stand-ins for the real
 poses now that they exist. Chapter 6 has been through that pass: the sea
 crossing, the arrival in the grove and the funeral pyre are gone, the
-chariot with them. **Chapter 5 still has the chariot** in 05.21 —
-the last panel to lose it (05.22 lost it 2026-11-14).
+chariot with them. Chapter 5 has lost the chariot too (05.22 on 2026-11-14,
+05.21 deleted 2026-11-16).
 
 ### Figures
 
