@@ -1,10 +1,16 @@
 {
   "scene": "Both brothers in mid-air, flying at each other",
   "tall": 1,
-  "ground": "sand",
   "sky": "off-white",
   "horizon": 0.18,
   "figures": [
+    {
+      "foreground": [
+        0.2,
+        0.4
+      ],
+      "color": "green"
+    },
     {
       "character": "sugriva",
       "pose": "leap-reach",

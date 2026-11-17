@@ -1,34 +1,48 @@
 {
-  "scene": "The search comes on toward the reader, over a fold of ground",
-  "tall": 1,
-  "ground": "off-white",
+  "scene": "Lakshman and Sita join him; the three walk on",
+  "tall": 1.5,
+  "ground": "white",
   "figures": [
     {
+      "prop": "vine",
+      "at": 0.1,
+      "row": "top",
+      "scale": 2
+    },
+    {
       "character": "monkey1",
-      "pose": "pass-swing",
-      "view": "front",
+      "pose": "leapup-dive",
+      "at": 0.36,
+      "facing": "right",
+      "nudge": [
+        0,
+        5
+      ],
+      "row": "back"
+    },
+    {
+      "character": "monkey1",
+      "pose": "leapup-swing",
+      "facing": "right",
       "at": 0.66,
-      "scale": 0.6,
-      "cloth": "orange"
+      "row": "back"
     },
     {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "view": "front",
-      "at": 0.46,
-      "scale": 0.8,
-      "cloth": "red"
+      "prop": "leaf-fern",
+      "at": 0.4,
+      "row": -0.3,
+      "scale": 2,
+      "repeat": {
+        "n": 3
+      }
     },
     {
-      "foreground": [0.11, 0.22],
-      "color": "dark-green"
-    },
-    {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "view": "front",
-      "at": 0.28,
-      "scale": 1.05
+      "prop": "leaf-fern",
+      "at": 0.4,
+      "row": -0.1,
+      "repeat": {
+        "n": 3
+      }
     }
   ]
 }

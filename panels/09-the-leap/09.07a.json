@@ -1,0 +1,46 @@
+{
+  "scene": "Lakshman and Sita join him; the three walk on",
+  "tall": 0.6,
+  "ground": "white",
+  "figures": [
+    {
+      "prop": "leaf-fern",
+      "at": 0.55,
+      "row": "closeup",
+      "scale": 2.5,
+      "repeat": {
+        "n": 3
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.16,
+      "row": "floor"
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-flung",
+      "facing": "right",
+      "at": 0.3,
+      "row": "floor"
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-search",
+      "facing": "right",
+      "at": 0.66,
+      "row": "floor"
+    },
+    {
+      "prop": "leaf-fern",
+      "at": 0.4,
+      "row": "closeup",
+      "scale": 2,
+      "repeat": {
+        "n": 3
+      }
+    }
+  ]
+}

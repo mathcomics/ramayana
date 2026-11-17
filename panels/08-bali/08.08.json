@@ -5,7 +5,13 @@
   "figures": [
     {
       "character": "sugriva",
+      "pose": "stepwide-armface",
+      "facing": "right",
+      "at": 0.02
+    },
+    {
       "id": "bali",
+      "character": "sugriva",
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.5

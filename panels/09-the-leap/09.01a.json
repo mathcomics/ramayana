@@ -1,0 +1,26 @@
+{
+  "scene": "Sugriva assures Rama.",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "throne-kishkindha",
+      "at": 0.82,
+      "row": "back"
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.34,
+      "mouth": 2
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-armsout",
+      "facing": "left",
+      "at": 0.6,
+      "mouth": 2
+    }
+  ]
+}

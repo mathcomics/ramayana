@@ -1,7 +1,7 @@
 {
   "scene": "Rama steps toward a tree",
   "tall": 0.6,
-  "ground": "off-white",
+  "ground": "green",
   "figures": [
     {
       "id": "bali",

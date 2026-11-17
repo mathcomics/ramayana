@@ -3,7 +3,7 @@
   "tall": 1,
   "ground": "green",
   "sky": "white",
-  "horizon": 0.6,
+  "horizon": 0.56,
   "figures": [
     {
       "prop": "steps",
@@ -22,7 +22,7 @@
     {
       "id": "bali",
       "character": "sugriva",
-      "pose": "crouch-fists",
+      "pose": "run-fists",
       "facing": "left",
       "at": 0.74,
       "row": "mid",

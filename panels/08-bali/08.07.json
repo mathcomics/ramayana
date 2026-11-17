@@ -1,7 +1,7 @@
 {
   "scene": "Rama steps toward a tree",
   "tall": 0.6,
-  "ground": "off-white",
+  "ground": "green",
   "figures": [
     {
       "prop": "tree-trunk",
@@ -11,10 +11,15 @@
     },
     {
       "character": "rama",
-      "pose": "crouch-bowdraw",
+      "pose": "kneel-bowdraw",
       "facing": "right",
       "at": 0.15,
-      "row": "floor"
+      "row": "front",
+      "nudge": [
+        0,
+        -1
+      ],
+      "rotate": 10
     }
   ]
 }

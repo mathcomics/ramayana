@@ -1,10 +1,37 @@
 {
   "scene": "Lanka: Surpanakha runs up the palace steps, crying out",
   "tall": 1,
-  "ground": "green",
   "sky": "white",
-  "horizon": 0.6,
   "figures": [
+    {
+      "prop": "palace-kishkindha",
+      "at": 0.5,
+      "row": "closeup",
+      "nudge": [
+        0.4,
+        -0.2
+      ],
+      "scale": 0.98
+    },
+    {
+      "character": "sugriva",
+      "pose": "stepwide-armsdown",
+      "at": 0.56,
+      "id": "bali",
+      "nudge": [
+        6,
+        6
+      ],
+      "row": "back",
+      "view": "front"
+    },
+    {
+      "foreground": [
+        0.48,
+        0.48
+      ],
+      "color": "green"
+    },
     {
       "prop": "steps",
       "facing": "left",
@@ -14,10 +41,14 @@
     {
       "character": "sugriva",
       "pose": "arch-point",
-      "facing": "right",
+      "view": "right",
       "on": "steps#stand",
+      "nudge": [
+        -2,
+        0
+      ],
       "mouth": 3,
-      "rotate": -15,
+      "rotate": 15,
       "wear": "garland"
     }
   ]

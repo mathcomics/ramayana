@@ -7,27 +7,21 @@
   "figures": [
     {
       "prop": "palace-kishkindha",
-      "at": 0.8,
-      "row": "horizon",
-      "scale": 1.1
+      "at": 0.3,
+      "row": "floor"
     },
     {
-      "character": "sugriva",
-      "pose": "stepwide-armsup",
-      "facing": "right",
-      "at": 0.12,
-      "row": "horizon",
-      "scale": 0.8,
-      "wear": "garland"
-    },
-    {
-      "character": "sugriva",
-      "id": "bali",
-      "pose": "walk-fists",
+      "character": "rama",
+      "pose": "run-handslow",
       "facing": "left",
-      "at": 0.58,
-      "row": "horizon",
-      "scale": 0.8
+      "at": 0.95,
+      "row": "floor",
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "bow"
+        }
+      },
+      "turn": -90
     }
   ]
 }
