@@ -5,9 +5,20 @@
   "figures": [
     {
       "character": "surpanakha",
-      "pose": "oneleg-swing",
+      "pose": "oneleg-armsout",
       "at": 0.47,
-      "mouth": 2
+      "mouth": 2,
+      "adjust": {
+        "spine.lean": -20
+      }
+    },
+    {
+      "character": "rama",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.6,
+      "mouth": 2,
+      "turn": 180
     }
   ],
   "tags": ["spy"]

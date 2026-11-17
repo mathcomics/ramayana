@@ -1,14 +1,15 @@
 {
-  "scene": "Kaikeyi, close to the viewer, looks the same way",
+  "scene": "Kaikeyi points, close",
   "tall": 0.6,
   "ground": "dusty-pink",
   "figures": [
     {
       "character": "kaikeyi",
-      "pose": "step-hang",
+      "pose": "step-point",
       "facing": "left",
-      "at": 0.85,
-      "row": "closeup"
+      "at": 0.55,
+      "row": "closeup",
+      "mouth": 3
     }
   ],
   "tags": ["closeup"]

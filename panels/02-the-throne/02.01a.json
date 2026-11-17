@@ -12,14 +12,13 @@
       "character": "dasharatha",
       "pose": "stepback-armrest",
       "facing": "left",
-      "row": "mid"
+      "mouth": 3
     },
     {
       "character": "kaikeyi",
-      "pose": "step-akimbo",
+      "pose": "step-propback",
       "at": 0.2,
-      "mouth": 3,
-      "row": "mid"
+      "mouth": 3
     }
   ]
 }

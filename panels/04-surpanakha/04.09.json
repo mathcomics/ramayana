@@ -62,8 +62,8 @@
       "at": 0.88,
       "adjust": {
         "right.arm.prop": {
-          "kind": "sword",
-          "angle": -30
+          "kind": "club-spike-long",
+          "angle": -40
         }
       }
     }

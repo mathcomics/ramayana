@@ -1,13 +1,17 @@
 {
-  "scene": "Surpanakha stands alone, hand on hip, facing right",
-  "tall": 1,
+  "scene": "Surpanakha walks alone to the right",
+  "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
       "character": "surpanakha",
-      "pose": "pass-akimbo",
-      "at": 0.47,
-      "mouth": 2
+      "pose": "oneleg-propback",
+      "at": 0.47
+    },
+    {
+      "prop": "trees-side",
+      "at": 0.17
     }
-  ]
+  ],
+  "tags": ["spy"]
 }

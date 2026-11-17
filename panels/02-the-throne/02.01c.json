@@ -8,8 +8,7 @@
       "pose": "step-armsout",
       "facing": "left",
       "at": 0.72,
-      "row": "closeup",
-      "scale": 0.85
+      "row": "closeup"
     },
     {
       "character": "kaikeyi",

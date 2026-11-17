@@ -7,7 +7,7 @@
       "character": "rama",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.4,
+      "at": 0.3,
       "mouth": 2,
       "adjust": {
         "spine.head": -15

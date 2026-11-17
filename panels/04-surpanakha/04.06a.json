@@ -1,0 +1,15 @@
+{
+  "scene": "Close on Surpanakha, hand on hip, looking right",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "surpanakha",
+      "pose": "oneleg-armface",
+      "facing": "left",
+      "at": 0.5,
+      "row": "closeup",
+      "mouth": 2
+    }
+  ]
+}

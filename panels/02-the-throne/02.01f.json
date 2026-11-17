@@ -1,23 +1,15 @@
 {
-  "scene": "Variation: the king sinks to his knees, bowed in grief; Kaikeyi stands over him, near and unmoved",
-  "tall": 1,
-  "ground": "white",
+  "scene": "Kaikeyi, close to the viewer, looks the same way",
+  "tall": 0.6,
+  "ground": "dusty-pink",
   "figures": [
     {
-      "character": "dasharatha",
-      "pose": "kneel-bow",
-      "facing": "left",
-      "at": 0.66
-    },
-    {
       "character": "kaikeyi",
-      "pose": "step-akimbo",
-      "facing": "right",
-      "at": 0.22,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": 15
-      }
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.85,
+      "row": "closeup"
     }
-  ]
+  ],
+  "tags": ["closeup"]
 }

@@ -1,19 +1,21 @@
 {
-  "scene": "Surpanakha walks alone to the right",
+  "scene": "Close on Surpanakha, hand on hip, looking right",
   "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
       "character": "surpanakha",
-      "pose": "oneleg-propback",
-      "at": 0.47
+      "pose": "oneleg-armsout",
+      "at": 0.5,
+      "mouth": 2
     },
     {
-      "prop": "trees-side",
-      "at": 0.17
+      "character": "rama",
+      "pose": "stepback-armsback",
+      "facing": "left",
+      "at": 0.6,
+      "mouth": 1
     }
   ],
-  "tags": [
-    "spy"
-  ]
+  "tags": ["spy"]
 }

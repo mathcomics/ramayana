@@ -4,25 +4,27 @@
   "ground": "sand",
   "figures": [
     {
-      "character": "rama",
-      "pose": "step-akimbo",
+      "character": "lakshman",
+      "pose": "step-point",
       "facing": "right",
       "at": 0.15,
-      "mouth": 3
+      "row": "mid"
     },
     {
       "character": "surpanakha",
       "pose": "step-hang",
-      "facing": "right",
       "at": 0.47,
       "mouth": 2,
-      "turn": 90
+      "turn": 90,
+      "row": "mid",
+      "view": "front"
     },
     {
-      "character": "lakshman",
+      "character": "rama",
       "pose": "step-point",
       "facing": "left",
-      "at": 0.82
+      "at": 0.82,
+      "row": "mid"
     }
   ]
 }
