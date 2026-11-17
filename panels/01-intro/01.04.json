@@ -10,9 +10,9 @@
     {
       "id": "player1",
       "character": "male1",
-      "pose": "walk-fists",
+      "pose": "arch-fists",
       "facing": "right",
-      "at": 0.2
+      "at": 0.25
     },
     {
       "prop": "drum",

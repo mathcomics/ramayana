@@ -1,25 +1,28 @@
 {
   "scene": "Rama, Sita and Lakshman walk on, close together; behind, a river and a boat",
-  "tall": 1,
+  "tall": 0.6,
   "ground": "sky-blue",
   "figures": [
     {
       "character": "lakshman",
       "pose": "pass-swing",
       "facing": "left",
-      "at": 0.6
+      "at": 0.8,
+      "row": "closeup"
     },
     {
       "character": "sita",
       "pose": "walk-swing",
       "facing": "left",
-      "at": 0.5
+      "at": 0.5,
+      "row": "closeup"
     },
     {
       "character": "rama",
       "pose": "pass-swing",
       "facing": "left",
-      "at": 0.4
+      "at": 0.3,
+      "row": "closeup"
     }
   ],
   "needs": [

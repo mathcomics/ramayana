@@ -1,36 +1,29 @@
 {
   "scene": "Lakshman and Rama walk toward the hut; Sita kneels to a deer; a near trunk at the edge",
   "tall": 1,
-  "ground": "dark-green",
+  "ground": "green",
   "sky": "sand",
   "figures": [
     {
       "id": "hut",
       "prop": "hut-side",
       "at": 0.85,
-      "row": "horizon",
+      "row": "back",
       "scale": 0.5706
     },
     {
       "id": "trees-far",
       "prop": "trees-side",
       "at": 0.86,
-      "row": "horizon",
+      "row": "back",
       "scale": 1.7994
-    },
-    {
-      "character": "lakshman",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.33,
-      "row": "horizon"
     },
     {
       "character": "sita",
       "pose": "kneel-palms",
       "facing": "right",
-      "at": 0.52,
-      "row": "horizon",
+      "at": 0.32,
+      "row": "back",
       "nudge": [
         0,
         -0.4
@@ -38,16 +31,16 @@
     },
     {
       "character": "rama",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.42,
-      "row": "horizon"
+      "pose": "step-akimbo",
+      "facing": "left",
+      "at": 0.55,
+      "row": "back"
     },
     {
       "prop": "deer-stand",
       "facing": "left",
-      "at": 0.62,
-      "row": "horizon",
+      "at": 0.44,
+      "row": "back",
       "scale": 0.9258
     },
     {

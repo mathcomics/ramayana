@@ -1,0 +1,40 @@
+{
+  "scene": "The king leans back, reaching out toward Rama; Kausalya reaches after the king; Kaikeyi stands behind, hand on hip",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "sita",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.75,
+      "row": "closeup"
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.85,
+      "row": "closeup",
+      "mouth": 2
+    },
+    {
+      "character": "kausalya",
+      "pose": "step-armsout",
+      "facing": "right",
+      "at": 0.4,
+      "row": "closeup",
+      "mouth": 1
+    },
+    {
+      "character": "kaikeyi",
+      "pose": "step-armrest",
+      "facing": "right",
+      "at": 0.1,
+      "row": "closeup"
+    }
+  ],
+  "needs": [
+    "pose: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now"
+  ]
+}

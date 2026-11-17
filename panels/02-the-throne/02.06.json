@@ -6,8 +6,8 @@
     {
       "character": "kaikeyi",
       "pose": "step-hang",
-      "facing": "right",
-      "at": 0.35,
+      "facing": "left",
+      "at": 0.85,
       "row": "closeup"
     }
   ],

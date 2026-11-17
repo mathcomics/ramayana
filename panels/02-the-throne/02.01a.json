@@ -5,22 +5,21 @@
   "figures": [
     {
       "prop": "throne-ayodhya",
-      "at": 0.6,
-      "row": "mid"
+      "at": 0.7,
+      "row": "back"
     },
     {
       "character": "dasharatha",
-      "pose": "chair-holdhead",
-      "on": "throne-ayodhya",
-      "view": "front",
-      "mouth": 2
+      "pose": "stepback-armrest",
+      "facing": "left",
+      "row": "mid"
     },
     {
       "character": "kaikeyi",
       "pose": "step-akimbo",
-      "facing": "right",
       "at": 0.2,
-      "mouth": 3
+      "mouth": 3,
+      "row": "mid"
     }
   ]
 }

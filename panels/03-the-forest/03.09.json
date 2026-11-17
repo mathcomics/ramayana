@@ -1,0 +1,12 @@
+{
+  "scene": "Surpanakha stands alone, hand on hip, facing right",
+  "tall": 1,
+  "figures": [
+    {
+      "character": "surpanakha",
+      "pose": "pass-flank",
+      "at": 0.25,
+      "row": "closeup"
+    }
+  ]
+}

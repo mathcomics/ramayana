@@ -2,16 +2,29 @@
   "scene": "Repeat: a lotus pond: three full lotuses, three buds behind",
   "tall": 1,
   "ground": "sky",
-  "sky": "off-white",
-  "horizon": 0.2,
+  "sky": "white",
+  "horizon": 0.5,
   "figures": [
     {
+      "character": "lakshman",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.74,
+      "row": "horizon"
+    },
+    {
       "character": "sita",
-      "pose": "sit-armrest",
-      "facing": "right",
-      "at": 0.25,
-      "row": 0.2,
-      "mouth": 2
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.5,
+      "row": "horizon"
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.27,
+      "row": "horizon"
     },
     {
       "prop": "lotus-bud",

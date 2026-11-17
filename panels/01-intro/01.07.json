@@ -19,15 +19,23 @@
       "character": "dasharatha",
       "pose": "step-beckon",
       "facing": "right",
-      "at": 0.56,
+      "at": 0.5,
+      "row": "mid"
+    },
+    {
+      "character": "kausalya",
+      "pose": "step-armrest",
+      "facing": "right",
+      "at": 0.2,
       "row": "mid"
     },
     {
       "character": "kaikeyi",
-      "pose": "leanback-armsback",
+      "pose": "step-armrest",
       "facing": "right",
-      "at": 0.26,
-      "row": "mid"
+      "at": 0.05,
+      "row": "mid",
+      "mouth": 3
     }
   ],
   "needs": [

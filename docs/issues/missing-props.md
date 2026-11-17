@@ -19,7 +19,7 @@ placeholder box. Held props (sword, club, bow) live in
 | jewels | 07.10, 10.11, 10.11a |
 | line | 05.17 |
 | line-top | 05.18 |
-| tree | 02.17, 05.14 |
+| tree | 05.14 |
 | water-pot | 14.03 |
 
 ## Prop wishes from the panels' needs
@@ -48,7 +48,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: mountain | 09.11 |
 | prop: staff (held) | 05.18a, 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
-| prop: tree | 02.17, 03.06, 05.14 |
+| prop: tree | 03.06, 05.14 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
 | prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |
@@ -56,4 +56,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-arrow-stuck, bag, branch, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, hut-side, hut-top, ladder, lanka-island, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+arrow-stuck, bag, branch, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, hut-side, hut-top, ladder, lanka-island, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
