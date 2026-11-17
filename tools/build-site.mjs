@@ -41,10 +41,10 @@ ol.tiles .tile svg { display: block; width: 100%; height: 100%; }
 ol.tiles .soon { opacity: .35; filter: grayscale(.6); }
 main.chapter { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 .pager { position: fixed; left: 0; right: 0; bottom: calc(14px + env(safe-area-inset-bottom)); display: flex; justify-content: center; gap: 10px; pointer-events: none; z-index: 1; }
-.pager a { pointer-events: auto; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: #fff; color: var(--fg); text-decoration: none; font-size: 24px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.pager a { pointer-events: auto; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: #ffd42a; color: #5a1a12; text-decoration: none; font-size: 24px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager a:active { transform: scale(.95); }
-.pager .none { pointer-events: none; width: 56px; height: 56px; border-radius: 18px; background: #e4ded5; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
-.pager a.current { background: var(--fg); color: var(--bg); }
+.pager .none { pointer-events: none; width: 56px; height: 56px; border-radius: 18px; background: #ece0b4; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.pager a.current { background: #5a1a12; color: #ffd42a; }
 .pager svg { width: 26px; height: 26px; }
 `;
 const page = (title, body, cls) => `<!doctype html><html lang="en"><head><meta charset="utf-8">
