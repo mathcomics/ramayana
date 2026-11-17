@@ -32,9 +32,6 @@ html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif; }
 main { max-width: 480px; margin: 0 auto; }
 a { color: inherit; }
-header { padding: 20px 16px 16px; }
-h1 { font-size: 22px; margin: 2px 0 0; font-weight: 600; }
-.kicker { color: var(--muted); font-size: 13px; text-decoration: none; letter-spacing: .04em; text-transform: uppercase; }
 figure { margin: 0 0 6px; }
 figure svg { display: block; width: 100%; height: auto; }
 ol.tiles { list-style: none; margin: 0; padding: 20px 16px 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -42,15 +39,17 @@ ol.tiles .tile { display: block; aspect-ratio: 1; border-radius: 18%; overflow: 
 ol.tiles a.tile:active { transform: scale(.97); }
 ol.tiles .tile svg { display: block; width: 100%; height: 100%; }
 ol.tiles .soon { opacity: .35; filter: grayscale(.6); }
-.pager { display: flex; justify-content: space-between; gap: 12px; padding: 24px 16px 40px; font-size: 15px; }
-.pager a { text-decoration: none; }
-.pager .next { margin-left: auto; text-align: right; }
-.pager small { display: block; color: var(--muted); font-size: 12px; }
+.pager { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 10px 16px; font-size: 26px; line-height: 1; }
+.pager a { text-decoration: none; padding: 8px 12px; }
+.pager .prev { justify-self: start; }
+.pager .next { justify-self: end; }
+.pager .num { font-size: 22px; color: var(--muted); }
 `;
 const page = (title, body) => `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>${esc(title)}</title><style>${css}</style></head>
 <body><main>${body}</main></body></html>`;
+const devanagari = (n) => String(n).replace(/\d/g, (d) => String.fromCharCode(0x966 + +d));
 const file = (c) => `${c.sec.name}.html`;
 
 ready.forEach((c, i) => {
@@ -59,13 +58,15 @@ ready.forEach((c, i) => {
     const { svg } = renderPanel(def, assets, { id });
     return `<figure id="p${id}" aria-label="${esc(def.scene || id)}">${svg}</figure>`;
   }).join('\n');
+  // Wordless: arrows to the previous and next chapter and, between them,
+  // the chapter number in Devanagari digits (a link to the index).
   const prev = ready[i - 1], next = ready[i + 1];
   const pager = `<nav class="pager">` +
-    (prev ? `<a href="${file(prev)}"><small>← Chapter ${prev.n}</small>${esc(prev.title)}</a>` : `<a href="index.html"><small>←</small>Chapters</a>`) +
-    (next ? `<a class="next" href="${file(next)}"><small>Chapter ${next.n} →</small>${esc(next.title)}</a>` : `<a class="next" href="index.html"><small>↑</small>Chapters</a>`) +
+    (prev ? `<a class="prev" href="${file(prev)}" aria-label="Chapter ${prev.n}">←</a>` : `<span></span>`) +
+    `<a class="num" href="index.html" aria-label="Chapter ${c.n}, all chapters">${devanagari(c.n)}</a>` +
+    (next ? `<a class="next" href="${file(next)}" aria-label="Chapter ${next.n}">→</a>` : `<span></span>`) +
     `</nav>`;
-  writeFileSync(join(out, file(c)), page(`${c.n}. ${c.title} · Ramayana`,
-    `<header><a class="kicker" href="index.html">Ramayana · Chapter ${c.n}</a><h1>${esc(c.title)}</h1></header>${body}${pager}`));
+  writeFileSync(join(out, file(c)), page(`${c.n}. ${c.title} · Ramayana`, `${pager}${body}${pager}`));
 });
 
 // The index, wordless: a grid of square tiles, three to a row, one per
