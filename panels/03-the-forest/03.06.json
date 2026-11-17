@@ -1,51 +1,32 @@
 {
-  "scene": "The vulture Jatayu stands on a rock; Rama and Lakshman stand before him",
+  "scene": "Lakshman and Rama walk toward the hut; Sita kneels to a deer; a near trunk at the edge",
   "tall": 1,
   "ground": "green",
   "figures": [
     {
-      "prop": "rock-circle",
-      "at": 0.74,
-      "row": "mid",
-      "id": "rock"
-    },
-    {
-      "prop": "rock-circle",
-      "scale": 0.5,
-      "at": 0.44,
-      "row": "mid"
-    },
-    {
-      "prop": "vulture-stand",
-      "facing": "left",
-      "on": "rock"
-    },
-    {
-      "character": "lakshman",
-      "pose": "step-hang",
+      "character": "sita",
+      "pose": "kneel-palms",
       "facing": "right",
-      "at": 0.3,
-      "adjust": {
-        "spine.head": -25
-      },
+      "at": 0.2,
       "row": "mid",
-      "scale": 0.7
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
       "character": "rama",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.42,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": -25
-      },
+      "pose": "step-akimbo",
+      "facing": "left",
+      "at": 0.7,
+      "row": "mid"
+    },
+    {
+      "prop": "deer-stand",
+      "facing": "left",
+      "at": 0.44,
       "row": "mid",
-      "scale": 0.7
+      "scale": 0.9258
     }
-  ],
-  "needs": [
-    "pose: stand-palms-joined",
-    "prop: tree"
   ]
 }

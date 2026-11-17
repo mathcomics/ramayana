@@ -4,24 +4,13 @@
   "ground": "sunrise",
   "figures": [
     {
-      "prop": "branch",
-      "at": 0.8,
-      "row": 0.62,
-      "scale": 1.2
-    },
-    {
       "prop": "rock-square",
       "at": 0.74,
       "scale": 0.67
     },
     {
-      "prop": "jewels",
-      "on": "sita#hand-right",
-      "scale": 0.15
-    },
-    {
       "character": "sita",
-      "pose": "chair-handslow",
+      "pose": "chair-palms",
       "facing": "left",
       "on": "rock-square#seat",
       "mouth": 2,
@@ -31,7 +20,7 @@
     },
     {
       "character": "hanuman",
-      "pose": "kneel-palms",
+      "pose": "stand-bow",
       "facing": "right",
       "at": 0.3,
       "adjust": {

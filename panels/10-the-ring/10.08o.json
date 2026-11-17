@@ -1,0 +1,19 @@
+{
+  "scene": "Ravana watches from far off while a rakshasi stands over Sita, finger raised; Sita bows in grief",
+  "tall": 1,
+  "ground": "sunrise",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.8,
+      "row": "mid"
+    },
+    {
+      "character": "sita",
+      "pose": "chair-bow",
+      "facing": "left",
+      "on": "rock-square#seat",
+      "scale": 1.5
+    }
+  ]
+}

@@ -4,38 +4,32 @@
   "ground": "sunrise",
   "figures": [
     {
-      "prop": "branch",
-      "at": 0.8,
-      "row": 0.62,
-      "scale": 1.2
-    },
-    {
       "prop": "rock-square",
       "at": 0.74,
       "scale": 0.67
     },
     {
       "character": "sita",
-      "pose": "chair-hang",
+      "pose": "sitback-armback",
       "facing": "left",
       "on": "rock-square#seat",
-      "mouth": 2,
       "adjust": {
-        "spine.head": 14
+        "spine.head": 30
       }
     },
     {
-      "prop": "ring",
-      "on": "hanuman#hand-right",
-      "scale": 1
+      "prop": "pole",
+      "at": 0.25,
+      "row": 0.6
     },
     {
       "character": "hanuman",
-      "pose": "kneel-handslow",
+      "pose": "crouch-onarms",
       "facing": "right",
-      "at": 0.3,
+      "at": 0.25,
+      "row": 0.1,
       "adjust": {
-        "spine.head": -14
+        "spine.head": 40
       }
     }
   ]

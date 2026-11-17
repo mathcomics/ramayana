@@ -1,27 +1,40 @@
 {
-  "scene": "By day, close: Sita on her rock holds Rama's ring to her chest in both hands",
-  "tall": 0.6,
-  "ground": "sunrise",
+  "scene": "Close: Rama's hand above lets the ring fall into Hanuman's hand below",
+  "tall": 1,
+  "ground": "stone-grey",
   "figures": [
     {
-      "prop": "rock-square",
-      "at": 0.62,
-      "scale": 1.15
-    },
-    {
       "prop": "ring",
-      "on": "sita#hands",
-      "scale": 1.7
+      "scale": 2,
+      "at": 0.49,
+      "row": 0.4
     },
     {
-      "character": "sita",
-      "pose": "chair-palms",
+      "id": "hanuman-hand",
+      "character": "hanuman",
+      "prop": "giant-grab",
       "facing": "left",
-      "on": "rock-square#seat",
-      "scale": 1.7,
-      "adjust": {
-        "spine.head": 10
-      }
+      "at": 0.3,
+      "nudge": [
+        0,
+        3
+      ],
+      "scale": 0.9,
+      "rotate": -20
+    },
+    {
+      "id": "sita-hand",
+      "character": "sita",
+      "prop": "giant-grab",
+      "facing": "left",
+      "at": 0.8,
+      "row": "floor",
+      "nudge": [
+        0,
+        -1.5
+      ],
+      "scale": 0.8,
+      "rotate": 150
     }
   ]
 }

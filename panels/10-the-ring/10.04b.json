@@ -6,9 +6,10 @@
     {
       "prop": "city-roof",
       "id": "roof-far",
-      "at": 0.72,
+      "at": 0.85,
       "scale": 2.5,
-      "row": 0.3
+      "row": 0.2,
+      "color": "#222222"
     },
     {
       "character": "hanuman",
@@ -27,7 +28,7 @@
     {
       "prop": "city-roof",
       "id": "roof-near",
-      "at": 0.85,
+      "at": 0.82,
       "scale": 7,
       "row": -0.45
     }

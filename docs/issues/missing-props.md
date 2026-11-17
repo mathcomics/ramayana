@@ -16,7 +16,7 @@ placeholder box. Held props (sword, club, bow) live in
 | food-heap | 14.03a |
 | food-platter | 14.03a |
 | hut | 05.16 |
-| jewels | 07.10, 10.11, 10.11a |
+| jewels | 07.10 |
 | line | 05.17 |
 | line-top | 05.18 |
 | tree | 05.14 |
@@ -41,14 +41,14 @@ docs/design/panel-writing.md, Lessons).
 | prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.04 |
 | prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.01b |
 | prop: hut | 05.16 |
-| prop: jewel (Sita's hair jewel; it travels home in 11) | 10.11, 10.11a |
+| prop: jewel (Sita's hair jewel; it travels home in 11) | 10.09a, 10.10, 10.11, 10.11a |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
 | prop: line (scratched in the earth, under his hand) | 05.17 |
 | prop: line-top (the line as a closed ring round the hut, seen from above) | 05.18 |
 | prop: mountain | 09.11 |
 | prop: staff (held) | 05.18a, 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
-| prop: tree | 03.06, 05.14 |
+| prop: tree | 03.05, 05.14 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
 | prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |

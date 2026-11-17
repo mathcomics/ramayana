@@ -1,12 +1,12 @@
 {
   "scene": "Sita sits alone on a rock, head bowed in grief, under a bare branch",
-  "tall": 1,
+  "tall": 0.6,
   "ground": "night",
   "figures": [
     {
       "prop": "rock-square",
       "at": 0.8,
-      "row": "mid"
+      "row": "front"
     },
     {
       "character": "sita",
@@ -19,17 +19,17 @@
       "character": "raxas_f1",
       "pose": "step-akimbo",
       "facing": "right",
-      "at": 0.15,
-      "row": "mid",
+      "at": 0.25,
+      "row": "front",
       "scale": 1.5,
       "mouth": 2
     },
     {
       "character": "raxas_f2",
-      "pose": "step-hang",
+      "pose": "step-flank",
       "facing": "right",
-      "at": 0.05,
-      "row": "mid",
+      "at": 0.15,
+      "row": "front",
       "scale": 1.5,
       "mouth": 2,
       "cloth": "red-check"

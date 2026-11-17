@@ -10,20 +10,6 @@
       "row": "back"
     },
     {
-      "prop": "deer-stand",
-      "id": "deer2",
-      "at": 0.72,
-      "row": "back",
-      "scale": 0.4629
-    },
-    {
-      "prop": "deer-stand",
-      "id": "deer3",
-      "at": 0.88,
-      "row": "back",
-      "scale": 0.4629
-    },
-    {
       "character": "rama",
       "pose": "step-akimbo",
       "facing": "right",

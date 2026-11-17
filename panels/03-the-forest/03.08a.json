@@ -1,0 +1,24 @@
+{
+  "scene": "Back: rama. Front: Surpanakha watches him from behind a tree",
+  "tall": 1,
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-akimbo",
+      "facing": "left",
+      "at": 0.55,
+      "row": "back"
+    },
+    {
+      "character": "surpanakha",
+      "pose": "step-hang",
+      "at": 0.2,
+      "row": "closeup",
+      "turn": -90,
+      "adjust": {
+        "spine.head": 20
+      }
+    }
+  ],
+  "tags": ["spy"]
+}

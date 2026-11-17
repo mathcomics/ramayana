@@ -9,11 +9,6 @@
       "scale": 1.05
     },
     {
-      "prop": "jewels",
-      "on": "sita#hand-right",
-      "scale": 0.25
-    },
-    {
       "character": "sita",
       "pose": "chair-handslow",
       "facing": "left",
@@ -21,19 +16,15 @@
       "mouth": 2,
       "scale": 1.6,
       "adjust": {
-        "spine.head": 14
+        "spine.head": -30
       }
     },
     {
-      "character": "hanuman",
-      "pose": "kneel-reach",
-      "facing": "right",
-      "at": 0.22,
-      "scale": 1.6,
-      "mouth": 1,
-      "adjust": {
-        "spine.head": -14
-      }
+      "prop": "pole",
+      "at": 0.25,
+      "row": 0.6,
+      "scale": 2,
+      "rotate": 180
     }
   ],
   "needs": [

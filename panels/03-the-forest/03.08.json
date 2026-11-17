@@ -8,14 +8,14 @@
       "id": "hut",
       "prop": "hut-side",
       "at": 0.85,
-      "row": "back",
+      "row": "horizon",
       "scale": 0.5706
     },
     {
       "id": "trees-far",
       "prop": "trees-side",
       "at": 0.86,
-      "row": "back",
+      "row": "horizon",
       "scale": 1.7994
     },
     {

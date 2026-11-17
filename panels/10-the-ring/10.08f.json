@@ -18,7 +18,7 @@
     },
     {
       "character": "sita",
-      "pose": "chair-holdhead",
+      "pose": "chair-armface",
       "facing": "left",
       "on": "rock-square#seat",
       "scale": 1.5

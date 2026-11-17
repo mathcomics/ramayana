@@ -72,8 +72,7 @@ its gestures on any base. Moments with neither come first.
 - 01.06: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
 - 01.06a: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
 - 01.07: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
-- 03.05: sit-cross-legged (sage teaching, raised hand)
-- 03.06: stand-palms-joined
+- 03.05: stand-palms-joined
 - 05.11: run-bow (running with the bow drawn)
 - 06.02: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.03: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now

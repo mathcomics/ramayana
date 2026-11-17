@@ -6,7 +6,10 @@
       "character": "surpanakha",
       "pose": "pass-flank",
       "at": 0.25,
-      "row": "closeup"
+      "row": "closeup",
+      "adjust": {
+        "spine.head": -20
+      }
     },
     {
       "prop": "bubble-thought",

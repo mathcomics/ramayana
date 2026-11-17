@@ -22,6 +22,17 @@
       "scale": 1.2
     },
     {
+      "character": "hanuman",
+      "pose": "kneel-bow",
+      "facing": "left",
+      "scale": 0.4,
+      "nudge": [
+        2.5,
+        -0.5
+      ],
+      "on": "branch#stand"
+    },
+    {
       "character": "raxas_f1",
       "pose": "step-akimbo",
       "facing": "right",
@@ -31,7 +42,7 @@
     },
     {
       "character": "raxas_f2",
-      "pose": "step-hang",
+      "pose": "step-change",
       "facing": "right",
       "at": 0.45,
       "scale": 0.5,

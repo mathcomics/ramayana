@@ -22,8 +22,9 @@
       "facing": "right",
       "character": "raxas_f3",
       "cloth": "red-diamond",
-      "pose": "kneel-handslow",
-      "at": 0.42
+      "pose": "step-beckon",
+      "at": 0.5,
+      "mouth": 1
     },
     {
       "character": "sita",
