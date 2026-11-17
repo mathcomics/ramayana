@@ -347,14 +347,14 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -20,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 0
         },
         "shoulder": 104.3,
         "twist": 0,
-        "wrist": -90
+        "wrist": -110
       },
       "use": [
         "threaten",
@@ -625,12 +625,12 @@
         "out": 10,
         "elbow": 85,
         "elbowOut": 0,
-        "wrist": 0,
+        "wrist": -55,
         "twist": 0,
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": -55,
+          "angle": 0,
           "out": 0,
           "grip": "both"
         }
@@ -735,14 +735,14 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -130,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 0
         },
         "shoulder": -19.3,
         "twist": 0,
-        "wrist": 0
+        "wrist": -130
       }
     },
     "flung": {
@@ -926,12 +926,12 @@
         "out": 10,
         "elbow": 20,
         "elbowOut": 0,
-        "wrist": 0,
+        "wrist": -180,
         "twist": 0,
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": 180,
+          "angle": 0,
           "out": 0,
           "grip": "both"
         }
@@ -998,12 +998,12 @@
         "out": 10,
         "elbow": 95,
         "elbowOut": 0,
-        "wrist": 0,
+        "wrist": -130,
         "twist": 0,
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": -130,
+          "angle": 0,
           "out": 0,
           "grip": "both"
         }
@@ -1047,14 +1047,14 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": -82,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 0
         },
         "shoulder": 103,
         "twist": 0,
-        "wrist": 0
+        "wrist": -82
       }
     },
     "middle": {
@@ -1075,14 +1075,14 @@
         "hand": "fist",
         "out": -13.6,
         "prop": {
-          "angle": -65,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 13
         },
         "shoulder": 80.6,
         "twist": 0,
-        "wrist": 0
+        "wrist": -65
       },
       "mouth": 1,
       "neck": 8,
@@ -1204,12 +1204,12 @@
         "out": 10,
         "elbow": 60,
         "elbowOut": 0,
-        "wrist": 0,
+        "wrist": -175,
         "twist": 0,
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": -175,
+          "angle": 0,
           "out": 0,
           "grip": "both"
         }
@@ -1283,14 +1283,14 @@
         "hand": "fist",
         "out": 10,
         "prop": {
-          "angle": 13,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 0
         },
         "shoulder": 62.6,
         "twist": 0,
-        "wrist": 0
+        "wrist": 13
       }
     },
     "point": {
@@ -1534,12 +1534,12 @@
         "out": 10,
         "elbow": 105,
         "elbowOut": 0,
-        "wrist": 0,
+        "wrist": -80,
         "twist": 0,
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": -80,
+          "angle": 0,
           "out": 0,
           "grip": "both"
         }
@@ -1633,12 +1633,12 @@
         "out": 20,
         "elbow": 15,
         "elbowOut": 0,
-        "wrist": 0,
+        "wrist": -80,
         "twist": 0,
         "hand": "fist",
         "prop": {
           "kind": "sword",
-          "angle": -80,
+          "angle": 0,
           "out": 0
         }
       },
@@ -1720,14 +1720,14 @@
         "hand": "fist",
         "out": -52.7,
         "prop": {
-          "angle": -85,
+          "angle": 0,
           "grip": "both",
           "kind": "sword",
           "out": 0
         },
         "shoulder": 171.8,
         "twist": 0,
-        "wrist": 75
+        "wrist": -10
       }
     }
   }
