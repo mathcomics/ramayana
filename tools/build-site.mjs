@@ -43,6 +43,7 @@ main.chapter { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 .pager { position: fixed; left: 0; right: 0; bottom: calc(14px + env(safe-area-inset-bottom)); display: flex; justify-content: center; gap: 10px; pointer-events: none; z-index: 1; }
 .pager a { pointer-events: auto; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: #fff; color: var(--fg); text-decoration: none; font-size: 24px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager a:active { transform: scale(.95); }
+.pager .none { pointer-events: none; width: 56px; height: 56px; border-radius: 18px; background: #e4ded5; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager a.current { background: var(--fg); color: var(--bg); }
 .pager svg { width: 26px; height: 26px; }
 `;
@@ -51,6 +52,7 @@ const page = (title, body, cls) => `<!doctype html><html lang="en"><head><meta c
 <title>${esc(title)}</title><style>${css}</style></head>
 <body><main${cls ? ` class="${cls}"` : ''}>${body}</main></body></html>`;
 const HOME = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19.5z" fill="currentColor"/></svg>';
+const NONE = '<span class="none" aria-hidden="true"></span>';
 const devanagari = (n) => String(n).replace(/\d/g, (d) => String.fromCharCode(0x966 + +d));
 const file = (c) => `${c.sec.name}.html`;
 
@@ -61,11 +63,12 @@ ready.forEach((c, i) => {
     return `<figure id="p${id}" aria-label="${esc(def.scene || id)}">${svg}</figure>`;
   }).join('\n');
   // Wordless: a floating group of buttons at the bottom — home (the index),
-  // then the previous, this and the next chapter as Devanagari numbers.
+  // then the previous, this and the next chapter as Devanagari numbers
+  // (an empty greyed button where there is no previous or next).
   const prev = ready[i - 1], next = ready[i + 1];
   const num = (ch, cls) => `<a${cls ? ` class="${cls}"` : ''} href="${file(ch)}" aria-label="Chapter ${ch.n}">${devanagari(ch.n)}</a>`;
   const pager = `<nav class="pager"><a href="index.html" aria-label="All chapters">${HOME}</a>` +
-    (prev ? num(prev) : '') + num(c, 'current') + (next ? num(next) : '') + `</nav>`;
+    (prev ? num(prev) : NONE) + num(c, 'current') + (next ? num(next) : NONE) + `</nav>`;
   writeFileSync(join(out, file(c)), page(`${c.n}. ${c.title} · Ramayana`, `${body}${pager}`, 'chapter'));
 });
 
