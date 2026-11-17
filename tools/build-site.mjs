@@ -35,7 +35,7 @@ a { color: inherit; }
 figure { margin: 0 0 6px; }
 figure svg { display: block; width: 100%; height: auto; }
 ol.tiles { list-style: none; margin: 0; padding: 20px 16px 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-ol.tiles .tile { display: block; aspect-ratio: 1; border-radius: 18%; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+ol.tiles .tile { display: block; aspect-ratio: 1; border-radius: 18%; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 ol.tiles a.tile:active { transform: scale(.97); }
 ol.tiles .tile svg { display: block; width: 100%; height: 100%; }
 ol.tiles .soon { opacity: .35; filter: grayscale(.6); }
