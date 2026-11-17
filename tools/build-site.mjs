@@ -41,10 +41,9 @@ ol.tiles .tile svg { display: block; width: 100%; height: 100%; }
 ol.tiles .soon { opacity: .35; filter: grayscale(.6); }
 main.chapter { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 .pager { position: fixed; left: 0; right: 0; bottom: calc(14px + env(safe-area-inset-bottom)); display: flex; justify-content: center; gap: 10px; pointer-events: none; z-index: 1; }
-.pager a { pointer-events: auto; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: #ffd42a; color: #5a1a12; text-decoration: none; font-size: 24px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.pager a { pointer-events: auto; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: #fff; color: #000; text-decoration: none; font-size: 24px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager a:active { transform: scale(.95); }
-.pager .none { pointer-events: none; width: 56px; height: 56px; border-radius: 18px; background: #ece0b4; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
-.pager a.current { background: #5a1a12; color: #ffd42a; }
+.pager .none { pointer-events: none; width: 56px; height: 56px; border-radius: 18px; background: #fff; opacity: .5; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager svg { width: 26px; height: 26px; }
 `;
 const page = (title, body, cls) => `<!doctype html><html lang="en"><head><meta charset="utf-8">
@@ -52,6 +51,7 @@ const page = (title, body, cls) => `<!doctype html><html lang="en"><head><meta c
 <title>${esc(title)}</title><style>${css}</style></head>
 <body><main${cls ? ` class="${cls}"` : ''}>${body}</main></body></html>`;
 const HOME = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19.5z" fill="currentColor"/></svg>';
+const ARROW = (dir) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${dir < 0 ? 'M17 4 5 12l12 8z' : 'M7 4l12 8-12 8z'}" fill="currentColor"/></svg>`;
 const NONE = '<span class="none" aria-hidden="true"></span>';
 const devanagari = (n) => String(n).replace(/\d/g, (d) => String.fromCharCode(0x966 + +d));
 const file = (c) => `${c.sec.name}.html`;
@@ -63,12 +63,13 @@ ready.forEach((c, i) => {
     return `<figure id="p${id}" aria-label="${esc(def.scene || id)}">${svg}</figure>`;
   }).join('\n');
   // Wordless: a floating group of buttons at the bottom — home (the index),
-  // then the previous, this and the next chapter as Devanagari numbers
-  // (an empty greyed button where there is no previous or next).
+  // a solid arrow to the previous chapter, this chapter's Devanagari number,
+  // and an arrow to the next (a faded empty button where there is none);
+  // black on white.
   const prev = ready[i - 1], next = ready[i + 1];
-  const num = (ch, cls) => `<a${cls ? ` class="${cls}"` : ''} href="${file(ch)}" aria-label="Chapter ${ch.n}">${devanagari(ch.n)}</a>`;
+  const link = (ch, content) => `<a href="${file(ch)}" aria-label="Chapter ${ch.n}">${content}</a>`;
   const pager = `<nav class="pager"><a href="index.html" aria-label="All chapters">${HOME}</a>` +
-    (prev ? num(prev) : NONE) + num(c, 'current') + (next ? num(next) : NONE) + `</nav>`;
+    (prev ? link(prev, ARROW(-1)) : NONE) + link(c, devanagari(c.n)) + (next ? link(next, ARROW(1)) : NONE) + `</nav>`;
   writeFileSync(join(out, file(c)), page(`${c.n}. ${c.title} · Ramayana`, `${body}${pager}`, 'chapter'));
 });
 
