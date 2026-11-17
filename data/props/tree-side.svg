@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A single tree from the side, the artist's drawing: one of trees-side
+     alone, on the same canvas (a slender trunk, one round crown).
+     data-height sets its height in head-units; the bottom edge sits on the
+     ground line. -->
+
+<svg
+   data-height="18"
+   viewBox="0 0 509.41748 647.79203"
+   width="509.41748"
+   height="647.79205"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="tree-side.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0414203"
+     inkscape:cx="-22.565337"
+     inkscape:cy="335.59937"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <path
+     style="fill:#483e37;fill-opacity:1;stroke-width:2"
+     d="m 246.22834,402.93024 22.94183,-47.56477 9.70589,-75.3443 8.64204,7.68182 -6.60446,85.41443 -32.76485,48.05714"
+     id="path1375"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     id="rect4370-8"
+     style="fill:#483e37;fill-opacity:1;stroke-width:6.50194"
+     d="m 215.97647,256.73572 h 33.68648 c -1.65745,65.15318 -7.3832,131.12002 8.1478,192.83551 l -8.1478,197.24543 H 215.97647 L 226.8402,450.86082 C 211.11454,380.10024 214.15702,318.72374 215.97647,256.73572 Z"
+     sodipodi:nodetypes="ccccccc" />
+  <circle
+     style="fill:#8cad76;fill-opacity:1;stroke:none;stroke-width:6.50194"
+     id="path4040-8"
+     cx="261.52872"
+     cy="191.70505"
+     r="126.78805" />
+</svg>

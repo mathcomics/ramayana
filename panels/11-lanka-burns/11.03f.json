@@ -1,5 +1,5 @@
 {
-  "scene": "Ravana, close, rises in rage at the news",
+  "scene": "Ravana, close, rises in rage at the news; an explosion in his thought bubble",
   "tall": 0.6,
   "ground": "geru",
   "figures": [
@@ -7,8 +7,18 @@
       "character": "ravana",
       "pose": "stepwide-fists",
       "view": "front",
-      "at": 0.5,
+      "at": 0.42,
       "row": "closeup"
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.8,
+      "row": 0.4,
+      "scale": 1.3
+    },
+    {
+      "prop": "icon-explode",
+      "on": "bubble-thought#inside"
     }
   ]
 }

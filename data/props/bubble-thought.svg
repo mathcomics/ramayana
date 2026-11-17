@@ -3,7 +3,7 @@
      100 px = 1 head-unit. Not a ground prop — place it high (a numeric row),
      the trail's last circle by the thinker's head.
      Anchor: inside, the bubble's centre; a feeling goes in it
-     ("on": "bubble-thought#inside": storm-cloud, heart), centred and sized
+     ("on": "bubble-thought#inside": storm-cloud, heart, icon-explode), centred and sized
      to fit the circle (r="70": 1.4 head-units across, a margin inside the
      bubble's r="100"). -->
 
