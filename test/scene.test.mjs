@@ -372,3 +372,18 @@ test('"#chest": a carried prop lands on the front of the chest; with "rotate" it
   // front view: the middle of the chest
   assert.deepEqual(renderPanel({ figures: [{ character: 'rama', pose: 'step-hang', view: 'front' }, { prop: 'arrow-stuck', on: 'rama#chest' }] }, assets).issues, []);
 });
+
+test('a prop "on" an "inside" anchor is centred on it and fitted to its circle', () => {
+  const r = renderPanel({ figures: [{ prop: 'bubble-thought', at: 0.5, row: 0.3 }, { prop: 'heart', on: 'bubble-thought#inside' }] }, assets);
+  assert.deepEqual(r.issues, []);
+  const bubble = assets.props.props['bubble-thought'], heart = assets.props.props.heart;
+  const ins = bubble.anchors.inside;
+  // the heart's scale: the circle's diameter over the heart's longer side, at the bubble's unit
+  // the two props' placements, in order: <g transform="translate(x y) scale(unit unit)">
+  const [[bx, by, bs], hs] = [...r.svg.matchAll(/<g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+) [-\d.]+\)"/g)].map((m) => m.slice(1).map(Number));
+  assert.ok(Math.abs(hs[2] - ins[2] * bs / Math.max(...heart.size)) < 1e-6);
+  // its box centred on the anchor
+  assert.ok(Math.abs(hs[0] + heart.size[0] * hs[2] / 2 - (bx + ins[0] * bs)) < 0.01);
+  assert.ok(Math.abs(hs[1] + heart.size[1] * hs[2] / 2 - (by + ins[1] * bs)) < 0.01);
+  assert.match(renderPanel({ figures: [{ prop: 'bubble-thought' }, { character: 'sita', on: 'bubble-thought#inside' }] }, assets).issues.join(), /takes a prop/);
+});

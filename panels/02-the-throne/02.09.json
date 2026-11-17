@@ -31,8 +31,5 @@
       "at": 0.4,
       "mouth": 3
     }
-  ],
-  "needs": [
-    "pose: sit-hand-on-head (slumped on the throne, hand to the head): sit for now"
   ]
 }

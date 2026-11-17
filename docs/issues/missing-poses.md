@@ -72,7 +72,6 @@ its gestures on any base. Moments with neither come first.
 - 01.06: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
 - 01.06a: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
 - 01.07: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
-- 02.09: sit-hand-on-head (slumped on the throne, hand to the head): sit for now
 - 03.05: sit-cross-legged (sage teaching, raised hand)
 - 03.06: stand-palms-joined
 - 05.11: run-bow (running with the bow drawn)

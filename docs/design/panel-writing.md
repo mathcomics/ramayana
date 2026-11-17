@@ -95,6 +95,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   the dying deer (05.13), over the forest (05.14), to the hut (05.15).
   The same device carries any far-off sound; its tail points back the way
   the sound came.
+- **A feeling is a picture in a thought bubble** (artist, 2026-11-16):
+  `bubble-thought` high beside the thinker's head, its trail of circles
+  leading down to it, with the feeling `on` its `inside` anchor —
+  `storm-cloud` for anger and distress (Kaikeyi, 01.08), `heart` for
+  love (Surpanakha, 03.09). Size the bubble with `scale` so the feeling
+  reads at phone size (0.85–1.3 in a close strip).
 - **Action panels need action poses** (artist: the abduction was "too low
   action"): two figures standing near each other is a conversation, not a
   struggle. Use the falling, lunging and leaning poses (fallback-flung, lunge,

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- A palm leaf, the artist's drawing (garden and forest dressing).
-     100 px = 1 head-unit; the drawing is the artist's, unchanged: the viewBox only crops to it. -->
+     100 px = 1 head-unit; the drawing is the artist's, unchanged: the viewBox only crops to it.
+     Recolourable: the green is "body" ("body": "#7a6a5a"). -->
 
 <svg
+   data-recolor-body="#677821"
    viewBox="25 332 206.47295 215.99713"
    width="206.47295"
    height="215.99713"

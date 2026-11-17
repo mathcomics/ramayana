@@ -1,5 +1,5 @@
 {
-  "scene": "Kaikeyi points, close",
+  "scene": "Kaikeyi close, shouting; a storm cloud in her thought bubble",
   "tall": 0.6,
   "ground": "dusty-pink",
   "figures": [
@@ -10,6 +10,16 @@
       "at": 0.55,
       "row": "closeup",
       "mouth": 3
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.8,
+      "row": 0.25,
+      "scale": 1.3
+    },
+    {
+      "prop": "storm-cloud",
+      "on": "bubble-thought#inside"
     }
   ]
 }

@@ -418,6 +418,18 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
       o.pivot = [o.x, o.groundY];
       return;
     }
+    if (aname === 'inside') {                   // a prop fitted into the circle, centred on it
+      if (o.f) { issues.push(`${o.name}: an "inside" anchor takes a prop, not a figure ("${e.on}")`); return; }
+      const [w0, h0] = o.def?.size || PLACEHOLDER;
+      o.rowUnit = t.rowUnit;
+      o.unit = (seat[2] || 1) * t.unit * (e.scale ?? 1) / Math.max(w0, h0);
+      [o.w, o.h] = [w0 * o.unit, h0 * o.unit];
+      o.halfW = o.w / 2;
+      o.x = sx + o.dx * o.unit;
+      o.groundY = sy + o.h / 2 - o.dy * o.unit;   // its bottom edge, the box centred on the anchor
+      o.pivot = [o.x, o.groundY - o.h / 2];
+      return;
+    }
     placeOn(o, e, t, sx, sy, aname);
   };
   // put o on the point (sx, sy) of t: aname is the prop anchor's name, or

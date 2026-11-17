@@ -1,5 +1,5 @@
 {
-  "scene": "Surpanakha stands alone, hand on hip, facing right",
+  "scene": "Surpanakha close, a heart in her thought bubble",
   "tall": 1,
   "figures": [
     {
@@ -7,6 +7,16 @@
       "pose": "pass-flank",
       "at": 0.25,
       "row": "closeup"
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.62,
+      "row": 0.42,
+      "scale": 0.85
+    },
+    {
+      "prop": "heart",
+      "on": "bubble-thought#inside"
     }
   ]
 }

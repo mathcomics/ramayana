@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- A small cloud, for the sky (place it on a high row or a number row). The
-     artist's drawing; data-height on the root sets its size in head-units. -->
+<!-- A storm cloud with a lightning bolt, the artist's drawing: a feeling
+     (anger, distress), drawn inside a thought bubble
+     ("on": "bubble-thought#inside", sized to the bubble). data-height on the
+     root sets its size anywhere else. -->
 
 <svg
    data-height="10"

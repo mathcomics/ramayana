@@ -37,7 +37,8 @@
       "scale": 3,
       "repeat": {
         "n": 3
-      }
+      },
+      "body": "#7a6a5a"
     },
     {
       "prop": "leaf-palm",
