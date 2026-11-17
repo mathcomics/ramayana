@@ -1,0 +1,39 @@
+{
+  "scene": "Variation: high in the grove, Hanuman swings from one vine, legs tucked, toward the next",
+  "tall": 1,
+  "ground": "sunrise",
+  "figures": [
+    {
+      "prop": "trees-side",
+      "at": 0.5,
+      "row": "back"
+    },
+    {
+      "prop": "vine",
+      "at": 0.82,
+      "row": 0.55,
+      "scale": 4
+    },
+    {
+      "prop": "vine",
+      "at": 0.95,
+      "row": 0.7,
+      "scale": 4
+    },
+    {
+      "prop": "vine",
+      "on": "hanuman#hand-right",
+      "scale": 2.5,
+      "rotate": 30
+    },
+    {
+      "character": "hanuman",
+      "pose": "leapup-reachup",
+      "facing": "right",
+      "at": 0.4,
+      "row": 0.5,
+      "mouth": 1,
+      "scale": 0.6
+    }
+  ]
+}

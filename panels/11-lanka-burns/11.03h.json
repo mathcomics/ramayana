@@ -1,0 +1,30 @@
+{
+  "scene": "Indrajit strides out of the hall, bow in hand",
+  "tall": 0.6,
+  "ground": "geru",
+  "figures": [
+    {
+      "prop": "throne-lanka",
+      "at": 0.82,
+      "row": "back"
+    },
+    {
+      "character": "ravana",
+      "pose": "chair-armrest",
+      "view": "front",
+      "on": "throne-lanka"
+    },
+    {
+      "character": "indrajit",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.3,
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "bow",
+          "angle": 90
+        }
+      }
+    }
+  ]
+}

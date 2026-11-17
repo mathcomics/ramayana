@@ -1,0 +1,14 @@
+{
+  "scene": "Ravana, close, rises in rage at the news",
+  "tall": 0.6,
+  "ground": "geru",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "stepwide-fists",
+      "view": "front",
+      "at": 0.5,
+      "row": "closeup"
+    }
+  ]
+}

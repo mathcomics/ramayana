@@ -1,0 +1,22 @@
+{
+  "scene": "He turns from the sea and walks back into Lanka, toward the grove",
+  "tall": 0.6,
+  "ground": "sea",
+  "sky": "sunrise",
+  "figures": [
+    {
+      "id": "ledge",
+      "prop": "rock-square",
+      "at": 0.78,
+      "row": "front",
+      "scale": 1.6
+    },
+    {
+      "character": "hanuman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "on": "ledge#stand",
+      "scale": 0.4
+    }
+  ]
+}

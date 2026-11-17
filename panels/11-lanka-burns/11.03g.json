@@ -1,0 +1,24 @@
+{
+  "scene": "Ravana points from his throne; Indrajit, his son, bows before him, bow in hand",
+  "tall": 1,
+  "ground": "geru",
+  "figures": [
+    {
+      "prop": "throne-lanka",
+      "at": 0.68,
+      "row": "mid"
+    },
+    {
+      "character": "ravana",
+      "pose": "chair-point",
+      "facing": "left",
+      "on": "throne-lanka"
+    },
+    {
+      "character": "indrajit",
+      "pose": "stand-bow",
+      "facing": "right",
+      "at": 0.28
+    }
+  ]
+}
