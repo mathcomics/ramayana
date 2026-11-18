@@ -1,37 +1,43 @@
 {
-  "scene": "Hanuman stands up among them",
-  "tall": 0.6,
-  "ground": "sand",
+  "scene": "Hanuman crouches on the mountaintop, ready",
+  "tall": 1,
+  "ground": "sea",
   "figures": [
     {
-      "character": "monkey1",
-      "pose": "sit-armknee",
-      "facing": "right",
-      "at": 0.2,
-      "adjust": {
-        "spine.chest": 18,
-        "spine.head": 14
-      }
-    },
-    {
       "character": "hanuman",
-      "pose": "step-point",
-      "facing": "right",
-      "at": 0.5,
-      "adjust": {
-        "spine.head": -16
-      }
+      "pose": "stand-swing",
+      "nudge": [
+        6,
+        0.5
+      ],
+      "on": "rock-square",
+      "scale": 0.2,
+      "turn": 180,
+      "view": "front"
     },
     {
       "character": "monkey1",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.82,
-      "cloth": "red",
-      "mouth": 2,
-      "adjust": {
-        "spine.head": -14
-      }
+      "pose": "kneeup-pointup",
+      "at": 0.1,
+      "row": 0.4,
+      "scale": 0.5
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.3,
+      "row": "closeup",
+      "nudge": [
+        0,
+        0.5
+      ],
+      "scale": 2,
+      "rotate": 150
     }
-  ]
+  ],
+  "needs": [
+    "prop: mountain",
+    "pose: crouch-ready (deep knees, arms back): crouch-cross for now"
+  ],
+  "sky": "off-white",
+  "tags": ["mountain"]
 }

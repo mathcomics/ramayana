@@ -7,13 +7,14 @@
       "character": "lakshman",
       "pose": "pass-swing",
       "facing": "right",
-      "at": 0.2
+      "at": 0.3,
+      "row": "mid"
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "facing": "right",
-      "at": 0.38
+      "row": "mid"
     },
     {
       "foreground": [
@@ -26,7 +27,7 @@
       "character": "hanuman",
       "pose": "walk-point",
       "facing": "right",
-      "at": 0.66,
+      "at": 0.8,
       "on": "foreground",
       "nudge": [
         0,

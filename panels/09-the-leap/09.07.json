@@ -7,7 +7,8 @@
       "at": 0.6,
       "row": -0.5,
       "scale": 5,
-      "rotate": 60
+      "rotate": 60,
+      "body": "#ffffff"
     },
     {
       "foreground": [
@@ -21,7 +22,8 @@
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.2,
-      "row": "back"
+      "row": "back",
+      "cloth": "red"
     },
     {
       "character": "monkey1",
@@ -41,10 +43,14 @@
     },
     {
       "prop": "rock-circle",
-      "at": 0.6,
-      "row": 0.5,
-      "scale": 0.2,
-      "body": "#222222"
+      "at": 0.65,
+      "row": 0.25,
+      "scale": 0.05,
+      "body": "#888899",
+      "repeat": {
+        "gap": 4,
+        "n": 9
+      }
     }
   ]
 }

@@ -9,22 +9,36 @@
       "row": "back"
     },
     {
-      "prop": "rock-square",
-      "at": 0.15,
-      "scale": 3.5,
-      "body": "#7a6a5a"
-    },
-    {
       "id": "rock",
       "prop": "rock-rectangle",
       "at": 0.5,
       "scale": 3
     },
     {
+      "prop": "rock-square",
+      "at": 0.15,
+      "scale": 2.5,
+      "body": "#555555"
+    },
+    {
       "character": "rama",
       "pose": "walk-swing",
       "facing": "right",
       "on": "rock#stand-left",
+      "scale": 0.4
+    },
+    {
+      "character": "lakshman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "on": "rock-square#stand-left",
+      "scale": 0.4
+    },
+    {
+      "character": "hanuman",
+      "pose": "walk-beckon",
+      "facing": "right",
+      "on": "rock-square#stand",
       "scale": 0.4
     },
     {

@@ -1,33 +1,54 @@
 {
-  "scene": "Hanuman leads Rama and Lakshman over the hill",
+  "scene": "Opening: Sugriva sits on the rock of Rishyamukha; Kishkindha, the monkey city, on its hill beyond",
   "tall": 1,
-  "ground": "off-white",
+  "ground": "dry-grass",
   "figures": [
     {
-      "character": "lakshman",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.2,
-      "scale": 0.9
+      "prop": "palace-kishkindha",
+      "at": 1.1,
+      "row": "back"
+    },
+    {
+      "id": "rock",
+      "prop": "rock-rectangle",
+      "at": 0.5,
+      "scale": 3
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.15,
+      "scale": 2.5,
+      "body": "#555555"
     },
     {
       "character": "rama",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.38,
-      "scale": 0.95
+      "pose": "stand-grief",
+      "facing": "left",
+      "on": "rock#stand-right",
+      "scale": 0.4
     },
     {
-      "foreground": [0.22, 0.11],
-      "color": "dark-green"
+      "character": "lakshman",
+      "pose": "walk-akimbo",
+      "facing": "right",
+      "on": "rock#stand-left",
+      "scale": 0.4
     },
     {
       "character": "hanuman",
-      "pose": "walk-swing",
+      "pose": "stand-swing",
       "facing": "right",
-      "at": 0.66,
-      "on": "foreground",
-      "nudge": [0, -0.25]
+      "on": "rock#stand-left",
+      "scale": 0.4
+    },
+    {
+      "character": "sugriva",
+      "pose": "stand-swing",
+      "facing": "right",
+      "on": "rock#stand",
+      "scale": 0.4
     }
-  ]
+  ],
+  "horizon": 0,
+  "sky": "sky"
 }

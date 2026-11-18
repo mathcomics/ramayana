@@ -29,9 +29,9 @@
       "row": "mid"
     },
     {
-      "prop": "tree-trunk",
-      "at": -0.04,
-      "row": "closeup"
+      "prop": "leaf-fern",
+      "at": 0.1,
+      "row": -0.1
     }
   ]
 }

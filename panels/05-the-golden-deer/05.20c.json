@@ -1,0 +1,19 @@
+{
+  "scene": "Before he goes, Lakshman bends and draws a line round Sita",
+  "tall": 0.6,
+  "ground": "white",
+  "figures": [
+    {
+      "character": "sage",
+      "pose": "step-armsup",
+      "facing": "left",
+      "at": 0.8,
+      "row": "closeup"
+    },
+    {
+      "id": "bowl",
+      "prop": "half-circle",
+      "on": "sage#hand-right"
+    }
+  ]
+}

@@ -4,6 +4,11 @@
   "ground": "sand",
   "figures": [
     {
+      "prop": "pole",
+      "at": 0.43,
+      "row": 0.25
+    },
+    {
       "prop": "rock-rectangle",
       "at": -0.45,
       "row": "closeup",

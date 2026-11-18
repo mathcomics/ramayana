@@ -4,25 +4,15 @@
   "ground": "white",
   "figures": [
     {
-      "prop": "vine",
-      "at": 0.72,
-      "rotate": -50,
-      "row": -0.1,
-      "scale": 2
-    },
-    {
       "character": "lakshman",
-      "pose": "bend-fool",
+      "pose": "step-onhands",
       "facing": "left",
       "at": 0.8
     },
     {
       "character": "sita",
       "pose": "step-hang",
-      "at": 0.28,
-      "adjust": {
-        "spine.head": 15
-      }
+      "at": 0.28
     }
   ],
   "needs": [

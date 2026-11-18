@@ -9,7 +9,7 @@
         0.11,
         0.4
       ],
-      "color": "mist"
+      "color": "white"
     },
     {
       "character": "monkey1",
@@ -17,7 +17,8 @@
       "facing": "right",
       "at": 0.34,
       "on": "foreground",
-      "scale": 0.4
+      "scale": 0.4,
+      "cloth": "red"
     },
     {
       "character": "monkey1",
@@ -30,11 +31,12 @@
     },
     {
       "character": "monkey1",
-      "pose": "walk-swing",
+      "pose": "walk-search",
       "facing": "right",
-      "at": 0.66,
+      "at": 0.76,
       "on": "foreground",
-      "scale": 0.4
+      "scale": 0.4,
+      "cloth": "red"
     }
   ],
   "tags": ["foreground"]

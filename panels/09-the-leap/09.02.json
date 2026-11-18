@@ -1,26 +1,23 @@
 {
-  "scene": "Sugriva assures Rama beside the throne",
+  "scene": "Rama gives Hanuman his ring",
   "tall": 1,
   "ground": "off-white",
   "figures": [
     {
-      "prop": "throne-kishkindha",
-      "at": 0.82,
-      "row": "back"
-    },
-    {
       "character": "rama",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.34,
-      "mouth": 2
+      "pose": "stepwide-fool",
+      "facing": "left",
+      "at": 0.7,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.prop": null
+      }
     },
     {
-      "character": "sugriva",
-      "pose": "step-armsout",
-      "facing": "left",
-      "at": 0.6,
-      "mouth": 2
+      "character": "hanuman",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.36
     }
   ]
 }

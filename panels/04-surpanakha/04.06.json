@@ -1,14 +1,14 @@
 {
   "scene": "Lakshman points back to Rama, Rama to Lakshman; she stands between them",
-  "tall": 1,
+  "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
       "character": "lakshman",
       "pose": "step-point",
       "facing": "right",
-      "at": 0.15,
-      "row": "mid"
+      "at": 0.1,
+      "row": "closeup"
     },
     {
       "character": "surpanakha",
@@ -16,15 +16,15 @@
       "at": 0.47,
       "mouth": 2,
       "turn": 90,
-      "row": "mid",
+      "row": "closeup",
       "view": "front"
     },
     {
       "character": "rama",
       "pose": "step-point",
       "facing": "left",
-      "at": 0.82,
-      "row": "mid"
+      "at": 0.85,
+      "row": "closeup"
     }
   ]
 }

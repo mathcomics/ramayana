@@ -16,6 +16,14 @@
       "character": "monkey1",
       "pose": "pass-swing",
       "facing": "right",
+      "at": 0.52,
+      "row": "horizon",
+      "cloth": "red"
+    },
+    {
+      "character": "hanuman",
+      "pose": "walk-swing",
+      "facing": "right",
       "at": 0.72,
       "row": "horizon",
       "cloth": "red"

@@ -1,33 +1,45 @@
 {
-  "scene": "From above again: the hut alone among the trees",
-  "tall": 1,
+  "scene": "Rama's cry reaches the hut: Sita arches back and Lakshman leans back, both looking up",
+  "tall": 0.6,
   "ground": "green",
   "figures": [
     {
-      "prop": "trees-top",
-      "id": "trees-nw",
-      "at": 0.257,
-      "row": 0.71
+      "prop": "hut-side",
+      "id": "hut",
+      "at": 0.15,
+      "row": "horizon",
+      "scale": 0.5706
     },
     {
-      "prop": "line-top",
-      "at": 0.505,
-      "scale": 0.55,
-      "row": 0.46
+      "prop": "trees-side",
+      "at": 0.16,
+      "scale": 1.5,
+      "row": "horizon",
+      "id": "trees-far"
     },
     {
-      "prop": "hut-top",
-      "at": 0.505,
-      "row": 0.42
+      "character": "sita",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.4,
+      "row": "horizon",
+      "mouth": 3
     },
     {
-      "prop": "trees-top",
-      "id": "trees-se",
-      "at": 0.743
+      "character": "lakshman",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.9,
+      "row": "horizon"
+    },
+    {
+      "character": "sage",
+      "pose": "stand-swing",
+      "view": "front",
+      "at": 0,
+      "row": "closeup",
+      "turn": 180
     }
   ],
-  "needs": [
-    "prop: line-top (the line as a closed ring round the hut, seen from above)",
-    "prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving"
-  ]
+  "sky": "sky"
 }

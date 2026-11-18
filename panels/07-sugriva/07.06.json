@@ -4,22 +4,38 @@
   "ground": "off-white",
   "figures": [
     {
+      "prop": "bag",
+      "on": "hanuman#hands"
+    },
+    {
       "character": "lakshman",
       "pose": "step-hang",
       "facing": "left",
-      "at": 0.78
+      "at": 0.88
     },
     {
       "character": "rama",
       "pose": "step-hang",
       "facing": "left",
-      "at": 0.62
+      "at": 0.72,
+      "adjust": {
+        "spine.head": 20
+      }
     },
     {
       "character": "hanuman",
       "pose": "kneel-palms",
       "facing": "right",
-      "at": 0.3,
+      "at": 0.4,
+      "adjust": {
+        "spine.head": -14
+      }
+    },
+    {
+      "character": "sugriva",
+      "pose": "stand-beckon",
+      "facing": "right",
+      "at": 0.15,
       "adjust": {
         "spine.head": -14
       }

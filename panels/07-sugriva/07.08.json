@@ -5,13 +5,23 @@
   "figures": [
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "step-swing",
       "facing": "left",
-      "at": 0.42,
-      "mouth": 3,
-      "adjust": {
-        "spine.head": 14
-      },
+      "at": 0.82,
+      "row": "closeup"
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-swing",
+      "facing": "right",
+      "at": 0.22,
+      "row": "closeup"
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-pointup",
+      "facing": "right",
+      "at": 0.4,
       "row": "closeup"
     }
   ]

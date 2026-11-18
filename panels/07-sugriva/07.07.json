@@ -4,6 +4,10 @@
   "ground": "off-white",
   "figures": [
     {
+      "prop": "bag",
+      "on": "rama#hands"
+    },
+    {
       "character": "rama",
       "pose": "step-palms",
       "facing": "left",
