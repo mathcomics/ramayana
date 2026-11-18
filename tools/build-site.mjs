@@ -32,15 +32,15 @@ html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif; }
 main { max-width: 480px; margin: 0 auto; }
 a { color: inherit; }
-figure { margin: 0 16px 14px; border-radius: 14px; overflow: hidden; }
+figure { margin: 0 8px 7px; border-radius: 14px; overflow: hidden; }
 figure svg { display: block; width: 100%; height: auto; }
-ol.tiles { list-style: none; margin: 0; padding: 20px 16px 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+ol.tiles { list-style: none; margin: 0; padding: 20px 0 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
 ol.tiles li { position: relative; }
 ol.tiles .tile { display: block; aspect-ratio: 1; overflow: hidden; box-shadow: 5px 7px 14px rgba(0,0,0,.5); }
 ol.tiles a.tile:active { transform: scale(.97); }
 ol.tiles .tile svg { display: block; width: 100%; height: 100%; }
 ol.tiles .soon { opacity: .35; filter: grayscale(.6); }
-main.chapter { padding-top: 16px; padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+main.chapter { padding-top: 8px; padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 .pager { position: fixed; left: 0; right: 0; bottom: calc(14px + env(safe-area-inset-bottom)); display: flex; justify-content: center; gap: 10px; pointer-events: none; z-index: 1; }
 .pager a { pointer-events: auto; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: rgba(255,255,255,.5); color: #000; text-decoration: none; font-size: 24px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager a:active { transform: scale(.95); }
