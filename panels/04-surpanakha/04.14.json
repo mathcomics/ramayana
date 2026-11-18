@@ -13,6 +13,12 @@
       "cloth": "red"
     },
     {
+      "prop": "arrow-stuck",
+      "on": "r2#chest",
+      "facing": "right",
+      "rotate": -55
+    },
+    {
       "id": "r1",
       "character": "raxas_m1",
       "pose": "fallfront-armsdown",
@@ -30,13 +36,16 @@
       "cloth": "red-stripe"
     },
     {
+      "prop": "arrow-stuck",
+      "on": "r4#chest",
+      "facing": "right",
+      "rotate": -55
+    },
+    {
       "character": "surpanakha",
       "pose": "stepwide-armface",
       "facing": "left",
       "at": 0.6
     }
-  ],
-  "needs": [
-    "prop: arrow (in flight from the right edge, and stuck in the struck)"
   ]
 }

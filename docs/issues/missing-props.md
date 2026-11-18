@@ -27,7 +27,7 @@ docs/design/panel-writing.md, Lessons).
 | need | panels |
 |---|---|
 | prop: an arrow in the dying deer's flank | 05.13 |
-| prop: arrow (in flight from the right edge, and stuck in the struck) | 04.12, 04.14 |
+| prop: arrow (in flight from the right edge) | 04.12 |
 | prop: arrow (in flight, leaving the bows to the left) | 04.11 |
 | prop: bow in hand while running | 05.11 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |

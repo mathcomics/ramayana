@@ -22,12 +22,23 @@
       "row": 0.1
     },
     {
+      "prop": "arrow-stuck",
+      "on": "r2#chest",
+      "facing": "right",
+      "rotate": -55
+    },
+    {
       "character": "raxas_m1",
       "id": "r3",
       "pose": "stepback-armsout",
       "facing": "right",
       "at": 0.52,
       "cloth": "red-diamond"
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "r3#chest",
+      "facing": "right"
     },
     {
       "character": "raxas_m2",
@@ -44,9 +55,15 @@
       "facing": "right",
       "at": 0.9,
       "cloth": "red-stripe"
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "r4#chest",
+      "facing": "right",
+      "rotate": -55
     }
   ],
   "needs": [
-    "prop: arrow (in flight from the right edge, and stuck in the struck)"
+    "prop: arrow (in flight from the right edge)"
   ]
 }

@@ -2,9 +2,11 @@
 <!-- A flight of steps rising to the left (the palace steps, 05.02a). The
      artist's drawing. 100 px = 1 head-unit; bottom edge on the ground.
      Anchors (feet): stand-low, stand, stand-high on a low, middle and high
-     tread; "on": "steps#stand". -->
+     tread; "on": "steps#stand".
+     Recolour: "body" (the treads, #5e5149). -->
 
 <svg
+   data-recolor-body="#5e5149"
    data-height="4.5788324"
    viewBox="0 0 208.52503 114.47081"
    width="208.52502"

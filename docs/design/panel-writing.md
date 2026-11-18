@@ -83,7 +83,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   `"mode": "negative"` — black ground, white silhouettes. The silhouette
   hides who is who, so it carries a change of shape (05.19a: the ascetic
   becoming Ravana, between 05.19 and 05.19b). Keep it to one panel per
-  beat; the panels either side are in colour.
+  beat; the panels either side are in colour. The deer struck by Rama’s arrow gets
+  one too (05.12a, before it sinks in 05.13; artist, 2026-11-17).
 - **An offering is held out**: the thing offered sits `on` the giver's
   hand (`"on": "sita#hand-right"`) on a `handslow` gesture, and the two
   stand apart (05.18a: fruit, a red `rock-circle` at `scale` 0.15; the

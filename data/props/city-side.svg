@@ -4,9 +4,12 @@
      right, where the anchors are.
      100 px = 1 head-unit; bottom edge on the ground.
      Anchors: hand (a figure hangs from it by one hand) and stand (feet), beside
-     the wall. -->
+     the wall.
+     Recolour: "body" (the wall, #2e2424), "cloth" (the lit windows, #ffd42a). -->
 
 <svg
+   data-recolor-body="#2e2424"
+   data-recolor-cloth="#ffd42a"
    viewBox="0 0 103.86441 244.13137"
    width="103.86441"
    height="244.13136"

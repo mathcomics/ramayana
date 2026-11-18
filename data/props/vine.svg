@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- A flowering vine, the artist's drawing: two winding green stems with pale
      yellow blooms (garden and grove dressing, e.g. the ashoka grove).
-     100 px = 1 head-unit; the drawing is the artist's, unchanged: the viewBox only crops to it. -->
+     100 px = 1 head-unit; the drawing is the artist's, unchanged: the viewBox only crops to it.
+     Recolour: "body" (the stems and blooms, #677821). -->
 
 <svg
+   data-recolor-body="#677821"
    viewBox="157.6 388 40.647514 167.40615"
    width="40.647514"
    height="167.40616"

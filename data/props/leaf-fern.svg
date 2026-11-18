@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- A fern leaf, the artist's drawing (garden and forest dressing).
-     100 px = 1 head-unit; the drawing is the artist's, unchanged: the viewBox only crops to it. -->
+     100 px = 1 head-unit; the drawing is the artist's, unchanged: the viewBox only crops to it.
+     Recolour: "body" (the leaf, #677821). -->
 
 <svg
+   data-recolor-body="#677821"
    viewBox="25 332 130.9673 308.94909"
    width="130.9673"
    height="308.9491"

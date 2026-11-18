@@ -2,9 +2,12 @@
 <!-- Lanka palace roofs seen from the side: a long block with a row of lit
      windows under the roof line; scale it to the scene.
      100 px = 1 head-unit; bottom edge on the ground.
-     Anchors: stand-left / stand / stand-right (feet) along the roof top. -->
+     Anchors: stand-left / stand / stand-right (feet) along the roof top.
+     Recolour: "body" (the block, #6c5353), "cloth" (the lit windows, #ffd42a). -->
 
 <svg
+   data-recolor-body="#6c5353"
+   data-recolor-cloth="#ffd42a"
    viewBox="0 0 214.66696 91.272363"
    width="214.66696"
    height="91.272362"

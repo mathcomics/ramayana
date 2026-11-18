@@ -127,7 +127,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `02-the-throne` | 17 | written against the brief |
 | `03-the-forest` | 13 | predates the briefs — to revisit (03.02 is approved and locked) |
 | `04-surpanakha` | 16 | predates the briefs — to revisit |
-| `05-the-golden-deer` | 25 | artist-reviewed; the model chapter (05.11 tagged) |
+| `05-the-golden-deer` | 26 | artist-reviewed; the model chapter (05.11 tagged) |
 | `06-jatayu` | 25 | written against the brief |
 | `07-sugriva` | 16 | written against the brief |
 | `08-bali` | 19 | written against the brief |
