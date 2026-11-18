@@ -43,7 +43,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: staff (held) | 05.21, 05.22 |
 | prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now | 14.06, 14.08, 14.09 |
 | prop: tree | 03.06 |
-| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.05, 11.06, 11.07, 13.06 |
+| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.05, 11.06, 13.06 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.06 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.25 |
 

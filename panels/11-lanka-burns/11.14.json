@@ -1,32 +1,28 @@
 {
-  "scene": "Vines: Hanuman swings over the grove on a vine; guards below point up at him",
-  "tall": 1,
-  "ground": "sunrise",
+  "scene": "Indrajit, Ravana's son, runs out with his bow drawn, rakshasas running behind him",
+  "tall": 0.6,
+  "ground": "off-white",
   "figures": [
     {
-      "prop": "trees-side",
-      "at": 0.85,
-      "row": "back"
+      "character": "raxas_m3",
+      "pose": "run-pump",
+      "facing": "left",
+      "at": 0.42,
+      "cloth": "red-diamond"
     },
     {
-      "prop": "vine",
-      "on": "hanuman#hand-right",
-      "scale": 2,
-      "rotate": -25
-    },
-    {
-      "character": "hanuman",
-      "pose": "leap-reachup",
-      "facing": "right",
-      "at": 0.55,
-      "row": 0.6,
-      "scale": 0.3
+      "character": "raxas_f3",
+      "pose": "runlow-pumplow",
+      "facing": "left",
+      "at": 0.2,
+      "cloth": "red-check"
     },
     {
       "character": "indrajit",
-      "pose": "leanback-bowhigh",
-      "at": 0.42,
-      "row": "back"
+      "pose": "runwide-bowhigh",
+      "facing": "right",
+      "at": 0.62,
+      "row": "front"
     }
   ]
 }
