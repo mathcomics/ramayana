@@ -98,7 +98,7 @@ action. The same opener can return when the story comes back to a place.
     small `scale` (0.2), the walkers large in front (07.03).
   - Sitting on a rock like a seat: `chair-armrest` standing **on the
     ground** (`at`, no `on`), with a `rock-circle` at `scale` 0.75 drawn
-    before it so its top meets the hips (07.10, 07.11, 07.15). The rock's
+    before it so its top meets the hips (07.10, 07.11). The rock's
     `seat` anchor is on its top and a chair pose's feet land on an anchor
     (as on a throne's step), so `on` would hang the legs in the air.
 

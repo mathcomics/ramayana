@@ -222,8 +222,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   is sized by the carrier's **row**, not the carrier's `scale`: when the
   figure is scaled up in a close strip, scale the prop up with it, or it
   shrinks to a speck. The ring (drawn to the giant fist's scale, 2026-11-16)
-  takes its carrier's scale: 1 beside life-size figures (09.04, 10.28),
-  1.6–1.7 in the close strips (10.30), 0.62 with the giant hands (09.05). A
+  is placed at `scale` 2 beside the giant hands at 0.62 (09.02a) and in the
+  close strips (10.31). A
   figure on a prop's `stand` anchor (`"on": "branch#stand"`, 10.16) stands
   where the drawing says, with no `nudge` to tune.
 - **Seated figures in a 0.6 strip** stay at `scale` 1.6–1.7 on the

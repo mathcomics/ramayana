@@ -13,6 +13,21 @@ the new generic characters — were applied in the v0.5 rewrite of
 
 
 
+## Chapters 5–10: the artist's lab round, panels cut (2026-11-18)
+
+Cut by the artist: 06.17 (Rama, arms wide, cries out, close), 06.21
+(Rama's cry over the forest), 07.15 (Sugriva, seated, holds out the
+jewels), 09.04 and 09.05 (the ring handed over; now 09.02 and the new
+close on the hands, 09.02a), 10.23 (a rakshasi lunges at Sita) and 10.24
+(one shouts while the kind one calms). Reshaped in the lab: chapter 5
+gains the ascetic arriving at the hut (05.20: he watches from behind as
+Lakshman runs off; 05.20a the hut alone; 05.20b him at a distance;
+05.20c close, raising his bowl). Chapter 7 now hands the jewels over
+straight after the meeting: Hanuman brings the princes up to Sugriva's
+rock (07.05), kneels holding out the bundle (07.06), Rama holds it
+(07.07), Sugriva points to the sky (07.08), Rama grieves on the rock
+(07.09). 09.12: Hanuman on the summit over the sea.
+
 ## Chapter 8: one fight panel cut, a procession added (2026-11-16)
 
 The artist cut 08.02a (Bali roars back, Sugriva leaping behind him) and

@@ -14,7 +14,6 @@ placeholder box. Held props (sword, club, bow) live in
 |---|---|
 | food-heap | 14.07 |
 | food-platter | 14.07 |
-| jewels | 07.15 |
 | rope-bind | 11.17, 11.18, 11.19, 11.20, 11.21 |
 
 ## Prop wishes from the panels' needs
@@ -38,7 +37,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: javelin (a heavy spear, held and thrown): a big arrow for now | 16.03 |
 | prop: javelin (a heavy spear, held and thrown): the long spiked club for now | 16.02 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.29, 10.30, 10.32, 10.33 |
-| prop: jewels (the dropped bundle, as in 6) | 07.15 |
 | prop: line (scratched in the earth, under his hand) | 05.19 |
 | prop: mountain | 09.12, 09.13 |
 | prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.19, 11.20, 11.21 |
