@@ -19,19 +19,6 @@
         "n": 5,
         "gap": 0.2
       }
-    },
-    {
-      "prop": "fire",
-      "on": "hanuman#tail",
-      "rotate": 90
-    },
-    {
-      "character": "hanuman",
-      "pose": "leap-flung",
-      "facing": "right",
-      "at": 0.72,
-      "row": 0.82,
-      "scale": 0.4
     }
   ]
 }

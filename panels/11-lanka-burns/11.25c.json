@@ -12,14 +12,15 @@
     },
     {
       "prop": "fire",
-      "on": "tower#stand",
-      "rotate": 90,
-      "scale": 2.5
+      "rotate": 120,
+      "scale": 4,
+      "at": 0.12,
+      "row": 0
     },
     {
       "prop": "fire",
       "at": 0.1,
-      "row": 0.9,
+      "row": 0.82,
       "rotate": 90,
       "scale": 2
     },
@@ -33,36 +34,31 @@
       "facing": "right",
       "on": "tower#hand",
       "scale": 0.36,
-      "cloth": "red-check"
+      "cloth": "red-check",
+      "nudge": [
+        2,
+        2
+      ]
     },
     {
-      "character": "raxas_m2",
-      "pose": "arch-reachup",
-      "view": "front",
-      "at": 0.45,
-      "on": "foreground",
-      "scale": 0.36,
-      "cloth": "red-stripe"
-    },
-    {
-      "character": "raxas_m3",
+      "character": "raxas_m1",
       "pose": "run-pump",
-      "facing": "right",
       "at": 0.66,
       "on": "foreground",
       "scale": 0.36,
-      "cloth": "red-diamond"
+      "cloth": "red-diamond",
+      "facing": "right"
     },
     {
-      "character": "raxas_f2",
+      "character": "raxas_f1",
       "pose": "runwide-hang",
       "facing": "right",
       "at": 0.86,
       "on": "foreground",
       "scale": 0.36,
       "cloth": "red-check",
-      "turn": 180,
-      "mouth": 3
+      "mouth": 3,
+      "turn": 180
     }
   ]
 }

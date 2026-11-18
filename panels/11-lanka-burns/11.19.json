@@ -1,7 +1,7 @@
 {
   "scene": "Bound, Hanuman is brought before Ravana on his throne",
   "tall": 1,
-  "ground": "geru",
+  "ground": "stone-grey",
   "figures": [
     {
       "prop": "throne-lanka",
@@ -31,11 +31,9 @@
       }
     },
     {
-      "prop": "rope-bind",
-      "on": "hanuman#chest"
+      "prop": "vine",
+      "on": "hanuman#chest",
+      "rotate": -100
     }
-  ],
-  "needs": [
-    "prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now"
   ]
 }

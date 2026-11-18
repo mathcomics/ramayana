@@ -1,30 +1,32 @@
 {
-  "scene": "Indrajit strides out of the hall, bow in hand",
-  "tall": 0.6,
-  "ground": "geru",
+  "scene": "Vines: Hanuman swings over the grove on a vine; guards below point up at him",
+  "tall": 1,
+  "ground": "sunrise",
   "figures": [
     {
-      "prop": "throne-lanka",
-      "at": 0.82,
+      "prop": "trees-side",
+      "at": 0.85,
       "row": "back"
     },
     {
-      "character": "ravana",
-      "pose": "chair-armrest",
-      "view": "front",
-      "on": "throne-lanka"
+      "prop": "vine",
+      "on": "hanuman#hand-right",
+      "scale": 2,
+      "rotate": -25
+    },
+    {
+      "character": "hanuman",
+      "pose": "leap-reachup",
+      "facing": "right",
+      "at": 0.55,
+      "row": 0.6,
+      "scale": 0.3
     },
     {
       "character": "indrajit",
-      "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.3,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "bow",
-          "angle": 90
-        }
-      }
+      "pose": "leanback-bowhigh",
+      "at": 0.42,
+      "row": "back"
     }
   ]
 }

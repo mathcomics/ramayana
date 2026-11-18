@@ -14,7 +14,7 @@ placeholder box. Held props (sword, club, spear, bow) live in
 |---|---|
 | food-heap | 14.07 |
 | food-platter | 14.07 |
-| rope-bind | 11.17, 11.18, 11.19, 11.20, 11.21 |
+| rope-bind | 11.17, 11.18, 11.20, 11.21 |
 
 ## Prop wishes from the panels' needs
 
@@ -39,11 +39,10 @@ docs/design/panel-writing.md, Lessons).
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.29, 10.30, 10.32, 10.33 |
 | prop: line (scratched in the earth, under his hand) | 05.19 |
 | prop: mountain | 09.12, 09.13 |
-| prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.19, 11.20, 11.21 |
+| prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.20, 11.21 |
 | prop: staff (held) | 05.21, 05.22 |
 | prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now | 14.06, 14.08, 14.09 |
 | prop: tree | 03.06 |
-| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): a leaning tree-side for now | 11.04 |
 | prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.05, 11.06, 11.07, 13.06 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.06 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.25 |

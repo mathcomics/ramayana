@@ -27,7 +27,7 @@
       "character": "hanuman",
       "pose": "arch-overhead",
       "at": 0.5,
-      "row": "mid"
+      "row": "front"
     }
   ],
   "needs": [

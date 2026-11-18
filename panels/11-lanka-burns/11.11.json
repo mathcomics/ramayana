@@ -1,7 +1,7 @@
 {
   "scene": "Ravana on his throne turns his head: a guard runs in from the grove, pointing back the way he came",
   "tall": 0.6,
-  "ground": "geru",
+  "ground": "yellow",
   "figures": [
     {
       "prop": "throne-lanka",
@@ -15,13 +15,12 @@
       "turn": -90
     },
     {
-      "character": "raxas_m2",
-      "pose": "stepwide-point",
+      "character": "raxas_m3",
+      "pose": "arch-point",
       "facing": "right",
       "at": 0.85,
       "cloth": "red-diamond",
-      "mouth": 3,
-      "turn": 180
+      "mouth": 3
     }
   ]
 }

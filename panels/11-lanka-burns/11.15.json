@@ -4,11 +4,25 @@
   "ground": "off-white",
   "figures": [
     {
-      "character": "indrajit",
-      "pose": "step-bowdraw",
-      "facing": "right",
+      "character": "raxas_m3",
+      "pose": "run-pump",
+      "facing": "left",
       "at": 0.42,
-      "row": "closeup"
+      "cloth": "red-diamond"
+    },
+    {
+      "character": "raxas_f3",
+      "pose": "runlow-pumplow",
+      "facing": "left",
+      "at": 0.2,
+      "cloth": "red-check"
+    },
+    {
+      "character": "indrajit",
+      "pose": "runwide-bowhigh",
+      "facing": "right",
+      "at": 0.62,
+      "row": "front"
     }
   ]
 }

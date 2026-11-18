@@ -1,13 +1,19 @@
 {
   "scene": "On the shore, Hanuman dips his burning tail in the sea; Lanka burns on the far side",
-  "tall": 1,
-  "ground": "sea",
-  "sky": "night",
+  "tall": 0.6,
+  "ground": "night",
   "figures": [
     {
+      "prop": "vine",
+      "at": 0.2,
+      "row": 0.2,
+      "body": "#555555",
+      "rotate": -160,
+      "scale": 4
+    },
+    {
       "prop": "lanka-island",
-      "at": 0.25,
-      "row": "horizon"
+      "at": 0.25
     },
     {
       "prop": "palace-lanka",
@@ -16,29 +22,28 @@
     {
       "prop": "fire",
       "at": 0.25,
-      "row": "horizon",
-      "scale": 2,
-      "rotate": 90,
+      "row": 0.3,
       "repeat": {
-        "n": 3,
-        "gap": 0.3
-      }
-    },
-    {
-      "prop": "rock-square",
-      "at": 0.7,
-      "id": "rock",
-      "row": "mid"
+        "gap": 0.3,
+        "n": 3
+      },
+      "rotate": 90,
+      "scale": 2
     },
     {
       "character": "hanuman",
-      "pose": "chair-reach",
+      "pose": "crouch-reach",
       "facing": "right",
-      "on": "rock#seat",
       "adjust": {
         "spine.head": 20
       }
+    },
+    {
+      "foreground": [
+        0.1,
+        0.1
+      ],
+      "color": "sea"
     }
-  ],
-  "horizon": 0.35
+  ]
 }

@@ -1,23 +1,29 @@
 {
   "scene": "Havoc: in the grove by day, Hanuman heaves a tree over",
-  "tall": 1,
+  "tall": 0.6,
   "ground": "sunrise",
   "figures": [
     {
+      "prop": "trees-side",
+      "at": 0.9,
+      "row": "horizon"
+    },
+    {
       "prop": "tree-side",
-      "at": 0.85,
+      "at": 0.77,
       "row": "mid",
       "rotate": 25
     },
     {
       "character": "hanuman",
       "pose": "leanback-reach",
-      "facing": "right",
-      "at": 0.45,
-      "row": "mid"
+      "facing": "left",
+      "at": 0.75,
+      "row": "mid",
+      "nudge": [
+        0,
+        1
+      ]
     }
-  ],
-  "needs": [
-    "prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): a leaning tree-side for now"
   ]
 }
