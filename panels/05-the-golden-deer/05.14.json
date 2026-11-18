@@ -1,24 +1,12 @@
 {
   "scene": "The cry travels across the forest",
-  "tall": 0.6,
-  "ground": "dark-green",
+  "tall": 1,
+  "ground": "dry-grass",
   "figures": [
-    {
-      "prop": "tree",
-      "id": "tree1",
-      "at": 0.14,
-      "scale": 0.8
-    },
-    {
-      "prop": "tree",
-      "id": "tree2",
-      "at": 0.85,
-      "scale": 0.7
-    },
     {
       "prop": "sound-cry",
       "at": 0.5,
-      "row": 0.25
+      "row": 0.7
     },
     {
       "character": "rama",
@@ -29,7 +17,5 @@
       "view": "front"
     }
   ],
-  "needs": [
-    "prop: tree"
-  ]
+  "sky": "sky"
 }

@@ -1,12 +1,43 @@
 {
-  "scene": "Opening: Kishkindha's gates, near",
+  "scene": "Opening: Sugriva sits on the rock of Rishyamukha; Kishkindha, the monkey city, on its hill beyond",
   "tall": 1,
-  "sky": "off-white",
-  "horizon": -2,
+  "sky": "sky",
+  "horizon": 0,
   "figures": [
     {
       "prop": "palace-kishkindha",
-      "at": 0.5
+      "at": 0.85,
+      "row": "back"
+    },
+    {
+      "id": "rock",
+      "prop": "rock-rectangle",
+      "at": 0.25,
+      "scale": 3
+    },
+    {
+      "character": "hanuman",
+      "pose": "stand-swing",
+      "on": "rock#stand",
+      "scale": 0.4,
+      "turn": 90
+    },
+    {
+      "character": "rama",
+      "pose": "stand-swing",
+      "facing": "left",
+      "on": "rock#stand-right",
+      "scale": 0.4,
+      "turn": 90
+    },
+    {
+      "character": "sugriva",
+      "pose": "crouch-swing",
+      "facing": "front",
+      "at": 0.3,
+      "row": 0.2,
+      "scale": 0.4
     }
-  ]
+  ],
+  "ground": "dry-grass"
 }

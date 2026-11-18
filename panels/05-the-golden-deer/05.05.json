@@ -21,15 +21,14 @@
       "character": "ravana",
       "pose": "chair-armrest",
       "on": "throne-lanka",
-      "turn": 30,
+      "turn": 90,
       "view": "front"
     },
     {
       "character": "surpanakha",
-      "pose": "step-hang",
+      "pose": "walk-armsup",
       "facing": "right",
       "at": 0.16,
-      "mouth": 2,
       "row": -0.1
     }
   ]

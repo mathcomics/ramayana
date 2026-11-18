@@ -1,35 +1,23 @@
 {
   "scene": "Ravana, risen from the throne in rage, points; Surpanakha kneels before him",
-  "tall": 1,
+  "tall": 0.6,
   "ground": "yellow",
   "figures": [
     {
-      "prop": "throne-lanka",
-      "at": 0.74,
-      "row": "mid",
-      "facing": "left"
-    },
-    {
       "character": "surpanakha",
-      "pose": "kneel-handslow",
+      "pose": "stand-armsout",
       "facing": "right",
-      "at": 0.18,
-      "mouth": 2,
-      "adjust": {
-        "spine.chest": 25,
-        "spine.head": -25
-      }
+      "at": 0.4,
+      "row": "closeup",
+      "mouth": 2
     },
     {
       "character": "ravana",
-      "pose": "step-point",
+      "pose": "step-handslow",
       "facing": "left",
-      "at": 0.48,
+      "at": 0.8,
       "mouth": 3,
-      "scale": 1.05,
-      "adjust": {
-        "spine.head": 10
-      }
+      "row": "closeup"
     }
   ]
 }

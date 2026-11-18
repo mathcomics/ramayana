@@ -1,12 +1,12 @@
 {
-  "scene": "Rama's cry reaches them: Sita starts up; Lakshman stands unmoved",
+  "scene": "Lakshman and Rama walk toward the hut; Sita kneels to a deer; a near trunk at the edge",
   "tall": 1,
-  "ground": "light-grey",
+  "ground": "green",
   "figures": [
     {
       "prop": "sound-cry",
-      "at": 0.62,
-      "row": 0.79
+      "at": 0.8,
+      "row": 0.7
     },
     {
       "character": "rama",
@@ -17,26 +17,42 @@
       "pose": "step-hang"
     },
     {
+      "id": "hut",
+      "prop": "hut-side",
+      "at": 0.15,
+      "row": "back",
+      "scale": 0.5706
+    },
+    {
+      "id": "trees-far",
+      "prop": "trees-side",
+      "at": 0.16,
+      "row": "back",
+      "scale": 1.7994
+    },
+    {
       "character": "sita",
-      "pose": "step-hang",
+      "pose": "arch-hang",
       "facing": "right",
-      "at": 0.22,
-      "mouth": 3,
-      "adjust": {
-        "spine.head": -28,
-        "right.arm.shoulder": 95,
-        "right.arm.elbow": 55,
-        "right.arm.hand": "out"
-      }
+      "at": 0.5,
+      "row": "back",
+      "nudge": [
+        0,
+        -2
+      ],
+      "mouth": 3
     },
     {
       "character": "lakshman",
-      "pose": "step-hang",
+      "pose": "leanback-hang",
       "facing": "right",
-      "at": 0.66
+      "at": 0.9,
+      "row": "mid",
+      "nudge": [
+        0,
+        -2
+      ]
     }
   ],
-  "needs": [
-    "effect: sound-cry (arriving, 05.13-05.15)"
-  ]
+  "sky": "sky"
 }

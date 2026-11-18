@@ -16,6 +16,12 @@
       "scale": 2.1
     },
     {
+      "character": "lakshman",
+      "pose": "walk-search",
+      "facing": "right",
+      "scale": 0.5
+    },
+    {
       "id": "rock",
       "prop": "rock-square",
       "at": 0.4,

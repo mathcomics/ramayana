@@ -4,15 +4,17 @@
   "ground": "white",
   "figures": [
     {
-      "prop": "line",
-      "at": 0.32
+      "prop": "vine",
+      "at": 0.72,
+      "rotate": -50,
+      "row": -0.1,
+      "scale": 2
     },
     {
       "character": "lakshman",
-      "pose": "bend-reach",
+      "pose": "bend-fool",
       "facing": "left",
-      "at": 0.8,
-      "mouth": 1
+      "at": 0.8
     },
     {
       "character": "sita",

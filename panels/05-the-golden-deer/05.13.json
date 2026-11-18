@@ -6,13 +6,15 @@
     {
       "prop": "stag-lie",
       "body": "gold",
-      "at": 0.72,
-      "row": 0.3
+      "at": 0.82,
+      "row": 0.3,
+      "rotate": 20
     },
     {
       "prop": "sound-cry",
       "at": 0.46,
-      "row": 0.45
+      "row": 0.55,
+      "rotate": 20
     },
     {
       "character": "rama",
@@ -21,14 +23,10 @@
       "mouth": 3,
       "on": "sound-cry#face",
       "view": "front"
-    },
-    {
-      "prop": "male-top",
-      "at": 0.86,
-      "row": 0.1
     }
   ],
   "needs": [
     "prop: an arrow in the dying deer's flank"
-  ]
+  ],
+  "sky": "sky"
 }

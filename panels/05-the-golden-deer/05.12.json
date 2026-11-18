@@ -1,14 +1,13 @@
 {
   "scene": "Rama draws his bow",
   "tall": 0.6,
-  "ground": "dry-grass",
+  "ground": "mist",
   "figures": [
     {
       "character": "rama",
-      "pose": "step-bowdraw",
+      "pose": "kneel-bowdraw",
       "facing": "right",
-      "at": 0.42,
-      "row": "closeup"
+      "at": 0.42
     }
   ]
 }

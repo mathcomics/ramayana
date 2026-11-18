@@ -4,11 +4,6 @@
   "ground": "sand",
   "figures": [
     {
-      "prop": "hut",
-      "at": 0.2,
-      "row": "back"
-    },
-    {
       "character": "sita",
       "pose": "step-point",
       "facing": "right",
@@ -23,8 +18,5 @@
       "mouth": 2,
       "turn": 90
     }
-  ],
-  "needs": [
-    "prop: hut"
   ]
 }

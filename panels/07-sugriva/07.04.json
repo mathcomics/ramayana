@@ -1,15 +1,37 @@
 {
-  "scene": "Sugriva, close: who are these bowmen?",
-  "tall": 0.6,
-  "ground": "sand",
+  "scene": "Hanuman leads Rama and Lakshman over the hill",
+  "tall": 1,
+  "ground": "off-white",
   "figures": [
     {
-      "character": "sugriva",
-      "pose": "step-holdhead",
-      "facing": "left",
-      "at": 0.38,
-      "mouth": 2,
-      "row": "closeup"
+      "character": "lakshman",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.2
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.38
+    },
+    {
+      "foreground": [
+        0.1,
+        0.3
+      ],
+      "color": "night"
+    },
+    {
+      "character": "hanuman",
+      "pose": "walk-point",
+      "facing": "right",
+      "at": 0.66,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.25
+      ]
     }
   ]
 }

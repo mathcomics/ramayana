@@ -7,8 +7,8 @@
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
-      "at": 0.26,
-      "row": 0.47,
+      "at": 0.56,
+      "row": 0.27,
       "scale": 0.65,
       "mouth": 2,
       "adjust": {
@@ -21,21 +21,24 @@
       "character": "sita",
       "pose": "crawl-onhands",
       "facing": "right",
-      "at": 0.338,
-      "row": 0.587,
+      "at": 0.7,
+      "row": 0.41,
       "scale": 0.65,
-      "mouth": 3
+      "mouth": 3,
+      "turn": 90
     },
     {
       "prop": "vulture-wing",
-      "at": 0.84,
+      "at": 0.34,
       "scale": 0.38,
       "row": 0.24
     },
     {
-      "prop": "vulture-fall",
-      "at": 0.5,
-      "scale": 0.55
+      "prop": "vulture-swoop",
+      "at": 0.1,
+      "scale": 0.55,
+      "rotate": -30,
+      "row": 0.5
     }
   ],
   "needs": [

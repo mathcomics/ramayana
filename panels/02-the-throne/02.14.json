@@ -10,17 +10,19 @@
     },
     {
       "character": "lakshman",
-      "pose": "run-pump",
+      "pose": "walk-armsout",
       "view": "front",
-      "at": 0.7,
-      "mouth": 1
+      "at": 0.8,
+      "mouth": 1,
+      "row": -0.2
     },
     {
       "character": "sita",
-      "pose": "run-pump",
+      "pose": "walk-dive",
       "view": "front",
-      "at": 0.6,
-      "mouth": 1
+      "at": 0.65,
+      "mouth": 1,
+      "row": -0.2
     },
     {
       "character": "rama",

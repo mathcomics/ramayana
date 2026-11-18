@@ -6,7 +6,7 @@
     {
       "id": "sita",
       "character": "sita",
-      "pose": "stand-handslow",
+      "pose": "walk-handslow",
       "facing": "right",
       "at": 0.3
     },

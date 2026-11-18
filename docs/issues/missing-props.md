@@ -14,12 +14,9 @@ placeholder box. Held props (sword, club, bow) live in
 |---|---|
 | food-heap | 14.03a |
 | food-platter | 14.03a |
-| hut | 05.16 |
 | jewels | 07.10 |
-| line | 05.17 |
 | line-top | 05.18 |
 | rope-bind | 11.05, 11.05a, 11.06, 11.06a, 11.07 |
-| tree | 05.14 |
 | water-pot | 14.03 |
 
 ## Prop wishes from the panels' needs
@@ -39,7 +36,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now | 14.04a, 14.04b |
 | prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.04 |
 | prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.01b |
-| prop: hut | 05.16 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.09a, 10.10, 10.11, 10.11a |
 | prop: jewels (the dropped bundle, as in 6) | 07.10 |
 | prop: line (scratched in the earth, under his hand) | 05.17 |
@@ -48,7 +44,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.05, 11.05a, 11.06, 11.06a, 11.07 |
 | prop: staff (held) | 05.18a, 05.19 |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
-| prop: tree | 03.05, 05.14 |
+| prop: tree | 03.05 |
 | prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): a leaning tree-side for now | 11.02 |
 | prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.02a, 11.03, 11.03a |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
@@ -58,4 +54,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

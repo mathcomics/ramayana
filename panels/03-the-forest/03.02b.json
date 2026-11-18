@@ -3,43 +3,46 @@
   "tall": 1,
   "ground": "sky",
   "sky": "white",
-  "horizon": 0.5,
+  "horizon": 0.4,
   "figures": [
     {
       "character": "lakshman",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.74,
-      "row": "horizon"
+      "row": "horizon",
+      "scale": 2
     },
     {
       "character": "sita",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
-      "row": "horizon"
+      "row": "horizon",
+      "scale": 2
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "facing": "left",
-      "at": 0.27,
-      "row": "horizon"
+      "at": 0.1,
+      "row": "horizon",
+      "scale": 2
     },
     {
       "prop": "lotus-bud",
-      "at": 0.2,
+      "at": 0.15,
       "row": "mid",
-      "scale": 2.2,
+      "scale": 3,
       "repeat": {
         "n": 3
       }
     },
     {
       "prop": "lotus-full",
-      "at": 0.75,
+      "at": 0.65,
       "row": "front",
-      "scale": 1.8,
+      "scale": 2.5,
       "repeat": 3
     }
   ]

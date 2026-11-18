@@ -1,6 +1,6 @@
 {
   "scene": "The three walk on through the forest, side on, past the trees; a near trunk at the edge",
-  "tall": 1,
+  "tall": 0.6,
   "ground": "dry-grass",
   "figures": [
     {
@@ -8,35 +8,41 @@
       "id": "trees-far",
       "at": 0.86,
       "row": "horizon",
-      "scale": 1.7994
+      "scale": 2.5
     },
     {
       "character": "lakshman",
-      "pose": "pass-swing",
+      "pose": "run-pump",
       "facing": "right",
       "at": 0.32,
-      "row": "horizon"
+      "row": "horizon",
+      "scale": 2
     },
     {
       "character": "sita",
-      "pose": "walk-swing",
+      "pose": "runwide-point",
       "facing": "right",
       "at": 0.52,
-      "row": "horizon"
+      "row": "horizon",
+      "rotate": -20,
+      "scale": 2
     },
     {
       "character": "rama",
-      "pose": "walk-swing",
+      "pose": "run-armsup",
       "facing": "right",
       "at": 0.62,
-      "row": "horizon"
+      "row": "horizon",
+      "scale": 2
     },
     {
-      "prop": "tree-trunk",
-      "at": -0.04,
-      "row": "closeup"
+      "prop": "stag-run",
+      "at": 0.85,
+      "row": "horizon",
+      "scale": 2
     }
   ],
   "sky": "white",
-  "tags": ["forest"]
+  "tags": ["forest"],
+  "horizon": 0.2
 }

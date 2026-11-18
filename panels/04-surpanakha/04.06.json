@@ -4,16 +4,34 @@
   "ground": "sand",
   "figures": [
     {
-      "character": "lakshman",
-      "pose": "leanback-wrath",
-      "facing": "right",
-      "at": 0.36
-    },
-    {
       "character": "surpanakha",
       "pose": "arch-armface",
       "facing": "left",
-      "at": 0.7
+      "at": 0.7,
+      "turn": 90
+    },
+    {
+      "prop": "pole",
+      "at": 0.62,
+      "row": 0.5,
+      "rotate": -10
+    },
+    {
+      "character": "lakshman",
+      "pose": "leanback-fool",
+      "facing": "right",
+      "at": 0.32
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.9,
+      "row": 0.55,
+      "scale": 0.05,
+      "body": "#ff2222",
+      "repeat": {
+        "gap": 1,
+        "n": 3
+      }
     }
   ]
 }
