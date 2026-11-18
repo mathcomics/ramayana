@@ -1,54 +1,70 @@
 {
-  "scene": "The monkeys hurl rocks into the sea: one lifts a boulder overhead, one has thrown, the rock flies out over the water",
-  "tall": 0.6,
-  "ground": "sea",
-  "sky": "sky",
-  "horizon": 0.6,
+  "scene": "From above: the army at the water's edge, the sea below — as in 09.11, everyone this time",
+  "tall": 1.5,
+  "ground": "sand",
   "figures": [
     {
-      "foreground": 0.18,
-      "color": "sand"
-    },
-    {
-      "prop": "rock-circle",
-      "id": "rock-flying",
-      "at": 0.86,
-      "row": 0.55,
-      "scale": 0.35
-    },
-    {
-      "prop": "rock-rectangle",
-      "id": "rock-lifted",
-      "on": "lifter#hands"
-    },
-    {
+      "prop": "monkey-top",
       "character": "monkey1",
-      "id": "lifter",
-      "pose": "arch-overhead",
-      "view": "front",
-      "at": 0.18,
-      "on": "foreground",
-      "cloth": "orange"
+      "at": 0.15,
+      "row": 0.55
     },
     {
+      "prop": "monkey-top",
       "character": "monkey1",
-      "id": "thrower",
-      "pose": "leanback-armsback",
-      "facing": "right",
-      "at": 0.45,
-      "on": "foreground",
-      "cloth": "red"
+      "cloth": "red",
+      "at": 0.27,
+      "row": 0.7
     },
     {
+      "prop": "monkey-top",
       "character": "monkey1",
-      "pose": "lunge-armfront",
-      "facing": "right",
-      "at": 0.66,
-      "on": "foreground",
-      "cloth": "red-diamond"
+      "cloth": "orange",
+      "at": 0.38,
+      "row": 0.6
+    },
+    {
+      "prop": "monkey-top",
+      "character": "sugriva",
+      "at": 0.5,
+      "row": 0.5
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "red-diamond",
+      "at": 0.62,
+      "row": 0.72
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.75,
+      "row": 0.62
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "red",
+      "at": 0.88,
+      "row": 0.7
+    },
+    {
+      "prop": "monkey-top",
+      "character": "hanuman",
+      "at": 0.68,
+      "row": 0.42
+    },
+    {
+      "prop": "male-top",
+      "character": "rama",
+      "at": 0.36,
+      "row": 0.4
+    },
+    {
+      "prop": "wave-top",
+      "at": 0.5,
+      "row": "floor"
     }
-  ],
-  "needs": [
-    "pose: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now"
   ]
 }

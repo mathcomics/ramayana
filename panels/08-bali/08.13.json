@@ -1,0 +1,26 @@
+{
+  "scene": "The brothers grapple",
+  "tall": 1,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "id": "bali",
+      "pose": "leanfront-fists",
+      "facing": "left",
+      "at": 0.58,
+      "scale": 0.9
+    },
+    {
+      "character": "sugriva",
+      "pose": "lunge-armfront",
+      "facing": "right",
+      "at": 0.36,
+      "wear": "garland"
+    }
+  ],
+  "needs": [
+    "pose: grapple (two bodies locked): lunge and lean for now"
+  ],
+  "tags": ["grapple"]
+}

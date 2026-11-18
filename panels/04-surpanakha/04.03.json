@@ -1,28 +1,25 @@
 {
-  "scene": "Rama points her to Lakshman; Lakshman leans back from her",
-  "tall": 1,
+  "scene": "Surpanakha reaches for Rama, leaning back; he turns away from her",
+  "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
-      "character": "lakshman",
-      "pose": "leanback-armsback",
-      "facing": "right",
-      "at": 0.15,
-      "mouth": 2
-    },
-    {
       "character": "surpanakha",
-      "pose": "step-hang",
-      "facing": "right",
+      "pose": "oneleg-armsout",
       "at": 0.47,
       "mouth": 2,
-      "turn": 180
+      "adjust": {
+        "spine.lean": -20
+      }
     },
     {
       "character": "rama",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.82
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.6,
+      "mouth": 2,
+      "turn": 180
     }
-  ]
+  ],
+  "tags": ["spy"]
 }

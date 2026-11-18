@@ -1,53 +1,22 @@
 {
-  "scene": "The grove guards run from him; Hanuman, at the edge, swings a tree after them",
-  "tall": 0.6,
-  "ground": "sunrise",
+  "scene": "He runs back into Lanka, toward the grove",
+  "tall": 1,
+  "ground": "sea",
+  "sky": "white",
   "figures": [
     {
-      "character": "raxas_m1",
-      "pose": "runwide-hang",
-      "facing": "left",
-      "at": 0.08,
-      "cloth": "red-check",
-      "mouth": 3
-    },
-    {
-      "character": "raxas_m2",
-      "pose": "leap-reach",
-      "facing": "left",
-      "at": 0.24,
-      "row": 0.14,
-      "cloth": "red-stripe"
-    },
-    {
-      "character": "raxas_m3",
-      "pose": "run-pump",
-      "facing": "left",
-      "at": 0.42,
-      "cloth": "red-diamond",
-      "turn": 180
-    },
-    {
-      "character": "raxas_f1",
-      "pose": "runlow-pumplow",
-      "facing": "left",
-      "at": 0.6,
-      "cloth": "red-check"
-    },
-    {
-      "prop": "tree-trunk",
-      "on": "hanuman#hand-right",
-      "rotate": -120,
-      "scale": 0.45
+      "id": "ledge",
+      "prop": "lanka-island",
+      "at": 0.78,
+      "row": 0.2,
+      "scale": 1
     },
     {
       "character": "hanuman",
-      "pose": "lunge-armback",
-      "facing": "left",
-      "at": 0.92
+      "pose": "run-handslow",
+      "facing": "right",
+      "on": "ledge#stand",
+      "scale": 0.4
     }
-  ],
-  "needs": [
-    "prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now"
   ]
 }

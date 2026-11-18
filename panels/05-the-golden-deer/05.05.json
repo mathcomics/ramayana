@@ -1,35 +1,18 @@
 {
-  "scene": "Surpanakha comes before the throne, arms up; Ravana sits turned to us; Vibhishana stands at his side",
-  "tall": 1,
-  "ground": "yellow",
+  "scene": "Ravana alone, closer: the king of Lanka",
+  "tall": 0.6,
+  "ground": "white",
   "figures": [
     {
-      "at": 0.96,
-      "character": "vibhishana",
-      "facing": "left",
-      "mouth": 2,
-      "pose": "step-hang",
-      "row": -0.1
-    },
-    {
       "prop": "throne-lanka",
-      "at": 0.58,
-      "row": -0.1,
-      "facing": "left"
+      "at": 0.5,
+      "row": "closeup"
     },
     {
       "character": "ravana",
       "pose": "chair-armrest",
-      "on": "throne-lanka",
-      "turn": 90,
-      "view": "front"
-    },
-    {
-      "character": "surpanakha",
-      "pose": "walk-armsup",
-      "facing": "right",
-      "at": 0.16,
-      "row": -0.1
+      "view": "front",
+      "on": "throne-lanka"
     }
   ]
 }

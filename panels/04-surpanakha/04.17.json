@@ -1,0 +1,42 @@
+{
+  "scene": "The rakshasas that are left flee to the left, weapons thrown away",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "raxas_m1",
+      "id": "r1",
+      "pose": "runwide-hang",
+      "facing": "left",
+      "at": 0.14,
+      "mouth": 3,
+      "cloth": "red-diamond"
+    },
+    {
+      "character": "raxas_m1",
+      "id": "r2",
+      "pose": "leap-reach",
+      "facing": "left",
+      "at": 0.38,
+      "cloth": "red-check",
+      "row": 0.12
+    },
+    {
+      "character": "raxas_m2",
+      "id": "r3",
+      "pose": "run-pump",
+      "facing": "left",
+      "at": 0.62
+    },
+    {
+      "character": "raxas_m1",
+      "id": "r4",
+      "pose": "runwide-hang",
+      "facing": "left",
+      "at": 0.86,
+      "mouth": 3,
+      "cloth": "red-stripe",
+      "turn": 180
+    }
+  ]
+}

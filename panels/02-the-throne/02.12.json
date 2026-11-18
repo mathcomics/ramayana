@@ -1,16 +1,18 @@
 {
-  "scene": "Rama turns and walks away alone, head low",
+  "scene": "Rama faces us; the palace behind",
   "tall": 0.6,
-  "ground": "light-grey",
+  "ground": "off-white",
   "figures": [
+    {
+      "prop": "palace-ayodhya",
+      "at": 0.55,
+      "row": "mid"
+    },
     {
       "character": "rama",
       "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.45,
-      "adjust": {
-        "spine.head": 18
-      }
+      "view": "front",
+      "at": 0.3
     }
   ]
 }

@@ -1,25 +1,52 @@
 {
-  "scene": "Surpanakha close, a heart in her thought bubble",
+  "scene": "Lakshman and Rama walk toward the hut; Sita kneels to a deer; a near trunk at the edge",
   "tall": 1,
+  "ground": "green",
+  "sky": "sand",
   "figures": [
     {
-      "character": "surpanakha",
-      "pose": "pass-flank",
-      "at": 0.25,
-      "row": "closeup",
-      "adjust": {
-        "spine.head": -20
-      }
+      "id": "hut",
+      "prop": "hut-side",
+      "at": 0.85,
+      "row": "back",
+      "scale": 0.5706
     },
     {
-      "prop": "bubble-thought",
-      "at": 0.62,
-      "row": 0.42,
-      "scale": 0.85
+      "id": "trees-far",
+      "prop": "trees-side",
+      "at": 0.86,
+      "row": "back",
+      "scale": 1.7994
     },
     {
-      "prop": "heart",
-      "on": "bubble-thought#inside"
+      "character": "sita",
+      "pose": "kneel-palms",
+      "facing": "right",
+      "at": 0.32,
+      "row": "back",
+      "nudge": [
+        0,
+        -0.4
+      ]
+    },
+    {
+      "character": "rama",
+      "pose": "step-akimbo",
+      "facing": "left",
+      "at": 0.55,
+      "row": "back"
+    },
+    {
+      "prop": "deer-stand",
+      "facing": "left",
+      "at": 0.44,
+      "row": "back",
+      "scale": 0.9258
+    },
+    {
+      "prop": "tree-trunk",
+      "at": -0.04,
+      "row": "closeup"
     }
   ]
 }

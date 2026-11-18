@@ -1,0 +1,71 @@
+{
+  "scene": "The bundle lands on the rocks among the monkeys; Hanuman bends to reach for it, one monkey points at it, another points up at the sky",
+  "tall": 1.5,
+  "ground": "sand",
+  "figures": [
+    {
+      "prop": "rock-rectangle",
+      "at": -0.45,
+      "row": "closeup",
+      "scale": 2.5
+    },
+    {
+      "character": "monkey1",
+      "id": "m1",
+      "pose": "stand-pointup",
+      "facing": "right",
+      "mouth": 2,
+      "adjust": {
+        "spine.head": -18
+      },
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.25
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-akimbo",
+      "facing": "right",
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 18
+      },
+      "nudge": [
+        1,
+        0
+      ],
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.25
+    },
+    {
+      "character": "monkey1",
+      "id": "m2",
+      "pose": "step-point",
+      "facing": "left",
+      "cloth": "red",
+      "adjust": {
+        "spine.head": 20,
+        "right.arm.shoulder": 55
+      },
+      "nudge": [
+        5,
+        -0.2
+      ],
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.25
+    },
+    {
+      "prop": "bag",
+      "at": 0.43,
+      "row": 0.23,
+      "scale": 0.6
+    },
+    {
+      "character": "hanuman",
+      "pose": "bend-reach",
+      "facing": "right",
+      "mouth": 2,
+      "on": "rock-rectangle#stand-right",
+      "scale": 0.25
+    }
+  ]
+}

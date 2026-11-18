@@ -1,30 +1,21 @@
 {
-  "scene": "Lakshman points back to Rama, Rama to Lakshman; she stands between them",
-  "tall": 1,
+  "scene": "Surpanakha presses close, arms out; Rama steps back from her",
+  "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
-      "character": "lakshman",
-      "pose": "step-point",
-      "facing": "right",
-      "at": 0.15,
-      "row": "mid"
-    },
-    {
       "character": "surpanakha",
-      "pose": "step-hang",
-      "at": 0.47,
-      "mouth": 2,
-      "turn": 90,
-      "row": "mid",
-      "view": "front"
+      "pose": "oneleg-armsout",
+      "at": 0.5,
+      "mouth": 2
     },
     {
       "character": "rama",
-      "pose": "step-point",
+      "pose": "stepback-armsback",
       "facing": "left",
-      "at": 0.82,
-      "row": "mid"
+      "at": 0.6,
+      "mouth": 1
     }
-  ]
+  ],
+  "tags": ["spy"]
 }

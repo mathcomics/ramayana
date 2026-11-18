@@ -1,0 +1,25 @@
+{
+  "scene": "Kaikeyi close, shouting; a storm cloud in her thought bubble",
+  "tall": 0.6,
+  "ground": "dusty-pink",
+  "figures": [
+    {
+      "character": "kaikeyi",
+      "pose": "step-swing",
+      "facing": "right",
+      "at": 0.55,
+      "row": "closeup",
+      "mouth": 3
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.8,
+      "row": 0.4,
+      "scale": 1.3
+    },
+    {
+      "prop": "storm-cloud",
+      "on": "bubble-thought#inside"
+    }
+  ]
+}

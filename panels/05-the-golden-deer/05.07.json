@@ -1,23 +1,31 @@
 {
-  "scene": "Close: Surpanakha pleads, arms out; Ravana steps toward her, hands low, shouting",
-  "tall": 0.6,
-  "ground": "yellow",
+  "scene": "Surpanakha bows in grief, her hands to her face; Ravana steps down from the throne",
+  "tall": 1,
+  "ground": "white",
   "figures": [
     {
-      "character": "surpanakha",
-      "pose": "stand-armsout",
-      "facing": "right",
-      "at": 0.4,
-      "row": "closeup",
-      "mouth": 2
+      "prop": "throne-lanka",
+      "at": 0.76,
+      "row": "mid",
+      "facing": "left"
     },
     {
       "character": "ravana",
-      "pose": "step-handslow",
+      "pose": "walk-armrest",
       "facing": "left",
-      "at": 0.8,
+      "on": "throne-lanka",
       "mouth": 3,
-      "row": "closeup"
+      "adjust": {
+        "spine.chest": 10
+      }
+    },
+    {
+      "character": "surpanakha",
+      "pose": "step-grief",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 3,
+      "row": "mid"
     }
   ]
 }

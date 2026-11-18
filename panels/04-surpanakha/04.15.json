@@ -1,0 +1,23 @@
+{
+  "scene": "Rama and Lakshman shoot to the left",
+  "tall": 0.6,
+  "ground": "dark-green",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "leanfront-bowdraw",
+      "facing": "left",
+      "at": 0.82
+    },
+    {
+      "character": "lakshman",
+      "pose": "leanfront-bowloose",
+      "facing": "left",
+      "at": 0.49,
+      "row": "closeup"
+    }
+  ],
+  "needs": [
+    "prop: arrow (in flight, leaving the bows to the left)"
+  ]
+}

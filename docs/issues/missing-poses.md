@@ -58,35 +58,35 @@ its gestures on any base. Moments with neither come first.
 | stand-embrace | both arms forward and bent at chest height, to fold around another figure | 3 | stand with both arms forward (shoulder ~70, elbow ~70) |
 | lie-back | lying flat on the back, arms at the sides or one across the chest (sleep, death) | 3 | lie-front |
 | sit-ride | seated astride or on a chariot, legs down, arms forward holding reins or a bow | 1 | the Pushpaka: stand or sit on the chariot prop (on: chariot) |
-| stand-carry-arm | upright, one arm clamped round a figure carried against the chest, legs together (lifted into the air it is Ravana flying off with Sita) | 6 | stepwide-swordcarry in view front, rotate 20, the head turned with turn 90; Sita beside him (arch-overhead or crawl-onhands) (06.05-06.07a) |
-| crouch-ready | deep crouch, knees bent, body gathered, arms back, about to leap | 7 | bend-low (reads as searching the ground, not gathering: 08.05) |
+| stand-carry-arm | upright, one arm clamped round a figure carried against the chest, legs together (lifted into the air it is Ravana flying off with Sita) | 6 | stepwide-swordcarry in view front, rotate 20, the head turned with turn 90; Sita beside him (arch-overhead or crawl-onhands) (06.06-06.13) |
+| crouch-ready | deep crouch, knees bent, body gathered, arms back, about to leap | 7 | bend-low (reads as searching the ground, not gathering: 08.12) |
 | sit-hand-on-head | sitting, one hand on the head (despair, heavy thought) | 7 | sit with the right arm adjusted (shoulder ~170, elbow ~140) |
 | stand-clasp-hands | two figures standing, right hands clasped (alliance, friendship) | 17 | stand with the right arm forward (07.05) |
-| stand-arms-out | standing, both arms thrown out, palms open (wailing, a complaint, grief) | 5 | stand with both arms adjusted (05.06) |
-| sit-slump | sitting on the ground, knees up, shoulders fallen, head low (hopeless) | 7 | sit with spine.chest 30-35, which reads as collapsing (08.04; problem-poses) |
+| stand-arms-out | standing, both arms thrown out, palms open (wailing, a complaint, grief) | 5 | stand with both arms adjusted (05.07) |
+| sit-slump | sitting on the ground, knees up, shoulders fallen, head low (hopeless) | 7 | sit with spine.chest 30-35, which reads as collapsing (08.11; problem-poses) |
 | sit-carried | carried on a shoulder or back: seated high, legs hanging, one hand holding on | 7 | sit with lift over the carrier, placed so the carrier's head stays visible (07.04) |
-| walk-hand-on-head | walking with one hand pressed to the head (searching in grief) | 21 | walk with the right arm adjusted (06.10) |
+| walk-hand-on-head | walking with one hand pressed to the head (searching in grief) | 21 | walk with the right arm adjusted (06.18) |
 
 ## Asked for by panels
 
 - 01.06: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
-- 01.06a: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
 - 01.07: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
-- 03.05: stand-palms-joined
-- 05.11: run-bow (running with the bow drawn)
-- 06.02: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
+- 01.08: stand-pull (lean back, both arms forward): leanback-armsback with arms adjusted for now
+- 03.06: stand-palms-joined
+- 05.12: run-bow (running with the bow drawn)
 - 06.03: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.04: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.05: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
-- 06.05b: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
 - 06.06: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
-- 06.06a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
-- 06.07a: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
-- 07.13: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now
-- 08.06: grapple (two bodies locked): lunge and lean for now
-- 09.11: crouch-ready (deep knees, arms back): crouch-cross for now
-- 12.12: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
-- 12.15: sit-ride (Rama astride on Hanuman's shoulders): chair-hang on hanuman#shoulder for now
-- 13.01bd: carry-ram (arms forward, a beam clasped against the side): lunge-armfront for now
-- 13.02: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
-- 13.04: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
+- 06.08: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
+- 06.09: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
+- 06.10: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
+- 06.13: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now
+- 07.16: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now
+- 08.13: grapple (two bodies locked): lunge and lean for now
+- 09.13: crouch-ready (deep knees, arms back): crouch-cross for now
+- 12.19: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
+- 12.25: sit-ride (Rama astride on Hanuman's shoulders): chair-hang on hanuman#shoulder for now
+- 13.07: carry-ram (arms forward, a beam clasped against the side): lunge-armfront for now
+- 13.09: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
+- 13.11: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now

@@ -1,15 +1,28 @@
 {
-  "scene": "Ravana points, close (as Kaikeyi did in chapter 2)",
-  "tall": 0.6,
+  "scene": "Ravana stands from the throne and points Vibhishana away; he goes, head bowed (as Kaikeyi points Rama away, 02.09)",
+  "tall": 1,
   "ground": "yellow",
   "figures": [
+    {
+      "prop": "throne-lanka",
+      "at": 0.84,
+      "row": "mid"
+    },
+    {
+      "character": "vibhishana",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.12,
+      "adjust": {
+        "spine.head": 12
+      }
+    },
     {
       "character": "ravana",
       "pose": "step-point",
       "facing": "left",
-      "at": 0.55,
-      "mouth": 3,
-      "row": "closeup"
+      "at": 0.42,
+      "mouth": 3
     }
   ]
 }

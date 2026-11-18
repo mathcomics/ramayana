@@ -28,7 +28,7 @@ are no screens or pages to fill.
 
 ### Ids
 
-A panel's id is its file name, `<chapter>.<nn>` (`05.07`), and panels
+A panel's id is its file name, `<chapter>.<nn>` (`05.08`), and panels
 sort by it numerically. **A panel inserted later takes a letter, so
 nothing else moves**: after `05.01` comes `05.01a`, then `05.01b`;
 between `05.01a` and `05.01b` goes `05.01aa`; after the last panel the
@@ -68,7 +68,7 @@ repeated inside the JSON.
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`night`), or `{ "horizontal": [left, right] }` (`sky-blue`) — set there, never in the panel. |
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
-| `mode` | `negative` | The dramatic beat: the background turns black and every figure and prop is a white silhouette (merged where they overlap). Ground, sky and foreground bands all go black. For a transformation (05.19a, the ascetic becoming Ravana) and for the death of a major character (artist, 2026-11-15). Any other value is an issue. |
+| `mode` | `negative` | The dramatic beat: the background turns black and every figure and prop is a white silhouette (merged where they overlap). Ground, sky and foreground bands all go black. For a transformation (05.23, the ascetic becoming Ravana) and for the death of a major character (artist, 2026-11-15). Any other value is an issue. |
 | `tags` | list of words from `panels/layouts.md`, Tags (`frieze`, `spy`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
 | `figures` | one list of figures **and** props | An entry with `character` is a figure, with `prop` a prop, with `foreground` a band of ground (Foregrounds). **One overlap rule: later entries draw over earlier ones** — a prop before the figures is scenery, after them a foreground that hides them (03.02's rising ground), and props and figures interleave freely. (The old separate `props` list with `layer` back/front still renders, folded in around the figures — old lab drafts only; migrate on merge.) |
 | `needs` | list of text | Missing poses, props, art. Collected into the to-do list. |
@@ -82,12 +82,12 @@ repeated inside the JSON.
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
 | `row` | `top` · `horizon` · `back` · `mid` · `front` · `floor` · `closeup`, or a number | Where it stands and how big: see Rows. Default `front`. Rows don't change the overlap order. |
-| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's row and the figure's own `scale` — not the prop's (`at` and `row` do nothing and are flagged; `nudge` still applies, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "palace-kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). An `inside` anchor takes a **prop**, centred on the anchor and sized to fit its circle (the longer side = the circle's diameter, × the prop's own `scale`): a feeling in a thought bubble (`"prop": "heart", "on": "bubble-thought#inside"`). On a **figure** (its `id`, else its character): something it carries — `#hands` (midway between the two hands: a rock overhead), `#hand-right`, `#hand-left` (the near and far hand), `#head` (top of the head: a load on it), `#shoulder` (the near shoulder), `#chest` (the front of the chest, a third of the way from the neck to the waist; in the front view its middle: an arrow that has struck, `arrow-stuck`, ref.07), `#tail` (a monkey's tail tip: the fire on Hanuman's tail, `"prop": "fire", "on": "hanuman#tail", "rotate": 90`, 11.07). The points come from the figure's skeleton in the view drawn, so nothing is drawn for them and they follow the pose, facing and `rotate`; a prop's bottom centre (or its `feet` anchor; carried in a hand, its `hand` anchor if it has one: where the hand holds it, e.g. the drum) lands there, a figure's hips; sized by the carrier's row × its own `scale` (`"prop": "rock-circle", "on": "hanuman#hands"`). The pose must still hold the arms there. Order sets which is in front: the carried entry before the carrier sits behind its hands. |
+| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's row and the figure's own `scale` — not the prop's (`at` and `row` do nothing and are flagged; `nudge` still applies, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "palace-kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). An `inside` anchor takes a **prop**, centred on the anchor and sized to fit its circle (the longer side = the circle's diameter, × the prop's own `scale`): a feeling in a thought bubble (`"prop": "heart", "on": "bubble-thought#inside"`). On a **figure** (its `id`, else its character): something it carries — `#hands` (midway between the two hands: a rock overhead), `#hand-right`, `#hand-left` (the near and far hand), `#head` (top of the head: a load on it), `#shoulder` (the near shoulder), `#chest` (the front of the chest, a third of the way from the neck to the waist; in the front view its middle: an arrow that has struck, `arrow-stuck`, ref.07), `#tail` (a monkey's tail tip: the fire on Hanuman's tail, `"prop": "fire", "on": "hanuman#tail", "rotate": 90`, 11.21). The points come from the figure's skeleton in the view drawn, so nothing is drawn for them and they follow the pose, facing and `rotate`; a prop's bottom centre (or its `feet` anchor; carried in a hand, its `hand` anchor if it has one: where the hand holds it, e.g. the drum) lands there, a figure's hips; sized by the carrier's row × its own `scale` (`"prop": "rock-circle", "on": "hanuman#hands"`). The pose must still hold the arms there. Order sets which is in front: the carried entry before the carrier sits behind its hands. |
 | `cloth` | a colour name (`colors` in `data/characters.json`) or hex, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `wear` | a prop id, or a list | Props worn at the neck, drawn by the figure: behind the whole body, the prop's `neck` anchor (else its top centre) on the neck base, mirrored with the figure, not turned with it — a garland flying back (`"wear": "garland"`: Sugriva in the chapter 8 fights, the mark that tells him from Bali). Size from the drawing (`data-height`). |
 | `mouth` | 1 · 2 · 3 | Left out, the mouth is the gesture's own (`data/gestures.json`: calm gestures 1, action gestures 3). Set it only to differ from that — a value equal to the gesture's is flagged by `npm test`. |
 | `view` | `side` · `front` | Default `side`. Front is derived from the side pose. |
-| `turn` | degrees, −180 … 180 | Head turn from the body's own front, + to its right; overrides the pose's `spine.turn`. ±90 faces the viewer; ±180 is a full look back (profile facing backward, 11.08). |
+| `turn` | degrees, −180 … 180 | Head turn from the body's own front, + to its right; overrides the pose's `spine.turn`. ±90 faces the viewer; ±180 is a full look back (profile facing backward, 11.25). |
 | `hands` | `{ "right": "point", "left": "fist" }` (fist · out · in · point) | Overrides the pose. |
 | `hand` | `right` · `left` | With `"on": "<prop>#hand"`: the hand the figure hangs by (default: the higher one in its pose). Flagged anywhere else. |
 | `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `_angles` in `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. Can also give a hand a held prop: `"left.arm.prop": { "kind": "bow", "angle": 0 }` (0 = across the fist), or swap one (`"right.arm.prop.kind": "club"`). |
@@ -117,7 +117,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   box** of a fixed 2 × 2 head-units (`PLACEHOLDER` in `src/scene.js`).
 - `at`, `row`, `scale`, `nudge`, `on`, `id` as for figures.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
-- `rotate`: degrees clockwise about the drawing's centre, after `facing`; the prop stands on the bottom of its turned box (`"rotate": 90` sets the sideways `fire` upright, 07.13). With `on` it turns about the point it lands on instead (an arrow in a chest about where it goes in: `"on": "ravana#chest", "rotate": 55`). Its own anchors are not turned, so whatever stands on a turned prop does not tilt with it.
+- `rotate`: degrees clockwise about the drawing's centre, after `facing`; the prop stands on the bottom of its turned box (`"rotate": 90` sets the sideways `fire` upright, 07.16). With `on` it turns about the point it lands on instead (an arrow in a chest about where it goes in: `"on": "ravana#chest", "rotate": 55`). Its own anchors are not turned, so whatever stands on a turned prop does not tilt with it.
 - `repeat`: the prop drawn several times in a row — a cluster of rocks, a
   clump of lotuses or flowers, ladders against a wall. `"repeat": 3`, or
   `{ "n": 3, "gap": 0.3, "scale": [0.8, 0.9], "rotate": [-8, 6] }`. The
@@ -194,7 +194,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   `hut-top`, `hut-side` (the same thatched hut at eye level), `trees-top`, `tree-top`, `trees-side` (a clump of three
   trees seen side on; `scale` ~2 on the `back` row), `tree-trunk` (a near
   trunk cut straight at both ends: on `closeup` it runs off the top and
-  bottom edges, framing a panel — 06.10a), `lanka-island` (the bare island —
+  bottom edges, framing a panel — 06.19), `lanka-island` (the bare island —
   the city split off into `palace-lanka`, 2026-11-08),
   `vulture-fly`, `-swoop`, `-fall`,
   `-stand` and `vulture-wing` (the wing Ravana cuts off — a lone wing,
@@ -205,7 +205,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   centre, Ravana's) and `throne-kishkindha` (gold
   stupa dome on a dark post, Sugriva's coronation),
   the rocks `rock-circle`, `rock-square`, `rock-rectangle` (plain stone,
-  for every rocky scene; Jatayu perches on a `rock-circle`'s `seat`, 03.06), `palace-kishkindha` (domed palaces on a hill; a `stand` anchor on the stair),
+  for every rocky scene; Jatayu perches on a `rock-circle`'s `seat`, 03.08), `palace-kishkindha` (domed palaces on a hill; a `stand` anchor on the stair),
   the giant's parts for chapter 14 `giant-feet`, `giant-fist`,
   `giant-grab` (reaching down from above), `giant-lie-waist` (the
   sleeping giant's middle), and the placeholder heads `giant-face-side`,
@@ -216,7 +216,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   by row with no `scale`; each cut off at the frame edge it enters
   from, and recolourable (`body`, and `cloth` on the waist) so the four
   share one skin in a panel; the placeholder `giant-fingers` in the
-  locked 14.05 stays until the artist swaps it,
+  locked 14.14 stays until the artist swaps it,
   the flowers `flower-droop`, `-white`, `-pink`, `-yellow`, `-orange`,
   `lotus-bud`, `lotus-full`, `fire`, `vine`, and the top-view people
   `male-top`, `male-top-back`, `female-top` (recolour, see above). How to
@@ -230,7 +230,7 @@ up to a straight line. The two numbers are the line's height at the left
 and right edges, as shares of the panel height (one number: level). Its
 place in the list is its depth, as for a prop: figures before it are
 behind it (their feet hidden, the farther the deeper), figures after it
-in front (03.02, 07.02, 07.08, 09.07).
+in front (03.02, 07.02, 07.09, 09.08).
 
 - `color`: a `data/grounds.json` name or a hex; gradients as for `ground`.
 - Standing on it: `"on": "foreground"` with the figure's own `at` (a
@@ -272,7 +272,7 @@ row looks the same in a panel of any height.
 | `back` | 26 % (at the default horizon) | a man 22 % of the panel |
 | `mid` | 15 % | 45 % |
 | `front` (default) | 3 % | 69 % |
-| `floor` | the bottom edge | as `front` (a foreground prop sits flush: 09.09's sea) |
+| `floor` | the bottom edge | as `front` (a foreground prop sits flush: 09.11's sea) |
 | `closeup` | a panel below the bottom edge (−100 %) | a man's head at 75 %: he shows from about the waist up |
 | a number | that share (0 = bottom, 1 = top; negative or above 1 crops) | as `front` |
 

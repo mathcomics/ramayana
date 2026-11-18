@@ -1,21 +1,27 @@
 {
-  "scene": "Sita points after it; Rama looks. The deer is off-panel, far away",
-  "tall": 0.6,
+  "scene": "Sita, large in front, sees the golden deer far off on the horizon",
+  "tall": 1,
   "ground": "dark-green",
+  "sky": "sky",
   "figures": [
     {
-      "character": "rama",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.25,
-      "row": "closeup"
+      "prop": "stag-stand",
+      "body": "gold",
+      "at": 0.78,
+      "row": "horizon",
+      "facing": "left"
     },
     {
       "character": "sita",
-      "pose": "step-point",
-      "facing": "right",
-      "at": 0.68,
-      "row": "closeup"
+      "pose": "step-hang",
+      "at": 0.2,
+      "scale": 1.5,
+      "turn": -90,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 8
+      },
+      "row": -0.2
     }
   ]
 }

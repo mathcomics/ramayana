@@ -1,14 +1,25 @@
 {
-  "scene": "Nowhere: Hanuman at a loss in the dark",
-  "tall": 0.6,
+  "scene": "At the foot of a tall palace wall, Hanuman, small, searches the lit windows above",
+  "tall": 1,
   "ground": "night-blue",
   "figures": [
     {
-      "character": "hanuman",
-      "pose": "step-holdhead",
-      "facing": "right",
-      "at": 0.4,
+      "prop": "city-side",
+      "facing": "left",
+      "at": 0.78,
+      "scale": 3,
       "row": "closeup"
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-search",
+      "facing": "right",
+      "scale": 0.35,
+      "adjust": {
+        "spine.head": -30
+      },
+      "at": 0.8,
+      "row": 0.75
     }
   ]
 }

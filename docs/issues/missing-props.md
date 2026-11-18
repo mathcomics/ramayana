@@ -12,11 +12,11 @@ placeholder box. Held props (sword, club, bow) live in
 
 | prop | panels |
 |---|---|
-| food-heap | 14.03a |
-| food-platter | 14.03a |
-| jewels | 07.10 |
-| line-top | 05.18 |
-| rope-bind | 11.05, 11.05a, 11.06, 11.06a, 11.07 |
+| food-heap | 14.07 |
+| food-platter | 14.07 |
+| jewels | 07.15 |
+| line-top | 05.20 |
+| rope-bind | 11.17, 11.18, 11.19, 11.20, 11.21 |
 
 ## Prop wishes from the panels' needs
 
@@ -25,30 +25,30 @@ docs/design/panel-writing.md, Lessons).
 
 | need | panels |
 |---|---|
-| prop: an arrow in the dying deer's flank | 05.13 |
-| prop: arrow (in flight from the right edge) | 04.12 |
-| prop: arrow (in flight, leaving the bows to the left) | 04.11 |
-| prop: bow in hand while running | 05.11 |
-| prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.08 |
-| prop: food-heap (a heap of fruit, rice and sweets) | 14.03a |
-| prop: food-platter (a round platter piled with food, held up) | 14.03a |
-| prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now | 14.04a, 14.04b |
-| prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.04 |
-| prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.01b |
-| prop: jewel (Sita's hair jewel; it travels home in 11) | 10.09a, 10.10, 10.11, 10.11a |
-| prop: jewels (the dropped bundle, as in 6) | 07.10 |
-| prop: line (scratched in the earth, under his hand) | 05.17 |
-| prop: line-top (the line as a closed ring round the hut, seen from above) | 05.18 |
-| prop: mountain | 09.11 |
-| prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.05, 11.05a, 11.06, 11.06a, 11.07 |
-| prop: staff (held) | 05.18a, 05.19 |
-| prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now | 14.03, 14.03b, 14.03c |
-| prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
-| prop: tree | 03.05 |
-| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): a leaning tree-side for now | 11.02 |
-| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.02a, 11.03, 11.03a, 13.01bc |
-| prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
-| prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
+| prop: an arrow in the dying deer's flank | 05.15 |
+| prop: arrow (in flight from the right edge) | 04.16 |
+| prop: arrow (in flight, leaving the bows to the left) | 04.15 |
+| prop: bow in hand while running | 05.12 |
+| prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.25 |
+| prop: food-heap (a heap of fruit, rice and sweets) | 14.07 |
+| prop: food-platter (a round platter piled with food, held up) | 14.07 |
+| prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now | 14.11, 14.12 |
+| prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.10 |
+| prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.03 |
+| prop: jewel (Sita's hair jewel; it travels home in 11) | 10.29, 10.30, 10.32, 10.33 |
+| prop: jewels (the dropped bundle, as in 6) | 07.15 |
+| prop: line (scratched in the earth, under his hand) | 05.19 |
+| prop: line-top (the line as a closed ring round the hut, seen from above) | 05.20 |
+| prop: mountain | 09.13 |
+| prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.19, 11.20, 11.21 |
+| prop: staff (held) | 05.21, 05.22 |
+| prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now | 14.06, 14.08, 14.09 |
+| prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.20 |
+| prop: tree | 03.06 |
+| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): a leaning tree-side for now | 11.04 |
+| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.05, 11.06, 11.07, 13.06 |
+| prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.06 |
+| prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.25 |
 
 ## Drawn props in use
 

@@ -1,23 +1,23 @@
 {
-  "scene": "Back in the forest: the hut from above (as 03.01), all quiet",
-  "tall": 1,
-  "ground": "green",
+  "scene": "Close: Surpanakha pleads, arms out; Ravana steps toward her, hands low, shouting",
+  "tall": 0.6,
+  "ground": "yellow",
   "figures": [
     {
-      "prop": "trees-top",
-      "id": "trees-nw",
-      "at": 0.257,
-      "row": 0.71
+      "character": "surpanakha",
+      "pose": "stand-armsout",
+      "facing": "right",
+      "at": 0.4,
+      "row": "closeup",
+      "mouth": 2
     },
     {
-      "prop": "hut-top",
-      "at": 0.505,
-      "row": 0.42
-    },
-    {
-      "prop": "trees-top",
-      "id": "trees-se",
-      "at": 0.743
+      "character": "ravana",
+      "pose": "step-handslow",
+      "facing": "left",
+      "at": 0.8,
+      "mouth": 3,
+      "row": "closeup"
     }
   ]
 }

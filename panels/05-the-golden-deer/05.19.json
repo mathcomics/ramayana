@@ -1,31 +1,32 @@
 {
-  "scene": "The ascetic lunges at Sita; she arches away",
-  "tall": 1,
-  "ground": "sand",
+  "scene": "Before he goes, Lakshman bends and draws a line round Sita",
+  "tall": 0.6,
+  "ground": "white",
   "figures": [
     {
-      "character": "sita",
-      "pose": "arch-flung",
-      "facing": "right",
-      "at": 0.45,
-      "hands": {
-        "right": "in"
-      }
+      "prop": "vine",
+      "at": 0.72,
+      "rotate": -50,
+      "row": -0.1,
+      "scale": 2
     },
     {
-      "character": "sage",
-      "pose": "leanfront-beckon",
+      "character": "lakshman",
+      "pose": "bend-fool",
       "facing": "left",
-      "at": 0.72,
-      "id": "ascetic",
-      "nudge": [
-        0,
-        0.22
-      ]
+      "at": 0.8
+    },
+    {
+      "character": "sita",
+      "pose": "step-hang",
+      "at": 0.28,
+      "adjust": {
+        "spine.head": 15
+      }
     }
   ],
   "needs": [
-    "prop: staff (held)",
-    "Ravana's ascetic disguise (the sage for now)"
+    "prop: line (scratched in the earth, under his hand)",
+    "effect: arrow or stick in Lakshman's drawing hand"
   ]
 }

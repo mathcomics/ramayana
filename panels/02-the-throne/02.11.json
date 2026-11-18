@@ -1,17 +1,16 @@
 {
-  "scene": "Rama takes it in silence, head low",
+  "scene": "Rama turns and walks away alone, head low",
   "tall": 0.6,
-  "ground": "dusty-pink",
+  "ground": "light-grey",
   "figures": [
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "walk-swing",
       "facing": "left",
-      "at": 0.4,
+      "at": 0.45,
       "adjust": {
-        "spine.head": 15
-      },
-      "row": "closeup"
+        "spine.head": 18
+      }
     }
   ]
 }

@@ -1,20 +1,21 @@
 {
-  "scene": "Sita sits alone on a rock, head bowed in grief, under a bare branch",
+  "scene": "Hanuman scurries along a rooftop above a row of lit windows",
   "tall": 0.6,
   "ground": "night",
   "figures": [
     {
-      "prop": "branch",
-      "at": 0.75,
-      "row": "mid",
-      "scale": 7
+      "prop": "city-roof",
+      "at": 0.5,
+      "scale": 8,
+      "row": -0.36
     },
     {
       "character": "hanuman",
-      "pose": "crouch-cross",
-      "facing": "left",
-      "scale": 2,
-      "on": "branch#stand"
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "mouth": 1,
+      "on": "city-roof#stand",
+      "scale": 0.48
     }
   ]
 }

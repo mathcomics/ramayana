@@ -1,22 +1,19 @@
 {
-  "scene": "He searches over the roofs of the sleeping city",
+  "scene": "Lanka, closer: the golden palace on its island",
   "tall": 0.6,
-  "ground": "night-blue",
+  "ground": "night",
   "figures": [
     {
-      "prop": "city-gap",
-      "at": 0.5,
-      "scale": 6,
-      "row": -0.3
+      "prop": "lanka-island",
+      "at": 0.6,
+      "scale": 4,
+      "row": "horizon"
     },
     {
-      "character": "hanuman",
-      "pose": "leapup-reachup",
-      "facing": "right",
-      "mouth": 1,
-      "on": "city-gap#stand",
-      "scale": 0.42
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand",
+      "scale": 4
     }
   ],
-  "tags": ["city"]
+  "sky": "night"
 }

@@ -1,41 +1,36 @@
 {
-  "scene": "From behind the trees Rama watches the brothers fight",
+  "scene": "Sugriva is flung back on the steps; Bali lands low on his hands",
   "tall": 0.6,
   "ground": "green",
+  "horizon": 0.6,
   "figures": [
     {
-      "id": "bali",
-      "character": "sugriva",
-      "pose": "leanfront-fists",
+      "prop": "steps",
       "facing": "left",
-      "at": 0.95,
-      "row": "back"
+      "at": 0.75
     },
     {
       "character": "sugriva",
-      "pose": "lunge-armfront",
+      "pose": "fallback-flung",
       "facing": "right",
-      "at": 0.8,
-      "row": "back",
+      "on": "steps#stand",
+      "nudge": [
+        -3,
+        0
+      ],
       "wear": "garland"
     },
     {
-      "prop": "tree-trunk",
-      "at": 0.05,
-      "row": "closeup"
-    },
-    {
-      "prop": "tree-trunk",
-      "at": 0.45,
-      "row": "closeup"
-    },
-    {
-      "character": "rama",
-      "pose": "leanfront-swing",
-      "facing": "right",
-      "at": 0.48,
-      "row": "closeup",
-      "turn": -90
+      "id": "bali",
+      "character": "sugriva",
+      "pose": "crouch-onhands",
+      "facing": "left",
+      "at": 0.74,
+      "nudge": [
+        0,
+        4
+      ],
+      "rotate": -40
     }
   ]
 }

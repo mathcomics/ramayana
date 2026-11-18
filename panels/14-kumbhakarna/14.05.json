@@ -1,55 +1,56 @@
 {
-  "scene": "The monkeys turn and flee under Kumbhakarna's reaching fingers; only his hand fits the panel",
-  "tags": ["frieze", "giant"],
-  "tall": 0.6,
-  "ground": "off-white",
+  "scene": "Drums and horn blast at his head; he sleeps on",
+  "tall": 1.5,
+  "ground": "light-grey",
   "figures": [
     {
-      "character": "monkey1",
-      "id": "fallen",
-      "pose": "crawl-onhands",
+      "prop": "giant-face-side",
+      "id": "face",
+      "at": 0.18,
       "facing": "left",
-      "at": 0.08,
-      "mouth": 3
+      "rotate": 90,
+      "row": "mid"
     },
     {
-      "character": "monkey1",
-      "id": "flee1",
-      "pose": "run-pump",
-      "facing": "left",
-      "at": 0.27
+      "prop": "trumpet",
+      "on": "player1#hand-right"
     },
     {
-      "character": "monkey1",
-      "id": "flee2",
-      "pose": "runwide-hang",
+      "id": "player1",
+      "character": "raxas_m1",
+      "pose": "kneeup-fists",
       "facing": "left",
-      "at": 0.45,
-      "mouth": 3,
-      "adjust": {
-        "spine.head": -25
-      }
+      "at": 0.63,
+      "nudge": [
+        0,
+        7
+      ],
+      "rotate": -120,
+      "row": "mid"
     },
     {
-      "character": "monkey1",
-      "id": "pinched",
-      "pose": "fallback-flung",
-      "facing": "left",
-      "at": 0.7,
-      "row": 0.46
+      "prop": "drum",
+      "rotate": -90,
+      "at": 0.71,
+      "row": "mid",
+      "nudge": [
+        0,
+        6.5
+      ]
     },
     {
-      "character": "monkey1",
-      "id": "flee3",
-      "pose": "run-pump",
-      "facing": "right",
-      "at": 0.9
-    },
-    {
-      "at": 0.57,
+      "id": "player2",
+      "character": "raxas_m2",
+      "pose": "kneeup-armsout",
       "facing": "left",
-      "prop": "giant-grab",
-      "row": 0.5
+      "at": 0.88,
+      "row": "mid",
+      "nudge": [
+        0,
+        7
+      ],
+      "cloth": "red-check",
+      "rotate": -90
     }
   ]
 }

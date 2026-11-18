@@ -1,22 +1,21 @@
 {
-  "scene": "Rama and Lakshman, to the right, see them coming; Lakshman points back to the left",
+  "scene": "Close on Surpanakha, front view, arms up, screaming",
   "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
-      "character": "lakshman",
-      "pose": "step-point",
-      "facing": "left",
-      "at": 0.62,
-      "mouth": 3
+      "character": "surpanakha",
+      "pose": "oneleg-overhead",
+      "view": "front",
+      "at": 0.5,
+      "row": "closeup"
     },
     {
-      "character": "rama",
-      "pose": "stepback-armsout",
-      "facing": "left",
-      "at": 0.84,
-      "mouth": 2,
-      "adjust": { "left.arm.prop": { "kind": "bow", "angle": 0 } }
+      "prop": "rock-circle",
+      "at": 0.51,
+      "row": 0.36,
+      "scale": 0.15,
+      "body": "#ff0000"
     }
   ]
 }

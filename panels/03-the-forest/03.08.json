@@ -1,29 +1,14 @@
 {
-  "scene": "Back: the hut and the three. Front: Surpanakha watches them from behind a tree",
+  "scene": "Lakshman and Rama walk toward the hut; Sita kneels to a deer; a near trunk at the edge",
   "tall": 1,
   "ground": "green",
-  "sky": "sand",
   "figures": [
-    {
-      "id": "hut",
-      "prop": "hut-side",
-      "at": 0.85,
-      "row": "horizon",
-      "scale": 0.5706
-    },
-    {
-      "id": "trees-far",
-      "prop": "trees-side",
-      "at": 0.86,
-      "row": "horizon",
-      "scale": 1.7994
-    },
     {
       "character": "sita",
       "pose": "kneel-palms",
       "facing": "right",
-      "at": 0.32,
-      "row": "back",
+      "at": 0.2,
+      "row": "mid",
       "nudge": [
         0,
         -0.4
@@ -33,31 +18,15 @@
       "character": "rama",
       "pose": "step-akimbo",
       "facing": "left",
-      "at": 0.55,
-      "row": "back"
+      "at": 0.7,
+      "row": "mid"
     },
     {
       "prop": "deer-stand",
       "facing": "left",
       "at": 0.44,
-      "row": "back",
+      "row": "mid",
       "scale": 0.9258
-    },
-    {
-      "prop": "tree-trunk",
-      "at": -0.04,
-      "row": "closeup"
-    },
-    {
-      "character": "surpanakha",
-      "pose": "step-hang",
-      "at": 0.2,
-      "row": "closeup",
-      "turn": -90,
-      "adjust": {
-        "spine.head": 20
-      }
     }
-  ],
-  "tags": ["spy"]
+  ]
 }

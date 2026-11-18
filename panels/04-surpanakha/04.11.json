@@ -1,23 +1,23 @@
 {
-  "scene": "Rama and Lakshman shoot to the left",
+  "scene": "She runs off, arms in the air, mouth wide",
   "tall": 0.6,
-  "ground": "dark-green",
+  "ground": "sand",
   "figures": [
     {
-      "character": "rama",
-      "pose": "leanfront-bowdraw",
+      "character": "surpanakha",
+      "pose": "run-pump",
       "facing": "left",
-      "at": 0.82
-    },
-    {
-      "character": "lakshman",
-      "pose": "leanfront-bowloose",
-      "facing": "left",
-      "at": 0.49,
-      "row": "closeup"
+      "at": 0.45,
+      "hands": {
+        "right": "out",
+        "left": "out"
+      },
+      "adjust": {
+        "right.arm.shoulder": 165,
+        "right.arm.elbow": 20,
+        "left.arm.shoulder": 150,
+        "left.arm.elbow": 30
+      }
     }
-  ],
-  "needs": [
-    "prop: arrow (in flight, leaving the bows to the left)"
   ]
 }

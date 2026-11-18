@@ -1,48 +1,41 @@
 {
-  "scene": "Jatayu swoops in; his cut wing falls away; Ravana flies on with Sita",
+  "scene": "Jatayu swoops on them, talons out; Ravana turns his head up toward him, sword swung back",
   "tall": 1.5,
   "ground": "sky-blue",
   "figures": [
     {
+      "character": "sita",
+      "pose": "crawl-onhands",
+      "facing": "left",
+      "at": 0.23,
+      "row": 0.251,
+      "scale": 0.574,
+      "mouth": 3
+    },
+    {
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
-      "at": 0.56,
-      "row": 0.27,
-      "scale": 0.65,
+      "facing": "left",
+      "at": 0.3,
+      "row": "mid",
+      "scale": 0.88,
       "mouth": 2,
       "adjust": {
         "spine.head": 14
       },
-      "rotate": 20,
-      "turn": 90
-    },
-    {
-      "character": "sita",
-      "pose": "crawl-onhands",
-      "facing": "right",
-      "at": 0.7,
-      "row": 0.41,
-      "scale": 0.65,
-      "mouth": 3,
-      "turn": 90
-    },
-    {
-      "prop": "vulture-wing",
-      "at": 0.34,
-      "scale": 0.38,
-      "row": 0.24
+      "rotate": -30,
+      "turn": -150
     },
     {
       "prop": "vulture-swoop",
-      "at": 0.1,
-      "scale": 0.55,
-      "rotate": -30,
-      "row": 0.5
+      "at": 0.84,
+      "facing": "left",
+      "scale": 0.6,
+      "row": 0.6
     }
   ],
   "needs": [
-    "prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now",
     "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
   ]
 }

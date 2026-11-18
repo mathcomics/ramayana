@@ -1,37 +1,36 @@
 {
-  "scene": "By day, closer: Hanuman leans in, a hand out to Sita; she holds out both arms to him",
+  "scene": "A skyline of roofs stepping back into the dark; far off on the last one, Hanuman looks out",
   "tall": 0.6,
-  "ground": "sunrise",
+  "ground": "night",
   "figures": [
     {
-      "prop": "rock-square",
-      "at": 0.72,
-      "scale": 1.05
-    },
-    {
-      "character": "sita",
-      "pose": "chair-armsout",
-      "facing": "left",
-      "on": "rock-square#seat",
-      "scale": 1.6,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": 30
-      }
+      "prop": "city-roof",
+      "id": "roof-far",
+      "at": 0.85,
+      "scale": 2.5,
+      "row": 0.2,
+      "color": "#222222"
     },
     {
       "character": "hanuman",
-      "pose": "leanfront-beckon",
-      "facing": "right",
-      "mouth": 1,
-      "scale": 1.6,
-      "adjust": {
-        "spine.head": 10
-      },
-      "at": 0.27
+      "pose": "step-search",
+      "facing": "left",
+      "on": "roof-far#stand",
+      "scale": 0.16
+    },
+    {
+      "prop": "city-roof",
+      "id": "roof-mid",
+      "at": 0.3,
+      "scale": 4,
+      "row": -0.08
+    },
+    {
+      "prop": "city-roof",
+      "id": "roof-near",
+      "at": 0.82,
+      "scale": 7,
+      "row": -0.45
     }
-  ],
-  "needs": [
-    "prop: jewel (Sita's hair jewel; it travels home in 11)"
   ]
 }

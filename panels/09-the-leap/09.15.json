@@ -1,0 +1,19 @@
+{
+  "scene": "The leap: across the whole sky, the ocean far below",
+  "tall": 1,
+  "ground": "sea",
+  "sky": "sky",
+  "horizon": 0.25,
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "liefront-dive",
+      "facing": "right",
+      "at": 0.42,
+      "row": 0.74,
+      "scale": 0.3,
+      "mouth": 2
+    }
+  ],
+  "tags": ["fly"]
+}

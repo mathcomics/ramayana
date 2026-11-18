@@ -1,19 +1,24 @@
 {
-  "scene": "Lanka: Ravana on his throne, from the front, far",
+  "scene": "Lanka: Surpanakha runs up the palace steps, crying out",
   "tall": 1,
   "ground": "yellow",
   "figures": [
     {
-      "prop": "throne-lanka",
+      "prop": "steps",
       "at": 0.5,
-      "row": "mid"
+      "row": "floor"
     },
     {
-      "character": "ravana",
-      "pose": "chair-armrest",
-      "view": "front",
-      "on": "throne-lanka",
-      "scale": 1.05
+      "character": "surpanakha",
+      "cloth": "red-check",
+      "pose": "run-pump",
+      "facing": "left",
+      "on": "steps#stand",
+      "hands": {
+        "right": "out",
+        "left": "out"
+      },
+      "rotate": 30
     }
   ]
 }

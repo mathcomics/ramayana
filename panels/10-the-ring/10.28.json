@@ -1,0 +1,36 @@
+{
+  "scene": "By day: Hanuman drops down by a pole, crouched, looking up; Sita on her rock leans back, startled",
+  "tall": 1,
+  "ground": "sunrise",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.74,
+      "scale": 0.67
+    },
+    {
+      "character": "sita",
+      "pose": "sitback-armback",
+      "facing": "left",
+      "on": "rock-square#seat",
+      "adjust": {
+        "spine.head": 30
+      }
+    },
+    {
+      "prop": "pole",
+      "at": 0.25,
+      "row": 0.6
+    },
+    {
+      "character": "hanuman",
+      "pose": "crouch-onarms",
+      "facing": "right",
+      "at": 0.25,
+      "row": 0.1,
+      "adjust": {
+        "spine.head": 40
+      }
+    }
+  ]
+}

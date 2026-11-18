@@ -1,29 +1,26 @@
 {
-  "scene": "Bali falls with the arrow in him; Sugriva throws up his arms",
+  "scene": "Sugriva's leap drives into Bali; Bali is thrown back, off his feet",
   "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
       "character": "sugriva",
       "id": "bali",
-      "pose": "fallback-armknee",
+      "pose": "fallback-flung",
       "facing": "left",
-      "at": 0.5,
-      "rotate": 20,
-      "row": -0.3
+      "at": 0.62,
+      "row": 0.08,
+      "scale": 0.9,
+      "rotate": -25
     },
     {
       "character": "sugriva",
-      "pose": "stepwide-armsup",
+      "pose": "lunge-armfront",
       "facing": "right",
-      "at": 0.12,
-      "row": 0,
+      "at": 0.36,
+      "scale": 0.9,
+      "rotate": 15,
       "wear": "garland"
-    },
-    {
-      "prop": "arrow-stuck",
-      "facing": "left",
-      "on": "bali#chest"
     }
   ]
 }

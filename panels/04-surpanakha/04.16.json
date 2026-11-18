@@ -1,0 +1,69 @@
+{
+  "scene": "The rakshasas are struck, flung back and falling",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "raxas_m1",
+      "id": "r1",
+      "pose": "fallfront-armsdown",
+      "facing": "right",
+      "at": 0.1,
+      "mouth": 3,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m1",
+      "id": "r2",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "at": 0.32,
+      "cloth": "red",
+      "row": 0.1
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "r2#chest",
+      "facing": "right",
+      "rotate": -55
+    },
+    {
+      "character": "raxas_m1",
+      "id": "r3",
+      "pose": "stepback-armsout",
+      "facing": "right",
+      "at": 0.52,
+      "cloth": "red-diamond"
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "r3#chest",
+      "facing": "right"
+    },
+    {
+      "character": "raxas_m2",
+      "id": "r5",
+      "pose": "leapup-reachup",
+      "facing": "right",
+      "at": 0.7,
+      "row": 0.1
+    },
+    {
+      "character": "raxas_m1",
+      "id": "r4",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "at": 0.9,
+      "cloth": "red-stripe"
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "r4#chest",
+      "facing": "right",
+      "rotate": -55
+    }
+  ],
+  "needs": [
+    "prop: arrow (in flight from the right edge)"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "scene": "The monkeys turn and flee under Kumbhakarna's reaching fingers; only his hand fits the panel",
+  "tags": ["frieze", "giant"],
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "monkey1",
+      "id": "fallen",
+      "pose": "crawl-onhands",
+      "facing": "left",
+      "at": 0.08,
+      "mouth": 3
+    },
+    {
+      "character": "monkey1",
+      "id": "flee1",
+      "pose": "run-pump",
+      "facing": "left",
+      "at": 0.27
+    },
+    {
+      "character": "monkey1",
+      "id": "flee2",
+      "pose": "runwide-hang",
+      "facing": "left",
+      "at": 0.45,
+      "mouth": 3,
+      "adjust": {
+        "spine.head": -25
+      }
+    },
+    {
+      "character": "monkey1",
+      "id": "pinched",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.7,
+      "row": 0.46
+    },
+    {
+      "character": "monkey1",
+      "id": "flee3",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.9
+    },
+    {
+      "at": 0.57,
+      "facing": "left",
+      "prop": "giant-grab",
+      "row": 0.5
+    }
+  ]
+}

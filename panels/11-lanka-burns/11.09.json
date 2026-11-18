@@ -1,44 +1,39 @@
 {
-  "scene": "On the shore, Hanuman dips his burning tail in the sea; Lanka burns on the far side",
+  "scene": "Variation: high in the grove, Hanuman swings from one vine, legs tucked, toward the next",
   "tall": 1,
-  "ground": "sea",
-  "sky": "night",
+  "ground": "sunrise",
   "figures": [
     {
-      "prop": "lanka-island",
-      "at": 0.25,
-      "row": "horizon"
+      "prop": "trees-side",
+      "at": 0.5,
+      "row": "back"
     },
     {
-      "prop": "palace-lanka",
-      "on": "lanka-island#stand"
+      "prop": "vine",
+      "at": 0.82,
+      "row": 0.55,
+      "scale": 4
     },
     {
-      "prop": "fire",
-      "at": 0.25,
-      "row": "horizon",
-      "scale": 2,
-      "rotate": 90,
-      "repeat": {
-        "n": 3,
-        "gap": 0.3
-      }
+      "prop": "vine",
+      "at": 0.95,
+      "row": 0.7,
+      "scale": 4
     },
     {
-      "prop": "rock-square",
-      "at": 0.7,
-      "id": "rock",
-      "row": "mid"
+      "prop": "vine",
+      "on": "hanuman#hand-right",
+      "scale": 2.5,
+      "rotate": 30
     },
     {
       "character": "hanuman",
-      "pose": "chair-reach",
+      "pose": "leapup-reachup",
       "facing": "right",
-      "on": "rock#seat",
-      "adjust": {
-        "spine.head": 20
-      }
+      "at": 0.4,
+      "row": 0.5,
+      "mouth": 1,
+      "scale": 0.6
     }
-  ],
-  "horizon": 0.35
+  ]
 }

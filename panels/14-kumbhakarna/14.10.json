@@ -1,0 +1,18 @@
+{
+  "scene": "Close on his face, the eye still shut",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "prop": "giant-face-side",
+      "id": "face",
+      "facing": "left",
+      "rotate": 90,
+      "at": 0.12,
+      "row": "closeup"
+    }
+  ],
+  "needs": [
+    "prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now"
+  ]
+}

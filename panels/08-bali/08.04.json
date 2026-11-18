@@ -1,22 +1,35 @@
 {
-  "scene": "Bali strides at Sugriva; Sugriva crouches, fists up",
+  "scene": "Bali charges down the steps at Sugriva, who rears back, fists up",
   "tall": 1,
-  "ground": "sand",
+  "ground": "green",
+  "sky": "white",
+  "horizon": 0.56,
   "figures": [
     {
-      "character": "sugriva",
-      "id": "bali",
-      "pose": "walk-swing",
+      "prop": "steps",
       "facing": "left",
-      "at": 0.62,
-      "mouth": 3
+      "at": 0.25,
+      "row": "mid"
     },
     {
       "character": "sugriva",
-      "pose": "leanfront-fists",
+      "pose": "arch-fists",
       "facing": "right",
-      "at": 0.18,
+      "on": "steps#stand",
+      "rotate": -15,
       "wear": "garland"
+    },
+    {
+      "id": "bali",
+      "character": "sugriva",
+      "pose": "run-fists",
+      "facing": "left",
+      "at": 0.74,
+      "row": "mid",
+      "nudge": [
+        0,
+        6
+      ]
     }
   ]
 }

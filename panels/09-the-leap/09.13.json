@@ -1,19 +1,34 @@
 {
-  "scene": "The leap: across the whole sky, the ocean far below",
-  "tall": 1,
-  "ground": "sea",
-  "sky": "sky",
-  "horizon": 0.25,
+  "scene": "Hanuman crouches on the mountaintop, ready",
+  "tall": 1.5,
+  "ground": "off-white",
   "figures": [
     {
+      "prop": "rock-square",
+      "at": 0.3,
+      "scale": 2,
+      "nudge": [
+        0,
+        0.5
+      ],
+      "rotate": 150,
+      "row": "closeup"
+    },
+    {
       "character": "hanuman",
-      "pose": "liefront-dive",
+      "pose": "crouch-cross",
       "facing": "right",
-      "at": 0.42,
-      "row": 0.74,
-      "scale": 0.3,
-      "mouth": 2
+      "nudge": [
+        6,
+        0
+      ],
+      "on": "rock-square",
+      "scale": 0.2
     }
   ],
-  "tags": ["fly"]
+  "needs": [
+    "prop: mountain",
+    "pose: crouch-ready (deep knees, arms back): crouch-cross for now"
+  ],
+  "tags": ["mountain"]
 }

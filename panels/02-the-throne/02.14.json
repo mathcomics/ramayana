@@ -1,36 +1,25 @@
 {
-  "scene": "Rama, close; Lakshman and Sita hurry toward us behind him, the palace behind",
+  "scene": "Lakshman and Sita join him; the three walk on",
   "tall": 0.6,
   "ground": "off-white",
   "figures": [
     {
-      "prop": "palace-ayodhya",
-      "at": 0.25,
-      "row": "mid"
-    },
-    {
       "character": "lakshman",
-      "pose": "walk-armsout",
-      "view": "front",
-      "at": 0.8,
-      "mouth": 1,
-      "row": -0.2
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.74
     },
     {
       "character": "sita",
-      "pose": "walk-dive",
-      "view": "front",
-      "at": 0.65,
-      "mouth": 1,
-      "row": -0.2
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.5
     },
     {
       "character": "rama",
       "pose": "walk-swing",
-      "view": "front",
-      "at": 0.5,
-      "turn": -120,
-      "row": "closeup"
+      "facing": "left",
+      "at": 0.27
     }
   ]
 }

@@ -1,54 +1,72 @@
 {
-  "scene": "The monkeys hurl rocks: one lifts a boulder over his head, two have thrown and their rocks fly off",
+  "scene": "monkeys attack",
   "tall": 0.6,
-  "ground": "off-white",
+  "ground": "sand",
   "figures": [
     {
-      "prop": "rock-circle",
-      "id": "rock-flying1",
-      "at": 0.7,
-      "row": 0.78,
-      "scale": 0.35
-    },
-    {
-      "prop": "rock-square",
-      "id": "rock-flying2",
-      "at": 0.93,
-      "row": 0.62,
-      "scale": 0.3,
-      "rotate": 25
-    },
-    {
-      "prop": "rock-rectangle",
-      "id": "rock-lifted",
-      "on": "lifter#hands"
-    },
-    {
+      "id": "r1",
       "character": "monkey1",
-      "id": "lifter",
-      "pose": "arch-overhead",
-      "view": "front",
-      "at": 0.14,
-      "cloth": "orange"
-    },
-    {
-      "character": "monkey1",
-      "id": "thrower",
-      "pose": "leanback-armsback",
+      "pose": "run-longpoint",
       "facing": "right",
-      "at": 0.4,
+      "at": 0.05,
       "cloth": "red"
     },
     {
+      "id": "r2",
       "character": "monkey1",
-      "id": "follower",
-      "pose": "lunge-armfront",
+      "pose": "runlow-pumplow",
       "facing": "right",
-      "at": 0.7,
-      "cloth": "red-diamond"
+      "at": 0.24,
+      "cloth": "red-check",
+      "adjust": {
+        "right.arm.prop": {
+          "angle": -30,
+          "kind": "club"
+        }
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "leap-reach",
+      "facing": "right",
+      "adjust": {
+        "right.arm.prop": {
+          "angle": 30,
+          "kind": "sword"
+        }
+      },
+      "at": 0.44,
+      "cloth": "red-diamond",
+      "id": "r3",
+      "row": 0.12
+    },
+    {
+      "character": "monkey1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.66,
+      "adjust": {
+        "right.arm.prop": {
+          "angle": -30,
+          "kind": "club-spike-long"
+        }
+      },
+      "cloth": "red-stripe",
+      "id": "r4"
+    },
+    {
+      "character": "monkey1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.88,
+      "adjust": {
+        "right.arm.prop": {
+          "angle": -30,
+          "kind": "sword"
+        }
+      },
+      "id": "r5"
     }
   ],
-  "needs": [
-    "pose: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now"
-  ]
+  "tags": ["frieze"]
 }

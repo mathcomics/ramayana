@@ -1,38 +1,37 @@
 {
-  "scene": "Jatayu swoops on them, talons out; Ravana turns his head up toward him, sword swung back",
-  "tall": 1.5,
-  "ground": "sky-blue",
+  "scene": "Jatayu, huge and near, comes at them; Ravana, small and far with Sita, looks back at him, sword swung back",
+  "tall": 0.6,
+  "ground": "white",
   "figures": [
     {
-      "character": "sita",
-      "pose": "crawl-onhands",
-      "facing": "left",
-      "at": 0.23,
-      "row": 0.251,
-      "scale": 0.574,
-      "mouth": 3
+      "prop": "vulture-fall",
+      "facing": "right",
+      "at": 0.1,
+      "row": "closeup",
+      "nudge": [0, 2]
     },
     {
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "view": "front",
-      "facing": "left",
-      "at": 0.3,
-      "row": "mid",
-      "scale": 0.88,
+      "at": 0.79,
+      "row": 0.1,
       "mouth": 2,
       "adjust": {
         "spine.head": 14
       },
-      "rotate": -30,
-      "turn": -150
+      "rotate": 20,
+      "turn": 90
     },
     {
-      "prop": "vulture-swoop",
+      "character": "sita",
+      "pose": "crawl-onhands",
+      "facing": "right",
       "at": 0.84,
-      "facing": "left",
-      "scale": 0.6,
-      "row": 0.6
+      "row": 0.28,
+      "scale": 1,
+      "mouth": 3,
+      "turn": 120
     }
   ],
   "needs": [

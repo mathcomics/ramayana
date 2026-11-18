@@ -1,41 +1,39 @@
 {
-  "scene": "Rakshasas set Hanuman's tail on fire; one laughs",
+  "scene": "Variation: a guard is flung through the air by the swinging tree; another crawls away",
   "tall": 1,
-  "ground": "off-white",
+  "ground": "sunrise",
   "figures": [
     {
-      "character": "hanuman",
-      "pose": "step-armsback",
+      "character": "raxas_m2",
+      "pose": "fallback-flung",
       "facing": "left",
       "at": 0.3,
-      "mouth": 1
+      "row": 0.45,
+      "cloth": "red-diamond"
     },
     {
-      "prop": "rope-bind",
-      "on": "hanuman#chest"
-    },
-    {
-      "prop": "fire",
-      "on": "hanuman#tail",
-      "rotate": 90,
-      "scale": 0.8
-    },
-    {
-      "character": "raxas_m2",
-      "pose": "bend-reach",
+      "character": "raxas_m1",
+      "pose": "crawl-onhands",
       "facing": "left",
-      "at": 0.6,
-      "cloth": "red-check"
+      "at": 0.16,
+      "cloth": "red-stripe",
+      "mouth": 3,
+      "turn": 180
     },
     {
-      "character": "raxas_m3",
-      "pose": "step-armsup",
+      "prop": "tree-trunk",
+      "on": "hanuman#hand-right",
+      "rotate": -60,
+      "scale": 0.5
+    },
+    {
+      "character": "hanuman",
+      "pose": "lunge-armfront",
       "facing": "left",
-      "at": 0.84,
-      "cloth": "red-stripe"
+      "at": 0.72
     }
   ],
   "needs": [
-    "prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now"
+    "prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now"
   ]
 }

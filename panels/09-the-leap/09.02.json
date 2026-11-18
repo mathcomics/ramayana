@@ -1,55 +1,26 @@
 {
-  "scene": "Sugriva sends monkeys out in four directions; they set off walking",
+  "scene": "Sugriva assures Rama beside the throne",
   "tall": 1,
   "ground": "off-white",
   "figures": [
     {
       "prop": "throne-kishkindha",
-      "at": 0.52,
+      "at": 0.82,
       "row": "back"
     },
     {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.1,
-      "row": "back"
-    },
-    {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.15,
-      "row": "back"
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.34,
+      "mouth": 2
     },
     {
       "character": "sugriva",
-      "pose": "step-point",
-      "facing": "right",
-      "at": 0.4,
-      "row": "mid"
-    },
-    {
-      "character": "monkey1",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.76,
-      "row": "mid"
-    },
-    {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "at": 0.65,
-      "cloth": "red",
-      "view": "front"
-    },
-    {
-      "at": 0.95,
-      "character": "monkey1",
-      "cloth": "orange",
-      "facing": "right",
-      "pose": "walk-swing"
+      "pose": "step-armsout",
+      "facing": "left",
+      "at": 0.6,
+      "mouth": 2
     }
-  ],
-  "tags": ["layers"]
+  ]
 }

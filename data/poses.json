@@ -433,7 +433,7 @@
         "carry",
         "fly"
       ],
-      "until": "stepwide-swordcarry in view front, rotate 20, the head turned with turn 90; Sita beside him (arch-overhead or crawl-onhands) (06.05-06.07a)"
+      "until": "stepwide-swordcarry in view front, rotate 20, the head turned with turn 90; Sita beside him (arch-overhead or crawl-onhands) (06.06-06.13)"
     },
     "crouch-ready": {
       "desc": "deep crouch, knees bent, body gathered, arms back, about to leap",
@@ -441,7 +441,7 @@
         "leap",
         "sneak"
       ],
-      "until": "bend-low (reads as searching the ground, not gathering: 08.05)"
+      "until": "bend-low (reads as searching the ground, not gathering: 08.12)"
     },
     "sit-hand-on-head": {
       "desc": "sitting, one hand on the head (despair, heavy thought)",
@@ -466,7 +466,7 @@
         "plead",
         "shock"
       ],
-      "until": "stand with both arms adjusted (05.06)"
+      "until": "stand with both arms adjusted (05.07)"
     },
     "sit-slump": {
       "desc": "sitting on the ground, knees up, shoulders fallen, head low (hopeless)",
@@ -475,7 +475,7 @@
         "grieve",
         "fear"
       ],
-      "until": "sit with spine.chest 30-35, which reads as collapsing (08.04; problem-poses)"
+      "until": "sit with spine.chest 30-35, which reads as collapsing (08.11; problem-poses)"
     },
     "sit-carried": {
       "desc": "carried on a shoulder or back: seated high, legs hanging, one hand holding on",
@@ -493,7 +493,7 @@
         "grieve",
         "search"
       ],
-      "until": "walk with the right arm adjusted (06.10)"
+      "until": "walk with the right arm adjusted (06.18)"
     }
   }
 }

@@ -1,22 +1,21 @@
 {
-  "scene": "Sita points, sending Lakshman off; he walks away, his face turned to us",
-  "tall": 0.6,
-  "ground": "sand",
+  "scene": "The cry travels across the forest",
+  "tall": 1,
+  "ground": "dry-grass",
   "figures": [
     {
-      "character": "sita",
-      "pose": "step-point",
-      "facing": "right",
-      "at": 0.3,
-      "mouth": 3
+      "prop": "sound-cry",
+      "at": 0.5,
+      "row": 0.7
     },
     {
-      "character": "lakshman",
-      "pose": "walk-swing",
+      "character": "rama",
+      "pose": "step-hang",
       "facing": "right",
-      "at": 0.72,
-      "mouth": 2,
-      "turn": 90
+      "mouth": 3,
+      "on": "sound-cry#face",
+      "view": "front"
     }
-  ]
+  ],
+  "sky": "sky"
 }

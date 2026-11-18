@@ -1,23 +1,23 @@
 {
-  "scene": "She runs off, arms in the air, mouth wide",
+  "scene": "Close: Surpanakha reaches for Lakshman; he leans away",
   "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
       "character": "surpanakha",
-      "pose": "run-pump",
+      "pose": "oneleg-armsout",
       "facing": "left",
-      "at": 0.45,
-      "hands": {
-        "right": "out",
-        "left": "out"
-      },
-      "adjust": {
-        "right.arm.shoulder": 165,
-        "right.arm.elbow": 20,
-        "left.arm.shoulder": 150,
-        "left.arm.elbow": 30
-      }
+      "at": 0.5,
+      "mouth": 2,
+      "row": "closeup"
+    },
+    {
+      "character": "lakshman",
+      "pose": "stepback-armsback",
+      "facing": "right",
+      "at": 0.2,
+      "mouth": 1,
+      "row": "closeup"
     }
   ]
 }

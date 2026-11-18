@@ -1,34 +1,24 @@
 {
-  "scene": "By day: Hanuman stands and bows before Sita on her rock; she joins her palms",
-  "tall": 1,
-  "ground": "sunrise",
+  "scene": "Crouched on the edge of a palace block, Hanuman peers back across the gap",
+  "tall": 0.6,
+  "ground": "night",
   "figures": [
     {
-      "prop": "rock-square",
-      "at": 0.74,
-      "scale": 0.67
-    },
-    {
-      "character": "sita",
-      "pose": "chair-palms",
-      "facing": "left",
-      "on": "rock-square#seat",
-      "mouth": 2,
-      "adjust": {
-        "spine.head": 14
-      }
+      "prop": "city-gap",
+      "at": 0.55,
+      "scale": 6,
+      "row": -0.3
     },
     {
       "character": "hanuman",
-      "pose": "stand-bow",
-      "facing": "right",
-      "at": 0.3,
-      "adjust": {
-        "spine.head": -14
-      }
+      "pose": "crouch-search",
+      "facing": "left",
+      "on": "city-gap#stand-right",
+      "scale": 0.42,
+      "nudge": [
+        0,
+        -1.3
+      ]
     }
-  ],
-  "needs": [
-    "prop: jewel (Sita's hair jewel; it travels home in 11)"
   ]
 }

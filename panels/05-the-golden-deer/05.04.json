@@ -1,18 +1,19 @@
 {
-  "scene": "Ravana alone, closer: the king of Lanka",
-  "tall": 0.6,
-  "ground": "white",
+  "scene": "Lanka: Ravana on his throne, from the front, far",
+  "tall": 1,
+  "ground": "yellow",
   "figures": [
     {
       "prop": "throne-lanka",
       "at": 0.5,
-      "row": "closeup"
+      "row": "mid"
     },
     {
       "character": "ravana",
       "pose": "chair-armrest",
       "view": "front",
-      "on": "throne-lanka"
+      "on": "throne-lanka",
+      "scale": 1.05
     }
   ]
 }

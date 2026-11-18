@@ -1,0 +1,51 @@
+{
+  "scene": "The rakshasas lie flung and fallen; Surpanakha stands among them, hand to her face",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "id": "r2",
+      "character": "raxas_m1",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "at": 0.32,
+      "row": 0.05,
+      "cloth": "red"
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "r2#chest",
+      "facing": "right",
+      "rotate": -55
+    },
+    {
+      "id": "r1",
+      "character": "raxas_m1",
+      "pose": "fallfront-armsdown",
+      "facing": "right",
+      "at": 0.1,
+      "mouth": 3,
+      "cloth": "red-check"
+    },
+    {
+      "id": "r4",
+      "character": "raxas_m1",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "at": 0.9,
+      "cloth": "red-stripe"
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "r4#chest",
+      "facing": "right",
+      "rotate": -55
+    },
+    {
+      "character": "surpanakha",
+      "pose": "stepwide-armface",
+      "facing": "left",
+      "at": 0.6
+    }
+  ]
+}

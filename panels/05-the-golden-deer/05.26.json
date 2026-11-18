@@ -1,0 +1,33 @@
+{
+  "scene": "Ravana rises into the sky with Sita, sword in hand; she reaches out and down",
+  "tall": 1.5,
+  "ground": "sky-blue",
+  "figures": [
+    {
+      "prop": "pole",
+      "at": 0.4,
+      "scale": 0.6,
+      "rotate": 180,
+      "row": 0.45
+    },
+    {
+      "character": "ravana",
+      "pose": "stepwide-swordcarry",
+      "at": 0.48,
+      "mouth": 2,
+      "row": 0.6,
+      "scale": 0.5,
+      "rotate": 20,
+      "view": "front"
+    },
+    {
+      "character": "sita",
+      "pose": "crawl-onhands",
+      "facing": "right",
+      "at": 0.55,
+      "mouth": 3,
+      "row": 0.69,
+      "scale": 0.5
+    }
+  ]
+}

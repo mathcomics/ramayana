@@ -127,16 +127,16 @@ and Sita in the swan chariot **waving back at the reader**.
 | `02-the-throne` | 16 | written against the brief |
 | `03-the-forest` | 12 | predates the briefs — to revisit (03.02 is approved and locked) |
 | `04-surpanakha` | 16 | predates the briefs — to revisit |
-| `05-the-golden-deer` | 26 | artist-reviewed; the model chapter (05.11 tagged) |
+| `05-the-golden-deer` | 26 | artist-reviewed; the model chapter (05.12 tagged) |
 | `06-jatayu` | 25 | written against the brief |
 | `07-sugriva` | 16 | written against the brief |
 | `08-bali` | 19 | written against the brief |
-| `09-the-leap` | 15 | written against the brief (09.09 approved and locked) |
-| `10-the-ring` | 33 | written against the brief; variations to choose from (10.02a–c, 10.04a–c and 10.04f the night search, 10.08c–o Sita's visitors, 10.09–10.11a the grove by day) |
-| `11-lanka-burns` | 27 | first draft (2026-11-17): the opener on the ledge, the turn back and the run in (11.01–11.01b), the havoc (11.02–11.03a), swinging on vines (11.03b–d), the news and Ravana sending Indrajit (11.03e–h), Indrajit and the binding (11.04–11.05a), Ravana's throne (11.06, 11.06a), the burning tail and the leap (11.07–11.07c), panic (11.08a) and the sea (11.09), around the approved reference panel 11.08; the homecoming still to write |
+| `09-the-leap` | 15 | written against the brief (09.11 approved and locked) |
+| `10-the-ring` | 33 | written against the brief; variations to choose from (10.04–10.06, 10.09–10.11 and 10.12 the night search, 10.19–10.27 Sita's visitors, 10.28–10.33 the grove by day) |
+| `11-lanka-burns` | 27 | first draft (2026-11-17): the opener on the ledge, the turn back and the run in (11.01–11.03), the havoc (11.04–11.07), swinging on vines (11.08–11.10), the news and Ravana sending Indrajit (11.11–11.14), Indrajit and the binding (11.15–11.18), Ravana's throne (11.19, 11.20), the burning tail and the leap (11.21–11.24), panic (11.26) and the sea (11.27), around the approved reference panel 11.25; the homecoming still to write |
 | `12-the-bridge` | 26 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
-| `13-the-war-begins` | 12 | the opener (Lanka across the sea, 13.01) and battle scenes (ladders carried and raised against the wall (13.01ba, 13.01bb), trunks carried and rammed (13.01bc, 13.01bd), rocks hurled, the fall, a chief, the fallen field) |
-| `14-kumbhakarna` | 14 | 13 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6; the steaming bowl in three variations, 14.03–14.03c) and the approved reference panel 14.05 |
+| `13-the-war-begins` | 12 | the opener (Lanka across the sea, 13.01) and battle scenes (ladders carried and raised against the wall (13.04, 13.05), trunks carried and rammed (13.06, 13.07), rocks hurled, the fall, a chief, the fallen field) |
+| `14-kumbhakarna` | 14 | 13 exploratory drafts of the waking (14.01–14.13, to be cut to 5–6; the steaming bowl in three variations, 14.06–14.09) and the approved reference panel 14.14 |
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
 Chapters 15–18 have briefs and no panels; the site marks them
@@ -152,7 +152,7 @@ splitting single paintings into more, simpler panels, dropping what the
 brief does not show, and swapping the `adjust` stand-ins for the real
 poses now that they exist. Chapter 6 has been through that pass: the sea
 crossing, the arrival in the grove and the funeral pyre are gone, the
-chariot with them. Chapter 5 has lost the chariot too (05.22 on 2026-11-14,
+chariot with them. Chapter 5 has lost the chariot too (05.26 on 2026-11-14,
 the last chariot panel deleted 2026-11-16).
 
 ### Figures

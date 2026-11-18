@@ -1,63 +1,25 @@
 {
-  "scene": "The vulture Jatayu stands on a rock; Rama and Lakshman look up at him, Sita reaches up",
+  "scene": "Sita points at a stag and two does; Rama stands beside her, hand on hip",
   "tall": 1,
   "ground": "white",
   "figures": [
     {
-      "id": "rock",
-      "prop": "rock-circle",
-      "at": 0.74,
-      "row": "mid"
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.44,
-      "row": "mid",
-      "scale": 0.5
-    },
-    {
-      "prop": "vulture-stand",
-      "facing": "left",
-      "on": "rock"
-    },
-    {
-      "character": "lakshman",
-      "pose": "step-hang",
-      "facing": "right",
-      "at": 0.3,
-      "row": "mid",
-      "scale": 0.7,
-      "adjust": {
-        "spine.head": -25
-      }
+      "prop": "stag-stand",
+      "id": "deer1",
+      "at": 0.56,
+      "row": "back"
     },
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "step-akimbo",
       "facing": "right",
-      "at": 0.4,
-      "row": "mid",
-      "scale": 0.7,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": -25
-      }
+      "at": 0.17
     },
     {
       "character": "sita",
-      "pose": "step-armsup",
+      "pose": "step-point",
       "facing": "right",
-      "at": 0.5,
-      "row": "mid",
-      "scale": 0.7,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": -25
-      }
+      "at": 0.38
     }
-  ],
-  "needs": [
-    "pose: stand-palms-joined",
-    "prop: tree"
   ]
 }

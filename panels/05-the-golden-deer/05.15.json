@@ -1,58 +1,32 @@
 {
-  "scene": "Rama's cry reaches the hut: Sita arches back and Lakshman leans back, both looking up",
+  "scene": "The golden deer sinks, head down; a cry goes up with Rama's shouting face",
   "tall": 1,
-  "ground": "green",
+  "ground": "dry-grass",
   "figures": [
     {
+      "prop": "stag-lie",
+      "body": "gold",
+      "at": 0.82,
+      "row": 0.3,
+      "rotate": 20
+    },
+    {
       "prop": "sound-cry",
-      "at": 0.8,
-      "row": 0.7
+      "at": 0.46,
+      "row": 0.55,
+      "rotate": 20
     },
     {
       "character": "rama",
+      "pose": "step-hang",
       "facing": "right",
       "mouth": 3,
       "on": "sound-cry#face",
-      "view": "front",
-      "pose": "step-hang"
-    },
-    {
-      "id": "hut",
-      "prop": "hut-side",
-      "at": 0.15,
-      "row": "back",
-      "scale": 0.5706
-    },
-    {
-      "id": "trees-far",
-      "prop": "trees-side",
-      "at": 0.16,
-      "row": "back",
-      "scale": 1.7994
-    },
-    {
-      "character": "sita",
-      "pose": "arch-hang",
-      "facing": "right",
-      "at": 0.5,
-      "row": "back",
-      "nudge": [
-        0,
-        -2
-      ],
-      "mouth": 3
-    },
-    {
-      "character": "lakshman",
-      "pose": "leanback-hang",
-      "facing": "right",
-      "at": 0.9,
-      "row": "mid",
-      "nudge": [
-        0,
-        -2
-      ]
+      "view": "front"
     }
+  ],
+  "needs": [
+    "prop: an arrow in the dying deer's flank"
   ],
   "sky": "sky"
 }

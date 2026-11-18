@@ -1,51 +1,22 @@
 {
-  "scene": "The rakshasas lie flung and fallen; Surpanakha stands among them, hand to her face",
+  "scene": "Rama and Lakshman, to the right, see them coming; Lakshman points back to the left",
   "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
-      "id": "r2",
-      "character": "raxas_m1",
-      "pose": "fallback-flung",
-      "facing": "right",
-      "at": 0.32,
-      "row": 0.05,
-      "cloth": "red"
-    },
-    {
-      "prop": "arrow-stuck",
-      "on": "r2#chest",
-      "facing": "right",
-      "rotate": -55
-    },
-    {
-      "id": "r1",
-      "character": "raxas_m1",
-      "pose": "fallfront-armsdown",
-      "facing": "right",
-      "at": 0.1,
-      "mouth": 3,
-      "cloth": "red-check"
-    },
-    {
-      "id": "r4",
-      "character": "raxas_m1",
-      "pose": "fallback-flung",
-      "facing": "right",
-      "at": 0.9,
-      "cloth": "red-stripe"
-    },
-    {
-      "prop": "arrow-stuck",
-      "on": "r4#chest",
-      "facing": "right",
-      "rotate": -55
-    },
-    {
-      "character": "surpanakha",
-      "pose": "stepwide-armface",
+      "character": "lakshman",
+      "pose": "step-point",
       "facing": "left",
-      "at": 0.6
+      "at": 0.62,
+      "mouth": 3
+    },
+    {
+      "character": "rama",
+      "pose": "stepback-armsout",
+      "facing": "left",
+      "at": 0.84,
+      "mouth": 2,
+      "adjust": { "left.arm.prop": { "kind": "bow", "angle": 0 } }
     }
   ]
 }

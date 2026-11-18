@@ -1,21 +1,36 @@
 {
-  "scene": "Hanuman scurries along a rooftop above a row of lit windows",
-  "tall": 0.6,
+  "scene": "Lanka, closer: the golden palace on its island",
+  "tall": 1,
   "ground": "night",
+  "sky": "night",
   "figures": [
     {
-      "prop": "city-roof",
-      "at": 0.5,
-      "scale": 8,
-      "row": -0.36
+      "prop": "palace-lanka",
+      "row": "closeup",
+      "nudge": [
+        0,
+        2
+      ],
+      "scale": 2
+    },
+    {
+      "prop": "pole",
+      "on": "hanuman#head",
+      "nudge": [
+        -0.1,
+        -0.1
+      ]
     },
     {
       "character": "hanuman",
-      "pose": "runlow-pumplow",
+      "pose": "leapup-reachup",
       "facing": "right",
-      "mouth": 1,
-      "on": "city-roof#stand",
-      "scale": 0.48
+      "nudge": [
+        0,
+        4
+      ],
+      "scale": 0.4,
+      "mouth": 1
     }
   ]
 }

@@ -1,21 +1,21 @@
 {
-  "scene": "The cry travels across the forest",
-  "tall": 1,
+  "scene": "In negative, white on black: the arrow strikes the leaping deer",
+  "tall": 0.6,
   "ground": "dry-grass",
+  "mode": "negative",
   "figures": [
     {
-      "prop": "sound-cry",
-      "at": 0.5,
-      "row": 0.7
+      "id": "deer",
+      "prop": "stag-run",
+      "body": "gold",
+      "at": 0.55,
+      "rotate": -10
     },
     {
-      "character": "rama",
-      "pose": "step-hang",
-      "facing": "right",
-      "mouth": 3,
-      "on": "sound-cry#face",
-      "view": "front"
+      "prop": "arrow-stuck",
+      "facing": "left",
+      "at": 0.42,
+      "row": 0.29
     }
-  ],
-  "sky": "sky"
+  ]
 }

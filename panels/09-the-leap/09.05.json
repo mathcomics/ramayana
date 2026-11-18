@@ -1,41 +1,38 @@
 {
-  "scene": "The search: three monkeys climb a bare slope",
+  "scene": "Close: Rama's hand above lets the ring fall into Hanuman's hand below",
   "tall": 1,
   "ground": "off-white",
-  "horizon": 0.25,
   "figures": [
     {
-      "foreground": [
-        0.11,
+      "prop": "giant-grab",
+      "id": "rama-hand",
+      "character": "rama",
+      "at": 0.6,
+      "row": "top",
+      "scale": 0.62,
+      "nudge": [
+        0,
         0.4
-      ],
-      "color": "mist"
+      ]
     },
     {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.34,
-      "on": "foreground",
-      "scale": 0.4
+      "prop": "giant-grab",
+      "id": "hanuman-hand",
+      "character": "hanuman",
+      "rotate": 180,
+      "at": 0.42,
+      "row": "floor",
+      "scale": 0.62,
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
-      "character": "monkey1",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.5,
-      "cloth": "red",
-      "on": "foreground",
-      "scale": 0.4
-    },
-    {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.66,
-      "on": "foreground",
-      "scale": 0.4
+      "prop": "ring",
+      "at": 0.49,
+      "row": 0.45,
+      "scale": 2
     }
-  ],
-  "tags": ["foreground"]
+  ]
 }

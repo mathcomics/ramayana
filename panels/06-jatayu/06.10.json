@@ -1,34 +1,41 @@
 {
-  "scene": "Rama runs searching among the trees; Lakshman follows",
+  "scene": "Sita lets the bundle go; it drops away beneath them",
   "tall": 1,
-  "ground": "dark-green",
-  "sky": "sand",
+  "ground": "sky-blue",
   "figures": [
     {
-      "prop": "trees-side",
-      "id": "trees-far",
-      "at": 0.86,
-      "row": "horizon",
-      "scale": 1.7994
+      "character": "ravana",
+      "pose": "stepwide-swordcarry",
+      "at": 0.15,
+      "row": 0.3,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 14
+      },
+      "view": "front",
+      "rotate": 20,
+      "turn": 90
     },
     {
-      "character": "lakshman",
-      "pose": "runwide-hang",
+      "character": "sita",
+      "pose": "crawl-onhands",
       "facing": "right",
-      "at": 0.36,
-      "row": "horizon"
+      "at": 0.23,
+      "row": 0.48,
+      "mouth": 3
     },
     {
-      "character": "rama",
-      "pose": "run-pump",
-      "facing": "right",
-      "at": 0.55,
-      "row": "horizon"
+      "prop": "pole",
+      "at": 0.43,
+      "row": 0.3
     },
     {
-      "prop": "tree-trunk",
-      "at": -0.04,
-      "row": "closeup"
+      "prop": "bag",
+      "at": 0.43,
+      "row": 0.19
     }
+  ],
+  "needs": [
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
   ]
 }

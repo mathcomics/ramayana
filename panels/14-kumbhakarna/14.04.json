@@ -1,5 +1,5 @@
 {
-  "scene": "Close on his face, the eye still shut",
+  "scene": "Drums and horn blast at his head; he sleeps on",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
@@ -8,11 +8,42 @@
       "id": "face",
       "facing": "left",
       "rotate": 90,
-      "at": 0.12,
-      "row": "closeup"
+      "at": 0.18
+    },
+    {
+      "prop": "trumpet",
+      "on": "player1#hand-right"
+    },
+    {
+      "id": "player1",
+      "character": "raxas_m1",
+      "pose": "step-fists",
+      "facing": "left",
+      "at": 0.53
+    },
+    {
+      "prop": "drum",
+      "on": "player2#hand-right"
+    },
+    {
+      "id": "player2",
+      "character": "raxas_m2",
+      "pose": "stepwide-armsout",
+      "facing": "left",
+      "at": 0.72,
+      "cloth": "red-check"
+    },
+    {
+      "prop": "drum",
+      "on": "player3#hand-right"
+    },
+    {
+      "id": "player3",
+      "character": "raxas_m1",
+      "pose": "kneeup-armsout",
+      "facing": "left",
+      "at": 0.9,
+      "cloth": "red-diamond"
     }
-  ],
-  "needs": [
-    "prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now"
   ]
 }

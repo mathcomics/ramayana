@@ -1,19 +1,25 @@
 {
-  "scene": "Rama, close, looks ahead",
+  "scene": "Variation: the king kneels to Kaikeyi, palms together, begging; she stands turned away from him",
   "tall": 0.6,
-  "ground": "light-grey",
+  "ground": "off-white",
   "figures": [
     {
-      "character": "rama",
-      "pose": "step-hang",
+      "character": "dasharatha",
+      "pose": "kneel-palms",
       "facing": "right",
-      "at": 0.3,
+      "at": 0.38,
+      "row": "floor",
       "mouth": 2,
       "adjust": {
         "spine.head": -15
-      },
-      "row": "closeup"
+      }
+    },
+    {
+      "character": "kaikeyi",
+      "pose": "step-akimbo",
+      "facing": "right",
+      "at": 0.68,
+      "row": "floor"
     }
-  ],
-  "tags": ["closeup"]
+  ]
 }

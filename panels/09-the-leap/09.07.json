@@ -1,48 +1,50 @@
 {
-  "scene": "The search: monkeys leap up out of the ferns under a hanging vine",
-  "tall": 1.5,
-  "ground": "white",
+  "scene": "The search, the other way: three monkeys walk beneath a great rock",
+  "tall": 1,
   "figures": [
     {
-      "prop": "vine",
-      "at": 0.1,
-      "row": "top",
-      "scale": 2
+      "prop": "rock-square",
+      "at": 0.6,
+      "row": -0.5,
+      "scale": 5,
+      "rotate": 60
     },
     {
-      "character": "monkey1",
-      "pose": "leapup-dive",
-      "at": 0.36,
-      "facing": "right",
-      "nudge": [
-        0,
-        5
+      "foreground": [
+        0.5,
+        0.3
       ],
+      "color": "mist"
+    },
+    {
+      "character": "monkey1",
+      "pose": "pass-swing",
+      "facing": "left",
+      "at": 0.2,
       "row": "back"
     },
     {
       "character": "monkey1",
-      "pose": "leapup-swing",
-      "facing": "right",
-      "at": 0.66,
-      "row": "back"
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.36,
+      "row": "back",
+      "cloth": "red"
     },
     {
-      "prop": "leaf-fern",
-      "at": 0.4,
-      "row": -0.3,
-      "scale": 2,
-      "repeat": {
-        "n": 3
-      }
+      "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "left",
+      "at": 0.46,
+      "row": "back",
+      "cloth": "red"
     },
     {
-      "prop": "leaf-fern",
-      "at": 0.4,
-      "row": -0.1,
-      "repeat": {
-        "n": 3
-      }
+      "prop": "rock-circle",
+      "at": 0.6,
+      "row": 0.5,
+      "scale": 0.2,
+      "body": "#222222"
     }
   ]
 }

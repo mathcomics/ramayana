@@ -1,0 +1,29 @@
+{
+  "scene": "Bali falls with the arrow in him; Sugriva throws up his arms",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "id": "bali",
+      "pose": "fallback-armknee",
+      "facing": "left",
+      "at": 0.5,
+      "rotate": 20,
+      "row": -0.3
+    },
+    {
+      "character": "sugriva",
+      "pose": "stepwide-armsup",
+      "facing": "right",
+      "at": 0.12,
+      "row": 0,
+      "wear": "garland"
+    },
+    {
+      "prop": "arrow-stuck",
+      "facing": "left",
+      "on": "bali#chest"
+    }
+  ]
+}

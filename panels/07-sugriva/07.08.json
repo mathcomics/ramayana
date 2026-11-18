@@ -1,33 +1,18 @@
 {
-  "scene": "Hanuman leads Rama and Lakshman over the hill",
-  "tall": 1,
-  "ground": "off-white",
+  "scene": "Rama knows them: Sita's jewels",
+  "tall": 0.6,
+  "ground": "sand",
   "figures": [
     {
-      "character": "lakshman",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.2,
-      "scale": 0.9
-    },
-    {
       "character": "rama",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.38,
-      "scale": 0.95
-    },
-    {
-      "foreground": [0.22, 0.11],
-      "color": "dark-green"
-    },
-    {
-      "character": "hanuman",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.66,
-      "on": "foreground",
-      "nudge": [0, -0.25]
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.42,
+      "mouth": 3,
+      "adjust": {
+        "spine.head": 14
+      },
+      "row": "closeup"
     }
   ]
 }

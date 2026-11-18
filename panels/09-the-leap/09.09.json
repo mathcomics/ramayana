@@ -1,40 +1,46 @@
 {
-  "scene": "From above: the land runs out — monkeys at the water's edge, the sea below",
-  "tags": [
-    "topview"
-  ],
-  "tall": 1.5,
-  "ground": "sand",
+  "scene": "The search: three monkeys push through the ferns",
+  "tall": 0.6,
+  "ground": "white",
   "figures": [
     {
-      "prop": "monkey-top",
+      "prop": "leaf-fern",
+      "at": 0.55,
+      "row": "closeup",
+      "scale": 2.5,
+      "repeat": {
+        "n": 3
+      }
+    },
+    {
       "character": "monkey1",
-      "at": 0.3,
-      "row": 0.67
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "at": 0.4,
-      "row": 0.75
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "cloth": "red",
-      "at": 0.5,
-      "row": 0.66
-    },
-    {
-      "prop": "monkey-top",
-      "character": "hanuman",
-      "at": 0.8,
-      "row": 0.4
-    },
-    {
-      "prop": "wave-top",
-      "at": 0.5,
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.16,
       "row": "floor"
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-flung",
+      "facing": "right",
+      "at": 0.3,
+      "row": "floor"
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-search",
+      "facing": "right",
+      "at": 0.66,
+      "row": "floor"
+    },
+    {
+      "prop": "leaf-fern",
+      "at": 0.4,
+      "row": "closeup",
+      "scale": 2,
+      "repeat": {
+        "n": 3
+      }
     }
   ]
 }

@@ -1,37 +1,24 @@
 {
-  "scene": "Hanuman stands up among them",
-  "tall": 0.6,
+  "scene": "The search: the dry plain, emptier",
+  "tall": 1,
   "ground": "sand",
+  "sky": "sky",
+  "horizon": 0.25,
   "figures": [
     {
       "character": "monkey1",
-      "pose": "sit-armknee",
+      "pose": "walk-swing",
       "facing": "right",
-      "at": 0.2,
-      "adjust": {
-        "spine.chest": 18,
-        "spine.head": 14
-      }
-    },
-    {
-      "character": "hanuman",
-      "pose": "step-point",
-      "facing": "right",
-      "at": 0.5,
-      "adjust": {
-        "spine.head": -16
-      }
+      "at": 0.3,
+      "row": "horizon"
     },
     {
       "character": "monkey1",
-      "pose": "sit-armknee",
-      "facing": "left",
-      "at": 0.82,
-      "cloth": "red",
-      "mouth": 2,
-      "adjust": {
-        "spine.head": -14
-      }
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.72,
+      "row": "horizon",
+      "cloth": "red"
     }
   ]
 }

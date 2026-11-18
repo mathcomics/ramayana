@@ -1,20 +1,22 @@
 {
-  "scene": "The ashoka grove: Sita sits by the tree between two rakshasis; Hanuman crouches above her",
-  "tall": 1,
-  "ground": "night",
+  "scene": "He searches over the roofs of the sleeping city",
+  "tall": 0.6,
+  "ground": "night-blue",
   "figures": [
-    {
-      "character": "hanuman",
-      "pose": "crouch-cross",
-      "facing": "right",
-      "scale": 0.3,
-      "on": "city-gap#stand-left"
-    },
     {
       "prop": "city-gap",
       "at": 0.5,
-      "scale": 4,
-      "row": "closeup"
+      "scale": 6,
+      "row": -0.3
+    },
+    {
+      "character": "hanuman",
+      "pose": "leapup-reachup",
+      "facing": "right",
+      "mouth": 1,
+      "on": "city-gap#stand",
+      "scale": 0.42
     }
-  ]
+  ],
+  "tags": ["city"]
 }

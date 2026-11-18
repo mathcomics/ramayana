@@ -1,0 +1,61 @@
+{
+  "scene": "The field before Lanka, far off, strewn with fallen rakshasas and the thrown rocks",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "sky": "mist",
+  "figures": [
+    {
+      "prop": "city-gap",
+      "at": 0.5,
+      "row": "horizon",
+      "scale": 2
+    },
+    {
+      "prop": "rock-square",
+      "id": "rock-far",
+      "at": 0.6,
+      "row": "back",
+      "scale": 0.8
+    },
+    {
+      "character": "raxas_m1",
+      "id": "dead-far",
+      "pose": "liefront-onarms",
+      "facing": "left",
+      "at": 0.45,
+      "row": "back",
+      "cloth": "red-stripe"
+    },
+    {
+      "character": "raxas_m2",
+      "id": "dead-mid",
+      "pose": "liefront-dive",
+      "facing": "right",
+      "at": 0.75,
+      "row": "mid",
+      "cloth": "red-check"
+    },
+    {
+      "prop": "rock-circle",
+      "id": "rock-mid",
+      "at": 0.4,
+      "row": "mid",
+      "scale": 0.7
+    },
+    {
+      "character": "raxas_m1",
+      "id": "dead-near",
+      "pose": "fallfront-armsdown",
+      "facing": "left",
+      "at": 0.2,
+      "cloth": "red",
+      "scale": 0.65
+    },
+    {
+      "prop": "rock-rectangle",
+      "id": "rock-near",
+      "at": 0.85,
+      "scale": 0.6
+    }
+  ]
+}

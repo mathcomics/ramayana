@@ -1,0 +1,25 @@
+{
+  "scene": "Surpanakha close, a heart in her thought bubble",
+  "tall": 1,
+  "figures": [
+    {
+      "character": "surpanakha",
+      "pose": "pass-flank",
+      "at": 0.25,
+      "row": "closeup",
+      "adjust": {
+        "spine.head": -20
+      }
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.62,
+      "row": 0.42,
+      "scale": 0.85
+    },
+    {
+      "prop": "heart",
+      "on": "bubble-thought#inside"
+    }
+  ]
+}

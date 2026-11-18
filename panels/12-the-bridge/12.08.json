@@ -1,70 +1,17 @@
 {
-  "scene": "From above: the army at the water's edge, the sea below — as in 09.09, everyone this time",
-  "tall": 1.5,
-  "ground": "sand",
+  "scene": "Vibhishana flies alone across the sea, away from Lanka",
+  "tall": 1,
+  "ground": "sea",
+  "sky": "sky",
+  "horizon": 0.25,
   "figures": [
     {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "at": 0.15,
-      "row": 0.55
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "cloth": "red",
-      "at": 0.27,
-      "row": 0.7
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "cloth": "orange",
-      "at": 0.38,
-      "row": 0.6
-    },
-    {
-      "prop": "monkey-top",
-      "character": "sugriva",
-      "at": 0.5,
-      "row": 0.5
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "cloth": "red-diamond",
-      "at": 0.62,
-      "row": 0.72
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "at": 0.75,
-      "row": 0.62
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "cloth": "red",
-      "at": 0.88,
-      "row": 0.7
-    },
-    {
-      "prop": "monkey-top",
-      "character": "hanuman",
-      "at": 0.68,
-      "row": 0.42
-    },
-    {
-      "prop": "male-top",
-      "character": "rama",
-      "at": 0.36,
-      "row": 0.4
-    },
-    {
-      "prop": "wave-top",
-      "at": 0.5,
-      "row": "floor"
+      "character": "vibhishana",
+      "pose": "liefront-dive",
+      "facing": "left",
+      "at": 0.6,
+      "row": 0.74,
+      "scale": 0.3
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "scene": "Rama, close, looks ahead",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.3,
+      "mouth": 2,
+      "adjust": {
+        "spine.head": -15
+      },
+      "row": "closeup"
+    }
+  ],
+  "tags": ["closeup"]
+}

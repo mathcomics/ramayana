@@ -1,26 +1,27 @@
 {
-  "scene": "The brothers grapple",
+  "scene": "From far: Kishkindha on its hill; Rama runs past below, bow in hand, seen from behind",
   "tall": 1,
   "ground": "sand",
+  "sky": "off-white",
+  "horizon": 0.4,
   "figures": [
     {
-      "character": "sugriva",
-      "id": "bali",
-      "pose": "leanfront-fists",
-      "facing": "left",
-      "at": 0.58,
-      "scale": 0.9
+      "prop": "palace-kishkindha",
+      "at": 0.3,
+      "row": "floor"
     },
     {
-      "character": "sugriva",
-      "pose": "lunge-armfront",
-      "facing": "right",
-      "at": 0.36,
-      "wear": "garland"
+      "character": "rama",
+      "pose": "run-handslow",
+      "facing": "left",
+      "at": 0.95,
+      "row": "floor",
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "bow"
+        }
+      },
+      "turn": -90
     }
-  ],
-  "needs": [
-    "pose: grapple (two bodies locked): lunge and lean for now"
-  ],
-  "tags": ["grapple"]
+  ]
 }

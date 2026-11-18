@@ -1,68 +1,54 @@
 {
-  "scene": "The line of stone grows over the water toward Lanka on the horizon",
-  "tall": 1,
+  "scene": "The monkeys sit on the shore, heads bowed before the water",
+  "tall": 0.6,
   "ground": "sea",
-  "sky": "mist",
-  "horizon": 0.45,
+  "sky": "sky",
+  "horizon": 0.55,
   "figures": [
     {
-      "prop": "lanka-island",
-      "at": 0.82,
-      "row": "horizon"
-    },
-    {
-      "prop": "palace-lanka",
-      "on": "lanka-island#stand"
-    },
-    {
-      "prop": "rock-rectangle",
-      "at": 0.62,
-      "row": 0.4,
-      "scale": 0.12,
-      "body": "stone"
-    },
-    {
-      "prop": "rock-square",
-      "at": 0.55,
-      "row": 0.36,
-      "scale": 0.18,
-      "body": "stone"
-    },
-    {
-      "prop": "rock-rectangle",
-      "at": 0.47,
-      "row": 0.3,
-      "scale": 0.28,
-      "body": "stone"
-    },
-    {
-      "prop": "rock-square",
-      "at": 0.38,
-      "row": 0.21,
-      "scale": 0.42,
-      "body": "stone"
-    },
-    {
-      "prop": "rock-rectangle",
-      "at": 0.25,
-      "row": 0.06,
-      "scale": 0.65,
-      "body": "stone",
-      "id": "near-stone"
-    },
-    {
-      "prop": "rock-circle",
-      "on": "carrier#hands",
-      "scale": 0.3
+      "foreground": 0.25,
+      "color": "sand"
     },
     {
       "character": "monkey1",
-      "id": "carrier",
-      "pose": "arch-overhead",
-      "view": "front",
-      "scale": 0.7,
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.15,
+      "on": "foreground",
+      "adjust": {
+        "spine.chest": 18,
+        "spine.head": 16
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.42,
+      "on": "foreground",
       "cloth": "red",
-      "on": "near-stone#stand"
+      "adjust": {
+        "spine.chest": 18,
+        "spine.head": 16
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "crouch-holdhead",
+      "facing": "right",
+      "at": 0.66,
+      "on": "foreground",
+      "cloth": "orange"
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.88,
+      "on": "foreground",
+      "adjust": {
+        "spine.head": 12
+      }
     }
   ]
 }

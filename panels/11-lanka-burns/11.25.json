@@ -1,0 +1,71 @@
+{
+  "scene": "Rakshasas flee through the burning streets, the fire behind them",
+  "tags": ["frieze"],
+  "tall": 0.6,
+  "ground": "geru",
+  "figures": [
+    {
+      "prop": "fire",
+      "at": 0.95,
+      "scale": 4.8,
+      "row": 0.5
+    },
+    {
+      "prop": "fire",
+      "at": 0.96,
+      "scale": 2.2
+    },
+    {
+      "character": "raxas_m1",
+      "id": "runner1",
+      "pose": "runwide-hang",
+      "facing": "left",
+      "at": 0.12,
+      "cloth": "red-check",
+      "mouth": 3
+    },
+    {
+      "character": "raxas_m1",
+      "id": "leaper",
+      "pose": "leap-reach",
+      "facing": "left",
+      "at": 0.26,
+      "cloth": "red",
+      "row": 0.16
+    },
+    {
+      "character": "raxas_m1",
+      "id": "runner2",
+      "pose": "run-pump",
+      "facing": "left",
+      "at": 0.45,
+      "cloth": "red-diamond",
+      "adjust": {
+        "left.arm.shoulder": 150,
+        "left.arm.elbow": 20,
+        "left.arm.hand": "out"
+      }
+    },
+    {
+      "character": "raxas_m1",
+      "id": "runner4",
+      "pose": "run-pump",
+      "facing": "left",
+      "at": 0.74,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_f1",
+      "id": "runner5",
+      "pose": "runwide-hang",
+      "facing": "left",
+      "at": 0.9,
+      "cloth": "red-stripe",
+      "mouth": 3,
+      "turn": 180
+    }
+  ],
+  "needs": [
+    "prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now)"
+  ]
+}

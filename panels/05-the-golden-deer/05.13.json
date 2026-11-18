@@ -1,32 +1,13 @@
 {
-  "scene": "The golden deer sinks, head down; a cry goes up with Rama's shouting face",
-  "tall": 1,
-  "ground": "dry-grass",
+  "scene": "Rama draws his bow",
+  "tall": 0.6,
+  "ground": "mist",
   "figures": [
     {
-      "prop": "stag-lie",
-      "body": "gold",
-      "at": 0.82,
-      "row": 0.3,
-      "rotate": 20
-    },
-    {
-      "prop": "sound-cry",
-      "at": 0.46,
-      "row": 0.55,
-      "rotate": 20
-    },
-    {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "kneel-bowdraw",
       "facing": "right",
-      "mouth": 3,
-      "on": "sound-cry#face",
-      "view": "front"
+      "at": 0.42
     }
-  ],
-  "needs": [
-    "prop: an arrow in the dying deer's flank"
-  ],
-  "sky": "sky"
+  ]
 }

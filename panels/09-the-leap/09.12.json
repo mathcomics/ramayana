@@ -1,18 +1,37 @@
 {
-  "scene": "The leap, close: Hanuman dives through the sky, the sea below",
-  "tall": 1,
-  "ground": "sea",
-  "sky": "sky",
-  "horizon": 0.25,
+  "scene": "Hanuman stands up among them",
+  "tall": 0.6,
+  "ground": "sand",
   "figures": [
     {
-      "character": "hanuman",
-      "pose": "liefront-dive",
+      "character": "monkey1",
+      "pose": "sit-armknee",
       "facing": "right",
       "at": 0.2,
+      "adjust": {
+        "spine.chest": 18,
+        "spine.head": 14
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-point",
+      "facing": "right",
+      "at": 0.5,
+      "adjust": {
+        "spine.head": -16
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "sit-armknee",
+      "facing": "left",
+      "at": 0.82,
+      "cloth": "red",
       "mouth": 2,
-      "row": 0.44,
-      "rotate": -20
+      "adjust": {
+        "spine.head": -14
+      }
     }
   ]
 }

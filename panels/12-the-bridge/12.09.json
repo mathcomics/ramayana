@@ -1,21 +1,26 @@
 {
-  "scene": "Rama on the shore draws his bow at the ocean",
-  "tall": 1,
+  "scene": "Lanka small on the horizon behind him; Vibhishana flies off over the water",
+  "tall": 0.6,
   "ground": "sea",
   "sky": "sky",
-  "horizon": 0.5,
+  "horizon": 0.3,
   "figures": [
     {
-      "foreground": 0.2,
-      "color": "sand"
+      "prop": "lanka-island",
+      "at": 0.88,
+      "row": "horizon"
     },
     {
-      "character": "rama",
-      "pose": "step-bowdraw",
-      "facing": "right",
-      "at": 0.3,
-      "on": "foreground",
-      "mouth": 2
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand"
+    },
+    {
+      "character": "vibhishana",
+      "pose": "liefront-dive",
+      "facing": "left",
+      "at": 0.35,
+      "row": 0.65,
+      "scale": 0.35
     }
   ]
 }

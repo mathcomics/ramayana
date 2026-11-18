@@ -1,0 +1,17 @@
+{
+  "scene": "Rama takes it in silence, head low",
+  "tall": 0.6,
+  "ground": "dusty-pink",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.4,
+      "adjust": {
+        "spine.head": 15
+      },
+      "row": "closeup"
+    }
+  ]
+}

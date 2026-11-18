@@ -1,0 +1,41 @@
+{
+  "scene": "Rakshasas set Hanuman's tail on fire; one laughs",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "step-armsback",
+      "facing": "left",
+      "at": 0.3,
+      "mouth": 1
+    },
+    {
+      "prop": "rope-bind",
+      "on": "hanuman#chest"
+    },
+    {
+      "prop": "fire",
+      "on": "hanuman#tail",
+      "rotate": 90,
+      "scale": 0.8
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "bend-reach",
+      "facing": "left",
+      "at": 0.6,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "step-armsup",
+      "facing": "left",
+      "at": 0.84,
+      "cloth": "red-stripe"
+    }
+  ],
+  "needs": [
+    "prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now"
+  ]
+}

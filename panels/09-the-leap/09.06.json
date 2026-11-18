@@ -1,50 +1,41 @@
 {
-  "scene": "The search, the other way: three monkeys walk beneath a great rock",
+  "scene": "The search: three monkeys climb a bare slope",
   "tall": 1,
+  "ground": "off-white",
+  "horizon": 0.25,
   "figures": [
     {
-      "prop": "rock-square",
-      "at": 0.6,
-      "row": -0.5,
-      "scale": 5,
-      "rotate": 60
-    },
-    {
       "foreground": [
-        0.5,
-        0.3
+        0.11,
+        0.4
       ],
       "color": "mist"
     },
     {
       "character": "monkey1",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.34,
+      "on": "foreground",
+      "scale": 0.4
+    },
+    {
+      "character": "monkey1",
       "pose": "pass-swing",
-      "facing": "left",
-      "at": 0.2,
-      "row": "back"
+      "facing": "right",
+      "at": 0.5,
+      "cloth": "red",
+      "on": "foreground",
+      "scale": 0.4
     },
     {
       "character": "monkey1",
       "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.36,
-      "row": "back",
-      "cloth": "red"
-    },
-    {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "facing": "left",
-      "at": 0.46,
-      "row": "back",
-      "cloth": "red"
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.6,
-      "row": 0.5,
-      "scale": 0.2,
-      "body": "#222222"
+      "facing": "right",
+      "at": 0.66,
+      "on": "foreground",
+      "scale": 0.4
     }
-  ]
+  ],
+  "tags": ["foreground"]
 }

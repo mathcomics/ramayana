@@ -1,34 +1,40 @@
 {
-  "scene": "Hanuman crouches on the mountaintop, ready",
+  "scene": "From above: the land runs out — monkeys at the water's edge, the sea below",
+  "tags": [
+    "topview"
+  ],
   "tall": 1.5,
-  "ground": "off-white",
+  "ground": "sand",
   "figures": [
     {
-      "prop": "rock-square",
+      "prop": "monkey-top",
+      "character": "monkey1",
       "at": 0.3,
-      "scale": 2,
-      "nudge": [
-        0,
-        0.5
-      ],
-      "rotate": 150,
-      "row": "closeup"
+      "row": 0.67
     },
     {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.4,
+      "row": 0.75
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "red",
+      "at": 0.5,
+      "row": 0.66
+    },
+    {
+      "prop": "monkey-top",
       "character": "hanuman",
-      "pose": "crouch-cross",
-      "facing": "right",
-      "nudge": [
-        6,
-        0
-      ],
-      "on": "rock-square",
-      "scale": 0.2
+      "at": 0.8,
+      "row": 0.4
+    },
+    {
+      "prop": "wave-top",
+      "at": 0.5,
+      "row": "floor"
     }
-  ],
-  "needs": [
-    "prop: mountain",
-    "pose: crouch-ready (deep knees, arms back): crouch-cross for now"
-  ],
-  "tags": ["mountain"]
+  ]
 }

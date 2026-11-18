@@ -1,0 +1,34 @@
+{
+  "scene": "By day: Hanuman stands and bows before Sita on her rock; she joins her palms",
+  "tall": 1,
+  "ground": "sunrise",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.74,
+      "scale": 0.67
+    },
+    {
+      "character": "sita",
+      "pose": "chair-palms",
+      "facing": "left",
+      "on": "rock-square#seat",
+      "mouth": 2,
+      "adjust": {
+        "spine.head": 14
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "stand-bow",
+      "facing": "right",
+      "at": 0.3,
+      "adjust": {
+        "spine.head": -14
+      }
+    }
+  ],
+  "needs": [
+    "prop: jewel (Sita's hair jewel; it travels home in 11)"
+  ]
+}

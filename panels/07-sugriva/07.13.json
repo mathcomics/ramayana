@@ -1,40 +1,45 @@
 {
-  "scene": "The pact, by night: Rama and Sugriva clasp hands over a fire",
-  "tall": 1,
-  "ground": "night",
+  "scene": "Rama and Sugriva sit face to face, each on a round rock; Lakshman stands behind Rama, Hanuman sits behind Sugriva",
+  "tall": 0.6,
+  "ground": "sunrise",
   "figures": [
     {
-      "prop": "fire",
-      "at": 0.5,
-      "scale": 1.6,
-      "rotate": 90
+      "character": "lakshman",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.08
+    },
+    {
+      "character": "hanuman",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.37
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.245,
+      "scale": 0.75,
+      "id": "rock1"
+    },
+    {
+      "prop": "rock-circle",
+      "facing": "left",
+      "at": 0.755,
+      "scale": 0.75,
+      "id": "rock2"
     },
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "chair-armrest",
       "facing": "right",
-      "at": 0.34,
       "mouth": 2,
-      "adjust": {
-        "right.arm.shoulder": 80,
-        "right.arm.elbow": 15,
-        "right.arm.hand": "out"
-      }
+      "on": "rock1#seat"
     },
     {
       "character": "sugriva",
-      "pose": "step-hang",
+      "pose": "chair-pump",
       "facing": "left",
-      "at": 0.64,
-      "mouth": 2,
-      "adjust": {
-        "right.arm.shoulder": 85,
-        "right.arm.elbow": 10,
-        "right.arm.hand": "out"
-      }
+      "on": "rock2#seat"
     }
-  ],
-  "needs": [
-    "pose: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now"
   ]
 }

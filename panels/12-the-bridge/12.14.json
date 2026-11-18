@@ -1,51 +1,21 @@
 {
-  "scene": "The army crosses on the stone, a line of monkeys walking over the sea",
-  "tall": 0.6,
+  "scene": "Rama on the shore draws his bow at the ocean",
+  "tall": 1,
   "ground": "sea",
   "sky": "sky",
-  "horizon": 0.55,
+  "horizon": 0.5,
   "figures": [
     {
-      "foreground": 0.22,
-      "color": "stone-grey"
+      "foreground": 0.2,
+      "color": "sand"
     },
     {
-      "character": "monkey1",
-      "pose": "walk-swing",
+      "character": "rama",
+      "pose": "step-bowdraw",
       "facing": "right",
-      "at": 0.1,
-      "on": "foreground"
-    },
-    {
-      "character": "monkey1",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.27,
+      "at": 0.3,
       "on": "foreground",
-      "cloth": "red"
-    },
-    {
-      "character": "sugriva",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.45,
-      "on": "foreground"
-    },
-    {
-      "character": "monkey1",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.63,
-      "on": "foreground",
-      "cloth": "orange"
-    },
-    {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.82,
-      "on": "foreground",
-      "cloth": "red-diamond"
+      "mouth": 2
     }
   ]
 }

@@ -1,0 +1,34 @@
+{
+  "scene": "Rama runs searching among the trees; Lakshman follows",
+  "tall": 1,
+  "ground": "dark-green",
+  "sky": "sand",
+  "figures": [
+    {
+      "prop": "trees-side",
+      "id": "trees-far",
+      "at": 0.86,
+      "row": "horizon",
+      "scale": 1.7994
+    },
+    {
+      "character": "lakshman",
+      "pose": "runwide-hang",
+      "facing": "right",
+      "at": 0.36,
+      "row": "horizon"
+    },
+    {
+      "character": "rama",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.55,
+      "row": "horizon"
+    },
+    {
+      "prop": "tree-trunk",
+      "at": -0.04,
+      "row": "closeup"
+    }
+  ]
+}

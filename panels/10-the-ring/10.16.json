@@ -1,0 +1,20 @@
+{
+  "scene": "Sita sits alone on a rock, head bowed in grief, under a bare branch",
+  "tall": 0.6,
+  "ground": "night",
+  "figures": [
+    {
+      "prop": "branch",
+      "at": 0.75,
+      "row": "mid",
+      "scale": 7
+    },
+    {
+      "character": "hanuman",
+      "pose": "crouch-cross",
+      "facing": "left",
+      "scale": 2,
+      "on": "branch#stand"
+    }
+  ]
+}
