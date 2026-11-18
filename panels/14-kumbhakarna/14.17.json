@@ -1,0 +1,30 @@
+{
+  "scene": "Variation: Hanuman heaves a mountain peak up at the giant's face, high above him",
+  "tall": 1.5,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "giant-face-side-awake",
+      "id": "face",
+      "facing": "left",
+      "at": 0.82,
+      "row": 0.5,
+      "body": "#9a7a7a"
+    },
+    {
+      "prop": "rock-square",
+      "id": "peak",
+      "on": "hanuman#hands",
+      "scale": 1.8
+    },
+    {
+      "character": "hanuman",
+      "pose": "arch-overhead",
+      "view": "front",
+      "at": 0.26
+    }
+  ],
+  "needs": [
+    "pose: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now"
+  ]
+}

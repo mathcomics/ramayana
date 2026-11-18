@@ -1,0 +1,14 @@
+{
+  "scene": "Variation: Rama, close, the bow bent upward",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-bowhigh",
+      "facing": "right",
+      "at": 0.42,
+      "row": "closeup"
+    }
+  ]
+}

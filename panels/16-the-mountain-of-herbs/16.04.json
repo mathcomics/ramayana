@@ -1,0 +1,22 @@
+{
+  "scene": "Rama kneels over Lakshman, who lies still",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "sitback-hang",
+      "facing": "right",
+      "at": 0.4,
+      "adjust": {
+        "spine.head": -35
+      }
+    },
+    {
+      "character": "rama",
+      "pose": "kneel-reach",
+      "facing": "left",
+      "at": 0.66
+    }
+  ]
+}

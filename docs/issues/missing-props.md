@@ -32,9 +32,13 @@ docs/design/panel-writing.md, Lessons).
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.25 |
 | prop: food-heap (a heap of fruit, rice and sweets) | 14.07 |
 | prop: food-platter (a round platter piled with food, held up) | 14.07 |
+| prop: giant-arm-fallen (the whole arm lying, hand open, the cut end shown): giant-grab on its side for now | 14.21 |
 | prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now | 14.11, 14.12 |
 | prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.10 |
 | prop: giant-lie-waist at its true size (data-height 5.9, hand matched to giant-grab) no longer fills a strip: its cut top and left edges show. Wanted: the same drawing carried on to about 15 x 8.5 head-units (more dhoti to the left, chest up off the top) so it fills a 0.6 strip on the front row | 14.03 |
+| prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 16.09 |
+| prop: javelin (a heavy spear, held and thrown): a big arrow for now | 16.03 |
+| prop: javelin (a heavy spear, held and thrown): the long spiked club for now | 16.02 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.29, 10.30, 10.32, 10.33 |
 | prop: jewels (the dropped bundle, as in 6) | 07.15 |
 | prop: line (scratched in the earth, under his hand) | 05.19 |
@@ -52,4 +56,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-side, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-front-awake, giant-face-side, giant-face-side-awake, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

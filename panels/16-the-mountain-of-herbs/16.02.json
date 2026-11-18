@@ -1,0 +1,22 @@
+{
+  "scene": "Ravana strides out, the javelin drawn back to throw",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "leanback-armback",
+      "facing": "right",
+      "at": 0.4,
+      "scale": 1.4,
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "club-spike-long"
+        }
+      }
+    }
+  ],
+  "needs": [
+    "prop: javelin (a heavy spear, held and thrown): the long spiked club for now"
+  ]
+}

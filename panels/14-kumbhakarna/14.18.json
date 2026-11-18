@@ -1,0 +1,56 @@
+{
+  "scene": "Variation: the peak breaks to pieces on the giant's fist; Hanuman is thrown back",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "giant-fist",
+      "body": "#9a7a7a",
+      "at": 0.1,
+      "row": 0.3
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.5,
+      "row": 0.55,
+      "scale": 0.6,
+      "repeat": {
+        "n": 5,
+        "gap": 0.5,
+        "scale": [
+          0.3,
+          1
+        ],
+        "rotate": [
+          -80,
+          80
+        ]
+      }
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.55,
+      "row": 0.25,
+      "scale": 0.5,
+      "repeat": {
+        "n": 4,
+        "gap": 0.7,
+        "scale": [
+          0.3,
+          1
+        ],
+        "rotate": [
+          -80,
+          80
+        ]
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.8,
+      "row": 0.08
+    }
+  ]
+}

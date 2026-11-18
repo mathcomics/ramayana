@@ -1,0 +1,18 @@
+{
+  "scene": "Opening: Lanka across the sea, by night",
+  "tall": 1,
+  "ground": "night",
+  "sky": "night-blue",
+  "horizon": 0.2,
+  "figures": [
+    {
+      "prop": "lanka-island",
+      "at": 0.7,
+      "row": "horizon"
+    },
+    {
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand"
+    }
+  ]
+}

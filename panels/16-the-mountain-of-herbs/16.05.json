@@ -1,0 +1,14 @@
+{
+  "scene": "Variation, close: Rama bowed over his brother, hand at his face",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "step-grief",
+      "facing": "left",
+      "at": 0.5,
+      "scale": 1.45
+    }
+  ]
+}

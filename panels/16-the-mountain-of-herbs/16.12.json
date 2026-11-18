@@ -1,0 +1,47 @@
+{
+  "scene": "He lifts the whole mountain over his head, herbs and all",
+  "tall": 1.5,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "id": "mountain",
+      "on": "hanuman#hands",
+      "scale": 1.7,
+      "body": "#5a5f7a"
+    },
+    {
+      "prop": "flower-yellow",
+      "on": "mountain#stand-left",
+      "scale": 0.8
+    },
+    {
+      "prop": "flower-white",
+      "on": "mountain#stand",
+      "scale": 0.8,
+      "nudge": [
+        1.6,
+        0
+      ]
+    },
+    {
+      "prop": "flower-yellow",
+      "on": "mountain#stand",
+      "scale": 0.7,
+      "nudge": [
+        2.7,
+        0
+      ]
+    },
+    {
+      "character": "hanuman",
+      "pose": "arch-overhead",
+      "view": "front",
+      "at": 0.5,
+      "scale": 0.75
+    }
+  ],
+  "needs": [
+    "pose: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now"
+  ]
+}

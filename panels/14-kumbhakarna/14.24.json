@@ -1,0 +1,46 @@
+{
+  "scene": "Variation: the head lies on the shore, eyes shut for good; the monkeys dance beside it",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "giant-face-side",
+      "id": "face",
+      "facing": "left",
+      "rotate": 90,
+      "at": 0.18,
+      "body": "#9a7a7a"
+    },
+    {
+      "foreground": 0.08,
+      "color": "sand"
+    },
+    {
+      "character": "monkey1",
+      "pose": "leapup-reachup",
+      "facing": "left",
+      "at": 0.52,
+      "on": "foreground",
+      "nudge": [
+        0,
+        0.8
+      ],
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "arch-reachup",
+      "view": "front",
+      "at": 0.7,
+      "on": "foreground"
+    },
+    {
+      "character": "monkey1",
+      "pose": "stepwide-pointup",
+      "facing": "left",
+      "at": 0.88,
+      "on": "foreground",
+      "cloth": "orange"
+    }
+  ]
+}

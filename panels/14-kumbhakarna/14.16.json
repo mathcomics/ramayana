@@ -1,0 +1,44 @@
+{
+  "scene": "Variation: only his foot fits the picture as he strides out; the monkeys scatter from under it",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "giant-feet",
+      "id": "foot",
+      "at": 0.55,
+      "row": 0.3,
+      "rotate": -90,
+      "body": "#9a7a7a"
+    },
+    {
+      "foreground": 0.08,
+      "color": "sand"
+    },
+    {
+      "character": "monkey1",
+      "pose": "runwide-hang",
+      "facing": "left",
+      "at": 0.08,
+      "on": "foreground",
+      "mouth": 3,
+      "turn": 180
+    },
+    {
+      "character": "monkey1",
+      "pose": "crawl-onhands",
+      "facing": "left",
+      "at": 0.42,
+      "on": "foreground",
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.86,
+      "on": "foreground",
+      "cloth": "orange"
+    }
+  ]
+}

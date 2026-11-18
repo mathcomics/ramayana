@@ -1,0 +1,27 @@
+{
+  "scene": "Variation: his face rises over Lanka's wall, eyes open",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "giant-face-front-awake",
+      "id": "face",
+      "at": 0.5,
+      "row": "closeup",
+      "nudge": [
+        0,
+        2.6
+      ],
+      "body": "#9a7a7a"
+    },
+    {
+      "prop": "city-roof",
+      "id": "wall",
+      "at": 0.5,
+      "scale": 8,
+      "row": -0.36,
+      "body": "#9a9a9a",
+      "cloth": "#2e2424"
+    }
+  ]
+}

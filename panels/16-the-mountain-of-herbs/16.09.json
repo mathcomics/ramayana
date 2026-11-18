@@ -1,0 +1,55 @@
+{
+  "scene": "On the mountain of glowing herbs: Hanuman stands on the summit among them, looking about",
+  "tall": 1.5,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "id": "mountain",
+      "at": 0.4,
+      "scale": 2,
+      "nudge": [
+        0,
+        0.5
+      ],
+      "rotate": 150,
+      "row": "closeup",
+      "body": "#5a5f7a"
+    },
+    {
+      "prop": "flower-yellow",
+      "at": 0.2,
+      "row": 0.47,
+      "scale": 0.9
+    },
+    {
+      "prop": "flower-white",
+      "at": 0.34,
+      "row": 0.5,
+      "scale": 0.8
+    },
+    {
+      "prop": "flower-yellow",
+      "at": 0.62,
+      "row": 0.5,
+      "scale": 1
+    },
+    {
+      "prop": "flower-pink",
+      "at": 0.76,
+      "row": 0.44,
+      "scale": 0.8
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-search",
+      "facing": "right",
+      "at": 0.47,
+      "row": 0.5,
+      "scale": 0.35
+    }
+  ],
+  "needs": [
+    "prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now"
+  ]
+}

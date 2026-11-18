@@ -1,0 +1,23 @@
+{
+  "scene": "The javelin strikes Lakshman down",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.5
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "lakshman#chest",
+      "facing": "left",
+      "rotate": 55,
+      "scale": 2.5
+    }
+  ],
+  "needs": [
+    "prop: javelin (a heavy spear, held and thrown): a big arrow for now"
+  ]
+}

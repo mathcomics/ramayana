@@ -1,0 +1,24 @@
+{
+  "scene": "Variation: the last arrow: the great head falls (negative)",
+  "tall": 0.6,
+  "mode": "negative",
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "giant-face-side",
+      "id": "face",
+      "facing": "left",
+      "at": 0.55,
+      "row": 0.02,
+      "rotate": -30,
+      "body": "#9a7a7a"
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.3,
+      "row": 0.5,
+      "scale": 2,
+      "rotate": 10
+    }
+  ]
+}

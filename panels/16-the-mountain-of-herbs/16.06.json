@@ -1,0 +1,26 @@
+{
+  "scene": "The old healer points north; Hanuman looks where he points",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.8,
+      "scale": 1.4
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-point",
+      "id": "healer",
+      "facing": "left",
+      "at": 0.48,
+      "scale": 1.4,
+      "cloth": "stone"
+    }
+  ],
+  "needs": [
+    "character: the healer (an old monkey, white-bearded): monkey1 in grey for now"
+  ]
+}

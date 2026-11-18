@@ -1,0 +1,37 @@
+{
+  "scene": "Over the land by night, the white mountains ahead on the horizon",
+  "tall": 1,
+  "ground": "dark-green",
+  "sky": "night-blue",
+  "horizon": 0.3,
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.25,
+      "row": "horizon",
+      "scale": 3,
+      "rotate": 150,
+      "body": "#e8e8ee",
+      "repeat": {
+        "n": 7,
+        "gap": -0.8,
+        "scale": [
+          0.5,
+          1.1
+        ],
+        "rotate": [
+          -20,
+          20
+        ]
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "liefront-dive",
+      "facing": "left",
+      "at": 0.7,
+      "row": 0.72,
+      "scale": 0.3
+    }
+  ]
+}

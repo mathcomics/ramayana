@@ -1,0 +1,30 @@
+{
+  "scene": "Variation: the night flight against the moon, small and far",
+  "tall": 1,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "rock-circle",
+      "id": "moon",
+      "at": 0.56,
+      "row": 0.3,
+      "scale": 3.4,
+      "body": "#f3efd6"
+    },
+    {
+      "prop": "rock-square",
+      "id": "mountain",
+      "on": "hanuman#hand-right",
+      "scale": 0.6,
+      "body": "#20264a"
+    },
+    {
+      "character": "hanuman",
+      "pose": "liefront-pointup",
+      "facing": "right",
+      "at": 0.5,
+      "row": 0.5,
+      "scale": 0.22
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scene": "Variation: the head-scratch with the answer in a thought bubble: the whole mountain",
+  "tall": 0.6,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "step-holdhead",
+      "facing": "right",
+      "at": 0.36,
+      "row": "closeup"
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.76,
+      "row": 0.4,
+      "scale": 1.3
+    },
+    {
+      "prop": "rock-square",
+      "on": "bubble-thought#inside",
+      "scale": 0.6,
+      "rotate": 150,
+      "body": "#5a5f7a"
+    }
+  ]
+}
