@@ -194,7 +194,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   `hut-top`, `hut-side` (the same thatched hut at eye level), `trees-top`, `tree-top`, `trees-side` (a clump of three
   trees seen side on; `scale` ~2 on the `back` row), `tree-trunk` (a near
   trunk cut straight at both ends: on `closeup` it runs off the top and
-  bottom edges, framing a panel — 03.02a, 03.03a), `lanka-island` (the bare island —
+  bottom edges, framing a panel — 06.10a), `lanka-island` (the bare island —
   the city split off into `palace-lanka`, 2026-11-08),
   `vulture-fly`, `-swoop`, `-fall`,
   `-stand` and `vulture-wing` (the wing Ravana cuts off — a lone wing,

@@ -169,9 +169,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   panel at the top and the bottom — a frame the scene is seen past, not a
   log standing in the clearing. Put it half off the edge (`at` 0 or
   below) so it frames without hiding the figures; two, one mirrored, make
-  a window onto something seen through the trees (03.03a). With
+  a window onto something seen through the trees (06.10a). With
   `trees-side` on the `back` row behind and a `foreground` band before
-  the walkers it gives a forest in three depths (03.02a).
+  the figures it gives a forest in three depths (06.10a).
 
 - **The throne goes in the `mid` row**, a row behind the people in front:
   in the front row it is as tall as the men and runs off the edge.

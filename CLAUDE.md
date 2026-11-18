@@ -124,8 +124,8 @@ and Sita in the swan chariot **waving back at the reader**.
 | Chapter | Panels | State |
 |---|---|---|
 | `01-intro` | 9 | the opener, and the artist's drafts of the court (2026-11-14) |
-| `02-the-throne` | 17 | written against the brief |
-| `03-the-forest` | 13 | predates the briefs — to revisit (03.02 is approved and locked) |
+| `02-the-throne` | 16 | written against the brief |
+| `03-the-forest` | 12 | predates the briefs — to revisit (03.02 is approved and locked) |
 | `04-surpanakha` | 16 | predates the briefs — to revisit |
 | `05-the-golden-deer` | 26 | artist-reviewed; the model chapter (05.11 tagged) |
 | `06-jatayu` | 25 | written against the brief |
@@ -141,7 +141,7 @@ and Sita in the swan chariot **waving back at the reader**.
 
 Chapters 15–18 have briefs and no panels; the site marks them
 "to come". Every drawn chapter's folder number matches its brief number.
-The approved reference panels (every panel with `tags`; 19 since 04.02a was deleted 2026-11-17; 20 after the
+The approved reference panels (every panel with `tags`; 19 since a spy-tagged walk in chapter 4 was deleted 2026-11-17; 20 after the
 artist's tagging round of 2026-11-13) are the models other panels are
 judged against and are locked; the tags and what each kind of scene
 looks like: `panels/layouts.md`.
@@ -153,7 +153,7 @@ brief does not show, and swapping the `adjust` stand-ins for the real
 poses now that they exist. Chapter 6 has been through that pass: the sea
 crossing, the arrival in the grove and the funeral pyre are gone, the
 chariot with them. Chapter 5 has lost the chariot too (05.22 on 2026-11-14,
-05.21 deleted 2026-11-16).
+the last chariot panel deleted 2026-11-16).
 
 ### Figures
 

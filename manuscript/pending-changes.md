@@ -65,7 +65,7 @@ rest of the chapter is written.
 
 - **New 03.02a**: the three walk on side by side through the trees,
   past a near trunk (after the walk toward the reader, 03.02).
-- **New 03.03a**: the deer seen through the trees, framed by two
+- **New 03.03a** (deleted 2026-11-17): the deer seen through the trees, framed by two
   trunks, before 03.04 (Sita watching them).
 - **03.07 removed** (Sita scratching the thirteenth tally mark). The
   brief already has the thirteen years as season icons, still to be
