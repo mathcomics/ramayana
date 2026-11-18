@@ -508,7 +508,7 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
       ],
     };
   }
-  // Held props (arm.prop: sword, club or bow, or a variant: "club-spike"). The pose places a reference
+  // Held props (arm.prop: sword, club, spear or bow, or a variant: "club-spike"). The pose places a reference
   // line through the hand's grip; the weapon drawing (data/props/held/
   // <kind>.svg: the character's own layer, else base) is laid along it by
   // its own line (straight for a sword or club, curved for a bow). The line turns with the hand: its

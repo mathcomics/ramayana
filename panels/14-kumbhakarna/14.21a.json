@@ -1,0 +1,24 @@
+{
+  "scene": "Variation: an arrow strikes off the giant's grabbing hand; it tumbles whole through the air, the cut end showing (negative)",
+  "tall": 0.6,
+  "mode": "negative",
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "giant-grab",
+      "id": "hand",
+      "at": 0.42,
+      "row": 0.12,
+      "scale": 0.7,
+      "rotate": -35,
+      "body": "#9a7a7a"
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.66,
+      "row": 0.55,
+      "scale": 1.6,
+      "rotate": 150
+    }
+  ]
+}

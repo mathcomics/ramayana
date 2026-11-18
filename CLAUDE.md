@@ -133,10 +133,10 @@ and Sita in the swan chariot **waving back at the reader**.
 | `08-bali` | 19 | written against the brief |
 | `09-the-leap` | 15 | written against the brief (09.11 approved and locked) |
 | `10-the-ring` | 33 | written against the brief; variations to choose from (10.04–10.06, 10.09–10.11 and 10.12 the night search, 10.19–10.27 Sita's visitors, 10.28–10.33 the grove by day) |
-| `11-lanka-burns` | 32 | five city variations of the panic to choose from (11.25a–11.25e: the street, the rooftops, a burning tower, the palace steps, out through the arches); first draft (2026-11-17): the opener on the ledge, the turn back and the run in (11.01–11.03), the havoc (11.04–11.07), swinging on vines (11.08–11.10), the news and Ravana sending Indrajit (11.11–11.14), Indrajit and the binding (11.15–11.18), Ravana's throne (11.19, 11.20), the burning tail and the leap (11.21–11.24), panic (11.26) and the sea (11.27), around the approved reference panel 11.25; the homecoming still to write |
+| `11-lanka-burns` | 31 | four city variations of the panic to choose from (11.25a–11.25d: the street, the rooftops, a burning tower, the palace steps; 11.25e deleted 2026-11-18); first draft (2026-11-17): the opener on the ledge, the turn back and the run in (11.01–11.03), the havoc (11.04–11.07), swinging on vines (11.08–11.10), the news and Ravana sending Indrajit (11.11–11.14), Indrajit and the binding (11.15–11.18), Ravana's throne (11.19, 11.20), the burning tail and the leap (11.21–11.24), panic (11.26) and the sea (11.27), around the approved reference panel 11.25; the homecoming still to write |
 | `12-the-bridge` | 26 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
-| `13-the-war-begins` | 19 | seven siege variations to choose from (13.04a from above, 13.07a, 13.08a–c, 13.09a, 13.10a); the opener (Lanka across the sea, 13.01) and battle scenes (ladders carried and raised against the wall (13.04, 13.05), trunks carried and rammed (13.06, 13.07), rocks hurled, the fall, a chief, the fallen field) |
-| `14-kumbhakarna` | 24 | ten variations of the fight and the death to choose from (14.15–14.24, 2026-11-17: the face over the wall, the foot, the peak thrown and broken, Rama's arrows, the fallen arm, the head in negative, in the sea, on the shore); 13 exploratory drafts of the waking (14.01–14.13, to be cut to 5–6; the steaming bowl in three variations, 14.06–14.09) and the approved reference panel 14.14 |
+| `13-the-war-begins` | 22 | seven siege variations to choose from (13.04a from above, 13.07a, 13.08a–c, 13.09a, 13.10a); the opener (Lanka across the sea, 13.01), the rakshasas alarmed on 11.01's ledge (13.01a) and the monkeys arriving on it (13.01b), the wall manned with spears (13.02a) and battle scenes (ladders carried and raised against the wall (13.04, 13.05), trunks carried and rammed (13.06, 13.07), rocks hurled, the fall, a chief, the fallen field) |
+| `14-kumbhakarna` | 27 | thirteen variations of the fight and the death to choose from (14.15–14.24, 2026-11-17: the face over the wall, the foot, the peak thrown and broken, Rama's arrows, the fallen arm, the hand, fist and foot cut off in negative (14.21a–c, 2026-11-18), the head in negative, in the sea, on the shore); 13 exploratory drafts of the waking (14.01–14.13, to be cut to 5–6; the steaming bowl in three variations, 14.06–14.09) and the approved reference panel 14.14 |
 | `16-the-mountain-of-herbs` | 16 | first draft against the brief, with variations to choose from (2026-11-17); the javelin, the healer and the herbs are stand-ins |
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
@@ -189,7 +189,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
 
 ### Props
 
-Every `data/props/<id>.svg` is a prop (71); there is no registry.
+Every `data/props/<id>.svg` is a prop (72); there is no registry.
 A prop id with no drawing renders as a fixed 2 × 2 head-unit labelled
 box. A prop can carry anchors a figure stands or sits on
 (`on: "<prop>#<anchor>"`) and can be recoloured per use (roles named on

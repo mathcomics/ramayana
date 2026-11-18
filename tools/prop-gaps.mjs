@@ -36,7 +36,7 @@ hand; rerun it after changing panels or adding prop art. A prop is drawn
 when \`data/props/<id>.svg\` exists (100 px = 1 head-unit, size from the
 viewBox, optional \`anchors\` group with a \`seat\`; see
 docs/design/panels.md, Props); until then the renderer shows a fixed-size
-placeholder box. Held props (sword, club, bow) live in
+placeholder box. Held props (sword, club, spear, bow) live in
 \`data/props/held/\` instead and are imported by \`tools/import-held.mjs\`.
 
 ## Placeholder props (used by panels, no drawn art)

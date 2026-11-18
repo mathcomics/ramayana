@@ -12,7 +12,7 @@
       "body": "#f3efd6"
     },
     {
-      "prop": "rock-square",
+      "prop": "rock-triangle",
       "id": "mountain",
       "on": "hanuman#hand-right",
       "scale": 0.6,

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Spear (tools/import-held.mjs -> data/held.json). One layer per version:
+     "base" for everyone, and a layer named by a character id for that
+     character's own spear. Each layer: the drawing, plus a path labelled
+     "line" (not drawn): straight, from the grip (start) to the point (end).
+     The shaft runs on 1.5 head-units behind the grip, so the hand holds it
+     a third of the way along. Held like a sword or club and uses their
+     poses; its length is the line's length: 100 px = 1 head-unit. -->
+
+<svg
+   width="40"
+   height="500"
+   viewBox="-20 -330 40 500"
+   version="1.1"
+   id="svg8"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="base"
+     id="base">
+    <path
+       inkscape:label="shaft"
+       d="M -3.5,150 -3,-250 H 3 L 3.5,150 Z"
+       style="fill:#6b4a2b"
+       id="shaft" />
+    <path
+       inkscape:label="blade"
+       d="M 0,-300 C 9,-285 13,-265 11,-250 L 4,-238 H -4 L -11,-250 C -13,-265 -9,-285 0,-300 Z"
+       style="fill:#9a9a9a"
+       id="blade" />
+    <path
+       inkscape:label="line"
+       d="M 0,0 V -300"
+       fill="none"
+       stroke="#d02020"
+       stroke-width="1"
+       id="line" />
+  </g>
+</svg>

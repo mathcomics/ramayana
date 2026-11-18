@@ -120,17 +120,17 @@ move the legs.
 - No loincloth: the lower cloth covers the thighs only; the torso is drawn
   over the legs.
 - The tail is generated, not drawn.
-- Held props (`arm.prop`: `kind` sword, club or bow, or a variant of one,
+- Held props (`arm.prop`: `kind` sword, club, spear or bow, or a variant of one,
   `angle`, `out`, `draw`, `grip`):
   - Files: `data/props/held/<kind>.svg`, one per kind: `sword.svg`,
-    `club.svg`, `bow.svg` and variants named `<family>-<variant>`
+    `club.svg`, `spear.svg`, `bow.svg` and variants named `<family>-<variant>`
     (`sword-broad`, `club-spike`, `club-spike-long`); the family sets
     how the line is read. A gesture holds a family's plain kind; a panel
     swaps in a variant with `adjust` (`"right.arm.prop.kind":
     "club-spike"`). Each has
     a layer `base` (everyone's version) and optional layers named by a
     character id (that character's own version). A layer holds the
-    drawing plus, not drawn, a path `line` (sword, club: straight, grip →
+    drawing plus, not drawn, a path `line` (sword, club, spear: straight, grip →
     tip; bow: the curve, top tip → bottom tip) and, for the bow, a circle
     `grip`. Drawn at size (100 px = 1 head-unit): the line's length is the
     weapon's length. `node tools/import-held.mjs` → `data/held.json`: each

@@ -39,7 +39,7 @@ wrong: `docs/issues/problem-poses.md`.
   element: `<svg data-recolor-body="#…" data-recolor-cloth="#…" …>`
   (each must be a fill in the drawing — `npm test`). A prop id with no
   drawing is a fixed-size placeholder box; there is no prop registry.
-  Held props (sword, club, bow) in `data/props/held/` with a reference
+  Held props (sword, club, spear, bow) in `data/props/held/` with a reference
   `line`, imported by `tools/import-held.mjs`.
 - After any change: regenerate the relevant sheet (contact, face, pose
   catalogue) and **look at it**; `npm test` before every

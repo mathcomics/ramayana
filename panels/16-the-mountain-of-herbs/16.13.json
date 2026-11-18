@@ -17,7 +17,7 @@
       "scale": 0.4
     },
     {
-      "prop": "rock-square",
+      "prop": "rock-triangle",
       "id": "mountain",
       "on": "hanuman#hand-right",
       "scale": 1.1,

@@ -8,7 +8,7 @@ dashed arrows are a step someone runs.
 flowchart 
   subgraph art["Artist's drawings (SVG, Inkscape)"]
     PARTS_SVG["data/parts/*.svg<br/>body parts, hands"]
-    HELD_SVG["data/props/held/*.svg<br/>sword, club, bow"]
+    HELD_SVG["data/props/held/*.svg<br/>sword, club, spear, bow"]
     FACE_SVG["data/faces/base/&lt;species&gt;.svg<br/>data/faces/&lt;id&gt;.svg"]
     PROP_SVG["data/props/*.svg<br/>props (anchors, recolour roles)"]
   end

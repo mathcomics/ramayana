@@ -85,6 +85,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   becoming Ravana, between 05.22 and 05.24). Keep it to one panel per
   beat; the panels either side are in colour. The deer struck by Rama’s arrow gets
   one too (05.14, before it sinks in 05.15; artist, 2026-11-17).
+- **A giant part shown whole is a severed part** (artist, 2026-11-18):
+  the giant props (`giant-grab`, `giant-fist`, `giant-feet`) are drawn
+  cut off at one end, meant to run off the panel edge. Scaled down so
+  the cut end shows inside the frame, the part reads as cut off — a
+  dismemberment, in negative (14.21a–c: hand, fist and foot falling,
+  the arrow flying on past the cut).
 - **An offering is held out**: the thing offered sits `on` the giver's
   hand (`"on": "sita#hand-right"`) on a `handslow` gesture, and the two
   stand apart (05.21: fruit, a red `rock-circle` at `scale` 0.15; the
@@ -129,6 +135,11 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   target can stay off-panel (05.10: Sita points past the edge, the deer
   is not shown); more, smaller panels beat one crowded one, as long as
   each panel's transition from the last is clear.
+- **Two sides seeing each other across a distance: one side per panel**
+  (artist, 2026-11-18, 13.01a–b): watchers on Lanka's ledge pointing out
+  to sea and the army arriving would need two scales in one picture;
+  the perspective does not work. Use the same place (11.01's ledge) for
+  both panels, the watchers in one, the arrivals in the next.
 - **A fight at a distance is told across panels, not in one** (artist,
   2026-11-11, 04.12–04.17): an archer and his targets in one panel stand
   far too close. Give each side its own 0.6 strip, the attackers
@@ -262,7 +273,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   pointing arm, the turned back — tells a quarrel and a dismissal. The
   test cuts what *only* words could tell, not every exchange.
 - **Rocks** (artist, 2026-11-10): build rocky ground from
-  `rock-circle`, `rock-square` and `rock-rectangle`, often a big one with
+  `rock-circle`, `rock-square`, `rock-rectangle` and `rock-triangle` (a
+  peak, with `hand`, `stand`, `stand-left`, `stand-right` anchors), often a big one with
   a smaller one before it (`composition.md`, Kishkindha and rocks).
 - **`on` lands a pose's lowest point on the anchor**: on a rock's top
   `seat`, `sit-armknee` stands on its raised foot with the hips hovering,

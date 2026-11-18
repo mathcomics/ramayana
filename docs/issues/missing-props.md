@@ -5,7 +5,7 @@ hand; rerun it after changing panels or adding prop art. A prop is drawn
 when `data/props/<id>.svg` exists (100 px = 1 head-unit, size from the
 viewBox, optional `anchors` group with a `seat`; see
 docs/design/panels.md, Props); until then the renderer shows a fixed-size
-placeholder box. Held props (sword, club, bow) live in
+placeholder box. Held props (sword, club, spear, bow) live in
 `data/props/held/` instead and are imported by `tools/import-held.mjs`.
 
 ## Placeholder props (used by panels, no drawn art)
@@ -50,4 +50,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-front-awake, giant-face-side, giant-face-side-awake, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front, giant-face-front-awake, giant-face-side, giant-face-side-awake, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, rock-triangle, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

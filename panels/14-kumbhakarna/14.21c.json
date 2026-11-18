@@ -1,0 +1,24 @@
+{
+  "scene": "Variation: the foot, cut off at the leg, falls (negative)",
+  "tall": 0.6,
+  "mode": "negative",
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "giant-feet",
+      "id": "foot",
+      "at": 0.45,
+      "row": 0.15,
+      "scale": 0.6,
+      "rotate": -60,
+      "body": "#9a7a7a"
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.7,
+      "row": 0.55,
+      "scale": 1.6,
+      "rotate": 160
+    }
+  ]
+}
