@@ -40,8 +40,5 @@
       ],
       "scale": 1.7
     }
-  ],
-  "needs": [
-    "prop: giant-lie-waist needs to be wider."
   ]
 }

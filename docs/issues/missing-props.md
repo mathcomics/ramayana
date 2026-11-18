@@ -31,7 +31,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: food-platter (a round platter piled with food, held up) | 14.07 |
 | prop: giant-arm-fallen (the whole arm lying, hand open, the cut end shown): giant-grab on its side for now | 14.21 |
 | prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.10 |
-| prop: giant-lie-waist needs to be wider. | 14.03 |
 | prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 16.09, 16.09a |
 | prop: javelin (a heavy spear, held and thrown): a big arrow for now | 16.03 |
 | prop: javelin (a heavy spear, held and thrown): the long spiked club for now | 16.02 |
