@@ -1,5 +1,5 @@
 {
-  "scene": "The line of stone grows over the water toward Lanka on the horizon",
+  "scene": "The line of stone grows over the water toward Lanka on the horizon; a monkey, seen from behind, carries the next rock out along it",
   "tall": 1,
   "ground": "sea",
   "sky": "mist",
@@ -16,50 +16,58 @@
     },
     {
       "prop": "rock-rectangle",
-      "at": 0.62,
+      "at": 0.6,
       "row": 0.4,
-      "scale": 0.12,
+      "scale": 0.1,
       "body": "stone"
     },
     {
       "prop": "rock-square",
-      "at": 0.55,
-      "row": 0.36,
-      "scale": 0.18,
+      "at": 0.57,
+      "row": 0.375,
+      "scale": 0.16,
       "body": "stone"
     },
     {
       "prop": "rock-rectangle",
-      "at": 0.47,
-      "row": 0.3,
-      "scale": 0.28,
+      "at": 0.53,
+      "row": 0.335,
+      "scale": 0.24,
       "body": "stone"
     },
     {
       "prop": "rock-square",
-      "at": 0.38,
-      "row": 0.21,
-      "scale": 0.42,
+      "at": 0.475,
+      "row": 0.275,
+      "scale": 0.36,
       "body": "stone"
     },
     {
       "prop": "rock-rectangle",
-      "at": 0.25,
-      "row": 0.06,
-      "scale": 0.65,
+      "at": 0.4,
+      "row": 0.185,
+      "scale": 0.52,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.29,
+      "row": 0.05,
+      "scale": 0.8,
       "body": "stone",
       "id": "near-stone"
     },
     {
       "prop": "rock-circle",
       "on": "carrier#hands",
-      "scale": 0.3
+      "scale": 0.35
     },
     {
       "character": "monkey1",
       "id": "carrier",
       "pose": "arch-overhead",
       "view": "front",
+      "turn": 180,
       "scale": 0.7,
       "cloth": "red",
       "on": "near-stone#stand"

@@ -1,5 +1,5 @@
 {
-  "scene": "Rakshasas on the wall above, front view, shouting and hurling; dark rocks in the wall",
+  "scene": "Rakshasas crowd the wall above, front view, shouting and hurling rocks; dark stones in the wall",
   "tall": 1,
   "ground": "sand",
   "figures": [
@@ -29,6 +29,31 @@
       "scale": 0.5
     },
     {
+      "prop": "rock-circle",
+      "on": "hurler#hands",
+      "scale": 0.35,
+      "body": "stone",
+      "nudge": [
+        0,
+        0.5
+      ]
+    },
+    {
+      "character": "raxas_m2",
+      "id": "hurler",
+      "pose": "arch-overhead",
+      "view": "front",
+      "facing": "left",
+      "at": 0.35,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -1.2
+      ],
+      "scale": 0.5,
+      "cloth": "red-check"
+    },
+    {
       "character": "raxas_m3",
       "pose": "arch-onhands",
       "view": "front",
@@ -42,6 +67,22 @@
       "scale": 0.5
     },
     {
+      "character": "raxas_m1",
+      "id": "last",
+      "pose": "arch-search",
+      "view": "front",
+      "facing": "left",
+      "at": 0.8,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -2
+      ],
+      "scale": 0.5,
+      "cloth": "red-diamond",
+      "mouth": 3
+    },
+    {
       "foreground": [
         0.81,
         0.52
@@ -50,13 +91,35 @@
     },
     {
       "prop": "rock-circle",
-      "at": 0.7,
-      "row": 0.28,
+      "at": 0.3,
+      "row": 0.5,
       "scale": 0.35,
       "body": "#222222",
       "repeat": {
         "gap": 1,
         "n": 3
+      }
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.62,
+      "row": 0.3,
+      "scale": 0.35,
+      "body": "#222222",
+      "repeat": {
+        "gap": 1,
+        "n": 4
+      }
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.36,
+      "row": 0.1,
+      "scale": 0.35,
+      "body": "#222222",
+      "repeat": {
+        "gap": 1,
+        "n": 5
       }
     }
   ]

@@ -472,7 +472,12 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     o.groundY = sy - hips - o.dy * o.unit;
     o.x = sx - (o.f ? o.pelvisX * o.unit * o.facing : 0) + o.dx * o.unit;
   };
+  // a figure on a foreground stands on its line before anything is seated on
+  // the figure: what it carries ("on": "<figure>#hands") follows it up the band
+  const lineY = (b, x) => H * (1 - (b.line[0] + (b.line[1] - b.line[0]) * x / W));
+  const standOnBands = () => { for (const o of all) { const b = bandOf(o); if (b && o.x != null) o.groundY = lineY(b, o.x) - o.dy * o.unit; } };
   for (let pass = 0; pass < 3; pass++) {
+    standOnBands();
     for (const o of all) {
       if (o.b) continue;
       if (ent(o).on && !onBand(ent(o))) { seatOn(o); continue; }
@@ -491,8 +496,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   for (const o of all) o.x ??= W / 2;
   // on a foreground: the feet on its line where the entry stands (after the
   // across nudge, so the feet follow the slope), then the up/down nudge
-  const lineY = (b, x) => H * (1 - (b.line[0] + (b.line[1] - b.line[0]) * x / W));
-  for (const o of all) { const b = bandOf(o); if (b) o.groundY = lineY(b, o.x) - o.dy * o.unit; }
+  standOnBands();
 
   // -- draw: ground, sky, then the list in order -----------------------------------
   // ids are unique per panel and figure, so panels can share a page

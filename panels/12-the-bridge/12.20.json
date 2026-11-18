@@ -1,29 +1,29 @@
 {
-  "scene": "A frieze of monkeys running down to the water with rocks in their arms and on their shoulders",
+  "scene": "A frieze of monkeys hurrying down to the water, each with a rock held up over the head",
   "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
       "prop": "rock-circle",
       "on": "m1#hands",
-      "scale": 0.5
+      "scale": 0.6
     },
     {
       "character": "monkey1",
       "id": "m1",
-      "pose": "run-pump",
+      "pose": "run-reachup",
       "facing": "right",
       "at": 0.12
     },
     {
       "prop": "rock-rectangle",
-      "on": "m2#shoulder",
-      "scale": 0.45
+      "on": "m2#hands",
+      "scale": 0.6
     },
     {
       "character": "monkey1",
       "id": "m2",
-      "pose": "runlow-pumplow",
+      "pose": "pass-reachup",
       "facing": "right",
       "at": 0.36,
       "cloth": "red"
@@ -31,12 +31,12 @@
     {
       "prop": "rock-square",
       "on": "m3#hands",
-      "scale": 0.5
+      "scale": 0.6
     },
     {
       "character": "monkey1",
       "id": "m3",
-      "pose": "runwide-hang",
+      "pose": "runwide-reachup",
       "facing": "right",
       "at": 0.6,
       "cloth": "orange"
@@ -44,15 +44,14 @@
     {
       "prop": "rock-rectangle",
       "on": "m4#hands",
-      "scale": 0.5
+      "scale": 0.6
     },
     {
       "character": "monkey1",
       "id": "m4",
-      "pose": "leap-reach",
+      "pose": "walk-reachup",
       "facing": "right",
       "at": 0.84,
-      "row": 0.15,
       "cloth": "red-stripe"
     }
   ]

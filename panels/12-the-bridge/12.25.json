@@ -1,5 +1,5 @@
 {
-  "scene": "Rama crosses on Hanuman's shoulders, Lakshman and Vibhishana behind; Lanka, far for so long, stands near",
+  "scene": "Rama walks over the bridge behind Hanuman, Lakshman and Vibhishana after them; Lanka, far for so long, stands near",
   "tall": 1,
   "ground": "sea",
   "sky": "mist",
@@ -24,39 +24,33 @@
       "character": "vibhishana",
       "pose": "walk-swing",
       "facing": "right",
-      "at": 0.12,
+      "at": 0.1,
       "on": "foreground",
-      "scale": 0.6
+      "scale": 0.7
     },
     {
       "character": "lakshman",
       "pose": "pass-swing",
       "facing": "right",
-      "at": 0.26,
+      "at": 0.25,
       "on": "foreground",
-      "scale": 0.6
+      "scale": 0.7
     },
     {
       "character": "rama",
-      "pose": "chair-hang",
+      "pose": "walk-swing",
       "facing": "right",
-      "on": "hanuman#shoulder",
-      "scale": 0.55,
-      "nudge": [
-        -0.5,
-        2.7
-      ]
+      "at": 0.4,
+      "on": "foreground",
+      "scale": 0.7
     },
     {
       "character": "hanuman",
-      "pose": "walk-swing",
+      "pose": "pass-swing",
       "facing": "right",
-      "at": 0.5,
+      "at": 0.57,
       "on": "foreground",
-      "scale": 0.8
+      "scale": 0.7
     }
-  ],
-  "needs": [
-    "pose: sit-ride (Rama astride on Hanuman's shoulders): chair-hang on hanuman#shoulder for now"
   ]
 }

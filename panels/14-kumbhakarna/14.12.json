@@ -16,19 +16,28 @@
       "rotate": 90
     },
     {
+      "foreground": 0.1,
+      "color": "stone-grey"
+    },
+    {
       "character": "raxas_m1",
       "pose": "runlow-pumplow",
       "facing": "right",
       "at": 0.5,
       "cloth": "red-diamond",
-      "turn": 180
+      "turn": 180,
+      "on": "foreground"
     },
     {
       "character": "raxas_m2",
       "pose": "leap-reach",
       "facing": "right",
       "at": 0.7,
-      "row": 0.12,
+      "on": "foreground",
+      "nudge": [
+        0,
+        0.6
+      ],
       "cloth": "red-check"
     },
     {
@@ -36,7 +45,8 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.92,
-      "cloth": "red-check"
+      "cloth": "red-check",
+      "on": "foreground"
     }
   ],
   "needs": [

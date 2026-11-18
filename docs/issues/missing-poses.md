@@ -86,7 +86,6 @@ its gestures on any base. Moments with neither come first.
 - 08.13: grapple (two bodies locked): lunge and lean for now
 - 09.13: crouch-ready (deep knees, arms back): crouch-cross for now
 - 12.19: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
-- 12.25: sit-ride (Rama astride on Hanuman's shoulders): chair-hang on hanuman#shoulder for now
 - 13.07: carry-ram (arms forward, a beam clasped against the side): lunge-armfront for now
 - 13.09: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 13.11: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now

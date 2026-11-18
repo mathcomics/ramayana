@@ -228,6 +228,39 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   where the drawing says, with no `nudge` to tune.
 - **Seated figures in a 0.6 strip** stay at `scale` 1.6–1.7 on the
   `front` row: at 2 and above the head leaves the top (10.29–10.33).
+- **Whatever stands on something touches it** (artist, 2026-11-17,
+  12.19–12.22): the commonest reason a panel of chapters 11–14 failed
+  was not the idea but a thing beside, under or behind what it should be
+  on. From above, a monkey on a stone has the stone's `at` and a `row`
+  just over the stone's, and the stone is bigger than the monkey
+  (`scale` 0.8); a line of stones runs on **off the far edge**, not to
+  a stop in mid-water; the surf (`wave-top`) breaks in a **gap between
+  two stones**, never under one (12.22). After rendering, check each
+  `on` and each "stands on / holds / sits in" of the scene line against
+  the picture.
+- **A carried rock needs raised arms** (12.20): on a pumping run
+  (`run-pump`, `runlow-pumplow`) `#hands` is the middle of the chest
+  and the rock hides behind the body. Carriers take the `reachup`
+  gesture on any walking or running base, the rock `on` their `#hands`
+  and listed before them.
+- **Walking away from the reader is a back view**: `view: "front"` with
+  `turn: 180` (12.21, the monkey carrying a rock out along the stones
+  toward Lanka). A line that leads into the picture is walked into the
+  picture; and the stones of a receding line touch, each a little
+  smaller and higher than the last.
+- **Nobody rides on anybody's shoulders** (artist, 2026-11-17): not
+  realistic. 12.25 was Rama on Hanuman; they all walk over the bridge.
+- **Runners before a giant part need a ground**: a `foreground` band
+  under their feet, over the bottom of the giant (14.12); on the bare
+  gradient they float in front of the face.
+- **A wall is crowded** (13.03): five defenders along the top in front
+  view, different cloths and arms, one with a rock overhead, and rows
+  of dark stones down the wall face (`repeat`). Three men and three
+  stones read as empty.
+- **A talk told by gesture passes the wordless test** (artist,
+  2026-11-17, 12.04–12.07): a run of close strips — pleading, the
+  pointing arm, the turned back — tells a quarrel and a dismissal. The
+  test cuts what *only* words could tell, not every exchange.
 - **Rocks** (artist, 2026-11-10): build rocky ground from
   `rock-circle`, `rock-square` and `rock-rectangle`, often a big one with
   a smaller one before it (`composition.md`, Kishkindha and rocks).
@@ -281,7 +314,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   14.14 uses) and the others matched to it by forearm and hand. Place
   them by row (`front` mostly, `closeup` for a close face), with the
   rakshasas and monkeys beside them at their own size too: a man is
-  about as tall as the giant's head.
+  about as tall as the giant's head. When a part reads too small, its
+  drawing grows (`giant-fist`: `data-height` 5 → 7 and a line as thick
+  as `giant-grab`'s, artist 2026-11-17, 14.13), not the panel's `scale`.
 
 ## After writing
 
