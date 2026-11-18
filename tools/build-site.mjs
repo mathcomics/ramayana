@@ -32,25 +32,26 @@ html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif; }
 main { max-width: 480px; margin: 0 auto; }
 a { color: inherit; }
-figure { margin: 0 0 6px; }
+figure { margin: 0 16px 14px; border-radius: 14px; overflow: hidden; }
 figure svg { display: block; width: 100%; height: auto; }
-ol.tiles { list-style: none; margin: 0; padding: 20px 16px 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-ol.tiles .tile { display: block; aspect-ratio: 1; border-radius: 18%; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+ol.tiles { list-style: none; margin: 0; padding: 20px 16px 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+ol.tiles li { position: relative; }
+ol.tiles .tile { display: block; aspect-ratio: 1; overflow: hidden; box-shadow: 5px 7px 14px rgba(0,0,0,.5); }
 ol.tiles a.tile:active { transform: scale(.97); }
 ol.tiles .tile svg { display: block; width: 100%; height: 100%; }
 ol.tiles .soon { opacity: .35; filter: grayscale(.6); }
-main.chapter { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+main.chapter { padding-top: 16px; padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 .pager { position: fixed; left: 0; right: 0; bottom: calc(14px + env(safe-area-inset-bottom)); display: flex; justify-content: center; gap: 10px; pointer-events: none; z-index: 1; }
-.pager a { pointer-events: auto; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: #fff; color: #000; text-decoration: none; font-size: 24px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.pager a { pointer-events: auto; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: rgba(255,255,255,.5); color: #000; text-decoration: none; font-size: 24px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager a:active { transform: scale(.95); }
-.pager .none { pointer-events: none; width: 56px; height: 56px; border-radius: 18px; background: #fff; opacity: .5; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.pager .none { pointer-events: none; width: 56px; height: 56px; border-radius: 18px; background: rgba(255,255,255,.5); opacity: .3; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager svg { width: 26px; height: 26px; }
 `;
 const page = (title, body, cls) => `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>${esc(title)}</title><style>${css}</style></head>
 <body><main${cls ? ` class="${cls}"` : ''}>${body}</main></body></html>`;
-const HOME = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19.5z" fill="currentColor"/></svg>';
+const HOME = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a1.2 1.2 0 0 1 .8.3l8.6 7.3a.9.9 0 0 1-.6 1.6H19v7.6a1.5 1.5 0 0 1-1.5 1.5h-3v-4.5a2.5 2.5 0 0 0-5 0v4.5h-3A1.5 1.5 0 0 1 5 20v-7.6H3.2a.9.9 0 0 1-.6-1.6l8.6-7.3a1.2 1.2 0 0 1 .8-.3z" fill="currentColor"/></svg>';
 const ARROW = (dir) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${dir < 0 ? 'M17 4 5 12l12 8z' : 'M7 4l12 8-12 8z'}" fill="currentColor"/></svg>`;
 const NONE = '<span class="none" aria-hidden="true"></span>';
 const devanagari = (n) => String(n).replace(/\d/g, (d) => String.fromCharCode(0x966 + +d));
@@ -101,7 +102,8 @@ const cssGround = (g) => {
 //   { "layers": [...] }: heads and props placed in the tile's own units
 //     (100 across), which may run past the edges and are clipped:
 //     { "character", "view": "front" | "side", "facing", "x", "y", "size" }
-//     (a head alone, size its height) or { "prop", "x", "y", "size",
+//     (a head alone, size its height; with "pose", the whole figure, its
+//     feet on (x, y), size its head height) or { "prop", "x", "y", "size",
 //     "rotate", "facing", "body" } (fitted in a size × size box, turned
 //     degrees clockwise, recoloured);
 //   { "character" } or { "prop", "rotate", "body" }: one such layer, centred.
@@ -110,8 +112,13 @@ const iconFail = (m) => { throw new Error(`panels/icons.json: ${m}`); };
 const headLayer = (L) => {
   const c = assets.characters.characters.find((x) => x.id === L.character) || iconFail(`unknown character "${L.character}"`);
   const look = characterLook(c, assets.characters.colors, assets.faces);
-  const pose = JSON.parse(JSON.stringify(findPose(assets, 'step-hang').pose));
-  const view = look.sideOnly || L.view === 'side' ? 'side' : 'front';
+  const found = findPose(assets, L.pose || 'step-hang');
+  if (found.error) iconFail(`pose "${L.pose}": ${found.error}`);
+  const pose = JSON.parse(JSON.stringify(found.pose));
+  const view = look.sideOnly || L.view === 'side' || (L.pose && L.view !== 'front') ? 'side' : 'front';
+  // a whole figure (a layer naming a pose): feet on (x, y), size the height of its head
+  if (L.pose) return renderFigure(assets.species[look.species], pose, { ...look, x: L.x ?? 50, y: L.y ?? 90, scale: L.size ?? 10,
+    facing: L.facing === 'left' ? -1 : 1, view }).svg;
   // the head alone (as a sound-cry burst draws it), its centre on (x, y)
   return renderFigure(assets.species[look.species], pose, { ...look, x: L.x ?? 50, y: L.y ?? 52, scale: L.size ?? 58,
     facing: L.facing === 'left' ? -1 : 1, view, headOnly: true }).svg;
@@ -144,14 +151,15 @@ const iconSvg = (spec, n, ground) => {
   const layers = spec.layers || [spec];
   return `<svg viewBox="0 0 100 100" aria-hidden="true" overflow="hidden">${uniq(layers.map((L) => (L.prop ? propLayer(L) : headLayer(L))).join(''))}</svg>`;
 };
-const tiles = chapters.map((c) => {
+// each tile above the next, so its shadow falls on the tiles to its right and below
+const tiles = chapters.map((c, i) => {
   const spec = ICONS[String(c.n)];
   const ground = spec?.ground || spec?.panel?.ground || typicalGround(c.sec);
   const art = spec ? iconSvg(spec, c.n, ground) : '';
   const style = `background:${cssGround(ground)}`;
   return c.sec && c.sec.panels.length
-    ? `<li><a class="tile" href="${file(c)}" style="${style}" aria-label="${c.n}. ${esc(c.title)}">${art}</a></li>`
-    : `<li><span class="tile soon" style="${style}" aria-label="${c.n}. ${esc(c.title)} (to come)">${art}</span></li>`;
+    ? `<li style="z-index:${chapters.length - i}"><a class="tile" href="${file(c)}" style="${style}" aria-label="${c.n}. ${esc(c.title)}">${art}</a></li>`
+    : `<li style="z-index:${chapters.length - i}"><span class="tile soon" style="${style}" aria-label="${c.n}. ${esc(c.title)} (to come)">${art}</span></li>`;
 });
 writeFileSync(join(out, 'index.html'), page('Ramayana', `<ol class="tiles">${tiles.join('')}</ol>`));
 console.log(`_site/: ${ready.length} of ${chapters.length} chapter(s) with panels`);

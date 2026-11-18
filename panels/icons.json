@@ -1,32 +1,29 @@
 {
-  "_doc": "The reader site's index: one square tile per chapter (by number), no words, on the chapter's typical ground (the most common panel ground that is not off-white or white) unless \"ground\" names one (data/grounds.json). An icon is { \"panel\": {...}, \"crop\": [x, y, size] } (a square panel, cropped; panel units, 360 across), { \"layers\": [...] } (heads { character, view, facing, x, y, size } and props { prop, x, y, size, rotate, facing, body } in tile units, 100 across, clipped at the edges), or a single { character } / { prop } centred. Chapters with no panels yet show dimmed and are not links. Built by tools/build-site.mjs (its comment has the details).",
+  "_doc": "The reader site's index: one square tile per chapter (by number), no words, on the chapter's typical ground (the most common panel ground that is not off-white or white) unless \"ground\" names one (data/grounds.json). An icon is { \"panel\": {...}, \"crop\": [x, y, size] } (a square panel, cropped; panel units, 360 across), { \"layers\": [...] } (heads { character, view, facing, x, y, size }, whole figures { character, pose, facing, x, y (the feet), size (the head) } and props { prop, x, y, size, rotate, facing, body } in tile units, 100 across, clipped at the edges), or a single { character } / { prop } centred. Chapters with no panels yet show dimmed and are not links. Built by tools/build-site.mjs (its comment has the details).",
   "icons": {
     "1": { "prop": "palace-ayodhya", "size": 88, "ground": "white" },
-    "2": { "layers": [
-      { "character": "dasharatha", "view": "side", "facing": "right", "x": 11, "y": 52, "size": 56 },
-      { "character": "kaikeyi", "view": "side", "facing": "left", "x": 70, "y": 52, "size": 56 }
-    ] },
+    "2": { "prop": "throne-ayodhya", "size": 84, "ground": "white" },
     "3": { "prop": "lotus-full", "size": 84 },
-    "4": { "crop": [118, 95, 240], "panel": { "figures": [
+    "4": { "crop": [128, 95, 170], "panel": { "figures": [
       { "character": "surpanakha", "pose": "oneleg-propback", "facing": "right", "at": 0.5, "row": 0.04 }
     ] } },
-    "5": { "prop": "deer-stand", "body": "gold", "size": 80, "ground": "dark-green" },
+    "5": { "prop": "deer-stand", "body": "gold", "size": 80, "ground": "#000000" },
     "6": { "prop": "vulture-fly", "ground": "sky", "size": 84 },
     "7": { "crop": [70, 110, 220], "panel": { "figures": [
       { "character": "sugriva", "pose": "step-hang", "view": "front", "at": 0.36, "row": 0 },
       { "character": "hanuman", "pose": "step-hang", "view": "front", "at": 0.64, "row": 0 }
     ] } },
-    "8": { "crop": [10, 65, 300], "panel": { "ground": "dark-green", "figures": [
+    "8": { "crop": [10, 65, 300], "panel": { "ground": "green", "figures": [
       { "character": "sugriva", "pose": "leap-reach", "facing": "right", "at": 0.3, "row": 0.25, "rotate": 15 },
       { "character": "sugriva", "id": "bali", "cloth": "orange", "pose": "leap-fists", "facing": "left", "at": 0.7, "row": 0.3, "rotate": -15 }
     ] } },
-    "9": { "crop": [40, 50, 290], "panel": { "ground": "sky", "figures": [
+    "9": { "crop": [40, 50, 290], "panel": { "ground": "sand", "figures": [
       { "character": "hanuman", "pose": "liefront-dive", "facing": "right", "at": 0.5, "row": 0.35, "rotate": -20 }
     ] } },
     "10": { "crop": [118, 118, 130], "panel": { "figures": [
       { "character": "sita", "pose": "stand-grief", "facing": "right", "at": 0.5, "row": 0.04 }
     ] } },
-    "11": { "prop": "fire", "rotate": 90 },
+    "11": { "prop": "fire", "rotate": 90, "ground": "#000000" },
     "12": { "crop": [45, 150, 270], "panel": { "figures": [
       { "prop": "rock-rectangle", "body": "#5f5050", "at": 0.5, "row": "mid", "repeat": { "n": 3, "gap": 0.5 } }
     ] } },
@@ -35,7 +32,8 @@
       { "character": "monkey1", "pose": "fallback-flung", "facing": "right", "at": 0.42, "row": 0.3, "rotate": 30 }
     ] } },
     "14": { "layers": [
-      { "prop": "giant-face-side", "rotate": -90, "x": 50, "y": 56, "size": 125 }
+      { "character": "raxas_m1", "pose": "stand-hang", "facing": "left", "x": 80, "y": 64, "size": 9 },
+      { "prop": "giant-face-side", "rotate": -90, "x": 50, "y": 80, "size": 125 }
     ] },
     "15": { "character": "indrajit", "ground": "night" },
     "16": { "prop": "flower-white", "ground": "green" },
