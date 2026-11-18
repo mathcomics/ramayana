@@ -1,0 +1,52 @@
+{
+  "scene": "Monkeys come on carrying felled trunks over their heads",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "prop": "tree-trunk",
+      "on": "m1#hands",
+      "rotate": -90,
+      "scale": 0.35
+    },
+    {
+      "id": "m1",
+      "character": "monkey1",
+      "pose": "walk-overhead",
+      "facing": "right",
+      "at": 0.14,
+      "cloth": "red-check"
+    },
+    {
+      "prop": "tree-trunk",
+      "on": "m2#hands",
+      "rotate": -90,
+      "scale": 0.35
+    },
+    {
+      "id": "m2",
+      "character": "monkey1",
+      "pose": "run-overhead",
+      "facing": "right",
+      "at": 0.46,
+      "cloth": "red"
+    },
+    {
+      "prop": "tree-trunk",
+      "on": "m3#hands",
+      "rotate": -90,
+      "scale": 0.35
+    },
+    {
+      "id": "m3",
+      "character": "monkey1",
+      "pose": "walk-overhead",
+      "facing": "right",
+      "at": 0.78,
+      "cloth": "red-stripe"
+    }
+  ],
+  "needs": [
+    "prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now"
+  ]
+}

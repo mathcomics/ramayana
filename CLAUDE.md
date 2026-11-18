@@ -135,8 +135,8 @@ and Sita in the swan chariot **waving back at the reader**.
 | `10-the-ring` | 33 | written against the brief; variations to choose from (10.02a–c, 10.04a–c and 10.04f the night search, 10.08c–o Sita's visitors, 10.09–10.11a the grove by day) |
 | `11-lanka-burns` | 27 | first draft (2026-11-17): the opener on the ledge, the turn back and the run in (11.01–11.01b), the havoc (11.02–11.03a), swinging on vines (11.03b–d), the news and Ravana sending Indrajit (11.03e–h), Indrajit and the binding (11.04–11.05a), Ravana's throne (11.06, 11.06a), the burning tail and the leap (11.07–11.07c), panic (11.08a) and the sea (11.09), around the approved reference panel 11.08; the homecoming still to write |
 | `12-the-bridge` | 26 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
-| `13-the-war-begins` | 8 | the opener (Lanka across the sea, 13.01) and battle scenes (ladders against the wall, rocks hurled, the fall, a chief, the fallen field) |
-| `14-kumbhakarna` | 12 | 11 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6) and the approved reference panel 14.05 |
+| `13-the-war-begins` | 12 | the opener (Lanka across the sea, 13.01) and battle scenes (ladders carried and raised against the wall (13.01ba, 13.01bb), trunks carried and rammed (13.01bc, 13.01bd), rocks hurled, the fall, a chief, the fallen field) |
+| `14-kumbhakarna` | 14 | 13 exploratory drafts of the waking (14.01–14.04c, to be cut to 5–6; the steaming bowl in three variations, 14.03–14.03c) and the approved reference panel 14.05 |
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
 Chapters 15–18 have briefs and no panels; the site marks them

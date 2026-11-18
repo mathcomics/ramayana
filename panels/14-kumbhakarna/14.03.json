@@ -1,5 +1,5 @@
 {
-  "scene": "Water: a rakshasa reaches a pot toward his sleeping face; another carries one overhead",
+  "scene": "A steaming bowl: a rakshasa holds a great bowl up toward his sleeping face; another carries one overhead",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
@@ -11,8 +11,18 @@
       "at": 0.18
     },
     {
-      "prop": "water-pot",
-      "on": "pourer#hands"
+      "prop": "half-circle",
+      "id": "bowl",
+      "on": "pourer#hands",
+      "scale": 2.5
+    },
+    {
+      "prop": "vine",
+      "body": "#ffffff",
+      "at": 0.57,
+      "row": 0.7,
+      "rotate": -15,
+      "scale": 1.2
     },
     {
       "id": "pourer",
@@ -23,8 +33,17 @@
       "cloth": "red-check"
     },
     {
-      "prop": "water-pot",
-      "on": "carrier#hands"
+      "prop": "half-circle",
+      "on": "carrier#hands",
+      "scale": 2.5
+    },
+    {
+      "prop": "vine",
+      "body": "#ffffff",
+      "at": 0.76,
+      "row": 0.72,
+      "rotate": -10,
+      "scale": 1.2
     },
     {
       "id": "carrier",
@@ -35,7 +54,6 @@
     }
   ],
   "needs": [
-    "prop: water-pot (a round clay water pot, carried and tipped)",
-    "prop: water-pour (water spilling from a tipped pot onto the face)"
+    "prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now"
   ]
 }

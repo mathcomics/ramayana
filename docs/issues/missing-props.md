@@ -17,7 +17,6 @@ placeholder box. Held props (sword, club, bow) live in
 | jewels | 07.10 |
 | line-top | 05.18 |
 | rope-bind | 11.05, 11.05a, 11.06, 11.06a, 11.07 |
-| water-pot | 14.03 |
 
 ## Prop wishes from the panels' needs
 
@@ -43,14 +42,13 @@ docs/design/panel-writing.md, Lessons).
 | prop: mountain | 09.11 |
 | prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.05, 11.05a, 11.06, 11.06a, 11.07 |
 | prop: staff (held) | 05.18a, 05.19 |
+| prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now | 14.03, 14.03b, 14.03c |
 | prop: top views of the main characters standing (static, like hut-top): Sita inside the line, Lakshman leaving | 05.18 |
 | prop: tree | 03.05 |
 | prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): a leaning tree-side for now | 11.02 |
-| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.02a, 11.03, 11.03a |
+| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.02a, 11.03, 11.03a, 13.01bc |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.05 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.11 |
-| prop: water-pot (a round clay water pot, carried and tipped) | 14.03 |
-| prop: water-pour (water spilling from a tipped pot onto the face) | 14.03 |
 
 ## Drawn props in use
 

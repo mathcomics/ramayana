@@ -1,0 +1,45 @@
+{
+  "scene": "A ram: monkeys charge a great trunk against the wall",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "prop": "city-side",
+      "at": 0.82,
+      "scale": 2,
+      "body": "#9a9a9a",
+      "cloth": "#2e2424"
+    },
+    {
+      "prop": "tree-trunk",
+      "at": 0.55,
+      "row": 0.22,
+      "rotate": -90,
+      "scale": 0.75
+    },
+    {
+      "character": "monkey1",
+      "pose": "lunge-armfront",
+      "facing": "right",
+      "at": 0.16,
+      "cloth": "red-stripe"
+    },
+    {
+      "character": "monkey1",
+      "pose": "lunge-armfront",
+      "facing": "right",
+      "at": 0.38,
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "lunge-armfront",
+      "facing": "right",
+      "at": 0.6,
+      "cloth": "red-check"
+    }
+  ],
+  "needs": [
+    "pose: carry-ram (arms forward, a beam clasped against the side): lunge-armfront for now"
+  ]
+}

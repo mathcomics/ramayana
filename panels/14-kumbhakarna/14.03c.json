@@ -1,0 +1,54 @@
+{
+  "scene": "Variation: two rakshasas carry one great steaming bowl overhead toward his sleeping face",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "prop": "giant-face-side",
+      "id": "face",
+      "facing": "left",
+      "rotate": 90,
+      "at": 0.18
+    },
+    {
+      "prop": "half-circle",
+      "scale": 6,
+      "at": 0.62,
+      "row": 0.63
+    },
+    {
+      "prop": "vine",
+      "body": "#ffffff",
+      "at": 0.57,
+      "row": 0.87,
+      "rotate": -15,
+      "scale": 1
+    },
+    {
+      "prop": "vine",
+      "body": "#ffffff",
+      "at": 0.67,
+      "row": 0.87,
+      "rotate": 10,
+      "scale": 0.8
+    },
+    {
+      "id": "front",
+      "character": "raxas_m2",
+      "pose": "walk-overhead",
+      "facing": "left",
+      "at": 0.55,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "walk-overhead",
+      "facing": "left",
+      "at": 0.75,
+      "cloth": "red-diamond"
+    }
+  ],
+  "needs": [
+    "prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now"
+  ]
+}
