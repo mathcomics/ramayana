@@ -1,0 +1,98 @@
+{
+  "scene": "Variation, from above: two ladders carried down to the wall, monkeys at each side; the defenders wait along the wall top",
+  "tall": 1.5,
+  "ground": "sand",
+  "figures": [
+    {
+      "prop": "ladder",
+      "id": "l1",
+      "at": 0.3,
+      "row": 0.42,
+      "scale": 0.45
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.2,
+      "row": 0.62
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "red",
+      "at": 0.4,
+      "row": 0.6
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "orange",
+      "at": 0.2,
+      "row": 0.44
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.4,
+      "row": 0.42
+    },
+    {
+      "prop": "ladder",
+      "id": "l2",
+      "at": 0.72,
+      "row": 0.58,
+      "scale": 0.45
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "red",
+      "at": 0.62,
+      "row": 0.78
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.82,
+      "row": 0.76
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "at": 0.62,
+      "row": 0.6
+    },
+    {
+      "prop": "monkey-top",
+      "character": "monkey1",
+      "cloth": "orange",
+      "at": 0.82,
+      "row": 0.58
+    },
+    {
+      "foreground": 0.13,
+      "color": "stone-grey"
+    },
+    {
+      "prop": "male-top",
+      "character": "raxas_m1",
+      "cloth": "#c81e1e",
+      "at": 0.2,
+      "row": 0.02
+    },
+    {
+      "prop": "male-top",
+      "character": "raxas_m2",
+      "cloth": "#c81e1e",
+      "at": 0.5,
+      "row": 0.03
+    },
+    {
+      "prop": "male-top",
+      "character": "raxas_m3",
+      "cloth": "#c81e1e",
+      "at": 0.8,
+      "row": 0.02
+    }
+  ]
+}

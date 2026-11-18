@@ -120,13 +120,18 @@ behind them, after = in front; the retired `layer` field is an issue).
 - `rotate`: degrees clockwise about the drawing's centre, after `facing`; the prop stands on the bottom of its turned box (`"rotate": 90` sets the sideways `fire` upright, 07.16). With `on` it turns about the point it lands on instead (an arrow in a chest about where it goes in: `"on": "ravana#chest", "rotate": 55`). Its own anchors are not turned, so whatever stands on a turned prop does not tilt with it.
 - `repeat`: the prop drawn several times in a row — a cluster of rocks, a
   clump of lotuses or flowers, ladders against a wall. `"repeat": 3`, or
-  `{ "n": 3, "gap": 0.3, "scale": [0.8, 0.9], "rotate": [-8, 6] }`. The
+  `{ "n": 3, "gap": 0.3, "scale": [0.6, 1.05], "rotate": [-12, 12], "seed": 1 }`. The
   entry as written (its `at`, `row`, `scale`, `nudge`, `on`, `rotate`,
   colours) is the **middle** copy; the others stand left and right of it,
   alternately outwards, on its ground line (or its anchor), drawn behind
-  it, farthest first. `scale` and `rotate` are `[left, right]`: each
-  step's factor and degrees, compounding outwards (defaults `[0.8, 0.9]`
-  and `[-8, 6]`); `gap` is the space between neighbours' edges in the
+  it, farthest first. Each copy has **its own size and turn, at random**
+  (artist, 2026-11-17: copies shrinking steadily to the sides looked
+  mechanical): `scale` and `rotate` are `[min, max]` ranges — the
+  copy's size as a factor of the middle's, and its turn in degrees from
+  the middle's (defaults `[0.6, 1.05]` and `[-12, 12]`; `[1, 1]` and
+  `[0, 0]` make them all alike). The draw is seeded by the prop, the
+  count and `seed`, not by where the entry stands, so moving it keeps
+  its copies; another `seed` (any number) deals a different set. `gap` is the space between neighbours' edges in the
   middle's head-units (default 0, edge to edge; negative overlaps). The
   copies are named `<name>-left`, `<name>-right` (`-left2`, `-right2`
   further out), so an entry can stand on one

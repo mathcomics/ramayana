@@ -1,0 +1,57 @@
+{
+  "scene": "Variation: a chief falls from the height of the wall, head first; the monkeys below throw up their arms",
+  "tall": 1.5,
+  "ground": "sand",
+  "figures": [
+    {
+      "prop": "city-side",
+      "id": "wall",
+      "at": 0.14,
+      "scale": 6.5,
+      "row": -0.05,
+      "body": "#9a9a9a",
+      "cloth": "#2e2424"
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "fallfront-flung",
+      "facing": "right",
+      "at": 0.5,
+      "row": 0.5,
+      "scale": 0.6,
+      "rotate": 50,
+      "cloth": "red-stripe"
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.8,
+      "row": 0.8,
+      "scale": 0.3
+    },
+    {
+      "character": "monkey1",
+      "pose": "arch-reachup",
+      "view": "front",
+      "at": 0.46,
+      "scale": 0.6,
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "leapup-reachup",
+      "facing": "left",
+      "at": 0.65,
+      "scale": 0.6,
+      "row": 0.05,
+      "cloth": "yellow"
+    },
+    {
+      "character": "monkey1",
+      "pose": "stepwide-pointup",
+      "facing": "left",
+      "at": 0.85,
+      "scale": 0.6,
+      "cloth": "orange"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "scene": "Variation: over the rooftops: one rakshasa leaps the gap between two blocks, another runs on ahead, the roof behind them alight",
+  "tall": 0.6,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "city-gap",
+      "id": "roofs",
+      "at": 0.5,
+      "scale": 6,
+      "row": -0.3
+    },
+    {
+      "prop": "fire",
+      "on": "roofs#stand-left",
+      "rotate": 90,
+      "scale": 3.5
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "leap-reach",
+      "facing": "right",
+      "on": "roofs#stand",
+      "scale": 0.42,
+      "nudge": [
+        1.5,
+        0.3
+      ],
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "run-pump",
+      "facing": "right",
+      "on": "roofs#stand-right",
+      "scale": 0.42,
+      "cloth": "red-stripe",
+      "turn": 180
+    }
+  ]
+}

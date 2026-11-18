@@ -1,0 +1,68 @@
+{
+  "scene": "Variation: a tower burns: one rakshasa hangs from a window, the others run from its foot",
+  "tall": 1.5,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "city-side",
+      "id": "tower",
+      "at": 0.12,
+      "scale": 4,
+      "row": -0.1
+    },
+    {
+      "prop": "fire",
+      "on": "tower#stand",
+      "rotate": 90,
+      "scale": 2.5
+    },
+    {
+      "prop": "fire",
+      "at": 0.1,
+      "row": 0.9,
+      "rotate": 90,
+      "scale": 2
+    },
+    {
+      "foreground": 0.05,
+      "color": "#2e2424"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "leapup-reachup",
+      "facing": "right",
+      "on": "tower#hand",
+      "scale": 0.36,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "arch-reachup",
+      "view": "front",
+      "at": 0.45,
+      "on": "foreground",
+      "scale": 0.36,
+      "cloth": "red-stripe"
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.66,
+      "on": "foreground",
+      "scale": 0.36,
+      "cloth": "red-diamond"
+    },
+    {
+      "character": "raxas_f2",
+      "pose": "runwide-hang",
+      "facing": "right",
+      "at": 0.86,
+      "on": "foreground",
+      "scale": 0.36,
+      "cloth": "red-check",
+      "turn": 180,
+      "mouth": 3
+    }
+  ]
+}

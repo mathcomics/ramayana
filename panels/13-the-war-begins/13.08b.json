@@ -1,0 +1,55 @@
+{
+  "scene": "Variation: against the wall face, seen from behind: three monkeys climb one ladder, rocks dropping past them",
+  "tall": 1.5,
+  "ground": "stone-grey",
+  "figures": [
+    {
+      "prop": "rock-circle",
+      "at": 0.2,
+      "row": 0.8,
+      "scale": 0.6,
+      "body": "#222222"
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.82,
+      "row": 0.45,
+      "scale": 0.45,
+      "body": "#222222"
+    },
+    {
+      "prop": "ladder",
+      "id": "ladder",
+      "at": 0.5,
+      "row": 0,
+      "scale": 0.85
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-reachup",
+      "view": "front",
+      "turn": 180,
+      "on": "ladder#stand-low",
+      "scale": 0.5,
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-reachup",
+      "view": "front",
+      "turn": 180,
+      "on": "ladder#stand",
+      "scale": 0.5,
+      "cloth": "yellow"
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-reachup",
+      "view": "front",
+      "turn": 180,
+      "on": "ladder#stand-high",
+      "scale": 0.5,
+      "cloth": "orange"
+    }
+  ]
+}

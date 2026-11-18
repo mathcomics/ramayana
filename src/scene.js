@@ -115,6 +115,12 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   const chars = assets.characters.characters;
   const lib = assets.props?.props || {};
   const legacy = (panel.props || []).map(({ layer, ...p }) => ({ p, front: layer === 'front' }));
+  const repeatSeen = {};
+  const seeded = (str) => {                                   // mulberry32 on a string hash
+    let h = 2166136261;
+    for (const c of str) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+    return () => { h = (h + 0x6D2B79F5) | 0; let t = Math.imul(h ^ (h >>> 15), 1 | h); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  };
   const entries = [
     ...legacy.filter((e) => !e.front).map((e) => e.p),
     ...(panel.figures || []),
@@ -124,11 +130,13 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   // "repeat": a prop drawn several times in a row — a cluster of rocks, a
   // clump of lotuses. The entry as written is the middle copy; the others
   // stand beside it, left and right alternately outwards, on its ground line
-  // (or its anchor), each a little smaller and turned, and drawn behind it.
-  // `"repeat": 3`, or { n, gap, scale: [left, right], rotate: [left, right] }:
+  // (or its anchor), each its own size and turn, and drawn behind it.
+  // `"repeat": 3`, or { n, gap, scale: [min, max], rotate: [min, max], seed }:
   // gap is the space between neighbours in the middle's head-units (negative
-  // overlaps); scale and rotate are each step's factor and degrees, compounding
-  // outwards. The copies are named "<name>-left" / "-right" ("-left2" … further
+  // overlaps); each copy's size (× the middle's) and turn (degrees from the
+  // middle's) is drawn from the range, seeded by the prop, the count and
+  // `seed` — not by where it stands, so moving the entry keeps its copies.
+  // The copies are named "<name>-left" / "-right" ("-left2" … further
   // out), so an entry can stand "on" one of them.
   function repeatProp(e) {
     const { repeat, ...mid } = e;
@@ -136,25 +144,28 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     if (!e.prop) { issues.push(`${name}: "repeat" is for props`); return [mid]; }
     const o = typeof repeat === 'number' ? { n: repeat } : repeat || {};
     const n = o.n ?? 3;
-    if (!Number.isInteger(n) || n < 1 || n > 9) { issues.push(`${name}: "repeat" takes a count 1–9, or { n, gap, scale, rotate }`); return [mid]; }
+    if (!Number.isInteger(n) || n < 1 || n > 9) { issues.push(`${name}: "repeat" takes a count 1–9, or { n, gap, scale, rotate, seed }`); return [mid]; }
     const pair = (k, d) => {
       const v = o[k];
       if (v == null) return d;
       if (Array.isArray(v) && v.length === 2 && v.every((x) => typeof x === 'number')) return v;
-      issues.push(`${name}: repeat "${k}" takes [left, right]`);
+      issues.push(`${name}: repeat "${k}" takes [min, max]`);
       return d;
     };
-    const [scL, scR] = pair('scale', [0.8, 0.9]), [roL, roR] = pair('rotate', [-8, 6]);
+    const [sc0, sc1] = pair('scale', [0.6, 1.05]), [ro0, ro1] = pair('rotate', [-12, 12]);
+    const key = `${e.prop}|${name}|${n}|${o.seed ?? 0}`;
+    const rnd = seeded(`${key}|${(repeatSeen[key] = (repeatSeen[key] ?? -1) + 1)}`);
     const gap = typeof o.gap === 'number' ? o.gap : 0;
     const w1 = (lib[e.prop]?.size || PLACEHOLDER)[0];          // head-units at scale 1
     const sm = e.scale ?? 1, r0 = e.rotate ?? 0;
     const n0 = e.nudge ?? 0, [mdx, mdy] = typeof n0 === 'number' ? [n0, 0] : Array.isArray(n0) ? n0 : [0, 0];
     const side = (s, count) => {
       const out = [];
-      let d = (w1 * sm) / 2, sc = sm, ro = r0;                  // d: centre distance, in row head-units
+      let d = (w1 * sm) / 2, sc = sm;                           // d: centre distance, in row head-units
       for (let k = 1; k <= count; k++) {
         const prev = w1 * sc;
-        sc *= s < 0 ? scL : scR; ro += s < 0 ? roL : roR;
+        sc = sm * (sc0 + (sc1 - sc0) * rnd());
+        const ro = r0 + ro0 + (ro1 - ro0) * rnd();
         d += (k === 1 ? 0 : prev / 2) + gap * sm + (w1 * sc) / 2;
         out.push({ ...mid, id: `${name}-${s < 0 ? 'left' : 'right'}${k > 1 ? k : ''}`, scale: sc, rotate: ro,
           nudge: [(mdx * sm + s * d) / sc, (mdy * sm) / sc], _copy: true });

@@ -1,0 +1,59 @@
+{
+  "scene": "Variation: on the wall top, the defenders cower and fall as the rocks of the monkeys rain in",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "rock-circle",
+      "at": 0.18,
+      "row": 0.86,
+      "scale": 0.32
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.42,
+      "row": 0.9,
+      "scale": 0.26,
+      "rotate": 20
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.66,
+      "row": 0.8,
+      "scale": 0.36
+    },
+    {
+      "prop": "city-roof",
+      "id": "wall",
+      "at": 0.72,
+      "scale": 10,
+      "row": -0.5,
+      "body": "#9a9a9a",
+      "cloth": "#2e2424"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "crouch-holdhead",
+      "facing": "left",
+      "on": "wall#stand-left",
+      "scale": 0.65,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "fallback-flung",
+      "facing": "right",
+      "on": "wall#stand",
+      "scale": 0.65,
+      "cloth": "red-stripe"
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "arch-overhead",
+      "view": "front",
+      "on": "wall#stand-right",
+      "scale": 0.65,
+      "cloth": "red-diamond"
+    }
+  ]
+}
