@@ -15,10 +15,10 @@
     },
     {
       "prop": "arrow-stuck",
-      "at": 0.66,
+      "at": 0.6,
       "row": 0.55,
       "scale": 1.6,
-      "rotate": 150
+      "rotate": -100
     }
   ]
 }

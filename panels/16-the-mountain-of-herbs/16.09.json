@@ -4,41 +4,28 @@
   "ground": "night-blue",
   "figures": [
     {
-      "prop": "rock-square",
-      "id": "mountain",
-      "at": 0.4,
-      "scale": 2,
-      "nudge": [
-        0,
-        0.5
-      ],
-      "rotate": 150,
-      "row": "closeup",
-      "body": "#5a5f7a"
-    },
-    {
       "prop": "flower-yellow",
       "at": 0.2,
       "row": 0.47,
-      "scale": 0.9
+      "scale": 0.4
     },
     {
       "prop": "flower-white",
       "at": 0.34,
       "row": 0.5,
-      "scale": 0.8
+      "scale": 0.4
     },
     {
       "prop": "flower-yellow",
       "at": 0.62,
       "row": 0.5,
-      "scale": 1
+      "scale": 0.5
     },
     {
       "prop": "flower-pink",
       "at": 0.76,
       "row": 0.44,
-      "scale": 0.8
+      "scale": 0.5
     },
     {
       "character": "hanuman",
@@ -47,6 +34,19 @@
       "at": 0.47,
       "row": 0.5,
       "scale": 0.35
+    },
+    {
+      "prop": "rock-square",
+      "id": "mountain",
+      "at": 0.4,
+      "scale": 2,
+      "nudge": [
+        0,
+        0.4
+      ],
+      "rotate": 150,
+      "row": "closeup",
+      "body": "#5a5f7a"
     }
   ],
   "needs": [

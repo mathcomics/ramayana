@@ -1,44 +1,55 @@
 {
-  "scene": "Variation: only his foot fits the picture as he strides out; the monkeys scatter from under it",
-  "tall": 1,
+  "scene": "The monkeys turn and flee under Kumbhakarna's reaching fingers; only his hand fits the panel",
+  "tall": 0.6,
   "ground": "off-white",
   "figures": [
     {
-      "prop": "giant-feet",
-      "id": "foot",
-      "at": 0.55,
-      "row": 0.3,
-      "rotate": -90,
-      "body": "#9a7a7a"
+      "id": "fallen",
+      "character": "monkey1",
+      "pose": "crawl-onhands",
+      "facing": "left",
+      "at": 0.08,
+      "mouth": 3
     },
     {
-      "foreground": 0.08,
-      "color": "sand"
+      "id": "flee1",
+      "character": "monkey1",
+      "pose": "run-pump",
+      "facing": "left",
+      "at": 0.27
     },
     {
       "character": "monkey1",
       "pose": "runwide-hang",
       "facing": "left",
-      "at": 0.08,
-      "on": "foreground",
+      "at": 0.45,
       "mouth": 3,
-      "turn": 180
+      "adjust": {
+        "spine.head": -25
+      },
+      "id": "flee2"
     },
     {
       "character": "monkey1",
-      "pose": "crawl-onhands",
+      "pose": "fallback-flung",
       "facing": "left",
-      "at": 0.42,
-      "on": "foreground",
-      "cloth": "red"
+      "at": 0.7,
+      "id": "pinched",
+      "row": 0.46
     },
     {
       "character": "monkey1",
       "pose": "run-pump",
       "facing": "right",
-      "at": 0.86,
-      "on": "foreground",
-      "cloth": "orange"
+      "at": 0.9,
+      "id": "flee3"
+    },
+    {
+      "prop": "giant-grab",
+      "facing": "left",
+      "at": 0.57,
+      "row": 0.5
     }
-  ]
+  ],
+  "tags": ["frieze", "giant"]
 }

@@ -7,23 +7,23 @@
     {
       "character": "monkey1",
       "id": "fallen",
-      "pose": "crawl-onhands",
-      "facing": "left",
+      "pose": "stepwide-point",
+      "facing": "right",
       "at": 0.08,
       "mouth": 3
     },
     {
       "character": "monkey1",
       "id": "flee1",
-      "pose": "run-pump",
-      "facing": "left",
+      "pose": "step-armsup",
+      "facing": "right",
       "at": 0.27
     },
     {
       "character": "monkey1",
       "id": "flee2",
-      "pose": "runwide-hang",
-      "facing": "left",
+      "pose": "step-hang",
+      "facing": "right",
       "at": 0.45,
       "mouth": 3,
       "adjust": {
@@ -32,24 +32,11 @@
     },
     {
       "character": "monkey1",
-      "id": "pinched",
-      "pose": "fallback-flung",
-      "facing": "left",
-      "at": 0.7,
-      "row": 0.46
-    },
-    {
-      "character": "monkey1",
       "id": "flee3",
-      "pose": "run-pump",
+      "pose": "lunge-pointup",
       "facing": "right",
-      "at": 0.9
-    },
-    {
-      "at": 0.57,
-      "facing": "left",
-      "prop": "giant-grab",
-      "row": 0.5
+      "at": 0.8,
+      "turn": 180
     }
   ]
 }

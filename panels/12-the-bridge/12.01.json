@@ -1,17 +1,46 @@
 {
-  "scene": "Opening: Lanka, the golden city on its island, far across the sea (as 05.01)",
+  "scene": "Sugriva beckons; Hanuman kneels and holds out a bundle to the princes",
   "tall": 1,
-  "ground": "sea",
-  "sky": "mist",
+  "ground": "stone-grey",
   "figures": [
     {
-      "prop": "lanka-island",
-      "at": 0.7,
-      "row": "horizon"
+      "prop": "throne-kishkindha",
+      "at": 0.52,
+      "row": "back"
     },
     {
-      "prop": "palace-lanka",
-      "on": "lanka-island#stand"
+      "character": "lakshman",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.88,
+      "row": "mid"
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.72,
+      "row": "mid"
+    },
+    {
+      "character": "hanuman",
+      "pose": "stepwide-armsup",
+      "facing": "right",
+      "at": 0.4,
+      "row": "mid",
+      "adjust": {
+        "spine.head": -14
+      }
+    },
+    {
+      "character": "sugriva",
+      "pose": "stand-hang",
+      "facing": "right",
+      "at": 0.15,
+      "row": "mid",
+      "adjust": {
+        "spine.head": -14
+      }
     }
   ]
 }

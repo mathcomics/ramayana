@@ -15,9 +15,8 @@
       "on": "ledge#stand",
       "scale": 0.4,
       "character": "raxas_m1",
-      "pose": "stepback-armsup",
-      "view": "front",
-      "facing": "left",
+      "pose": "run-pump",
+      "facing": "right",
       "nudge": [
         -1,
         0
@@ -40,7 +39,7 @@
       "on": "ledge#stand",
       "scale": 0.4,
       "character": "raxas_m2",
-      "pose": "stepwide-pointup",
+      "pose": "stepwide-swing",
       "facing": "left",
       "nudge": [
         -4.2,

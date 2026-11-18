@@ -2,32 +2,33 @@
   "scene": "The three walk past a lotus pond, small on the horizon",
   "tall": 1,
   "ground": "sky",
-  "sky": "white",
-  "horizon": 0.4,
   "figures": [
     {
       "character": "lakshman",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.74,
-      "row": "horizon",
-      "scale": 2
+      "row": "top",
+      "scale": 0.6,
+      "rotate": 180
     },
     {
       "character": "sita",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
-      "row": "horizon",
-      "scale": 2
+      "row": "top",
+      "scale": 0.6,
+      "rotate": 180
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.1,
-      "row": "horizon",
-      "scale": 2
+      "row": "top",
+      "scale": 0.6,
+      "rotate": 180
     },
     {
       "prop": "lotus-bud",

@@ -91,5 +91,3 @@ its gestures on any base. Moments with neither come first.
 - 13.09: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 13.09a: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 13.11: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
-- 14.17: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
-- 16.12: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now

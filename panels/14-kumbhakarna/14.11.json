@@ -1,43 +1,38 @@
 {
-  "scene": "His face rolled toward us, eyes shut; the musicians are flung away, drum and horn flying",
+  "scene": "The three musicians run from his face, the drum tumbling behind them",
   "tall": 0.6,
   "ground": "light-grey",
   "figures": [
     {
-      "prop": "giant-face-front",
+      "prop": "giant-face-side",
       "id": "face",
-      "rotate": 90,
-      "at": 0.18
+      "rotate": -90,
+      "at": 0.47,
+      "row": "closeup"
     },
     {
       "prop": "drum",
-      "at": 0.6,
-      "row": 0.72,
-      "rotate": 40
-    },
-    {
-      "prop": "trumpet",
-      "at": 0.95,
-      "row": 0.62,
-      "rotate": -60
+      "on": "raxas_m1#hand-right"
     },
     {
       "character": "raxas_m1",
-      "pose": "fallback-flung",
-      "facing": "left",
-      "at": 0.62,
-      "row": 0.38
+      "pose": "leanback-reach",
+      "facing": "right",
+      "at": 0.1,
+      "row": "floor",
+      "cloth": "red-diamond"
     },
     {
-      "character": "raxas_m2",
-      "pose": "leap-flung",
+      "prop": "drum",
+      "on": "raxas_m3#hand-right"
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "lunge-reach",
       "facing": "right",
-      "at": 0.9,
-      "row": 0,
+      "at": 0.42,
+      "row": "floor",
       "cloth": "red-check"
     }
-  ],
-  "needs": [
-    "prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now"
   ]
 }

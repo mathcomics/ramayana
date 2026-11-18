@@ -15,15 +15,15 @@
       "prop": "rock-triangle",
       "id": "mountain",
       "on": "hanuman#hand-right",
-      "scale": 0.6,
+      "scale": 2,
       "body": "#20264a"
     },
     {
       "character": "hanuman",
-      "pose": "liefront-pointup",
+      "pose": "fallfront-dive",
       "facing": "right",
-      "at": 0.5,
-      "row": 0.5,
+      "at": 0.4,
+      "row": 0.4,
       "scale": 0.22
     }
   ]

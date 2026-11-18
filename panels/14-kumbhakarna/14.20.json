@@ -5,10 +5,9 @@
   "figures": [
     {
       "character": "rama",
-      "pose": "step-bowhigh",
+      "pose": "stepwide-bowhigh",
       "facing": "right",
-      "at": 0.42,
-      "row": "closeup"
+      "at": 0.42
     }
   ]
 }

@@ -4,7 +4,7 @@
   "ground": "light-grey",
   "figures": [
     {
-      "prop": "giant-face-side",
+      "prop": "giant-face-side-awake",
       "id": "face",
       "at": 0.47,
       "row": "closeup",
@@ -12,33 +12,17 @@
     },
     {
       "prop": "drum",
-      "at": 0.36,
+      "at": 0.4,
       "rotate": 90
-    },
-    {
-      "foreground": 0.1,
-      "color": "stone-grey"
     },
     {
       "character": "raxas_m1",
       "pose": "runlow-pumplow",
       "facing": "right",
-      "at": 0.5,
+      "at": 0.55,
       "cloth": "red-diamond",
       "turn": 180,
-      "on": "foreground"
-    },
-    {
-      "character": "raxas_m2",
-      "pose": "leap-reach",
-      "facing": "right",
-      "at": 0.7,
-      "on": "foreground",
-      "nudge": [
-        0,
-        0.6
-      ],
-      "cloth": "red-check"
+      "row": "floor"
     },
     {
       "character": "raxas_m1",
@@ -46,10 +30,7 @@
       "facing": "right",
       "at": 0.92,
       "cloth": "red-check",
-      "on": "foreground"
+      "row": "floor"
     }
-  ],
-  "needs": [
-    "prop: giant-face-front-yawn (the front face yawning, mouth wide): the shut-eyed placeholder for now"
   ]
 }

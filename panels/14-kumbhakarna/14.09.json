@@ -4,33 +4,57 @@
   "ground": "light-grey",
   "figures": [
     {
-      "prop": "giant-face-side",
-      "id": "face",
-      "facing": "left",
-      "rotate": 90,
-      "at": 0.18
+      "prop": "vine",
+      "body": "#ffffff",
+      "at": 0.78,
+      "row": 0.72,
+      "rotate": 180,
+      "repeat": {
+        "gap": 0.5,
+        "n": 3
+      }
     },
     {
       "prop": "half-circle",
-      "scale": 6,
-      "at": 0.62,
-      "row": 0.63
+      "scale": 4,
+      "at": 0.78,
+      "row": 0.6
+    },
+    {
+      "id": "front",
+      "character": "raxas_m2",
+      "pose": "walk-overhead",
+      "facing": "left",
+      "at": 0.75,
+      "cloth": "red-check",
+      "row": 0.2,
+      "scale": 0.7
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "walk-overhead",
+      "facing": "left",
+      "at": 0.85,
+      "cloth": "red-diamond",
+      "row": 0.2,
+      "scale": 0.7
     },
     {
       "prop": "vine",
       "body": "#ffffff",
-      "at": 0.57,
-      "row": 0.87,
-      "rotate": -15,
-      "scale": 1
+      "at": 0.55,
+      "row": 0.82,
+      "rotate": 180,
+      "repeat": {
+        "gap": 0.5,
+        "n": 3
+      }
     },
     {
-      "prop": "vine",
-      "body": "#ffffff",
-      "at": 0.67,
-      "row": 0.87,
-      "rotate": 10,
-      "scale": 0.8
+      "prop": "half-circle",
+      "at": 0.52,
+      "row": 0.63,
+      "scale": 6
     },
     {
       "id": "front",
@@ -44,11 +68,17 @@
       "character": "raxas_m1",
       "pose": "walk-overhead",
       "facing": "left",
-      "at": 0.75,
+      "at": 0.65,
       "cloth": "red-diamond"
+    },
+    {
+      "prop": "giant-face-side",
+      "id": "face",
+      "facing": "left",
+      "rotate": 90,
+      "at": 0.3,
+      "row": "closeup",
+      "scale": 0.9
     }
-  ],
-  "needs": [
-    "prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now"
   ]
 }

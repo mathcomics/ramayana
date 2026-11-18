@@ -1,47 +1,28 @@
 {
-  "scene": "He lifts the whole mountain over his head, herbs and all",
-  "tall": 1.5,
-  "ground": "night-blue",
+  "scene": "Variation: the night flight against the moon, small and far",
+  "tall": 1,
+  "ground": "night",
   "figures": [
     {
-      "prop": "rock-square",
-      "id": "mountain",
-      "on": "hanuman#hands",
-      "scale": 1.7,
-      "body": "#5a5f7a"
+      "prop": "pole",
+      "at": 0.4,
+      "rotate": 180,
+      "row": 0.2
     },
     {
-      "prop": "flower-yellow",
-      "on": "mountain#stand-left",
-      "scale": 0.8
-    },
-    {
-      "prop": "flower-white",
-      "on": "mountain#stand",
-      "scale": 0.8,
-      "nudge": [
-        1.6,
-        0
-      ]
-    },
-    {
-      "prop": "flower-yellow",
-      "on": "mountain#stand",
-      "scale": 0.7,
-      "nudge": [
-        2.7,
-        0
-      ]
+      "prop": "rock-triangle",
+      "on": "hanuman#hand-right",
+      "scale": 2,
+      "body": "#20264a",
+      "id": "mountain"
     },
     {
       "character": "hanuman",
-      "pose": "arch-overhead",
-      "view": "front",
-      "at": 0.5,
-      "scale": 0.75
+      "pose": "fallfront-dive",
+      "facing": "right",
+      "at": 0.4,
+      "row": 0.4,
+      "scale": 0.22
     }
-  ],
-  "needs": [
-    "pose: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now"
   ]
 }

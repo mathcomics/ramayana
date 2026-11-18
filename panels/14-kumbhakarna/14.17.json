@@ -1,30 +1,46 @@
 {
-  "scene": "Variation: Hanuman heaves a mountain peak up at the giant's face, high above him",
-  "tall": 1.5,
+  "scene": "Variation: only his foot fits the picture as he strides out; the monkeys scatter from under it",
+  "tall": 1,
   "ground": "off-white",
   "figures": [
     {
-      "prop": "giant-face-side-awake",
-      "id": "face",
-      "facing": "left",
-      "at": 0.82,
+      "prop": "giant-feet",
+      "id": "foot",
+      "at": 0.55,
       "row": 0.5,
-      "body": "#9a7a7a"
+      "body": "#9a7a7a",
+      "rotate": -90,
+      "scale": 1.5
     },
     {
-      "prop": "rock-square",
-      "id": "peak",
-      "on": "hanuman#hands",
-      "scale": 1.8
+      "foreground": 0.08,
+      "color": "sand"
     },
     {
-      "character": "hanuman",
-      "pose": "arch-overhead",
-      "view": "front",
-      "at": 0.26
+      "character": "monkey1",
+      "pose": "runwide-hang",
+      "at": 0.08,
+      "facing": "left",
+      "mouth": 3,
+      "on": "foreground",
+      "turn": 180
+    },
+    {
+      "character": "monkey1",
+      "pose": "crawl-onhands",
+      "facing": "left",
+      "at": 0.42,
+      "on": "foreground",
+      "mouth": 3,
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.86,
+      "on": "foreground",
+      "cloth": "orange"
     }
-  ],
-  "needs": [
-    "pose: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now"
   ]
 }

@@ -4,6 +4,13 @@
   "ground": "off-white",
   "figures": [
     {
+      "id": "moon",
+      "prop": "rock-square",
+      "at": 0.03,
+      "row": 0.05,
+      "scale": 1.6
+    },
+    {
       "character": "lakshman",
       "pose": "sitback-hang",
       "facing": "right",
