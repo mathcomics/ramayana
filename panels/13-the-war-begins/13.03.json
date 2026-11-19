@@ -1,126 +1,83 @@
 {
-  "scene": "Rakshasas crowd the wall above, front view, shouting and hurling rocks; dark stones in the wall",
-  "tall": 1,
+  "scene": "monkeys attack",
+  "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
-      "character": "raxas_m1",
-      "pose": "arch-overhead",
-      "view": "front",
-      "facing": "left",
+      "character": "monkey1",
+      "pose": "run-longpoint",
+      "facing": "right",
       "on": "foreground",
-      "nudge": [
-        0,
-        -1
-      ],
-      "scale": 0.5
+      "at": 0.05,
+      "cloth": "red",
+      "id": "r1"
     },
     {
-      "character": "raxas_m2",
-      "pose": "arch-search",
-      "view": "front",
-      "facing": "left",
-      "at": 0.2,
+      "character": "monkey1",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "at": 0.24,
       "on": "foreground",
-      "nudge": [
-        0,
-        -2
-      ],
-      "scale": 0.5
+      "adjust": {
+        "right.arm.prop": {
+          "angle": -30,
+          "kind": "club"
+        }
+      },
+      "cloth": "red-check",
+      "id": "r2"
     },
     {
-      "prop": "rock-circle",
-      "on": "hurler#hands",
-      "scale": 0.35,
-      "body": "stone",
-      "nudge": [
-        0,
-        0.5
-      ]
-    },
-    {
-      "character": "raxas_m2",
-      "id": "hurler",
-      "pose": "arch-overhead",
-      "view": "front",
-      "facing": "left",
-      "at": 0.35,
+      "id": "r3",
+      "character": "monkey1",
+      "pose": "leap-reach",
+      "facing": "right",
+      "at": 0.44,
       "on": "foreground",
-      "nudge": [
-        0,
-        -1.2
-      ],
-      "scale": 0.5,
-      "cloth": "red-check"
-    },
-    {
-      "character": "raxas_m3",
-      "pose": "arch-onhands",
-      "view": "front",
-      "facing": "left",
-      "at": 0.6,
-      "on": "foreground",
-      "nudge": [
-        0,
-        -2.5
-      ],
-      "scale": 0.5
-    },
-    {
-      "character": "raxas_m1",
-      "id": "last",
-      "pose": "arch-search",
-      "view": "front",
-      "facing": "left",
-      "at": 0.8,
-      "on": "foreground",
-      "nudge": [
-        0,
-        -2
-      ],
-      "scale": 0.5,
       "cloth": "red-diamond",
-      "mouth": 3
+      "adjust": {
+        "right.arm.prop": {
+          "angle": 30,
+          "kind": "sword"
+        }
+      }
+    },
+    {
+      "character": "monkey1",
+      "id": "r4",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.66,
+      "on": "foreground",
+      "cloth": "red-stripe",
+      "adjust": {
+        "right.arm.prop": {
+          "angle": -30,
+          "kind": "club-spike-long"
+        }
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.88,
+      "on": "foreground",
+      "adjust": {
+        "right.arm.prop": {
+          "angle": -30,
+          "kind": "sword"
+        }
+      },
+      "id": "r5"
     },
     {
       "foreground": [
-        0.81,
-        0.52
+        0.1,
+        0.6
       ],
-      "color": "stone-grey"
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.3,
-      "row": 0.5,
-      "scale": 0.35,
-      "body": "#222222",
-      "repeat": {
-        "gap": 1,
-        "n": 3
-      }
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.62,
-      "row": 0.3,
-      "scale": 0.35,
-      "body": "#222222",
-      "repeat": {
-        "gap": 1,
-        "n": 4
-      }
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.36,
-      "row": 0.1,
-      "scale": 0.35,
-      "body": "#222222",
-      "repeat": {
-        "gap": 1,
-        "n": 5
-      }
+      "color": "#222222"
     }
-  ]
+  ],
+  "tags": ["frieze"]
 }

@@ -106,39 +106,6 @@
         0.52
       ],
       "color": "stone-grey"
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.3,
-      "row": 0.5,
-      "scale": 0.35,
-      "body": "#222222",
-      "repeat": {
-        "gap": 1,
-        "n": 3
-      }
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.62,
-      "row": 0.3,
-      "scale": 0.35,
-      "body": "#222222",
-      "repeat": {
-        "gap": 1,
-        "n": 4
-      }
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.36,
-      "row": 0.1,
-      "scale": 0.35,
-      "body": "#222222",
-      "repeat": {
-        "gap": 1,
-        "n": 5
-      }
     }
   ]
 }

@@ -1,45 +1,104 @@
 {
-  "scene": "A ram: monkeys charge a great trunk against the wall",
-  "tall": 0.6,
+  "scene": "Rakshasas crowd the wall above, front view, shouting and hurling rocks; dark stones in the wall",
+  "tall": 1,
   "ground": "sand",
   "figures": [
     {
-      "prop": "city-side",
-      "at": 0.82,
-      "scale": 2,
-      "body": "#9a9a9a",
-      "cloth": "#2e2424"
+      "character": "raxas_m1",
+      "pose": "arch-overhead",
+      "view": "front",
+      "facing": "left",
+      "on": "foreground",
+      "nudge": [
+        0,
+        -1
+      ],
+      "scale": 0.5
     },
     {
-      "prop": "tree-trunk",
-      "at": 0.55,
-      "row": 0.22,
-      "rotate": -90,
-      "scale": 0.75
+      "character": "raxas_m2",
+      "pose": "arch-search",
+      "view": "front",
+      "facing": "left",
+      "at": 0.2,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -2
+      ],
+      "scale": 0.5
     },
     {
-      "character": "monkey1",
-      "pose": "lunge-armfront",
-      "facing": "right",
-      "at": 0.16,
-      "cloth": "red-stripe"
+      "prop": "rock-circle",
+      "on": "hurler#hands",
+      "nudge": [
+        0,
+        0.5
+      ],
+      "scale": 0.35,
+      "body": "stone"
     },
     {
-      "character": "monkey1",
-      "pose": "lunge-armfront",
-      "facing": "right",
-      "at": 0.38,
-      "cloth": "red"
+      "character": "raxas_m2",
+      "pose": "arch-overhead",
+      "facing": "left",
+      "at": 0.35,
+      "cloth": "red-check",
+      "id": "hurler",
+      "nudge": [
+        0,
+        -1.2
+      ],
+      "on": "foreground",
+      "scale": 0.5,
+      "view": "front"
     },
     {
-      "character": "monkey1",
-      "pose": "lunge-armfront",
-      "facing": "right",
+      "character": "raxas_m3",
+      "pose": "arch-onhands",
+      "facing": "left",
       "at": 0.6,
-      "cloth": "red-check"
+      "nudge": [
+        0,
+        -2.5
+      ],
+      "on": "foreground",
+      "scale": 0.5,
+      "view": "front"
+    },
+    {
+      "id": "last",
+      "character": "raxas_m1",
+      "pose": "arch-search",
+      "view": "front",
+      "facing": "left",
+      "at": 0.8,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -2
+      ],
+      "scale": 0.5,
+      "mouth": 3,
+      "cloth": "red-diamond"
+    },
+    {
+      "foreground": [
+        0.81,
+        0.52
+      ],
+      "color": "stone-grey"
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.3,
+      "row": 0.5,
+      "scale": 0.35,
+      "body": "#222222",
+      "repeat": {
+        "gap": 1,
+        "n": 2
+      }
     }
-  ],
-  "needs": [
-    "pose: carry-ram (arms forward, a beam clasped against the side): lunge-armfront for now"
   ]
 }

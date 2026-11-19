@@ -35,7 +35,7 @@
     {
       "prop": "ladder",
       "at": 0.6,
-      "row": -0.4,
+      "row": -0.5,
       "scale": 0.7,
       "repeat": {
         "gap": 0.2,
@@ -45,8 +45,8 @@
     {
       "character": "monkey1",
       "pose": "fallback-flung",
-      "facing": "left",
-      "at": 0.8,
+      "facing": "right",
+      "at": 0.95,
       "scale": 0.5
     },
     {
@@ -60,10 +60,10 @@
     },
     {
       "character": "monkey1",
-      "pose": "leanfront-longpoint",
+      "pose": "runlow-longpoint",
       "facing": "right",
       "at": 0.7,
-      "row": 0.25,
+      "row": 0.3,
       "scale": 0.5
     }
   ]

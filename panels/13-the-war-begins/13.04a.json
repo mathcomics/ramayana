@@ -74,25 +74,14 @@
       "color": "stone-grey"
     },
     {
-      "prop": "male-top",
+      "prop": "male-top-back",
       "character": "raxas_m1",
       "cloth": "#c81e1e",
       "at": 0.2,
-      "row": 0.02
-    },
-    {
-      "prop": "male-top",
-      "character": "raxas_m2",
-      "cloth": "#c81e1e",
-      "at": 0.5,
-      "row": 0.03
-    },
-    {
-      "prop": "male-top",
-      "character": "raxas_m3",
-      "cloth": "#c81e1e",
-      "at": 0.8,
-      "row": 0.02
+      "row": 0.05,
+      "repeat": {
+        "n": 5
+      }
     }
   ]
 }

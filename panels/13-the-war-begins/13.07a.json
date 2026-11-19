@@ -14,33 +14,33 @@
     {
       "prop": "tree-trunk",
       "at": 0.6,
-      "row": 0.22,
+      "row": 0.28,
       "rotate": -90,
-      "scale": 0.75
+      "scale": 1.5
     },
     {
       "character": "monkey1",
-      "pose": "lunge-armfront",
+      "pose": "lunge-cross",
       "facing": "right",
       "at": 0.2,
       "cloth": "red-stripe"
     },
     {
       "character": "monkey1",
-      "pose": "lunge-armfront",
+      "pose": "lunge-cross",
       "facing": "right",
       "at": 0.42,
       "cloth": "red"
     },
     {
       "character": "monkey1",
-      "pose": "lunge-armfront",
+      "pose": "lunge-cross",
       "facing": "right",
       "at": 0.64,
       "cloth": "red-check"
     }
   ],
   "needs": [
-    "pose: carry-ram (arms forward, a beam clasped against the side): lunge-armfront for now"
+    "pose: carry-ram (arms forward, a beam clasped against the side): lunge-cross for now"
   ]
 }
