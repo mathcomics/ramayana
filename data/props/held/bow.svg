@@ -7,10 +7,63 @@
      string runs tip to tip (to the drawing hand when drawn); the belly is
      on the side away from the string. Draw at size: 100 px = 1 head-unit
      (base: 5.8 tip to tip). -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="300" height="660" viewBox="-150 -330 300 660">
-  <g inkscape:groupmode="layer" inkscape:label="base">
-    <path inkscape:label="arch" d="M -66 -292 Q 64 -2.5 -66 292 L -61 286 Q 44 0 -61 -286 Z" style="fill:#241f1c"/>
-    <path inkscape:label="line" d="M -64 -290 Q 64 0 -64 290" fill="none" stroke="#d02020" stroke-width="1"/>
-    <circle inkscape:label="grip" cx="0" cy="0" r="4" fill="#2060d0"/>
+
+<svg
+   width="300"
+   height="660"
+   viewBox="-150 -330 300 660"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="bow.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.011377"
+     inkscape:cx="183.41331"
+     inkscape:cy="392.03977"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="base"
+     id="g8">
+    <path
+       inkscape:label="arch"
+       d="m -66,-292 c 91.311628,193 96.987513,391.127295 4.44938,587.46063 -5.699741,2.12708 -8.351693,-0.83566 -7.853764,-7.9775 C 6.1398069,96.81646 2.6318194,-95.333333 -72.370637,-286 c 0.60814,-5.28338 2.970156,-6.76669 6.370637,-6 z"
+       style="fill:#241f1c"
+       id="path2"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:label="line"
+       d="M -64 -290 Q 64 0 -64 290"
+       fill="none"
+       stroke="#d02020"
+       stroke-width="1"
+       id="path4" />
+    <circle
+       inkscape:label="grip"
+       cx="0"
+       cy="0"
+       r="4"
+       fill="#2060d0"
+       id="circle6" />
   </g>
 </svg>
