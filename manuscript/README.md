@@ -19,10 +19,12 @@ and the prose links count as canon.
   or Shastri's prose, https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki
 
 **Our telling is narrower than Dutt in the early books and wider in
-the war:** it starts with the princes' childhood, shrinks books I–V to a
-few chapters, includes Surpanakha and Khara's army, gives the war six
-chapters (the bridge, then five of fighting and rescue, 10–15), and
-ends with the flight home (chapter 16).
+the war:** it starts at Ayodhya's court on the coronation day, shrinks
+books I–V to a few chapters, includes Surpanakha and the rakshasas she
+brings, gives the war six chapters (the bridge, then five of fighting
+and rescue, 12–17), and ends with the flight home (chapter 18). In the
+war it follows the popular order, not Dutt's: the mountain of herbs
+(15) before Indrajit's death (16) — see "Outside Dutt" in `scenes.md`.
 
 Episodes Dutt leaves out (Tataka, Ahalya, Shabari, Kabandha, Hanuman's
 childhood, …) stay out unless we decide otherwise. Those decisions go in

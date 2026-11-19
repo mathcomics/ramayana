@@ -1,164 +1,86 @@
-# Pending changes from the panel side
+# Pending changes
 
-Changes made in `panels/` that `scenes.md` / `characters.md` have not
-caught up with. Written by the panel sessions; the manuscript session
-applies each entry to the manuscript and deletes it. The panels are the
-source of truth for ids and order once art exists.
+Two directions, one file. **From the panels**: changes made in
+`panels/` that `scenes.md` / `characters.md` have not caught up with,
+written by the panel sessions; the manuscript session applies each
+entry and deletes it. **For the panels**: what the manuscript changed
+that the drawn panels do not yet follow, written by the manuscript
+session; the panel session does each item and deletes it. The panels
+are the source of truth for ids and order once art exists.
 
-*(All entries up to 2026-11-07 — the chapter-05 rebuild, chapter
-openers and renumbering, panel sizes, Surpanakha without a fair form,
-the new generic characters — were applied in the v0.5 rewrite of
-`scenes.md` as chapter briefs.)*
+*(Every panel-side entry up to 2026-11-18 was applied in scenes.md
+v1.0, which brought briefs 1–14 in line with the drawn panels.)*
 
+## From the panels
 
+*(none)*
 
+## For the panels (manuscript v1.0, 2026-11-18)
 
-## Chapters 5–10: the artist's lab round, panels cut (2026-11-18)
+### Chapters 15 and 16 swapped (the popular order)
 
-Cut by the artist: 06.17 (Rama, arms wide, cries out, close), 06.21
-(Rama's cry over the forest), 07.15 (Sugriva, seated, holds out the
-jewels), 09.04 and 09.05 (the ring handed over; now 09.02 and the new
-close on the hands, 09.02a), 10.23 (a rakshasi lunges at Sita) and 10.24
-(one shouts while the kind one calms). Reshaped in the lab: chapter 5
-gains the ascetic arriving at the hut (05.20: he watches from behind as
-Lakshman runs off; 05.20a the hut alone; 05.20b him at a distance;
-05.20c close, raising his bowl). Chapter 7 now hands the jewels over
-straight after the meeting: Hanuman brings the princes up to Sugriva's
-rock (07.05), kneels holding out the bundle (07.06), Rama holds it
-(07.07), Sugriva points to the sky (07.08), Rama grieves on the rock
-(07.09). 09.12: Hanuman on the summit over the sea.
+The artist chose the popular order: **15 The mountain of herbs, 16
+Indrajit, 17 Ravana's fall**. The headings in `scenes.md` already say
+so, and `tools/build-site.mjs` takes chapter titles from them by
+number — so until the folder is renamed the herbs panels show on the
+site under "16. Indrajit". **Do this before the next push to `main`.**
 
-## Chapter 8: one fight panel cut, a procession added (2026-11-16)
+- Rename `panels/16-the-mountain-of-herbs` to `15-the-mountain-of-herbs`
+  and renumber its ids 16.xx → 15.xx (`tools/renumber-panels.mjs`;
+  check the panel lab's drafts for 16.xx ids too).
+- `panels/icons.json`: swap the icons of 15 (Indrajit) and 16 (the
+  white flower) so each stays with its chapter.
+- Update the chapter table in the root `CLAUDE.md`.
 
-The artist cut 08.02a (Bali roars back, Sugriva leaping behind him) and
-added 08.18 after the mourning: musicians (horn and drum, as 01.04) and
-leaping monkeys lead Sugriva in a celebration procession, before he is
-seated at the throne (08.19). Beat 3 of the brief could name it. (The
-garland line in the chapter 8 brief was edited directly from a panel
-session the same day, on the artist's word: Bali is Sugriva's double and
-the garland is the one mark. Check it reads right.)
+### Chapter 15 (the herbs): Indrajit fells Lakshman, not Ravana
 
-## Chapter 5: the ascetic at the hut, four panels (2026-11-15)
+- 16.02 and 16.03 (to be 15.02, 15.03): the javelin is **Indrajit's**,
+  thrown from his cloud as in chapter 13's serpent arrows — not Ravana
+  striding out. The artist calls these panels tentative; redraw them.
+  Lakshman alone is struck; Rama is not.
+- The rest of the drafts follow the brief (opener by night, Rama
+  kneeling over him, the healer pointing north with Hanuman beside him,
+  the leap, the head-scratch, the lift, the night flight, the herb, the
+  embrace). The variations still want choosing.
 
-The artist's sequence: 05.21 Sita offers fruit to the ascetic, standing
-apart, he holds a bowl; 05.22 he lunges, she arches away; 05.23 the
-same in negative (black ground, white silhouettes): the change into
-Ravana; 05.24 Ravana himself has her by the arm. Negative mode is now
-the picture for a transformation and for a major character's death.
+### Chapter 16 (Indrajit) and 17 (Ravana): to write
 
-## Chapter 14: waking Kumbhakarna, exploratory set (2026-11-14)
+- 16: Indrajit's fire rite at the Nikumbhila shrine; Vibhishana leading
+  Lakshman and monkeys to it; the duel, Indrajit in the sky and
+  Lakshman on the ground; the bow broken; the head struck off, in
+  negative as the giant's in 14.
+- 17: Ravana strides out, his son dead; the regrowing head; the great
+  arrow; the pyre; the bow laid down. Ravana no longer fells Lakshman
+  anywhere in the book.
 
-Twelve drafts for beat 1 (14.01–14.13, before the locked 14.14), to be
-cut to 5–6 by the artist: 14.01 Lanka opener (as 05.01); 14.02/14.03 the
-giant asleep (side; top view); 14.02/14.04 musicians with drum and horn (as
-01.04, rakshasas); 14.05 one hauls on his finger; 14.06 water; 14.07
-food; 14.10 the eye opens; 14.11 the yawn blows them away; 14.12 they
-flee; 14.13 he stretches, a fist sweeping them over. Kumbhakarna is
-only ever drawn as his giant parts (face, feet, fist, hand, waist),
-never as a character. Ids renumber once the chapter settles.
+### Chapters 1–14: the brief has it, the panels do not yet
 
-## Chapter 13: first battle panels (2026-11-12)
+- **3**: the thirteen years as season icons (still to draw).
+- **6**: 06.25 — the brief's last image is Jatayu lifting his remaining
+  wing, pointing south; the scene text does not say it. Check the
+  drawing does.
+- **7**: after the pact over fire (07.16), Sugriva points at Kishkindha
+  and Rama raises his bow — Sugriva's half of the pact, paid in 8. Not
+  drawn since 07.15 was cut.
+- **10**: in the grove by day (10.28–10.33) the ring must come before
+  the jewel; 10.29 has the jewel held out ahead of the ring (10.31).
+  10.31's scene text ("Rama's hand above lets the ring fall…") is a
+  copy of 09.02a; say whose hands they are.
+- **11**: the homecoming — Hanuman gives Rama the jewel, Rama presses it
+  to his heart.
+- **13**: Indrajit's serpent arrows from a cloud, the brothers bound
+  and rising.
+- **14**: 14.01a's scene text is a copy of 11.11 ("a guard runs in from
+  the grove"); it now sends out the wakers. The variations 14.23
+  (the head in the sea) and 14.24 (on the shore): in Valmiki the head
+  falls into the city and the body into the sea — the artist's call,
+  but worth knowing before choosing.
 
-Five battle panels, not the whole chapter (no opener, no Indrajit yet):
-13.01 a siege ladder against Lanka's wall, monkeys climbing, a rakshasa
-with a club on top; 13.09 monkeys hurl rocks; 13.10 the rocks land and
-the rakshasas' row tumbles; 13.11 a rakshasa chief lunges with his
-sword, Hanuman lifts a boulder over his head; 13.12 the field before
-the walls strewn with the dead and the thrown rocks. The **siege
-ladder** is new to the brief: beat 1 could say the monkeys scale the
-walls on ladders as well as hurl rocks. Ids will be renumbered when the
-rest of the chapter is written.
+### Stale scene texts
 
-## Chapter 5: Surpanakha arrives at Lanka (2026-11-12)
-
-- **New 05.03**: after the two Lanka openers, Surpanakha runs up the
-  palace steps, crying out, on a gold ground — her arrival before she
-  falls at Ravana's feet (05.04 on). Beat 1 could open with her
-  running up to the palace.
-
-## Chapter 3: walking into the forest; the deer seen first; no tally mark (2026-11-12)
-
-- **New 03.03**: the three walk on side by side through the trees,
-  past a near trunk (after the walk toward the reader, 03.02).
-- **New 03.03a** (deleted 2026-11-17): the deer seen through the trees, framed by two
-  trunks, before 03.05 (Sita watching them).
-- **03.09 removed** (Sita scratching the thirteenth tally mark). The
-  brief already has the thirteen years as season icons, still to be
-  drawn; the chapter has no years-passing panel until they are.
-
-## Chapter 7: who watches from the rock; a seated meeting (2026-11-10)
-
-Rocks replace the ledges (artist). Two changes the brief may want to
-catch up with:
-
-- **07.03**: the watchers are **Hanuman and a monkey** peering over the
-  top of the high rock (was Sugriva and a generic monkey); Rama and
-  Lakshman walk below, in front. Hanuman is then the one who bounds
-  down (07.05).
-- **New 07.11**: Rama and Sugriva sit face to face, each on a round
-  rock, Lakshman standing and Hanuman sitting by. 07.15 keeps them seated on
-  the same rocks for the jewels. Beat 2 could say they sit together
-  before the jewels are shown.
-
-## Chapter 6 opens on the cry reaching Jatayu (2026-11-08)
-
-The rework against the v0.9 brief (10 panels, no chariot) adds one image
-ahead of the brief's first beat: **Jatayu alone on his bluff, Sita's cry
-arriving as the `sound-cry` burst with her face in it** (06.01). It is
-the chapter's location opener and it carries the travelling-cry motif on
-from 05.15–05.17 — the cry is now how Jatayu knows, which is what sends
-him up. Worth a line in beat 1 of chapter 6, and in the
-continuity-and-motifs list: the cry travels in 5 *and* in 6.
-
-## Chapter 6: the jewels fall, then the monkeys look up (2026-11-13)
-
-The artist's rework of beat 2 follows the bundle down instead of
-cutting to the monkeys first. Sita holds the bundle out high in the sky
-(06.09), lets it go (06.10), it falls alone (06.11), lands on the
-rocks where one monkey bends to pick it up and the others crowd round
-(06.12), and only then do the monkeys look up to see Ravana and Sita
-pass small overhead (06.13). The order is intentional (the artist).
-Beat 2 of chapter 6 has the monkeys look up before one picks the bundle
-up; it could follow the panels: she drops it — it falls — it lands among
-the monkeys and one picks it up — they look up at the pair passing. The
-**bag** (`data/props/bag.svg`) is the bundle from here on (a travelling
-object: worth a line in the continuity-and-motifs list).
-
-## Chapter 4 after the wound: a strip sequence, no Khara (2026-11-11)
-
-The artist redrew everything after 04.11 as seven 0.6 strips (04.11 kept,
-still 0.6; 04.12–04.17 new, the old 04.12–04.16 gone):
-
-- **04.12** Surpanakha comes back in from the left, pointing ahead, two
-  armed rakshasas running in behind her.
-- **04.13** Five rakshasas run right, swords and clubs.
-- **04.14** Rama and Lakshman at the right; Lakshman points back left,
-  alarmed.
-- **04.15** Both brothers shoot to the left.
-- **04.16** Struck by arrows from the right, the rakshasas fall and leap.
-- **04.17** The rest flee to the left.
-
-Dropped against the brief: **Khara** (her falling at his feet), Lakshman
-and Sita sent into the cave (**Lakshman now fights beside Rama**), and
-**Sita's embrace** at the end. Her pointing ahead in 04.12 still carries
-the "pointing back the way she came" gesture. Beats 5–7 of chapter 4
-want rewriting to match.
-
-- **New 02.02–02.06** (2026-11-16): six variations of Kaikeyi and Dasharatha arguing after the throne opener (demand at the throne, the king kneeling to her, the shouting close-up, the anger chamber, the quarrel, the king bowed in grief); the artist picks.
-
-- **New 10.19–10.26** (2026-11-16, the artist): after 10.18, Ravana visits Sita in the grove and the rakshasis come and go, some frightening her, one (raxas_f3, red-diamond) consoling her: twelve variations, Sita on the same rock in the same spot, on the `chair` base throughout. The brief lists "Ravana threatening Sita in the grove" under *Not shown*; the artist now wants it shown — the brief needs updating.
-
-- **New chapter 11 panels** (2026-11-17, first draft, variations to choose from) around the reference panel 11.25: the havoc in the grove (11.04 tearing up a tree, 11.05 holding it overhead, 11.06 the guards fleeing, 11.07 a guard flung); Indrajit (11.15 close, drawing his bow; 11.16 aiming at Hanuman in the treetops); the binding (11.17, 11.18); before Ravana's throne (11.19, 11.20); the tail set alight (11.21), the ropes burst (11.22), over the burning roofs (11.23), the palace in flames (11.24); panic (11.26, toward the reader); the tail dipped in the sea (11.27). 11.01 is left for the pause on the wall; the homecoming (the jewel to Rama) is not written yet.
-- **More chapter 11** (2026-11-17, the artist): the chapter now opens with Hanuman on the ledge at the edge of Lanka, the sea before him (11.01), then turning to walk back in to wreck the grove (11.02) — the pause, told by turning back. Added: swinging on vines over the grove (11.08–11.10); a guard brings Ravana the news (11.11, after 01.03) and he rises in rage (11.12); Ravana sends Indrajit, who bows (11.13) and strides out with his bow (11.14). "Ravana dispatching Meghnada" is an order the brief did not show — the brief needs the beat.
-- **Chapter 11 opener, revised** (2026-11-17, the artist): on the ledge (11.01) Hanuman now turns back toward the city with an explosion in a thought bubble (11.02), so the turn is a decision to wreck it, not a walk back; 11.03 he runs back in. The tree in the havoc is heaved over and held up as a felled trunk (11.04, 11.05), not uprooted.
-- **Chapter 2 and 4 panels cut** (2026-11-17, the artist): 02.10 (Kaikeyi points, close), 04.02a (Surpanakha walks alone to the right; the spy-tagged walk, 04.02 and 04.03 remain) and 09.04 (the ring, close, in Hanuman's keeping; the ring is still handed over in 09.04 and 09.05).
-- **Chapter 4: the courting, as drawn** (2026-11-17, the artist): Surpanakha walks past the trees (04.01, 04.02), reaches for Rama, who turns away (04.05), presses close as he steps back (04.06); Rama points her to Lakshman, who leans away (04.07), the brothers point her back and forth, she between them (04.08); close, she reaches for Lakshman (04.09), a hand to her face (04.10), then screams, front view (04.13). Beat 1 of chapter 4 can follow this order.
-- **Chapter 8: the challenge at the palace steps** (2026-11-17, the artist): the fight starts at Kishkindha's palace, not on open ground. Sugriva runs up the steps roaring (08.02), shouts up at the palace and Bali comes out at the door (08.03), Bali charges down at him (08.04) and flings him back on the steps (08.05, new). 08.06 is now Rama running past below the hill, bow in hand, seen from behind (the far shot of the brothers squaring off is gone); the brothers then fight in the air (08.07–08.10). Rama watches from behind the trees (08.12), kneels and draws behind the tree (08.14), the arrow loosed, close (08.15); Bali is flung back with Sugriva watching, hand at his face (08.16). The *Lanka: Surpanakha…* scene texts these panels were copied from are corrected. Beat 1 and 2 of chapter 8 can say: Sugriva challenges at the steps, is thrown back, and Rama is already on his way.
-- **Chapter 9: Sugriva's promise; the search in the ferns** (2026-11-17, the artist): new 09.02 after the opener, Sugriva assures Rama beside the Kishkindha throne, before he sends the monkeys out (09.03). 09.08 (tall) monkeys leap up out of ferns under a hanging vine, and new 09.09 three monkeys push through the ferns: a jungle leg of the search between the great rock (09.07) and the dry plain (09.10).
-- **All chapters renumbered** (2026-11-17): every drawn chapter (1–14) now runs 01, 02, 03 … with no letter ids; 02.01b and 03.03a were deleted just before. The ids in the entries above were rewritten to the new numbers, except panels cut before the renumbering, which keep their old ids (02.10, 04.02a, 09.04, 03.03a, 14.02, 08.02a — they no longer name a panel). New since the last entries: the deer struck, in negative (05.14), between Rama drawing (05.13) and the deer sinking (05.15); ladders carried and raised, and trunks carried and rammed against the wall (13.04–13.07); the steaming bowl in three variations (14.06, 14.08, 14.09).
-- **Chapter 12: nobody is carried over the bridge** (2026-11-17, the artist): riding on shoulders is not realistic and is not drawn. 12.25 is now Hanuman, Rama, Lakshman and Vibhishana walking over the stone, Lanka near. The brief's beat ("the army crosses, Rama on Hanuman's shoulders") and the canon note ("Rama on Hanuman's shoulders over the bridge (12): yes") need changing. Also reworked on the artist's review: 12.20 (rocks held up over the head), 12.21 (the carrier seen from behind, the stones touching), 12.22 (stones to the top edge, the surf between two of them, monkeys on the stones), 13.03 (five defenders, more stones in the wall), 14.12 (a ground under the runners).
-- **Variations to choose from, chapters 11 and 13** (2026-11-17, asked for by the artist; some will be dropped): the panic in Lanka with the city in it — along a street of lit windows (11.25a), over the rooftops (11.25b), a burning tower with one hanging from a window (11.25c), down the palace steps (11.25d), out through the palace arches toward the reader (11.25e). The siege — ladders carried to the wall, from above (13.04a); the ram at the foot of a wall too tall for the picture (13.07a); defenders on the wall top under the rocks (13.08a); three monkeys up one ladder, from behind (13.08b); a ladder pushed off (13.08c); throwers near and the wall far (13.09a); a chief falling from the wall (13.10a).
-- **Chapter 14, the fight: variations to choose from** (2026-11-17, asked for by the artist) after 14.14: his face over Lanka's wall (14.15); his foot coming down among the monkeys (14.16); Hanuman heaving the peak up at his face (14.17) and the peak breaking on his fist, not his chest — there is no chest drawing (14.18); Rama aiming up at the arrow-stuck face (14.19) and close (14.20); the fallen arm (14.21); the head falling, in negative (14.22); sinking in the sea (14.23); lying on the shore, the monkeys dancing (14.24).
-- **Chapter 16 drawn, first draft with variations** (2026-11-17): Lanka by night (16.01); Ravana with the javelin (16.02); Lakshman struck (16.03); Rama kneeling over him (16.04) and close in grief (16.05); the healer points north, to the left, Hanuman beside him rather than Rama (16.06); the leap north over the sea (16.07) and the land (16.08); on the mountain (16.09); the head-scratch among the herbs (16.10) or with the whole mountain in a thought bubble (16.11); the lift (16.12); the night flight over the sea (16.13) or against the moon (16.14); the herb held out (16.15); the embrace (16.16). Rama does not hold Lakshman in his lap: there is no pose for it yet.
-- **Chapter 13 opens on Lanka's ledge; chapter 14 dismembered; 11.25e cut** (2026-11-18, the artist): after the opener, rakshasas on the ledge (11.01's) point out to sea, alarmed (13.01a), and on the same ledge the monkeys leap up out of the sea and run in (13.01b) — the two sides never in one panel. Before the rocks are hurled (13.03), the defenders line the wall with spears, swords and a club (13.02a). The giant is cut apart in negative: the grabbing hand (14.21a), the fist (14.21b) and the foot (14.21c) fall whole, before the head (14.22). The panic out through the palace arches (11.25e) is deleted.
-- **Chapter 11 cut and reordered** (2026-11-18, the artist): deleted 11.07 (a guard flung), the vine swings 11.08–11.10, 11.16 (Indrajit aiming into the treetops), 11.25a (the panic along a street) and 11.26 (panic toward the reader). 11.14 and 11.15 swapped: Indrajit runs out with his bow drawn (11.14), then Hanuman swings on a vine with Indrajit aiming up at him (11.15). 11.24 is now the burning palace alone, without Hanuman's leap.
+- 12.01 and 12.01a carry copied texts (07.06's bundle, 09.03's sending
+  out) over different figures — write what they show.
+- 03.01 repeats 02.14's text; 07.10/07.11 are labelled "Opening" in
+  the middle of the chapter; several variations share one text
+  (01.06/01.07, 03.08/03.09, 07.12–07.14, 10.16–10.18, 14.11–14.13,
+  14.14/14.16, 16.09/16.09a).
