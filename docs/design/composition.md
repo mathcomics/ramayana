@@ -24,6 +24,8 @@ action. The same opener can return when the story comes back to a place.
 | 12 The bridge | Lanka across the sea, as 05.01 (12.01) | done |
 | 13 The war begins | — | to choose (before Lanka's walls?) |
 | 14 Kumbhakarna | Lanka across the sea, as 05.01 (14.01) | draft |
+| 15 The mountain of herbs | Lanka across the sea by night (15.01) | draft |
+| 16 Indrajit | the roofs of Lanka by night, the glow of his fire rising among them (16.01); then the shrine, the fire alone (16.02) | draft |
 
 ## Sky and distance
 

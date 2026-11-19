@@ -1,0 +1,21 @@
+{
+  "scene": "The arrows cross in the empty sky",
+  "tall": 1,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "arrow-stuck",
+      "at": 0.42,
+      "row": 0.4,
+      "scale": 1.6,
+      "rotate": -45
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.58,
+      "row": 0.4,
+      "scale": 1.6,
+      "rotate": 135
+    }
+  ]
+}

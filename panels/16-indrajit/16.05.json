@@ -1,0 +1,63 @@
+{
+  "scene": "Black smoke rises from the fire, high over the roofs of Lanka; the rakshasas kneel round it",
+  "tall": 1.5,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "vine",
+      "body": "#000000",
+      "at": 0.53,
+      "row": 0.13,
+      "scale": 3,
+      "rotate": 180
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "kneel-palms",
+      "facing": "right",
+      "at": 0.32,
+      "row": 0.08,
+      "scale": 0.35
+    },
+    {
+      "character": "indrajit",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.42,
+      "row": 0.08,
+      "scale": 0.35
+    },
+    {
+      "prop": "fire",
+      "rotate": 90,
+      "at": 0.52,
+      "row": 0.08,
+      "scale": 0.9
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "kneel-palms",
+      "facing": "left",
+      "at": 0.64,
+      "row": 0.08,
+      "scale": 0.35,
+      "cloth": "red-check"
+    },
+    {
+      "prop": "city-roof",
+      "at": 0.15,
+      "row": -0.04,
+      "scale": 2
+    },
+    {
+      "prop": "city-roof",
+      "at": 0.9,
+      "row": -0.06,
+      "scale": 2.2,
+      "facing": "left"
+    }
+  ],
+  "needs": [
+    "smoke: the vine in black for now"
+  ]
+}

@@ -24,6 +24,8 @@ docs/design/panel-writing.md, Lessons).
 | prop: arrow (in flight from the right edge) | 04.16 |
 | prop: arrow (in flight, leaving the bows to the left) | 04.15 |
 | prop: bow in hand while running | 05.12 |
+| prop: bow-broken (the bow snapped in two, falling): not shown for now | 16.16 |
+| prop: fire-altar (the square fire pit of the rite at Nikumbhila): the fire on bare ground for now | 16.02, 16.03, 16.08, 16.10, 16.11 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.25 |
 | prop: giant-arm-fallen (the whole arm lying, hand open, the cut end shown): giant-grab on its side for now | 14.21 |
 | prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 15.09, 15.09a, 15.14a, 15.14b |

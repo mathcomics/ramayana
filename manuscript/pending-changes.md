@@ -29,6 +29,13 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
   against a chief); 14.05–14.08 and 14.10 (waking drafts: the drum, two
   of the three steaming bowls, the food; 14.09 keeps the bowl). Nothing
   renumbered.
+- **Chapter 16, 2026-11-18: first draft, 16.01–16.19** and a variation
+  16.02a (the fire on top of the shrine's steps), against the brief;
+  nothing the brief does not show. Rakshasas kneel at Indrajit's rite
+  (16.03, 16.05); the fire's black smoke rises over the roofs instead
+  of a cloud forming (the artist). The duel is told one side
+  per strip (Indrajit shooting down, Lakshman shooting up, the arrows
+  passing in the empty sky), as a fight at a distance must be.
 - **Cast**: the old monkey healer is `monkey2` (a monkey with a
   red-brown beard, added 2026-11-18) in 15.05a, 15.06, 15.14b, 15.15,
   15.15b, 15.16a; `monkey2` also stands in the crowds of chapters 12–13

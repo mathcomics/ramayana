@@ -1,0 +1,17 @@
+{
+  "scene": "The fire, left alone, burns low",
+  "tall": 0.6,
+  "ground": "night",
+  "figures": [
+    {
+      "prop": "fire",
+      "rotate": 90,
+      "at": 0.5,
+      "row": 0.05,
+      "scale": 0.9
+    }
+  ],
+  "needs": [
+    "prop: fire-altar (the square fire pit of the rite at Nikumbhila): the fire on bare ground for now"
+  ]
+}

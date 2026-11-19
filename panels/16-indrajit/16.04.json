@@ -1,0 +1,21 @@
+{
+  "scene": "Close: Indrajit, eyes on the flames, palms joined",
+  "tall": 0.6,
+  "ground": "night",
+  "figures": [
+    {
+      "character": "indrajit",
+      "pose": "step-palms",
+      "facing": "right",
+      "at": 0.4,
+      "row": "closeup"
+    },
+    {
+      "prop": "fire",
+      "rotate": 90,
+      "at": 0.85,
+      "row": -0.05,
+      "scale": 3.2
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scene": "Opening: the roofs of Lanka by night, a red glow rising from among them",
+  "tall": 1,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "fire",
+      "rotate": 90,
+      "at": 0.6,
+      "row": 0.12,
+      "scale": 3
+    },
+    {
+      "prop": "city-roof",
+      "at": 0.3,
+      "row": -0.05,
+      "scale": 3
+    },
+    {
+      "prop": "city-roof",
+      "at": 0.85,
+      "row": -0.1,
+      "scale": 3.4,
+      "facing": "left"
+    }
+  ]
+}

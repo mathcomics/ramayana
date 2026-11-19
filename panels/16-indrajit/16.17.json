@@ -1,0 +1,14 @@
+{
+  "scene": "Close: Lakshman draws the last arrow",
+  "tall": 0.6,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "stepwide-bowhigh",
+      "facing": "right",
+      "at": 0.45,
+      "row": "closeup"
+    }
+  ]
+}

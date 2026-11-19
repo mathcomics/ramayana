@@ -1,0 +1,25 @@
+{
+  "scene": "The last arrow strikes off his head (negative)",
+  "tall": 0.6,
+  "mode": "negative",
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "indrajit",
+      "pose": "fallback-flung",
+      "facing": "left",
+      "at": 0.55,
+      "row": 0.15
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.6,
+      "row": 0.32,
+      "scale": 1.4,
+      "rotate": -45
+    }
+  ],
+  "needs": [
+    "a head alone, struck off (a figure's head without its body, as the giant's in 14.22): the whole figure flung back for now"
+  ]
+}

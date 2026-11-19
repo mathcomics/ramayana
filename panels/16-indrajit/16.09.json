@@ -1,0 +1,14 @@
+{
+  "scene": "Close: Indrajit turns from the fire, caught",
+  "tall": 0.6,
+  "ground": "night",
+  "figures": [
+    {
+      "character": "indrajit",
+      "pose": "step-armsout",
+      "facing": "left",
+      "at": 0.5,
+      "row": "closeup"
+    }
+  ]
+}

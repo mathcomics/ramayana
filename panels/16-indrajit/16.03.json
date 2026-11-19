@@ -1,0 +1,61 @@
+{
+  "scene": "Indrajit kneels before the fire, pouring offerings into it; rakshasas kneel at the rite around him",
+  "tall": 1,
+  "ground": "night",
+  "figures": [
+    {
+      "prop": "vine",
+      "body": "#000000",
+      "at": 0.67,
+      "row": 0.26,
+      "scale": 1.8,
+      "rotate": 180
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "kneel-palms",
+      "facing": "right",
+      "at": 0.14,
+      "row": "mid"
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "kneel-palms",
+      "facing": "left",
+      "at": 0.88,
+      "row": "mid",
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "step-palms",
+      "facing": "left",
+      "at": 0.72,
+      "row": "back",
+      "cloth": "red-diamond"
+    },
+    {
+      "character": "raxas_m4",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.52,
+      "row": "back"
+    },
+    {
+      "prop": "fire",
+      "rotate": 90,
+      "at": 0.66,
+      "scale": 2.4
+    },
+    {
+      "character": "indrajit",
+      "pose": "kneel-handslow",
+      "facing": "right",
+      "at": 0.36
+    }
+  ],
+  "needs": [
+    "prop: fire-altar (the square fire pit of the rite at Nikumbhila): the fire on bare ground for now",
+    "smoke: the vine in black for now"
+  ]
+}

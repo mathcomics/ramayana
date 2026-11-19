@@ -1,0 +1,23 @@
+{
+  "scene": "From the sky Indrajit shoots down",
+  "tall": 0.6,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "character": "indrajit",
+      "pose": "leapup-bowdraw",
+      "facing": "left",
+      "at": 0.62,
+      "row": 0.15,
+      "rotate": -30
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.2,
+      "row": 0.1,
+      "scale": 1.4,
+      "facing": "left",
+      "rotate": -125
+    }
+  ]
+}

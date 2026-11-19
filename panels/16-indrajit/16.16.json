@@ -1,0 +1,24 @@
+{
+  "scene": "Lakshman's arrow breaks Indrajit's bow: he is flung back, his hands empty",
+  "tall": 0.6,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "character": "indrajit",
+      "pose": "leapup-flung",
+      "facing": "left",
+      "at": 0.5,
+      "row": 0.12
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.72,
+      "row": 0.5,
+      "scale": 1.4,
+      "rotate": -50
+    }
+  ],
+  "needs": [
+    "prop: bow-broken (the bow snapped in two, falling): not shown for now"
+  ]
+}

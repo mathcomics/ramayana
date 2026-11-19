@@ -1,0 +1,61 @@
+{
+  "scene": "Through Lanka's streets by night: the little band walks in between the walls, Vibhishana ahead",
+  "tall": 1,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "prop": "city-side",
+      "at": 0,
+      "row": "mid",
+      "scale": 3
+    },
+    {
+      "prop": "city-side",
+      "at": 1,
+      "row": "mid",
+      "scale": 3,
+      "facing": "left"
+    },
+    {
+      "character": "vibhishana",
+      "pose": "walk-swing",
+      "view": "front",
+      "turn": 180,
+      "at": 0.5,
+      "row": "back"
+    },
+    {
+      "character": "lakshman",
+      "pose": "walk-swing",
+      "view": "front",
+      "turn": 180,
+      "at": 0.42,
+      "row": "mid",
+      "adjust": {
+        "left.arm.prop": {
+          "kind": "bow",
+          "angle": 0
+        }
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-bull",
+      "view": "front",
+      "turn": 180,
+      "at": 0.62,
+      "row": "mid",
+      "cloth": "orange"
+    },
+    {
+      "character": "monkey2",
+      "pose": "walk-shoulder",
+      "view": "front",
+      "turn": 180,
+      "at": 0.3,
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
+    }
+  ]
+}
