@@ -137,10 +137,10 @@ and Sita in the swan chariot **waving back at the reader**.
 | `12-the-bridge` | 26 | first draft against the brief, with variations to choose from (2026-11-15); the Ocean is a stand-in (male2) |
 | `13-the-war-begins` | 22 | seven siege variations to choose from (13.04a from above, 13.07a, 13.08a–c, 13.09a, 13.10a); the opener (Lanka across the sea, 13.01), the rakshasas alarmed on 11.01's ledge (13.01a) and the monkeys arriving on it (13.01b), the wall manned with spears (13.02a) and battle scenes (ladders carried and raised against the wall (13.04, 13.05), trunks carried and rammed (13.06, 13.07), rocks hurled, the fall, a chief, the fallen field) |
 | `14-kumbhakarna` | 27 | thirteen variations of the fight and the death to choose from (14.15–14.24, 2026-11-17: the face over the wall, the foot, the peak thrown and broken, Rama's arrows, the fallen arm, the hand, fist and foot cut off in negative (14.21a–c, 2026-11-18), the head in negative, in the sea, on the shore); 13 exploratory drafts of the waking (14.01–14.13, to be cut to 5–6; the steaming bowl in three variations, 14.06–14.09) and the approved reference panel 14.14 |
-| `16-the-mountain-of-herbs` | 16 | first draft against the brief, with variations to choose from (2026-11-17); the javelin, the healer and the herbs are stand-ins |
+| `15-the-mountain-of-herbs` | 16 | first draft against the brief, with variations to choose from (2026-11-17); moved from 16 to 15 with the popular order (2026-11-18), Indrajit for Ravana in 15.02; the javelin, his cloud, the healer and the herbs are stand-ins |
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
-Chapters 15, 17 and 18 have briefs and no panels; the site marks them
+Chapters 16, 17 and 18 have briefs and no panels; the site marks them
 "to come". Every drawn chapter's folder number matches its brief number.
 The approved reference panels (every panel with `tags`; 19 since a spy-tagged walk in chapter 4 was deleted 2026-11-17; 20 after the
 artist's tagging round of 2026-11-13) are the models other panels are

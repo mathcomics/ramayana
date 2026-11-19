@@ -35,8 +35,8 @@
       { "character": "raxas_m1", "pose": "stand-hang", "facing": "left", "x": 80, "y": 64, "size": 9 },
       { "prop": "giant-face-side", "rotate": -90, "x": 50, "y": 80, "size": 125 }
     ] },
-    "15": { "character": "indrajit", "ground": "night" },
-    "16": { "prop": "flower-white", "ground": "green" },
+    "15": { "prop": "flower-white", "ground": "green" },
+    "16": { "character": "indrajit", "ground": "night" },
     "17": { "character": "ravana", "ground": "geru" },
     "18": { "prop": "palace-ayodhya", "ground": "sunrise" }
   }

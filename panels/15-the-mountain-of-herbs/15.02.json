@@ -1,10 +1,10 @@
 {
-  "scene": "Ravana strides out, the javelin drawn back to throw",
+  "scene": "Indrajit draws the javelin back to throw",
   "tall": 0.6,
   "ground": "off-white",
   "figures": [
     {
-      "character": "ravana",
+      "character": "indrajit",
       "pose": "leanback-armback",
       "facing": "right",
       "at": 0.4,
@@ -17,6 +17,7 @@
     }
   ],
   "needs": [
-    "prop: javelin (a heavy spear, held and thrown): the long spiked club for now"
+    "prop: javelin (a heavy spear, held and thrown): the long spiked club for now",
+    "Indrajit throws from his cloud, as in chapter 13 (scenes.md, 15): to draw"
   ]
 }

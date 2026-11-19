@@ -31,9 +31,9 @@ docs/design/panel-writing.md, Lessons).
 | prop: food-platter (a round platter piled with food, held up) | 14.07 |
 | prop: giant-arm-fallen (the whole arm lying, hand open, the cut end shown): giant-grab on its side for now | 14.21 |
 | prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.10 |
-| prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 16.09, 16.09a |
-| prop: javelin (a heavy spear, held and thrown): a big arrow for now | 16.03 |
-| prop: javelin (a heavy spear, held and thrown): the long spiked club for now | 16.02 |
+| prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 15.09, 15.09a |
+| prop: javelin (a heavy spear, held and thrown): a big arrow for now | 15.03 |
+| prop: javelin (a heavy spear, held and thrown): the long spiked club for now | 15.02 |
 | prop: jewel (Sita's hair jewel; it travels home in 11) | 10.29, 10.30, 10.32, 10.33 |
 | prop: line (scratched in the earth, under his hand) | 05.19 |
 | prop: mountain | 09.12, 09.13 |

@@ -17,28 +17,17 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
 
 ## For the panels (manuscript v1.0, 2026-11-18)
 
-### Chapters 15 and 16 swapped (the popular order)
-
-The artist chose the popular order: **15 The mountain of herbs, 16
-Indrajit, 17 Ravana's fall**. The headings in `scenes.md` already say
-so, and `tools/build-site.mjs` takes chapter titles from them by
-number — so until the folder is renamed the herbs panels show on the
-site under "16. Indrajit". **Do this before the next push to `main`.**
-
-- Rename `panels/16-the-mountain-of-herbs` to `15-the-mountain-of-herbs`
-  and renumber its ids 16.xx → 15.xx (`tools/renumber-panels.mjs`;
-  check the panel lab's drafts for 16.xx ids too).
-- `panels/icons.json`: swap the icons of 15 (Indrajit) and 16 (the
-  white flower) so each stays with its chapter.
-- Update the chapter table in the root `CLAUDE.md`.
-
 ### Chapter 15 (the herbs): Indrajit fells Lakshman, not Ravana
 
-- 16.02 and 16.03 (to be 15.02, 15.03): the javelin is **Indrajit's**,
-  thrown from his cloud as in chapter 13's serpent arrows — not Ravana
-  striding out. The artist calls these panels tentative; redraw them.
-  Lakshman alone is struck; Rama is not.
-- The rest of the drafts follow the brief (opener by night, Rama
+*(Done 2026-11-18: the folder is now `15-the-mountain-of-herbs`, ids
+15.xx with the letter ids kept, the 15/16 icons swapped, and 15.02's
+thrower is Indrajit.)*
+
+- 15.02 and 15.03 are tentative (the artist): Indrajit should throw
+  from his cloud, as in chapter 13's serpent arrows — 15.02 has him
+  standing on open ground for now (a `needs` line says so). Lakshman
+  alone is struck; Rama is not.
+- The rest of the drafts follow the brief (15.01 the opener by night, Rama
   kneeling over him, the healer pointing north with Hanuman beside him,
   the leap, the head-scratch, the lift, the night flight, the herb, the
   embrace). The variations still want choosing.
