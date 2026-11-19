@@ -13,7 +13,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "leapup-reachup",
+      "pose": "leapup-watch",
       "facing": "right",
       "at": 0.09,
       "row": 0.42,
@@ -23,14 +23,17 @@
     {
       "on": "ledge#stand",
       "scale": 0.4,
-      "character": "monkey1",
-      "pose": "run-pump",
+      "character": "monkey2",
+      "pose": "run-bull",
       "facing": "right",
       "nudge": [
         -9.5,
         0
       ],
-      "cloth": "orange"
+      "cloth": "orange",
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
     },
     {
       "on": "ledge#stand",
@@ -47,13 +50,16 @@
       "on": "ledge#stand",
       "scale": 0.4,
       "character": "monkey1",
-      "pose": "run-pump",
+      "pose": "run-arc",
       "facing": "right",
       "nudge": [
         -2.5,
         0
       ],
-      "cloth": "red-stripe"
+      "cloth": "red-stripe",
+      "adjust": {
+        "right.arm.prop.kind": "sword-broad"
+      }
     }
   ]
 }

@@ -5,43 +5,55 @@
   "figures": [
     {
       "character": "monkey1",
-      "pose": "walk-crown",
+      "pose": "walk-watch",
       "facing": "right",
       "at": 0.05,
       "on": "foreground",
       "scale": 0.4
     },
     {
-      "character": "monkey1",
-      "pose": "walk-crown",
+      "character": "monkey2",
+      "pose": "walk-bull",
       "facing": "right",
       "at": 0.15,
       "on": "foreground",
-      "scale": 0.4
+      "scale": 0.4,
+      "adjust": {
+        "right.arm.prop.kind": "club"
+      }
     },
     {
       "character": "monkey1",
-      "pose": "walk-crown",
+      "pose": "walk-shoulder",
       "facing": "right",
       "at": 0.25,
       "on": "foreground",
-      "scale": 0.4
+      "scale": 0.4,
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
     },
     {
-      "character": "monkey1",
+      "character": "monkey2",
       "pose": "walk-crown",
       "facing": "right",
       "at": 0.35,
       "on": "foreground",
-      "scale": 0.4
+      "scale": 0.4,
+      "adjust": {
+        "right.arm.prop.kind": "sword-broad"
+      }
     },
     {
       "character": "monkey1",
-      "pose": "walk-crown",
+      "pose": "walk-arc",
       "facing": "right",
       "at": 0.45,
       "on": "foreground",
-      "scale": 0.4
+      "scale": 0.4,
+      "adjust": {
+        "right.arm.prop.kind": "club-spike"
+      }
     },
     {
       "foreground": [

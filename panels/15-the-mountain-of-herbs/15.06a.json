@@ -1,0 +1,29 @@
+{
+  "scene": "Where he points: the white mountains far to the north under the night sky; Hanuman, from behind, looks at them",
+  "tall": 1,
+  "ground": "light-grey",
+  "sky": "night-blue",
+  "horizon": 0.45,
+  "figures": [
+    {
+      "prop": "rock-triangle",
+      "at": 0.62,
+      "row": "horizon",
+      "scale": 3,
+      "body": "#f3efd6",
+      "repeat": {
+        "n": 3,
+        "gap": -0.4,
+        "seed": 2
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-akimbo",
+      "view": "front",
+      "at": 0.25,
+      "row": -0.3,
+      "turn": 180
+    }
+  ]
+}

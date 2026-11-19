@@ -1,0 +1,14 @@
+{
+  "scene": "Close: Lakshman opens his eyes and lifts his head",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "sitback-propback",
+      "facing": "right",
+      "at": 0.5,
+      "scale": 1.7
+    }
+  ]
+}

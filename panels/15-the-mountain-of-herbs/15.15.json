@@ -16,7 +16,7 @@
       "scale": 1.2
     },
     {
-      "character": "monkey1",
+      "character": "monkey2",
       "pose": "kneel-handslow",
       "id": "healer",
       "facing": "left",
@@ -24,8 +24,5 @@
       "scale": 1.5,
       "cloth": "stone"
     }
-  ],
-  "needs": [
-    "character: the healer (an old monkey, white-bearded): monkey1 in grey for now"
   ]
 }

@@ -11,7 +11,7 @@
       "scale": 1.4
     },
     {
-      "character": "monkey1",
+      "character": "monkey2",
       "pose": "step-point",
       "id": "healer",
       "facing": "left",
@@ -19,8 +19,5 @@
       "scale": 1.4,
       "cloth": "stone"
     }
-  ],
-  "needs": [
-    "character: the healer (an old monkey, white-bearded): monkey1 in grey for now"
   ]
 }

@@ -105,7 +105,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **A feeling is a picture in a thought bubble** (artist, 2026-11-16):
   `bubble-thought` high beside the thinker's head, its trail of circles
   leading down to it, with the feeling `on` its `inside` anchor —
-  `storm-cloud` for anger and distress (Kaikeyi, 01.09), `heart` for
+  `icon-angry` for anger and distress (Kaikeyi, 01.09), `heart` for
   love (Surpanakha, 03.12), `icon-explode` for rage or shock (Ravana,
   11.12). Size the bubble with `scale` so the feeling
   reads at phone size (0.85–1.3 in a close strip).
@@ -229,7 +229,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Carried things go `on` the carrier** (2026-11-13): `"on": "hanuman#hands"`
   (also `#hand-right`, `#hand-left`, `#head`, `#shoulder`), not an `at`/`row`
   lined up by eye — it then follows the pose. List the rock before the
-  lifter so his hands are in front of it (13.09, 13.11). A carried prop
+  lifter so his hands are in front of it (13.09). A carried prop
   is sized by the carrier's **row**, not the carrier's `scale`: when the
   figure is scaled up in a close strip, scale the prop up with it, or it
   shrinks to a speck. The ring (drawn to the giant fist's scale, 2026-11-16)

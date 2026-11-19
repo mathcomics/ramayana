@@ -1,0 +1,41 @@
+{
+  "scene": "The monkeys leap and cheer, the healer among them",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "monkey1",
+      "pose": "leapup-armsup",
+      "facing": "right",
+      "at": 0.12,
+      "cloth": "red",
+      "scale": 1.2,
+      "row": 0.15
+    },
+    {
+      "character": "monkey2",
+      "id": "healer",
+      "cloth": "stone",
+      "pose": "step-palms",
+      "facing": "right",
+      "at": 0.38,
+      "scale": 1.2
+    },
+    {
+      "character": "hanuman",
+      "pose": "stepwide-armsup",
+      "facing": "left",
+      "at": 0.64,
+      "scale": 1.2
+    },
+    {
+      "character": "monkey1",
+      "pose": "leapup-reachup",
+      "facing": "left",
+      "at": 0.88,
+      "cloth": "orange",
+      "scale": 1.2,
+      "row": 0.15
+    }
+  ]
+}

@@ -12,8 +12,6 @@ placeholder box. Held props (sword, club, spear, bow) live in
 
 | prop | panels |
 |---|---|
-| food-heap | 14.07 |
-| food-platter | 14.07 |
 | rope-bind | 11.17, 11.18, 11.20, 11.21 |
 
 ## Prop wishes from the panels' needs
@@ -27,17 +25,13 @@ docs/design/panel-writing.md, Lessons).
 | prop: arrow (in flight, leaving the bows to the left) | 04.15 |
 | prop: bow in hand while running | 05.12 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.25 |
-| prop: food-heap (a heap of fruit, rice and sweets) | 14.07 |
-| prop: food-platter (a round platter piled with food, held up) | 14.07 |
 | prop: giant-arm-fallen (the whole arm lying, hand open, the cut end shown): giant-grab on its side for now | 14.21 |
-| prop: giant-face-side-awake (the side face with the eyes open): the shut-eyed placeholder for now | 14.10 |
-| prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 15.09, 15.09a |
-| prop: javelin (a heavy spear, held and thrown): a big arrow for now | 15.03 |
+| prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 15.09, 15.09a, 15.14a, 15.14b |
+| prop: javelin (a heavy spear, held and thrown): a big arrow for now | 15.02a, 15.03 |
 | prop: javelin (a heavy spear, held and thrown): the long spiked club for now | 15.02 |
 | prop: mountain | 09.12, 09.13 |
 | prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.20, 11.21 |
 | prop: staff (held) | 05.21, 05.22 |
-| prop: steam (white wisps rising from a hot bowl): a white vine, rotated, for now | 14.06, 14.08 |
 | prop: tree | 03.06 |
 | prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.05, 11.06, 13.06 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.06 |
@@ -45,4 +39,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, cloud_big, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front-awake, giant-face-side, giant-face-side-awake, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, male-top-back, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, rock-triangle, sound-cry, stag-lie, stag-run, stag-stand, steps, storm-cloud, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, cloud-big, cloud-small, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front-awake, giant-face-side, giant-face-side-awake, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-angry, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, rock-triangle, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

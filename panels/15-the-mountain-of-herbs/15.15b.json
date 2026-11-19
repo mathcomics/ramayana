@@ -1,0 +1,28 @@
+{
+  "scene": "Lakshman sits up; Rama kneels beside him, the healer watching",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "monkey2",
+      "id": "healer",
+      "cloth": "stone",
+      "pose": "step-palms",
+      "facing": "right",
+      "at": 0.15,
+      "row": "mid"
+    },
+    {
+      "character": "lakshman",
+      "pose": "sit-armknee",
+      "facing": "right",
+      "at": 0.42
+    },
+    {
+      "character": "rama",
+      "pose": "kneel-reach",
+      "facing": "left",
+      "at": 0.68
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "scene": "Night on the field before Lanka: Lakshman keeps watch at the front, the armed monkeys behind him",
+  "tall": 1,
+  "ground": "light-grey",
+  "sky": "night-blue",
+  "horizon": 0.35,
+  "figures": [
+    {
+      "character": "monkey1",
+      "pose": "step-bull",
+      "facing": "left",
+      "at": 0.2,
+      "row": "back",
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
+    },
+    {
+      "character": "monkey2",
+      "pose": "step-bull",
+      "facing": "left",
+      "at": 0.78,
+      "row": "back",
+      "cloth": "red"
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-crown",
+      "facing": "left",
+      "at": 0.62,
+      "row": "back",
+      "cloth": "orange"
+    },
+    {
+      "character": "lakshman",
+      "pose": "step-akimbo",
+      "facing": "left",
+      "at": 0.4
+    }
+  ]
+}

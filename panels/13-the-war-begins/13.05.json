@@ -30,7 +30,7 @@
       "cloth": "red"
     },
     {
-      "character": "monkey1",
+      "character": "monkey2",
       "pose": "step-reachup",
       "facing": "right",
       "on": "ladder-left#stand",

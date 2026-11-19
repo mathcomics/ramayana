@@ -1,0 +1,32 @@
+{
+  "scene": "The healer plucks a glowing herb at the mountain's foot",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "at": 0.88,
+      "row": "front",
+      "scale": 2.2,
+      "body": "#5a5f7a"
+    },
+    {
+      "prop": "flower-yellow",
+      "at": 0.56,
+      "row": "front",
+      "scale": 1.1
+    },
+    {
+      "character": "monkey2",
+      "id": "healer",
+      "cloth": "stone",
+      "pose": "bend-reach",
+      "facing": "right",
+      "at": 0.38,
+      "scale": 1.5
+    }
+  ],
+  "needs": [
+    "prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now"
+  ]
+}

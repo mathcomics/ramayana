@@ -17,7 +17,7 @@
       "on": "foreground"
     },
     {
-      "character": "monkey1",
+      "character": "monkey2",
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.27,
@@ -33,11 +33,14 @@
     },
     {
       "character": "monkey1",
-      "pose": "pass-swing",
+      "pose": "pass-shoulder",
       "facing": "right",
       "at": 0.63,
       "on": "foreground",
-      "cloth": "orange"
+      "cloth": "orange",
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
     },
     {
       "character": "monkey1",

@@ -15,21 +15,27 @@
       "on": "lanka-island#stand"
     },
     {
-      "character": "monkey1",
-      "pose": "walk-crown",
+      "character": "monkey2",
+      "pose": "walk-bull",
       "view": "front",
       "facing": "right",
       "at": 0.05,
       "row": -0.3,
-      "turn": 180
+      "turn": 180,
+      "adjust": {
+        "right.arm.prop.kind": "club"
+      }
     },
     {
       "character": "monkey1",
-      "pose": "walk-crown",
+      "pose": "walk-unicorn",
       "view": "front",
       "at": 0.15,
       "row": -0.3,
-      "turn": 180
+      "turn": 180,
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
     },
     {
       "character": "monkey1",
@@ -40,13 +46,16 @@
       "turn": 180
     },
     {
-      "character": "monkey1",
-      "pose": "walk-crown",
+      "character": "monkey2",
+      "pose": "walk-bull",
       "view": "front",
       "facing": "right",
       "at": 0.35,
       "row": -0.3,
-      "turn": 180
+      "turn": 180,
+      "adjust": {
+        "right.arm.prop.kind": "sword-broad"
+      }
     },
     {
       "character": "monkey1",

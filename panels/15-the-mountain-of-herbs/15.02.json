@@ -1,7 +1,7 @@
 {
   "scene": "Indrajit draws the javelin back to throw",
   "tall": 0.6,
-  "ground": "off-white",
+  "ground": "night-blue",
   "figures": [
     {
       "character": "indrajit",
@@ -14,10 +14,15 @@
           "kind": "club-spike-long"
         }
       }
+    },
+    {
+      "prop": "cloud-small",
+      "at": 0.4,
+      "row": -0.15,
+      "scale": 0.45
     }
   ],
   "needs": [
-    "prop: javelin (a heavy spear, held and thrown): the long spiked club for now",
-    "Indrajit throws from his cloud, as in chapter 13 (scenes.md, 15): to draw"
+    "prop: javelin (a heavy spear, held and thrown): the long spiked club for now"
   ]
 }

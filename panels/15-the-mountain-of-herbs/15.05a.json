@@ -1,0 +1,26 @@
+{
+  "scene": "The old healer kneels at Lakshman's side, a hand on his chest",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "lakshman",
+      "pose": "sitback-hang",
+      "facing": "right",
+      "at": 0.35,
+      "scale": 1.5,
+      "adjust": {
+        "spine.head": -35
+      }
+    },
+    {
+      "character": "monkey2",
+      "id": "healer",
+      "cloth": "stone",
+      "pose": "kneel-reach",
+      "facing": "left",
+      "at": 0.7,
+      "scale": 1.5
+    }
+  ]
+}

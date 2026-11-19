@@ -1,0 +1,53 @@
+{
+  "scene": "The unseen archer: high over the field Indrajit's dark cloud, the javelin flying out of it down at the small figures below",
+  "tall": 1.5,
+  "ground": "light-grey",
+  "sky": "night-blue",
+  "horizon": 0.18,
+  "figures": [
+    {
+      "prop": "cloud-big",
+      "at": 0.25,
+      "row": 0.62,
+      "scale": 0.35
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.45,
+      "row": 0.45,
+      "scale": 0.7,
+      "rotate": -125,
+      "facing": "left"
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-bull",
+      "facing": "left",
+      "at": 0.62,
+      "row": "back"
+    },
+    {
+      "character": "lakshman",
+      "pose": "step-search",
+      "facing": "left",
+      "at": 0.74,
+      "row": "back",
+      "adjust": {
+        "spine.head": -25
+      }
+    },
+    {
+      "character": "monkey2",
+      "pose": "step-shoulder",
+      "facing": "left",
+      "at": 0.86,
+      "row": "back",
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
+    }
+  ],
+  "needs": [
+    "prop: javelin (a heavy spear, held and thrown): a big arrow for now"
+  ]
+}

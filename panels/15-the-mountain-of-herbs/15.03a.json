@@ -1,0 +1,22 @@
+{
+  "scene": "The monkeys turn at the blow, arms flung out, crying out",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "monkey1",
+      "pose": "stepback-flung",
+      "facing": "right",
+      "at": 0.25,
+      "cloth": "red",
+      "scale": 1.4
+    },
+    {
+      "character": "monkey2",
+      "pose": "stepback-armsout",
+      "facing": "right",
+      "at": 0.7,
+      "scale": 1.4
+    }
+  ]
+}
