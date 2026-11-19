@@ -539,41 +539,41 @@
       }
     },
     "bowdraw": {
+      "chest": -4,
       "desc": "bow held forward, string drawn back to the ear, the draw elbow behind",
+      "head": -6,
       "hold": [
         "left"
       ],
-      "use": [
-        "shoot"
-      ],
-      "chest": -4,
-      "neck": -0.1,
-      "head": -6,
-      "mouth": 1,
-      "right": {
-        "shoulder": -93,
-        "out": -5.2,
-        "elbow": 203.3,
-        "elbowOut": 1.4,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "fist"
-      },
       "left": {
-        "shoulder": 106,
-        "out": -8.8,
         "elbow": 0,
         "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
         "hand": "fist",
+        "out": -8.8,
         "prop": {
-          "kind": "bow",
           "angle": -7,
-          "out": 0,
-          "draw": true
-        }
-      }
+          "draw": true,
+          "kind": "bow",
+          "out": 0
+        },
+        "shoulder": 106,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": -0.1,
+      "right": {
+        "elbow": 192.2,
+        "elbowOut": -18,
+        "hand": "fist",
+        "out": -5.2,
+        "shoulder": -78.5,
+        "twist": 0,
+        "wrist": 0
+      },
+      "use": [
+        "shoot"
+      ]
     },
     "bowhigh": {
       "desc": "the full draw tipped back from the chest, bow aimed high",
@@ -993,37 +993,37 @@
       }
     },
     "handslow": {
+      "chest": -10,
       "desc": "forearms low in front",
+      "head": -5,
       "hold": [
         "right",
         "left"
       ],
+      "left": {
+        "elbow": 59,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 11,
+        "shoulder": -53,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 10,
+      "right": {
+        "elbow": 58,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 11,
+        "shoulder": 25,
+        "twist": 0,
+        "wrist": 0
+      },
       "use": [
         "hold",
         "plead"
-      ],
-      "chest": -10,
-      "neck": 10,
-      "head": -5,
-      "mouth": 1,
-      "right": {
-        "shoulder": 25,
-        "out": 11,
-        "elbow": 58,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "in"
-      },
-      "left": {
-        "shoulder": -53,
-        "out": 11,
-        "elbow": 59,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "in"
-      }
+      ]
     },
     "hang": {
       "desc": "arms hanging at the sides",
