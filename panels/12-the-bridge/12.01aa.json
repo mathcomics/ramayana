@@ -1,0 +1,83 @@
+{
+  "scene": "Sugriva points the army on; the monkeys march out, swords raised",
+  "tall": 0.6,
+  "ground": "sky",
+  "figures": [
+    {
+      "character": "monkey1",
+      "pose": "run-watch",
+      "facing": "right",
+      "at": 0.05,
+      "on": "foreground"
+    },
+    {
+      "character": "monkey2",
+      "pose": "run-bull",
+      "facing": "right",
+      "at": 0.14,
+      "on": "foreground",
+      "adjust": {
+        "right.arm.prop.kind": "club"
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "stepwide-shoulder",
+      "facing": "right",
+      "at": 0.29,
+      "on": "foreground",
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
+    },
+    {
+      "character": "monkey2",
+      "pose": "walk-crown",
+      "facing": "right",
+      "at": 0.41,
+      "on": "foreground",
+      "adjust": {
+        "right.arm.prop.kind": "sword-broad"
+      }
+    },
+    {
+      "character": "monkey1",
+      "pose": "arch-arc",
+      "facing": "right",
+      "at": 0.55,
+      "on": "foreground",
+      "adjust": {
+        "right.arm.prop.kind": "club-spike"
+      }
+    },
+    {
+      "foreground": [
+        0.1,
+        0.2
+      ],
+      "color": "sand"
+    },
+    {
+      "character": "rama",
+      "pose": "pass-bull",
+      "facing": "right",
+      "at": 0.8,
+      "on": "foreground",
+      "adjust": {
+        "left.arm.prop.kind": "bow",
+        "right.arm.prop.kind": null
+      }
+    },
+    {
+      "character": "lakshman",
+      "pose": "pass-flank",
+      "facing": "right",
+      "at": 0.7,
+      "on": "foreground",
+      "adjust": {
+        "left.arm.prop.kind": "bow",
+        "right.arm.prop.kind": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "scene": "The Ocean rises from the waves before the drawn bow, palms raised",
+  "tall": 1,
+  "ground": "white",
+  "horizon": 0.55,
+  "figures": [
+    {
+      "character": "male2",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 1.2,
+      "row": -0.2,
+      "scale": 2.5,
+      "mouth": 3,
+      "rotate": -75
+    },
+    {
+      "character": "rama",
+      "pose": "leanback-swing",
+      "facing": "right",
+      "at": 0.18,
+      "scale": 0.5
+    },
+    {
+      "foreground": 0.1,
+      "color": "sea"
+    }
+  ],
+  "needs": [
+    "character: the Ocean (a man risen from the waves, crowned with water, blue) — male2, huge, leaning in from the right edge, for now"
+  ]
+}

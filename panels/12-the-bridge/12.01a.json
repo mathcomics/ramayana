@@ -4,20 +4,24 @@
   "ground": "off-white",
   "figures": [
     {
+      "prop": "palace-kishkindha",
+      "at": 0.12
+    },
+    {
       "character": "monkey1",
       "pose": "run-watch",
       "facing": "right",
       "at": 0.05,
       "on": "foreground",
-      "scale": 0.4
+      "scale": 0.8
     },
     {
       "character": "monkey2",
       "pose": "run-bull",
       "facing": "right",
-      "at": 0.12,
+      "at": 0.14,
       "on": "foreground",
-      "scale": 0.4,
+      "scale": 0.8,
       "adjust": {
         "right.arm.prop.kind": "club"
       }
@@ -26,9 +30,9 @@
       "character": "monkey1",
       "pose": "stepwide-shoulder",
       "facing": "right",
-      "at": 0.25,
+      "at": 0.29,
       "on": "foreground",
-      "scale": 0.4,
+      "scale": 0.8,
       "adjust": {
         "right.arm.prop.kind": "spear"
       }
@@ -37,9 +41,9 @@
       "character": "monkey2",
       "pose": "walk-crown",
       "facing": "right",
-      "at": 0.35,
+      "at": 0.41,
       "on": "foreground",
-      "scale": 0.4,
+      "scale": 0.8,
       "adjust": {
         "right.arm.prop.kind": "sword-broad"
       }
@@ -48,17 +52,17 @@
       "character": "monkey1",
       "pose": "arch-arc",
       "facing": "right",
-      "at": 0.45,
+      "at": 0.55,
       "on": "foreground",
-      "scale": 0.4,
+      "scale": 0.8,
       "adjust": {
         "right.arm.prop.kind": "club-spike"
       }
     },
     {
       "foreground": [
-        0.5,
-        0.4
+        0.2,
+        0.1
       ],
       "color": "dark-green"
     },
@@ -66,7 +70,7 @@
       "character": "sugriva",
       "pose": "step-point",
       "facing": "right",
-      "at": 0.7,
+      "at": 0.8,
       "row": "floor"
     }
   ]
