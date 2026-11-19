@@ -255,12 +255,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   gesture on any walking or running base, the rock `on` their `#hands`
   and listed before them.
 - **Walking away from the reader is a back view**: `view: "front"` with
-  `turn: 180` (12.21, the monkey carrying a rock out along the stones
-  toward Lanka). A line that leads into the picture is walked into the
+  `turn: 180` (the monkey carrying a rock out along the stones toward
+  Lanka, in a 12.21 since deleted). A line that leads into the picture is walked into the
   picture; and the stones of a receding line touch, each a little
   smaller and higher than the last.
 - **A line of receding stones carries a receding line of people**
-  (artist, 2026-11-19, 12.21): a figure on each stone, scaled with its
+  (artist, 2026-11-19, 12.26): a figure on each stone, scaled with its
   stone (`scale` ≈ 0.875 × the stone's), in a narrow stance (`step`)
   so the feet stay on the stone's visible top, listed far to near.
 - **A head alone is `head-alone`** (2026-11-19): an empty prop with one
@@ -276,7 +276,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   `rotate` −15 facing right to lie level (17.01–17.03); the base alone
   keeps a flier's bent knees.
 - **Nobody rides on anybody's shoulders** (artist, 2026-11-17): not
-  realistic. 12.25 was Rama on Hanuman; they all walk over the bridge.
+  realistic. A draft of 12.25 had Rama on Hanuman; they all walk over
+  the bridge.
 - **Runners before a giant part need a ground**: a `foreground` band
   under their feet, over the bottom of the giant (14.12); on the bare
   gradient they float in front of the face.

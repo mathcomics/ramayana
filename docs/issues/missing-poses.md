@@ -85,7 +85,6 @@ its gestures on any base. Moments with neither come first.
 - 07.16: stand-clasp-hands (two figures, hands joined): step-hang with the right arm forward for now
 - 08.13: grapple (two bodies locked): lunge and lean for now
 - 09.13: crouch-ready (deep knees, arms back): crouch-cross for now
-- 12.19: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 13.07a: carry-ram (arms forward, a beam clasped against the side): lunge-cross for now
 - 13.09: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 13.09a: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now

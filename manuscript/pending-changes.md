@@ -60,6 +60,14 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
   is kept, the brief changes. The head cut off (17.11, 17.12) and grown
   back (17.13–17.15) follow the brief. The great arrow, the fall, the
   pyre and the laid-down bow are not drawn yet.
+- **Chapter 12, 2026-11-19: 12.18, 12.19, 12.21, 12.25 deleted** (the
+  artist). Gone from the drawn chapter: the Ocean pointing across the
+  water and Rama lowering his bow (12.18), the monkeys hurling rocks
+  into the sea (12.19), and the army crossing — Rama walking over the
+  bridge behind Hanuman, Lakshman and Vibhishana after them (12.25).
+  The rocks are still carried (12.20) and the line of stone still runs
+  to Lanka (12.26, with a monkey on each stone). The brief's third and
+  fourth bullets of beat 3 may want to follow.
 
 ## For the panels (manuscript v1.0, 2026-11-18)
 
