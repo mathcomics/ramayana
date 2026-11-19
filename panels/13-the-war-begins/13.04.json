@@ -6,24 +6,39 @@
     {
       "id": "back",
       "character": "monkey1",
-      "pose": "run-overhead",
+      "pose": "runlow-reachup",
       "facing": "right",
-      "at": 0.3,
-      "cloth": "red-check"
+      "at": 0.41,
+      "cloth": "red-check",
+      "row": "mid"
     },
     {
       "id": "front",
       "character": "monkey1",
-      "pose": "run-overhead",
+      "pose": "runlow-reachup",
       "facing": "right",
-      "at": 0.6,
-      "cloth": "red"
+      "at": 0.8,
+      "cloth": "red",
+      "row": "mid"
+    },
+    {
+      "character": "lakshman",
+      "pose": "leanfront-bowhigh",
+      "facing": "right",
+      "at": 0,
+      "rotate": -20
     },
     {
       "prop": "ladder",
-      "at": 0.55,
-      "row": 0.23,
+      "at": 0.65,
+      "row": 0.31,
       "rotate": 85
+    },
+    {
+      "character": "rama",
+      "pose": "leanfront-bowhigh",
+      "facing": "right",
+      "at": 0.1
     }
   ]
 }

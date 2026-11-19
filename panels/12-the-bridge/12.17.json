@@ -1,23 +1,48 @@
 {
-  "scene": "The Ocean, close, risen to the chest from the water, palms raised",
+  "scene": "A monkey leaps from stone to stone over the sea",
   "tall": 0.6,
   "ground": "sea",
-  "sky": "sky",
-  "horizon": 0.6,
+  "sky": "mist",
+  "horizon": 0.1,
   "figures": [
     {
-      "character": "male2",
-      "pose": "stand-armsup",
-      "view": "front",
-      "at": 0.5,
-      "row": "closeup"
+      "foreground": [
+        0.2,
+        -0.4
+      ],
+      "color": "sand"
     },
     {
-      "foreground": 0.18,
-      "color": "sea"
+      "character": "rama",
+      "pose": "leanfront-point",
+      "at": 0.1,
+      "on": "foreground",
+      "scale": 1
+    },
+    {
+      "id": "rock2",
+      "prop": "rock-square",
+      "at": 0.35,
+      "row": 0.1,
+      "scale": 0.7,
+      "rotate": 45
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.35,
+      "row": 0.09,
+      "scale": 0.1,
+      "body": "#eeeeee",
+      "repeat": {
+        "gap": 1,
+        "n": 2
+      }
+    },
+    {
+      "character": "monkey2",
+      "pose": "bend-armsout",
+      "at": 0.2,
+      "on": "foreground"
     }
-  ],
-  "needs": [
-    "character: the Ocean (a man risen from the waves, crowned with water, blue) — male2 in front view behind a sea band for now"
   ]
 }

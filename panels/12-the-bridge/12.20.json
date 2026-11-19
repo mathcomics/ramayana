@@ -6,7 +6,11 @@
     {
       "prop": "rock-circle",
       "on": "m1#hands",
-      "scale": 0.6
+      "scale": 1,
+      "nudge": [
+        0,
+        -0.3
+      ]
     },
     {
       "character": "monkey1",
@@ -18,12 +22,12 @@
     {
       "prop": "rock-rectangle",
       "on": "m2#hands",
-      "scale": 0.6
+      "scale": 1
     },
     {
       "character": "monkey1",
       "id": "m2",
-      "pose": "pass-reachup",
+      "pose": "runwide-dive",
       "facing": "right",
       "at": 0.36,
       "cloth": "red"
@@ -31,7 +35,11 @@
     {
       "prop": "rock-square",
       "on": "m3#hands",
-      "scale": 0.6
+      "scale": 1,
+      "nudge": [
+        0,
+        -0.2
+      ]
     },
     {
       "character": "monkey1",
@@ -44,12 +52,12 @@
     {
       "prop": "rock-rectangle",
       "on": "m4#hands",
-      "scale": 0.6
+      "scale": 1
     },
     {
       "character": "monkey1",
       "id": "m4",
-      "pose": "walk-reachup",
+      "pose": "runwide-reachup",
       "facing": "right",
       "at": 0.84,
       "cloth": "red-stripe"

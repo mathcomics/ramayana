@@ -11,11 +11,11 @@
     },
     {
       "character": "rama",
-      "pose": "step-bowdraw",
+      "pose": "lunge-bowdraw",
       "facing": "right",
       "at": 0.3,
       "on": "foreground",
-      "mouth": 2
+      "mouth": 3
     }
   ]
 }

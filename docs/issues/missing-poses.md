@@ -89,3 +89,4 @@ its gestures on any base. Moments with neither come first.
 - 13.07a: carry-ram (arms forward, a beam clasped against the side): lunge-cross for now
 - 13.09: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
 - 13.09a: stand-carry-overhead (a rock held above the head): arch-overhead in front view for now
+- 13.12: carry-ram (arms forward, a beam clasped against the side): lunge-cross for now

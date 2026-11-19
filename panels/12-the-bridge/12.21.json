@@ -80,34 +80,36 @@
       "adjust": {
         "right.arm.prop.kind": "club"
       },
-      "nudge": 1.2
+      "nudge": 1.2,
+      "turn": -90
     },
     {
       "character": "monkey1",
-      "pose": "step-lance",
+      "pose": "arch-lance",
       "facing": "right",
       "scale": 0.21,
       "on": "stone5#stand",
       "adjust": {
         "right.arm.prop.kind": "spear"
       },
-      "nudge": 1.2
+      "nudge": 1.2,
+      "turn": -90
     },
     {
       "character": "monkey1",
-      "pose": "step-shoulder",
-      "facing": "left",
+      "pose": "crawl-shoulder",
+      "facing": "right",
       "scale": 0.31,
       "cloth": "orange",
       "on": "stone4#stand",
       "adjust": {
         "right.arm.prop.kind": "club-spike"
       },
-      "nudge": 1.1
+      "turn": -90
     },
     {
       "character": "monkey2",
-      "pose": "step-bull",
+      "pose": "leap-arc",
       "facing": "right",
       "scale": 0.45,
       "cloth": "yellow",
@@ -115,7 +117,11 @@
       "adjust": {
         "right.arm.prop.kind": "sword-broad"
       },
-      "nudge": 0.9
+      "nudge": [
+        0,
+        1.5
+      ],
+      "turn": -90
     },
     {
       "character": "monkey1",

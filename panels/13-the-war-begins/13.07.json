@@ -1,6 +1,6 @@
 {
   "scene": "Rakshasas crowd the wall top, arms up, hurling rocks; a rock in the air above them",
-  "tall": 1,
+  "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
@@ -91,14 +91,56 @@
     },
     {
       "prop": "rock-circle",
-      "at": 0.3,
-      "row": 0.5,
+      "at": 0.25,
+      "row": 0.65,
       "scale": 0.35,
       "body": "#222222",
       "repeat": {
         "gap": 1,
         "n": 2
       }
+    },
+    {
+      "prop": "tree-trunk",
+      "on": "m1#hands",
+      "scale": 0.35,
+      "rotate": -90
+    },
+    {
+      "id": "m1",
+      "character": "monkey1",
+      "pose": "run-reachup",
+      "facing": "right",
+      "at": 0.14,
+      "cloth": "red-check"
+    },
+    {
+      "prop": "tree-trunk",
+      "on": "m2#hands",
+      "scale": 0.35,
+      "rotate": -90
+    },
+    {
+      "id": "m2",
+      "character": "monkey1",
+      "pose": "runlow-reachup",
+      "facing": "right",
+      "at": 0.46,
+      "cloth": "red"
+    },
+    {
+      "prop": "tree-trunk",
+      "on": "m3#hands",
+      "scale": 0.35,
+      "rotate": -90
+    },
+    {
+      "id": "m3",
+      "character": "monkey1",
+      "pose": "runlow-reachup",
+      "facing": "right",
+      "at": 0.78,
+      "cloth": "red-stripe"
     }
   ]
 }
