@@ -1,0 +1,13 @@
+{
+  "scene": "Under construction: the sign alone — this chapter is still being drawn",
+  "tall": 0.6,
+  "ground": "#ffffff",
+  "figures": [
+    {
+      "prop": "icon-construction",
+      "at": 0.5,
+      "row": 0.16,
+      "scale": 1.9
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "scene": "Variation, the head grows back in steps: a small head, a bigger one, the head full size again, side by side",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "head-alone",
+      "id": "g1",
+      "at": 0.2,
+      "row": 0.2,
+      "scale": 0.9
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "g1#face",
+      "view": "front"
+    },
+    {
+      "prop": "head-alone",
+      "id": "g2",
+      "at": 0.5,
+      "row": 0.2,
+      "scale": 1.8
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "g2#face",
+      "view": "front",
+      "mouth": 2
+    },
+    {
+      "prop": "head-alone",
+      "id": "g3",
+      "at": 0.8,
+      "row": 0.2,
+      "scale": 2.7
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "g3#face",
+      "view": "front",
+      "mouth": 3
+    }
+  ]
+}

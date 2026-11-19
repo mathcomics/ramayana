@@ -1,0 +1,58 @@
+{
+  "scene": "Variation, the heads pile up: three cut-off heads on the ground around his feet; Ravana whole, sword raised",
+  "tall": 1,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "figures": [
+    {
+      "prop": "head-alone",
+      "id": "h1",
+      "at": 0.22,
+      "row": 0.01,
+      "rotate": -90
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "h1#face",
+      "facing": "right"
+    },
+    {
+      "prop": "head-alone",
+      "id": "h2",
+      "at": 0.3,
+      "row": 0.03,
+      "rotate": 160
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "h2#face",
+      "facing": "left"
+    },
+    {
+      "character": "ravana",
+      "pose": "stepwide-watch",
+      "facing": "right",
+      "at": 0.5,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.prop.kind": "sword-broad"
+      }
+    },
+    {
+      "prop": "head-alone",
+      "id": "h3",
+      "at": 0.74,
+      "row": 0.01,
+      "rotate": 90
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "h3#face",
+      "facing": "left",
+      "mouth": 2
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "scene": "Rama looses his arrow",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "stepwide-bowloose",
+      "facing": "left",
+      "at": 0.62
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.18,
+      "row": 0.32,
+      "scale": 1.4,
+      "facing": "left"
+    }
+  ]
+}

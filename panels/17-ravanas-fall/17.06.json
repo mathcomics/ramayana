@@ -1,0 +1,13 @@
+{
+  "scene": "Rama stands to meet him, bow drawn",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "stepwide-bowdraw",
+      "facing": "left",
+      "at": 0.62
+    }
+  ]
+}

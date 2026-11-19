@@ -1,0 +1,13 @@
+{
+  "scene": "Ravana draws his bow at Rama",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "stepwide-bowdraw",
+      "facing": "right",
+      "at": 0.38
+    }
+  ]
+}

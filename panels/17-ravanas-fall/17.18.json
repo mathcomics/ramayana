@@ -1,0 +1,123 @@
+{
+  "scene": "Variation, more heads: each arrow cuts one head and more grow back; the heads crowd up over his shoulders, Rama's arrow flying in",
+  "tall": 1.5,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "stepwide-watch",
+      "facing": "right",
+      "at": 0.4,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.prop.kind": "sword-broad"
+      }
+    },
+    {
+      "prop": "head-alone",
+      "id": "s0",
+      "at": 0.37,
+      "row": 0.52,
+      "scale": 0.8
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "s0#face",
+      "facing": "right",
+      "mouth": 2
+    },
+    {
+      "prop": "head-alone",
+      "id": "s1",
+      "at": 0.43,
+      "row": 0.52,
+      "scale": 0.8
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "s1#face",
+      "facing": "right",
+      "mouth": 3
+    },
+    {
+      "prop": "head-alone",
+      "id": "s2",
+      "at": 0.34,
+      "row": 0.6,
+      "scale": 0.8
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "s2#face",
+      "facing": "right",
+      "mouth": 2
+    },
+    {
+      "prop": "head-alone",
+      "id": "s3",
+      "at": 0.4,
+      "row": 0.6,
+      "scale": 0.8
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "s3#face",
+      "facing": "right",
+      "mouth": 3
+    },
+    {
+      "prop": "head-alone",
+      "id": "s4",
+      "at": 0.46,
+      "row": 0.6,
+      "scale": 0.8
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "s4#face",
+      "facing": "right",
+      "mouth": 2
+    },
+    {
+      "prop": "head-alone",
+      "id": "s5",
+      "at": 0.37,
+      "row": 0.68,
+      "scale": 0.8
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "s5#face",
+      "facing": "right",
+      "mouth": 3
+    },
+    {
+      "prop": "head-alone",
+      "id": "s6",
+      "at": 0.43,
+      "row": 0.68,
+      "scale": 0.8
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "s6#face",
+      "facing": "right",
+      "mouth": 2
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.85,
+      "row": 0.6,
+      "scale": 1.4,
+      "facing": "left"
+    }
+  ]
+}

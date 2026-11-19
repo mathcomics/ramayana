@@ -1,0 +1,30 @@
+{
+  "scene": "Variation, the head cut off: Ravana's head alone flies, the arrow on past it (negative)",
+  "tall": 0.6,
+  "mode": "negative",
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "head-alone",
+      "id": "h1",
+      "at": 0.45,
+      "row": 0.35,
+      "rotate": -30,
+      "scale": 2.4
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "h1#face",
+      "facing": "right",
+      "mouth": 3
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.72,
+      "row": 0.45,
+      "scale": 1.8,
+      "rotate": -10
+    }
+  ]
+}

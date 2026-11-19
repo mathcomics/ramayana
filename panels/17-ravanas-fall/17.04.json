@@ -1,0 +1,24 @@
+{
+  "scene": "Close: Ravana rises; his grief turns to rage",
+  "tall": 0.6,
+  "ground": "stone-grey",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "step-fists",
+      "facing": "left",
+      "at": 0.62,
+      "row": "closeup"
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.25,
+      "row": 0.25,
+      "scale": 1.1
+    },
+    {
+      "prop": "icon-explode",
+      "on": "bubble-thought#inside"
+    }
+  ]
+}

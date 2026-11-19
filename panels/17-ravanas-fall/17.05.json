@@ -1,0 +1,30 @@
+{
+  "scene": "Ravana strides out of Lanka, a sword in one hand and a club in the other",
+  "tall": 1,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "figures": [
+    {
+      "prop": "palace-lanka",
+      "at": 0.3,
+      "row": "horizon"
+    },
+    {
+      "character": "ravana",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.55,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "sword-broad",
+          "angle": -40
+        },
+        "left.arm.prop": {
+          "kind": "club-spike",
+          "angle": 60
+        }
+      }
+    }
+  ]
+}

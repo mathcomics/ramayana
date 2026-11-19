@@ -1,0 +1,37 @@
+{
+  "scene": "Variation, the head cut off: Ravana from the shoulders down, arms flung out, his head above the frame; his head falls beside him, the arrow past it",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "stepwide-flung",
+      "facing": "right",
+      "at": 0.3,
+      "row": -0.2,
+      "scale": 2.35
+    },
+    {
+      "prop": "head-alone",
+      "id": "h1",
+      "at": 0.72,
+      "row": 0.3,
+      "rotate": 120,
+      "scale": 2.6
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "h1#face",
+      "facing": "right",
+      "mouth": 3
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.9,
+      "row": 0.6,
+      "scale": 1.4,
+      "rotate": -20
+    }
+  ]
+}

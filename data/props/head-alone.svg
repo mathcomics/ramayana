@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A head without its body: nothing is drawn, only the face anchor.
+     100 px = 1 head-unit. A figure put on its face anchor
+     ("on": "head-alone#face") is drawn as the head alone, full size
+     (r="50" is a whole head), centred on the anchor: a severed head
+     flying or lying on the ground, or a second head growing beside
+     the first (chapter 17). Place it with at / row / scale / rotate
+     like any prop; the figure's view, facing and mouth still apply. -->
+<svg
+   viewBox="0 0 100 100"
+   width="100"
+   height="100"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg">
+  <g
+     id="anchors">
+    <circle
+       id="face"
+       cx="50"
+       cy="50"
+       r="50"
+       fill="none" />
+  </g>
+</svg>

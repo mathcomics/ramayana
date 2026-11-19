@@ -259,6 +259,22 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   toward Lanka). A line that leads into the picture is walked into the
   picture; and the stones of a receding line touch, each a little
   smaller and higher than the last.
+- **A line of receding stones carries a receding line of people**
+  (artist, 2026-11-19, 12.21): a figure on each stone, scaled with its
+  stone (`scale` ≈ 0.875 × the stone's), in a narrow stance (`step`)
+  so the feet stay on the stone's visible top, listed far to near.
+- **A head alone is `head-alone`** (2026-11-19): an empty prop with one
+  full-size `face` anchor — `{ "prop": "head-alone", "id": "h1", … }`
+  then `{ "character": "ravana", "pose": "stand-hang", "on": "h1#face" }`;
+  place it with `at`/`row`/`scale`/`rotate`. A cut-off head flying or
+  on the ground, a head growing back, more heads (17.11–17.18). The body
+  can't lose its own head: frame it out instead — the figure scaled up
+  until the top edge cuts it at the shoulders (17.12: `scale` 2.35,
+  `row` −0.2 in a 0.6 strip). A `nudge` does not do it.
+- **A body lying dead**: `liefront-armsdown` with the legs straightened
+  (`adjust` `right.leg.hip`, `knee`, `left.leg.hip`, `knee` all 0) and
+  `rotate` −15 facing right to lie level (17.01–17.03); the base alone
+  keeps a flier's bent knees.
 - **Nobody rides on anybody's shoulders** (artist, 2026-11-17): not
   realistic. 12.25 was Rama on Hanuman; they all walk over the bridge.
 - **Runners before a giant part need a ground**: a `foreground` band

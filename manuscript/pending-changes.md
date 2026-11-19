@@ -41,6 +41,26 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
   15.15b, 15.16a; `monkey2` also stands in the crowds of chapters 12–13
   as a second generic monkey. `characters.md` may want both.
 
+- **Deleted 2026-11-19** (the artist): 10.11, 10.12 (two night-search
+  variations), 11.24 (fire along the palace front), 11.25b (the rooftops
+  panic variation), 12.22 (the stones from above). Nothing renumbered.
+- **Construction strips, 2026-11-19**: 12.00–18.00, a 0.6 strip with
+  the construction sign alone, opening every unfinished chapter now the
+  site is public. Not story; nothing for the briefs.
+- **Chapter 17, 2026-11-19: first draft, 17.01–17.18**, on the artist's
+  directions (asked for as "chapter 18"; written in 17, the brief that
+  has Ravana's fall). Against the brief: (1) it **restores Ravana's
+  grief at Indrajit's fall**, dropped in v0.7 — Ravana before his
+  throne, bent over Indrajit's body on the floor, then kneeling, then
+  his grief turning to rage (17.01–17.04); then he strides out
+  (17.05). (2) The artist asked for variations on **multiple heads
+  growing** (17.16–17.18: two small heads budding, a row of heads, heads
+  crowding over his shoulders), which the brief's *Not shown* (the
+  ten-headed form) rules out — offered for the artist to choose; if one
+  is kept, the brief changes. The head cut off (17.11, 17.12) and grown
+  back (17.13–17.15) follow the brief. The great arrow, the fall, the
+  pyre and the laid-down bow are not drawn yet.
+
 ## For the panels (manuscript v1.0, 2026-11-18)
 
 ### Chapter 15 (the herbs): Indrajit fells Lakshman, not Ravana

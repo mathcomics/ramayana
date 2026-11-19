@@ -1,0 +1,34 @@
+{
+  "scene": "Close: Ravana on his knees by the body, arms flung wide",
+  "tall": 0.6,
+  "ground": "stone-grey",
+  "figures": [
+    {
+      "character": "indrajit",
+      "id": "indrajit",
+      "pose": "liefront-armsdown",
+      "facing": "right",
+      "at": 0.25,
+      "row": "front",
+      "scale": 1.4,
+      "adjust": {
+        "right.leg.hip": 0,
+        "right.leg.knee": 0,
+        "left.leg.hip": 0,
+        "left.leg.knee": 0
+      },
+      "rotate": -15,
+      "nudge": [
+        0,
+        -1.1
+      ]
+    },
+    {
+      "character": "ravana",
+      "pose": "kneel-flung",
+      "facing": "left",
+      "at": 0.75,
+      "scale": 1.4
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "scene": "Ravana runs at Rama, sword raised",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "run-watch",
+      "facing": "right",
+      "at": 0.45,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.prop.kind": "sword-broad"
+      }
+    }
+  ]
+}

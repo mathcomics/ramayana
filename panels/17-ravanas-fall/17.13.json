@@ -1,0 +1,28 @@
+{
+  "scene": "Variation, the head grows back: the cut-off head on the ground at his feet, and Ravana whole again, arms up, laughing",
+  "tall": 1,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "stepwide-armsup",
+      "facing": "right",
+      "at": 0.45
+    },
+    {
+      "prop": "head-alone",
+      "id": "h1",
+      "at": 0.72,
+      "row": 0.02,
+      "rotate": 100
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-hang",
+      "on": "h1#face",
+      "facing": "left",
+      "mouth": 2
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scene": "The hall of Lanka: the empty throne, and Indrajit's body laid on the floor before it",
+  "tall": 1,
+  "ground": "stone-grey",
+  "figures": [
+    {
+      "prop": "throne-lanka",
+      "at": 0.62,
+      "row": "mid"
+    },
+    {
+      "character": "indrajit",
+      "id": "indrajit",
+      "pose": "liefront-armsdown",
+      "facing": "right",
+      "at": 0.36,
+      "row": -0.16,
+      "adjust": {
+        "right.leg.hip": 0,
+        "right.leg.knee": 0,
+        "left.leg.hip": 0,
+        "left.leg.knee": 0
+      },
+      "rotate": -15
+    }
+  ]
+}
