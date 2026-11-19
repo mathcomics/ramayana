@@ -173,7 +173,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
 - **Poses: any base with any gesture**, named `<base>-<gesture>`, all
   side view (the front view is derived by the renderer). **28 bases**
   (`data/bases.json`: legs, lean, tail; `ground` and story moments
-  `use`) and **51 gestures** (`data/gestures.json`: arms, chest, head,
+  `use`) and **61 gestures** (`data/gestures.json`: arms, chest, head,
   mouth; `hold` and `use`); `src/compose.js` composes a pair when a panel
   names it, so retuning a base or gesture changes every pose using it.
   There is no list of poses (dropped 2026-11-14: the finding fields moved
@@ -204,8 +204,11 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
   longsword guards (`roof`, `ox`, `plow`, `fool`, `key`, `crown`,
   `wrath`, `longpoint`, `unicorn`, `hanging`, `middle`, `flank`,
   `change`, `barrier`; each desc names its guard) — the old `sword…`
-  gestures were deleted 2026-11-10, unused by any panel. There is no
-  one-handed sword gesture any more except `swordcarry`.
+  gestures were deleted 2026-11-10, unused by any panel. The one-handed
+  sword gestures are `swordcarry` and the 10 sabre guards from the
+  artist's sheet (`watch`, `straight`, `lance`, `bastion`, `swap`, `arc`,
+  `bull`, `shoulder`, `waist`, `boar`; added 2026-11-18, each desc names
+  its guard).
 - Panel-lab drafts still sitting in its database carry pose names from
   before the composite renaming, and the old `size` field (now `tall`:
   0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) and the retired `shot` / `zoom` / `lift`

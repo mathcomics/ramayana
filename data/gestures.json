@@ -31,6 +31,44 @@
         "hand": "fist"
       }
     },
+    "arc": {
+      "chest": -6,
+      "desc": "one arm reaching high and forward over the head, the blade arcing up and back (sabre guard: Bogen)",
+      "head": -10,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 30,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 15,
+        "shoulder": 40,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 6,
+      "right": {
+        "elbow": 15,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 150,
+        "twist": 0,
+        "wrist": 10
+      },
+      "use": [
+        "threaten",
+        "strike"
+      ]
+    },
     "armback": {
       "desc": "right arm swung far back, left out forward",
       "hold": [
@@ -361,6 +399,43 @@
         "shield"
       ]
     },
+    "bastion": {
+      "chest": 12,
+      "desc": "one hand low by the front knee, the blade sloping down to the ground ahead, the other hand behind the back (sabre guard: Bastey)",
+      "head": -6,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 90,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 20,
+        "shoulder": -40,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": -6,
+      "right": {
+        "elbow": 5,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 15,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 45,
+        "twist": 0,
+        "wrist": -40
+      },
+      "use": [
+        "threaten"
+      ]
+    },
     "beckon": {
       "chest": -10,
       "desc": "right arm reaching forward at shoulder height, the open hand bent down, calling someone near; left arm low",
@@ -392,6 +467,43 @@
       "use": [
         "hold",
         "plead"
+      ]
+    },
+    "boar": {
+      "chest": 6,
+      "desc": "one hand low at the hip, the blade across the front of the legs, point low and forward (sabre guard: Eber)",
+      "head": -4,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 50,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 15,
+        "shoulder": 15,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": -2,
+      "right": {
+        "elbow": 20,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 30,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 25,
+        "twist": 0,
+        "wrist": -62
+      },
+      "use": [
+        "threaten"
       ]
     },
     "bow": {
@@ -535,6 +647,44 @@
           "out": 0
         }
       }
+    },
+    "bull": {
+      "chest": -2,
+      "desc": "one hand beside the head, the blade pointing high and forward (sabre guard: Stier)",
+      "head": -6,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 60,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 15,
+        "shoulder": 10,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 4,
+      "right": {
+        "elbow": 95,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 20,
+        "prop": {
+          "angle": -25,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 80,
+        "twist": 0,
+        "wrist": -90
+      },
+      "use": [
+        "threaten",
+        "strike"
+      ]
     },
     "change": {
       "chest": 45.7,
@@ -1017,6 +1167,44 @@
         "twist": 0,
         "hand": "fist"
       }
+    },
+    "lance": {
+      "chest": 6,
+      "desc": "one arm straight forward at the shoulder, the blade level at the opponent, the other arm back (sabre guard: Langort)",
+      "head": -4,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 15,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 15,
+        "shoulder": -60,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": -2,
+      "right": {
+        "elbow": 0,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 5,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 95,
+        "twist": 0,
+        "wrist": -70
+      },
+      "use": [
+        "threaten",
+        "strike"
+      ]
     },
     "longpoint": {
       "desc": "both arms straight forward, the sword level at the opponent (longsword guard: Langort)",
@@ -1585,6 +1773,120 @@
         "hand": "out"
       }
     },
+    "shoulder": {
+      "chest": -2,
+      "desc": "one hand at the front shoulder, the blade laid back over it, point down behind the back (sabre guard: Zornhut)",
+      "head": -4,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 20,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 15,
+        "shoulder": 10,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 4,
+      "right": {
+        "elbow": 150,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 15,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 30,
+        "twist": 0,
+        "wrist": -30
+      },
+      "use": [
+        "threaten",
+        "strike"
+      ]
+    },
+    "straight": {
+      "chest": 4,
+      "desc": "one arm straight forward at the shoulder, the blade rising up and ahead (sabre guard: Gerade Versatzung)",
+      "head": -4,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 20,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 15,
+        "shoulder": -30,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 0,
+      "right": {
+        "elbow": 5,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 10,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 100,
+        "twist": 0,
+        "wrist": -45
+      },
+      "use": [
+        "threaten",
+        "strike",
+        "shield"
+      ]
+    },
+    "swap": {
+      "chest": 2,
+      "desc": "one hand low at the hip, the blade pointing down and forward at the ground (sabre guard: Wechsel)",
+      "head": -4,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 40,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 15,
+        "shoulder": 25,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 2,
+      "right": {
+        "elbow": 20,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 20,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": -15,
+        "twist": 0,
+        "wrist": -35
+      },
+      "use": [
+        "threaten"
+      ]
+    },
     "swing": {
       "desc": "arms swinging with the step",
       "hold": [
@@ -1690,6 +1992,81 @@
         "twist": 0,
         "wrist": -90
       }
+    },
+    "waist": {
+      "chest": 0,
+      "desc": "one hand at the waist ahead, elbow bent, the blade upright before the body (sabre guard: Mittelhut)",
+      "head": -4,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 30,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 15,
+        "shoulder": 5,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 2,
+      "right": {
+        "elbow": 80,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 15,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 20,
+        "twist": 0,
+        "wrist": -25
+      },
+      "use": [
+        "threaten"
+      ]
+    },
+    "watch": {
+      "chest": -4,
+      "desc": "one hand the sword, raised above the head, the blade lying back over it (sabre guard: Wacht)",
+      "head": -6,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "left": {
+        "elbow": 20,
+        "elbowOut": 0,
+        "hand": "out",
+        "out": 15,
+        "shoulder": 20,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 6,
+      "right": {
+        "elbow": 40,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 15,
+        "prop": {
+          "angle": 0,
+          "kind": "sword",
+          "out": 0
+        },
+        "shoulder": 160,
+        "twist": 0,
+        "wrist": -30
+      },
+      "use": [
+        "threaten",
+        "strike"
+      ]
     },
     "wrath": {
       "desc": "both hands at the shoulder, the sword swept back over it (longsword guard: Zornhut)",
