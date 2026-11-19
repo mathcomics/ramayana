@@ -68,6 +68,14 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
   The rocks are still carried (12.20) and the line of stone still runs
   to Lanka (12.26, with a monkey on each stone). The brief's third and
   fourth bullets of beat 3 may want to follow.
+- **Chapter 13, 2026-11-19: eight panels deleted** (the artist): the
+  charge with clubs, swords and maces (13.02, an approved `frieze`),
+  trunks carried overhead (13.06), the ram variation (13.07a), a ladder
+  pushed off the wall (13.08c), the monkeys hurling rocks and the rocks
+  striking the rakshasas (13.09, 13.09a, 13.10), and a chief falling
+  from the wall (13.10a). What remains of the storming: ladders carried,
+  raised and climbed (13.04, 13.05, 13.08), trunks carried below the
+  wall (13.07), the breach (13.08b), the ram at the wall's foot (13.12).
 
 ## For the panels (manuscript v1.0, 2026-11-18)
 

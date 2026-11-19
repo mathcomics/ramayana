@@ -229,7 +229,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Carried things go `on` the carrier** (2026-11-13): `"on": "hanuman#hands"`
   (also `#hand-right`, `#hand-left`, `#head`, `#shoulder`), not an `at`/`row`
   lined up by eye — it then follows the pose. List the rock before the
-  lifter so his hands are in front of it (13.09). A carried prop
+  lifter so his hands are in front of it (12.20). A carried prop
   is sized by the carrier's **row**, not the carrier's `scale`: when the
   figure is scaled up in a close strip, scale the prop up with it, or it
   shrinks to a speck. The ring (drawn to the giant fist's scale, 2026-11-16)

@@ -34,7 +34,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.20, 11.21, 11.21a |
 | prop: staff (held) | 05.21, 05.22 |
 | prop: tree | 03.06 |
-| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.05, 11.06, 13.06 |
+| prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.05, 11.06 |
 | prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now | 06.06 |
 | prop: vulture-lie (lying, the one remaining wing raised and pointing): vulture-swoop rotated 200 for now | 06.25 |
 
