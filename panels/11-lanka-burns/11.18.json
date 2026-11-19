@@ -5,32 +5,32 @@
   "figures": [
     {
       "character": "hanuman",
-      "pose": "liefront-armsback",
+      "pose": "liefront-armrest",
       "facing": "left",
       "at": 0.5
     },
     {
-      "prop": "rope-bind",
+      "prop": "vine",
       "on": "hanuman#chest"
     },
     {
       "character": "raxas_m1",
-      "pose": "step-akimbo",
+      "pose": "crouch-onhands",
       "facing": "right",
-      "at": 0.18,
+      "at": 0.3,
       "cloth": "red-check"
     },
     {
       "character": "raxas_m3",
-      "pose": "stepwide-wrath",
+      "pose": "bend-reach",
       "facing": "left",
-      "at": 0.84,
-      "cloth": "red-stripe",
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club"
-        }
-      }
+      "at": 0.74,
+      "cloth": "red-stripe"
+    },
+    {
+      "character": "indrajit",
+      "pose": "step-point",
+      "at": 0.2
     }
   ],
   "needs": [

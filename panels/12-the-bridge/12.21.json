@@ -3,7 +3,7 @@
   "tall": 1,
   "ground": "sea",
   "sky": "mist",
-  "horizon": 0.45,
+  "horizon": 0.1,
   "figures": [
     {
       "prop": "lanka-island",
@@ -16,61 +16,66 @@
     },
     {
       "prop": "rock-rectangle",
-      "at": 0.6,
-      "row": 0.4,
+      "at": 0.58,
+      "row": 0.09,
       "scale": 0.1,
       "body": "stone"
     },
     {
       "prop": "rock-square",
-      "at": 0.57,
-      "row": 0.375,
+      "at": 0.55,
+      "row": 0.08,
       "scale": 0.16,
-      "body": "stone"
+      "body": "#666666"
     },
     {
       "prop": "rock-rectangle",
-      "at": 0.53,
-      "row": 0.335,
+      "at": 0.5,
+      "row": 0.07,
       "scale": 0.24,
-      "body": "stone"
+      "id": "stone5"
     },
     {
       "prop": "rock-square",
-      "at": 0.475,
-      "row": 0.275,
+      "at": 0.45,
+      "row": 0.05,
       "scale": 0.36,
-      "body": "stone"
+      "body": "#998888",
+      "id": "stone4"
     },
     {
       "prop": "rock-rectangle",
-      "at": 0.4,
-      "row": 0.185,
+      "at": 0.35,
+      "row": 0.02,
       "scale": 0.52,
-      "body": "stone"
-    },
-    {
-      "prop": "rock-square",
-      "at": 0.29,
-      "row": 0.05,
-      "scale": 0.8,
       "body": "stone",
-      "id": "near-stone"
+      "id": "stone3"
     },
     {
-      "prop": "rock-circle",
-      "on": "carrier#hands",
-      "scale": 0.35
+      "prop": "rock-rectangle",
+      "at": 0.2,
+      "row": 0,
+      "scale": 0.8,
+      "body": "#998888",
+      "id": "stone2"
+    },
+    {
+      "prop": "rock-rectangle",
+      "scale": 1.2,
+      "at": 0,
+      "body": "#666666",
+      "id": "stone1",
+      "rotate": 180,
+      "row": -0.05
     },
     {
       "character": "monkey1",
       "id": "carrier",
-      "pose": "arch-overhead",
-      "view": "front",
-      "turn": 180,
+      "pose": "arch-bull",
+      "turn": -90,
       "scale": 0.7,
       "cloth": "red",
-      "on": "near-stone#stand"
+      "on": "stone2#stand"
     }
   ]
 }

@@ -1,35 +1,31 @@
 {
-  "scene": "The ropes burst: Hanuman leaps up, tail ablaze",
-  "tall": 1.5,
-  "ground": "off-white",
+  "scene": "Over the roofs by night, tail aflame, the roofs catching behind him",
+  "tall": 0.6,
+  "ground": "night-blue",
   "figures": [
+    {
+      "prop": "city-gap",
+      "at": 0.5,
+      "id": "roofs",
+      "scale": 10
+    },
     {
       "prop": "fire",
       "on": "hanuman#tail",
+      "nudge": [
+        -0.5,
+        0.5
+      ],
       "rotate": 90
     },
     {
       "character": "hanuman",
-      "pose": "leapup-flung",
+      "pose": "leap-reach",
       "facing": "right",
-      "at": 0.5,
-      "row": 0.6
-    },
-    {
-      "character": "raxas_m2",
-      "pose": "fallback-flung",
-      "facing": "left",
-      "at": 0.2,
-      "row": "mid",
-      "cloth": "red-check"
-    },
-    {
-      "character": "raxas_m3",
-      "pose": "stepturn-armface",
-      "facing": "right",
-      "at": 0.82,
-      "row": "mid",
-      "cloth": "red-stripe"
+      "at": 0.72,
+      "row": 0.3,
+      "rotate": 60,
+      "scale": 0.5
     }
   ]
 }

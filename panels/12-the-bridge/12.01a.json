@@ -5,7 +5,7 @@
   "figures": [
     {
       "character": "monkey1",
-      "pose": "walk-watch",
+      "pose": "run-watch",
       "facing": "right",
       "at": 0.05,
       "on": "foreground",
@@ -13,9 +13,9 @@
     },
     {
       "character": "monkey2",
-      "pose": "walk-bull",
+      "pose": "run-bull",
       "facing": "right",
-      "at": 0.15,
+      "at": 0.12,
       "on": "foreground",
       "scale": 0.4,
       "adjust": {
@@ -24,7 +24,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "walk-shoulder",
+      "pose": "stepwide-shoulder",
       "facing": "right",
       "at": 0.25,
       "on": "foreground",
@@ -46,7 +46,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "walk-arc",
+      "pose": "arch-arc",
       "facing": "right",
       "at": 0.45,
       "on": "foreground",
@@ -66,7 +66,7 @@
       "character": "sugriva",
       "pose": "step-point",
       "facing": "right",
-      "at": 0.1,
+      "at": 0.7,
       "row": "floor"
     }
   ]

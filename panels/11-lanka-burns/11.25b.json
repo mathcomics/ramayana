@@ -1,7 +1,7 @@
 {
   "scene": "Variation: over the rooftops: one rakshasa leaps the gap between two blocks, another runs on ahead, the roof behind them alight",
   "tall": 0.6,
-  "ground": "night-blue",
+  "ground": "#882200",
   "figures": [
     {
       "prop": "city-gap",

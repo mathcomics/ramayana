@@ -2,11 +2,11 @@
   "scene": "Rakshasas flee through the burning streets, the fire behind them",
   "tags": ["frieze"],
   "tall": 0.6,
-  "ground": "geru",
+  "ground": "#222222",
   "figures": [
     {
       "prop": "fire",
-      "at": 0.95,
+      "at": 0.9,
       "scale": 4.8,
       "row": 0.5
     },

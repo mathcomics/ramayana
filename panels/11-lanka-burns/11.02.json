@@ -23,10 +23,6 @@
       "facing": "left",
       "at": 0.7,
       "row": 0.65
-    },
-    {
-      "prop": "icon-explode",
-      "on": "bubble-thought#inside"
     }
   ]
 }

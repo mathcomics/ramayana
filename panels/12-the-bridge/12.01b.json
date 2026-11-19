@@ -8,11 +8,13 @@
     {
       "prop": "lanka-island",
       "at": 0.7,
-      "row": "horizon"
+      "row": "horizon",
+      "scale": 0.5
     },
     {
       "prop": "palace-lanka",
-      "on": "lanka-island#stand"
+      "on": "lanka-island#stand",
+      "scale": 0.5
     },
     {
       "character": "monkey2",
@@ -20,7 +22,7 @@
       "view": "front",
       "facing": "right",
       "at": 0.05,
-      "row": -0.3,
+      "row": -0.2,
       "turn": 180,
       "adjust": {
         "right.arm.prop.kind": "club"
@@ -31,7 +33,7 @@
       "pose": "walk-unicorn",
       "view": "front",
       "at": 0.15,
-      "row": -0.3,
+      "row": -0.2,
       "turn": 180,
       "adjust": {
         "right.arm.prop.kind": "spear"
@@ -42,7 +44,7 @@
       "pose": "walk-crown",
       "view": "front",
       "at": 0.25,
-      "row": -0.3,
+      "row": -0.2,
       "turn": 180
     },
     {
@@ -51,7 +53,7 @@
       "view": "front",
       "facing": "right",
       "at": 0.35,
-      "row": -0.3,
+      "row": -0.2,
       "turn": 180,
       "adjust": {
         "right.arm.prop.kind": "sword-broad"
@@ -72,6 +74,17 @@
       "at": 0.96,
       "row": -0.3,
       "turn": 180
+    },
+    {
+      "character": "hanuman",
+      "pose": "walk-waist",
+      "view": "front",
+      "at": 0.86,
+      "row": -0.3,
+      "turn": 180,
+      "adjust": {
+        "right.arm.prop.kind": "club"
+      }
     }
   ]
 }

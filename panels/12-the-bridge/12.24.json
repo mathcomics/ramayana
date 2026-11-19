@@ -6,16 +6,39 @@
   "horizon": 0.25,
   "figures": [
     {
+      "prop": "rock-rectangle",
+      "on": "monkey1#hands",
+      "scale": 2
+    },
+    {
       "character": "monkey1",
-      "pose": "runwide-swing",
+      "pose": "runwide-dive",
       "on": "rock-square#stand-left",
-      "scale": 5
+      "scale": 2
+    },
+    {
+      "id": "rock2",
+      "prop": "rock-square",
+      "at": 0.95,
+      "row": 0.35,
+      "scale": 0.7,
+      "rotate": 45
+    },
+    {
+      "character": "monkey2",
+      "pose": "leanfront-armsout",
+      "on": "rock-square#stand",
+      "nudge": [
+        9,
+        0
+      ],
+      "scale": 2
     },
     {
       "prop": "rock-square",
-      "at": 0.45,
+      "at": 0.4,
       "row": "back",
-      "scale": 5,
+      "scale": 3,
       "repeat": {
         "gap": 0,
         "n": 9

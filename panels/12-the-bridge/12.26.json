@@ -1,86 +1,81 @@
 {
-  "scene": "Far off on the horizon the line of stone reaches Lanka; the army small upon it",
-  "tall": 0.6,
+  "scene": "The line of stone grows over the water toward Lanka on the horizon; a monkey, seen from behind, carries the next rock out along it",
+  "tall": 1,
   "ground": "sea",
   "sky": "mist",
-  "horizon": 0.42,
+  "horizon": 0.1,
   "figures": [
     {
       "prop": "lanka-island",
-      "at": 0.8,
-      "row": "horizon",
-      "scale": 1.6
+      "at": 0.82,
+      "row": "horizon"
     },
     {
       "prop": "palace-lanka",
-      "on": "lanka-island#stand",
-      "scale": 1.6
+      "on": "lanka-island#stand"
     },
     {
+      "prop": "rock-rectangle",
+      "at": 0.58,
+      "row": 0.09,
+      "scale": 0.1,
+      "body": "stone"
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.55,
+      "row": 0.08,
+      "scale": 0.16,
+      "body": "#666666"
+    },
+    {
+      "prop": "rock-rectangle",
+      "at": 0.5,
+      "row": 0.07,
+      "scale": 0.24,
+      "id": "stone5"
+    },
+    {
+      "prop": "rock-square",
+      "at": 0.45,
+      "row": 0.05,
+      "scale": 0.36,
+      "body": "#998888",
+      "id": "stone4"
+    },
+    {
+      "id": "stone3",
+      "prop": "rock-rectangle",
+      "at": 0.35,
+      "row": 0.02,
+      "scale": 0.52,
+      "body": "stone"
+    },
+    {
+      "id": "stone2",
       "prop": "rock-rectangle",
       "at": 0.2,
-      "row": "horizon",
-      "scale": 0.4,
-      "body": "stone"
+      "row": 0,
+      "scale": 0.8,
+      "body": "#998888"
     },
     {
+      "id": "stone1",
       "prop": "rock-rectangle",
-      "at": 0.36,
-      "row": "horizon",
-      "scale": 0.4,
-      "body": "stone"
+      "at": 0,
+      "row": -0.05,
+      "scale": 1.2,
+      "body": "#666666",
+      "rotate": 180
     },
     {
-      "prop": "rock-rectangle",
-      "at": 0.52,
-      "row": "horizon",
-      "scale": 0.4,
-      "body": "stone"
-    },
-    {
-      "prop": "rock-rectangle",
-      "at": 0.66,
-      "row": "horizon",
-      "scale": 0.4,
-      "body": "stone"
-    },
-    {
+      "id": "carrier",
       "character": "monkey1",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.3,
-      "row": "horizon",
-      "scale": 0.5,
-      "nudge": [
-        0,
-        0.8
-      ]
-    },
-    {
-      "character": "monkey1",
-      "pose": "pass-swing",
-      "facing": "right",
-      "at": 0.45,
-      "row": "horizon",
-      "scale": 0.5,
-      "nudge": [
-        0,
-        0.8
-      ],
-      "cloth": "red"
-    },
-    {
-      "character": "monkey1",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.58,
-      "row": "horizon",
-      "scale": 0.5,
-      "nudge": [
-        0,
-        0.8
-      ],
-      "cloth": "orange"
+      "pose": "arch-bull",
+      "on": "stone2#stand",
+      "scale": 0.7,
+      "cloth": "red",
+      "turn": -90
     }
   ]
 }

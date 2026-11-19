@@ -1,18 +1,17 @@
 {
   "scene": "Variation: down the palace steps: rakshasas pour down them, the fire at the top",
   "tall": 1,
-  "ground": "geru",
+  "ground": "#bb0000",
   "figures": [
     {
       "prop": "fire",
-      "at": 0.22,
-      "row": "mid",
-      "scale": 9,
-      "rotate": 180,
+      "scale": 4,
+      "rotate": 90,
       "nudge": [
-        0.1,
-        1
-      ]
+        -0.1,
+        0.3
+      ],
+      "on": "steps#stand-high"
     },
     {
       "prop": "steps",

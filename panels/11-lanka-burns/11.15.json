@@ -1,13 +1,8 @@
 {
   "scene": "Vines: Hanuman swings over the grove on a vine; Indrajit below aims up at him",
-  "tall": 1,
+  "tall": 1.5,
   "ground": "sunrise",
   "figures": [
-    {
-      "prop": "trees-side",
-      "at": 0.85,
-      "row": "back"
-    },
     {
       "prop": "vine",
       "on": "hanuman#hand-right",
@@ -18,15 +13,16 @@
       "character": "hanuman",
       "pose": "leap-reachup",
       "facing": "right",
-      "at": 0.55,
+      "at": 0.75,
       "row": 0.6,
-      "scale": 0.3
+      "scale": 0.4
     },
     {
       "character": "indrajit",
       "pose": "leanback-bowhigh",
-      "at": 0.42,
-      "row": "back"
+      "at": 0.2,
+      "row": -0.1,
+      "scale": 0.5
     }
   ]
 }

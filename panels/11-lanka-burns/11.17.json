@@ -5,14 +5,14 @@
   "figures": [
     {
       "character": "hanuman",
-      "pose": "stepback-armsback",
-      "facing": "left",
+      "pose": "fallback-armsback",
+      "facing": "right",
       "at": 0.5,
       "scale": 1.6
     },
     {
-      "prop": "rope-bind",
-      "on": "hanuman#chest",
+      "prop": "arrow-stuck",
+      "on": "hanuman#shoulder",
       "scale": 0.8
     }
   ],

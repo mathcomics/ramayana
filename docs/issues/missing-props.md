@@ -12,7 +12,6 @@ placeholder box. Held props (sword, club, spear, bow) live in
 
 | prop | panels |
 |---|---|
-| rope-bind | 11.17, 11.18, 11.20, 11.21 |
 
 ## Prop wishes from the panels' needs
 
@@ -32,7 +31,7 @@ docs/design/panel-writing.md, Lessons).
 | prop: javelin (a heavy spear, held and thrown): a big arrow for now | 15.02a, 15.03 |
 | prop: javelin (a heavy spear, held and thrown): the long spiked club for now | 15.02 |
 | prop: mountain | 09.12, 09.13 |
-| prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.20, 11.21 |
+| prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.20, 11.21, 11.21a |
 | prop: staff (held) | 05.21, 05.22 |
 | prop: tree | 03.06 |
 | prop: tree-uprooted (a whole tree, crown and roots, torn up and carried or thrown): tree-trunk for now | 11.05, 11.06, 13.06 |
@@ -41,4 +40,4 @@ docs/design/panel-writing.md, Lessons).
 
 ## Drawn props in use
 
-arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, cloud-big, cloud-small, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front-awake, giant-face-side, giant-face-side-awake, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-angry, icon-explode, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, rock-triangle, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top
+arrow-stuck, bag, branch, bubble-thought, city-gap, city-roof, city-side, cloud-big, cloud-small, deer-stand, drum, fire, flower-droop, flower-pink, flower-white, flower-yellow, giant-face-front-awake, giant-face-side, giant-face-side-awake, giant-feet, giant-fist, giant-grab, giant-lie-waist, half-circle, heart, hut-side, hut-top, icon-angry, ladder, lanka-island, leaf-fern, leaf-palm, lotus-bud, lotus-full, male-top, monkey-top, palace-ayodhya, palace-kishkindha, palace-lanka, pole, ring, rock-circle, rock-rectangle, rock-square, rock-triangle, sound-cry, stag-lie, stag-run, stag-stand, steps, throne-ayodhya, throne-kishkindha, throne-lanka, tree-side, tree-trunk, trees-side, trees-top, trumpet, vine, vulture-fall, vulture-fly, vulture-lookback, vulture-stand, vulture-swoop, vulture-wing, wave-top

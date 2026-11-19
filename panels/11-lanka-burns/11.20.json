@@ -1,34 +1,48 @@
 {
   "scene": "Variation, closer: Ravana points down from the throne; Hanuman, bound, looks up at him unafraid",
   "tall": 0.6,
-  "ground": "geru",
+  "ground": "stone-grey",
   "figures": [
     {
-      "prop": "throne-lanka",
-      "at": 0.68,
-      "scale": 1.2
-    },
-    {
       "character": "ravana",
-      "pose": "chair-point",
+      "pose": "step-point",
       "facing": "left",
-      "on": "throne-lanka",
-      "scale": 1.2,
+      "at": 0.85,
       "mouth": 3
     },
     {
       "character": "hanuman",
-      "pose": "stand-armsback",
-      "facing": "right",
-      "at": 0.22,
-      "row": "closeup",
+      "pose": "stand-cross",
+      "facing": "left",
       "adjust": {
         "spine.head": -20
-      }
+      },
+      "at": 0.15
     },
     {
-      "prop": "rope-bind",
-      "on": "hanuman#chest"
+      "prop": "vine",
+      "on": "hanuman#hand-right",
+      "rotate": -70
+    },
+    {
+      "prop": "fire",
+      "on": "hanuman#tail",
+      "nudge": [
+        0.7,
+        -0.5
+      ],
+      "rotate": 90,
+      "scale": 0.8
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "stepwide-bastion",
+      "facing": "left",
+      "at": 0.55,
+      "cloth": "red-stripe",
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      }
     }
   ],
   "needs": [

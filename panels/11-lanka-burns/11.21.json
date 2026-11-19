@@ -1,38 +1,44 @@
 {
-  "scene": "Rakshasas set Hanuman's tail on fire; one laughs",
-  "tall": 1,
-  "ground": "off-white",
+  "scene": "Variation, closer: Ravana points down from the throne; Hanuman, bound, looks up at him unafraid",
+  "tall": 0.6,
+  "ground": "stone-grey",
   "figures": [
     {
-      "character": "hanuman",
-      "pose": "step-armsback",
+      "character": "raxas_m1",
+      "pose": "arch-armsup",
       "facing": "left",
-      "at": 0.3,
-      "mouth": 1
+      "at": 0.85
     },
     {
-      "prop": "rope-bind",
-      "on": "hanuman#chest"
+      "character": "hanuman",
+      "pose": "stand-cross",
+      "facing": "left",
+      "at": 0.15,
+      "adjust": {
+        "spine.head": -20
+      }
+    },
+    {
+      "prop": "vine",
+      "on": "hanuman#hand-right",
+      "rotate": -70
     },
     {
       "prop": "fire",
       "on": "hanuman#tail",
-      "rotate": 90,
-      "scale": 0.8
+      "scale": 0.8,
+      "rotate": 90
     },
     {
       "character": "raxas_m2",
-      "pose": "bend-reach",
+      "pose": "stepback-bastion",
       "facing": "left",
-      "at": 0.6,
-      "cloth": "red-check"
-    },
-    {
-      "character": "raxas_m3",
-      "pose": "step-armsup",
-      "facing": "left",
-      "at": 0.84,
-      "cloth": "red-stripe"
+      "at": 0.55,
+      "cloth": "red-stripe",
+      "adjust": {
+        "right.arm.prop.kind": "spear"
+      },
+      "mouth": 3
     }
   ],
   "needs": [

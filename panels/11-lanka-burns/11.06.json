@@ -38,7 +38,7 @@
       "prop": "tree-trunk",
       "on": "hanuman#hand-right",
       "rotate": -120,
-      "scale": 0.45
+      "scale": 1.2
     },
     {
       "character": "hanuman",

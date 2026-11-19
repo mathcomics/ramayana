@@ -1,39 +1,41 @@
 {
-  "scene": "Over the roofs by night, tail aflame, the roofs catching behind him",
+  "scene": "Hanuman drops down among the golden arches of the palace",
   "tall": 0.6,
-  "ground": "night-blue",
+  "ground": "night",
   "figures": [
     {
-      "prop": "city-gap",
-      "at": 0.5,
-      "scale": 6,
-      "row": -0.3,
-      "id": "roofs"
+      "prop": "palace-lanka",
+      "scale": 2,
+      "row": "closeup",
+      "nudge": [
+        0,
+        2
+      ]
     },
     {
       "prop": "fire",
-      "on": "roofs#stand-left",
       "rotate": 90,
-      "scale": 3
-    },
-    {
-      "prop": "fire",
-      "on": "roofs#stand-right",
-      "rotate": 90,
-      "scale": 2
+      "scale": 4,
+      "at": 0.2,
+      "row": "mid"
     },
     {
       "prop": "fire",
       "on": "hanuman#tail",
-      "rotate": 90,
-      "scale": 0.6
+      "rotate": 130,
+      "scale": 2,
+      "nudge": [
+        0,
+        0.6
+      ]
     },
     {
       "character": "hanuman",
-      "pose": "leap-reach",
+      "pose": "runlow-pumplow",
       "facing": "right",
-      "on": "roofs#stand",
-      "scale": 0.42
+      "row": "mid",
+      "mouth": 1
     }
-  ]
+  ],
+  "sky": "night"
 }
