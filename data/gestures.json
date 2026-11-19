@@ -1097,37 +1097,37 @@
       }
     },
     "holdhead": {
-      "desc": "right hand on top of the head",
+      "chest": -10,
+      "desc": "right hand at the chin, head bowed over it, puzzling",
+      "head": -50.9,
       "hold": [
         "left"
       ],
+      "left": {
+        "elbow": 60,
+        "elbowOut": 0,
+        "hand": "in",
+        "out": 0,
+        "shoulder": -30,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 1,
+      "neck": 58.8,
+      "right": {
+        "elbow": 115.8,
+        "elbowOut": -27.1,
+        "hand": "in",
+        "out": 0,
+        "shoulder": 45.4,
+        "twist": 0,
+        "wrist": 63.6
+      },
       "use": [
         "grieve",
         "shock",
         "search"
-      ],
-      "chest": -10,
-      "neck": 10,
-      "head": 0,
-      "mouth": 1,
-      "right": {
-        "shoulder": 140,
-        "out": 0,
-        "elbow": 160,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "in"
-      },
-      "left": {
-        "shoulder": -30,
-        "out": 0,
-        "elbow": 60,
-        "elbowOut": 0,
-        "wrist": 0,
-        "twist": 0,
-        "hand": "in"
-      }
+      ]
     },
     "key": {
       "desc": "both hands tight at the chest, the blade level ahead (longsword guard: Schlüssel)",
