@@ -116,7 +116,7 @@ carried between them (sequential art, not single paintings).
 Canon that shapes the drawing: Ravana is single-headed throughout (the
 regrowing head carries the myth); a coronation is carried by the crown and
 the throne alone — nothing poured, no umbrella; chapter 3's thirteen years
-are season icons (to be drawn); the story closes in chapter 18 with Rama
+are not shown (the season icons were dropped 2026-11-18); the story closes in chapter 18 with Rama
 and Sita in the swan chariot **waving back at the reader**.
 
 ### Panels

@@ -44,32 +44,5 @@ thrower is Indrajit.)*
 
 ### Chapters 1–14: the brief has it, the panels do not yet
 
-- **3**: the thirteen years as season icons (still to draw).
-- **6**: 06.25 — the brief's last image is Jatayu lifting his remaining
-  wing, pointing south; the scene text does not say it. Check the
-  drawing does.
-- **7**: after the pact over fire (07.16), Sugriva points at Kishkindha
-  and Rama raises his bow — Sugriva's half of the pact, paid in 8. Not
-  drawn since 07.15 was cut.
-- **10**: in the grove by day (10.28–10.33) the ring must come before
-  the jewel; 10.29 has the jewel held out ahead of the ring (10.31).
-  10.31's scene text ("Rama's hand above lets the ring fall…") is a
-  copy of 09.02a; say whose hands they are.
-- **11**: the homecoming — Hanuman gives Rama the jewel, Rama presses it
-  to his heart.
 - **13**: Indrajit's serpent arrows from a cloud, the brothers bound
   and rising.
-- **14**: 14.01a's scene text is a copy of 11.11 ("a guard runs in from
-  the grove"); it now sends out the wakers. The variations 14.23
-  (the head in the sea) and 14.24 (on the shore): in Valmiki the head
-  falls into the city and the body into the sea — the artist's call,
-  but worth knowing before choosing.
-
-### Stale scene texts
-
-- 12.01 and 12.01a carry copied texts (07.06's bundle, 09.03's sending
-  out) over different figures — write what they show.
-- 03.01 repeats 02.14's text; 07.10/07.11 are labelled "Opening" in
-  the middle of the chapter; several variations share one text
-  (01.06/01.07, 03.08/03.09, 07.12–07.14, 10.16–10.18, 14.11–14.13,
-  14.14/14.16, 16.09/16.09a).

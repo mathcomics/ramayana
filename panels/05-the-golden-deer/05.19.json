@@ -1,5 +1,5 @@
 {
-  "scene": "Before he goes, Lakshman bends and draws a line round Sita",
+  "scene": "Before he goes, Lakshman bends low before Sita",
   "tall": 0.6,
   "ground": "white",
   "figures": [
@@ -14,9 +14,5 @@
       "pose": "step-hang",
       "at": 0.28
     }
-  ],
-  "needs": [
-    "prop: line (scratched in the earth, under his hand)",
-    "effect: arrow or stick in Lakshman's drawing hand"
   ]
 }

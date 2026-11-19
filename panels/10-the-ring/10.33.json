@@ -26,8 +26,5 @@
       "scale": 2,
       "rotate": 180
     }
-  ],
-  "needs": [
-    "prop: jewel (Sita's hair jewel; it travels home in 11)"
   ]
 }

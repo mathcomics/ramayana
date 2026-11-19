@@ -50,7 +50,7 @@ and the wedding return to chapter 1.
 ## Props
 
 The objects each chapter cannot do without are in its brief's "Must
-show" line, and the recurring ones (the ring, the hair jewel, the
+show" line, and the recurring ones (the ring, the
 jewel bundle, the two thrones, Rama's bow) in the continuity list at
 the top of `scenes.md`. Prop art itself is tracked on the panel side:
 `node tools/prop-gaps.mjs` → `docs/issues/missing-props.md`.

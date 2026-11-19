@@ -1,5 +1,5 @@
 {
-  "scene": "By day, closer: Hanuman reaches up with both hands for the jewel Sita holds out",
+  "scene": "By day, closer: Hanuman kneels and reaches up to Sita",
   "tall": 0.6,
   "ground": "stone-grey",
   "figures": [
@@ -30,8 +30,5 @@
         "spine.head": -14
       }
     }
-  ],
-  "needs": [
-    "prop: jewel (Sita's hair jewel; it travels home in 11)"
   ]
 }
