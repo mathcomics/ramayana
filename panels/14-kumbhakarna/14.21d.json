@@ -1,0 +1,30 @@
+{
+  "scene": "Variation: the arrows strike his face; the giant cries out",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "figures": [
+    {
+      "prop": "giant-face-side-cry",
+      "id": "face",
+      "facing": "left",
+      "at": 0.6,
+      "row": -0.06,
+      "body": "#9a7a7a"
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.27,
+      "row": 0.45,
+      "scale": 1.4,
+      "rotate": 190
+    },
+    {
+      "prop": "arrow-stuck",
+      "at": 0.2,
+      "row": 0.25,
+      "scale": 1.4,
+      "rotate": 175
+    }
+  ]
+}
