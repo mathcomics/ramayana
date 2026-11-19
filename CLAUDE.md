@@ -144,7 +144,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
 Chapters 12–18 open with a construction strip (`NN.00`, 0.6 tall, the
-`icon-construction` sign alone on white): the site is public and these
+`icon-construction` sign alone on `sand`): the site is public and these
 chapters are not finished. Delete a chapter's strip when it is done.
 Every drawn chapter's folder number matches its brief number.
 The approved reference panels (every panel with `tags`; 19 since a spy-tagged walk in chapter 4 was deleted 2026-11-17; 20 after the
