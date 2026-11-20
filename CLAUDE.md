@@ -88,7 +88,9 @@ Saves are reviewed and then merged into `data/bases.json` and
 skill (`.claude/skills/`), which also deletes the merged saves — a save
 overrides the repo entry in the lab.
 
-    node tools/render-panels.mjs 02                # out/panels/02-*.png + issues/needs
+    node tools/render-panels.mjs 02                # out/panels/02-*.png + .txt read-backs + issues/needs
+    node tools/describe-panel.mjs 02 --problems    # panels as text: contact, covered faces, in the air
+                                                   # (--props, --poses: drawing sizes/anchors, pose measures)
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
     node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
     node tools/renumber-panels.mjs 05 --dry        # settled chapter -> consecutive ids (inserts are 05.01a)

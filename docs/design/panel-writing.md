@@ -305,8 +305,13 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   check heads against what's behind them.
 - **Top views** place props with a numeric `row` (named rows mean little
   from above): the height on the ground is the distance.
-- **Render and look** at every panel (`node tools/render-panels.mjs NN`),
-  at phone size: poses must read from the silhouette; fix before showing.
+- **Read back, then render and look**: `node tools/describe-panel.mjs NN
+  --problems` first — every `!` is fixed or knowingly kept (a figure hidden
+  in a cloud on purpose), every `?` checked (`panels.md`, Reading a panel
+  back): it catches the feet that miss their stone and the covered faces
+  the reviews keep finding. Then render (`node tools/render-panels.mjs NN`)
+  and look at every panel at phone size: poses must read from the
+  silhouette; fix before showing.
 - Every committed panel must render without issues other than
   placeholders (`npm test` checks).
 

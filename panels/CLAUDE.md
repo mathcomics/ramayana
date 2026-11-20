@@ -18,8 +18,11 @@ manuscript owns story, canon and cast naming.
   the model for those kinds of composition): never change it in a rework
   pass — beyond renumbering its id — without the artist's explicit
   instruction. Tags are added only on the artist's review, never by you.
-- After any change: `node tools/render-panels.mjs NN`, then **look at the
-  renders at full size** (the per-panel PNGs, not only the sheet).
+- After any change: `node tools/describe-panel.mjs NN --problems` (the
+  panel read back as text: feet that miss what they stand on, covered
+  faces; fix every `!`), then `node tools/render-panels.mjs NN`, then
+  **look at the renders at full size** (the per-panel PNGs, not only the
+  sheet).
 - A missing pose goes in `needs` (`pose: <name> (...): <stand-in> for
   now`) **and** in `wanted` in `data/poses.json`; a missing prop in
   `needs` (`prop: ...`). Regenerate the queues: `node

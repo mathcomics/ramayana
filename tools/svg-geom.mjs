@@ -29,7 +29,8 @@ export function parseTransform(s = '') {
 }
 
 // ---- outlines as polygons (sampled), any SVG path command
-export function pathPolys(d) {
+// minPts: the fewest points a kept polygon has (3; 2 keeps straight strokes)
+export function pathPolys(d, minPts = 3) {
   const toks = d.match(/[a-zA-Z]|-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?/gi) || [];
   let i = 0, cmd = null, cur = [0, 0], start = [0, 0], prevC = null, prevQ = null;
   const polys = []; let poly = null;
@@ -55,7 +56,7 @@ export function pathPolys(d) {
     } else if (C === 'Z') { cur = start; poly.push(cur); poly = null; prevC = prevQ = null; }
     else throw new Error(`path command ${cmd}`);
   }
-  return polys.filter((p) => p.length > 2);
+  return polys.filter((p) => p.length >= minPts);
 }
 function arc(p0, p1, rx, ry, rotd, large, sweep) {
   if (!rx || !ry) return [p1];

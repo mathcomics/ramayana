@@ -12,7 +12,7 @@
 - `design/pipeline.md` — how drawings and JSON reach the renderer, the labs and the reader site (a Mermaid diagram).
 - `design/drawn-parts.md` — bodies from the artist's part drawings: the parts files, how a figure is built.
 - `design/faces.md` — faces: the drawing files, and how a head is turned and tilted from its front and side drawings.
-- `design/panels.md` — the panel language, the panel lab and publishing.
+- `design/panels.md` — the panel language, reading a panel back as text, the panel lab and publishing.
 - `design/panel-writing.md` — the checklist for writing a section's panels: the artist's directions and the lessons from reviews. Read before writing panels; add every new lesson.
 - `design/composition.md` — how things are arranged in a panel (sky and horizon, throne, top view). The model panel for each kind of scene: `panels/layouts.md`.
 - `design/sequential-grammar.md` — wordless storytelling principles (the clear-line school): camera discipline, cause and effect across the gutter, repetition as time, direction grammar (proposed).
@@ -26,6 +26,7 @@
 - `proposals/2026-11-07-pose-composition.md` — poses as a base × a gesture (partly implemented, now in `design/pose-picking.md`; open: chest on reclined bases, gaps as products, half-copy in the lab, composition as spec).
 - `proposals/2026-11-08-vertical-placement.md` — one `row` for vertical placement, by name or number; `shot` and `zoom` retired (implemented: `design/panels.md`, Rows; open: the row values, `top`'s size).
 - `proposals/2026-11-13-any-pair-in-panels.md` — a panel may name any base-gesture pair, composed when drawn (implemented: `design/pose-picking.md`; the reviewed list it kept was dropped 2026-11-14; open: turning upper-body `adjust`s into pairs, a pose picker).
+- `proposals/2026-11-20-readable-panels.md` — panels a writer can understand from the JSON: a text read-back of the layout with contact checks, `depth`, surfaces on props, `look` / `holds`, adjust recipes turned into bases, stand-in aliases (partly implemented: the read-back, `design/panels.md`).
 
 ## Issues
 

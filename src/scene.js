@@ -562,7 +562,42 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   });
   flush();
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
-  return { svg, w: W, h: H, issues, heads };
+  return { svg, w: W, h: H, issues, heads, horizon: hz, layout: all.map((o, k) => layoutOf(o, k)) };
+
+  // -- layout: where each entry was drawn, for tools/describe-panel.mjs ----------
+  // toPanel maps a point in the entry's own frame to panel units (y down):
+  // a figure's frame is its skeleton's (head-units, feet at y 0, y up
+  // negative, as built); a prop's is its drawing's (head-units from the
+  // drawing's top-left, y down, unmirrored). Nothing here changes the drawing.
+  function layoutOf(o, k) {
+    const e = ent(o);
+    const base = { k, name: o.name, entry: e, copy: !!e._copy, x: o.x, groundY: o.groundY, unit: o.unit, rowUnit: o.rowUnit, facing: o.facing, rot: o.rot ?? 0 };
+    if (o.b) return { ...base, kind: 'band', line: o.line, lineY: (x) => lineY(o, x) };
+    const rotate = (pt, pv, dy = 0) => {
+      const r = o.rot * Math.PI / 180, c = Math.cos(r), sn = Math.sin(r), [px, py] = pv;
+      return [px + (pt[0] - px) * c - (pt[1] - py) * sn, py + (pt[0] - px) * sn + (pt[1] - py) * c + dy];
+    };
+    if (o.f) {
+      const [ax, ay] = o.built.headAnchor.at;
+      const toPanel = (q) => {
+        const p = o.headOnly ? [o.x + o.facing * o.unit * (q[0] - ax), o.groundY + o.unit * (q[1] - ay)] : [o.x + o.facing * q[0] * o.unit, o.groundY + q[1] * o.unit];
+        if (!o.rot) return p;
+        const t = turnOf(o);
+        return rotate(p, [t.px, t.py], t.dy);
+      };
+      return { ...base, kind: 'figure', character: e.character ?? e.who, pose: e.pose, view: o.view, headOnly: !!o.headOnly, built: o.built, species: o.S, toPanel };
+    }
+    const toPanel = (q) => {
+      if (o.rot && !o.pivot) {
+        const lx = o.facing * o.unit * q[0] + (o.facing < 0 ? o.w0 / 2 : -o.w0 / 2), ly = o.unit * q[1] - o.h0 / 2;
+        const r = o.rot * Math.PI / 180, c = Math.cos(r), sn = Math.sin(r);
+        return [o.x + lx * c - ly * sn, o.groundY - o.h / 2 + lx * sn + ly * c];
+      }
+      const p = [(o.facing < 0 ? o.x + o.halfW : o.x - o.halfW) + o.facing * o.unit * q[0], o.groundY - o.h + o.unit * q[1]];
+      return o.rot ? rotate(p, o.pivot) : p;
+    };
+    return { ...base, kind: 'prop', prop: e.prop, def: o.def, size: o.def?.size || PLACEHOLDER, toPanel };
+  }
 }
 
 // A drawn SVG file (a prop): keep only the drawing (everything inside <svg>),

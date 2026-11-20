@@ -296,10 +296,40 @@ the panel; it takes `front` with a `scale`.
 only, in the entry's own head-units; anything placed high (flight, hanging, a top
 view) takes a numeric row, which does not move when its `scale` changes.
 
+## Reading a panel back
+
+`node tools/describe-panel.mjs 12.26` (or a chapter, `12`; `--problems`
+for the marked lines only) prints the panel as it is laid out, so it can
+be checked without opening the picture. `render-panels.mjs` writes the
+same text beside each PNG (`out/panels/<section>/<id>.txt`). It works
+from `renderPanel`'s `layout` (`src/scene.js`: each drawn entry's place,
+size and a map from its own frame to the panel), with props measured
+from their drawings, so it reports what is drawn, not what the JSON
+intends.
+
+Per entry, in drawn order: the pose with its base's and gesture's
+descriptions, view, facing, head turn and tilt, mouth; its box as shares
+of the panel (x across, y up from the bottom edge, as `at` and `row`);
+its height and head in pixels at phone size; what places it. Then notes:
+
+| Mark | Note |
+|---|---|
+| `!` | a face covered by something drawn after it, or by its own arm (*skin over skin*, *a raised arm hides the face*); an entry `on` a prop's stand anchor whose feet miss the prop (and what it stands on instead); an entry outside the panel; an `id` used twice; a renderer issue |
+| `?` | in the air with nothing under it — the feet above the horizon, or more than 1.5 head-units above the ground that its size puts it on; small for where it stands (its size says farther back than its feet: sunk or far); lifted off its anchor by a `nudge`; a face cut by the frame or a head out of it |
+| `·` | cut by an edge (the bottom edge named by the body: *shows down to the waist*); stands on a prop by position, without `on`; on a band, raised or sunk; who it faces and whether they face it; a placeholder prop |
+
+"The ground its size puts it on": a figure as big as a man on a row at
+depth `t` should stand on that row's ground line (Rows); the distance
+between that line and its feet is how far it is lifted (or sunk).
+`--props` lists every drawing's size in head-units, its anchors and
+recolour roles; `--poses` every base (height, how far apart the feet)
+and gesture (reach, how high the hands), measured on a man.
+
 ## Commands
 
 ```sh
-node tools/render-panels.mjs [02]   # out/panels/<section>.png (all panels) + issues and needs
+node tools/render-panels.mjs [02]   # out/panels/<section>.png (all panels) + <id>.txt read-backs + issues and needs
+node tools/describe-panel.mjs 12.26 # the panel as text: layout, contact, faces (see Reading a panel back)
 node tools/build-site.mjs           # _site/ (the reader site)
 node tools/build-panellab.mjs       # out/panellab.html (published as the panel lab)
 node tools/renumber-panels.mjs 05 --dry  # a settled chapter's ids made consecutive (see Ids)

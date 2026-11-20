@@ -2,14 +2,17 @@
 //
 //   node tools/render-panels.mjs [section-prefix]
 //     -> out/panels/<section>/<id>.png (each panel)
+//        out/panels/<section>/<id>.txt (the panel read back as text: tools/describe-panel.mjs)
 //        out/panels/<section>.png      (all panels, in columns)
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { root, loadAssets, loadSections, rsvg } from './lib.mjs';
+import { root, loadAssets, loadSections, rsvg, json } from './lib.mjs';
+import { describePanel } from './describe-lib.mjs';
 import { renderPanel, PANEL_W } from '../src/scene.js';
 
 const only = process.argv[2];
 const assets = loadAssets();
+const poseData = { bases: json('data/bases.json').bases, gestures: json('data/gestures.json').gestures };
 for (const sec of loadSections().filter((s) => !only || s.name.startsWith(only))) {
   const out = join(root, 'out/panels', sec.name);
   mkdirSync(out, { recursive: true });
@@ -20,6 +23,7 @@ for (const sec of loadSections().filter((s) => !only || s.name.startsWith(only))
     const r = renderPanel(def, assets, { id });
     writeFileSync(join(out, `${id}.svg`), r.svg);
     rsvg(join(out, `${id}.svg`), join(out, `${id}.png`), ['-z', '2']);
+    writeFileSync(join(out, `${id}.txt`), describePanel(id, def, assets, poseData).join('\n') + '\n');
     const c = cols.indexOf(Math.min(...cols));              // shortest column
     const x = c * (PANEL_W + GAP), y = cols[c];
     sheet += `<text x="${x}" y="${y + 15}" font-family="Helvetica" font-size="13" fill="#555">${id} · tall ${def.tall ?? 1.5}</text>` +
