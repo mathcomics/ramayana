@@ -34,7 +34,10 @@
       "prop": "fire",
       "on": "rock#stand",
       "scale": 2.4,
-      "rotate": 90
+      "nudge": [
+        0.265,
+        -0.5
+      ]
     }
   ],
   "needs": [

@@ -29,7 +29,6 @@
     },
     {
       "prop": "fire",
-      "rotate": 90,
       "at": 0.52,
       "row": 0.08,
       "scale": 0.9

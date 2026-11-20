@@ -12,7 +12,7 @@
     },
     {
       "prop": "fire",
-      "rotate": 120,
+      "rotate": 30,
       "scale": 4,
       "at": 0.12,
       "row": 0
@@ -21,7 +21,6 @@
       "prop": "fire",
       "at": 0.1,
       "row": 0.82,
-      "rotate": 90,
       "scale": 2
     },
     {

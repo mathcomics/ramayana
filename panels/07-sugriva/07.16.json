@@ -6,8 +6,7 @@
     {
       "prop": "fire",
       "at": 0.5,
-      "scale": 1.6,
-      "rotate": 90
+      "scale": 1.6
     },
     {
       "character": "rama",

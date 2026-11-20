@@ -14,7 +14,6 @@
     },
     {
       "prop": "fire",
-      "rotate": 90,
       "scale": 4,
       "at": 0.2,
       "row": "mid"
@@ -22,11 +21,11 @@
     {
       "prop": "fire",
       "on": "hanuman#tail",
-      "rotate": 130,
+      "rotate": 40,
       "scale": 2,
       "nudge": [
-        0,
-        0.6
+        -0.118,
+        0.047
       ]
     },
     {

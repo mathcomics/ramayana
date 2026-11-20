@@ -5,7 +5,6 @@
   "figures": [
     {
       "prop": "fire",
-      "rotate": 90,
       "at": 0.74,
       "row": "back",
       "scale": 1.4

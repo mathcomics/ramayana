@@ -241,7 +241,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     const unit = r.unit * (p.scale ?? 1);
     const [w0, h0] = (def?.size || PLACEHOLDER).map((v) => v * unit);
     // rotate: degrees clockwise about the drawing's centre; the prop then
-    // stands on the bottom of its rotated box (e.g. 90 turns the sideways fire upright).
+    // stands on the bottom of its rotated box (e.g. -90 lays the fire on its side, 11.25).
     // With "on" it turns about the point it lands on instead (an arrow in a
     // chest turns about where it goes in). Its own anchors never turn.
     const rot = p.rotate ?? 0, rr = rot * Math.PI / 180;

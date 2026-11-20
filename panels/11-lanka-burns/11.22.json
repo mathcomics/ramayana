@@ -13,10 +13,9 @@
       "prop": "fire",
       "on": "hanuman#tail",
       "nudge": [
-        -0.5,
-        0.5
-      ],
-      "rotate": 90
+        -0.235,
+        0
+      ]
     },
     {
       "character": "hanuman",

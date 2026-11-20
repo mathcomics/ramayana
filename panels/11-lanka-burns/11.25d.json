@@ -6,10 +6,9 @@
     {
       "prop": "fire",
       "scale": 4,
-      "rotate": 90,
       "nudge": [
-        -0.1,
-        0.3
+        0.165,
+        -0.2
       ],
       "on": "steps#stand-high"
     },
