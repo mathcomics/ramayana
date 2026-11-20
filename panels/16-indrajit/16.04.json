@@ -4,6 +4,18 @@
   "ground": "night",
   "figures": [
     {
+      "prop": "vine",
+      "at": 0.85,
+      "row": -0.5,
+      "nudge": [
+        -0.1,
+        1
+      ],
+      "scale": 5,
+      "body": "#000000",
+      "rotate": 180
+    },
+    {
       "character": "indrajit",
       "pose": "step-palms",
       "facing": "right",

@@ -4,6 +4,32 @@
   "ground": "night",
   "figures": [
     {
+      "character": "indrajit",
+      "pose": "chair-handslow",
+      "facing": "right",
+      "on": "rock#stand-left",
+      "nudge": [
+        0.3,
+        -1.5
+      ],
+      "scale": 0.35
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "stand-armsup",
+      "facing": "left",
+      "on": "rock#stand-right",
+      "scale": 0.35
+    },
+    {
+      "prop": "half-circle",
+      "on": "raxas_m2#hands",
+      "rotate": -30,
+      "scale": 1,
+      "body": "#222222",
+      "id": "bowl"
+    },
+    {
       "prop": "rock-rectangle",
       "id": "rock",
       "at": 0.35,
@@ -21,23 +47,19 @@
     },
     {
       "prop": "vine",
-      "on": "steps#stand-high",
-      "rotate": 180,
-      "scale": 1.8,
+      "on": "rock#stand",
       "nudge": [
-        0.4,
-        2.3
+        -0.1,
+        1.7
       ],
-      "body": "#000000"
+      "scale": 1.8,
+      "body": "#000000",
+      "rotate": 180
     },
     {
       "prop": "fire",
       "on": "rock#stand",
-      "scale": 2.4,
-      "nudge": [
-        0.265,
-        -0.5
-      ]
+      "scale": 1
     }
   ],
   "needs": [

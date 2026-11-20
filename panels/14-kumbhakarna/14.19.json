@@ -1,41 +1,28 @@
 {
-  "scene": "Variation: Rama, small below, aims high; the great face above him already stuck with arrows",
-  "tall": 1.5,
+  "scene": "Indrajit, Ravana's son, runs out with his bow drawn, rakshasas running behind him",
+  "tall": 0.6,
   "ground": "off-white",
   "figures": [
     {
-      "prop": "giant-face-front-awake",
-      "id": "face",
-      "at": 0.66,
-      "row": 0.52,
-      "body": "#9a7a7a"
+      "character": "monkey2",
+      "pose": "run-pump",
+      "facing": "left",
+      "at": 0.42,
+      "cloth": "red-diamond"
     },
     {
-      "prop": "arrow-stuck",
-      "at": 0.55,
-      "row": 0.72,
-      "scale": 1.6,
-      "rotate": -40
-    },
-    {
-      "prop": "arrow-stuck",
-      "at": 0.66,
-      "row": 0.6,
-      "scale": 1.6,
-      "rotate": -55
-    },
-    {
-      "prop": "arrow-stuck",
-      "at": 0.52,
-      "row": 0.82,
-      "scale": 1.6,
-      "rotate": -30
+      "character": "monkey1",
+      "pose": "runlow-pumplow",
+      "facing": "left",
+      "at": 0.2,
+      "cloth": "red-check"
     },
     {
       "character": "rama",
-      "pose": "step-bowhigh",
+      "pose": "runwide-bowhigh",
       "facing": "right",
-      "at": 0.2
+      "at": 0.7,
+      "row": "front"
     }
   ]
 }

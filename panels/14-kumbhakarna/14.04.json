@@ -8,30 +8,21 @@
       "id": "face",
       "facing": "left",
       "rotate": 90,
-      "at": 0.18
-    },
-    {
-      "prop": "trumpet",
-      "on": "player1#hand-right"
+      "at": 0.18,
+      "scale": 1.6
     },
     {
       "id": "player1",
       "character": "raxas_m1",
-      "pose": "step-fists",
+      "pose": "stepback-wrath",
       "facing": "left",
-      "at": 0.53
+      "at": 0.7
     },
     {
-      "prop": "drum",
-      "on": "player2#hand-right"
-    },
-    {
-      "id": "player2",
-      "character": "raxas_m2",
-      "pose": "stepwide-armsout",
-      "facing": "left",
-      "at": 0.72,
-      "cloth": "red-check"
+      "prop": "rock-circle",
+      "at": 0.7,
+      "row": "top",
+      "body": "orange"
     },
     {
       "prop": "drum",
@@ -41,8 +32,8 @@
       "id": "player3",
       "character": "raxas_m1",
       "pose": "kneeup-armsout",
-      "facing": "left",
-      "at": 0.9,
+      "facing": "right",
+      "at": 0.1,
       "cloth": "red-diamond"
     }
   ]

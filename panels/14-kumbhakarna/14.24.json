@@ -1,46 +1,80 @@
 {
-  "scene": "Variation: the head lies on the shore, eyes shut for good; the monkeys dance beside it",
-  "tall": 0.6,
-  "ground": "off-white",
+  "scene": "Variation: the head sinks into the sea off Lanka",
+  "tall": 1,
+  "ground": "sand",
   "figures": [
+    {
+      "character": "monkey1",
+      "pose": "stepturn-straight",
+      "facing": "left",
+      "row": "back",
+      "nudge": [
+        5,
+        12
+      ]
+    },
+    {
+      "character": "monkey1",
+      "pose": "leapup-flung",
+      "facing": "right",
+      "row": "back",
+      "nudge": [
+        9,
+        11
+      ]
+    },
+    {
+      "character": "monkey2",
+      "pose": "leapup-dive",
+      "facing": "right",
+      "nudge": [
+        12,
+        7
+      ],
+      "rotate": 30,
+      "row": "back"
+    },
     {
       "prop": "giant-face-side",
       "id": "face",
-      "facing": "left",
-      "rotate": 90,
-      "at": 0.18,
-      "body": "#9a7a7a"
+      "rotate": 115,
+      "at": 0.42,
+      "body": "#9a7a7a",
+      "row": -0.25,
+      "scale": 1.4
     },
     {
-      "foreground": 0.08,
+      "prop": "palace-lanka",
+      "at": -1.55,
+      "row": 0,
+      "scale": 4.2
+    },
+    {
+      "foreground": [
+        0.05,
+        0.05
+      ],
       "color": "sand"
     },
     {
       "character": "monkey1",
-      "pose": "leapup-reachup",
+      "pose": "leap-armfront",
       "facing": "left",
-      "at": 0.52,
-      "on": "foreground",
+      "row": "back",
       "nudge": [
-        0,
-        0.8
-      ],
-      "cloth": "red"
+        -1,
+        15
+      ]
     },
     {
       "character": "monkey1",
-      "pose": "arch-reachup",
-      "view": "front",
-      "at": 0.7,
-      "on": "foreground"
-    },
-    {
-      "character": "monkey1",
-      "pose": "stepwide-pointup",
-      "facing": "left",
-      "at": 0.88,
-      "on": "foreground",
-      "cloth": "orange"
+      "pose": "stepturn-straight",
+      "facing": "right",
+      "row": "back",
+      "nudge": [
+        2,
+        12
+      ]
     }
   ]
 }

@@ -7,18 +7,17 @@
     {
       "prop": "giant-feet",
       "id": "foot",
-      "at": 0.45,
+      "at": 0.75,
       "row": 0.15,
-      "scale": 0.6,
-      "rotate": -60,
+      "rotate": -80,
       "body": "#9a7a7a"
     },
     {
       "prop": "arrow-stuck",
-      "at": 0.7,
-      "row": 0.55,
+      "at": 0.9,
+      "row": 0.75,
       "scale": 1.6,
-      "rotate": 160
+      "rotate": 190
     }
   ]
 }

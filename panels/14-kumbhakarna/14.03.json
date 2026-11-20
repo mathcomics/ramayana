@@ -12,27 +12,33 @@
       "cloth": "red-check",
       "nudge": [
         0,
-        5
-      ]
+        5.9
+      ],
+      "scale": 0.8
     },
     {
-      "id": "puller",
+      "id": "player2",
       "character": "raxas_m1",
-      "pose": "leanback-reach",
+      "pose": "leanfront-fists",
       "facing": "right",
       "at": 0.5,
       "nudge": [
         0,
-        5
-      ]
+        5.7
+      ],
+      "scale": 0.8
     },
     {
       "prop": "drum",
       "on": "player1#hand-right"
     },
     {
-      "prop": "giant-lie-waist",
+      "prop": "trumpet",
+      "on": "player2#hand-left"
+    },
+    {
       "id": "belly",
+      "prop": "giant-lie-waist",
       "at": 0.5,
       "nudge": [
         0,

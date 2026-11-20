@@ -5,20 +5,20 @@
   "ground": "off-white",
   "figures": [
     {
-      "prop": "giant-face-side",
+      "prop": "giant-face-side-cry",
       "id": "face",
       "facing": "left",
-      "at": 0.55,
-      "row": 0.02,
-      "rotate": -30,
+      "at": 0.75,
+      "row": 0.2,
+      "rotate": 30,
       "body": "#9a7a7a"
     },
     {
       "prop": "arrow-stuck",
-      "at": 0.3,
-      "row": 0.5,
+      "at": 0.85,
+      "row": 0.1,
       "scale": 2,
-      "rotate": 10
+      "rotate": 190
     }
   ]
 }

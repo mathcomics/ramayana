@@ -1,28 +1,14 @@
 {
-  "scene": "At the empty Lanka throne a rakshasa points the drummer on his way",
+  "scene": "Ravana, close, rises in rage at the news",
   "tall": 0.6,
-  "ground": "yellow",
+  "ground": "#111111",
   "figures": [
     {
-      "prop": "throne-lanka",
-      "at": 0.75
-    },
-    {
       "character": "ravana",
-      "pose": "step-point",
-      "facing": "left"
-    },
-    {
-      "prop": "drum",
-      "on": "player2#hand-left"
-    },
-    {
-      "id": "player2",
-      "character": "raxas_m2",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.15,
-      "cloth": "red-check"
+      "pose": "stepwide-fists",
+      "view": "front",
+      "at": 0.42,
+      "row": "closeup"
     }
   ]
 }

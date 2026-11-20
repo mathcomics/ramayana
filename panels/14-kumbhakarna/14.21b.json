@@ -1,24 +1,15 @@
 {
-  "scene": "Variation: the other arm, the fist still clenched, cut off and falling (negative)",
+  "scene": "Variation: the arrows strike his face; the giant cries out",
   "tall": 0.6,
-  "mode": "negative",
-  "ground": "off-white",
   "figures": [
     {
-      "prop": "giant-fist",
-      "id": "fist",
-      "at": 0.45,
-      "row": 0.1,
-      "scale": 0.7,
-      "rotate": 30,
-      "body": "#9a7a7a"
-    },
-    {
-      "prop": "arrow-stuck",
-      "at": 0.18,
-      "row": 0.75,
-      "scale": 1.6,
-      "rotate": 20
+      "prop": "giant-face-side-cry",
+      "id": "face",
+      "at": 0.6,
+      "row": -0.4,
+      "scale": 1.8,
+      "rotate": 20,
+      "facing": "left"
     }
   ]
 }

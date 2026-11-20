@@ -1,0 +1,15 @@
+{
+  "scene": "Variation: the arrows strike his face; the giant cries out",
+  "tall": 0.6,
+  "figures": [
+    {
+      "id": "face",
+      "prop": "giant-face-side-cry",
+      "facing": "left",
+      "at": 0.6,
+      "row": 0.4,
+      "scale": 1.8,
+      "rotate": -90
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
   "scene": "Vibhishana leads the way, pointing; Lakshman with his bow and the monkeys follow",
   "tall": 0.6,
-  "ground": "night-blue",
+  "ground": "night",
   "figures": [
     {
       "character": "monkey2",
-      "pose": "walk-bull",
+      "pose": "stepwide-bull",
       "facing": "right",
       "at": 0.1,
       "adjust": {
@@ -14,7 +14,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "pass-shoulder",
+      "pose": "leanfront-shoulder",
       "facing": "right",
       "at": 0.27,
       "cloth": "red",
