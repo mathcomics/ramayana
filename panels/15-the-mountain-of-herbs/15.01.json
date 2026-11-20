@@ -1,18 +1,27 @@
 {
-  "scene": "Opening: Lanka across the sea, by night",
+  "scene": "Indrajit draws the javelin back to throw",
   "tall": 1,
-  "ground": "night",
-  "sky": "night-blue",
-  "horizon": 0.2,
+  "ground": "sky",
   "figures": [
     {
-      "prop": "lanka-island",
-      "at": 0.7,
-      "row": "horizon"
+      "prop": "pole",
+      "at": 0.5,
+      "row": 0.1,
+      "rotate": 180
     },
     {
-      "prop": "palace-lanka",
-      "on": "lanka-island#stand"
+      "character": "indrajit",
+      "pose": "bend-bowdraw",
+      "facing": "right",
+      "at": 0.55,
+      "row": 0.45,
+      "scale": 0.5
+    },
+    {
+      "prop": "cloud-small",
+      "at": 0.4,
+      "row": 0.25,
+      "scale": 0.3
     }
   ]
 }

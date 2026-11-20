@@ -7,23 +7,42 @@
       "id": "moon",
       "prop": "rock-square",
       "at": 0.03,
-      "row": 0.05,
-      "scale": 1.6
+      "row": 0.05
+    },
+    {
+      "character": "monkey2",
+      "pose": "crouch-armsout",
+      "facing": "left",
+      "at": 0.4,
+      "rotate": 15,
+      "scale": 0.7
+    },
+    {
+      "character": "rama",
+      "pose": "sitback-handslow",
+      "facing": "right",
+      "at": 0.3,
+      "adjust": {
+        "spine.head": -35
+      },
+      "scale": 0.7
     },
     {
       "character": "lakshman",
-      "pose": "sitback-hang",
+      "pose": "sitback-swing",
       "facing": "right",
-      "at": 0.4,
+      "at": 0.25,
+      "scale": 0.7,
       "adjust": {
         "spine.head": -35
       }
     },
     {
-      "character": "rama",
-      "pose": "kneel-reach",
+      "character": "hanuman",
+      "pose": "step-grief",
       "facing": "left",
-      "at": 0.66
+      "at": 0.66,
+      "scale": 0.7
     }
   ]
 }

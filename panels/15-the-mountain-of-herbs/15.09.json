@@ -13,7 +13,10 @@
       "prop": "flower-white",
       "at": 0.34,
       "row": 0.5,
-      "scale": 0.4
+      "scale": 0.4,
+      "repeat": {
+        "n": 4
+      }
     },
     {
       "prop": "flower-yellow",
@@ -29,7 +32,7 @@
     },
     {
       "character": "hanuman",
-      "pose": "step-search",
+      "pose": "bend-onhands",
       "facing": "right",
       "at": 0.47,
       "row": 0.5,
@@ -47,6 +50,24 @@
       "rotate": 150,
       "row": "closeup",
       "body": "#5a5f7a"
+    },
+    {
+      "prop": "flower-white",
+      "at": 0.76,
+      "row": 0.04,
+      "scale": 0.5,
+      "repeat": {
+        "n": 9
+      }
+    },
+    {
+      "prop": "flower-white",
+      "at": 0.5,
+      "row": -0.04,
+      "scale": 0.5,
+      "repeat": {
+        "n": 7
+      }
     }
   ],
   "needs": [

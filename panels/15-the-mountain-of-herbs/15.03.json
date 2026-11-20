@@ -13,8 +13,34 @@
       "prop": "arrow-stuck",
       "on": "lakshman#chest",
       "facing": "left",
-      "rotate": 55,
+      "rotate": 65,
       "scale": 1
+    },
+    {
+      "character": "rama",
+      "pose": "fallback-search",
+      "facing": "left",
+      "at": 0.7
+    },
+    {
+      "prop": "arrow-stuck",
+      "facing": "left",
+      "on": "rama#chest",
+      "scale": 1,
+      "rotate": 65
+    },
+    {
+      "character": "monkey1",
+      "pose": "fallback-search",
+      "facing": "right",
+      "at": 0.3
+    },
+    {
+      "prop": "arrow-stuck",
+      "facing": "left",
+      "on": "monkey1#chest",
+      "scale": 1,
+      "rotate": 85
     }
   ],
   "needs": [

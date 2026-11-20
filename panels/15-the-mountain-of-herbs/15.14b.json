@@ -1,32 +1,56 @@
 {
-  "scene": "The healer plucks a glowing herb at the mountain's foot",
-  "tall": 0.6,
-  "ground": "off-white",
+  "scene": "On the mountain of glowing herbs: Hanuman stands on the summit among them, looking about",
+  "tall": 1.5,
+  "ground": "night-blue",
   "figures": [
     {
-      "prop": "rock-square",
-      "at": 0.88,
-      "row": "front",
-      "scale": 2.2,
-      "body": "#5a5f7a"
+      "prop": "flower-yellow",
+      "at": 0.2,
+      "row": 0.15,
+      "scale": 0.4
+    },
+    {
+      "prop": "flower-white",
+      "at": 0.34,
+      "row": 0.22,
+      "scale": 0.4,
+      "repeat": {
+        "n": 4
+      }
     },
     {
       "prop": "flower-yellow",
-      "at": 0.56,
-      "row": "front",
-      "scale": 1.1
+      "at": 0.62,
+      "row": 0.25,
+      "scale": 0.5
+    },
+    {
+      "prop": "flower-pink",
+      "at": 0.76,
+      "row": 0.2,
+      "scale": 0.5
     },
     {
       "character": "monkey2",
-      "id": "healer",
-      "cloth": "stone",
-      "pose": "bend-reach",
-      "facing": "right",
-      "at": 0.38,
-      "scale": 1.5
+      "pose": "crouch-armsup",
+      "facing": "left",
+      "at": 0.82,
+      "row": 0.13,
+      "scale": 0.35,
+      "rotate": 40
+    },
+    {
+      "id": "mountain",
+      "prop": "rock-square",
+      "at": 0.4,
+      "row": "closeup",
+      "nudge": [
+        0,
+        -0.1
+      ],
+      "scale": 2,
+      "body": "#5a5f7a",
+      "rotate": 150
     }
-  ],
-  "needs": [
-    "prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now"
   ]
 }

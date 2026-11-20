@@ -1,0 +1,24 @@
+{
+  "scene": "The old healer kneels at Lakshman's side, a hand on his chest",
+  "tall": 0.6,
+  "ground": "night",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "step-holdhead",
+      "facing": "left",
+      "at": 0.4,
+      "row": "closeup"
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.5,
+      "row": 0.4,
+      "scale": 1.3
+    },
+    {
+      "prop": "flower-yellow",
+      "on": "bubble-thought#inside"
+    }
+  ]
+}

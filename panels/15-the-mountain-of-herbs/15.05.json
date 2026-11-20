@@ -1,14 +1,48 @@
 {
-  "scene": "Variation, close: Rama bowed over his brother, hand at his face",
-  "tall": 0.6,
+  "scene": "Rama kneels over Lakshman, who lies still",
+  "tall": 1,
   "ground": "off-white",
   "figures": [
     {
+      "id": "moon",
+      "prop": "rock-square",
+      "at": 0.03,
+      "row": 0.05
+    },
+    {
+      "character": "monkey2",
+      "pose": "step-pointup",
+      "facing": "right",
+      "at": 0.6,
+      "scale": 0.7,
+      "rotate": 15
+    },
+    {
       "character": "rama",
-      "pose": "step-grief",
+      "pose": "sitback-handslow",
+      "facing": "right",
+      "at": 0.3,
+      "scale": 0.7,
+      "adjust": {
+        "spine.head": -35
+      }
+    },
+    {
+      "character": "lakshman",
+      "pose": "sitback-swing",
+      "facing": "right",
+      "at": 0.25,
+      "scale": 0.7,
+      "adjust": {
+        "spine.head": -35
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-armknee",
       "facing": "left",
-      "at": 0.5,
-      "scale": 1.45
+      "at": 0.9,
+      "scale": 0.7
     }
   ]
 }

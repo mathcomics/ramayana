@@ -27,9 +27,8 @@ docs/design/panel-writing.md, Lessons).
 | prop: fire-altar (the square fire pit of the rite at Nikumbhila): the fire on bare ground for now | 16.02, 16.03, 16.08, 16.10, 16.11 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.25 |
 | prop: giant-arm-fallen (the whole arm lying, hand open, the cut end shown): giant-grab on its side for now | 14.21 |
-| prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 15.09, 15.09a, 15.14a, 15.14b |
-| prop: javelin (a heavy spear, held and thrown): a big arrow for now | 15.02a, 15.03 |
-| prop: javelin (a heavy spear, held and thrown): the long spiked club for now | 15.02 |
+| prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 15.09, 15.09a, 15.14a |
+| prop: javelin (a heavy spear, held and thrown): a big arrow for now | 15.03 |
 | prop: mountain | 09.12, 09.13 |
 | prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.20, 11.21, 11.21a |
 | prop: staff (held) | 05.21, 05.22 |

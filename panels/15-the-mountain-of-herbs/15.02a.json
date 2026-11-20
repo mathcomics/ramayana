@@ -1,10 +1,17 @@
 {
   "scene": "The unseen archer: high over the field Indrajit's dark cloud, the javelin flying out of it down at the small figures below",
   "tall": 1.5,
-  "ground": "light-grey",
-  "sky": "night-blue",
-  "horizon": 0.18,
+  "ground": "sky",
   "figures": [
+    {
+      "character": "indrajit",
+      "pose": "bend-bowdraw",
+      "facing": "right",
+      "at": 0.45,
+      "row": 0.75,
+      "scale": 0.3,
+      "rotate": 30
+    },
     {
       "prop": "cloud-big",
       "at": 0.25,
@@ -12,42 +19,41 @@
       "scale": 0.35
     },
     {
-      "prop": "arrow-stuck",
-      "at": 0.45,
-      "row": 0.45,
-      "scale": 0.7,
-      "rotate": -125,
-      "facing": "left"
+      "prop": "cloud-big",
+      "at": 0.65,
+      "row": 0.42,
+      "scale": 0.35
     },
     {
       "character": "monkey1",
-      "pose": "step-bull",
+      "pose": "leanback-search",
       "facing": "left",
-      "at": 0.62,
-      "row": "back"
+      "row": 0,
+      "scale": 0.4
     },
     {
       "character": "lakshman",
-      "pose": "step-search",
+      "pose": "arch-bowhigh",
       "facing": "left",
-      "at": 0.74,
-      "row": "back",
-      "adjust": {
-        "spine.head": -25
-      }
+      "at": 0.3,
+      "row": 0,
+      "scale": 0.4
     },
     {
-      "character": "monkey2",
-      "pose": "step-shoulder",
-      "facing": "left",
-      "at": 0.86,
-      "row": "back",
-      "adjust": {
-        "right.arm.prop.kind": "spear"
-      }
+      "character": "monkey1",
+      "pose": "leanback-longpoint",
+      "facing": "right",
+      "at": 0.65,
+      "row": 0,
+      "scale": 0.4
+    },
+    {
+      "character": "rama",
+      "pose": "arch-bowhigh",
+      "facing": "right",
+      "at": 0.9,
+      "row": 0,
+      "scale": 0.4
     }
-  ],
-  "needs": [
-    "prop: javelin (a heavy spear, held and thrown): a big arrow for now"
   ]
 }

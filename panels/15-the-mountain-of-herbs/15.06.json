@@ -1,23 +1,31 @@
 {
-  "scene": "The old healer points north; Hanuman looks where he points",
+  "scene": "The old healer kneels at Lakshman's side, a hand on his chest",
   "tall": 0.6,
   "ground": "off-white",
   "figures": [
     {
-      "character": "hanuman",
-      "pose": "step-hang",
-      "facing": "left",
-      "at": 0.8,
-      "scale": 1.4
+      "character": "monkey2",
+      "pose": "step-armsup",
+      "facing": "right",
+      "at": 0.2,
+      "row": "closeup"
     },
     {
-      "character": "monkey2",
-      "pose": "step-point",
-      "id": "healer",
+      "character": "hanuman",
+      "pose": "step-holdhead",
       "facing": "left",
-      "at": 0.48,
-      "scale": 1.4,
-      "cloth": "stone"
+      "at": 0.8,
+      "row": "closeup"
+    },
+    {
+      "prop": "bubble-thought",
+      "at": 0.5,
+      "row": 0.4,
+      "scale": 1.3
+    },
+    {
+      "prop": "flower-pink",
+      "on": "bubble-thought#inside"
     }
   ]
 }

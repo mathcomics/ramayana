@@ -1,28 +1,27 @@
 {
   "scene": "Indrajit draws the javelin back to throw",
-  "tall": 0.6,
-  "ground": "night-blue",
+  "tall": 1,
+  "ground": "sky",
   "figures": [
     {
+      "prop": "pole",
+      "at": 0.5,
+      "row": 0.1,
+      "rotate": 180
+    },
+    {
       "character": "indrajit",
-      "pose": "leanback-armback",
+      "pose": "bend-bowdraw",
       "facing": "right",
-      "at": 0.4,
-      "scale": 1.4,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club-spike-long"
-        }
-      }
+      "at": 0.55,
+      "row": 0.45,
+      "scale": 0.5
     },
     {
       "prop": "cloud-small",
       "at": 0.4,
-      "row": -0.15,
-      "scale": 0.45
+      "row": 0.25,
+      "scale": 0.3
     }
-  ],
-  "needs": [
-    "prop: javelin (a heavy spear, held and thrown): the long spiked club for now"
   ]
 }

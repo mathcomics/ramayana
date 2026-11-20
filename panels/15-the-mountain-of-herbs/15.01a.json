@@ -1,41 +1,48 @@
 {
-  "scene": "Night on the field before Lanka: Lakshman keeps watch at the front, the armed monkeys behind him",
+  "scene": "The monkeys look up, one pointing: Ravana and Sita pass, small, high overhead",
   "tall": 1,
-  "ground": "light-grey",
-  "sky": "night-blue",
-  "horizon": 0.35,
+  "ground": "sky-blue",
+  "horizon": 0.34,
   "figures": [
     {
       "character": "monkey1",
-      "pose": "step-bull",
-      "facing": "left",
-      "at": 0.2,
-      "row": "back",
-      "adjust": {
-        "right.arm.prop.kind": "spear"
-      }
-    },
-    {
-      "character": "monkey2",
-      "pose": "step-bull",
-      "facing": "left",
-      "at": 0.78,
-      "row": "back",
-      "cloth": "red"
+      "pose": "run-pointup",
+      "facing": "right",
+      "id": "m1",
+      "rotate": -50,
+      "scale": 0.5
     },
     {
       "character": "monkey1",
-      "pose": "step-crown",
+      "pose": "fallback-search",
       "facing": "left",
-      "at": 0.62,
-      "row": "back",
-      "cloth": "orange"
+      "at": 0.7,
+      "id": "m2",
+      "mouth": 3,
+      "scale": 0.5
     },
     {
-      "character": "lakshman",
-      "pose": "step-akimbo",
+      "prop": "arrow-stuck",
       "facing": "left",
-      "at": 0.4
+      "on": "m2#chest",
+      "scale": 0.5,
+      "rotate": 65
+    },
+    {
+      "character": "monkey1",
+      "pose": "fallback-search",
+      "facing": "right",
+      "at": 0.3,
+      "id": "m3",
+      "mouth": 3,
+      "scale": 0.5
+    },
+    {
+      "prop": "arrow-stuck",
+      "facing": "left",
+      "on": "m3#chest",
+      "scale": 0.5,
+      "rotate": 75
     }
   ]
 }
