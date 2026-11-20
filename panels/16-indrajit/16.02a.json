@@ -4,33 +4,37 @@
   "ground": "night",
   "figures": [
     {
-      "prop": "steps",
-      "id": "steps",
-      "at": 0.55,
+      "prop": "rock-rectangle",
+      "id": "rock",
+      "at": 0.35,
       "row": "front",
+      "scale": 2.5,
+      "body": "#222222"
+    },
+    {
+      "prop": "steps",
+      "body": "#ac9393",
       "scale": 0.9,
-      "body": "#ac9393"
+      "at": 0.55,
+      "id": "steps",
+      "row": "front"
     },
     {
       "prop": "vine",
-      "body": "#000000",
       "on": "steps#stand-high",
       "rotate": 180,
       "scale": 1.8,
       "nudge": [
         0.4,
         2.3
-      ]
+      ],
+      "body": "#000000"
     },
     {
       "prop": "fire",
-      "on": "steps#stand-high",
-      "rotate": 90,
+      "on": "rock#stand",
       "scale": 2.4,
-      "nudge": [
-        0.15,
-        0.25
-      ]
+      "rotate": 90
     }
   ],
   "needs": [

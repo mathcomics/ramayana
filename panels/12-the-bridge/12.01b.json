@@ -22,7 +22,7 @@
       "view": "front",
       "facing": "right",
       "at": 0.05,
-      "row": -0.2,
+      "row": -0.3,
       "turn": 180,
       "adjust": {
         "right.arm.prop.kind": "club"
@@ -41,10 +41,10 @@
     },
     {
       "character": "monkey1",
-      "pose": "walk-crown",
+      "pose": "walk-bull",
       "view": "front",
       "at": 0.25,
-      "row": -0.2,
+      "row": -0.3,
       "turn": 180
     },
     {

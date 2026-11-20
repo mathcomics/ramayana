@@ -5,7 +5,8 @@
   "figures": [
     {
       "prop": "palace-kishkindha",
-      "at": 0.12
+      "at": 0.12,
+      "scale": 1.2
     },
     {
       "character": "monkey1",
@@ -17,7 +18,7 @@
     },
     {
       "character": "monkey2",
-      "pose": "run-bull",
+      "pose": "run-roof",
       "facing": "right",
       "at": 0.14,
       "on": "foreground",
@@ -30,7 +31,7 @@
       "character": "monkey1",
       "pose": "stepwide-shoulder",
       "facing": "right",
-      "at": 0.29,
+      "at": 0.32,
       "on": "foreground",
       "scale": 0.8,
       "adjust": {

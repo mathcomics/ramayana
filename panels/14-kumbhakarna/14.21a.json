@@ -1,24 +1,31 @@
 {
   "scene": "Variation: an arrow strikes off the giant's grabbing hand; it tumbles whole through the air, the cut end showing (negative)",
-  "tall": 0.6,
+  "tall": 1.5,
   "mode": "negative",
   "ground": "off-white",
   "figures": [
     {
+      "character": "rama",
+      "pose": "stepwide-bowhigh",
+      "facing": "right",
+      "at": 0.22,
+      "scale": 0.4
+    },
+    {
       "prop": "giant-grab",
       "id": "hand",
-      "at": 0.42,
-      "row": 0.12,
-      "scale": 0.7,
-      "rotate": -35,
+      "at": 0.82,
+      "row": 0.32,
+      "scale": 0.5,
+      "rotate": -55,
       "body": "#9a7a7a"
     },
     {
       "prop": "arrow-stuck",
-      "at": 0.6,
-      "row": 0.55,
-      "scale": 1.6,
-      "rotate": -100
+      "at": 0.9,
+      "row": 0.9,
+      "scale": 0.6,
+      "rotate": 150
     }
   ]
 }
