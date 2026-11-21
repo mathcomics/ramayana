@@ -46,7 +46,8 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
   panic variation), 12.22 (the stones from above). Nothing renumbered.
 - **Construction strips, 2026-11-19**: 12.00–18.00, a 0.6 strip with
   the construction sign alone, opening every unfinished chapter now the
-  site is public. Not story; nothing for the briefs.
+  site is public. Not story; nothing for the briefs. All removed
+  2026-11-21.
 - **Chapter 17, 2026-11-19: first draft, 17.01–17.18**, on the artist's
   directions (asked for as "chapter 18"; written in 17, the brief that
   has Ravana's fall). Against the brief: (1) it **restores Ravana's
