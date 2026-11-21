@@ -1,0 +1,18 @@
+{
+  "scene": "From his chariot Indrajit draws his bow",
+  "tall": 0.6,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "character": "indrajit",
+      "pose": "step-bowdraw",
+      "facing": "right",
+      "on": "chariot#stand"
+    },
+    {
+      "prop": "chariot",
+      "at": 0.74,
+      "scale": 3.5
+    }
+  ]
+}

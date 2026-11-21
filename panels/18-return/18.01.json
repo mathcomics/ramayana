@@ -1,5 +1,5 @@
 {
-  "scene": "Home in Ayodhya by night: Rama, Sita and Lakshman walk in procession, Hanuman just behind Lakshman, a horn player and a drummer following; a row of clay lamps burns along the ground in front",
+  "scene": "Home in Ayodhya by night: Rama and Sita stand in the chariot; Lakshman walks before it, Hanuman just behind him, a horn player and a drummer following; a row of clay lamps burns along the ground in front",
   "tall": 0.6,
   "ground": "night",
   "figures": [
@@ -38,16 +38,21 @@
       "at": 0.5
     },
     {
-      "character": "rama",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.87
-    },
-    {
       "character": "sita",
       "pose": "pass-swing",
       "facing": "right",
-      "at": 0.75
+      "on": "chariot#stand-left"
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "on": "chariot#stand"
+    },
+    {
+      "prop": "chariot",
+      "at": 0.86,
+      "scale": 3.5
     },
     {
       "prop": "half-circle",

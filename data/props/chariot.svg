@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A chariot, side on, facing right: the curved car on its wheel, the
+     pole running out to the right. The artist's drawing. Usually placed in
+     the bottom right corner, cut by the edges. 100 px = 1 head-unit;
+     bottom edge on the ground. Anchors: stand and stand-left (feet), set
+     low inside the car so the riders show from the waist up;
+     "on": "chariot#stand" / "chariot#stand-left". Recolour: "body" is the gold
+     (#d4aa00) of the car, pole and wheel rim. -->
+
+<svg
+   data-recolor-body="#d4aa00"
+   viewBox="0 0 154.95763 143.1583"
+   width="154.95763"
+   height="143.15829"
+   version="1.1"
+   id="svg731"
+   sodipodi:docname="chariot.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs735" />
+  <sodipodi:namedview
+     id="namedview733"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0521739"
+     inkscape:cx="38.008475"
+     inkscape:cy="44.099577"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg731" />
+  <g
+     id="anchors"
+     transform="translate(-35.957491,77.664656)">
+    <circle
+       id="stand-left"
+       cx="50"
+       cy="8.2700005"
+       r="6"
+       fill="none" />
+    <circle
+       id="stand"
+       cx="90.790001"
+       cy="8.2700005"
+       r="6"
+       fill="none" />
+    <circle
+       id="seat"
+       cx="90.790001"
+       cy="8.2700005"
+       r="6"
+       fill="none" />
+  </g>
+  <circle
+     style="fill:#d4aa00;stroke-width:0.999996"
+     id="path343"
+     cx="98.97258"
+     cy="93.158287"
+     r="50" />
+  <circle
+     style="fill:#24221c;stroke-width:0.999997"
+     id="path343-5"
+     cx="98.97258"
+     cy="93.158287"
+     r="25" />
+  <path
+     id="rect920"
+     style="fill:#d4aa00;fill-opacity:1;stroke-width:0.999999"
+     d="M 75.748049,0 A 75,75 0 0 1 1.12305,68.812499 75,75 0 0 1 0,68.744139 v 31.255857 h 46.125 a 50,50 0 0 1 -1.10351,-9.85156 50,50 0 0 1 49.999999,-50 50,50 0 0 1 4.97851,0.25 V 0 Z" />
+  <rect
+     style="fill:#d4aa00;fill-opacity:1;stroke-width:0.999997"
+     id="rect1102"
+     width="76.991524"
+     height="11.694915"
+     x="77.966103"
+     y="17.055075" />
+</svg>
