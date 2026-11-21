@@ -45,7 +45,8 @@
       "adjust": {
         "spine.head": 20
       },
-      "turn": -90
+      "turn": -90,
+      "at": 0.7
     },
     {
       "foreground": [

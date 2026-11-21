@@ -25,7 +25,8 @@
       "mouth": 2,
       "adjust": {
         "spine.head": -16
-      }
+      },
+      "depth": "mid"
     }
   ]
 }

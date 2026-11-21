@@ -1,7 +1,7 @@
 {
   "scene": "The Ocean rises from the waves before the drawn bow, palms raised",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "sunrise",
   "horizon": 0.55,
   "figures": [
     {

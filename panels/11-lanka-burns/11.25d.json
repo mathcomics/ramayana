@@ -37,11 +37,30 @@
       "mouth": 3
     },
     {
+      "character": "raxas_f3",
+      "pose": "crawl-armsdown",
+      "facing": "right",
+      "on": "steps#stand",
+      "cloth": "red-stripe",
+      "mouth": 3,
+      "rotate": 60
+    },
+    {
       "character": "raxas_m3",
       "pose": "leap-reach",
       "facing": "right",
       "on": "steps#stand-low",
       "cloth": "red-diamond"
+    },
+    {
+      "prop": "vine",
+      "at": 0.2,
+      "scale": 4,
+      "body": "#555555",
+      "repeat": {
+        "n": 3
+      },
+      "rotate": 220
     }
   ]
 }

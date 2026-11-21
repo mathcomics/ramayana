@@ -35,8 +35,8 @@
     {
       "character": "sugriva",
       "pose": "stand-hang",
-      "facing": "right",
-      "at": 0.15,
+      "facing": "left",
+      "at": 0.95,
       "depth": "mid",
       "adjust": {
         "spine.head": -14

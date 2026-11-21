@@ -98,6 +98,19 @@
     {
       "character": "monkey1",
       "pose": "crawl-shoulder",
+      "on": "stone4#stand",
+      "scale": 0.5704,
+      "cloth": "orange",
+      "turn": -90,
+      "nudge": [
+        -1.5,
+        0
+      ],
+      "view": "front"
+    },
+    {
+      "character": "monkey1",
+      "pose": "crawl-shoulder",
       "facing": "right",
       "on": "stone4#stand",
       "scale": 0.5704,
@@ -110,24 +123,33 @@
     {
       "character": "monkey2",
       "pose": "leap-arc",
-      "facing": "right",
       "on": "stone3#stand",
-      "nudge": [
-        0,
-        1.5
-      ],
       "scale": 0.5175,
       "cloth": "yellow",
       "turn": -90,
       "adjust": {
         "right.arm.prop.kind": "sword-broad"
-      }
+      },
+      "facing": "right",
+      "nudge": [
+        0,
+        1.5
+      ]
     },
     {
       "id": "carrier",
       "character": "monkey1",
       "pose": "arch-bull",
       "on": "stone2#stand",
+      "scale": 0.644,
+      "cloth": "red",
+      "turn": -90
+    },
+    {
+      "id": "carrier",
+      "character": "rama",
+      "pose": "pass-bowloose",
+      "on": "stone1#stand",
       "scale": 0.644,
       "cloth": "red",
       "turn": -90
