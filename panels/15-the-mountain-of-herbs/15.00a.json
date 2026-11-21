@@ -9,8 +9,8 @@
       "rotate": 115,
       "at": 0.42,
       "body": "#9a7a7a",
-      "depth": -0.6757,
-      "scale": 0.7686
+      "depth": -0.68,
+      "scale": 0.77
     },
     {
       "prop": "palace-lanka",
@@ -30,15 +30,17 @@
     },
     {
       "character": "indrajit",
-      "pose": "step-holdhead",
+      "pose": "stand-grief",
       "facing": "left",
-      "at": 0.68
+      "at": 0.68,
+      "scale": 0.5
     },
     {
       "character": "ravana",
-      "pose": "stand-grief",
+      "pose": "pass-fists",
       "facing": "left",
-      "at": 0.85
+      "at": 0.85,
+      "scale": 0.5
     }
   ]
 }

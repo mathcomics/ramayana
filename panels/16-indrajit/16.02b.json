@@ -5,7 +5,7 @@
   "figures": [
     {
       "character": "indrajit",
-      "pose": "chair-handslow",
+      "pose": "leanfront-handslow",
       "facing": "right",
       "on": "rock#stand-left",
       "nudge": [
@@ -13,20 +13,6 @@
         -1.5
       ],
       "scale": 0.35
-    },
-    {
-      "character": "raxas_m2",
-      "pose": "stand-armsup",
-      "facing": "left",
-      "on": "rock#stand-right",
-      "scale": 0.35
-    },
-    {
-      "prop": "half-circle",
-      "on": "raxas_m2#hands",
-      "rotate": -30,
-      "body": "#222222",
-      "id": "bowl"
     },
     {
       "prop": "rock-rectangle",
@@ -60,16 +46,13 @@
       "on": "rock#stand"
     },
     {
-      "character": "raxas_m1",
+      "character": "raxas_m2",
       "id": "guard",
-      "pose": "stepback-flung",
+      "pose": "chair-flung",
       "facing": "right",
       "on": "steps#stand",
       "scale": 0.35,
-      "nudge": [
-        0,
-        -0.4
-      ]
+      "rotate": -20
     },
     {
       "prop": "arrow-stuck",

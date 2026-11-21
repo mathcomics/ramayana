@@ -1,28 +1,54 @@
 {
-  "scene": "The healer holds a herb to Lakshman's face",
-  "tall": 0.6,
-  "ground": "off-white",
+  "scene": "Rama kneels over Lakshman, who lies still",
+  "tall": 1,
+  "ground": "night",
   "figures": [
     {
-      "character": "lakshman",
-      "pose": "sitback-propback",
-      "facing": "right",
-      "at": 0.36,
-      "scale": 1.5
-    },
-    {
-      "prop": "flower-yellow",
-      "on": "healer#hand-right",
-      "scale": 1.2
+      "id": "moon",
+      "prop": "rock-square",
+      "at": 0.03,
+      "depth": 0.1351,
+      "scale": 1.0637
     },
     {
       "character": "monkey2",
-      "pose": "kneel-handslow",
-      "id": "healer",
+      "pose": "crouch-reach",
       "facing": "left",
-      "at": 0.72,
-      "scale": 1.5,
-      "cloth": "stone"
+      "at": 0.4,
+      "scale": 0.7,
+      "rotate": 15
+    },
+    {
+      "prop": "flower-pink",
+      "on": "monkey2#hand-left",
+      "scale": 0.5
+    },
+    {
+      "character": "rama",
+      "pose": "sitback-armrest",
+      "facing": "right",
+      "at": 0.3,
+      "scale": 0.7,
+      "adjust": {
+        "spine.head": -35
+      }
+    },
+    {
+      "character": "lakshman",
+      "pose": "sitback-armrest",
+      "facing": "right",
+      "at": 0.25,
+      "scale": 0.7,
+      "adjust": {
+        "spine.head": -35
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-swing",
+      "facing": "left",
+      "at": 0.66,
+      "scale": 0.7
     }
   ]
 }

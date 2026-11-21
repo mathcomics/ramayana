@@ -1,16 +1,23 @@
 {
-  "scene": "The fire, left alone, burns low",
+  "scene": "Indrajit chases Vibhishana with a spiked club",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "night-blue",
   "figures": [
     {
-      "prop": "fire",
-      "at": 0.5,
-      "depth": 0.1351,
-      "scale": 0.9573
+      "character": "lakshman",
+      "pose": "leanfront-roof",
+      "facing": "left",
+      "at": 0.82
+    },
+    {
+      "character": "indrajit",
+      "pose": "leanback-middle",
+      "facing": "right",
+      "at": 0.52,
+      "mouth": 3,
+      "adjust": {
+        "left.arm.prop.kind": "club-spike"
+      }
     }
-  ],
-  "needs": [
-    "prop: fire-altar (the square fire pit of the rite at Nikumbhila): the fire on bare ground for now"
   ]
 }

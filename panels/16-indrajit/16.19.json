@@ -1,7 +1,7 @@
 {
   "scene": "Lakshman lowers his bow; the monkeys leap and tumble round him in joy under a clear sky",
   "tall": 1,
-  "ground": "night-blue",
+  "ground": "night",
   "figures": [
     {
       "character": "monkey1",
@@ -12,40 +12,40 @@
       "cloth": "red",
       "nudge": [
         0,
-        2.833
-      ]
+        2.5
+      ],
+      "depth": 0.5
     },
     {
       "character": "monkey2",
       "pose": "leap-reachup",
       "facing": "right",
       "at": 0.3,
-      "scale": 0.8,
       "rotate": 30,
       "nudge": [
         0,
-        5.751
-      ]
+        5
+      ],
+      "depth": 0.5
     },
     {
       "character": "monkey1",
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.2,
-      "depth": 0.1351,
-      "scale": 0.851,
+      "depth": 0.5,
       "rotate": -40,
       "cloth": "orange"
     },
     {
       "character": "lakshman",
-      "pose": "step-handslow",
+      "pose": "step-armrest",
       "facing": "left",
       "at": 0.55,
       "adjust": {
         "left.arm.prop": {
           "kind": "bow",
-          "angle": 90
+          "angle": 0
         }
       }
     },
@@ -58,18 +58,19 @@
       "cloth": "red-stripe",
       "nudge": [
         0,
-        3.275
-      ]
+        3
+      ],
+      "depth": 0.5
     },
     {
       "character": "monkey2",
       "pose": "leap-armsup",
       "facing": "left",
       "at": 0.9,
-      "depth": 0.2162,
-      "scale": 0.939,
+      "depth": 0.5,
       "rotate": -15,
       "cloth": "yellow"
     }
-  ]
+  ],
+  "tags": ["celebration"]
 }

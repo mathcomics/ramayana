@@ -4,20 +4,6 @@
   "ground": "night",
   "figures": [
     {
-      "character": "raxas_m2",
-      "pose": "stand-armsup",
-      "facing": "left",
-      "on": "rock#stand-right",
-      "scale": 0.35
-    },
-    {
-      "prop": "half-circle",
-      "on": "raxas_m2#hands",
-      "rotate": -30,
-      "body": "#222222",
-      "id": "bowl"
-    },
-    {
       "prop": "rock-rectangle",
       "id": "rock",
       "at": 0.35,
@@ -52,13 +38,13 @@
       "character": "indrajit",
       "pose": "run-bull",
       "facing": "right",
-      "on": "steps#stand",
+      "on": "steps#stand-high",
       "scale": 0.35,
       "adjust": {
         "right.arm.prop.kind": "club-spike"
       },
       "nudge": [
-        0,
+        0.5,
         -1.1
       ]
     }

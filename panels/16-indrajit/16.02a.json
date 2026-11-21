@@ -19,41 +19,57 @@
       "pose": "stand-armsup",
       "facing": "left",
       "on": "rock#stand-right",
-      "scale": 0.35
+      "scale": 0.35,
+      "nudge": [
+        -1.2,
+        0
+      ]
+    },
+    {
+      "prop": "pole",
+      "on": "rock#stand",
+      "rotate": 180,
+      "id": "pour",
+      "nudge": [
+        0.4,
+        4.2
+      ],
+      "scale": 0.5
     },
     {
       "prop": "half-circle",
-      "on": "raxas_m2#hands",
-      "rotate": -30,
+      "id": "bowl",
+      "scale": 0.7,
       "body": "#222222",
-      "id": "bowl"
+      "on": "raxas_m2#hands",
+      "rotate": -30
     },
     {
       "prop": "rock-rectangle",
-      "id": "rock",
-      "at": 0.35,
-      "depth": "front",
+      "body": "#222222",
       "scale": 2.5,
-      "body": "#222222"
+      "at": 0.35,
+      "id": "rock",
+      "depth": "front"
     },
     {
       "prop": "steps",
-      "body": "#ac9393",
       "scale": 0.9,
+      "body": "#ac9393",
       "at": 0.55,
-      "id": "steps",
-      "depth": "front"
+      "depth": "front",
+      "id": "steps"
     },
     {
       "prop": "vine",
       "on": "rock#stand",
+      "body": "#000000",
       "nudge": [
         -0.1,
         1.7
       ],
-      "scale": 1.8,
-      "body": "#000000",
-      "rotate": 180
+      "rotate": 180,
+      "scale": 1.8
     },
     {
       "prop": "fire",

@@ -47,6 +47,7 @@ tag goes in this table in the same commit as the review that adds it
 | `topview` | a crowd or place seen from above | no sky; `"camera": "top"`; top-view props (`monkey-top`, `male-top`) at numeric depths up the ground as distance, the leader nearest the bottom edge; water as `wave-top` at depth `floor` |
 | `mountain` | a figure on a summit | a tall panel; a big rock (`rock-square` at scale 2) at depth `closeup` fills the lower half, cut by the edges, the figure small on its top against the sky |
 | `fly` | a figure flying across a great space | sky over `sea` with a low `horizon`; the figure tiny, high in the panel, in a diving pose — the empty space is the subject |
+| `celebration` | the victors rejoicing around the hero | the hero big and still at the centre, standing side on, his weapon lowered; the monkeys smaller (a further depth, `0.5`), leaping around him on both sides at different heights (`nudge`, `rotate`), faces to the reader, `mouth` 3 |
 | `city` | moving over a city at night | a 0.6 strip, ground `night`; the rooftops (`city-gap`) big and cut by the edges at the bottom, lit windows, the figure small leaping between them `on` the gap's `stand` anchor |
 
 ## Setting the depths

@@ -1,0 +1,52 @@
+{
+  "scene": "Variation: at the foot of the mountain, Hanuman heaves at its side",
+  "tall": 1.5,
+  "ground": "night-blue",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "lunge-armsup",
+      "facing": "left",
+      "at": 0.62,
+      "depth": "floor",
+      "scale": 0.35
+    },
+    {
+      "id": "mountain",
+      "prop": "rock-square",
+      "at": -0.4,
+      "depth": "closeup",
+      "nudge": [
+        0,
+        1.1
+      ],
+      "scale": 2,
+      "body": "#5a5f7a",
+      "rotate": 150
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.4,
+      "depth": "front",
+      "scale": 0.15,
+      "body": "#5a5f7a",
+      "repeat": {
+        "gap": 1,
+        "n": 2
+      },
+      "rotate": 150
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.45,
+      "depth": "floor",
+      "scale": 0.1,
+      "body": "#5a5f7a",
+      "repeat": {
+        "gap": 1,
+        "n": 2
+      },
+      "rotate": 150
+    }
+  ]
+}
