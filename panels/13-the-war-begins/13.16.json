@@ -1,0 +1,20 @@
+{
+  "scene": "Duel: Hanuman drives his club up at a rakshasa, who stumbles back, sword high",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "lunge-plow",
+      "facing": "right",
+      "at": 0.33
+    },
+    {
+      "character": "raxas_m4",
+      "pose": "stepback-unicorn",
+      "mouth": 3,
+      "facing": "left",
+      "at": 0.68
+    }
+  ]
+}

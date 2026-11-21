@@ -1,5 +1,5 @@
 {
-  "scene": "Rama, Sita and Lakshman walk in procession; a horn player and a drummer follow",
+  "scene": "Rama and Sita ride in a chariot, Lakshman in a second just behind; a horn player and a drummer follow",
   "tall": 0.6,
   "ground": "off-white",
   "figures": [
@@ -27,21 +27,34 @@
     },
     {
       "character": "lakshman",
-      "pose": "walk-swing",
+      "pose": "step-hang",
       "facing": "right",
-      "at": 0.5
+      "on": "chariot2#stand"
     },
     {
-      "character": "rama",
-      "pose": "walk-swing",
-      "facing": "right",
-      "at": 0.87
+      "prop": "chariot",
+      "id": "chariot2",
+      "at": 0.55,
+      "depth": 0.3,
+      "body": "#b8920a",
+      "scale": 3.5
     },
     {
       "character": "sita",
       "pose": "pass-swing",
       "facing": "right",
-      "at": 0.75
+      "on": "chariot#stand-left"
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "on": "chariot#stand"
+    },
+    {
+      "prop": "chariot",
+      "at": 0.86,
+      "scale": 3.5
     }
   ]
 }

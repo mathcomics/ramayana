@@ -1,0 +1,20 @@
+{
+  "scene": "Duel: Sugriva thrusts his long spiked club; the rakshasa leans back from it, broadsword raised",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "pose": "lunge-longpoint",
+      "mouth": 3,
+      "facing": "right",
+      "at": 0.33
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "leanback-hanging",
+      "facing": "left",
+      "at": 0.68
+    }
+  ]
+}

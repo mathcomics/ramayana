@@ -1,0 +1,24 @@
+{
+  "scene": "Duel: Hanuman leaps at a rakshasa, his club raised high; the rakshasa points his long spiked club at him",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "leap-unicorn",
+      "mouth": 3,
+      "nudge": [
+        0,
+        1
+      ],
+      "facing": "right",
+      "at": 0.33
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "stepwide-ox",
+      "facing": "left",
+      "at": 0.68
+    }
+  ]
+}

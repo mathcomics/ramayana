@@ -1,0 +1,19 @@
+{
+  "scene": "Duel: Sugriva raises his long spiked club over his head; a rakshasa holds his spiked club up before him",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "sugriva",
+      "pose": "stepwide-roof",
+      "facing": "right",
+      "at": 0.33
+    },
+    {
+      "character": "raxas_m1",
+      "pose": "stepback-crown",
+      "facing": "left",
+      "at": 0.68
+    }
+  ]
+}
