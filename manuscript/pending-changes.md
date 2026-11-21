@@ -76,6 +76,16 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
   from the wall (13.10a). What remains of the storming: ladders carried,
   raised and climbed (13.04, 13.05, 13.08), trunks carried below the
   wall (13.07), the breach (13.08b), the ram at the wall's foot (13.12).
+- **Deleted 2026-11-21** (the artist): 13.13, 13.14 (Sugriva's duels);
+  16.01–16.03, 16.05, 16.07–16.10, 16.12 — chapter 16 now opens on the
+  shrine's steps (16.02a), without the roofs-by-night opener, the
+  rakshasas kneeling at the rite, the walk through the streets, the
+  watch from the wall's corner, Indrajit caught and leaping from the
+  fire, and his rising over the roofs; 17.01, 17.03, 17.05, 17.08 — the
+  lament keeps 17.02 and 17.04 (no empty-throne establishing panel, no
+  kneeling close-up), Ravana no longer strides out, and the arrows
+  crossing in the empty sky are gone. 13.16 is now Rama's arrow flinging
+  four rakshasas, not a duel. Nothing renumbered.
 
 ## For the panels (manuscript v1.0, 2026-11-18)
 
