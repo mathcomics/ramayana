@@ -9,7 +9,10 @@
       "pose": "run-longpoint",
       "facing": "right",
       "at": 0.05,
-      "cloth": "red"
+      "cloth": "red",
+      "adjust": {
+        "right.arm.prop.kind": "sword"
+      }
     },
     {
       "character": "raxas_m1",

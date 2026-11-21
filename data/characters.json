@@ -1,5 +1,5 @@
 {
-  "_doc": "Characters inherit a species and fix body colour (a name from colors below; it must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from colors below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later. scale (optional, default 1): body scale, torso and legs only (head, neck and arms keep their size); e.g. 0.8 for a small generic monkey. eyes (optional): eye colour (a name from colors or a hex), painting the base face's eyes; a character with eyes draws none of its own. sideOnly (optional): the character is only ever drawn in side view — its face file has a side drawing only (the front layer is ignored), there is no head-turn data, and a panel asking for the front view gets the side view.",
+  "_doc": "Characters inherit a species and fix body colour (a name from colors below; it must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from colors below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later. scale (optional, default 1): body scale, torso and legs only (head, neck and arms keep their size); e.g. 0.8 for a small generic monkey. eyes (optional): eye colour (a name from colors or a hex), painting the base face's eyes; a character with eyes draws none of its own. sideOnly (optional): the character is only ever drawn in side view — its face file has a side drawing only (the front layer is ignored), there is no head-turn data, and a panel asking for the front view gets the side view. weapon (optional): the held kind (data/held.json: club, club-spike, sword-broad …) this character holds in a pose whose gesture holds a plain sword; a panel adjust (\"right.arm.prop.kind\") still overrides it.",
   "colors": {
     "orange": "#f5b56e",
     "yellow": "#f0d23a",
@@ -73,6 +73,7 @@
     },
     {
       "id": "hanuman",
+      "weapon": "club",
       "name": "Hanuman",
       "species": "monkey",
       "body": "skin-dark-red",
@@ -82,6 +83,7 @@
     },
     {
       "id": "sugriva",
+      "weapon": "club-spike-long",
       "name": "Sugriva",
       "species": "monkey",
       "body": "skin-dark-brown",
@@ -91,6 +93,7 @@
     },
     {
       "id": "monkey1",
+      "weapon": "club",
       "name": "monkey1",
       "species": "monkey",
       "body": "skin-dark-brown",
@@ -101,6 +104,7 @@
     },
     {
       "id": "monkey2",
+      "weapon": "club",
       "name": "monkey2",
       "species": "monkey",
       "body": "skin-dark-brown",
@@ -138,6 +142,7 @@
     },
     {
       "id": "raxas_m1",
+      "weapon": "club-spike",
       "name": "raxas_m1",
       "species": "male",
       "body": "skin-brown",
@@ -186,6 +191,7 @@
     },
     {
       "id": "raxas_m2",
+      "weapon": "sword-broad",
       "name": "raxas_m2",
       "species": "male",
       "body": "skin-deep-brown",
@@ -195,6 +201,7 @@
     },
     {
       "id": "raxas_m3",
+      "weapon": "club-spike-long",
       "name": "raxas_m3",
       "species": "male",
       "body": "skin-dark-red",
@@ -205,6 +212,7 @@
     },
     {
       "id": "raxas_m4",
+      "weapon": "sword",
       "name": "raxas_m4",
       "species": "male",
       "body": "skin-dark-red",

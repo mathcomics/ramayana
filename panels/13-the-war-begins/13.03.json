@@ -10,7 +10,10 @@
       "on": "foreground",
       "at": 0.05,
       "cloth": "red",
-      "id": "r1"
+      "id": "r1",
+      "adjust": {
+        "right.arm.prop.kind": "sword"
+      }
     },
     {
       "character": "monkey1",

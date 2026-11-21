@@ -250,6 +250,9 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     if (typeof f.turn === 'number') setPath(pose, 'spine.turn', f.turn);   // head turn, degrees, + to its right
     // limbs are right / left (older panels: near = right, far = left)
     const side = (k) => k.replace(/^near\./, 'right.').replace(/^far\./, 'left.');
+    // the character's own weapon (characters.json "weapon") in place of the
+    // plain sword a gesture holds; an adjust below still overrides it
+    if (c.weapon) for (const s of ['right', 'left']) if (pose[s]?.arm?.prop?.kind === 'sword') pose[s].arm.prop.kind = c.weapon;
     if (f.hands) for (const [h, v] of Object.entries(f.hands)) setPath(pose, side(`${h}.arm.hand`), v);
     for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, side(k), v);
     const look = characterLook(c, assets.characters.colors, assets.faces, f.cloth);
