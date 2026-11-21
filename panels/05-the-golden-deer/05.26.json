@@ -4,7 +4,7 @@
   "ground": "sky-blue",
   "figures": [
     {
-      "prop": "pole",
+      "prop": "streak",
       "at": 0.4,
       "scale": 0.6,
       "rotate": 180,

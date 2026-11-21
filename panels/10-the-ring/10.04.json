@@ -14,7 +14,7 @@
       "scale": 2
     },
     {
-      "prop": "pole",
+      "prop": "streak",
       "on": "hanuman#head",
       "nudge": [
         -0.1,

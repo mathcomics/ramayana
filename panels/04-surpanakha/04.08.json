@@ -11,7 +11,7 @@
       "turn": 90
     },
     {
-      "prop": "pole",
+      "prop": "streak",
       "at": 0.62,
       "rotate": -10,
       "nudge": [

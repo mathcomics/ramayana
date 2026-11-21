@@ -4,7 +4,7 @@
   "ground": "sand",
   "figures": [
     {
-      "prop": "pole",
+      "prop": "streak",
       "at": 0.43,
       "nudge": [
         0,

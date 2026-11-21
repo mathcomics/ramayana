@@ -1,5 +1,5 @@
 {
-  "scene": "By day: Hanuman drops down by a pole, crouched, looking up; Sita on her rock leans back, startled",
+  "scene": "By day: Hanuman drops down, crouched, looking up; Sita on her rock leans back, startled",
   "tall": 1,
   "ground": "sunrise",
   "figures": [
@@ -18,7 +18,7 @@
       }
     },
     {
-      "prop": "pole",
+      "prop": "streak",
       "at": 0.25,
       "nudge": [
         0,

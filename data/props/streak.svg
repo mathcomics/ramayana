@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- A plain straight pole, white (#f9f9f9), 0.19 x 2.2 head-units; scale it
-     to the scene. 100 px = 1 head-unit; bottom edge on the ground.
-     Recolour: "body" (the pole, #f9f9f9).
-     Fades from invisible at the top to 50% at the bottom (mask pole-fade). -->
+<!-- A streak: a straight white line that fades from invisible at the top
+     to 50% at the bottom (mask pole-fade) — a motion line behind something
+     moving, the track of a fall, a poured stream (16.02a). 0.19 x 2.2
+     head-units; scale and rotate it to the scene. 100 px = 1 head-unit.
+     Recolour: "body" (#f9f9f9). -->
 
 <svg
    data-recolor-body="#f9f9f9"
