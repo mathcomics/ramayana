@@ -277,7 +277,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   pushed down below the bottom edge in a 0.6 strip). A `nudge` does not do it.
 - **A body lying dead**: `liefront-armsdown` with the legs straightened
   (`adjust` `right.leg.hip`, `knee`, `left.leg.hip`, `knee` all 0) and
-  `rotate` −15 facing right to lie level (17.01–17.03); the base alone
+  `rotate` −15 facing right to lie level (17.02); the base alone
   keeps a flier's bent knees.
 - **Nobody rides on anybody's shoulders** (artist, 2026-11-17): not
   realistic. A draft of 12.25 had Rama on Hanuman; they all walk over
