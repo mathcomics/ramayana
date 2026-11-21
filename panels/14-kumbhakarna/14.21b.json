@@ -6,8 +6,8 @@
       "prop": "giant-face-side-cry",
       "id": "face",
       "at": 0.6,
-      "row": -0.4,
-      "scale": 1.8,
+      "depth": -1.0811,
+      "scale": 0.7957,
       "rotate": 20,
       "facing": "left"
     }

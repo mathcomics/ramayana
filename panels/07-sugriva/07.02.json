@@ -9,32 +9,44 @@
       "view": "front",
       "at": 0.9,
       "scale": 0.4,
-      "row": 0.7
+      "nudge": [
+        0,
+        14.817
+      ]
     },
     {
       "character": "hanuman",
       "pose": "crawl-onhands",
       "view": "front",
       "at": 0.7,
-      "row": 0.69,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        11.677
+      ]
     },
     {
       "id": "rock",
       "prop": "rock-square",
       "at": 0.65,
-      "row": -0.1,
       "scale": 3.8,
       "rotate": -10,
-      "body": "#665555"
+      "body": "#665555",
+      "nudge": [
+        0,
+        -0.302
+      ]
     },
     {
       "character": "lakshman",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.14,
-      "row": -0.12,
-      "scale": 0.6
+      "scale": 0.6,
+      "nudge": [
+        0,
+        -2.204
+      ]
     },
     {
       "character": "rama",
@@ -42,7 +54,10 @@
       "at": 0.4,
       "scale": 0.6,
       "facing": "left",
-      "row": -0.12
+      "nudge": [
+        0,
+        -2.204
+      ]
     }
   ]
 }

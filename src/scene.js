@@ -32,13 +32,16 @@ export const DEFAULT_TALL = 1.5;
 export const PLACEHOLDER = [2, 2];
 export const SLOTS = { left: 0.14, 'center-left': 0.32, center: 0.5, 'center-right': 0.68, right: 0.86 };
 
-// Rows (docs/design/panels.md, Rows): where an entry stands, and how big.
-// front / mid / back are one-point perspective with the horizon as eye
-// level: a row at depth t (0 = the bottom edge, 1 = the horizon) has its
-// ground line at t × horizon and a man's head at HEAD_TOP − t × (HEAD_TOP −
-// horizon), so a man (MAN head-units) is HEAD_TOP × (1 − t) of the panel
-// whatever the horizon. Shares are of the panel height.
+// Depth (docs/design/panels.md, Depth): how far away an entry is, which
+// sets where it stands and how big it is. One-point perspective with the
+// horizon as eye level: at depth t (0 = the bottom edge, 1 = the horizon)
+// the ground line is at t × horizon and a man's head at HEAD_TOP − t ×
+// (HEAD_TOP − horizon), so a man (MAN head-units) is HEAD_TOP × (1 − t) of
+// the panel whatever the horizon. Shares are of the panel height. front,
+// mid and back name three depths.
 export const DEPTH = { front: 0.08, mid: 0.4, back: 0.7 };
+// the farthest numeric depth drawn: nearer the horizon a thing would vanish
+export const MAX_DEPTH = 0.95;
 export const HEAD_TOP = 0.75;
 // A man standing straight, feet to the top of the head, in head-units: the
 // drawn male's own proportions (a big comic head, not the academic 7.5).
@@ -48,9 +51,11 @@ export const MAN = 6.1;
 // below its bottom edge, his head at HEAD_TOP: the panel shows him from
 // about the waist up.
 export const CLOSEUP_GROUND = -1;
-export const ROW_NAMES = ['top', 'horizon', 'back', 'mid', 'front', 'floor', 'closeup'];
+// depth by name: front, mid, back, horizon are distances; top, floor,
+// closeup are framing (the top edge, the bottom edge, a raised camera)
+export const DEPTH_NAMES = ['top', 'horizon', 'back', 'mid', 'front', 'floor', 'closeup'];
 // The horizon (panel field `horizon`, default HORIZON): height above the
-// bottom edge as a share of the panel. Row "horizon" stands things on it,
+// bottom edge as a share of the panel. Depth "horizon" stands things on it,
 // far away: HORIZON_UNIT px per head-unit in a 1.5 panel (540 tall).
 export const HORIZON = 0.37;
 export const HORIZON_UNIT = 16;
@@ -90,21 +95,42 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   const negative = panel.mode === 'negative';
   if (panel.mode != null && !negative) issues.push(`mode "${panel.mode}": the only mode is "negative"`);
 
-  for (const k of ['shot', 'zoom']) if (panel[k] != null) issues.push(`"${k}" is retired: rows set every size (docs/design/panels.md, Rows)`);
+  for (const k of ['shot', 'zoom']) if (panel[k] != null) issues.push(`"${k}" is retired: depth sets every size (docs/design/panels.md, Depth)`);
   const hz = panel.horizon ?? HORIZON;
   const unitAt = (t) => HEAD_TOP * (1 - t) * H / MAN;
-  // row: a name or a number (the bottom edge as a share of the panel
-  // height). y = the ground line in panel units; top: the entry hangs
-  // from the panel's top edge instead (its top edge on it).
-  const row = (r = 'front') => {
-    if (typeof r === 'number') return { y: H * (1 - r), unit: unitAt(DEPTH.front) };
-    if (r === 'top') return { y: 0, top: true, unit: unitAt(DEPTH.front) };
-    if (r === 'horizon') return { y: horizonY, unit: HORIZON_UNIT * H / REF_H };
-    if (r === 'floor') return { y: H, unit: unitAt(DEPTH.front) };
-    if (r === 'closeup') return { y: H * (1 - CLOSEUP_GROUND), unit: (HEAD_TOP - CLOSEUP_GROUND) * H / MAN };
-    if (!(r in DEPTH)) issues.push(`row "${r}" unknown (${ROW_NAMES.join(' | ')}, or a number)`);
-    const t = DEPTH[r] ?? DEPTH.front;
+  // camera "top": a top view, no perspective — a numeric depth is the
+  // share of the panel height up the ground, at front size
+  const camTop = panel.camera === 'top';
+  if (panel.camera != null && !camTop) issues.push(`camera "${panel.camera}": the only camera is "top" (a top view)`);
+  // depth: how far away — the ground line and the size together. A number:
+  // 0 the bottom edge, 1 the horizon (negative: nearer than the frame,
+  // bigger, its ground below the bottom edge); front, mid, back are 0.08,
+  // 0.4, 0.7. horizon keeps its own small size. top, floor, closeup are
+  // framing, not distances. y = the ground line in panel units; top: the
+  // entry hangs from the panel's top edge instead (its top edge on it).
+  const depth = (d = 'front', name = '') => {
+    if (typeof d === 'number') {
+      if (camTop) return { y: H * (1 - d), unit: unitAt(DEPTH.front) };
+      if (d >= MAX_DEPTH) issues.push(`${name}: depth ${d} is at or past the horizon (1) — use "horizon", or less than ${MAX_DEPTH}`);
+      const t = Math.min(d, MAX_DEPTH);
+      return { y: H * (1 - t * hz), unit: unitAt(t) };
+    }
+    if (d === 'top') return { y: 0, top: true, unit: unitAt(DEPTH.front) };
+    if (d === 'horizon') return { y: horizonY, unit: HORIZON_UNIT * H / REF_H };
+    if (d === 'floor') return { y: H, unit: unitAt(DEPTH.front) };
+    if (d === 'closeup') return { y: H * (1 - CLOSEUP_GROUND), unit: (HEAD_TOP - CLOSEUP_GROUND) * H / MAN };
+    if (!(d in DEPTH)) issues.push(`${name}: depth "${d}" unknown (${DEPTH_NAMES.join(' | ')}, or a number)`);
+    const t = DEPTH[d] ?? DEPTH.front;
     return { y: H * (1 - t * hz), unit: unitAt(t) };
+  };
+  // the retired "row" (old lab drafts): a number was a height in the panel
+  // at front size; drawn as before, flagged (tools/migrate-depth.mjs converts)
+  const legacyRow = (r) => (typeof r === 'number' ? { y: H * (1 - r), unit: unitAt(DEPTH.front) } : depth(r));
+  const place = (e) => {
+    const name = e.id || e.character || e.who || e.prop;
+    if (e.row == null) return depth(e.depth, name);
+    issues.push(`${name}: "row" is retired — use "depth" (how far: it sets the size too) and "nudge" to lift (node tools/migrate-depth.mjs converts)`);
+    return e.depth != null ? depth(e.depth, name) : legacyRow(e.row);
   };
 
   // -- one list: figures ("character") and props ("prop"), drawn in order -------
@@ -152,12 +178,45 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
       issues.push(`${name}: repeat "${k}" takes [min, max]`);
       return d;
     };
-    const [sc0, sc1] = pair('scale', [0.6, 1.05]), [ro0, ro1] = pair('rotate', [-12, 12]);
+    // a line into the picture ("to") varies less: its depth already shrinks it
+    const [sc0, sc1] = pair('scale', o.to != null ? [0.85, 1.1] : [0.6, 1.05]), [ro0, ro1] = pair('rotate', o.to != null ? [-10, 10] : [-12, 12]);
     const key = `${e.prop}|${name}|${n}|${o.seed ?? 0}`;
     const rnd = seeded(`${key}|${(repeatSeen[key] = (repeatSeen[key] ?? -1) + 1)}`);
     const gap = typeof o.gap === 'number' ? o.gap : 0;
     const w1 = (lib[e.prop]?.size || PLACEHOLDER)[0];          // head-units at scale 1
     const sm = e.scale ?? 1, r0 = e.rotate ?? 0;
+    if (o.to != null) return recede();
+    // "to": { at, depth } — the copies run from the entry toward that point,
+    // each touching the last (gap: the space between, in the copy's own
+    // head-units), each sized by its own depth; named "<name>-1", "-2" …
+    // outwards; drawn farthest first. The point gives the direction: the
+    // line runs on past it if n asks for more.
+    function recede() {
+      const to = o.to, h1 = (lib[e.prop]?.size || PLACEHOLDER)[1];
+      const d0 = typeof e.depth === 'number' ? e.depth : DEPTH[e.depth ?? 'front'];
+      const at0 = typeof e.at === 'number' ? e.at : SLOTS[e.at ?? 'center'];
+      if (!to || typeof to.at !== 'number' || typeof to.depth !== 'number') { issues.push(`${name}: repeat "to" takes { "at": 0–1, "depth": a number }`); return [mid]; }
+      if (d0 == null || at0 == null || e.on != null || camTop) { issues.push(`${name}: repeat "to" needs the entry at a number or slot and a perspective depth (a number, front, mid or back), not "on" or a top view`); return [mid]; }
+      const P = (at, t) => [at * W, H * (1 - t * hz)];
+      const [x0, y0] = P(at0, d0), [x1, y1] = P(to.at, to.depth), len = Math.hypot(x1 - x0, y1 - y0);
+      if (len < 1e-6) { issues.push(`${name}: repeat "to" is where the entry stands`); return [mid]; }
+      const ux = (x1 - x0) / len, uy = (y1 - y0) / len;
+      const tAt = (y) => (1 - y / H) / hz;
+      const ext = (t, sc) => { const u = unitAt(t) * sc; return Math.abs(w1 * u * ux) + Math.abs(h1 * u * uy); };   // along the line, px
+      const out = [];
+      let cx = x0, cy = y0, t = d0, sc = sm;
+      for (let k = 1; k < n; k++) {
+        const scK = sm * (sc0 + (sc1 - sc0) * rnd()), roK = r0 + ro0 + (ro1 - ro0) * rnd();
+        const half = ext(t, sc) / 2 + gap * unitAt(t) * sc;
+        let d = half * 2;
+        for (let it = 0; it < 8; it++) d = half + ext(Math.min(tAt(cy + uy * d), MAX_DEPTH), scK) / 2;
+        const nt = tAt(cy + uy * d);
+        if (nt >= MAX_DEPTH) { issues.push(`${name}: repeat "to" reaches the horizon after ${k - 1} cop${k === 2 ? 'y' : 'ies'}`); break; }
+        cx += ux * d; cy += uy * d; t = nt; sc = scK;
+        out.push({ ...mid, id: `${name}-${k}`, at: cx / W, depth: t, scale: scK, rotate: roK, _copy: true });
+      }
+      return [...out, mid].sort((a, b) => (b === mid ? d0 : b.depth) - (a === mid ? d0 : a.depth));
+    }
     const n0 = e.nudge ?? 0, [mdx, mdy] = typeof n0 === 'number' ? [n0, 0] : Array.isArray(n0) ? n0 : [0, 0];
     const side = (s, count) => {
       const out = [];
@@ -203,7 +262,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
       return [{ svg: d.svg, neck: d.anchors?.neck ?? [d.size[0] / 2, 0] }];
     });
     const S = assets.species[look.species];
-    const r = row(f.row);
+    const r = place(f);
     const unit = r.unit * (f.scale ?? 1);
     if (f.view === 'front' && look.sideOnly) issues.push(`figure ${i} (${who}): side view only (sideOnly in data/characters.json); drawn in side view`);
     const view = f.view === 'front' && !look.sideOnly ? 'front' : 'side';
@@ -237,7 +296,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     const def = lib[p.prop];
     if (!def) issues.push(`prop "${p.prop}" not drawn yet: no data/props/${p.prop}.svg (placeholder)`);
     if (p.layer) issues.push(`prop "${p.prop}": "layer" is retired — order the entries instead`);
-    const r = row(p.row);
+    const r = place(p);
     const unit = r.unit * (p.scale ?? 1);
     const [w0, h0] = (def?.size || PLACEHOLDER).map((v) => v * unit);
     // rotate: degrees clockwise about the drawing's centre; the prop then
@@ -281,7 +340,8 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   // straight line whose left and right heights are shares of the panel
   // height ([l, r], or one number for a level one). Its place in the list is
   // its depth, like a prop's. Entries stand on it with "on": "foreground"
-  // (or its id): feet on the line at their own x, front-row size × scale;
+  // (or its id): feet on the line at their own x, the size from their own
+  // depth (default front) × scale;
   // "at" places them across.
   const makeBand = (b) => {
     const v = typeof b.foreground === 'number' ? [b.foreground, b.foreground] : b.foreground;
@@ -290,15 +350,16 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     const col = grounds[b.color] || b.color;
     if (!b.color) issues.push(`${name}: a foreground needs a "color" (data/grounds.json or a hex)`);
     else if (!grounds[b.color] && !/^#/.test(b.color)) issues.push(`${name}: color "${b.color}" not in data/grounds.json`);
-    for (const k of ['at', 'row', 'scale', 'nudge', 'on']) if (b[k] != null) issues.push(`${name}: "${k}" does nothing on a foreground — "foreground" sets its line`);
+    for (const k of ['at', 'depth', 'row', 'scale', 'nudge', 'on']) if (b[k] != null) issues.push(`${name}: "${k}" does nothing on a foreground — "foreground" sets its line`);
     return { b, name, line: v, color: col || '#7a8f6a', x: W / 2, halfW: W / 2, unit: 1, groundY: H, facing: 1 };
   };
   const bandNames = new Set(entries.filter((e) => e.foreground != null).map((e) => e.id || 'foreground'));
   const onBand = (e) => e.on != null && bandNames.has(String(e.on).split('#')[0]);
-  // on a foreground, "row" would fight its line: flagged and dropped
+  // on a foreground, the retired "row" would fight its line: flagged and
+  // dropped ("depth" there sets the size only)
   const strip = (e) => {
     if (!onBand(e) || e.row == null) return e;
-    issues.push(`${e.id || e.character || e.who || e.prop}: "row" does nothing on a foreground — it sets the ground line; size with "scale"`);
+    issues.push(`${e.id || e.character || e.who || e.prop}: "row" does nothing on a foreground — it sets the ground line; size with "depth"`);
     const { row: _, ...rest } = e; return rest;
   };
   const all = entries.map((e0, i) => {
@@ -315,17 +376,18 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   const bandOf = (o) => { const e = ent(o); return onBand(e) ? bands.find((b) => b.name === String(e.on).split('#')[0]) : null; };
 
   // -- placement: number or slot first, then relations --------------------------
-  // "nudge": the one fine shift after placement (by at/row, a relation or
+  // "nudge": the shift after placement (by at/depth, a relation or
   // "on"), in the entry's own head-units: a number is across, [dx, dy] is
   // across and up (+ up). It is part of the entry's place, so whatever sits
   // on it or is placed by it follows. "lift" is retired; with "on", the
-  // prop places the entry and at/row do nothing.
+  // prop places the entry and at/depth do nothing. It never resizes: a
+  // figure in the air is at the depth of the ground under it, nudged up.
   for (const o of all) {
     if (o.b) continue;
     const e = ent(o), n = e.nudge ?? 0;
     if (e.lift != null) issues.push(`${o.name}: "lift" is retired — use "nudge": [0, ${e.lift}]`);
     if (e.hand != null && !/#hand(-|$)/.test(String(e.on ?? ''))) issues.push(`${o.name}: "hand" picks the hand for a "hand" anchor — it needs "on": "<prop>#hand"`);
-    if (e.on && !onBand(e)) for (const k of ['at', 'row']) if (e[k] != null) issues.push(`${o.name}: "${k}" does nothing with "on" — the prop places it; shift with "nudge"`);
+    if (e.on && !onBand(e)) for (const k of ['at', 'depth', 'row']) if (e[k] != null) issues.push(`${o.name}: "${k}" does nothing with "on" — the prop places it; shift with "nudge"`);
     const ok = typeof n === 'number' || (Array.isArray(n) && n.length === 2 && n.every((v) => typeof v === 'number'));
     if (!ok) issues.push(`${o.name}: "nudge" takes a number or [dx, dy]`);
     [o.dx, o.dy] = !ok ? [0, 0] : typeof n === 'number' ? [n, 0] : n;
@@ -391,7 +453,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     return [x, y];
   };
   // "on": a figure (or another prop) sits or stands on a prop's anchor, at
-  // the prop's row and its own scale — not the prop's (a big rock does not
+  // the prop's depth and its own scale — not the prop's (a big rock does not
   // make its sitter big). On a figure's anchor (FIG_POINTS: carried) the
   // same: a prop's bottom centre (or its feet anchor) lands there, a
   // figure's hips. "<prop>" uses the seat anchor; "<prop>#<anchor>"

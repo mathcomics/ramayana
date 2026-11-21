@@ -8,14 +8,14 @@
       "prop": "hut-side",
       "id": "hut",
       "at": 0.15,
-      "row": "mid",
+      "depth": "mid",
       "scale": 0.5706
     },
     {
       "id": "trees-far",
       "prop": "trees-side",
       "at": 0.16,
-      "row": "mid",
+      "depth": "mid",
       "scale": 1.5
     },
     {
@@ -23,14 +23,14 @@
       "pose": "leanfront-search",
       "facing": "left",
       "at": 0.25,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "rama",
       "pose": "step-search",
       "facing": "right",
       "at": 0.7,
-      "row": "floor"
+      "depth": "floor"
     }
   ]
 }

@@ -6,7 +6,7 @@
     {
       "prop": "throne-ayodhya",
       "at": 0.7,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "dasharatha",

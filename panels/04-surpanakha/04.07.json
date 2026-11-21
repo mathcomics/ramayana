@@ -9,7 +9,7 @@
       "facing": "left",
       "at": 0.5,
       "mouth": 2,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "lakshman",
@@ -17,7 +17,7 @@
       "facing": "right",
       "at": 0.2,
       "mouth": 1,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

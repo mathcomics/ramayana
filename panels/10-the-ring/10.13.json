@@ -8,7 +8,7 @@
       "pose": "step-holdhead",
       "facing": "right",
       "at": 0.4,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

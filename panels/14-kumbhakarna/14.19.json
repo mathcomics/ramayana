@@ -22,7 +22,7 @@
       "pose": "runwide-bowhigh",
       "facing": "right",
       "at": 0.7,
-      "row": "front"
+      "depth": "front"
     }
   ]
 }

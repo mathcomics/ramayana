@@ -8,14 +8,18 @@
       "pose": "leapup-flung",
       "facing": "left",
       "at": 0.5,
-      "row": 0.12
+      "depth": 0.3243,
+      "scale": 1.3616
     },
     {
       "prop": "arrow-stuck",
       "at": 0.72,
-      "row": 0.5,
       "scale": 1.4,
-      "rotate": -50
+      "rotate": -50,
+      "nudge": [
+        0,
+        2.97
+      ]
     }
   ],
   "needs": [

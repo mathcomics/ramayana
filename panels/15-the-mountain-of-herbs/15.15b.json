@@ -10,7 +10,7 @@
       "pose": "step-palms",
       "facing": "right",
       "at": 0.15,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "lakshman",

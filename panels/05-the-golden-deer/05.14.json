@@ -15,7 +15,10 @@
       "prop": "arrow-stuck",
       "facing": "left",
       "at": 0.42,
-      "row": 0.29
+      "nudge": [
+        0,
+        2.302
+      ]
     }
   ]
 }

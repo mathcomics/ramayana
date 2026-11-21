@@ -14,7 +14,7 @@
       "facing": "right",
       "at": 0.05,
       "on": "foreground",
-      "scale": 0.8
+      "depth": 0.264
     },
     {
       "character": "monkey2",
@@ -22,10 +22,10 @@
       "facing": "right",
       "at": 0.14,
       "on": "foreground",
-      "scale": 0.8,
       "adjust": {
         "right.arm.prop.kind": "club"
-      }
+      },
+      "depth": 0.264
     },
     {
       "character": "monkey1",
@@ -33,10 +33,10 @@
       "facing": "right",
       "at": 0.32,
       "on": "foreground",
-      "scale": 0.8,
       "adjust": {
         "right.arm.prop.kind": "spear"
-      }
+      },
+      "depth": 0.264
     },
     {
       "character": "monkey2",
@@ -44,10 +44,10 @@
       "facing": "right",
       "at": 0.41,
       "on": "foreground",
-      "scale": 0.8,
       "adjust": {
         "right.arm.prop.kind": "sword-broad"
-      }
+      },
+      "depth": 0.264
     },
     {
       "character": "monkey1",
@@ -55,10 +55,10 @@
       "facing": "right",
       "at": 0.55,
       "on": "foreground",
-      "scale": 0.8,
       "adjust": {
         "right.arm.prop.kind": "club-spike"
-      }
+      },
+      "depth": 0.264
     },
     {
       "foreground": [
@@ -72,7 +72,7 @@
       "pose": "step-point",
       "facing": "right",
       "at": 0.8,
-      "row": "floor"
+      "depth": "floor"
     }
   ]
 }

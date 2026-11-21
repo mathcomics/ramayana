@@ -9,10 +9,13 @@
       "pose": "stand-point",
       "facing": "left",
       "at": 1.2,
-      "row": -0.2,
       "scale": 2.5,
       "mouth": 3,
-      "rotate": -75
+      "rotate": -75,
+      "nudge": [
+        0,
+        -0.863
+      ]
     },
     {
       "character": "rama",

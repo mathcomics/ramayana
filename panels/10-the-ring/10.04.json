@@ -6,7 +6,7 @@
   "figures": [
     {
       "prop": "palace-lanka",
-      "row": "closeup",
+      "depth": "closeup",
       "nudge": [
         0,
         2

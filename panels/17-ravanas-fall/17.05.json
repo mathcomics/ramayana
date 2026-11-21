@@ -7,7 +7,7 @@
     {
       "prop": "palace-lanka",
       "at": 0.3,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "character": "ravana",

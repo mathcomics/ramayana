@@ -21,7 +21,7 @@
     {
       "prop": "rock-circle",
       "at": 0.7,
-      "row": "top",
+      "depth": "top",
       "body": "orange"
     },
     {

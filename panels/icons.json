@@ -5,31 +5,31 @@
     "2": { "prop": "throne-ayodhya", "size": 84, "ground": "white" },
     "3": { "prop": "lotus-full", "size": 84 },
     "4": { "crop": [128, 95, 170], "panel": { "figures": [
-      { "character": "surpanakha", "pose": "oneleg-propback", "facing": "right", "at": 0.5, "row": 0.04 }
+      { "character": "surpanakha", "pose": "oneleg-propback", "facing": "right", "at": 0.5, "depth": 0.1081, "scale": 1.0315 }
     ] } },
     "5": { "prop": "deer-stand", "body": "gold", "size": 80, "ground": "#000000" },
     "6": { "prop": "vulture-fly", "ground": "sky", "size": 84 },
     "7": { "crop": [70, 110, 220], "panel": { "figures": [
-      { "character": "sugriva", "pose": "step-hang", "view": "front", "at": 0.36, "row": 0 },
-      { "character": "hanuman", "pose": "step-hang", "view": "front", "at": 0.64, "row": 0 }
+      { "character": "sugriva", "pose": "step-hang", "view": "front", "at": 0.36, "depth": 0, "scale": 0.92 },
+      { "character": "hanuman", "pose": "step-hang", "view": "front", "at": 0.64, "depth": 0, "scale": 0.92 }
     ] } },
     "8": { "crop": [10, 65, 300], "panel": { "ground": "green", "figures": [
-      { "character": "sugriva", "pose": "leap-reach", "facing": "right", "at": 0.3, "row": 0.25, "rotate": 15 },
-      { "character": "sugriva", "id": "bali", "cloth": "orange", "pose": "leap-fists", "facing": "left", "at": 0.7, "row": 0.3, "rotate": -15 }
+      { "character": "sugriva", "pose": "leap-reach", "facing": "right", "at": 0.3, "rotate": 15, "nudge": [0, 1.948] },
+      { "character": "sugriva", "id": "bali", "cloth": "orange", "pose": "leap-fists", "facing": "left", "at": 0.7, "rotate": -15, "nudge": [0, 2.39] }
     ] } },
     "9": { "crop": [40, 50, 290], "panel": { "ground": "sand", "figures": [
-      { "character": "hanuman", "pose": "liefront-dive", "facing": "right", "at": 0.5, "row": 0.35, "rotate": -20 }
+      { "character": "hanuman", "pose": "liefront-dive", "facing": "right", "at": 0.5, "rotate": -20, "nudge": [0, 2.833] }
     ] } },
     "10": { "crop": [118, 118, 130], "panel": { "figures": [
-      { "character": "sita", "pose": "stand-grief", "facing": "right", "at": 0.5, "row": 0.04 }
+      { "character": "sita", "pose": "stand-grief", "facing": "right", "at": 0.5, "depth": 0.1081, "scale": 1.0315 }
     ] } },
     "11": { "prop": "fire", "rotate": 90, "ground": "#000000" },
     "12": { "crop": [45, 150, 270], "panel": { "figures": [
-      { "prop": "rock-rectangle", "body": "#5f5050", "at": 0.5, "row": "mid", "repeat": { "n": 3, "gap": 0.5 } }
+      { "prop": "rock-rectangle", "body": "#5f5050", "at": 0.5, "depth": "mid", "repeat": { "n": 3, "gap": 0.5 } }
     ] } },
     "13": { "crop": [40, 60, 300], "panel": { "figures": [
-      { "prop": "ladder", "at": 0.9, "row": -0.25 },
-      { "character": "monkey1", "pose": "fallback-flung", "facing": "right", "at": 0.42, "row": 0.3, "rotate": 30 }
+      { "prop": "ladder", "at": 0.9, "depth": -0.6757, "scale": 0.549 },
+      { "character": "monkey1", "pose": "fallback-flung", "facing": "right", "at": 0.42, "rotate": 30, "nudge": [0, 2.39] }
     ] } },
     "14": { "layers": [
       { "character": "raxas_m1", "pose": "stand-hang", "facing": "left", "x": 80, "y": 64, "size": 9 },

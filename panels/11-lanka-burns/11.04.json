@@ -6,12 +6,12 @@
     {
       "prop": "trees-side",
       "at": 0.9,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "prop": "tree-side",
       "at": 0.77,
-      "row": "mid",
+      "depth": "mid",
       "rotate": 25
     },
     {
@@ -19,7 +19,7 @@
       "pose": "leanback-reach",
       "facing": "left",
       "at": 0.75,
-      "row": "mid",
+      "depth": "mid",
       "nudge": [
         0,
         1

@@ -6,10 +6,10 @@
     {
       "prop": "giant-feet",
       "at": 0.36,
-      "row": -0.05,
+      "depth": -0.1351,
       "id": "foot",
       "rotate": -110,
-      "scale": 1.7
+      "scale": 1.3779
     },
     {
       "foreground": 0.08,

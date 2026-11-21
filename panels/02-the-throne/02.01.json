@@ -6,7 +6,7 @@
     {
       "prop": "throne-ayodhya",
       "at": 0.5,
-      "row": "mid"
+      "depth": "mid"
     }
   ],
   "tags": ["opening"]

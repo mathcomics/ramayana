@@ -35,7 +35,10 @@
       "facing": "left",
       "at": 0.7,
       "id": "pinched",
-      "row": 0.46
+      "nudge": [
+        0,
+        3.805
+      ]
     },
     {
       "character": "monkey1",
@@ -48,7 +51,10 @@
       "prop": "giant-grab",
       "facing": "left",
       "at": 0.57,
-      "row": 0.5
+      "nudge": [
+        0,
+        4.159
+      ]
     }
   ],
   "tags": ["frieze", "giant"]

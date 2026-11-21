@@ -7,8 +7,11 @@
       "prop": "head-alone",
       "id": "g1",
       "at": 0.2,
-      "row": 0.2,
-      "scale": 0.9
+      "scale": 0.9,
+      "nudge": [
+        0,
+        1.674
+      ]
     },
     {
       "character": "ravana",
@@ -20,8 +23,11 @@
       "prop": "head-alone",
       "id": "g2",
       "at": 0.5,
-      "row": 0.2,
-      "scale": 1.8
+      "scale": 1.8,
+      "nudge": [
+        0,
+        0.837
+      ]
     },
     {
       "character": "ravana",
@@ -34,8 +40,11 @@
       "prop": "head-alone",
       "id": "g3",
       "at": 0.8,
-      "row": 0.2,
-      "scale": 2.7
+      "scale": 2.7,
+      "nudge": [
+        0,
+        0.558
+      ]
     },
     {
       "character": "ravana",

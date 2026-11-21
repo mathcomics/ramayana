@@ -8,16 +8,22 @@
       "prop": "giant-feet",
       "id": "foot",
       "at": 0.75,
-      "row": 0.15,
       "rotate": -80,
-      "body": "#9a7a7a"
+      "body": "#9a7a7a",
+      "nudge": [
+        0,
+        1.064
+      ]
     },
     {
       "prop": "arrow-stuck",
       "at": 0.9,
-      "row": 0.75,
       "scale": 1.6,
-      "rotate": 190
+      "rotate": 190,
+      "nudge": [
+        0,
+        3.98
+      ]
     }
   ]
 }

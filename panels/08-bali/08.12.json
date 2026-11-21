@@ -9,32 +9,32 @@
       "pose": "leanfront-fists",
       "facing": "left",
       "at": 0.95,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "sugriva",
       "pose": "lunge-armfront",
       "facing": "right",
       "at": 0.8,
-      "row": "back",
+      "depth": "back",
       "wear": "garland"
     },
     {
       "prop": "tree-trunk",
       "at": 0.05,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "prop": "tree-trunk",
       "at": 0.45,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "rama",
       "pose": "leanfront-swing",
       "facing": "right",
       "at": 0.48,
-      "row": "closeup",
+      "depth": "closeup",
       "turn": -90
     }
   ]

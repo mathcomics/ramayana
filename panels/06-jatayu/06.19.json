@@ -8,14 +8,14 @@
       "prop": "trees-side",
       "id": "trees-far",
       "at": 0.25,
-      "row": "back",
+      "depth": "back",
       "scale": 0.72
     },
     {
       "prop": "trees-side",
       "id": "trees-far2",
       "at": 0.7,
-      "row": "back",
+      "depth": "back",
       "scale": 0.58
     },
     {
@@ -23,14 +23,14 @@
       "pose": "runlow-pumplow",
       "facing": "left",
       "at": 0.42,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "lakshman",
       "pose": "run-pump",
       "facing": "left",
       "at": 0.58,
-      "row": "back"
+      "depth": "back"
     },
     {
       "foreground": [
@@ -42,13 +42,13 @@
     {
       "prop": "tree-trunk",
       "at": 0,
-      "row": "closeup",
+      "depth": "closeup",
       "id": "trunk-left"
     },
     {
       "prop": "tree-trunk",
       "at": 1,
-      "row": "closeup",
+      "depth": "closeup",
       "id": "trunk-right",
       "facing": "left"
     }

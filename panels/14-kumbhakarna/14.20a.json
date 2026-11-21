@@ -7,9 +7,12 @@
       "prop": "giant-face-side-cry",
       "facing": "left",
       "at": 0.6,
-      "row": 0.4,
       "scale": 1.8,
-      "rotate": -90
+      "rotate": -90,
+      "nudge": [
+        0,
+        1.819
+      ]
     }
   ]
 }

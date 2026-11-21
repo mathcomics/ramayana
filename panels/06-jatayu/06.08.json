@@ -8,7 +8,7 @@
       "pose": "stepwide-swordcarry",
       "view": "right",
       "at": 0.48,
-      "row": "closeup",
+      "depth": "closeup",
       "mouth": 2,
       "rotate": 20
     },
@@ -17,8 +17,8 @@
       "pose": "crawl-onhands",
       "facing": "right",
       "at": 0.602,
-      "row": -0.543,
-      "scale": 2.536,
+      "depth": -1.4676,
+      "scale": 0.9455,
       "mouth": 3
     }
   ],

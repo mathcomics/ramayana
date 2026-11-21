@@ -5,32 +5,33 @@
   "figures": [
     {
       "prop": "pole",
-      "row": 0.55,
       "nudge": [
         0,
-        0
-      ],
-      "scale": 1
+        4.601
+      ]
     },
     {
       "character": "hanuman",
       "pose": "crouch-armknee",
       "facing": "right",
       "at": 0.47,
-      "row": 0.45,
-      "scale": 0.35
+      "scale": 0.35,
+      "nudge": [
+        0,
+        10.619
+      ]
     },
     {
       "prop": "flower-yellow",
       "at": 0.2,
-      "row": 0.15,
-      "scale": 0.4
+      "depth": 0.4054,
+      "scale": 0.6189
     },
     {
       "prop": "flower-white",
       "at": 0.34,
-      "row": 0.22,
-      "scale": 0.4,
+      "depth": 0.5946,
+      "scale": 0.9077,
       "repeat": {
         "n": 4
       }
@@ -38,20 +39,20 @@
     {
       "prop": "flower-yellow",
       "at": 0.62,
-      "row": 0.25,
-      "scale": 0.5
+      "depth": 0.6757,
+      "scale": 1.4184
     },
     {
       "prop": "flower-pink",
       "at": 0.76,
-      "row": 0.2,
-      "scale": 0.5
+      "depth": 0.5405,
+      "scale": 1.0011
     },
     {
       "id": "mountain",
       "prop": "rock-square",
       "at": 0.4,
-      "row": "closeup",
+      "depth": "closeup",
       "nudge": [
         0,
         -0.1

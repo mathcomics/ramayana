@@ -3,19 +3,20 @@
   "tags": ["topview"],
   "tall": 1.5,
   "ground": "sand",
+  "camera": "top",
   "figures": [
     {
       "prop": "monkey-top",
       "character": "monkey1",
       "at": 0.3,
-      "row": 0.67,
+      "depth": 0.67,
       "scale": 0.5
     },
     {
       "prop": "monkey-top",
       "character": "monkey1",
       "at": 0.4,
-      "row": 0.7,
+      "depth": 0.7,
       "scale": 0.5
     },
     {
@@ -23,20 +24,20 @@
       "character": "monkey1",
       "cloth": "red",
       "at": 0.5,
-      "row": 0.66,
+      "depth": 0.66,
       "scale": 0.5
     },
     {
       "prop": "monkey-top",
       "character": "hanuman",
       "at": 0.8,
-      "row": 0.4,
+      "depth": 0.4,
       "scale": 0.5
     },
     {
       "prop": "wave-top",
       "at": 0.5,
-      "row": "floor",
+      "depth": "floor",
       "scale": 0.5
     }
   ]

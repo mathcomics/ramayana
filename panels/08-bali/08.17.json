@@ -10,20 +10,23 @@
       "facing": "left",
       "at": 0.5,
       "rotate": 20,
-      "row": -0.3
+      "depth": -0.8108,
+      "scale": 0.5081
     },
     {
       "character": "sugriva",
       "pose": "stepwide-armsup",
       "facing": "right",
       "at": 0.12,
-      "row": 0,
-      "wear": "garland"
+      "depth": 0,
+      "wear": "garland",
+      "scale": 0.92
     },
     {
       "prop": "arrow-stuck",
       "facing": "left",
-      "on": "bali#chest"
+      "on": "bali#chest",
+      "scale": 0.5081
     }
   ]
 }

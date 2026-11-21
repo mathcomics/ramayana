@@ -7,14 +7,17 @@
       "prop": "vine",
       "body": "#000000",
       "at": 0.5,
-      "row": 0.36,
       "scale": 1.6,
-      "rotate": 180
+      "rotate": 180,
+      "nudge": [
+        0,
+        1.826
+      ]
     },
     {
       "prop": "fire",
       "at": 0.5,
-      "row": "mid",
+      "depth": "mid",
       "scale": 3.4
     }
   ],

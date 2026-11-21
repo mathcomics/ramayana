@@ -11,8 +11,11 @@
       "facing": "right",
       "at": 0.2,
       "mouth": 2,
-      "row": 0.44,
-      "rotate": -20
+      "rotate": -20,
+      "nudge": [
+        0,
+        3.713
+      ]
     }
   ]
 }

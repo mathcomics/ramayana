@@ -17,21 +17,24 @@
       "pose": "leanfront-point",
       "at": 0.1,
       "on": "foreground",
-      "scale": 1
+      "depth": 0.08
     },
     {
       "id": "rock2",
       "prop": "rock-square",
       "at": 0.35,
-      "row": 0.1,
       "scale": 0.7,
-      "rotate": 45
+      "rotate": 45,
+      "nudge": [
+        0,
+        1.162
+      ]
     },
     {
       "prop": "rock-circle",
       "at": 0.35,
-      "row": 0.09,
-      "scale": 0.1,
+      "depth": 0.9,
+      "scale": 0.92,
       "body": "#eeeeee",
       "repeat": {
         "gap": 1,

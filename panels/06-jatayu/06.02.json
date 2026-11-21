@@ -6,13 +6,13 @@
     {
       "prop": "rock-circle",
       "at": 0.6,
-      "row": -0.1,
-      "scale": 1.2
+      "depth": -0.2703,
+      "scale": 0.8691
     },
     {
       "prop": "vulture-fly",
       "facing": "left",
-      "row": "mid"
+      "depth": "mid"
     }
   ],
   "needs": []

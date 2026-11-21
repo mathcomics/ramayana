@@ -8,13 +8,16 @@
       "pose": "step-fists",
       "facing": "left",
       "at": 0.62,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "prop": "bubble-thought",
       "at": 0.25,
-      "row": 0.25,
-      "scale": 1.1
+      "scale": 1.1,
+      "nudge": [
+        0,
+        1.771
+      ]
     },
     {
       "prop": "icon-explode",

@@ -6,7 +6,7 @@
     {
       "prop": "steps",
       "at": 0.5,
-      "row": "floor"
+      "depth": "floor"
     },
     {
       "character": "sugriva",

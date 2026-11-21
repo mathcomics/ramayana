@@ -6,7 +6,7 @@
       "character": "surpanakha",
       "pose": "pass-flank",
       "at": 0.25,
-      "row": "closeup",
+      "depth": "closeup",
       "adjust": {
         "spine.head": -20
       }
@@ -14,8 +14,11 @@
     {
       "prop": "bubble-thought",
       "at": 0.62,
-      "row": 0.42,
-      "scale": 0.85
+      "scale": 0.85,
+      "nudge": [
+        0,
+        4.06
+      ]
     },
     {
       "prop": "heart",

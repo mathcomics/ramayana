@@ -8,14 +8,17 @@
       "pose": "step-fists",
       "view": "front",
       "at": 0.5,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "prop": "head-alone",
       "id": "l1",
       "at": 0.3,
-      "row": 0.55,
-      "scale": 1.7
+      "scale": 1.7,
+      "nudge": [
+        0,
+        2.706
+      ]
     },
     {
       "character": "ravana",
@@ -27,8 +30,11 @@
       "prop": "head-alone",
       "id": "r1",
       "at": 0.7,
-      "row": 0.55,
-      "scale": 1.7
+      "scale": 1.7,
+      "nudge": [
+        0,
+        2.706
+      ]
     },
     {
       "character": "ravana",

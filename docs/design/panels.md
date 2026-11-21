@@ -67,7 +67,8 @@ repeated inside the JSON.
 | `tall` | `1.5` · `1` · `0.6` | Height as a multiple of the width (360). Default 1.5. Anything else is an issue, and so is the old `size` field. |
 | `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`night`), or `{ "horizontal": [left, right] }` (`sky-blue`) — set there, never in the panel. |
 | `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
-| `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Row `horizon` stands things on it. |
+| `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Depth `horizon` stands things on it; every depth's ground line and size are built on it (Depth). |
+| `camera` | `top` | A top view: no perspective. A numeric `depth` is then the share of the panel height up the ground (0 the bottom, 1 the top) at front size — the height is the distance (`topview`). Named depths keep their sizes. Any other value is an issue. |
 | `mode` | `negative` | The dramatic beat: the background turns black and every figure and prop is a white silhouette (merged where they overlap). Ground, sky and foreground bands all go black. For a transformation (05.23, the ascetic becoming Ravana) and for the death of a major character (artist, 2026-11-15). Any other value is an issue. |
 | `tags` | list of words from `panels/layouts.md`, Tags (`frieze`, `spy`, `giant` …) | Marks an **approved reference panel**: reviewed with the artist, the model for compositions of these kinds (the panels replace the retired `reference/` images as the yardstick). Find them with `grep -rl '"tags"' panels/` before writing a similar scene. A tagged panel is never changed in a rework pass without the artist's consent; only the artist's review adds tags. |
 | `figures` | one list of figures **and** props | An entry with `character` is a figure, with `prop` a prop, with `foreground` a band of ground (Foregrounds). **One overlap rule: later entries draw over earlier ones** — a prop before the figures is scenery, after them a foreground that hides them (03.02's rising ground), and props and figures interleave freely. (The old separate `props` list with `layer` back/front still renders, folded in around the figures — old lab drafts only; migrate on merge.) |
@@ -81,8 +82,8 @@ repeated inside the JSON.
 | `pose` | `<base>-<gesture>`: any pair of a base and a gesture, composed when drawn | An unknown base or gesture → `step-hang`, with an issue naming it. Picking: `docs/design/pose-picking.md`. |
 | `facing` | `left` · `right` | |
 | `at` | number, slot or relation | See placement. Default 0.5 (centre). |
-| `row` | `top` · `horizon` · `back` · `mid` · `front` · `floor` · `closeup`, or a number | Where it stands and how big: see Rows. Default `front`. Rows don't change the overlap order. |
-| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, front-row size × `scale` (`row` is flagged). On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's row and the figure's own `scale` — not the prop's (`at` and `row` do nothing and are flagged; `nudge` still applies, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "palace-kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). An `inside` anchor takes a **prop**, centred on the anchor and sized to fit its circle (the longer side = the circle's diameter, × the prop's own `scale`): a feeling in a thought bubble (`"prop": "heart", "on": "bubble-thought#inside"`). On a **figure** (its `id`, else its character): something it carries — `#hands` (midway between the two hands: a rock overhead), `#hand-right`, `#hand-left` (the near and far hand), `#head` (top of the head: a load on it), `#shoulder` (the near shoulder), `#chest` (the front of the chest, a third of the way from the neck to the waist; in the front view its middle: an arrow that has struck, `arrow-stuck`, ref.07), `#tail` (a monkey's tail tip: the fire on Hanuman's tail, `"prop": "fire", "on": "hanuman#tail"`, 11.21). The points come from the figure's skeleton in the view drawn, so nothing is drawn for them and they follow the pose, facing and `rotate`; a prop's bottom centre (or its `feet` anchor; carried in a hand, its `hand` anchor if it has one: where the hand holds it, e.g. the drum) lands there, a figure's hips; sized by the carrier's row × its own `scale` (`"prop": "rock-circle", "on": "hanuman#hands"`). The pose must still hold the arms there. Order sets which is in front: the carried entry before the carrier sits behind its hands. |
+| `depth` | a number, or `front` · `mid` · `back` · `horizon`; or the framings `top` · `floor` · `closeup` | **How far away** — where it stands *and* how big: see Depth. Default `front`. Depth doesn't change the overlap order. (The retired `row` still draws, flagged: `node tools/migrate-depth.mjs` converts.) |
+| `on` | a prop's name (its `id`, else its `prop`), optionally `#<anchor>`; or a foreground (`"foreground"`, or its `id`) | On a foreground: feet on its line at the figure's own `at`, the size of its own `depth` (default `front`) × `scale`. On a prop: puts the figure on the prop's named anchor (default `seat`), at the prop's depth and the figure's own `scale` — not the prop's (`at` and `depth` do nothing and are flagged; `nudge` still applies, and the figure follows the prop when it moves). `seat`: the hips rest there (`"pose": "sit", "on": "throne"`); a `stand` anchor: the feet rest there (`"on": "palace-kishkindha#stand"`). A `face` anchor is different: the **head alone** is drawn, centred on the anchor and sized by it — no body, so no neck and no `hair-body` (`"on": "sound-cry#face"`, the crier's face in the bubble). An `inside` anchor takes a **prop**, centred on the anchor and sized to fit its circle (the longer side = the circle's diameter, × the prop's own `scale`): a feeling in a thought bubble (`"prop": "heart", "on": "bubble-thought#inside"`). On a **figure** (its `id`, else its character): something it carries — `#hands` (midway between the two hands: a rock overhead), `#hand-right`, `#hand-left` (the near and far hand), `#head` (top of the head: a load on it), `#shoulder` (the near shoulder), `#chest` (the front of the chest, a third of the way from the neck to the waist; in the front view its middle: an arrow that has struck, `arrow-stuck`, ref.07), `#tail` (a monkey's tail tip: the fire on Hanuman's tail, `"prop": "fire", "on": "hanuman#tail"`, 11.21). The points come from the figure's skeleton in the view drawn, so nothing is drawn for them and they follow the pose, facing and `rotate`; a prop's bottom centre (or its `feet` anchor; carried in a hand, its `hand` anchor if it has one: where the hand holds it, e.g. the drum) lands there, a figure's hips; sized by the carrier's depth × its own `scale` (`"prop": "rock-circle", "on": "hanuman#hands"`). The pose must still hold the arms there. Order sets which is in front: the carried entry before the carrier sits behind its hands. |
 | `cloth` | a colour name (`colors` in `data/characters.json`) or hex, optionally with a pattern: `red-check` · `red-diamond` · `red-stripe` | Overrides the character's cloth for this figure (rakshasa variety). |
 | `wear` | a prop id, or a list | Props worn at the neck, drawn by the figure: behind the whole body, the prop's `neck` anchor (else its top centre) on the neck base, mirrored with the figure, not turned with it — a garland flying back (`"wear": "garland"`: Sugriva in the chapter 8 fights, the mark that tells him from Bali). Size from the drawing (`data-height`). |
 | `mouth` | 1 · 2 · 3 | Left out, the mouth is the gesture's own (`data/gestures.json`: calm gestures 1, action gestures 3). Set it only to differ from that — a value equal to the gesture's is flagged by `npm test`. |
@@ -91,19 +92,19 @@ repeated inside the JSON.
 | `hands` | `{ "right": "point", "left": "fist" }` (fist · out · in · point) | Overrides the pose. |
 | `hand` | `right` · `left` | With `"on": "<prop>#hand"`: the hand the figure hangs by (default: the higher one in its pose). Flagged anywhere else. |
 | `adjust` | `{ "right.arm.shoulder": 60 }` | Joint angles over the pose, same paths as `_angles` in `data/poses.json` (the character's right / left; older `near.` / `far.` paths still work). For one-off gestures; a gesture used twice becomes a pose. Can also give a hand a held prop: `"left.arm.prop": { "kind": "bow", "angle": 0 }` (0 = across the fist), or swap one (`"right.arm.prop.kind": "club"`). |
-| `scale` | number | This figure only (a child, a giant). |
-| `nudge` | head-units: a number (across) or `[dx, dy]` (across, up +) | The one fine shift after placement — by `at`/`row`, a relation or `on` — in the entry's own head-units (a hop, feet on a rock, a figure settled on a seat). Anything placed high — flight, a top view — takes a numeric `row`. Whatever sits on or is placed against a nudged entry follows it. The retired `lift` is flagged (`lift: n` is `nudge: [0, n]`). |
+| `scale` | number | This one is bigger or smaller than life (a child, a giant, a big rock) — not nearer: distance is `depth`. |
+| `nudge` | head-units: a number (across) or `[dx, dy]` (across, up +) | **Moves without resizing**, after placement — by `at`/`depth`, a relation or `on` — in the entry's own head-units. `dy` is the height above its ground: a figure in the air is at the depth of the ground under it, nudged up (`"nudge": [0, 5]`: five head-units up, flying), so the JSON tells a far figure (a large `depth`) from a near one high in the panel (a large `nudge`). Whatever sits on or is placed against a nudged entry follows it. The retired `lift` is flagged (`lift: n` is `nudge: [0, n]`). |
 | `rotate` | degrees, clockwise | Turns the whole figure, after the pose and `facing`. On a prop's anchor it turns about that point, so the grip, seat or footing stays put (`"on": "city-side#hand", "rotate": 90`: Hanuman's body upright against the wall, still hanging by the hand); on a foreground, about its feet; otherwise about its centre, then it stands on the bottom of its turned box, as a prop does. The layout spaces it by its unturned width. |
 | `id` | text | Name for relations when the same character appears twice. |
 
 ### Props
 
-`{ "prop": "throne", "at": "right", "row": "back" }` — an entry of the same
+`{ "prop": "throne", "at": "right", "depth": "back" }` — an entry of the same
 `figures` list; its place in the list is its depth (before the figures =
 behind them, after = in front; the retired `layer` field is an issue).
 
 - `prop`: a drawing's id (`data/props/<id>.svg`); a prop scales with its
-  row.
+  depth.
 - Artwork: `data/props/<id>.svg`, 100 px = 1 head-unit, bottom edge on the
   ground; its viewBox sets the prop's size — unless the root element
   carries **`data-height`**, the prop's real height in head-units (a man
@@ -115,13 +116,13 @@ behind them, after = in front; the retired `layer` field is an issue).
   prop at `scale` 1 is life-size against it. Any SVG there is a prop — no
   registry. A prop id with no artwork yet renders as a **labelled dashed
   box** of a fixed 2 × 2 head-units (`PLACEHOLDER` in `src/scene.js`).
-- `at`, `row`, `scale`, `nudge`, `on`, `id` as for figures.
+- `at`, `depth`, `scale`, `nudge`, `on`, `id` as for figures.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
 - `rotate`: degrees clockwise about the drawing's centre, after `facing`; the prop stands on the bottom of its turned box (`"rotate": -90` lays the upright `fire` on its side, the burning street of 11.25). With `on` it turns about the point it lands on instead (an arrow in a chest about where it goes in: `"on": "ravana#chest", "rotate": 55`). Its own anchors are not turned, so whatever stands on a turned prop does not tilt with it.
 - `repeat`: the prop drawn several times in a row — a cluster of rocks, a
   clump of lotuses or flowers, ladders against a wall. `"repeat": 3`, or
   `{ "n": 3, "gap": 0.3, "scale": [0.6, 1.05], "rotate": [-12, 12], "seed": 1 }`. The
-  entry as written (its `at`, `row`, `scale`, `nudge`, `on`, `rotate`,
+  entry as written (its `at`, `depth`, `scale`, `nudge`, `on`, `rotate`,
   colours) is the **middle** copy; the others stand left and right of it,
   alternately outwards, on its ground line (or its anchor), drawn behind
   it, farthest first. Each copy has **its own size and turn, at random**
@@ -137,6 +138,18 @@ behind them, after = in front; the retired `layer` field is an issue).
   further out), so an entry can stand on one
   (`"on": "rock-circle-left#stand"`). Models: `panels/reference/`
   ref.01–ref.06.
+- `repeat` with **`to`**: a line running into the picture — stepping
+  stones, a column of rocks. `"repeat": { "n": 7, "to": { "at": 0.58,
+  "depth": 0.9 } }`: the copies run from the entry toward that point,
+  each touching the last (`gap` as above, in the copy's own head-units),
+  each sized by **its own depth** — so they shrink and climb toward the
+  horizon with no `scale` — with smaller random ranges (defaults `scale`
+  `[0.85, 1.1]`, `rotate` `[-10, 10]`). The point gives the direction:
+  with more copies the line runs on past it (a line of stones runs off
+  the far edge); one reaching the horizon is flagged. The entry needs a
+  number or slot `at` and a perspective depth. Copies are named
+  `<name>-1`, `<name>-2` … outwards and drawn farthest first; a figure
+  `on` a copy takes that copy's depth.
 - Recolouring: a prop whose drawing names role colours on its root
   element (`<svg data-recolor-body="#a05a2c" data-recolor-cloth="#c8ab37" …>`) takes
   `character` (a character id: that character's body and cloth colours), or
@@ -155,7 +168,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   `rock-circle`, `rock-square`, `rock-rectangle` and `palace-kishkindha` have
   them; `ladder` and `steps` have `stand-low`, `stand` and `stand-high`, a
   low, middle and high rung or tread). A prop can stand `on` another prop's anchor
-  too — its bottom centre lands there, at the carrying prop's row and
+  too — its bottom centre lands there, at the carrying prop's depth and
   its own `scale` (`palace-lanka` at 4 on `"lanka-island#stand"`), or its own `feet` anchor
   when it has one: a creature whose wing or tail pulls its box off its
   feet (`vulture-stand`, `vulture-lookback` on `"rock-circle#stand"`).
@@ -197,7 +210,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   Lanka's palaces; also small on `lanka-island`'s `stand` anchor),
   `stag-stand`, `stag-run`, `stag-lie`, `deer-stand` (brown; the golden deer is `"body": "#ffd42a"`),
   `hut-top`, `hut-side` (the same thatched hut at eye level), `trees-top`, `tree-top`, `trees-side` (a clump of three
-  trees seen side on; `scale` ~2 on the `back` row), `tree-trunk` (a near
+  trees seen side on; `scale` ~2 at depth `back`), `tree-trunk` (a near
   trunk cut straight at both ends: on `closeup` it runs off the top and
   bottom edges, framing a panel — 06.19), `lanka-island` (the bare island —
   the city split off into `palace-lanka`, 2026-11-08),
@@ -218,7 +231,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   redraw) — each sized by its `data-height` to one giant (`giant-grab`
   6.9, the reference; `giant-fist` 5.0, `giant-feet` 6.5,
   `giant-lie-waist` 5.9, the faces 6.7 / 6.64), so a panel places them
-  by row with no `scale`; each cut off at the frame edge it enters
+  by depth with no `scale`; each cut off at the frame edge it enters
   from, and recolourable (`body`, and `cloth` on the waist) so the four
   share one skin in a panel; the placeholder `giant-fingers` in the
   locked 14.14 stays until the artist swaps it,
@@ -239,15 +252,20 @@ in front (03.02, 07.02, 07.09, 09.08).
 
 - `color`: a `data/grounds.json` name or a hex; gradients as for `ground`.
 - Standing on it: `"on": "foreground"` with the figure's own `at` (a
-  number, slot or relation). The feet land on the line at that x, at
-  front-row size × `scale`; `nudge` `[dx, dy]` then moves along the line
+  number, slot or relation). The feet land on the line at that x; the
+  size is the figure's own `depth` (default `front`) × `scale` — a
+  farther walker on the fold is a larger depth (03.02: Lakshman 0.4, Sita
+  0.26, Rama front); `nudge` `[dx, dy]` then moves along the line
   (the feet follow the slope) and up or down from it (03.02: Rama
   `[0, -0.5]` in front of it, Lakshman `[0, -1]` sunk behind it). A prop
   can stand on it the same way.
 - `id` names it when a panel has more than one (`"on": "far-hill"`).
-- `at`, `row`, `scale`, `nudge` and `on` do nothing on a foreground itself
-  and are flagged; so is `row` on an entry standing on one.
-- Not the horizon: `horizon` stays the eye level the rows are built on
+- `at`, `depth`, `scale`, `nudge` and `on` do nothing on a foreground itself
+  and are flagged. On an entry standing on one, `depth` sets the size
+  only: the band sets where the feet are (a band may rise above the
+  horizon — a wall, a slope — where a depth from the feet would mean
+  nothing).
+- Not the horizon: `horizon` stays the eye level the depths are built on
   (and a `sky` above it); a foreground is a near slope of ground.
 
 ### Placement
@@ -264,37 +282,63 @@ in front (03.02, 07.02, 07.09, 09.08).
 - `nudge` shifts by head-units after placement: a number across, or
   `[dx, dy]` across and up.
 
-### Rows
+### Depth
 
-`row` says where an entry stands vertically and how big it is, by name
-or by number — as `at` does across. Shares are of the panel height, so a
-row looks the same in a panel of any height.
+`depth` says **how far away** an entry is, and that sets both where it
+stands and how big it is — by name or by number, as `at` does across.
+`nudge` moves it without resizing (a figure in the air: the depth of the
+ground under it, nudged up). Shares are of the panel height, so a depth
+looks the same in a panel of any height.
 
-| `row` | Bottom edge | Size (a man standing = 6.1 head-units, as drawn) |
+| `depth` | Bottom edge | Size (a man standing = 6.1 head-units, as drawn) |
+|---|---|---|
+| a number `t` | `t × horizon` (0 the bottom edge, 1 the horizon) | a man `0.75 × (1 − t)` of the panel |
+| `front` (default) | 0.08 (3 % up at the default horizon) | 69 % |
+| `mid` | 0.4 (15 % up) | 45 % |
+| `back` | 0.7 (26 % up) | 22 % |
+| `horizon` | on the horizon line | far away: 16 px per head-unit in a 1.5 panel (true perspective would shrink it to nothing) |
+| negative | below the bottom edge | bigger than `front`: nearer than the frame, cropped |
+
+One-point perspective with the horizon as eye level: at depth `t` the
+ground line is at `t × horizon` and a man's head at
+`0.75 − t × (0.75 − horizon)`, so feet and heads converge on the horizon,
+a man is `0.75 × (1 − t)` of the panel whatever the horizon, and moving
+the panel's `horizon` moves every ground line with it (`DEPTH`,
+`HEAD_TOP` and `MAX_DEPTH` in `src/scene.js`). A depth from 0.95 up is
+flagged.
+
+**Framing, not distance** — three names place an entry against the
+frame instead:
+
+| `depth` | Bottom edge | Size |
 |---|---|---|
 | `top` | the entry's **top** edge on the panel's top edge | as `front` |
-| `horizon` | on the horizon line | far away: 16 px per head-unit in a 1.5 panel |
-| `back` | 26 % (at the default horizon) | a man 22 % of the panel |
-| `mid` | 15 % | 45 % |
-| `front` (default) | 3 % | 69 % |
 | `floor` | the bottom edge | as `front` (a foreground prop sits flush: 09.11's sea) |
-| `closeup` | a panel below the bottom edge (−100 %) | a man's head at 75 %: he shows from about the waist up |
-| a number | that share (0 = bottom, 1 = top; negative or above 1 crops) | as `front` |
-
-`front`, `mid` and `back` are one-point perspective with the horizon as
-eye level. A row at depth `t` (front 0.08, mid 0.4, back 0.7; 0 = the
-bottom edge, 1 = the horizon) has its ground line at `t × horizon` and a
-man's head at `0.75 − t × (0.75 − horizon)`: feet and heads converge on
-the horizon, a man is `0.75 × (1 − t)` of the panel whatever the horizon,
-and moving the panel's `horizon` moves the rows' ground lines with it
-(`DEPTH` and `HEAD_TOP` in `src/scene.js`; starting values, set by eye).
+| `closeup` | a panel below the bottom edge (−100 %) | a camera raised to face height: a man's head at 75 %, he shows from about the waist up |
 
 `closeup` is for standing figures: a seated or kneeling one sinks out of
 the panel; it takes `front` with a `scale`.
 
-`scale` resizes one entry. `nudge` `[dx, dy]` is for small adjustments
-only, in the entry's own head-units; anything placed high (flight, hanging, a top
-view) takes a numeric row, which does not move when its `scale` changes.
+**Inherited depth**: whatever is `on` an entry takes that entry's depth —
+on a prop's anchor the prop's (its `scale` says *a bigger rock*, not
+*nearer*, and stays off the figure), carried on a figure the carrier's.
+On a foreground the entry's own `depth` sets the size (Foregrounds).
+
+In a top view (`"camera": "top"`) there is no perspective: a numeric
+depth is the height up the ground, at front size.
+
+`scale` resizes one entry — a giant, a child, a big rock. Many `scale`s
+in a panel are a sign the depths are wrong.
+
+**From `row`** (retired 2026-11-20): `tools/migrate-depth.mjs` rewrote
+every panel to draw exactly as before (within 0.03 px): a named row
+became the same depth; a number on the ground `row ÷ horizon`; any other
+number (something lifted) `front` with the `nudge` up that keeps it in
+place; a foreground walker's `scale` its `depth`; and every `scale` was
+set to keep the old size, so many still carry an odd one (0.7242) where
+the old hand-set perspective did not match — the by-eye pass removes
+those. Old lab drafts still using `row` draw as before, flagged, and
+`merge-panel-drafts.mjs` converts them on merge.
 
 ## Reading a panel back
 
@@ -309,7 +353,7 @@ intends.
 
 Per entry, in drawn order: the pose with its base's and gesture's
 descriptions, view, facing, head turn and tilt, mouth; its box as shares
-of the panel (x across, y up from the bottom edge, as `at` and `row`);
+of the panel (x across, y up from the bottom edge, as `at` and `depth`'s ground line);
 its height and head in pixels at phone size; what places it. Then notes:
 
 | Mark | Note |
@@ -318,8 +362,8 @@ its height and head in pixels at phone size; what places it. Then notes:
 | `?` | in the air with nothing under it — the feet above the horizon, or more than 1.5 head-units above the ground that its size puts it on; small for where it stands (its size says farther back than its feet: sunk or far); lifted off its anchor by a `nudge`; a face cut by the frame or a head out of it |
 | `·` | cut by an edge (the bottom edge named by the body: *shows down to the waist*); stands on a prop by position, without `on`; on a band, raised or sunk; who it faces and whether they face it; a placeholder prop |
 
-"The ground its size puts it on": a figure as big as a man on a row at
-depth `t` should stand on that row's ground line (Rows); the distance
+"The ground its size puts it on": a figure as big as a man at depth `t`
+should stand on that depth's ground line (Depth); the distance
 between that line and its feet is how far it is lifted (or sunk).
 `--props` lists every drawing's size in head-units, its anchors and
 recolour roles; `--poses` every base (height, how far apart the feet)

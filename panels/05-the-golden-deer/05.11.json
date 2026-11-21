@@ -8,14 +8,14 @@
       "pose": "step-hang",
       "facing": "right",
       "at": 0.25,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "sita",
       "pose": "step-point",
       "facing": "right",
       "at": 0.68,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

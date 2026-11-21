@@ -8,44 +8,47 @@
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.74,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "sita",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.27,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "prop": "vine",
       "at": 0.04,
-      "row": "top",
+      "depth": "top",
       "scale": 3
     },
     {
       "prop": "leaf-palm",
       "at": 0.5,
-      "row": -0.3,
       "scale": 3,
       "repeat": {
         "n": 3,
         "gap": -0.6
       },
-      "body": "#7a9a5a"
+      "body": "#7a9a5a",
+      "nudge": [
+        0,
+        -0.971
+      ]
     },
     {
       "prop": "leaf-palm",
       "at": 0.4,
-      "row": -0.1,
-      "scale": 2,
+      "depth": -0.2703,
+      "scale": 1.4485,
       "repeat": {
         "n": 3
       }

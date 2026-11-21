@@ -6,7 +6,7 @@
     {
       "prop": "rock-square",
       "at": 0.8,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "sita",

@@ -6,7 +6,7 @@
     {
       "prop": "branch",
       "at": 0.75,
-      "row": "mid",
+      "depth": "mid",
       "scale": 7
     },
     {

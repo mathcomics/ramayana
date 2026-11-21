@@ -8,14 +8,14 @@
       "pose": "step-hang",
       "facing": "left",
       "at": 0.75,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "rama",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.85,
-      "row": "closeup",
+      "depth": "closeup",
       "mouth": 2
     },
     {
@@ -23,7 +23,7 @@
       "pose": "step-armsout",
       "facing": "right",
       "at": 0.4,
-      "row": "closeup",
+      "depth": "closeup",
       "mouth": 2
     },
     {
@@ -31,7 +31,7 @@
       "pose": "step-armrest",
       "facing": "right",
       "at": 0.1,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ],
   "needs": [

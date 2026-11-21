@@ -6,8 +6,8 @@
     {
       "prop": "fire",
       "at": 0.5,
-      "row": 0.05,
-      "scale": 0.9
+      "depth": 0.1351,
+      "scale": 0.9573
     }
   ],
   "needs": [

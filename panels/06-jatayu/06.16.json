@@ -8,21 +8,21 @@
       "prop": "trees-side",
       "id": "trees-far",
       "at": 1.02,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "lakshman",
       "pose": "stepback-armsout",
       "facing": "right",
       "at": 0.3,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "rama",
       "pose": "step-flung",
       "facing": "left",
       "at": 0.7,
-      "row": "mid"
+      "depth": "mid"
     }
   ]
 }

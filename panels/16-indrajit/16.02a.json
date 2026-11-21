@@ -25,7 +25,6 @@
       "prop": "half-circle",
       "on": "raxas_m2#hands",
       "rotate": -30,
-      "scale": 1,
       "body": "#222222",
       "id": "bowl"
     },
@@ -33,7 +32,7 @@
       "prop": "rock-rectangle",
       "id": "rock",
       "at": 0.35,
-      "row": "front",
+      "depth": "front",
       "scale": 2.5,
       "body": "#222222"
     },
@@ -43,7 +42,7 @@
       "scale": 0.9,
       "at": 0.55,
       "id": "steps",
-      "row": "front"
+      "depth": "front"
     },
     {
       "prop": "vine",
@@ -58,8 +57,7 @@
     },
     {
       "prop": "fire",
-      "on": "rock#stand",
-      "scale": 1
+      "on": "rock#stand"
     }
   ],
   "needs": [

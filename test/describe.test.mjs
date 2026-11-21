@@ -19,7 +19,7 @@ test('every panel can be read back', () => {
 });
 
 test('a figure on a stand anchor touches it; nudged off it, it is flagged', () => {
-  const rock = { prop: 'rock-square', at: 0.5, row: 'mid' };
+  const rock = { prop: 'rock-square', at: 0.5, depth: 'mid' };
   const fig = { character: 'rama', pose: 'step-hang', facing: 'right', on: 'rock-square#stand' };
   assert.ok(!has(say({ figures: [rock, fig] }), /no foot touches/));
   assert.ok(has(say({ figures: [rock, { ...fig, nudge: 4 }] }), /^\s+! "on" rock-square#stand, but no foot touches it/));
@@ -30,14 +30,14 @@ test('a figure on a stand anchor touches it; nudged off it, it is flagged', () =
 test('a face behind something drawn after it is flagged', () => {
   const fig = { character: 'rama', pose: 'step-hang', facing: 'right', at: 0.5 };
   assert.ok(!has(say({ figures: [fig] }), /covered/));
-  const lines = say({ figures: [fig, { prop: 'rock-square', at: 0.5, row: 0.5, scale: 2 }] });
+  const lines = say({ figures: [fig, { prop: 'rock-square', at: 0.5, scale: 2, nudge: [0, 1.5] }] });
   assert.ok(has(lines, /! the face is \d+% covered by rock-square/), lines.join('\n'));
 });
 
 test('a figure high in a panel with nothing under it is in the air', () => {
-  const lines = say({ figures: [{ character: 'rama', pose: 'step-hang', facing: 'right', at: 0.5, row: 'mid', nudge: [0, 4] }] });
+  const lines = say({ figures: [{ character: 'rama', pose: 'step-hang', facing: 'right', at: 0.5, depth: 'mid', nudge: [0, 4] }] });
   assert.ok(has(lines, /\? in the air/), lines.join('\n'));
-  assert.ok(!has(say({ figures: [{ character: 'rama', pose: 'step-hang', facing: 'right', at: 0.5, row: 'mid' }] }), /in the air|small for/));
+  assert.ok(!has(say({ figures: [{ character: 'rama', pose: 'step-hang', facing: 'right', at: 0.5, depth: 'mid' }] }), /in the air|small for/));
 });
 
 test('a duplicate id is flagged', () => {
@@ -46,6 +46,6 @@ test('a duplicate id is flagged', () => {
 });
 
 test('the bottom edge cut is named by the body', () => {
-  const lines = say({ tall: 0.6, figures: [{ character: 'rama', pose: 'step-hang', facing: 'right', at: 0.5, row: 'closeup' }] });
+  const lines = say({ tall: 0.6, figures: [{ character: 'rama', pose: 'step-hang', facing: 'right', at: 0.5, depth: 'closeup' }] });
   assert.ok(has(lines, /cut by the bottom edge: shows down to/), lines.join('\n'));
 });

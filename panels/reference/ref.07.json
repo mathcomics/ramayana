@@ -9,7 +9,7 @@
       "pose": "step-hang",
       "facing": "left",
       "at": 0.2,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "arrow-stuck",
@@ -34,7 +34,7 @@
       "view": "front",
       "pose": "step-hang",
       "at": 0.86,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "prop": "arrow-stuck",

@@ -8,8 +8,9 @@
       "prop": "head-alone",
       "id": "h1",
       "at": 0.22,
-      "row": 0.01,
-      "rotate": -90
+      "depth": 0.027,
+      "rotate": -90,
+      "scale": 0.9455
     },
     {
       "character": "ravana",
@@ -21,8 +22,9 @@
       "prop": "head-alone",
       "id": "h2",
       "at": 0.3,
-      "row": 0.03,
-      "rotate": 160
+      "depth": 0.0811,
+      "rotate": 160,
+      "scale": 1.0012
     },
     {
       "character": "ravana",
@@ -44,8 +46,9 @@
       "prop": "head-alone",
       "id": "h3",
       "at": 0.74,
-      "row": 0.01,
-      "rotate": 90
+      "depth": 0.027,
+      "rotate": 90,
+      "scale": 0.9455
     },
     {
       "character": "ravana",

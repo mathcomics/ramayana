@@ -3,7 +3,7 @@
   "tall": 1,
   "ground": "off-white",
   "figures": [
-    { "prop": "rock-circle", "at": 0.5, "row": "front", "scale": 0.8, "repeat": { "n": 3, "scale": [1.1, 0.9], "rotate": [-5, 5] } },
+    { "prop": "rock-circle", "at": 0.5, "depth": "front", "scale": 0.8, "repeat": { "n": 3, "scale": [1.1, 0.9], "rotate": [-5, 5] } },
     { "character": "rama", "pose": "sit-armknee", "facing": "right", "on": "rock-circle-left" },
     { "character": "sita", "pose": "stand-swing", "facing": "left", "on": "rock-circle-right#stand" }
   ]

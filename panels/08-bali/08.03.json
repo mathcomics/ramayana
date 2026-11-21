@@ -6,7 +6,7 @@
     {
       "prop": "palace-kishkindha",
       "at": 0.5,
-      "row": "closeup",
+      "depth": "closeup",
       "nudge": [
         0.4,
         -0.2
@@ -22,7 +22,7 @@
         6,
         6
       ],
-      "row": "back",
+      "depth": "back",
       "view": "front"
     },
     {
@@ -36,7 +36,7 @@
       "prop": "steps",
       "facing": "left",
       "at": 0.25,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "sugriva",

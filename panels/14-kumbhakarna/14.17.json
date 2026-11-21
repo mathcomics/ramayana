@@ -7,10 +7,13 @@
       "prop": "giant-feet",
       "id": "foot",
       "at": 0.55,
-      "row": 0.5,
       "body": "#9a7a7a",
       "rotate": -90,
-      "scale": 1.5
+      "scale": 1.5,
+      "nudge": [
+        0,
+        2.772
+      ]
     },
     {
       "foreground": 0.08,

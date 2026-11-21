@@ -8,7 +8,7 @@
       "pose": "step-palms",
       "facing": "right",
       "at": 0.42,
-      "row": "closeup",
+      "depth": "closeup",
       "mouth": 2,
       "adjust": {
         "spine.head": -14

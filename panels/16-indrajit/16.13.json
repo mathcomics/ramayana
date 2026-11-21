@@ -8,16 +8,22 @@
       "pose": "leapup-bowdraw",
       "facing": "left",
       "at": 0.62,
-      "row": 0.15,
-      "rotate": -30
+      "rotate": -30,
+      "nudge": [
+        0,
+        1.064
+      ]
     },
     {
       "prop": "arrow-stuck",
       "at": 0.2,
-      "row": 0.1,
       "scale": 1.4,
       "facing": "left",
-      "rotate": -125
+      "rotate": -125,
+      "nudge": [
+        0,
+        0.445
+      ]
     }
   ]
 }

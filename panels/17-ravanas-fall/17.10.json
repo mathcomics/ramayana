@@ -12,9 +12,12 @@
     {
       "prop": "arrow-stuck",
       "at": 0.18,
-      "row": 0.32,
       "scale": 1.4,
-      "facing": "left"
+      "facing": "left",
+      "nudge": [
+        0,
+        1.834
+      ]
     }
   ]
 }

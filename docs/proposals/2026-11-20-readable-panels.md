@@ -2,7 +2,8 @@
 
 2026-11-20 · status: **partly implemented** — 1, the read-back, in
 `design/panels.md` (Reading a panel back), with the duplicate-id check of 7;
-the rest proposed.
+2, `depth`, in `design/panels.md` (Depth), with one change from the plan
+below (a foreground does not set the depth); the rest proposed.
 
 ## The problem
 
@@ -131,7 +132,14 @@ the language. It turns the commonest review failure into text the writer
 can check before the artist sees the panel, and `npm test` can run its
 contact checks over the approved panels as a regression.
 
-### 2. `depth` replaces `row`; `nudge` lifts
+### 2. `depth` replaces `row`; `nudge` lifts (implemented)
+
+Built as below except on a foreground: 26 of the 63 figures standing on
+one stand on a band drawn above the horizon (walls and slopes in panels
+with no sky, 13.02a, 13.07), where a depth taken from the feet means
+nothing. So the band sets where the feet are and the entry's own `depth`
+sets its size; the migration turned their `scale` into that depth
+(1 − 0.92 × scale: 03.02's Lakshman 0.4, Sita 0.26).
 
 **One rule:** `depth` says how far away an entry is, which sets its
 ground line *and* its size; `nudge` moves it without changing its size.

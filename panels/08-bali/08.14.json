@@ -6,7 +6,7 @@
     {
       "prop": "tree-trunk",
       "at": 0.15,
-      "row": "closeup",
+      "depth": "closeup",
       "facing": "left"
     },
     {
@@ -14,7 +14,7 @@
       "pose": "kneel-bowdraw",
       "facing": "right",
       "at": 0.15,
-      "row": "front",
+      "depth": "front",
       "nudge": [
         0,
         -1

@@ -8,10 +8,13 @@
       "pose": "leap-reach",
       "facing": "right",
       "at": 0.3,
-      "row": 0.38,
       "scale": 0.85,
       "rotate": 20,
-      "wear": "garland"
+      "wear": "garland",
+      "nudge": [
+        0,
+        3.644
+      ]
     },
     {
       "character": "sugriva",

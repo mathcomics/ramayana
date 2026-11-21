@@ -16,8 +16,9 @@
       "pose": "leap-reach",
       "facing": "left",
       "at": 0.24,
-      "row": 0.14,
-      "cloth": "red-stripe"
+      "depth": 0.3784,
+      "cloth": "red-stripe",
+      "scale": 1.4801
     },
     {
       "character": "raxas_m3",

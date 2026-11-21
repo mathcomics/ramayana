@@ -22,8 +22,11 @@
     {
       "prop": "vine",
       "at": 0.3,
-      "row": 0.8,
-      "rotate": -70
+      "rotate": -70,
+      "nudge": [
+        0,
+        6.811
+      ]
     },
     {
       "prop": "fire",

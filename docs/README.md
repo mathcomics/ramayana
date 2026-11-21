@@ -26,7 +26,7 @@
 - `proposals/2026-11-07-pose-composition.md` — poses as a base × a gesture (partly implemented, now in `design/pose-picking.md`; open: chest on reclined bases, gaps as products, half-copy in the lab, composition as spec).
 - `proposals/2026-11-08-vertical-placement.md` — one `row` for vertical placement, by name or number; `shot` and `zoom` retired (implemented: `design/panels.md`, Rows; open: the row values, `top`'s size).
 - `proposals/2026-11-13-any-pair-in-panels.md` — a panel may name any base-gesture pair, composed when drawn (implemented: `design/pose-picking.md`; the reviewed list it kept was dropped 2026-11-14; open: turning upper-body `adjust`s into pairs, a pose picker).
-- `proposals/2026-11-20-readable-panels.md` — panels a writer can understand from the JSON: a text read-back of the layout with contact checks, `depth`, surfaces on props, `look` / `holds`, adjust recipes turned into bases, stand-in aliases (partly implemented: the read-back, `design/panels.md`).
+- `proposals/2026-11-20-readable-panels.md` — panels a writer can understand from the JSON: a text read-back of the layout with contact checks, `depth`, surfaces on props, `look` / `holds`, adjust recipes turned into bases, stand-in aliases (partly implemented: the read-back and `depth`, `design/panels.md`).
 
 ## Issues
 

@@ -8,7 +8,7 @@
       "pose": "stepwide-bowhigh",
       "facing": "right",
       "at": 0.45,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

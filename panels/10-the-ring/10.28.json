@@ -20,17 +20,21 @@
     {
       "prop": "pole",
       "at": 0.25,
-      "row": 0.6
+      "nudge": [
+        0,
+        5.043
+      ]
     },
     {
       "character": "hanuman",
       "pose": "crouch-onarms",
       "facing": "right",
       "at": 0.25,
-      "row": 0.1,
+      "depth": 0.2703,
       "adjust": {
         "spine.head": 40
-      }
+      },
+      "scale": 1.2608
     }
   ]
 }

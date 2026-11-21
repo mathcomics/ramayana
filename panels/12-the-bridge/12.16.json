@@ -8,11 +8,11 @@
       "character": "male2",
       "pose": "stand-handslow",
       "at": 1.2,
-      "row": -0.7,
+      "depth": -1.2727,
       "facing": "left",
       "mouth": 3,
       "rotate": -45,
-      "scale": 2.5
+      "scale": 1.012
     },
     {
       "character": "rama",

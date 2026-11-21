@@ -7,14 +7,17 @@
       "prop": "vulture-swoop",
       "at": 0.9,
       "rotate": 200,
-      "row": -0.6
+      "nudge": [
+        0,
+        -5.566
+      ]
     },
     {
       "character": "lakshman",
       "pose": "step-hang",
       "facing": "right",
       "at": 0.14,
-      "row": "mid",
+      "depth": "mid",
       "adjust": {
         "spine.head": 15
       }
@@ -30,7 +33,7 @@
         "right.arm.elbow": 20,
         "spine.head": 18
       },
-      "row": "mid"
+      "depth": "mid"
     }
   ],
   "needs": [

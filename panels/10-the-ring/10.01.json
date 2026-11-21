@@ -8,9 +8,12 @@
       "pose": "liefront-dive",
       "facing": "right",
       "at": 0.42,
-      "row": 0.74,
       "scale": 0.3,
-      "mouth": 2
+      "mouth": 2,
+      "nudge": [
+        0,
+        21.217
+      ]
     }
   ],
   "horizon": 0.25,

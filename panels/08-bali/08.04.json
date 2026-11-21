@@ -9,7 +9,7 @@
       "prop": "steps",
       "facing": "left",
       "at": 0.25,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "sugriva",
@@ -25,7 +25,7 @@
       "pose": "run-fists",
       "facing": "left",
       "at": 0.74,
-      "row": "mid",
+      "depth": "mid",
       "nudge": [
         0,
         6

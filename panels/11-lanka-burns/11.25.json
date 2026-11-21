@@ -8,8 +8,11 @@
       "prop": "fire",
       "at": 0.9,
       "scale": 4.8,
-      "row": 0.5,
-      "rotate": -90
+      "rotate": -90,
+      "nudge": [
+        0,
+        0.866
+      ]
     },
     {
       "prop": "fire",
@@ -33,7 +36,10 @@
       "facing": "left",
       "at": 0.26,
       "cloth": "red",
-      "row": 0.16
+      "nudge": [
+        0,
+        1.153
+      ]
     },
     {
       "character": "raxas_m1",

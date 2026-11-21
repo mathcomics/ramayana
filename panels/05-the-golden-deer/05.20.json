@@ -7,14 +7,14 @@
       "prop": "hut-side",
       "id": "hut",
       "at": 0.15,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 0.5706
     },
     {
       "prop": "trees-side",
       "at": 0.16,
       "scale": 1.5,
-      "row": "horizon",
+      "depth": "horizon",
       "id": "trees-far"
     },
     {
@@ -22,7 +22,7 @@
       "pose": "step-hang",
       "facing": "right",
       "at": 0.4,
-      "row": "horizon",
+      "depth": "horizon",
       "mouth": 3
     },
     {
@@ -30,14 +30,14 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.9,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "character": "sage",
       "pose": "stand-swing",
       "view": "front",
       "at": 0,
-      "row": "closeup",
+      "depth": "closeup",
       "turn": 180
     }
   ],

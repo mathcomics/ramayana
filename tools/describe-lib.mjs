@@ -115,7 +115,7 @@ export function describePanel(id, def, assets, data) {
   const r = renderPanel(def, assets, { id });
   const W = PANEL_W, H = r.h, hz = r.horizon ?? HORIZON;
   const horizonY = H * (1 - hz);
-  const topView = (def.tags || []).includes('topview') || (def.figures || []).some((e) => /-top(-|$)/.test(e.prop || ''));
+  const topView = def.camera === 'top' || (def.tags || []).includes('topview') || (def.figures || []).some((e) => /-top(-|$)/.test(e.prop || ''));
   const L = r.layout;
   for (const l of L) { l.shapes = shapesOf(l); l.box = l.kind === 'band' ? null : boxOf(l.shapes.map((s) => s.pts)); }
   const counts = {};
@@ -177,7 +177,8 @@ export function describePanel(id, def, assets, data) {
     }
     const b = l.box;
     const where = `x ${shareX(b.x0)}–${shareX(b.x1)}, y ${shareY(b.y1)}–${shareY(b.y0)}`;
-    const place = e.on ? `on ${e.on}` : `row ${e.row ?? 'front'}`;
+    const dep = e.depth ?? e.row ?? 'front';
+    const place = e.on ? `on ${e.on}${e.depth != null ? `, depth ${e.depth}` : ''}` : `depth ${dep}`;
     const extra = [e.scale != null && `scale ${e.scale}`, l.rot && `rotate ${l.rot}`, e.nudge != null && `nudge ${JSON.stringify(e.nudge)}`].filter(Boolean).join(', ');
 
     if (l.kind === 'prop') {
@@ -186,7 +187,7 @@ export function describePanel(id, def, assets, data) {
       const cut = edgesCut(b);
       if (out(b)) notes.push('! outside the panel: not drawn');
       else if (cut.length) notes.push(`· cut by the ${cut.join(', ')} edge${cut.length > 1 ? 's' : ''}`);
-      if (!e.on && e.row !== 'top' && e.row !== 'floor' && e.row !== 'closeup' && !l.rot && !out(b)) {
+      if (!e.on && dep !== 'top' && dep !== 'floor' && dep !== 'closeup' && !l.rot && !out(b)) {
         const s = surfaceUnder(l, [(b.x0 + b.x1) / 2, b.y1]);
         if (s && Math.abs(s.gap) <= TOUCH && s.c.kind !== 'band') notes.push(`· stands on ${s.c.label} (by position, not "on")`);
       }
@@ -247,14 +248,14 @@ export function describePanel(id, def, assets, data) {
         } else if (target?.kind === 'band') {
           const dy = Array.isArray(e.nudge) ? e.nudge[1] : 0;
           if (dy) notes.push(`· ${dy > 0 ? `${f1(dy)} hu above` : `sunk ${f1(-dy)} hu behind`} the band's line`);
-        } else if (!e.on && feet.length && e.row !== 'top' && e.row !== 'closeup' && !topView && Math.abs(l.rot) < 60) {
+        } else if (!e.on && feet.length && dep !== 'top' && dep !== 'closeup' && !topView && Math.abs(l.rot) < 60) {
           const low = feet.reduce((m, q) => (q[1] > m[1] ? q : m));
           const s = feet.map((q) => surfaceUnder(l, q)).filter(Boolean).sort((a, c) => Math.abs(a.gap) - Math.abs(c.gap))[0];
           if (low[1] >= H - 1) notes.push('· the feet at or below the bottom edge');
           else if (s && Math.abs(s.gap) <= TOUCH) notes.push(`· stands on ${s.c.label}${s.c.kind === 'band' ? '' : ' (by position, not "on")'}`);
-          else if (e.row !== 'horizon') {
+          else if (dep !== 'horizon') {
             // perspective: the depth its size says, against the depth its feet are at
-            const tSize = 1 - (l.unit * MAN) / (HEAD_TOP * H);       // the row depth whose man is this big
+            const tSize = 1 - (l.unit * MAN) / (HEAD_TOP * H);       // the depth whose man is this big
             const groundOfSize = H * (1 - tSize * hz);                  // that depth's ground line
             const lift = hu(l, groundOfSize - low[1]);
             const under = s ? `, ${s.c.label} ${f1(s.gap)} hu below` : ', nothing under it';

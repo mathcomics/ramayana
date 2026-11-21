@@ -10,7 +10,10 @@
       "at": 0.12,
       "cloth": "red",
       "scale": 1.2,
-      "row": 0.15
+      "nudge": [
+        0,
+        0.887
+      ]
     },
     {
       "character": "monkey2",
@@ -35,7 +38,10 @@
       "at": 0.88,
       "cloth": "orange",
       "scale": 1.2,
-      "row": 0.15
+      "nudge": [
+        0,
+        0.887
+      ]
     }
   ]
 }

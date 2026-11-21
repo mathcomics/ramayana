@@ -7,14 +7,14 @@
       "prop": "tree-trunk",
       "facing": "left",
       "at": 0.15,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "rama",
       "pose": "chair-bowloose",
       "facing": "right",
       "at": 0.25,
-      "row": "floor",
+      "depth": "floor",
       "nudge": [
         0,
         -2

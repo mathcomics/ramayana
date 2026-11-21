@@ -8,14 +8,14 @@
       "pose": "lunge-armsup",
       "facing": "left",
       "at": 0.62,
-      "row": "floor",
+      "depth": "floor",
       "scale": 0.35
     },
     {
       "id": "mountain",
       "prop": "rock-square",
       "at": -0.4,
-      "row": "closeup",
+      "depth": "closeup",
       "nudge": [
         0,
         1.1
@@ -27,7 +27,7 @@
     {
       "prop": "rock-circle",
       "at": 0.4,
-      "row": "front",
+      "depth": "front",
       "scale": 0.15,
       "body": "#5a5f7a",
       "repeat": {
@@ -39,7 +39,7 @@
     {
       "prop": "rock-circle",
       "at": 0.45,
-      "row": "floor",
+      "depth": "floor",
       "scale": 0.1,
       "body": "#5a5f7a",
       "repeat": {

@@ -6,7 +6,7 @@
     {
       "prop": "vine",
       "at": 0.1,
-      "row": "top",
+      "depth": "top",
       "scale": 2
     },
     {
@@ -14,7 +14,7 @@
       "pose": "leapup-unicorn",
       "facing": "right",
       "at": 0.36,
-      "row": "top",
+      "depth": "top",
       "scale": 0.5,
       "mouth": 3
     },
@@ -23,58 +23,77 @@
       "pose": "fallfront-flung",
       "facing": "right",
       "at": 0.8,
-      "row": 0.58,
       "cloth": "red-stripe",
       "rotate": 50,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        12.165
+      ]
     },
     {
       "character": "monkey1",
       "pose": "leap-arc",
       "facing": "right",
       "at": 0.36,
-      "row": 0.5,
       "mouth": 3,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        8.317
+      ]
     },
     {
       "character": "monkey1",
       "pose": "crouch-unicorn",
       "facing": "right",
       "at": 0.36,
-      "row": 0.3,
       "scale": 0.5,
-      "mouth": 3
+      "mouth": 3,
+      "nudge": [
+        0,
+        4.781
+      ]
     },
     {
       "prop": "rock-square",
       "at": 0.9,
-      "row": 0.7,
-      "rotate": -30
+      "rotate": -30,
+      "nudge": [
+        0,
+        5.927
+      ]
     },
     {
       "prop": "rock-square",
       "at": 0.8,
       "rotate": 20,
-      "row": 0.45
+      "nudge": [
+        0,
+        3.717
+      ]
     },
     {
       "prop": "rock-square",
       "at": 0.8,
-      "row": 0.3,
       "body": "#666666",
-      "rotate": -20
+      "rotate": -20,
+      "nudge": [
+        0,
+        2.39
+      ]
     },
     {
       "prop": "rock-square",
       "at": 1,
-      "row": -0.1
+      "depth": -0.2703,
+      "scale": 0.7242
     },
     {
       "prop": "tree-trunk",
       "at": 0.6,
-      "row": 0.1,
-      "scale": 0.6,
+      "depth": 0.2703,
+      "scale": 0.7565,
       "rotate": -90
     },
     {
@@ -82,7 +101,7 @@
       "pose": "lunge-cross",
       "facing": "right",
       "at": 0.2,
-      "row": "floor",
+      "depth": "floor",
       "nudge": [
         0,
         -1
@@ -94,7 +113,7 @@
       "pose": "lunge-cross",
       "facing": "right",
       "at": 0.42,
-      "row": "floor",
+      "depth": "floor",
       "nudge": [
         0,
         -1
@@ -120,10 +139,13 @@
       "pose": "kneel-flung",
       "facing": "left",
       "at": 0.75,
-      "row": 0.62,
       "scale": 0.5,
       "cloth": "red-check",
-      "rotate": -120
+      "rotate": -120,
+      "nudge": [
+        0,
+        10.439
+      ]
     },
     {
       "id": "struck",
@@ -131,9 +153,12 @@
       "pose": "kneel-flung",
       "facing": "left",
       "at": 0.75,
-      "row": 0.42,
       "scale": 0.5,
-      "rotate": 120
+      "rotate": 120,
+      "nudge": [
+        0,
+        6.903
+      ]
     }
   ],
   "needs": [

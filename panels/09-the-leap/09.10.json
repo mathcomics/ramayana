@@ -10,14 +10,14 @@
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.3,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "character": "monkey1",
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.52,
-      "row": "horizon",
+      "depth": "horizon",
       "cloth": "red"
     },
     {
@@ -25,7 +25,7 @@
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.72,
-      "row": "horizon",
+      "depth": "horizon",
       "cloth": "red"
     }
   ]

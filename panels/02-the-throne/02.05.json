@@ -8,7 +8,7 @@
       "pose": "kneel-palms",
       "facing": "right",
       "at": 0.38,
-      "row": "floor",
+      "depth": "floor",
       "mouth": 2,
       "adjust": {
         "spine.head": -15
@@ -19,7 +19,7 @@
       "pose": "step-akimbo",
       "facing": "right",
       "at": 0.68,
-      "row": "floor"
+      "depth": "floor"
     }
   ]
 }

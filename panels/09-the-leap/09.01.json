@@ -8,7 +8,7 @@
     {
       "prop": "palace-kishkindha",
       "at": 0.55,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 3.5
     }
   ]

@@ -7,7 +7,10 @@
       "prop": "city-side",
       "at": 0.1,
       "scale": 4,
-      "row": -0.1
+      "nudge": [
+        0,
+        -0.286
+      ]
     },
     {
       "character": "hanuman",

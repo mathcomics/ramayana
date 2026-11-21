@@ -9,7 +9,7 @@
         3.3,
         2
       ],
-      "row": "closeup",
+      "depth": "closeup",
       "scale": 2
     },
     {
@@ -45,8 +45,11 @@
       "pose": "leanback-swing",
       "view": "front",
       "at": 0.66,
-      "row": 0.56,
-      "scale": 0.25
+      "scale": 0.25,
+      "nudge": [
+        0,
+        18.756
+      ]
     }
   ]
 }

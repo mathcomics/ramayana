@@ -7,7 +7,7 @@
       "character": "monkey1",
       "pose": "stepturn-straight",
       "facing": "left",
-      "row": "back",
+      "depth": "back",
       "nudge": [
         5,
         12
@@ -17,7 +17,7 @@
       "character": "monkey1",
       "pose": "leapup-flung",
       "facing": "right",
-      "row": "back",
+      "depth": "back",
       "nudge": [
         9,
         11
@@ -32,7 +32,7 @@
         7
       ],
       "rotate": 30,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "giant-face-side",
@@ -40,14 +40,17 @@
       "rotate": 115,
       "at": 0.42,
       "body": "#9a7a7a",
-      "row": -0.25,
-      "scale": 1.4
+      "depth": -0.6757,
+      "scale": 0.7686
     },
     {
       "prop": "palace-lanka",
       "at": -1.55,
-      "row": 0,
-      "scale": 4.2
+      "scale": 4.2,
+      "nudge": [
+        0,
+        -0.062
+      ]
     },
     {
       "foreground": [
@@ -60,7 +63,7 @@
       "character": "monkey1",
       "pose": "leap-armfront",
       "facing": "left",
-      "row": "back",
+      "depth": "back",
       "nudge": [
         -1,
         15
@@ -70,7 +73,7 @@
       "character": "monkey1",
       "pose": "stepturn-straight",
       "facing": "right",
-      "row": "back",
+      "depth": "back",
       "nudge": [
         2,
         12

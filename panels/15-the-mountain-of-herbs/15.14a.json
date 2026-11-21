@@ -9,27 +9,26 @@
       "prop": "rock-triangle",
       "id": "mountain",
       "at": 0.72,
-      "row": "back",
+      "depth": "back",
       "scale": 5,
       "body": "#5a5f7a"
     },
     {
       "prop": "flower-yellow",
       "at": 0.72,
-      "row": "back",
+      "depth": "back",
       "repeat": {
         "n": 4,
         "gap": 0.8,
         "seed": 3
-      },
-      "scale": 1
+      }
     },
     {
       "character": "hanuman",
       "pose": "step-akimbo",
       "facing": "left",
       "at": 0.5,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "monkey1",
@@ -37,7 +36,7 @@
       "facing": "right",
       "at": 0.12,
       "cloth": "red",
-      "row": "front",
+      "depth": "front",
       "scale": 0.8
     },
     {

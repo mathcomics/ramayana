@@ -6,8 +6,11 @@
     {
       "prop": "icon-construction",
       "at": 0.5,
-      "row": 0.16,
-      "scale": 1.9
+      "scale": 1.9,
+      "nudge": [
+        0,
+        0.607
+      ]
     }
   ]
 }

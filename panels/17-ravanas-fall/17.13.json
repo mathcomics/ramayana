@@ -14,8 +14,9 @@
       "prop": "head-alone",
       "id": "h1",
       "at": 0.72,
-      "row": 0.02,
-      "rotate": 100
+      "depth": 0.0541,
+      "rotate": 100,
+      "scale": 0.9726
     },
     {
       "character": "ravana",

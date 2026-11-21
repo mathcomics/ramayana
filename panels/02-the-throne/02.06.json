@@ -8,7 +8,7 @@
       "pose": "step-hang",
       "facing": "left",
       "at": 0.85,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ],
   "tags": ["closeup"]

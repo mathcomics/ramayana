@@ -10,8 +10,11 @@
       "pose": "liefront-dive",
       "facing": "left",
       "at": 0.6,
-      "row": 0.74,
-      "scale": 0.3
+      "scale": 0.3,
+      "nudge": [
+        0,
+        21.217
+      ]
     }
   ]
 }

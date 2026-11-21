@@ -5,10 +5,13 @@
     {
       "prop": "rock-square",
       "at": 0.6,
-      "row": -0.5,
       "scale": 5,
       "rotate": 60,
-      "body": "#ffffff"
+      "body": "#ffffff",
+      "nudge": [
+        0,
+        -0.936
+      ]
     },
     {
       "foreground": [
@@ -22,7 +25,7 @@
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.2,
-      "row": "back",
+      "depth": "back",
       "cloth": "red"
     },
     {
@@ -30,7 +33,7 @@
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.36,
-      "row": "back",
+      "depth": "back",
       "cloth": "red"
     },
     {
@@ -38,19 +41,22 @@
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.46,
-      "row": "back",
+      "depth": "back",
       "cloth": "red"
     },
     {
       "prop": "rock-circle",
       "at": 0.65,
-      "row": 0.25,
       "scale": 0.05,
       "body": "#888899",
       "repeat": {
         "gap": 4,
         "n": 9
-      }
+      },
+      "nudge": [
+        0,
+        38.969
+      ]
     }
   ]
 }

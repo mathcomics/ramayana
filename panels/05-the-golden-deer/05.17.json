@@ -6,7 +6,10 @@
     {
       "prop": "sound-cry",
       "at": 0.8,
-      "row": 0.7
+      "nudge": [
+        0,
+        5.927
+      ]
     },
     {
       "character": "rama",
@@ -20,14 +23,14 @@
       "id": "hut",
       "prop": "hut-side",
       "at": 0.15,
-      "row": "back",
+      "depth": "back",
       "scale": 0.5706
     },
     {
       "id": "trees-far",
       "prop": "trees-side",
       "at": 0.16,
-      "row": "back",
+      "depth": "back",
       "scale": 1.5
     },
     {
@@ -35,7 +38,7 @@
       "pose": "arch-hang",
       "facing": "right",
       "at": 0.5,
-      "row": "back",
+      "depth": "back",
       "nudge": [
         0,
         -2
@@ -47,7 +50,7 @@
       "pose": "leanback-hang",
       "facing": "right",
       "at": 0.9,
-      "row": "mid",
+      "depth": "mid",
       "nudge": [
         0,
         -2

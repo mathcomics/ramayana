@@ -6,7 +6,7 @@
     {
       "prop": "throne-lanka",
       "at": 0.8,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "ravana",

@@ -13,7 +13,10 @@
       "pose": "leapup-bowhigh",
       "facing": "left",
       "at": 0.45,
-      "row": 0.3
+      "nudge": [
+        0,
+        2.39
+      ]
     }
   ],
   "needs": [

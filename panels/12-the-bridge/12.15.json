@@ -10,7 +10,7 @@
       "pose": "step-bowdraw",
       "facing": "right",
       "at": 0.42,
-      "row": "closeup",
+      "depth": "closeup",
       "mouth": 2
     }
   ]

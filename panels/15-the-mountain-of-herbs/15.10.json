@@ -8,13 +8,16 @@
       "pose": "step-holdhead",
       "facing": "right",
       "at": 0.2,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "prop": "bubble-thought",
       "at": 0.5,
-      "row": 0.4,
-      "scale": 1.3
+      "scale": 1.3,
+      "nudge": [
+        0,
+        2.519
+      ]
     },
     {
       "prop": "flower-pink",

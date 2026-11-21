@@ -8,7 +8,7 @@
       "pose": "step-hang",
       "facing": "left",
       "at": 0.45,
-      "row": "closeup",
+      "depth": "closeup",
       "adjust": {
         "spine.head": 16
       }

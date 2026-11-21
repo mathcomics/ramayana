@@ -7,7 +7,7 @@
     {
       "prop": "palace-kishkindha",
       "at": 0.85,
-      "row": "back"
+      "depth": "back"
     },
     {
       "id": "rock",
@@ -35,8 +35,11 @@
       "pose": "crouch-swing",
       "facing": "front",
       "at": 0.3,
-      "row": 0.2,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        4.42
+      ]
     }
   ],
   "ground": "dry-grass"

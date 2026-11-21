@@ -8,7 +8,7 @@
       "prop": "trees-side",
       "id": "trees-far",
       "at": 0.86,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 1.7994
     },
     {
@@ -16,19 +16,19 @@
       "pose": "runwide-hang",
       "facing": "right",
       "at": 0.36,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "character": "rama",
       "pose": "run-pump",
       "facing": "right",
       "at": 0.55,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "prop": "tree-trunk",
       "at": -0.04,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

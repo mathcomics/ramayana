@@ -6,7 +6,7 @@
     {
       "prop": "throne-lanka",
       "at": 0.68,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "ravana",
@@ -19,7 +19,7 @@
       "pose": "stand-bow",
       "facing": "right",
       "at": 0.28,
-      "row": "mid"
+      "depth": "mid"
     }
   ]
 }

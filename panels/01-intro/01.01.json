@@ -7,7 +7,7 @@
     {
       "prop": "palace-ayodhya",
       "at": 0.5,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 1.6
     }
   ],

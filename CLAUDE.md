@@ -34,7 +34,7 @@ scene spec (JSON) → layout → figure geometry → SVG
 - `docs/design/composition.md` — how panels are arranged (chapter
   openers, sky and horizon, throne, top view).
 - `panels/layouts.md` — the tags: each kind of scene the artist has
-  approved a model for and how it is built; and how the rows are set.
+  approved a model for and how it is built; and how the depths are set.
 - **Approved reference panels** — panels carrying `tags` (e.g. `frieze`,
   `spy`, `giant`): artist-reviewed models that output is judged
   against; locked without the artist's consent (`docs/design/panels.md`,
@@ -219,7 +219,10 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
 - Panel-lab drafts still sitting in its database carry pose names from
   before the composite renaming, and the old `size` field (now `tall`:
   0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) and the retired `shot` / `zoom` / `lift`
-  (now `nudge: [0, n]`) (`docs/design/panels.md`, Rows) — fix them when a draft is merged.
+  (now `nudge: [0, n]`) (`docs/design/panels.md`, Depth) — fix them when a draft is merged.
+  `row` is retired too (2026-11-20, now `depth`: how far, which sets the
+  size, with `nudge` to lift): such drafts still draw as before, flagged,
+  and `merge-panel-drafts.mjs` converts them on merge.
 - The reader site is Cloudflare Pages project `ramayana`
   (`https://ramayana-7fw.pages.dev`, open to account members only).
   Cloudflare's GitHub integration builds and publishes it on every push

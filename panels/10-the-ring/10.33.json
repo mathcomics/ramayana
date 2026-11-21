@@ -22,9 +22,12 @@
     {
       "prop": "pole",
       "at": 0.25,
-      "row": 0.6,
       "scale": 2,
-      "rotate": 180
+      "rotate": 180,
+      "nudge": [
+        0,
+        2.521
+      ]
     }
   ]
 }

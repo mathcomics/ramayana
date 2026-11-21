@@ -14,15 +14,21 @@
       "pose": "leap-reachup",
       "facing": "right",
       "at": 0.75,
-      "row": 0.6,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        12.607
+      ]
     },
     {
       "character": "indrajit",
       "pose": "leanback-bowhigh",
       "at": 0.2,
-      "row": -0.1,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        -2.291
+      ]
     }
   ]
 }

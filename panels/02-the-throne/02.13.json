@@ -6,7 +6,7 @@
     {
       "prop": "palace-ayodhya",
       "at": 0.25,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "lakshman",
@@ -14,7 +14,8 @@
       "view": "front",
       "at": 0.8,
       "mouth": 1,
-      "row": -0.2
+      "depth": -0.5405,
+      "scale": 0.5972
     },
     {
       "character": "sita",
@@ -22,7 +23,8 @@
       "view": "front",
       "at": 0.65,
       "mouth": 1,
-      "row": -0.2
+      "depth": -0.5405,
+      "scale": 0.5972
     },
     {
       "character": "rama",
@@ -30,7 +32,7 @@
       "view": "front",
       "at": 0.5,
       "turn": -120,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

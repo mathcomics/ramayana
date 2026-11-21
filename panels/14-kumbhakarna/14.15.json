@@ -7,7 +7,7 @@
       "prop": "giant-face-front-awake",
       "id": "face",
       "at": 0.5,
-      "row": "closeup",
+      "depth": "closeup",
       "nudge": [
         0,
         2.6
@@ -19,8 +19,11 @@
       "id": "wall",
       "at": 0.5,
       "scale": 8,
-      "row": -0.36,
-      "cloth": "#2e2424"
+      "cloth": "#2e2424",
+      "nudge": [
+        0,
+        -0.431
+      ]
     }
   ]
 }

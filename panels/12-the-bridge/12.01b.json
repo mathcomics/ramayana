@@ -8,7 +8,7 @@
     {
       "prop": "lanka-island",
       "at": 0.7,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 0.5
     },
     {
@@ -22,30 +22,33 @@
       "view": "front",
       "facing": "right",
       "at": 0.05,
-      "row": -0.3,
+      "depth": -0.4286,
       "turn": 180,
       "adjust": {
         "right.arm.prop.kind": "club"
-      }
+      },
+      "scale": 0.644
     },
     {
       "character": "monkey1",
       "pose": "walk-unicorn",
       "view": "front",
       "at": 0.15,
-      "row": -0.2,
+      "depth": -0.2857,
       "turn": 180,
       "adjust": {
         "right.arm.prop.kind": "spear"
-      }
+      },
+      "scale": 0.7156
     },
     {
       "character": "monkey1",
       "pose": "walk-bull",
       "view": "front",
       "at": 0.25,
-      "row": -0.3,
-      "turn": 180
+      "depth": -0.4286,
+      "turn": 180,
+      "scale": 0.644
     },
     {
       "character": "monkey2",
@@ -53,38 +56,42 @@
       "view": "front",
       "facing": "right",
       "at": 0.35,
-      "row": -0.2,
+      "depth": -0.2857,
       "turn": 180,
       "adjust": {
         "right.arm.prop.kind": "sword-broad"
-      }
+      },
+      "scale": 0.7156
     },
     {
       "character": "monkey1",
       "pose": "walk-armrest",
       "view": "front",
       "at": 0.45,
-      "row": -0.3,
-      "turn": 180
+      "depth": -0.4286,
+      "turn": 180,
+      "scale": 0.644
     },
     {
       "character": "rama",
       "pose": "walk-akimbo",
       "view": "front",
       "at": 0.96,
-      "row": -0.3,
-      "turn": 180
+      "depth": -0.4286,
+      "turn": 180,
+      "scale": 0.644
     },
     {
       "character": "hanuman",
       "pose": "walk-waist",
       "view": "front",
       "at": 0.86,
-      "row": -0.3,
+      "depth": -0.4286,
       "turn": 180,
       "adjust": {
         "right.arm.prop.kind": "club"
-      }
+      },
+      "scale": 0.644
     }
   ]
 }

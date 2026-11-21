@@ -9,7 +9,7 @@
       "facing": "left",
       "at": 0.55,
       "mouth": 3,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

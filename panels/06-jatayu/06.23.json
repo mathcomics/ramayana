@@ -8,7 +8,7 @@
       "prop": "trees-side",
       "id": "trees-far",
       "at": 0.86,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 2.2
     },
     {
@@ -16,7 +16,7 @@
       "pose": "kneel-reach",
       "facing": "left",
       "at": 0.46,
-      "row": "mid",
+      "depth": "mid",
       "adjust": {
         "spine.head": 25
       }
@@ -26,12 +26,13 @@
       "pose": "step-point",
       "facing": "right",
       "at": 0.66,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "prop": "leaf-fern",
       "at": 0.1,
-      "row": -0.1
+      "depth": -0.2703,
+      "scale": 0.7242
     }
   ]
 }

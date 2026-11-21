@@ -8,21 +8,30 @@
       "pose": "leapup-bowhigh",
       "facing": "left",
       "at": 0.55,
-      "row": 0.72,
-      "scale": 0.35
+      "scale": 0.35,
+      "nudge": [
+        0,
+        17.439
+      ]
     },
     {
       "prop": "city-roof",
       "at": 0.2,
-      "row": -0.04,
-      "scale": 2.2
+      "scale": 2.2,
+      "nudge": [
+        0,
+        -0.28
+      ]
     },
     {
       "prop": "city-roof",
       "at": 0.82,
-      "row": -0.06,
       "scale": 2.4,
-      "facing": "left"
+      "facing": "left",
+      "nudge": [
+        0,
+        -0.33
+      ]
     }
   ]
 }

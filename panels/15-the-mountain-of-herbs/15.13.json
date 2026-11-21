@@ -8,7 +8,7 @@
     {
       "prop": "lanka-island",
       "at": 0.85,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 0.4
     },
     {
@@ -28,8 +28,11 @@
       "pose": "liefront-pointup",
       "facing": "right",
       "at": 0.42,
-      "row": 0.62,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        13.455
+      ]
     }
   ]
 }

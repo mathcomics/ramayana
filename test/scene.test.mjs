@@ -31,7 +31,7 @@ test('every committed panel renders without issues (placeholders aside)', () => 
 test('unknown names become issues, not crashes', () => {
   const r = renderPanel({ ground: 'mauve', figures: [
     { prop: 'spaceship' },
-    { character: 'nobody' }, { character: 'rama', pose: 'moonwalk', row: 'sky', at: 'far-left' },
+    { character: 'nobody' }, { character: 'rama', pose: 'moonwalk', depth: 'sky', at: 'far-left' },
   ] }, assets);
   const all = r.issues.join('\n');
   for (const s of ['mauve', 'nobody', 'moonwalk', 'sky', 'far-left', 'spaceship']) assert.match(all, new RegExp(s));
@@ -52,8 +52,8 @@ test('placement: numbers, slots and relations', () => {
   assert.equal(Math.round(rel('right-of')), -Math.round(rel('left-of')));
 });
 
-test('rows: back figures stand higher and smaller', () => {
-  const svg = renderPanel({ figures: [{ character: 'rama', row: 'front' }, { character: 'rama', row: 'back' }] }, assets).svg;
+test('depth: back figures stand higher and smaller', () => {
+  const svg = renderPanel({ figures: [{ character: 'rama', depth: 'front' }, { character: 'rama', depth: 'back' }] }, assets).svg;
   const g = [...svg.matchAll(/translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)/g)].map((m) => [+m[2], +m[3]]);
   assert.ok(g[1][0] < g[0][0] && g[1][1] < g[0][1]);
 });
@@ -80,8 +80,8 @@ test('one list: later entries draw over earlier; legacy props/who/layer still re
   assert.match(r.issues.join('\n'), /"layer" is retired/);
 });
 
-test('sky: a colour above the horizon; row "horizon" stands things on it', () => {
-  const r = renderPanel({ tall: 1, sky: 'sky', horizon: 0.25, figures: [{ prop: 'stag-run', row: 'horizon' }] }, assets);
+test('sky: a colour above the horizon; depth "horizon" stands things on it', () => {
+  const r = renderPanel({ tall: 1, sky: 'sky', horizon: 0.25, figures: [{ prop: 'stag-run', depth: 'horizon' }] }, assets);
   assert.match(r.svg, /<rect width="360" height="270" fill="url\(#panel-sky\)"\/>/);
   assert.ok(r.svg.includes(`<stop offset="0" stop-color="${assets.grounds.grounds.sky[0]}"/>`), 'sky gradient from grounds.json');
   // a hex sky (or ground) is a flat fill; a hex ground draws no gradient
@@ -93,31 +93,66 @@ test('sky: a colour above the horizon; row "horizon" stands things on it', () =>
   assert.equal(renderPanel({ sky: 'nope' }, assets).issues.length, 1);
 });
 
-test('rows: perspective depths, closeup, top, numbers; shot and zoom retired', () => {
-  const propY = (row, extra = {}) => {
-    const r = renderPanel({ figures: [{ prop: 'stag-run', row, ...extra }] }, assets);
+test('depth: perspective depths, closeup, top, numbers, a top view; row retired; shot and zoom retired', () => {
+  const propY = (depth, extra = {}, panel = {}) => {
+    const r = renderPanel({ ...panel, figures: [{ prop: 'stag-run', depth, ...extra }] }, assets);
     const [, y, sc] = r.svg.match(/<g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/);
     return { top: +y, unit: +sc, bottom: +y + assets.props.props['stag-run'].size[1] * +sc, issues: r.issues };
   };
   const man = (t) => 0.75 * (1 - t) * 540 / MAN;
   const near = (a, b) => Math.abs(a - b) < 0.01;
-  for (const [row, t] of [['front', 0.08], ['mid', 0.4], ['back', 0.7]]) {
-    const p = propY(row);
-    assert.ok(near(p.unit, man(t)) && near(p.bottom, 540 * (1 - t * 0.37)), `${row} row`);
+  for (const [d, t] of [['front', 0.08], ['mid', 0.4], ['back', 0.7]]) {
+    const p = propY(d);
+    assert.ok(near(p.unit, man(t)) && near(p.bottom, 540 * (1 - t * 0.37)), `${d}`);
   }
-  // the horizon moves a row's ground line, not its size
-  const low = renderPanel({ horizon: 0.2, figures: [{ prop: 'stag-run', row: 'back' }] }, assets).svg;
+  // the horizon moves a depth's ground line, not its size
+  const low = renderPanel({ horizon: 0.2, figures: [{ prop: 'stag-run', depth: 'back' }] }, assets).svg;
   assert.ok(near(+low.match(/scale\(([-\d.]+)/)[1], man(0.7)), 'the horizon leaves sizes alone');
   const c = propY('closeup');
   assert.ok(near(c.unit, 1.75 * 540 / MAN) && near(c.bottom, 1080), 'closeup: ground a panel below, head at 75 %');
   const t = propY('top');
   assert.ok(near(t.top, 0) && near(t.unit, man(0.08)), 'top: top edge on the panel top, front size');
-  const n = propY(0.5);
-  assert.ok(near(n.bottom, 270) && near(n.unit, man(0.08)), 'a number: the bottom edge at that share');
-  assert.ok(near(propY(0.5, { nudge: [0, 1] }).bottom, 270 - man(0.08)), 'nudge [dx, dy]: own head-units, + up');
+  // a number is a depth: the ground line and the size together; negative is nearer than the frame
+  for (const d of [0.5, 0.25, -0.5]) {
+    const n = propY(d);
+    assert.ok(near(n.bottom, 540 * (1 - d * 0.37)) && near(n.unit, man(d)), `depth ${d}`);
+  }
+  assert.deepEqual(propY(0.4).unit.toFixed(6), propY('mid').unit.toFixed(6), 'a named depth is its number');
+  assert.match(propY(1).issues.join(' '), /depth 1 is at or past the horizon/);
+  // nudge moves without resizing
+  const up = propY(0.5, { nudge: [0, 1] });
+  assert.ok(near(up.bottom, propY(0.5).bottom - man(0.5)) && near(up.unit, man(0.5)), 'nudge [dx, dy]: own head-units, + up, same size');
+  // a top view: a number is a height up the ground, at front size
+  const tv = propY(0.5, {}, { camera: 'top' });
+  assert.ok(near(tv.bottom, 270) && near(tv.unit, man(0.08)), 'camera top: no perspective');
+  assert.match(propY('front', {}, { camera: 'side' }).issues.join(' '), /the only camera is "top"/);
+  // the retired row: still drawn as before (a number: a height at front size), and flagged
+  const old = renderPanel({ figures: [{ prop: 'stag-run', row: 0.5 }] }, assets);
+  assert.match(old.issues.join(' '), /"row" is retired/);
+  assert.ok(near(+old.svg.match(/translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/)[2], man(0.08)), 'old row: front size');
   assert.match(propY(0.5, { lift: 1 }).issues.join(' '), /"lift" is retired/);
-  assert.equal(propY('nope').issues.filter((i) => /row "nope"/.test(i)).length, 1);
+  assert.equal(propY('nope').issues.filter((i) => /depth "nope"/.test(i)).length, 1);
   for (const k of ['shot', 'zoom']) assert.match(renderPanel({ [k]: 'wide' }, assets).issues.join(' '), new RegExp(`"${k}" is retired`));
+});
+
+test('repeat "to": a line into the picture, each copy touching the last and sized by its depth', () => {
+  const line = { prop: 'rock-square', id: 's', at: 0.1, depth: 0, repeat: { n: 4, to: { at: 0.6, depth: 0.8 }, scale: [1, 1], rotate: [0, 0] } };
+  const r = renderPanel({ tall: 1, figures: [line, { character: 'monkey1', pose: 'step-hang', on: 's-2#stand' }] }, assets);
+  assert.deepEqual(r.issues, []);
+  const L = Object.fromEntries(r.layout.map((l) => [l.name, l]));
+  const ds = ['s', 's-1', 's-2', 's-3'].map((k) => L[k]);
+  for (let k = 1; k < 4; k++) {
+    assert.ok(ds[k].groundY < ds[k - 1].groundY && ds[k].unit < ds[k - 1].unit && ds[k].x > ds[k - 1].x, `copy ${k} farther, smaller, along the line`);
+    // touching: the centres as far apart as the half-extents along the line
+    const dx = ds[k].x - ds[k - 1].x, dy = ds[k].groundY - ds[k - 1].groundY, len = Math.hypot(dx, dy), u = [dx / len, dy / len];
+    const ext = (l) => Math.abs(l.size[0] * l.unit * u[0]) + Math.abs(l.size[1] * l.unit * u[1]);
+    assert.ok(Math.abs(len - (ext(ds[k]) + ext(ds[k - 1])) / 2) < 0.5, `copy ${k} touches the one before`);
+  }
+  // drawn farthest first; a figure on a copy takes its depth
+  assert.deepEqual(r.layout.slice(0, 4).map((l) => l.name), ['s-3', 's-2', 's-1', 's']);
+  assert.ok(Math.abs(L.monkey1.unit - L['s-2'].rowUnit) < 1e-9);
+  assert.match(renderPanel({ figures: [{ ...line, repeat: { n: 9, to: { at: 0.5, depth: 0.9 } } }] }, assets).issues.join(' '), /reaches the horizon/);
+  assert.match(renderPanel({ figures: [{ ...line, repeat: { n: 3, to: { at: 0.5 } } }] }, assets).issues.join(' '), /repeat "to" takes/);
 });
 
 test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale); mirrored props mirror the seat', () => {
@@ -128,7 +163,7 @@ test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale
   const { joints: kj, shapes: ks } = buildShapes(assets.species[kingLook.species], kingPose, kingLook.outfit, 'side', kingLook.bodyScale, kingLook.who);
   const hipsY = Math.max(...ks.filter((s) => /-thigh$/.test(s.part || '')).flatMap((s) => s.pts).filter((q) => Math.abs(q[0] - kj.spine.pelvis[0]) <= 0.25).map((q) => q[1]));
   for (const facing of ['right', 'left']) {
-    const r = renderPanel({ figures: [{ prop: 'throne-ayodhya', at: 0.5, row: 'mid', facing }, { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets);
+    const r = renderPanel({ figures: [{ prop: 'throne-ayodhya', at: 0.5, depth: 'mid', facing }, { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets);
     assert.deepEqual(r.issues.filter((i) => !/placeholder/.test(i)), []);
     const [, fy, fs] = r.svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\([-\d.]+ ([-\d.]+)\) scale\(([-\d.]+)/) || [];
     const unit = 0.75 * (1 - 0.4) * 540 / MAN, top = 540 * (1 - 0.4 * 0.37) - assets.props.props['throne-ayodhya'].size[1] * unit;
@@ -138,16 +173,16 @@ test('"on": a figure sits on the prop\'s seat, at its row (not the prop\'s scale
   assert.equal(renderPanel({ figures: [{ character: 'rama', pose: 'sit-armknee', on: 'throne-ayodhya' }] }, assets).issues.length, 1);
   // nudge moves a seated figure off the seat, and a nudged prop carries its sitter
   const at = (figs) => renderPanel({ figures: figs }, assets).svg.match(/data-panel[\s\S]*?<\/g><g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+)/).slice(1).map(Number);
-  const throne = { prop: 'throne-ayodhya', at: 0.5, row: 'mid' }, king = { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' };
+  const throne = { prop: 'throne-ayodhya', at: 0.5, depth: 'mid' }, king = { character: 'dasharatha', pose: 'sit-armknee', on: 'throne-ayodhya' };
   const [x0, y0, u] = at([throne, king]);
   const [x1, y1] = at([throne, { ...king, nudge: [0.5, 1] }]);
   assert.ok(Math.abs(x1 - x0 - 0.5 * u) < 0.01 && Math.abs(y0 - y1 - u) < 0.01, 'nudge on a seated figure');
   const [x2, y2] = at([{ ...throne, nudge: [1, 1] }, king]);
   assert.ok(Math.abs(x2 - x0 - u) < 0.01 && Math.abs(y0 - y2 - u) < 0.01, 'the sitter follows a nudged prop');
-  // a bigger throne does not make a bigger king: the sitter keeps its row's size × its own scale
+  // a bigger throne does not make a bigger king: the sitter keeps its depth's size × its own scale
   assert.equal(at([{ ...throne, scale: 2 }, king])[2], u, 'the prop\'s scale stays with the prop');
   assert.ok(Math.abs(at([{ ...throne, scale: 2 }, { ...king, scale: 0.5 }])[2] - u / 2) < 1e-9, 'the figure\'s own scale');
-  assert.match(renderPanel({ figures: [throne, { ...king, at: 0.2, row: 'back' }] }, assets).issues.join(' '), /"at" does nothing with "on"[\s\S]*"row" does nothing with "on"/);
+  assert.match(renderPanel({ figures: [throne, { ...king, at: 0.2, depth: 'back' }] }, assets).issues.join(' '), /"at" does nothing with "on"[\s\S]*"depth" does nothing with "on"/);
 });
 
 test('"on" a figure: a carried prop on its hands, head or shoulder, from the skeleton', () => {
@@ -157,7 +192,7 @@ test('"on" a figure: a carried prop on its hands, head or shoulder, from the ske
   for (const [view, facing] of [['front', 'right'], ['side', 'right'], ['side', 'left']]) {
     const { joints } = buildShapes(assets.species.monkey, pose, look.outfit, view, look.bodyScale, look.who);
     const r = renderPanel({ figures: [
-      { character: 'hanuman', id: 'h', pose: 'arch-overhead', view, facing, at: 0.4, row: 'mid' },
+      { character: 'hanuman', id: 'h', pose: 'arch-overhead', view, facing, at: 0.4, depth: 'mid' },
       { prop: 'rock-circle', on: 'h#hands', scale: 0.5 },
     ] }, assets);
     assert.deepEqual(r.issues, [], view);
@@ -165,9 +200,9 @@ test('"on" a figure: a carried prop on its hands, head or shoulder, from the ske
     const [px, py, pu] = [...r.svg.matchAll(/<g transform="translate\(([-\d.]+) ([-\d.]+)\) scale\(([-\d.]+) /g)].at(-1).slice(1).map(num);
     const size = assets.props.props['rock-circle'].size, f = facing === 'left' ? -1 : 1;
     const mid = [(joints.near.grip[0] + joints.far.grip[0]) / 2, (joints.near.grip[1] + joints.far.grip[1]) / 2];
-    // the rock's bottom centre on the hands' midpoint, at the carrier's row × its own scale
+    // the rock's bottom centre on the hands' midpoint, at the carrier's depth × its own scale
     const u = Math.abs(fu);
-    assert.ok(Math.abs(Math.abs(pu) - u * 0.5) < 1e-9, `${view}: the row's size × scale`);
+    assert.ok(Math.abs(Math.abs(pu) - u * 0.5) < 1e-9, `${view}: the depth's size × scale`);
     // (the rock keeps its own facing: right)
     assert.ok(Math.abs(px + size[0] * Math.abs(pu) / 2 - (fx + f * mid[0] * u)) < 1e-6, `${view} ${facing}: centred between the hands`);
     assert.ok(Math.abs(py + size[1] * Math.abs(pu) - (fy + mid[1] * u)) < 1e-6, `${view} ${facing}: resting on them`);
@@ -195,14 +230,19 @@ test('a foreground: a band of ground in the list; "on" stands entries on its lin
   // across nudge: the feet follow the slope
   const [[x3, y3]] = feet(place([fg, { character: 'rama', pose: 'step-hang', at: 0.25, on: 'foreground', nudge: [1, 0] }]).svg);
   assert.ok(Math.abs(x3 - 90 - u) < 1e-6 && Math.abs(y3 - 360 * (1 - (0.1 + 0.2 * x3 / 360))) < 1e-6, 'along the slope');
-  // row on a foreground is flagged; a band takes its own "id"
+  // the retired row on a foreground is flagged; depth there sets the size only; a band takes its own "id"
   assert.match(place([fg, { character: 'rama', pose: 'step-hang', on: 'foreground', row: 'mid' }]).issues.join(' '), /"row" does nothing on a foreground/);
+  const deep = place([fg, { character: 'rama', pose: 'step-hang', at: 0.25, on: 'foreground', depth: 0.4 }]);
+  assert.deepEqual(deep.issues, []);
+  const [[, yd]] = feet(deep.svg);
+  assert.ok(Math.abs(yd - y) < 1e-6, 'depth on a foreground: the feet stay on the line');
+  assert.ok(Math.abs(deep.layout.at(-1).unit - 0.75 * 0.6 * 360 / MAN) < 1e-9, 'depth on a foreground: the size is the depth\'s');
   assert.deepEqual(place([{ ...fg, id: 'hill' }, { character: 'rama', pose: 'step-hang', on: 'hill' }]).issues, []);
   assert.match(place([{ foreground: 'x', color: 'forest' }]).issues.join(' '), /takes \[left, right\]/);
 });
 
 test('a "hand" anchor: the figure hangs by its higher hand, or the one "hand" names', () => {
-  const wall = { prop: 'city-side', at: 0.5, row: 'front' }, def = assets.props.props['city-side'];
+  const wall = { prop: 'city-side', at: 0.5, depth: 'front' }, def = assets.props.props['city-side'];
   const fig = (extra) => ({ character: 'hanuman', pose: 'leap-reach', on: 'city-side#hand', ...extra });
   const r = renderPanel({ tall: 1, figures: [wall, fig({})] }, assets);
   assert.deepEqual(r.issues, []);
@@ -243,7 +283,7 @@ test('a seat anchor takes the hips, a stand anchor the feet', () => {
 });
 
 test('rotate on a figure: about its anchor when on a prop; else about its centre, standing on its turned box', () => {
-  const wall = { prop: 'city-side', at: 0.5, scale: 4, row: -0.1 };
+  const wall = { prop: 'city-side', at: 0.5, scale: 2.8972, depth: -0.2703 };
   const fig = { character: 'hanuman', pose: 'crawl-onhands', facing: 'left', on: 'city-side#hand', scale: 0.09 };
   const plain = renderPanel({ tall: 1.5, figures: [wall, fig] }, assets);
   const turned = renderPanel({ tall: 1.5, figures: [wall, { ...fig, rotate: 90 }] }, assets);
@@ -327,7 +367,7 @@ test('a panel may name any <base>-<gesture>: composed from its base and gesture'
 
 test('"repeat": a prop drawn several times, the entry in the middle, copies of seeded random size and turn behind', () => {
   const w = assets.props.props['rock-circle'].size[0];
-  const rock = { prop: 'rock-circle', at: 0.5, row: 'mid' };
+  const rock = { prop: 'rock-circle', at: 0.5, depth: 'mid' };
   const svg = (figs) => { const r = renderPanel({ tall: 1, figures: figs }, assets); assert.deepEqual(r.issues, []); return r.svg; };
   // a fixed range leaves nothing to chance: every copy that size and turn, edge to edge
   assert.equal(svg([{ ...rock, repeat: { n: 3, scale: [0.8, 0.8], rotate: [5, 5] } }]), svg([
@@ -379,7 +419,7 @@ test('"#chest": a carried prop lands on the front of the chest; with "rotate" it
 });
 
 test('a prop "on" an "inside" anchor is centred on it and fitted to its circle', () => {
-  const r = renderPanel({ figures: [{ prop: 'bubble-thought', at: 0.5, row: 0.3 }, { prop: 'heart', on: 'bubble-thought#inside' }] }, assets);
+  const r = renderPanel({ figures: [{ prop: 'bubble-thought', at: 0.5, depth: 0.3 }, { prop: 'heart', on: 'bubble-thought#inside' }] }, assets);
   assert.deepEqual(r.issues, []);
   const bubble = assets.props.props['bubble-thought'], heart = assets.props.props.heart;
   const ins = bubble.anchors.inside;

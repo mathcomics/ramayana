@@ -15,17 +15,23 @@
       "prop": "giant-grab",
       "id": "hand",
       "at": 0.82,
-      "row": 0.32,
       "scale": 0.5,
       "rotate": -55,
-      "body": "#9a7a7a"
+      "body": "#9a7a7a",
+      "nudge": [
+        0,
+        5.135
+      ]
     },
     {
       "prop": "arrow-stuck",
       "at": 0.9,
-      "row": 0.9,
       "scale": 0.6,
-      "rotate": 150
+      "rotate": 150,
+      "nudge": [
+        0,
+        12.825
+      ]
     }
   ]
 }

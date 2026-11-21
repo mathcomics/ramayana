@@ -2,7 +2,7 @@
 
 How things are arranged in a panel. The model panel for each kind of
 scene is in `panels/layouts.md`; a composition the artist approves adds
-what it teaches here. Rows and panel heights: `docs/design/panels.md`.
+what it teaches here. Depth and panel heights: `docs/design/panels.md`.
 
 ## Chapter openers
 
@@ -33,7 +33,7 @@ action. The same opener can return when the story comes back to a place.
   name from `data/grounds.json`, e.g. `sky`) above the horizon. The
   horizon sits a little above a third of the way up (`horizon`, default
   0.37 of the panel height above the bottom edge). (05.10, 05.12)
-- Something far away stands on the horizon and is small: `row: "horizon"`
+- Something far away stands on the horizon and is small: `depth: "horizon"`
   (16 px per head-unit in a 1.5 panel; `scale` brings it nearer).
 - Distance needs nothing in between: the horizon and the size do the work.
   An empty ground with a small figure at its edge reads as "far away" and
@@ -42,7 +42,7 @@ action. The same opener can return when the story comes back to a place.
   small and far: the reader looks with the figure. (05.10)
 
 - A place far away is a small prop on the horizon with nothing else: the
-  sea and the sky are the panel (05.01: `lanka-island` on row
+  sea and the sky are the panel (05.01: `lanka-island` at depth
   `horizon` is as drawn in a 1 panel, with `palace-lanka` stood small
   on its `stand` anchor — `"on": "lanka-island#stand"`, scale 0.5).
 
@@ -53,7 +53,7 @@ action. The same opener can return when the story comes back to a place.
   works in front view and in profile — the throne drawings read front-on
   too: 05.04–05.05). Courtiers stand at different depths on
   either side: one small (further back), one bigger (nearer).
-- The throne sits a row behind the people talking in front of it (`row:
+- The throne stands behind the people talking in front of it (`depth:
   "mid"`), so it reads as the room's centre, not as one of them.
 - Watch the colours: a gold crown disappears against the gold throne back;
   check heads against what's behind them. Three thrones:
@@ -71,7 +71,8 @@ action. The same opener can return when the story comes back to a place.
   opposite corners frame it, leaving the other two corners open.
   (03.01)
 - Top-view props are drawn obliquely (roof and one wall, tree canopy above
-  its trunk); place them with a numeric `row` (the named rows mean little
+  its trunk); the panel is `"camera": "top"` and they are placed with a
+  numeric `depth`, the height up the ground (the named depths mean little
   from above).
 - People from above: `male-top` (the artist's standing man — head,
   shoulders, arms, feet), `male-top-back` (the same man seen from
@@ -86,9 +87,10 @@ action. The same opener can return when the story comes back to a place.
 - `palace-kishkindha`: the monkey city's domed palaces on their green hill,
   a zigzag stair up to the great door. A figure stands on the stair
   (its lower flight) with `on`: `"palace-kishkindha#stand"`.
-  A figure on an anchor takes the prop's row, not its scale: a big
-  mountain (prop `scale` 4) leaves the figure on it at its row's size, so
-  a figure seen from far off gets its own `scale` below 1.
+  A figure on an anchor takes the prop's depth, not its scale: a big
+  mountain (prop `scale` 4) leaves the figure on it at its depth's size,
+  so a figure on a big prop seen from far off gets its own `scale` below 1
+  (or the prop a larger depth and a larger `scale`).
 - **Rocks** (artist, 2026-11-10): rocky scenes use the plain
   rocks `rock-circle` (round boulder), `rock-square` (squat block) and
   `rock-rectangle` (long and low), often **one big with a smaller one
@@ -96,7 +98,7 @@ action. The same opener can return when the story comes back to a place.
   (`stand-left`, `stand-right` towards the ends where drawn). Scale and
   mirror them to the scene.
   - Figures up on a rock watching those below: a big rock (`rock-square`
-    at `row: "mid"`, `scale` ~4) with the watchers on its anchors at a
+    at `depth: "mid"`, `scale` ~4) with the watchers on its anchors at a
     small `scale` (0.2), the walkers large in front (07.03).
   - Sitting on a rock like a seat: `chair-armrest` standing **on the
     ground** (`at`, no `on`), with a `rock-circle` at `scale` 0.75 drawn

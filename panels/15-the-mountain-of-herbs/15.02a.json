@@ -8,52 +8,73 @@
       "pose": "bend-bowdraw",
       "facing": "right",
       "at": 0.45,
-      "row": 0.75,
       "scale": 0.3,
-      "rotate": 30
+      "rotate": 30,
+      "nudge": [
+        0,
+        21.229
+      ]
     },
     {
       "prop": "cloud-big",
       "at": 0.25,
-      "row": 0.62,
-      "scale": 0.35
+      "scale": 0.35,
+      "nudge": [
+        0,
+        14.913
+      ]
     },
     {
       "prop": "cloud-big",
       "at": 0.65,
-      "row": 0.42,
-      "scale": 0.35
+      "scale": 0.35,
+      "nudge": [
+        0,
+        9.861
+      ]
     },
     {
       "character": "monkey1",
       "pose": "leanback-search",
       "facing": "left",
-      "row": 0,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        -0.654
+      ]
     },
     {
       "character": "lakshman",
       "pose": "arch-bowhigh",
       "facing": "left",
       "at": 0.3,
-      "row": 0,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        -0.654
+      ]
     },
     {
       "character": "monkey1",
       "pose": "leanback-longpoint",
       "facing": "right",
       "at": 0.65,
-      "row": 0,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        -0.654
+      ]
     },
     {
       "character": "rama",
       "pose": "arch-bowhigh",
       "facing": "right",
       "at": 0.9,
-      "row": 0,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        -0.654
+      ]
     }
   ]
 }

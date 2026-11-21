@@ -8,20 +8,20 @@
       "prop": "stag-stand",
       "body": "gold",
       "at": 0.78,
-      "row": "horizon",
+      "depth": "horizon",
       "facing": "left"
     },
     {
       "character": "sita",
       "pose": "step-hang",
       "at": 0.2,
-      "scale": 1.5,
+      "scale": 0.8958,
       "turn": -90,
       "mouth": 2,
       "adjust": {
         "spine.head": 8
       },
-      "row": -0.2
+      "depth": -0.5405
     }
   ]
 }

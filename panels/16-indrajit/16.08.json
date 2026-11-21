@@ -6,7 +6,7 @@
     {
       "prop": "fire",
       "at": 0.74,
-      "row": "back",
+      "depth": "back",
       "scale": 1.4
     },
     {
@@ -14,7 +14,7 @@
       "pose": "kneel-handslow",
       "facing": "right",
       "at": 0.66,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "lakshman",
@@ -39,7 +39,7 @@
     {
       "prop": "city-side",
       "at": -0.02,
-      "row": "floor",
+      "depth": "floor",
       "scale": 2.2
     }
   ],

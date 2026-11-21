@@ -7,32 +7,44 @@
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "at": 0.15,
-      "row": 0.3,
       "mouth": 2,
       "adjust": {
         "spine.head": 14
       },
       "view": "front",
       "rotate": 20,
-      "turn": 90
+      "turn": 90,
+      "nudge": [
+        0,
+        2.39
+      ]
     },
     {
       "character": "sita",
       "pose": "crawl-onhands",
       "facing": "right",
       "at": 0.23,
-      "row": 0.48,
-      "mouth": 3
+      "mouth": 3,
+      "nudge": [
+        0,
+        3.982
+      ]
     },
     {
       "prop": "pole",
       "at": 0.43,
-      "row": 0.3
+      "nudge": [
+        0,
+        2.39
+      ]
     },
     {
       "prop": "bag",
       "at": 0.43,
-      "row": 0.19
+      "nudge": [
+        0,
+        1.418
+      ]
     }
   ],
   "needs": [

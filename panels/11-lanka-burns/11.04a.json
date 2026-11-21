@@ -6,12 +6,12 @@
     {
       "prop": "trees-side",
       "at": 0.9,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "tree-side",
       "at": 0.2,
-      "row": "front",
+      "depth": "front",
       "nudge": [
         0,
         -1
@@ -23,7 +23,7 @@
       "pose": "leapup-hang",
       "facing": "left",
       "at": 0.55,
-      "row": "mid",
+      "depth": "mid",
       "nudge": [
         0,
         5

@@ -16,7 +16,7 @@
       "prop": "steps",
       "id": "steps",
       "at": 0.5,
-      "row": "mid",
+      "depth": "mid",
       "scale": 1.6,
       "body": "#222222"
     },

@@ -8,20 +8,29 @@
       "id": "tower",
       "at": 0.12,
       "scale": 4,
-      "row": -0.1
+      "nudge": [
+        0,
+        -0.286
+      ]
     },
     {
       "prop": "fire",
       "rotate": 30,
       "scale": 4,
       "at": 0.12,
-      "row": 0
+      "nudge": [
+        0,
+        -0.065
+      ]
     },
     {
       "prop": "fire",
       "at": 0.1,
-      "row": 0.82,
-      "scale": 2
+      "scale": 2,
+      "nudge": [
+        0,
+        3.494
+      ]
     },
     {
       "foreground": 0.05,
@@ -44,9 +53,9 @@
       "pose": "run-pump",
       "at": 0.66,
       "on": "foreground",
-      "scale": 0.36,
       "cloth": "red-diamond",
-      "facing": "right"
+      "facing": "right",
+      "depth": 0.6688
     },
     {
       "character": "raxas_f1",
@@ -54,10 +63,10 @@
       "facing": "right",
       "at": 0.86,
       "on": "foreground",
-      "scale": 0.36,
       "cloth": "red-check",
       "mouth": 3,
-      "turn": 180
+      "turn": 180,
+      "depth": 0.6688
     }
   ]
 }

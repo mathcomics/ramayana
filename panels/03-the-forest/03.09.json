@@ -8,14 +8,14 @@
       "id": "hut",
       "prop": "hut-side",
       "at": 0.85,
-      "row": "back",
+      "depth": "back",
       "scale": 0.5706
     },
     {
       "id": "trees-far",
       "prop": "trees-side",
       "at": 0.86,
-      "row": "back",
+      "depth": "back",
       "scale": 1.7994
     },
     {
@@ -23,7 +23,7 @@
       "pose": "kneel-palms",
       "facing": "right",
       "at": 0.32,
-      "row": "back",
+      "depth": "back",
       "nudge": [
         0,
         -0.4
@@ -34,19 +34,19 @@
       "pose": "step-akimbo",
       "facing": "left",
       "at": 0.55,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "deer-stand",
       "facing": "left",
       "at": 0.44,
-      "row": "back",
+      "depth": "back",
       "scale": 0.9258
     },
     {
       "prop": "tree-trunk",
       "at": -0.04,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

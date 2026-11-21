@@ -6,37 +6,52 @@
     {
       "prop": "flower-yellow",
       "at": 0.2,
-      "row": 0.47,
-      "scale": 0.4
+      "scale": 0.4,
+      "nudge": [
+        0,
+        9.733
+      ]
     },
     {
       "prop": "flower-white",
       "at": 0.34,
-      "row": 0.5,
       "scale": 0.4,
       "repeat": {
         "n": 4
-      }
+      },
+      "nudge": [
+        0,
+        10.397
+      ]
     },
     {
       "prop": "flower-yellow",
       "at": 0.62,
-      "row": 0.5,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        8.317
+      ]
     },
     {
       "prop": "flower-pink",
       "at": 0.76,
-      "row": 0.44,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        7.256
+      ]
     },
     {
       "character": "hanuman",
       "pose": "bend-onhands",
       "facing": "right",
       "at": 0.47,
-      "row": 0.5,
-      "scale": 0.35
+      "scale": 0.35,
+      "nudge": [
+        0,
+        11.882
+      ]
     },
     {
       "prop": "rock-square",
@@ -48,14 +63,14 @@
         0.4
       ],
       "rotate": 150,
-      "row": "closeup",
+      "depth": "closeup",
       "body": "#5a5f7a"
     },
     {
       "prop": "flower-white",
       "at": 0.76,
-      "row": 0.04,
-      "scale": 0.5,
+      "depth": 0.1081,
+      "scale": 0.5158,
       "repeat": {
         "n": 9
       }
@@ -63,11 +78,14 @@
     {
       "prop": "flower-white",
       "at": 0.5,
-      "row": -0.04,
       "scale": 0.5,
       "repeat": {
         "n": 7
-      }
+      },
+      "nudge": [
+        0,
+        -1.231
+      ]
     }
   ],
   "needs": [

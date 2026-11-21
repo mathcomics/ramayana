@@ -8,17 +8,23 @@
       "at": 0.4,
       "scale": 0.6,
       "rotate": 180,
-      "row": 0.45
+      "nudge": [
+        0,
+        6.194
+      ]
     },
     {
       "character": "ravana",
       "pose": "stepwide-swordcarry",
       "at": 0.48,
       "mouth": 2,
-      "row": 0.6,
       "scale": 0.5,
       "rotate": 20,
-      "view": "front"
+      "view": "front",
+      "nudge": [
+        0,
+        10.085
+      ]
     },
     {
       "character": "sita",
@@ -26,8 +32,11 @@
       "facing": "right",
       "at": 0.55,
       "mouth": 3,
-      "row": 0.69,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        11.677
+      ]
     }
   ]
 }

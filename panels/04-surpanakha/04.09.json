@@ -8,22 +8,28 @@
       "pose": "oneleg-armface",
       "facing": "left",
       "at": 0.5,
-      "row": "closeup",
+      "depth": "closeup",
       "mouth": 2
     },
     {
       "prop": "rock-circle",
       "at": 0.35,
-      "row": 0.15,
       "scale": 0.1,
-      "body": "#ff0000"
+      "body": "#ff0000",
+      "nudge": [
+        0,
+        10.644
+      ]
     },
     {
       "prop": "rock-circle",
       "at": 0.35,
-      "row": 0.05,
       "scale": 0.1,
-      "body": "#ff0000"
+      "body": "#ff0000",
+      "nudge": [
+        0,
+        1.803
+      ]
     }
   ]
 }

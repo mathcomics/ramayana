@@ -7,7 +7,7 @@
     {
       "prop": "lanka-island",
       "at": 0.6,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 4
     },
     {

@@ -18,8 +18,11 @@
     {
       "prop": "branch",
       "at": 0.75,
-      "row": 0.8,
-      "scale": 1.2
+      "scale": 1.2,
+      "nudge": [
+        0,
+        5.676
+      ]
     },
     {
       "character": "hanuman",

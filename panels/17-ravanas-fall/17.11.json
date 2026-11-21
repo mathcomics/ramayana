@@ -8,9 +8,12 @@
       "prop": "head-alone",
       "id": "h1",
       "at": 0.45,
-      "row": 0.35,
       "rotate": -30,
-      "scale": 2.4
+      "scale": 2.4,
+      "nudge": [
+        0,
+        1.18
+      ]
     },
     {
       "character": "ravana",
@@ -22,9 +25,12 @@
     {
       "prop": "arrow-stuck",
       "at": 0.72,
-      "row": 0.45,
       "scale": 1.8,
-      "rotate": -10
+      "rotate": -10,
+      "nudge": [
+        0,
+        2.065
+      ]
     }
   ]
 }

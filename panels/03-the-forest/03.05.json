@@ -7,7 +7,7 @@
       "prop": "stag-stand",
       "id": "deer1",
       "at": 0.56,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "rama",

@@ -8,7 +8,7 @@
       "pose": "step-point",
       "facing": "right",
       "at": 0.1,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "surpanakha",
@@ -16,7 +16,7 @@
       "at": 0.47,
       "mouth": 2,
       "turn": 90,
-      "row": "closeup",
+      "depth": "closeup",
       "view": "front"
     },
     {
@@ -24,7 +24,7 @@
       "pose": "step-point",
       "facing": "left",
       "at": 0.85,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

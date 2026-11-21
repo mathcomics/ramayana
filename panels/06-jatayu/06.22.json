@@ -18,14 +18,14 @@
     {
       "prop": "flower-white",
       "at": 0.9,
-      "row": "front",
+      "depth": "front",
       "facing": "left"
     },
     {
       "prop": "flower-white",
       "facing": "left",
       "at": 0.95,
-      "row": "front",
+      "depth": "front",
       "scale": 1.2
     }
   ]

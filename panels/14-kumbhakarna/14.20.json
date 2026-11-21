@@ -7,17 +7,20 @@
       "id": "fist",
       "prop": "giant-fist",
       "at": 0.45,
-      "row": 0.1,
-      "scale": 0.7,
+      "depth": 0.2703,
+      "scale": 0.8826,
       "body": "#9a7a7a",
       "rotate": 80
     },
     {
       "prop": "arrow-stuck",
       "at": 0.15,
-      "row": 0.75,
       "scale": 1.2,
-      "rotate": 20
+      "rotate": 20,
+      "nudge": [
+        0,
+        5.307
+      ]
     }
   ],
   "mode": "negative"

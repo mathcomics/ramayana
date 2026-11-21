@@ -31,14 +31,14 @@
         0,
         -0.4
       ],
-      "scale": 1
+      "depth": 0.08
     },
     {
       "id": "rock2",
       "prop": "rock-square",
       "at": 0.6,
-      "row": 0.05,
-      "scale": 0.7,
+      "depth": 0.5,
+      "scale": 1.288,
       "rotate": -10
     },
     {

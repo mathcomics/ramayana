@@ -13,8 +13,11 @@
     {
       "prop": "pole",
       "at": 0.62,
-      "row": 0.5,
-      "rotate": -10
+      "rotate": -10,
+      "nudge": [
+        0,
+        4.159
+      ]
     },
     {
       "character": "lakshman",
@@ -25,13 +28,16 @@
     {
       "prop": "rock-circle",
       "at": 0.9,
-      "row": 0.55,
       "scale": 0.05,
       "body": "#ff2222",
       "repeat": {
         "gap": 1,
         "n": 3
-      }
+      },
+      "nudge": [
+        0,
+        92.013
+      ]
     }
   ]
 }

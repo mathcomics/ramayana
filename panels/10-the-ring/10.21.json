@@ -6,10 +6,10 @@
     {
       "prop": "rock-square",
       "at": 0.8,
-      "row": "mid"
+      "depth": "mid"
     },
     {
-      "row": "mid",
+      "depth": "mid",
       "scale": 1.5,
       "facing": "left",
       "character": "ravana",

@@ -8,21 +8,21 @@
       "pose": "step-swing",
       "facing": "left",
       "at": 0.82,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "hanuman",
       "pose": "step-swing",
       "facing": "right",
       "at": 0.22,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "sugriva",
       "pose": "step-pointup",
       "facing": "right",
       "at": 0.4,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

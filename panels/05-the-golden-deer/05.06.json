@@ -9,27 +9,31 @@
       "facing": "left",
       "mouth": 2,
       "pose": "step-hang",
-      "row": -0.1
+      "depth": -0.2703,
+      "scale": 0.7242
     },
     {
       "prop": "throne-lanka",
       "at": 0.58,
-      "row": -0.1,
-      "facing": "left"
+      "depth": -0.2703,
+      "facing": "left",
+      "scale": 0.7242
     },
     {
       "character": "ravana",
       "pose": "chair-armrest",
       "on": "throne-lanka",
       "turn": 90,
-      "view": "front"
+      "view": "front",
+      "scale": 0.7242
     },
     {
       "character": "surpanakha",
       "pose": "walk-armsup",
       "facing": "right",
       "at": 0.16,
-      "row": -0.1
+      "depth": -0.2703,
+      "scale": 0.7242
     }
   ]
 }

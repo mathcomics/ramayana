@@ -9,14 +9,20 @@
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.55,
-      "row": 0.15
+      "nudge": [
+        0,
+        1.064
+      ]
     },
     {
       "prop": "arrow-stuck",
       "at": 0.6,
-      "row": 0.32,
       "scale": 1.4,
-      "rotate": -45
+      "rotate": -45,
+      "nudge": [
+        0,
+        1.834
+      ]
     }
   ],
   "needs": [

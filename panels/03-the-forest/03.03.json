@@ -7,7 +7,7 @@
       "prop": "trees-side",
       "id": "trees-far",
       "at": 0.86,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 2.5
     },
     {
@@ -15,7 +15,7 @@
       "pose": "run-pump",
       "facing": "right",
       "at": 0.32,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 2
     },
     {
@@ -23,7 +23,7 @@
       "pose": "runwide-point",
       "facing": "right",
       "at": 0.52,
-      "row": "horizon",
+      "depth": "horizon",
       "rotate": -20,
       "scale": 2
     },
@@ -32,13 +32,13 @@
       "pose": "run-armsup",
       "facing": "right",
       "at": 0.62,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 2
     },
     {
       "prop": "stag-run",
       "at": 0.85,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 2
     }
   ],

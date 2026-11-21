@@ -7,7 +7,7 @@
       "character": "rama",
       "pose": "stepwide-bowhigh",
       "facing": "right",
-      "row": "closeup",
+      "depth": "closeup",
       "mouth": 3
     }
   ]

@@ -7,13 +7,13 @@
       "id": "trees-far",
       "prop": "trees-side",
       "at": 0.86,
-      "row": "back",
+      "depth": "back",
       "scale": 1.7994
     },
     {
       "prop": "city-side",
       "at": 0.04,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 4
     },
     {
@@ -21,7 +21,7 @@
       "pose": "leanfront-search",
       "facing": "right",
       "at": 0.45,
-      "row": "back"
+      "depth": "back"
     }
   ]
 }

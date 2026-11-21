@@ -19,13 +19,16 @@
       "character": "monkey1",
       "pose": "kneeup-pointup",
       "at": 0.1,
-      "row": 0.4,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        6.549
+      ]
     },
     {
       "prop": "rock-square",
       "at": 0.3,
-      "row": "closeup",
+      "depth": "closeup",
       "nudge": [
         0,
         0.5

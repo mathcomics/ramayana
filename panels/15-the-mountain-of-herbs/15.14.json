@@ -7,9 +7,12 @@
       "prop": "rock-circle",
       "id": "moon",
       "at": 0.56,
-      "row": 0.3,
       "scale": 3.4,
-      "body": "#f3efd6"
+      "body": "#f3efd6",
+      "nudge": [
+        0,
+        0.703
+      ]
     },
     {
       "prop": "rock-triangle",
@@ -23,8 +26,11 @@
       "pose": "fallfront-dive",
       "facing": "right",
       "at": 0.4,
-      "row": 0.4,
-      "scale": 0.22
+      "scale": 0.22,
+      "nudge": [
+        0,
+        14.884
+      ]
     }
   ]
 }

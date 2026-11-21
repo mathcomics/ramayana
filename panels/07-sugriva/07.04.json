@@ -8,13 +8,13 @@
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.3,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "facing": "right",
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "foreground": [

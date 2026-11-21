@@ -13,14 +13,14 @@
         0,
         -1
       ],
-      "scale": 0.65
+      "depth": 0.402
     },
     {
       "character": "sita",
       "pose": "bend-armsout",
       "at": 0.35,
       "on": "foreground",
-      "scale": 0.8
+      "depth": 0.264
     },
     {
       "character": "rama",
@@ -38,8 +38,8 @@
     {
       "prop": "flower-droop",
       "at": 0.5,
-      "row": 0.16,
-      "scale": 0.5
+      "depth": 0.4324,
+      "scale": 0.8104
     },
     {
       "prop": "flower-yellow",
@@ -48,7 +48,7 @@
       "repeat": {
         "n": 3
       },
-      "row": "floor"
+      "depth": "floor"
     }
   ]
 }

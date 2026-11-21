@@ -14,7 +14,7 @@
       "prop": "city-gap",
       "at": 0.5,
       "scale": 4,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

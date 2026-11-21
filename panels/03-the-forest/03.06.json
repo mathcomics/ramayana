@@ -7,12 +7,12 @@
       "id": "rock",
       "prop": "rock-circle",
       "at": 0.74,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "prop": "rock-circle",
       "at": 0.44,
-      "row": "mid",
+      "depth": "mid",
       "scale": 0.5
     },
     {
@@ -25,7 +25,7 @@
       "pose": "step-hang",
       "facing": "right",
       "at": 0.3,
-      "row": "mid",
+      "depth": "mid",
       "scale": 0.7,
       "adjust": {
         "spine.head": -25
@@ -36,7 +36,7 @@
       "pose": "step-hang",
       "facing": "right",
       "at": 0.4,
-      "row": "mid",
+      "depth": "mid",
       "scale": 0.7,
       "mouth": 2,
       "adjust": {
@@ -48,7 +48,7 @@
       "pose": "step-armsup",
       "facing": "right",
       "at": 0.5,
-      "row": "mid",
+      "depth": "mid",
       "scale": 0.7,
       "mouth": 2,
       "adjust": {

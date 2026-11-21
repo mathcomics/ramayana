@@ -9,7 +9,7 @@
       "pose": "crouch-cross",
       "facing": "right",
       "at": 0.58,
-      "row": "floor"
+      "depth": "floor"
     }
   ]
 }

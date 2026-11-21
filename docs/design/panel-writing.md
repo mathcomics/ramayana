@@ -42,9 +42,12 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   tried for 04.11–04.17 and read too small while scrolling (artist,
   2026-11-12) — a run of fast action is a run of 0.6 strips, figures
   overlapping as they must.
-- **Row**: `front` by default, `mid` and `back` for depth; `closeup` for
-  close (a standing figure from about the waist up); a number for
-  anything in the air or seen from above (`panels.md`, Rows).
+- **Depth**: how far away, which sets the size: `front` by default,
+  `mid`, `back` or a number between for distance; `closeup` for close (a
+  standing figure from about the waist up). Anything in the air stands at
+  the depth of the ground under it and is lifted with `nudge`; a top view
+  is `"camera": "top"` with numeric depths up the ground (`panels.md`,
+  Depth).
 - **Backgrounds are light** (artist, 2026-11-08): `off-white` (light
   beige), `light-grey`, even `white`. Green grounds only for top views
   (03.01) and the land strip under a `sky` horizon (05.12's dry-grass);
@@ -55,7 +58,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   pose goes in `needs` as `pose: <wanted name> (...): <stand-in> for now`.
 - **Props**: use the drawn ones (`panels.md`, Props). Placeholders stay
   boxes and get a `needs` entry `prop: ...`.
-- **Distance**: something far away goes on the horizon (`sky`, row
+- **Distance**: something far away goes on the horizon (`sky`, depth
   `horizon`), small, with nothing in between.
 - **Seated** on a throne: `on: "throne"` with a sitting pose, never
   standing in front of it.
@@ -65,7 +68,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Establish a new place and its key figure as a sequence, not one
   panel** (artist, 2026-11-07, chapter 05): location from far; the figure
   in their place, far (a king on his throne, front view); the same
-  closer (step the rows to `closeup`); the arriving character near the
+  closer (step the depth to `closeup`); the arriving character near the
   viewer, waist up, facing them; then the exchange in 2–3 more panels
   (gesture, reaction, decision). The old single panel crammed arrival,
   complaint and rage into one image.
@@ -118,10 +121,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   2026-11-08, 09.03): a search party *sets off walking*; running and
   leaping poses read as panic (11.25's rout). Walk/pass poses and quiet
   mouths unless something is chasing or burning.
-- **Rows are the zoom**: consecutive panels step from `front` to
+- **Depth is the zoom**: consecutive panels step from `front` to
   `closeup` like a camera move (05.04 → 05.05). In a closeup, the second
   party of a dialogue stands lower and smaller behind for depth (05.06:
-  Ravana's throne on a negative numeric row); at the same size the two
+  Ravana's throne at a negative depth, below the frame); at the same size the two
   kill the depth.
 - **Aim the gazes**: `spine.head` adjust, + looks down, − looks up. A
   kneeling figure looks up at the one standing over them (05.08); seated
@@ -152,7 +155,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **0.6 strips for reactions and partial views**: `closeup` in a 0.6
   panel gives waist-up figures that fill the strip (05.11, 05.13); use
   them often.
-- **A chase is one distance**: put the chaser on the horizon row with the
+- **A chase is one distance**: put the chaser at depth `horizon` with the
   chased (05.11), not big in front running parallel to a far-off quarry.
 - **No far props in a `closeup` strip**: a prop behind closeup figures
   shows only in part — the Ayodhya throne reduced to its red disc, a
@@ -164,13 +167,13 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   sinks below the crop (10.16 rework). A close seated figure is `front`
   with a `scale` (10.16: 2.2) — the whole seated body fills the strip,
   still grounded.
-- **A foreground band stands on `row: "floor"`** (artist, 2026-11-08,
-  03.02): a foreground strip of ground (after the figures in the list)
-  on the front row leaves a 3%-of-panel gap below it; `floor` is the
-  panel's bottom edge at the front row's scale, flush whatever the rows
-  do (a hand-tuned negative `lift`, now `nudge`, broke when the rows changed). And
+- **A foreground prop strip stands on `depth: "floor"`** (artist,
+  2026-11-08, 03.02): a strip of ground drawn as a prop (after the figures
+  in the list) at `front` leaves a 3%-of-panel gap below it; `floor` is
+  the panel's bottom edge at front size, flush whatever the depths do (a
+  hand-tuned negative `lift`, now `nudge`, broke when the row sizes changed). And
   figures behind a rising band don't need
-  per-figure vertical `nudge`s: full-size on the front row, the band's own slope
+  per-figure vertical `nudge`s: `on` the band, the band's own slope
   staggers how deep each one sinks (the farther, the deeper). Walkers
   toward the reader (`view: front`) read larger and more alive there than
   small profile walkers (shrinking them all cut them down).
@@ -181,11 +184,11 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   log standing in the clearing. Put it half off the edge (`at` 0 or
   below) so it frames without hiding the figures; two, one mirrored, make
   a window onto something seen through the trees (06.19). With
-  `trees-side` on the `back` row behind and a `foreground` band before
+  `trees-side` at depth `back` behind and a `foreground` band before
   the figures it gives a forest in three depths (06.19).
 
-- **The throne goes in the `mid` row**, a row behind the people in front:
-  in the front row it is as tall as the men and runs off the edge.
+- **The throne goes at depth `mid`**, behind the people in front: at
+  `front` it is as tall as the men and runs off the edge.
 - **A figure in the air needs its legs closed and its toes pointed**
   (06.03–06.09): `step-hang` lifted off the ground is a man *walking on
   nothing*, because the base is a stride. Bring the legs together and
@@ -212,25 +215,25 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   view, at Sita's head height) lay over her face: lower the arm to cross
   her body below the chin and give the faces room (Sita `at` 0.45 → 0.5).
   Check every face against the limbs drawn after it.
-- **Size by `row`, not `scale`** (artist, 2026-11-16): distance and size
-  come from the row (a named row or a number); `scale` is for the unusual
+- **Size by `depth`, not `scale`** (artist, 2026-11-16): distance and size
+  come from the depth (a name or a number); `scale` is for the unusual
   case where the right thing to do is unclear (a giant, a figure in a
   close strip, a prop seen from far off). A panel full of `scale` values
-  is a sign the rows are wrong. A prop that always needs the same `scale`
+  is a sign the depths are wrong. A prop that always needs the same `scale`
   gets its true size in the drawing instead (`data-height`, as `steps`,
   `hut-top`, `trees-top`).
-- **Figures `on` a prop's anchor take the prop's row, not its scale**
-  (2026-11-13): a prop's `scale` says *this* rock or ladder is bigger, not
+- **Figures `on` a prop's anchor take the prop's depth, not its scale**
+  (2026-11-13; the language does it): a prop's `scale` says *this* rock or ladder is bigger, not
   that it is nearer, so it leaves the people on it alone — resizing a rock
   in the lab no longer resizes its sitters (10.16's Sita was half-size
   because her rock was). For people on a prop seen from a distance, give
   the figures their own `scale` (06.12's monkeys at 0.25 on a rock at 2.5).
   A `face` anchor still takes the prop's size: the head is part of the burst.
 - **Carried things go `on` the carrier** (2026-11-13): `"on": "hanuman#hands"`
-  (also `#hand-right`, `#hand-left`, `#head`, `#shoulder`), not an `at`/`row`
+  (also `#hand-right`, `#hand-left`, `#head`, `#shoulder`), not an `at`/`depth`
   lined up by eye — it then follows the pose. List the rock before the
   lifter so his hands are in front of it (12.20). A carried prop
-  is sized by the carrier's **row**, not the carrier's `scale`: when the
+  is sized by the carrier's **depth**, not the carrier's `scale`: when the
   figure is scaled up in a close strip, scale the prop up with it, or it
   shrinks to a speck. The ring (drawn to the giant fist's scale, 2026-11-16)
   is placed at `scale` 2 beside the giant hands at 0.62 (09.02a) and in the
@@ -238,11 +241,11 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   figure on a prop's `stand` anchor (`"on": "branch#stand"`, 10.16) stands
   where the drawing says, with no `nudge` to tune.
 - **Seated figures in a 0.6 strip** stay at `scale` 1.6–1.7 on the
-  `front` row: at 2 and above the head leaves the top (10.29–10.33).
+  at depth `front`: at 2 and above the head leaves the top (10.29–10.33).
 - **Whatever stands on something touches it** (artist, 2026-11-17,
   12.19–12.22): the commonest reason a panel of chapters 11–14 failed
   was not the idea but a thing beside, under or behind what it should be
-  on. From above, a monkey on a stone has the stone's `at` and a `row`
+  on. From above, a monkey on a stone has the stone's `at` and a `depth`
   just over the stone's, and the stone is bigger than the monkey
   (`scale` 0.8); a line of stones runs on **off the far edge**, not to
   a stop in mid-water; the surf (`wave-top`) breaks in a **gap between
@@ -260,17 +263,18 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   picture; and the stones of a receding line touch, each a little
   smaller and higher than the last.
 - **A line of receding stones carries a receding line of people**
-  (artist, 2026-11-19, 12.26): a figure on each stone, scaled with its
-  stone (`scale` ≈ 0.875 × the stone's), in a narrow stance (`step`)
-  so the feet stay on the stone's visible top, listed far to near.
+  (artist, 2026-11-19, 12.26): a figure `on` each stone takes the stone's
+  depth, so it shrinks with it; a narrow stance (`step`) keeps the feet
+  on the stone's visible top; listed far to near. A new line is one
+  entry: `repeat` with `to` (`panels.md`, Props).
 - **A head alone is `head-alone`** (2026-11-19): an empty prop with one
   full-size `face` anchor — `{ "prop": "head-alone", "id": "h1", … }`
   then `{ "character": "ravana", "pose": "stand-hang", "on": "h1#face" }`;
-  place it with `at`/`row`/`scale`/`rotate`. A cut-off head flying or
+  place it with `at`/`depth`/`scale`/`rotate`. A cut-off head flying or
   on the ground, a head growing back, more heads (17.11–17.18). The body
   can't lose its own head: frame it out instead — the figure scaled up
   until the top edge cuts it at the shoulders (17.12: `scale` 2.35,
-  `row` −0.2 in a 0.6 strip). A `nudge` does not do it.
+  pushed down below the bottom edge in a 0.6 strip). A `nudge` does not do it.
 - **A body lying dead**: `liefront-armsdown` with the legs straightened
   (`adjust` `right.leg.hip`, `knee`, `left.leg.hip`, `knee` all 0) and
   `rotate` −15 facing right to lie level (17.01–17.03); the base alone
@@ -303,8 +307,9 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   a tree, 0.6–0.8 in the air beside a flying figure.
 - **Colour clashes**: a gold crown vanishes against the gold throne back;
   check heads against what's behind them.
-- **Top views** place props with a numeric `row` (named rows mean little
-  from above): the height on the ground is the distance.
+- **Top views** are `"camera": "top"`, props placed with a numeric
+  `depth` (named depths mean little from above): the height on the
+  ground is the distance, and nothing shrinks.
 - **Read back, then render and look**: `node tools/describe-panel.mjs NN
   --problems` first — every `!` is fixed or knowingly kept (a figure hidden
   in a cloud on purpose), every `?` checked (`panels.md`, Reading a panel
@@ -346,7 +351,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   (artist, 2026-11-14). Each drawing's `data-height` puts it on one
   giant, with `giant-grab` as the reference (it is the size the locked
   14.14 uses) and the others matched to it by forearm and hand. Place
-  them by row (`front` mostly, `closeup` for a close face), with the
+  them by depth (`front` mostly, `closeup` for a close face), with the
   rakshasas and monkeys beside them at their own size too: a man is
   about as tall as the giant's head. When a part reads too small, its
   drawing grows (`giant-fist`: `data-height` 5 → 7 and a line as thick

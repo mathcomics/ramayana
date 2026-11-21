@@ -6,31 +6,41 @@
     {
       "prop": "giant-fist",
       "at": 0.1,
-      "row": 0.3,
-      "scale": 1.3
+      "scale": 1.3,
+      "nudge": [
+        0,
+        1.839
+      ]
     },
     {
       "character": "monkey1",
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.8,
-      "row": 0.48
+      "nudge": [
+        0,
+        3.982
+      ]
     },
     {
       "character": "monkey1",
       "pose": "liefront-reachup",
       "facing": "right",
       "at": 0.8,
-      "row": -0.13,
-      "rotate": 30
+      "depth": -0.3514,
+      "rotate": 30,
+      "scale": 0.6808
     },
     {
       "character": "monkey1",
       "pose": "leapup-reachup",
       "facing": "left",
       "at": 0.85,
-      "row": 0.72,
-      "rotate": 30
+      "rotate": 30,
+      "nudge": [
+        0,
+        6.104
+      ]
     }
   ]
 }

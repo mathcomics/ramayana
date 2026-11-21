@@ -7,7 +7,7 @@
       "prop": "vulture-fall",
       "facing": "right",
       "at": 0.1,
-      "row": "closeup",
+      "depth": "closeup",
       "nudge": [0, 2]
     },
     {
@@ -15,23 +15,26 @@
       "pose": "stepwide-swordcarry",
       "view": "front",
       "at": 0.79,
-      "row": 0.1,
+      "depth": 0.2703,
       "mouth": 2,
       "adjust": {
         "spine.head": 14
       },
       "rotate": 20,
-      "turn": 90
+      "turn": 90,
+      "scale": 1.2608
     },
     {
       "character": "sita",
       "pose": "crawl-onhands",
       "facing": "right",
       "at": 0.84,
-      "row": 0.28,
-      "scale": 1,
       "mouth": 3,
-      "turn": 120
+      "turn": 120,
+      "nudge": [
+        0,
+        2.214
+      ]
     }
   ],
   "needs": [

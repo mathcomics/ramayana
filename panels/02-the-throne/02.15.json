@@ -8,21 +8,21 @@
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.8,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "sita",
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.5,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "rama",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.3,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ],
   "needs": [

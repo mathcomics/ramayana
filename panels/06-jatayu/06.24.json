@@ -8,7 +8,7 @@
       "prop": "trees-side",
       "id": "trees-left",
       "at": 0.1,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 1.4
     },
     {
@@ -16,20 +16,20 @@
       "pose": "crouch-hang",
       "facing": "right",
       "at": 0.6,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "character": "rama",
       "pose": "step-point",
       "facing": "right",
       "at": 0.86,
-      "row": "horizon",
+      "depth": "horizon",
       "mouth": 3
     },
     {
       "prop": "vulture-wing",
       "at": 0.7,
-      "row": "horizon",
+      "depth": "horizon",
       "scale": 0.7,
       "nudge": [
         0,

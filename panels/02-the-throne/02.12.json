@@ -6,7 +6,7 @@
     {
       "prop": "palace-ayodhya",
       "at": 0.55,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "rama",

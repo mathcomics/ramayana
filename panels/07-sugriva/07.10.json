@@ -8,7 +8,7 @@
     {
       "prop": "palace-kishkindha",
       "at": 0.85,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "rock-rectangle",

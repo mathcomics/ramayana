@@ -6,16 +6,22 @@
     {
       "prop": "arrow-stuck",
       "at": 0.42,
-      "row": 0.4,
       "scale": 1.6,
-      "rotate": -45
+      "rotate": -45,
+      "nudge": [
+        0,
+        2.047
+      ]
     },
     {
       "prop": "arrow-stuck",
       "at": 0.58,
-      "row": 0.4,
       "scale": 1.6,
-      "rotate": 135
+      "rotate": 135,
+      "nudge": [
+        0,
+        2.047
+      ]
     }
   ]
 }

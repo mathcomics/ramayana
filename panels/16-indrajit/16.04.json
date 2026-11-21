@@ -6,10 +6,9 @@
     {
       "prop": "vine",
       "at": 0.85,
-      "row": -0.5,
       "nudge": [
         -0.1,
-        1
+        0.064
       ],
       "scale": 5,
       "body": "#000000",
@@ -20,13 +19,16 @@
       "pose": "step-palms",
       "facing": "right",
       "at": 0.4,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "prop": "fire",
       "at": 0.85,
-      "row": -0.05,
-      "scale": 3.2
+      "scale": 3.2,
+      "nudge": [
+        0,
+        -0.22
+      ]
     }
   ]
 }

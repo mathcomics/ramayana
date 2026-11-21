@@ -7,7 +7,10 @@
       "prop": "pole",
       "at": 0.4,
       "rotate": 180,
-      "row": 0.2
+      "nudge": [
+        0,
+        1.506
+      ]
     },
     {
       "prop": "rock-triangle",
@@ -21,8 +24,11 @@
       "pose": "fallfront-dive",
       "facing": "right",
       "at": 0.4,
-      "row": 0.4,
-      "scale": 0.22
+      "scale": 0.22,
+      "nudge": [
+        0,
+        14.884
+      ]
     }
   ]
 }

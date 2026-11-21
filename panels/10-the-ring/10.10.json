@@ -8,8 +8,11 @@
       "id": "roof-far",
       "at": 0.85,
       "scale": 2.5,
-      "row": 0.2,
-      "color": "#222222"
+      "color": "#222222",
+      "nudge": [
+        0,
+        0.603
+      ]
     },
     {
       "character": "hanuman",
@@ -23,14 +26,20 @@
       "id": "roof-mid",
       "at": 0.3,
       "scale": 4,
-      "row": -0.08
+      "nudge": [
+        0,
+        -0.242
+      ]
     },
     {
       "prop": "city-roof",
       "id": "roof-near",
       "at": 0.82,
       "scale": 7,
-      "row": -0.45
+      "nudge": [
+        0,
+        -0.606
+      ]
     }
   ]
 }

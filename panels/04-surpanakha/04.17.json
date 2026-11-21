@@ -19,7 +19,8 @@
       "facing": "left",
       "at": 0.38,
       "cloth": "red-check",
-      "row": 0.12
+      "depth": 0.3243,
+      "scale": 1.3616
     },
     {
       "character": "raxas_m2",

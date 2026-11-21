@@ -12,7 +12,7 @@
       "adjust": {
         "spine.head": -15
       },
-      "row": "closeup"
+      "depth": "closeup"
     }
   ],
   "tags": ["closeup"]

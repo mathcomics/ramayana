@@ -6,28 +6,28 @@
     {
       "prop": "trees-side",
       "at": 0.84,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "lakshman",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.2,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "sita",
       "pose": "pass-swing",
       "facing": "right",
       "at": 0.4,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "rama",
       "pose": "walk-swing",
       "facing": "right",
       "at": 0.45,
-      "row": "back"
+      "depth": "back"
     }
   ]
 }

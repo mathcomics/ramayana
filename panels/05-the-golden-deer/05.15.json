@@ -7,20 +7,29 @@
       "prop": "stag-lie",
       "body": "gold",
       "at": 0.82,
-      "row": 0.3,
-      "rotate": 20
+      "rotate": 20,
+      "nudge": [
+        0,
+        2.39
+      ]
     },
     {
       "prop": "arrow-stuck",
       "at": 0.65,
-      "row": 0.5,
-      "facing": "left"
+      "facing": "left",
+      "nudge": [
+        0,
+        4.159
+      ]
     },
     {
       "prop": "sound-cry",
       "at": 0.46,
-      "row": 0.55,
-      "rotate": 20
+      "rotate": 20,
+      "nudge": [
+        0,
+        4.601
+      ]
     },
     {
       "character": "rama",

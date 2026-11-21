@@ -10,7 +10,7 @@
       "facing": "right",
       "at": 0.41,
       "cloth": "red-check",
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "id": "front",
@@ -19,7 +19,7 @@
       "facing": "right",
       "at": 0.8,
       "cloth": "red",
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "lakshman",
@@ -31,8 +31,11 @@
     {
       "prop": "ladder",
       "at": 0.65,
-      "row": 0.31,
-      "rotate": 85
+      "rotate": 85,
+      "nudge": [
+        0,
+        2.479
+      ]
     },
     {
       "character": "rama",

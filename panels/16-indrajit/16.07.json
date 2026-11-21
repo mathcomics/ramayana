@@ -6,13 +6,13 @@
     {
       "prop": "city-side",
       "at": 0,
-      "row": "mid",
+      "depth": "mid",
       "scale": 3
     },
     {
       "prop": "city-side",
       "at": 1,
-      "row": "mid",
+      "depth": "mid",
       "scale": 3,
       "facing": "left"
     },
@@ -22,7 +22,7 @@
       "view": "front",
       "turn": 180,
       "at": 0.5,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "lakshman",
@@ -30,7 +30,7 @@
       "view": "front",
       "turn": 180,
       "at": 0.42,
-      "row": "mid",
+      "depth": "mid",
       "adjust": {
         "left.arm.prop": {
           "kind": "bow",
@@ -44,7 +44,7 @@
       "view": "front",
       "turn": 180,
       "at": 0.62,
-      "row": "mid",
+      "depth": "mid",
       "cloth": "orange"
     },
     {

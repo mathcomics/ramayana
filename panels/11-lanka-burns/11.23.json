@@ -6,7 +6,7 @@
     {
       "prop": "palace-lanka",
       "scale": 2,
-      "row": "closeup",
+      "depth": "closeup",
       "nudge": [
         0,
         2
@@ -16,7 +16,7 @@
       "prop": "fire",
       "scale": 4,
       "at": 0.2,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "prop": "fire",
@@ -32,7 +32,7 @@
       "character": "hanuman",
       "pose": "runlow-pumplow",
       "facing": "right",
-      "row": "mid",
+      "depth": "mid",
       "mouth": 1
     }
   ],

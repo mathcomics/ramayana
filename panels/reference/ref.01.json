@@ -3,7 +3,7 @@
   "tall": 1,
   "ground": "off-white",
   "figures": [
-    { "prop": "rock-circle", "at": 0.5, "row": "front", "scale": 1.2, "repeat": 3 },
+    { "prop": "rock-circle", "at": 0.5, "depth": "front", "scale": 1.2, "repeat": 3 },
     { "character": "hanuman", "pose": "stand-point", "facing": "right", "on": "rock-circle#stand" }
   ]
 }

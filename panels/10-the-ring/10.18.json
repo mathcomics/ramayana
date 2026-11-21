@@ -6,7 +6,7 @@
     {
       "prop": "rock-square",
       "at": 0.8,
-      "row": "front"
+      "depth": "front"
     },
     {
       "character": "sita",
@@ -20,7 +20,7 @@
       "pose": "step-akimbo",
       "facing": "right",
       "at": 0.25,
-      "row": "front",
+      "depth": "front",
       "scale": 1.5,
       "mouth": 2
     },
@@ -29,7 +29,7 @@
       "pose": "step-flank",
       "facing": "right",
       "at": 0.15,
-      "row": "front",
+      "depth": "front",
       "scale": 1.5,
       "mouth": 2,
       "cloth": "red-check"

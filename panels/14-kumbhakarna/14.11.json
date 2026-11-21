@@ -8,7 +8,7 @@
       "id": "face",
       "rotate": -90,
       "at": 0.47,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "prop": "drum",
@@ -19,7 +19,7 @@
       "pose": "leanback-reach",
       "facing": "right",
       "at": 0.1,
-      "row": "floor",
+      "depth": "floor",
       "cloth": "red-diamond"
     },
     {
@@ -31,7 +31,7 @@
       "pose": "lunge-reach",
       "facing": "right",
       "at": 0.42,
-      "row": "floor",
+      "depth": "floor",
       "cloth": "red-check"
     }
   ]

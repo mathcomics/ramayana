@@ -6,21 +6,30 @@
     {
       "prop": "fire",
       "at": 0.6,
-      "row": 0.12,
-      "scale": 3
+      "scale": 3,
+      "nudge": [
+        0,
+        0.266
+      ]
     },
     {
       "prop": "city-roof",
       "at": 0.3,
-      "row": -0.05,
-      "scale": 3
+      "scale": 3,
+      "nudge": [
+        0,
+        -0.235
+      ]
     },
     {
       "prop": "city-roof",
       "at": 0.85,
-      "row": -0.1,
       "scale": 3.4,
-      "facing": "left"
+      "facing": "left",
+      "nudge": [
+        0,
+        -0.337
+      ]
     }
   ]
 }

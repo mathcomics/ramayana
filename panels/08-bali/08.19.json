@@ -6,7 +6,7 @@
     {
       "prop": "throne-kishkindha",
       "at": 0.5,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "sugriva",
@@ -21,7 +21,7 @@
       "facing": "left",
       "at": 0.8,
       "mouth": 2,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "hanuman",
@@ -29,7 +29,7 @@
       "facing": "right",
       "at": 0.2,
       "mouth": 2,
-      "row": "mid"
+      "depth": "mid"
     }
   ],
   "needs": [

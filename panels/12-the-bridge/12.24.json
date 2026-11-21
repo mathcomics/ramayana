@@ -20,9 +20,12 @@
       "id": "rock2",
       "prop": "rock-square",
       "at": 0.95,
-      "row": 0.35,
       "scale": 0.7,
-      "rotate": 45
+      "rotate": 45,
+      "nudge": [
+        0,
+        4.168
+      ]
     },
     {
       "character": "monkey2",
@@ -37,7 +40,7 @@
     {
       "prop": "rock-square",
       "at": 0.4,
-      "row": "back",
+      "depth": "back",
       "scale": 3,
       "repeat": {
         "gap": 0,

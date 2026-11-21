@@ -8,7 +8,7 @@
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.74,
-      "row": "top",
+      "depth": "top",
       "scale": 0.6,
       "rotate": 180
     },
@@ -17,7 +17,7 @@
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.5,
-      "row": "top",
+      "depth": "top",
       "scale": 0.6,
       "rotate": 180
     },
@@ -26,14 +26,14 @@
       "pose": "walk-swing",
       "facing": "left",
       "at": 0.1,
-      "row": "top",
+      "depth": "top",
       "scale": 0.6,
       "rotate": 180
     },
     {
       "prop": "lotus-bud",
       "at": 0.15,
-      "row": "mid",
+      "depth": "mid",
       "scale": 3,
       "repeat": {
         "n": 3
@@ -42,7 +42,7 @@
     {
       "prop": "lotus-full",
       "at": 0.65,
-      "row": "front",
+      "depth": "front",
       "scale": 2.5,
       "repeat": 3
     }

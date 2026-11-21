@@ -7,18 +7,24 @@
       "character": "monkey1",
       "pose": "crawl-swing",
       "at": 0.95,
-      "row": 0.6,
       "scale": 0.4,
-      "facing": "left"
+      "facing": "left",
+      "nudge": [
+        0,
+        12.607
+      ]
     },
     {
       "character": "hanuman",
       "pose": "crawl-armfront",
       "facing": "left",
       "at": 0.75,
-      "row": 0.6,
       "scale": 0.5,
-      "turn": 40
+      "turn": 40,
+      "nudge": [
+        0,
+        10.085
+      ]
     },
     {
       "prop": "rock-square",
@@ -26,26 +32,35 @@
       "scale": 3.8,
       "id": "rock",
       "rotate": -10,
-      "row": -0.1,
-      "body": "#665555"
+      "body": "#665555",
+      "nudge": [
+        0,
+        -0.302
+      ]
     },
     {
       "character": "lakshman",
       "pose": "pass-swing",
       "facing": "left",
       "at": 0.14,
-      "row": -0.12,
       "scale": 0.6,
-      "turn": -180
+      "turn": -180,
+      "nudge": [
+        0,
+        -2.204
+      ]
     },
     {
       "character": "rama",
       "pose": "leanfront-swing",
       "facing": "left",
       "at": 0.4,
-      "row": -0.12,
       "scale": 0.6,
-      "turn": -90
+      "turn": -90,
+      "nudge": [
+        0,
+        -2.204
+      ]
     }
   ]
 }

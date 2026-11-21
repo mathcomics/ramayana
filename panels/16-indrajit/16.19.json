@@ -8,26 +8,32 @@
       "pose": "leapup-armsup",
       "facing": "right",
       "at": 0.12,
-      "row": 0.35,
       "rotate": -25,
-      "cloth": "red"
+      "cloth": "red",
+      "nudge": [
+        0,
+        2.833
+      ]
     },
     {
       "character": "monkey2",
       "pose": "leap-reachup",
       "facing": "right",
       "at": 0.3,
-      "row": 0.55,
       "scale": 0.8,
-      "rotate": 30
+      "rotate": 30,
+      "nudge": [
+        0,
+        5.751
+      ]
     },
     {
       "character": "monkey1",
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.2,
-      "row": 0.05,
-      "scale": 0.8,
+      "depth": 0.1351,
+      "scale": 0.851,
       "rotate": -40,
       "cloth": "orange"
     },
@@ -48,17 +54,20 @@
       "pose": "leapup-reachup",
       "facing": "left",
       "at": 0.84,
-      "row": 0.4,
       "rotate": 20,
-      "cloth": "red-stripe"
+      "cloth": "red-stripe",
+      "nudge": [
+        0,
+        3.275
+      ]
     },
     {
       "character": "monkey2",
       "pose": "leap-armsup",
       "facing": "left",
       "at": 0.9,
-      "row": 0.08,
-      "scale": 0.8,
+      "depth": 0.2162,
+      "scale": 0.939,
       "rotate": -15,
       "cloth": "yellow"
     }

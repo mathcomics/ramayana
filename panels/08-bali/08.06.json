@@ -8,14 +8,14 @@
     {
       "prop": "palace-kishkindha",
       "at": 0.3,
-      "row": "floor"
+      "depth": "floor"
     },
     {
       "character": "rama",
       "pose": "run-handslow",
       "facing": "left",
       "at": 0.95,
-      "row": "floor",
+      "depth": "floor",
       "adjust": {
         "right.arm.prop": {
           "kind": "bow"

@@ -8,17 +8,22 @@
       "id": "ledge",
       "prop": "lanka-island",
       "at": 0.78,
-      "row": 0.2,
-      "scale": 1
+      "nudge": [
+        0,
+        1.506
+      ]
     },
     {
       "character": "monkey1",
       "pose": "leapup-watch",
       "facing": "right",
       "at": 0.09,
-      "row": 0.42,
       "scale": 0.4,
-      "cloth": "red"
+      "cloth": "red",
+      "nudge": [
+        0,
+        8.628
+      ]
     },
     {
       "on": "ledge#stand",

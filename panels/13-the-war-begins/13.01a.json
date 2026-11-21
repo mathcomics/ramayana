@@ -8,8 +8,10 @@
       "id": "ledge",
       "prop": "lanka-island",
       "at": 0.78,
-      "row": 0.2,
-      "scale": 1
+      "nudge": [
+        0,
+        1.506
+      ]
     },
     {
       "on": "ledge#stand",

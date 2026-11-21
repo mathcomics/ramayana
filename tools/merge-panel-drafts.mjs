@@ -9,17 +9,20 @@
 // file rewritten), new (a new file: an inserted panel) or skip (with
 // why). The repo file's key order is kept, so a diff shows only what the
 // artist changed; `tags` is carried over (the lab drops it, and the
-// tagged reference panels are locked: docs/design/panels.md).
+// tagged reference panels are locked: docs/design/panels.md). A draft
+// still using the retired `row` is converted to `depth` first, drawing
+// exactly as it did (tools/migrate-depth.mjs).
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { root } from './lib.mjs';
+import { root, loadAssets } from './lib.mjs';
+import { convertDef, usesRow } from './migrate-depth.mjs';
 
 const [dir, flag] = process.argv.slice(2);
 if (!dir) { console.error('usage: node tools/merge-panel-drafts.mjs <dir of draft JSON> [--dry]'); process.exit(1); }
 const dry = flag === '--dry';
 
-const TOP = ['scene', 'tall', 'ground', 'sky', 'horizon', 'mode', 'figures', 'needs', 'tags'];
-const FIG = ['id', 'character', 'prop', 'foreground', 'color', 'pose', 'view', 'facing', 'at', 'row', 'on', 'nudge', 'scale', 'mouth', 'cloth', 'turn', 'hands', 'adjust'];
+const TOP = ['scene', 'tall', 'ground', 'sky', 'horizon', 'camera', 'mode', 'figures', 'needs', 'tags'];
+const FIG = ['id', 'character', 'prop', 'foreground', 'color', 'pose', 'view', 'facing', 'at', 'depth', 'on', 'nudge', 'scale', 'mouth', 'cloth', 'turn', 'hands', 'adjust'];
 const sortBy = (order) => (a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99);
 const sortKeys = (o, order) => Object.fromEntries(Object.keys(o).sort(sortBy(order)).map((k) => [k, o[k]]));
 const canon = (x) => Array.isArray(x) ? x.map(canon)
@@ -53,6 +56,7 @@ function keepOrder(n, o) {
 const write = (f, o) => writeFileSync(f, JSON.stringify(o, null, 2)
   .replace(/"tags": \[\s*([^\]]*?)\s*\]/, (m, a) => `"tags": [${a.split(/,\s*/).join(', ')}]`) + '\n');
 
+let assets;
 const panelsDir = join(root, 'panels');
 const sections = readdirSync(panelsDir, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);
 for (const f of readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
@@ -63,13 +67,19 @@ for (const f of readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
     : sections.find((s) => existsSync(join(panelsDir, s, d.id + '.json'))) || sections.find((s) => s.startsWith(d.id.split('.')[0] + '-'));
   if (!section) { console.log(`${tag} skip: no section for it`); continue; }
   const file = join(panelsDir, section, d.id + '.json');
-  const panel = { ...d.panel }; delete panel.id;
+  let panel = { ...d.panel }; delete panel.id;
+  let converted = '';
+  if (usesRow(panel)) {
+    const res = convertDef(panel, assets ??= loadAssets());
+    panel = res.def;
+    converted = `  (row → depth: ${res.changed.length} entries${res.worst.px > 0.25 ? `, ! off by ${res.worst.px.toFixed(2)} px` : ''})`;
+  }
   const old = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null;
   if (old?.tags && !panel.tags) panel.tags = old.tags;
   const retired = ['size', 'shot', 'zoom', 'props'].filter((k) => k in panel);
   const warn = retired.length ? `  (retired fields: ${retired.join(', ')} - fix before committing: docs/design/panels.md)` : '';
-  if (old && same(panel, old)) { console.log(`${tag} same${warn}`); continue; }
+  if (old && same(panel, old)) { console.log(`${tag} same${warn}${converted}`); continue; }
   const out = old ? keepOrder(panel, old) : sortKeys({ ...panel, figures: (panel.figures || []).map((g) => sortKeys(g, FIG)) }, TOP);
   if (!dry) write(file, out);
-  console.log(`${tag} ${old ? 'changed' : 'new'}  panels/${section}/${d.id}.json${old?.tags ? '  [locked reference panel]' : ''}${warn}`);
+  console.log(`${tag} ${old ? 'changed' : 'new'}  panels/${section}/${d.id}.json${old?.tags ? '  [locked reference panel]' : ''}${warn}${converted}`);
 }

@@ -8,14 +8,17 @@
       "pose": "oneleg-overhead",
       "view": "front",
       "at": 0.5,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "prop": "rock-circle",
       "at": 0.51,
-      "row": 0.36,
       "scale": 0.15,
-      "body": "#ff0000"
+      "body": "#ff0000",
+      "nudge": [
+        0,
+        19.473
+      ]
     }
   ]
 }

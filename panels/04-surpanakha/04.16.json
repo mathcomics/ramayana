@@ -19,13 +19,15 @@
       "facing": "right",
       "at": 0.32,
       "cloth": "red",
-      "row": 0.1
+      "depth": 0.2703,
+      "scale": 1.2608
     },
     {
       "prop": "arrow-stuck",
       "on": "r2#chest",
       "facing": "right",
-      "rotate": -55
+      "rotate": -55,
+      "scale": 1.2608
     },
     {
       "character": "raxas_m1",
@@ -46,7 +48,8 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "at": 0.7,
-      "row": 0.1
+      "depth": 0.2703,
+      "scale": 1.2608
     },
     {
       "character": "raxas_m1",

@@ -2,17 +2,18 @@
   "scene": "Back in the forest: the hut from above (as 05.09), nobody there",
   "tall": 1,
   "ground": "green",
+  "camera": "top",
   "figures": [
     {
       "prop": "trees-top",
       "id": "trees-nw",
       "at": 0.257,
-      "row": 0.71
+      "depth": 0.71
     },
     {
       "prop": "hut-top",
       "at": 0.505,
-      "row": 0.42
+      "depth": 0.42
     },
     {
       "prop": "trees-top",

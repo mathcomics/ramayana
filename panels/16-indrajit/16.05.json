@@ -7,53 +7,71 @@
       "prop": "vine",
       "body": "#000000",
       "at": 0.53,
-      "row": 0.13,
       "scale": 3,
-      "rotate": 180
+      "rotate": 180,
+      "nudge": [
+        0,
+        0.296
+      ]
     },
     {
       "character": "raxas_m2",
       "pose": "kneel-palms",
       "facing": "right",
       "at": 0.32,
-      "row": 0.08,
-      "scale": 0.35
+      "scale": 0.35,
+      "nudge": [
+        0,
+        1.273
+      ]
     },
     {
       "character": "indrajit",
       "pose": "kneel-handslow",
       "facing": "right",
       "at": 0.42,
-      "row": 0.08,
-      "scale": 0.35
+      "scale": 0.35,
+      "nudge": [
+        0,
+        1.273
+      ]
     },
     {
       "prop": "fire",
       "at": 0.52,
-      "row": 0.08,
-      "scale": 0.9
+      "depth": 0.2162,
+      "scale": 1.0564
     },
     {
       "character": "raxas_m3",
       "pose": "kneel-palms",
       "facing": "left",
       "at": 0.64,
-      "row": 0.08,
       "scale": 0.35,
-      "cloth": "red-check"
+      "cloth": "red-check",
+      "nudge": [
+        0,
+        1.273
+      ]
     },
     {
       "prop": "city-roof",
       "at": 0.15,
-      "row": -0.04,
-      "scale": 2
+      "scale": 2,
+      "nudge": [
+        0,
+        -0.308
+      ]
     },
     {
       "prop": "city-roof",
       "at": 0.9,
-      "row": -0.06,
       "scale": 2.2,
-      "facing": "left"
+      "facing": "left",
+      "nudge": [
+        0,
+        -0.36
+      ]
     }
   ],
   "needs": [

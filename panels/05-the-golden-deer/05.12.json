@@ -9,14 +9,14 @@
       "prop": "stag-run",
       "body": "gold",
       "at": 0.86,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "character": "rama",
       "pose": "run-pump",
       "facing": "right",
       "at": 0.25,
-      "row": "horizon",
+      "depth": "horizon",
       "mouth": 2
     }
   ],

@@ -8,9 +8,12 @@
       "pose": "crawl-onhands",
       "facing": "left",
       "at": 0.23,
-      "row": 0.251,
       "scale": 0.574,
-      "mouth": 3
+      "mouth": 3,
+      "nudge": [
+        0,
+        3.41
+      ]
     },
     {
       "character": "ravana",
@@ -18,7 +21,7 @@
       "view": "front",
       "facing": "left",
       "at": 0.3,
-      "row": "mid",
+      "depth": "mid",
       "scale": 0.88,
       "mouth": 2,
       "adjust": {
@@ -32,7 +35,10 @@
       "at": 0.84,
       "facing": "left",
       "scale": 0.6,
-      "row": 0.6
+      "nudge": [
+        0,
+        8.404
+      ]
     }
   ],
   "needs": [

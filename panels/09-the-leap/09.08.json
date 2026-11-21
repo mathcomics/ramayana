@@ -6,7 +6,7 @@
     {
       "prop": "vine",
       "at": 0.1,
-      "row": "top",
+      "depth": "top",
       "scale": 2
     },
     {
@@ -18,20 +18,20 @@
         0,
         5
       ],
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "monkey1",
       "pose": "leapup-swing",
       "facing": "right",
       "at": 0.66,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "leaf-fern",
       "at": 0.4,
-      "row": -0.3,
-      "scale": 2,
+      "depth": -0.8108,
+      "scale": 1.0161,
       "repeat": {
         "n": 3
       }
@@ -39,10 +39,11 @@
     {
       "prop": "leaf-fern",
       "at": 0.4,
-      "row": -0.1,
+      "depth": -0.2703,
       "repeat": {
         "n": 3
-      }
+      },
+      "scale": 0.7242
     }
   ]
 }

@@ -8,7 +8,7 @@
       "pose": "step-armsout",
       "facing": "left",
       "at": 0.5,
-      "row": "closeup"
+      "depth": "closeup"
     }
   ]
 }

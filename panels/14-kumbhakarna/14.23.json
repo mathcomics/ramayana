@@ -7,15 +7,19 @@
       "prop": "giant-face-side",
       "id": "face",
       "at": 0.62,
-      "row": 0.02,
+      "depth": 0.0541,
       "rotate": 115,
-      "body": "#9a7a7a"
+      "body": "#9a7a7a",
+      "scale": 0.9726
     },
     {
       "prop": "palace-lanka",
       "scale": 3,
       "at": -0.8,
-      "row": 0.2
+      "nudge": [
+        0,
+        0.502
+      ]
     },
     {
       "foreground": [

@@ -8,7 +8,7 @@
     {
       "prop": "lanka-island",
       "at": 0.82,
-      "row": "horizon"
+      "depth": "horizon"
     },
     {
       "prop": "palace-lanka",
@@ -17,31 +17,31 @@
     {
       "prop": "rock-rectangle",
       "at": 0.58,
-      "row": 0.09,
-      "scale": 0.1,
+      "depth": 0.9,
+      "scale": 0.92,
       "body": "stone",
       "id": "stone7"
     },
     {
       "prop": "rock-square",
       "at": 0.55,
-      "row": 0.08,
-      "scale": 0.16,
+      "depth": 0.8,
+      "scale": 0.736,
       "body": "#666666",
       "id": "stone6"
     },
     {
       "prop": "rock-rectangle",
       "at": 0.5,
-      "row": 0.07,
-      "scale": 0.24,
+      "depth": 0.7,
+      "scale": 0.736,
       "id": "stone5"
     },
     {
       "prop": "rock-square",
       "at": 0.45,
-      "row": 0.05,
-      "scale": 0.36,
+      "depth": 0.5,
+      "scale": 0.6624,
       "body": "#998888",
       "id": "stone4"
     },
@@ -49,24 +49,24 @@
       "id": "stone3",
       "prop": "rock-rectangle",
       "at": 0.35,
-      "row": 0.02,
-      "scale": 0.52,
+      "depth": 0.2,
+      "scale": 0.598,
       "body": "stone"
     },
     {
       "id": "stone2",
       "prop": "rock-rectangle",
       "at": 0.2,
-      "row": 0,
-      "scale": 0.8,
+      "depth": 0,
+      "scale": 0.736,
       "body": "#998888"
     },
     {
       "id": "stone1",
       "prop": "rock-rectangle",
       "at": 0,
-      "row": -0.05,
-      "scale": 1.2,
+      "depth": -0.5,
+      "scale": 0.736,
       "body": "#666666",
       "rotate": 180
     },
@@ -74,7 +74,7 @@
       "character": "monkey2",
       "pose": "step-arc",
       "on": "stone6#stand",
-      "scale": 0.14,
+      "scale": 0.644,
       "cloth": "red",
       "turn": -90,
       "adjust": {
@@ -89,7 +89,7 @@
       "facing": "right",
       "on": "stone5#stand",
       "nudge": 1.2,
-      "scale": 0.21,
+      "scale": 0.644,
       "turn": -90,
       "adjust": {
         "right.arm.prop.kind": "spear"
@@ -100,7 +100,7 @@
       "pose": "crawl-shoulder",
       "facing": "right",
       "on": "stone4#stand",
-      "scale": 0.31,
+      "scale": 0.5704,
       "cloth": "orange",
       "turn": -90,
       "adjust": {
@@ -116,7 +116,7 @@
         0,
         1.5
       ],
-      "scale": 0.45,
+      "scale": 0.5175,
       "cloth": "yellow",
       "turn": -90,
       "adjust": {
@@ -128,7 +128,7 @@
       "character": "monkey1",
       "pose": "arch-bull",
       "on": "stone2#stand",
-      "scale": 0.7,
+      "scale": 0.644,
       "cloth": "red",
       "turn": -90
     }

@@ -6,22 +6,26 @@
     {
       "prop": "pole",
       "at": 0.5,
-      "row": 0.1,
-      "rotate": 180
+      "depth": 0.2703,
+      "rotate": 180,
+      "scale": 1.2608
     },
     {
       "character": "indrajit",
       "pose": "bend-bowdraw",
       "facing": "right",
       "at": 0.55,
-      "row": 0.45,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        7.433
+      ]
     },
     {
       "prop": "cloud-small",
       "at": 0.4,
-      "row": 0.25,
-      "scale": 0.3
+      "depth": 0.6757,
+      "scale": 0.8511
     }
   ]
 }

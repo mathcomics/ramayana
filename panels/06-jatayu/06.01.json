@@ -6,19 +6,23 @@
     {
       "prop": "rock-circle",
       "at": 0.6,
-      "row": -0.1,
-      "scale": 1.2
+      "depth": -0.2703,
+      "scale": 0.8691
     },
     {
       "prop": "vulture-lookback",
       "facing": "left",
-      "on": "rock-circle#stand"
+      "on": "rock-circle#stand",
+      "scale": 0.7242
     },
     {
       "prop": "sound-cry",
       "facing": "left",
       "at": 0.2,
-      "row": 0.72
+      "nudge": [
+        0,
+        6.104
+      ]
     },
     {
       "character": "sita",

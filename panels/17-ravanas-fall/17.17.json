@@ -14,8 +14,11 @@
       "prop": "head-alone",
       "id": "l1",
       "at": 0.415,
-      "row": 0.588,
-      "scale": 0.87
+      "scale": 0.87,
+      "nudge": [
+        0,
+        5.674
+      ]
     },
     {
       "character": "ravana",
@@ -28,8 +31,11 @@
       "prop": "head-alone",
       "id": "r1",
       "at": 0.585,
-      "row": 0.588,
-      "scale": 0.87
+      "scale": 0.87,
+      "nudge": [
+        0,
+        5.674
+      ]
     },
     {
       "character": "ravana",
@@ -42,8 +48,11 @@
       "prop": "head-alone",
       "id": "l2",
       "at": 0.32999999999999996,
-      "row": 0.576,
-      "scale": 0.74
+      "scale": 0.74,
+      "nudge": [
+        0,
+        6.528
+      ]
     },
     {
       "character": "ravana",
@@ -56,8 +65,11 @@
       "prop": "head-alone",
       "id": "r2",
       "at": 0.67,
-      "row": 0.576,
-      "scale": 0.74
+      "scale": 0.74,
+      "nudge": [
+        0,
+        6.528
+      ]
     },
     {
       "character": "ravana",
@@ -70,8 +82,11 @@
       "prop": "head-alone",
       "id": "l3",
       "at": 0.245,
-      "row": 0.564,
-      "scale": 0.61
+      "scale": 0.61,
+      "nudge": [
+        0,
+        7.745
+      ]
     },
     {
       "character": "ravana",
@@ -84,8 +99,11 @@
       "prop": "head-alone",
       "id": "r3",
       "at": 0.755,
-      "row": 0.564,
-      "scale": 0.61
+      "scale": 0.61,
+      "nudge": [
+        0,
+        7.745
+      ]
     },
     {
       "character": "ravana",
@@ -98,8 +116,11 @@
       "prop": "head-alone",
       "id": "l4",
       "at": 0.15999999999999998,
-      "row": 0.5519999999999999,
-      "scale": 0.48
+      "scale": 0.48,
+      "nudge": [
+        0,
+        9.621
+      ]
     },
     {
       "character": "ravana",
@@ -112,8 +133,11 @@
       "prop": "head-alone",
       "id": "r4",
       "at": 0.8400000000000001,
-      "row": 0.5519999999999999,
-      "scale": 0.48
+      "scale": 0.48,
+      "nudge": [
+        0,
+        9.621
+      ]
     },
     {
       "character": "ravana",

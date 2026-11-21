@@ -9,7 +9,7 @@
       "pose": "liefront-armsdown",
       "facing": "right",
       "at": 0.25,
-      "row": "front",
+      "depth": "front",
       "scale": 1.4,
       "adjust": {
         "right.leg.hip": 0,

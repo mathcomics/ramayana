@@ -6,7 +6,7 @@
     {
       "prop": "throne-lanka",
       "at": 0.62,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "indrajit",
@@ -14,14 +14,15 @@
       "pose": "liefront-armsdown",
       "facing": "right",
       "at": 0.36,
-      "row": -0.16,
+      "depth": -0.4324,
       "adjust": {
         "right.leg.hip": 0,
         "right.leg.knee": 0,
         "left.leg.hip": 0,
         "left.leg.knee": 0
       },
-      "rotate": -15
+      "rotate": -15,
+      "scale": 0.6423
     }
   ]
 }

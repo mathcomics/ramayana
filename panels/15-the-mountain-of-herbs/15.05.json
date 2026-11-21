@@ -7,7 +7,8 @@
       "id": "moon",
       "prop": "rock-square",
       "at": 0.03,
-      "row": 0.05
+      "depth": 0.1351,
+      "scale": 1.0637
     },
     {
       "character": "monkey2",

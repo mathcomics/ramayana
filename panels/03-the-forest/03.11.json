@@ -7,13 +7,13 @@
       "pose": "step-akimbo",
       "facing": "left",
       "at": 0.55,
-      "row": "back"
+      "depth": "back"
     },
     {
       "character": "surpanakha",
       "pose": "step-hang",
       "at": 0.2,
-      "row": "closeup",
+      "depth": "closeup",
       "turn": -90,
       "adjust": {
         "spine.head": 20

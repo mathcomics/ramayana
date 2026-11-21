@@ -38,15 +38,19 @@
       "pose": "leapup-reachup",
       "facing": "right",
       "at": 0.75,
-      "row": 0.15,
-      "cloth": "red"
+      "cloth": "red",
+      "nudge": [
+        0,
+        1.064
+      ]
     },
     {
       "character": "monkey1",
       "pose": "kneeup-reach",
       "facing": "right",
       "at": 0.92,
-      "row": 0.08
+      "depth": 0.2162,
+      "scale": 1.1738
     }
   ]
 }

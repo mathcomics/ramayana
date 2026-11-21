@@ -9,8 +9,8 @@
       "pose": "fallback-flung",
       "facing": "left",
       "at": 0.62,
-      "row": 0.08,
-      "scale": 0.9,
+      "depth": 0.2162,
+      "scale": 1.0564,
       "rotate": -25
     },
     {

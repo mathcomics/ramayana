@@ -8,7 +8,7 @@
       "facing": "left",
       "at": 0.78,
       "scale": 3,
-      "row": "closeup"
+      "depth": "closeup"
     },
     {
       "character": "hanuman",
@@ -19,7 +19,10 @@
         "spine.head": -30
       },
       "at": 0.8,
-      "row": 0.75
+      "nudge": [
+        0,
+        18.196
+      ]
     }
   ]
 }

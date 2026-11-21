@@ -6,35 +6,35 @@
     {
       "prop": "throne-ayodhya",
       "at": 0.75,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "rama",
       "pose": "step-hang",
       "facing": "left",
       "at": 0.85,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "dasharatha",
       "pose": "step-beckon",
       "facing": "right",
       "at": 0.5,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "kausalya",
       "pose": "step-armrest",
       "facing": "right",
       "at": 0.2,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "kaikeyi",
       "pose": "step-armrest",
       "facing": "right",
       "at": 0.05,
-      "row": "mid",
+      "depth": "mid",
       "mouth": 3
     }
   ],

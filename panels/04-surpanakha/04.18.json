@@ -9,14 +9,16 @@
       "pose": "fallback-flung",
       "facing": "right",
       "at": 0.32,
-      "row": 0.05,
-      "cloth": "red"
+      "depth": 0.1351,
+      "cloth": "red",
+      "scale": 1.0637
     },
     {
       "prop": "arrow-stuck",
       "on": "r2#chest",
       "facing": "right",
-      "rotate": -55
+      "rotate": -55,
+      "scale": 1.0637
     },
     {
       "id": "r1",

@@ -13,7 +13,7 @@
         0,
         -2
       ],
-      "scale": 0.5
+      "depth": 0.54
     },
     {
       "id": "hurler",
@@ -27,8 +27,8 @@
         0,
         -2
       ],
-      "scale": 0.5,
-      "cloth": "red-check"
+      "cloth": "red-check",
+      "depth": 0.54
     },
     {
       "id": "last",
@@ -41,8 +41,8 @@
         0,
         -2
       ],
-      "scale": 0.5,
-      "cloth": "red-diamond"
+      "cloth": "red-diamond",
+      "depth": 0.54
     },
     {
       "foreground": [
@@ -53,20 +53,26 @@
     },
     {
       "prop": "rock-circle",
-      "row": 0.4,
       "scale": 1.9,
-      "body": "#eeeeee"
+      "body": "#eeeeee",
+      "nudge": [
+        0,
+        1.723
+      ]
     },
     {
       "prop": "rock-circle",
       "at": 0.4,
-      "row": 0.5,
       "scale": 0.35,
       "body": "#444444",
       "repeat": {
         "gap": 1,
         "n": 2
-      }
+      },
+      "nudge": [
+        0,
+        11.882
+      ]
     },
     {
       "character": "raxas_m3",
@@ -78,7 +84,7 @@
         0,
         -3
       ],
-      "scale": 0.5
+      "depth": 0.54
     }
   ]
 }

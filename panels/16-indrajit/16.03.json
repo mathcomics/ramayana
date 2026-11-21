@@ -7,23 +7,26 @@
       "prop": "vine",
       "body": "#000000",
       "at": 0.67,
-      "row": 0.26,
       "scale": 1.8,
-      "rotate": 180
+      "rotate": 180,
+      "nudge": [
+        0,
+        1.132
+      ]
     },
     {
       "character": "raxas_m2",
       "pose": "kneel-palms",
       "facing": "right",
       "at": 0.14,
-      "row": "mid"
+      "depth": "mid"
     },
     {
       "character": "raxas_m3",
       "pose": "kneel-palms",
       "facing": "left",
       "at": 0.88,
-      "row": "mid",
+      "depth": "mid",
       "cloth": "red-check"
     },
     {
@@ -31,7 +34,7 @@
       "pose": "step-palms",
       "facing": "left",
       "at": 0.72,
-      "row": "back",
+      "depth": "back",
       "cloth": "red-diamond"
     },
     {
@@ -39,7 +42,7 @@
       "pose": "kneel-handslow",
       "facing": "right",
       "at": 0.52,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "fire",

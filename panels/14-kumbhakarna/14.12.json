@@ -7,7 +7,7 @@
       "prop": "giant-face-side-awake",
       "id": "face",
       "at": 0.47,
-      "row": "closeup",
+      "depth": "closeup",
       "rotate": -90
     },
     {
@@ -22,7 +22,7 @@
       "at": 0.55,
       "cloth": "red-diamond",
       "turn": 180,
-      "row": "floor"
+      "depth": "floor"
     },
     {
       "character": "raxas_m1",
@@ -30,7 +30,7 @@
       "facing": "right",
       "at": 0.92,
       "cloth": "red-check",
-      "row": "floor"
+      "depth": "floor"
     }
   ]
 }

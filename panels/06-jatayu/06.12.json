@@ -6,12 +6,15 @@
     {
       "prop": "pole",
       "at": 0.43,
-      "row": 0.25
+      "nudge": [
+        0,
+        1.948
+      ]
     },
     {
       "prop": "rock-rectangle",
       "at": -0.45,
-      "row": "closeup",
+      "depth": "closeup",
       "scale": 2.5
     },
     {
@@ -61,8 +64,8 @@
     {
       "prop": "bag",
       "at": 0.43,
-      "row": 0.23,
-      "scale": 0.6
+      "depth": 0.6216,
+      "scale": 1.4588
     },
     {
       "character": "hanuman",

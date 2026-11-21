@@ -9,28 +9,34 @@
       "pose": "stepwide-swordcarry",
       "view": "front",
       "at": 0.73,
-      "row": 0.7,
       "scale": 0.3,
       "adjust": {
         "spine.head": 14
       },
       "mouth": 2,
       "rotate": 20,
-      "turn": 90
+      "turn": 90,
+      "nudge": [
+        0,
+        19.826
+      ]
     },
     {
       "character": "sita",
       "pose": "crawl-onhands",
       "facing": "right",
       "at": 0.79,
-      "row": 0.76,
       "scale": 0.3,
-      "mouth": 3
+      "mouth": 3,
+      "nudge": [
+        0,
+        21.595
+      ]
     },
     {
       "prop": "rock-rectangle",
       "at": 0.46,
-      "row": "closeup",
+      "depth": "closeup",
       "scale": 1.4
     },
     {

@@ -6,12 +6,12 @@
     {
       "prop": "trees-side",
       "at": 0.12,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "trees-side",
       "at": 0.45,
-      "row": "back"
+      "depth": "back"
     },
     {
       "prop": "tree-trunk",
@@ -27,7 +27,7 @@
       "character": "hanuman",
       "pose": "arch-overhead",
       "at": 0.5,
-      "row": "mid"
+      "depth": "mid"
     }
   ],
   "needs": [

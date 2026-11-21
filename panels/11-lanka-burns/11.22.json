@@ -22,9 +22,12 @@
       "pose": "leap-reach",
       "facing": "right",
       "at": 0.72,
-      "row": 0.3,
       "rotate": 60,
-      "scale": 0.5
+      "scale": 0.5,
+      "nudge": [
+        0,
+        4.781
+      ]
     }
   ]
 }
