@@ -64,57 +64,21 @@
     },
     {
       "prop": "half-circle",
-      "at": 0.0625,
-      "body": "#8a4a2a",
-      "scale": 1.6
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.0625,
-      "body": "#f4c430",
-      "scale": 0.24,
-      "nudge": [
-        0,
-        2.2
-      ]
-    },
-    {
-      "prop": "half-circle",
-      "at": 0.1875,
-      "body": "#8a4a2a",
-      "scale": 1.6
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.1875,
-      "body": "#f4c430",
-      "scale": 0.24,
-      "nudge": [
-        0,
-        2.2
-      ]
-    },
-    {
-      "prop": "half-circle",
-      "at": 0.3125,
-      "body": "#8a4a2a",
-      "scale": 1.6
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.3125,
-      "body": "#f4c430",
-      "scale": 0.24,
-      "nudge": [
-        0,
-        2.2
-      ]
-    },
-    {
-      "prop": "half-circle",
       "at": 0.4375,
       "body": "#8a4a2a",
-      "scale": 1.6
+      "scale": 1.6,
+      "repeat": {
+        "n": 8,
+        "gap": 0.451,
+        "scale": [
+          1,
+          1
+        ],
+        "rotate": [
+          0,
+          0
+        ]
+      }
     },
     {
       "prop": "rock-circle",
@@ -124,71 +88,19 @@
       "nudge": [
         0,
         2.2
-      ]
-    },
-    {
-      "prop": "half-circle",
-      "at": 0.5625,
-      "body": "#8a4a2a",
-      "scale": 1.6
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.5625,
-      "body": "#f4c430",
-      "scale": 0.24,
-      "nudge": [
-        0,
-        2.2
-      ]
-    },
-    {
-      "prop": "half-circle",
-      "at": 0.6875,
-      "body": "#8a4a2a",
-      "scale": 1.6
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.6875,
-      "body": "#f4c430",
-      "scale": 0.24,
-      "nudge": [
-        0,
-        2.2
-      ]
-    },
-    {
-      "prop": "half-circle",
-      "at": 0.8125,
-      "body": "#8a4a2a",
-      "scale": 1.6
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.8125,
-      "body": "#f4c430",
-      "scale": 0.24,
-      "nudge": [
-        0,
-        2.2
-      ]
-    },
-    {
-      "prop": "half-circle",
-      "at": 0.9375,
-      "body": "#8a4a2a",
-      "scale": 1.6
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.9375,
-      "body": "#f4c430",
-      "scale": 0.24,
-      "nudge": [
-        0,
-        2.2
-      ]
+      ],
+      "repeat": {
+        "n": 8,
+        "gap": 5.685,
+        "scale": [
+          1,
+          1
+        ],
+        "rotate": [
+          0,
+          0
+        ]
+      }
     }
   ]
 }
