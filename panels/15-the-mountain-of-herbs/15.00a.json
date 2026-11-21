@@ -1,0 +1,44 @@
+{
+  "scene": "On the shore Ravana and Indrajit grieve; behind them Kumbhakarna's head sinks into the sea off Lanka",
+  "tall": 1,
+  "ground": "sand",
+  "figures": [
+    {
+      "prop": "giant-face-side",
+      "id": "face",
+      "rotate": 115,
+      "at": 0.42,
+      "body": "#9a7a7a",
+      "depth": -0.6757,
+      "scale": 0.7686
+    },
+    {
+      "prop": "palace-lanka",
+      "at": -1.55,
+      "scale": 4.2,
+      "nudge": [
+        0,
+        -0.062
+      ]
+    },
+    {
+      "foreground": [
+        0.05,
+        0.05
+      ],
+      "color": "sand"
+    },
+    {
+      "character": "indrajit",
+      "pose": "step-holdhead",
+      "facing": "left",
+      "at": 0.68
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-grief",
+      "facing": "left",
+      "at": 0.85
+    }
+  ]
+}

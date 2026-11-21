@@ -1,0 +1,28 @@
+{
+  "scene": "Ravana at his throne points the drummer on his way: wake Kumbhakarna",
+  "tall": 0.6,
+  "ground": "yellow",
+  "figures": [
+    {
+      "prop": "throne-lanka",
+      "at": 0.75
+    },
+    {
+      "character": "ravana",
+      "pose": "step-point",
+      "facing": "left"
+    },
+    {
+      "prop": "drum",
+      "on": "player2#hand-left"
+    },
+    {
+      "id": "player2",
+      "character": "raxas_m2",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.15,
+      "cloth": "red-check"
+    }
+  ]
+}

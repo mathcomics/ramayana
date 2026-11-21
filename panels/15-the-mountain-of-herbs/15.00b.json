@@ -1,0 +1,19 @@
+{
+  "scene": "Ravana points out to the war; Indrajit bows, and goes",
+  "tall": 0.6,
+  "ground": "sand",
+  "figures": [
+    {
+      "character": "indrajit",
+      "pose": "stand-bow",
+      "facing": "right",
+      "at": 0.35
+    },
+    {
+      "character": "ravana",
+      "pose": "step-point",
+      "facing": "left",
+      "at": 0.65
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "scene": "Home in Ayodhya by night: Rama, Sita and Lakshman walk in procession, Hanuman just behind Lakshman, a horn player and a drummer following; a row of clay lamps burns along the ground in front",
+  "tall": 0.6,
+  "ground": "night",
+  "figures": [
+    {
+      "prop": "trumpet",
+      "on": "player1#hand-left"
+    },
+    {
+      "id": "player1",
+      "character": "male1",
+      "pose": "arch-fists",
+      "facing": "right",
+      "at": 0.25
+    },
+    {
+      "prop": "drum",
+      "on": "player2#hand-right"
+    },
+    {
+      "id": "player2",
+      "character": "male1",
+      "pose": "kneeup-armsout",
+      "facing": "right",
+      "at": 0.09
+    },
+    {
+      "character": "hanuman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.42
+    },
+    {
+      "character": "lakshman",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.5
+    },
+    {
+      "character": "rama",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.87
+    },
+    {
+      "character": "sita",
+      "pose": "pass-swing",
+      "facing": "right",
+      "at": 0.75
+    },
+    {
+      "prop": "half-circle",
+      "at": 0.0625,
+      "body": "#8a4a2a",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.0625,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ]
+    },
+    {
+      "prop": "half-circle",
+      "at": 0.1875,
+      "body": "#8a4a2a",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.1875,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ]
+    },
+    {
+      "prop": "half-circle",
+      "at": 0.3125,
+      "body": "#8a4a2a",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.3125,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ]
+    },
+    {
+      "prop": "half-circle",
+      "at": 0.4375,
+      "body": "#8a4a2a",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.4375,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ]
+    },
+    {
+      "prop": "half-circle",
+      "at": 0.5625,
+      "body": "#8a4a2a",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.5625,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ]
+    },
+    {
+      "prop": "half-circle",
+      "at": 0.6875,
+      "body": "#8a4a2a",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.6875,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ]
+    },
+    {
+      "prop": "half-circle",
+      "at": 0.8125,
+      "body": "#8a4a2a",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.8125,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ]
+    },
+    {
+      "prop": "half-circle",
+      "at": 0.9375,
+      "body": "#8a4a2a",
+      "scale": 1.6
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.9375,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ]
+    }
+  ]
+}
