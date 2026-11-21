@@ -1,19 +1,19 @@
 {
   "scene": "Jatayu on his bluff looks up; Sita's cry comes from far off",
-  "tall": 1,
+  "tall": 1.5,
   "ground": "off-white",
   "figures": [
     {
       "prop": "rock-circle",
       "at": 0.6,
-      "depth": -0.2703,
-      "scale": 0.8691
+      "depth": -0.25,
+      "scale": 0.5
     },
     {
       "prop": "vulture-lookback",
       "facing": "left",
       "on": "rock-circle#stand",
-      "scale": 0.7242
+      "scale": 0.5
     },
     {
       "prop": "sound-cry",
@@ -21,15 +21,20 @@
       "at": 0.2,
       "nudge": [
         0,
-        6.104
-      ]
+        6
+      ],
+      "rotate": 60
     },
     {
       "character": "sita",
       "pose": "step-hang",
       "on": "sound-cry#face",
-      "view": "front",
-      "mouth": 3
+      "mouth": 3,
+      "nudge": [
+        -0.4,
+        -3
+      ],
+      "rotate": 20
     }
   ],
   "needs": []

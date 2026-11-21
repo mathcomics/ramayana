@@ -15,7 +15,7 @@
       "pose": "run-handslow",
       "facing": "left",
       "at": 0.95,
-      "depth": "floor",
+      "depth": 0.19,
       "adjust": {
         "right.arm.prop": {
           "kind": "bow"

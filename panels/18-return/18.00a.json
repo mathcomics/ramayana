@@ -1,0 +1,52 @@
+{
+  "scene": "Sugriva sits on Kishkindha's throne; Hanuman and Angad stand beside him",
+  "tall": 1,
+  "ground": "off-white",
+  "figures": [
+    {
+      "prop": "throne-lanka",
+      "at": 0.5,
+      "depth": "mid"
+    },
+    {
+      "character": "vibhishana",
+      "pose": "chair-armrest",
+      "view": "front",
+      "on": "throne-lanka"
+    },
+    {
+      "id": "angad",
+      "character": "rama",
+      "pose": "step-armsup",
+      "facing": "left",
+      "at": 0.8,
+      "depth": "mid",
+      "mouth": 2
+    },
+    {
+      "id": "angad",
+      "character": "lakshman",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.9,
+      "depth": "mid",
+      "mouth": 2
+    },
+    {
+      "character": "hanuman",
+      "pose": "step-armrest",
+      "facing": "right",
+      "at": 0.2,
+      "depth": "mid",
+      "mouth": 2
+    },
+    {
+      "character": "sugriva",
+      "pose": "step-armsout",
+      "facing": "right",
+      "at": 0.1,
+      "depth": "mid",
+      "mouth": 2
+    }
+  ]
+}

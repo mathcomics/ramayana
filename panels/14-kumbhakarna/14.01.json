@@ -7,7 +7,7 @@
       "prop": "palace-lanka",
       "nudge": [
         3.3,
-        2
+        1.7
       ],
       "depth": "closeup",
       "scale": 2
@@ -28,7 +28,42 @@
       "facing": "right",
       "at": 0.48,
       "scale": 0.4,
-      "cloth": "red-stripe"
+      "cloth": "red-stripe",
+      "depth": "floor",
+      "nudge": [
+        0,
+        -0.7
+      ],
+      "rotate": -10
+    },
+    {
+      "id": "reeling",
+      "character": "raxas_m3",
+      "pose": "walk-swing",
+      "at": 0.77,
+      "scale": 0.4,
+      "nudge": [
+        0,
+        -0.7
+      ],
+      "cloth": "red-stripe",
+      "depth": "floor",
+      "facing": "right"
+    },
+    {
+      "id": "reeling",
+      "character": "raxas_m2",
+      "pose": "bend-armsup",
+      "facing": "right",
+      "at": 0.68,
+      "depth": "floor",
+      "nudge": [
+        0,
+        -0.7
+      ],
+      "scale": 0.4,
+      "cloth": "red-stripe",
+      "rotate": -30
     },
     {
       "id": "down",
@@ -37,7 +72,12 @@
       "facing": "lef",
       "at": 0.29,
       "scale": 0.4,
-      "cloth": "red"
+      "cloth": "red",
+      "depth": "floor",
+      "nudge": [
+        0,
+        -0.7
+      ]
     },
     {
       "id": "reeling",
@@ -45,11 +85,38 @@
       "pose": "leanback-swing",
       "view": "front",
       "at": 0.66,
-      "scale": 0.25,
       "nudge": [
         0,
-        18.756
-      ]
+        12.7
+      ],
+      "scale": 0.25
+    },
+    {
+      "id": "down",
+      "character": "raxas_m1",
+      "pose": "liefront-dive",
+      "at": 0.95,
+      "depth": "floor",
+      "nudge": [
+        1.5,
+        3
+      ],
+      "scale": 0.4,
+      "cloth": "red",
+      "rotate": 190
+    },
+    {
+      "id": "down",
+      "character": "raxas_m1",
+      "pose": "walk-armsdown",
+      "at": 0.85,
+      "depth": "floor",
+      "nudge": [
+        0,
+        0
+      ],
+      "scale": 0.4,
+      "cloth": "red"
     }
   ]
 }

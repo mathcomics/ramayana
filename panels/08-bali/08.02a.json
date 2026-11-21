@@ -1,0 +1,20 @@
+{
+  "scene": "Sugriva runs up the steps to Kishkindha, roaring his challenge",
+  "tall": 0.6,
+  "ground": "green",
+  "figures": [
+    {
+      "prop": "steps",
+      "at": 0.2,
+      "depth": "floor"
+    },
+    {
+      "character": "sugriva",
+      "pose": "run-pump",
+      "facing": "left",
+      "on": "steps#stand",
+      "rotate": 30,
+      "wear": "garland"
+    }
+  ]
+}

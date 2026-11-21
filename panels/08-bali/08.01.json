@@ -18,28 +18,25 @@
     {
       "character": "hanuman",
       "pose": "stand-swing",
-      "on": "rock#stand",
+      "on": "rock#stand-right",
       "scale": 0.4,
-      "turn": 90
+      "facing": "left"
     },
     {
       "character": "rama",
-      "pose": "stand-swing",
-      "facing": "left",
-      "on": "rock#stand-right",
-      "scale": 0.4,
-      "turn": 90
+      "pose": "stand-armsout",
+      "facing": "right",
+      "on": "rock#stand-left",
+      "scale": 0.4
     },
     {
       "character": "sugriva",
-      "pose": "crouch-swing",
-      "facing": "front",
-      "at": 0.3,
+      "pose": "pass-swing",
+      "facing": "left",
       "scale": 0.4,
-      "nudge": [
-        0,
-        4.42
-      ]
+      "on": "rock#stand",
+      "turn": 90,
+      "wear": "garland"
     }
   ],
   "ground": "dry-grass"

@@ -1,20 +1,33 @@
 {
-  "scene": "Sugriva runs up the steps to Kishkindha, roaring his challenge",
+  "scene": "Opening: Hanuman and Rama on the rock of Rishyamukha, Sugriva crouched below; Kishkindha, the monkey city, on its hill beyond",
   "tall": 1,
-  "ground": "green",
+  "ground": "dry-grass",
   "figures": [
     {
-      "prop": "steps",
-      "at": 0.5,
-      "depth": "floor"
+      "prop": "palace-kishkindha",
+      "at": 0.85,
+      "depth": "back",
+      "scale": 2
+    },
+    {
+      "id": "rock",
+      "prop": "rock-rectangle",
+      "at": -0.3,
+      "scale": 6
     },
     {
       "character": "sugriva",
       "pose": "run-pump",
-      "facing": "left",
-      "on": "steps#stand",
-      "rotate": 30,
-      "wear": "garland"
+      "wear": "garland",
+      "at": 0.75,
+      "depth": "back",
+      "nudge": [
+        0,
+        7.2
+      ],
+      "turn": -90
     }
-  ]
+  ],
+  "horizon": 0,
+  "sky": "sky"
 }

@@ -1,8 +1,7 @@
 {
   "scene": "Back on the field: the mountain set down beside the camp, its herbs glowing; Hanuman beside it, the monkeys looking up",
   "tall": 1,
-  "ground": "light-grey",
-  "sky": "night-blue",
+  "ground": "night",
   "horizon": 0.35,
   "figures": [
     {
@@ -10,34 +9,30 @@
       "id": "mountain",
       "at": 0.72,
       "depth": "back",
-      "scale": 5,
-      "body": "#5a5f7a"
-    },
-    {
-      "prop": "flower-yellow",
-      "at": 0.72,
-      "depth": "back",
-      "repeat": {
-        "n": 4,
-        "gap": 0.8,
-        "seed": 3
-      }
+      "scale": 15,
+      "body": "#5a5f7a",
+      "nudge": [
+        0,
+        0.5
+      ]
     },
     {
       "character": "hanuman",
-      "pose": "step-akimbo",
+      "pose": "arch-dive",
       "facing": "left",
-      "at": 0.5,
-      "depth": "mid"
+      "at": 0.8,
+      "depth": "mid",
+      "scale": 0.8,
+      "rotate": -20
     },
     {
       "character": "monkey1",
-      "pose": "step-pointup",
+      "pose": "step-armfront",
       "facing": "right",
-      "at": 0.12,
+      "at": 0.05,
+      "depth": "floor",
       "cloth": "red",
-      "depth": "front",
-      "scale": 0.8
+      "scale": 0.7
     },
     {
       "character": "monkey1",
@@ -45,10 +40,8 @@
       "facing": "right",
       "at": 0.3,
       "cloth": "orange",
-      "scale": 0.8
+      "scale": 0.7,
+      "depth": "floor"
     }
-  ],
-  "needs": [
-    "prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now"
   ]
 }

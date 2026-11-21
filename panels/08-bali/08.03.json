@@ -40,15 +40,11 @@
     },
     {
       "character": "sugriva",
-      "pose": "arch-point",
+      "pose": "crouch-point",
       "view": "right",
       "on": "steps#stand",
-      "nudge": [
-        -2,
-        0
-      ],
       "mouth": 3,
-      "rotate": 15,
+      "rotate": -45,
       "wear": "garland"
     }
   ]

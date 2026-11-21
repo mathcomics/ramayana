@@ -16,16 +16,19 @@
       "turn": 90,
       "nudge": [
         0,
-        3.805
+        4.805
       ]
     },
     {
-      "prop": "bag",
+      "prop": "vine",
       "at": 0.83,
       "nudge": [
-        0,
-        5.75
-      ]
+        -0.5,
+        3.4
+      ],
+      "body": "yellow",
+      "rotate": -90,
+      "scale": 2
     },
     {
       "character": "sita",
@@ -35,7 +38,7 @@
       "mouth": 3,
       "nudge": [
         0,
-        5.396
+        5.9
       ]
     }
   ],
