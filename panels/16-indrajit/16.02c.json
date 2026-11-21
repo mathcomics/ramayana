@@ -1,0 +1,69 @@
+{
+  "scene": "Variation: Indrajit rushes down the shrine steps with a spiked club; the rakshasa with the bowl stays at the fire",
+  "tall": 1,
+  "ground": "night",
+  "figures": [
+    {
+      "character": "raxas_m2",
+      "pose": "stand-armsup",
+      "facing": "left",
+      "on": "rock#stand-right",
+      "scale": 0.35
+    },
+    {
+      "prop": "half-circle",
+      "on": "raxas_m2#hands",
+      "rotate": -30,
+      "body": "#222222",
+      "id": "bowl"
+    },
+    {
+      "prop": "rock-rectangle",
+      "id": "rock",
+      "at": 0.35,
+      "depth": "front",
+      "scale": 2.5,
+      "body": "#222222"
+    },
+    {
+      "prop": "steps",
+      "body": "#ac9393",
+      "scale": 0.9,
+      "at": 0.55,
+      "id": "steps",
+      "depth": "front"
+    },
+    {
+      "prop": "vine",
+      "on": "rock#stand",
+      "nudge": [
+        -0.1,
+        1.7
+      ],
+      "scale": 1.8,
+      "body": "#000000",
+      "rotate": 180
+    },
+    {
+      "prop": "fire",
+      "on": "rock#stand"
+    },
+    {
+      "character": "indrajit",
+      "pose": "run-bull",
+      "facing": "right",
+      "on": "steps#stand",
+      "scale": 0.35,
+      "adjust": {
+        "right.arm.prop.kind": "club-spike"
+      },
+      "nudge": [
+        0,
+        -1.1
+      ]
+    }
+  ],
+  "needs": [
+    "smoke: the vine in black for now"
+  ]
+}

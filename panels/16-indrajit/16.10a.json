@@ -1,0 +1,23 @@
+{
+  "scene": "Indrajit chases Vibhishana with a spiked club",
+  "tall": 0.6,
+  "ground": "night",
+  "figures": [
+    {
+      "character": "vibhishana",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.72
+    },
+    {
+      "character": "indrajit",
+      "pose": "runwide-bull",
+      "facing": "right",
+      "at": 0.32,
+      "mouth": 3,
+      "adjust": {
+        "right.arm.prop.kind": "club-spike"
+      }
+    }
+  ]
+}
