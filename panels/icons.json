@@ -23,10 +23,14 @@
     "10": { "crop": [118, 118, 130], "panel": { "figures": [
       { "character": "sita", "pose": "stand-grief", "facing": "right", "at": 0.5, "depth": 0.1081, "scale": 1.0315 }
     ] } },
-    "11": { "prop": "fire", "rotate": 90, "ground": "#000000" },
-    "12": { "crop": [45, 150, 270], "panel": { "figures": [
-      { "prop": "rock-rectangle", "body": "#5f5050", "at": 0.5, "depth": "mid", "repeat": { "n": 3, "gap": 0.5 } }
-    ] } },
+    "11": { "prop": "fire", "ground": "#000000" },
+    "12": { "ground": "sea", "layers": [
+      { "prop": "rock-square", "x": 30, "y": 44, "size": 22, "rotate": -8, "body": "#8f7a7a" },
+      { "prop": "rock-circle", "x": 52, "y": 42, "size": 20, "body": "#ac9393" },
+      { "prop": "rock-square", "x": 73, "y": 45, "size": 22, "rotate": 10, "body": "#6f5f5f" },
+      { "prop": "rock-rectangle", "x": 28, "y": 68, "size": 36, "rotate": 4, "body": "#ac9393" },
+      { "prop": "rock-square", "x": 72, "y": 70, "size": 32, "rotate": -6, "body": "#8f7a7a" }
+    ] },
     "13": { "crop": [40, 60, 300], "panel": { "figures": [
       { "prop": "ladder", "at": 0.9, "depth": -0.6757, "scale": 0.549 },
       { "character": "monkey1", "pose": "fallback-flung", "facing": "right", "at": 0.42, "rotate": 30, "nudge": [0, 2.39] }
@@ -35,9 +39,22 @@
       { "character": "raxas_m1", "pose": "stand-hang", "facing": "left", "x": 80, "y": 64, "size": 9 },
       { "prop": "giant-face-side", "rotate": -90, "x": 50, "y": 80, "size": 125 }
     ] },
-    "15": { "prop": "flower-white", "ground": "green" },
-    "16": { "character": "indrajit", "ground": "night" },
-    "17": { "character": "ravana", "ground": "geru" },
-    "18": { "prop": "palace-ayodhya", "ground": "sunrise" }
+    "15": { "prop": "flower-white", "ground": "night" },
+    "16": { "character": "indrajit", "view": "side", "ground": "night" },
+    "17": { "ground": "geru", "layers": [
+      { "character": "ravana", "view": "side", "facing": "left", "x": 25, "y": 46, "size": 42 },
+      { "character": "ravana", "view": "side", "facing": "right", "x": 75, "y": 46, "size": 42 },
+      { "character": "ravana", "x": 50, "y": 56, "size": 52 }
+    ] },
+    "18": { "ground": "night", "layers": [
+      { "prop": "half-circle", "x": 14, "y": 68, "size": 22, "body": "#8a4a2a" },
+      { "prop": "rock-circle", "x": 14, "y": 59, "size": 9, "body": "#f4c430" },
+      { "prop": "half-circle", "x": 38, "y": 68, "size": 22, "body": "#8a4a2a" },
+      { "prop": "rock-circle", "x": 38, "y": 59, "size": 9, "body": "#f4c430" },
+      { "prop": "half-circle", "x": 62, "y": 68, "size": 22, "body": "#8a4a2a" },
+      { "prop": "rock-circle", "x": 62, "y": 59, "size": 9, "body": "#f4c430" },
+      { "prop": "half-circle", "x": 86, "y": 68, "size": 22, "body": "#8a4a2a" },
+      { "prop": "rock-circle", "x": 86, "y": 59, "size": 9, "body": "#f4c430" }
+    ] }
   }
 }
