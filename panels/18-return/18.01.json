@@ -12,7 +12,8 @@
       "character": "male1",
       "pose": "arch-fists",
       "facing": "right",
-      "at": 0.25
+      "at": 0.25,
+      "depth": 0.2
     },
     {
       "prop": "drum",
@@ -23,11 +24,12 @@
       "character": "male1",
       "pose": "kneeup-armsout",
       "facing": "right",
-      "at": 0.09
+      "at": 0.09,
+      "depth": 0.2
     },
     {
       "character": "hanuman",
-      "pose": "step-hang",
+      "pose": "pass-hang",
       "facing": "right",
       "on": "chariot2#stand-left"
     },
@@ -40,7 +42,7 @@
     {
       "prop": "chariot",
       "id": "chariot2",
-      "at": 0.55,
+      "at": 0.62,
       "depth": 0.3,
       "scale": 3.5,
       "body": "#b8920a"
@@ -73,10 +75,6 @@
         "scale": [
           1,
           1
-        ],
-        "rotate": [
-          0,
-          0
         ]
       }
     },
@@ -91,15 +89,7 @@
       ],
       "repeat": {
         "n": 8,
-        "gap": 5.685,
-        "scale": [
-          1,
-          1
-        ],
-        "rotate": [
-          0,
-          0
-        ]
+        "gap": 5.685
       }
     }
   ]

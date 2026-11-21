@@ -9,14 +9,14 @@
       "mouth": 3,
       "nudge": [
         0,
-        1
+        2
       ],
       "facing": "right",
-      "at": 0.33
+      "at": 0.45
     },
     {
       "character": "raxas_m3",
-      "pose": "stepwide-ox",
+      "pose": "stepback-unicorn",
       "facing": "left",
       "at": 0.68
     }

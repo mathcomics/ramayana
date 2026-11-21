@@ -90,6 +90,19 @@
       "scale": 0.7242
     },
     {
+      "id": "struck",
+      "character": "raxas_m2",
+      "pose": "kneel-flung",
+      "facing": "left",
+      "at": 0.75,
+      "scale": 0.5,
+      "rotate": 220,
+      "nudge": [
+        0,
+        2
+      ]
+    },
+    {
       "prop": "tree-trunk",
       "at": 0.6,
       "depth": 0.2703,
@@ -123,6 +136,17 @@
     },
     {
       "character": "monkey1",
+      "pose": "runlow-longpoint",
+      "facing": "right",
+      "at": 0,
+      "nudge": [
+        0,
+        6
+      ],
+      "scale": 0.5
+    },
+    {
+      "character": "monkey1",
       "pose": "lunge-cross",
       "facing": "right",
       "at": 0.64,
@@ -140,12 +164,12 @@
       "facing": "left",
       "at": 0.75,
       "scale": 0.5,
-      "cloth": "red-check",
       "rotate": -120,
       "nudge": [
         0,
-        10.439
-      ]
+        11
+      ],
+      "cloth": "red-check"
     },
     {
       "id": "struck",
@@ -153,12 +177,12 @@
       "pose": "kneel-flung",
       "facing": "left",
       "at": 0.75,
-      "scale": 0.5,
-      "rotate": 120,
       "nudge": [
         0,
-        6.903
-      ]
+        7
+      ],
+      "scale": 0.5,
+      "rotate": 120
     }
   ],
   "needs": [

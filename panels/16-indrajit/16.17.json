@@ -5,7 +5,7 @@
   "figures": [
     {
       "character": "lakshman",
-      "pose": "stepwide-bowhigh",
+      "pose": "stepwide-bowdraw",
       "facing": "right",
       "at": 0.45,
       "depth": "closeup"

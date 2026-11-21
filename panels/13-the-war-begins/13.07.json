@@ -29,16 +29,6 @@
       "depth": 0.54
     },
     {
-      "prop": "rock-circle",
-      "on": "hurler#hands",
-      "nudge": [
-        0,
-        0.5
-      ],
-      "scale": 0.7,
-      "body": "stone"
-    },
-    {
       "character": "raxas_m2",
       "pose": "arch-overhead",
       "facing": "left",
@@ -91,17 +81,21 @@
     },
     {
       "prop": "rock-circle",
-      "at": 0.25,
-      "scale": 0.35,
-      "body": "#222222",
-      "repeat": {
-        "gap": 1,
-        "n": 2
-      },
       "nudge": [
         0,
-        15.671
-      ]
+        5
+      ],
+      "body": "#222222",
+      "at": 0.45,
+      "depth": 0.3,
+      "repeat": {
+        "gap": 1,
+        "n": 5,
+        "scale": [
+          0.3,
+          1.5
+        ]
+      }
     },
     {
       "prop": "tree-trunk",

@@ -8,16 +8,6 @@
       "pose": "stepwide-bowhigh",
       "facing": "right",
       "at": 0.35
-    },
-    {
-      "prop": "arrow-stuck",
-      "at": 0.8,
-      "scale": 1.4,
-      "rotate": -45,
-      "nudge": [
-        0,
-        3.602
-      ]
     }
   ]
 }

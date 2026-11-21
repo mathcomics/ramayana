@@ -1,26 +1,21 @@
 {
-  "scene": "The arrows cross in the empty sky",
-  "tall": 1,
+  "scene": "From the ground Lakshman shoots up",
+  "tall": 0.6,
   "ground": "night-blue",
   "figures": [
     {
-      "prop": "arrow-stuck",
-      "at": 0.42,
-      "scale": 1.6,
-      "rotate": -45,
-      "nudge": [
-        0,
-        2.047
-      ]
+      "character": "lakshman",
+      "pose": "leapup-bowhigh",
+      "facing": "right",
+      "at": 0.35
     },
     {
       "prop": "arrow-stuck",
-      "at": 0.58,
-      "scale": 1.6,
-      "rotate": 135,
+      "at": 0.1,
+      "scale": 1.4,
       "nudge": [
         0,
-        2.047
+        3.602
       ]
     }
   ]

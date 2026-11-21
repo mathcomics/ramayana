@@ -19,7 +19,7 @@
     {
       "character": "monkey2",
       "pose": "leap-reachup",
-      "facing": "right",
+      "facing": "lef",
       "at": 0.3,
       "rotate": 30,
       "nudge": [
@@ -39,8 +39,8 @@
     },
     {
       "character": "lakshman",
-      "pose": "step-armrest",
-      "facing": "left",
+      "pose": "stepwide-armrest",
+      "facing": "right",
       "at": 0.55,
       "adjust": {
         "left.arm.prop": {

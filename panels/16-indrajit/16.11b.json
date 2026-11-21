@@ -5,13 +5,13 @@
   "figures": [
     {
       "character": "indrajit",
-      "pose": "step-bowdraw",
-      "facing": "right",
+      "pose": "stepwide-bowdraw",
+      "facing": "left",
       "on": "chariot#stand"
     },
     {
       "prop": "chariot",
-      "at": 0.74,
+      "at": 0.85,
       "scale": 3.5
     }
   ]
