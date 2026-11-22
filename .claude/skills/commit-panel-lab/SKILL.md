@@ -46,8 +46,8 @@ every draft, including locked reference panels (those with `tags`).
    `npm test` — the snapshot lists the changed panels; after looking,
    `UPDATE_SNAPSHOT=1 npm test`, then `npm test` again.
 
-5. **Commit** (author `somdip <somdip@gmail.com>`, unsigned):
-   `git -c user.name=somdip -c user.email=somdip@gmail.com commit`.
+5. **Commit** (author `somdip <141280921+somdipdatta@users.noreply.github.com>`, unsigned):
+   `git -c user.name=somdip -c user.email=141280921+somdipdatta@users.noreply.github.com commit`.
    Message: `Merge panel-lab drafts <ids>`, then one line per panel
    saying what the artist changed in plain words, and any fix you made.
    Note drafts that were `same`. End with the Co-Authored-By line.

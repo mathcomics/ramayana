@@ -405,13 +405,12 @@ lab. The whole procedure is the `commit-panel-lab` skill
 
 ## Publishing (Cloudflare Pages)
 
-One site, private. The Pages project `ramayana` is connected to GitHub
-as in the sister project `kena`: Cloudflare builds and publishes the
+One public site. The Pages project `ramayana` is connected to GitHub:
+Cloudflare builds and publishes the
 site itself on **every push to `main`** on origin, so pushing is
 publishing — there is no manual step (follow a build in Cloudflare under
-Deployments). The site is at
-`https://ramayana-7fw.pages.dev`, open to members of the Cloudflare
-account only (the default Access policy).
+Deployments). Readers reach it at `https://ramayana.lilboox.com`, which
+redirects to `https://ramayana-7fw.pages.dev`.
 
 One-time setup by the repo owner:
 
@@ -424,13 +423,6 @@ One-time setup by the repo owner:
 3. **Automatic builds:** project → Settings → Builds → **Branch
    control**: automatic production branch deployments on; preview
    deployments **None**.
-4. **Make it private:** Settings → General → **Enable access policy**.
-   This protects `*.ramayana.pages.dev` only, so also protect the main
-   address: Zero Trust → Access → Applications → the `ramayana`
-   application → edit → add the hostname `ramayana-7fw.pages.dev` → save. In
-   its policy, list the email addresses allowed in (they sign in with a
-   one-time code). Check in a private window that the site asks for a
-   sign-in.
 
 The build needs no npm packages and no `rsvg-convert` (the site uses inline
 SVG).

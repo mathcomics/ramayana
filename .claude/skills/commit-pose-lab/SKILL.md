@@ -64,8 +64,8 @@ pose that uses it — that is the point, and what to look at.
    changed; `npm test`; after looking at the changed renders,
    `UPDATE_SNAPSHOT=1 npm test`, then `npm test`.
 
-6. **Commit** (author `somdip <somdip@gmail.com>`, unsigned):
-   `git -c user.name=somdip -c user.email=somdip@gmail.com commit`.
+6. **Commit** (author `somdip <141280921+somdipdatta@users.noreply.github.com>`, unsigned):
+   `git -c user.name=somdip -c user.email=141280921+somdipdatta@users.noreply.github.com commit`.
    Message: `Merge pose-lab saves <names>`, then what changed in each in
    plain words (which base or gesture, which poses it reached), then the
    checks run. End with the Co-Authored-By line. Update the counts in

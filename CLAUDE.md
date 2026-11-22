@@ -15,7 +15,9 @@ scene spec (JSON) → layout → figure geometry → SVG
 
 ## Source of truth
 
-- `README.md` — project overview, layout, commands, pose lab.
+- `README.md` — the overview for visitors; `docs/design/engine.md` — layout,
+  commands, tests, figure model, pose lab. `LICENSE`: code MIT, art and story
+  CC BY-NC-SA 4.0 (`LICENSE-ART.md`).
 - `panels/CLAUDE.md`, `manuscript/CLAUDE.md`, `data/CLAUDE.md` — the role
   contract for sessions working in that folder (what it owns, what to
   read first, where to log); they load automatically when files there are
@@ -59,7 +61,7 @@ scene spec (JSON) → layout → figure geometry → SVG
 - Run `npm test` before every commit. A refactor must keep the render
   snapshot unchanged; an intended visual change is accepted with
   `UPDATE_SNAPSHOT=1 npm test` after looking at the render.
-- Commits: author somdip <somdip@gmail.com>, **unsigned**. After cloning,
+- Commits: author somdip <141280921+somdipdatta@users.noreply.github.com>, **unsigned**. After cloning,
   run `git config --local commit.gpgsign false` (the session's signing key
   is not on the GitHub account, so signed commits show "Unverified").
 - Do not trace or copy third-party reference material; derive
@@ -222,7 +224,8 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
   size, with `nudge` to lift): such drafts still draw as before, flagged,
   and `merge-panel-drafts.mjs` converts them on merge.
 - The reader site is Cloudflare Pages project `ramayana`
-  (`https://ramayana-7fw.pages.dev`, open to account members only).
+  (public: `https://ramayana.lilboox.com`, which redirects to
+  `https://ramayana-7fw.pages.dev`).
   Cloudflare's GitHub integration builds and publishes it on every push
   to `main` on origin: pushing **is** publishing, there is no other step
   (the manual workflow and its deploy hook are gone, 2026-11-16).

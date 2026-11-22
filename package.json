@@ -4,5 +4,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test"
-  }
+  },
+  "description": "The Ramayana as wordless illustrated panels, drawn by a deterministic SVG renderer for phones",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": "github:mathcomics/ramayana"
 }

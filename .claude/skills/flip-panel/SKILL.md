@@ -39,7 +39,7 @@ anchors (a mirrored prop carries its anchors), `depth`, `scale`, `view`.
 5. **The scene text** says left / right rarely; when it does, fix it.
 6. **Test and commit**: `npm test`; after looking,
    `UPDATE_SNAPSHOT=1 npm test`. Commit (author
-   `somdip <somdip@gmail.com>`, unsigned), then rebuild and republish the
+   `somdip <141280921+somdipdatta@users.noreply.github.com>`, unsigned), then rebuild and republish the
    panel lab (`node tools/build-panellab.mjs`, the lab URL in the root
    CLAUDE.md). A lab draft of a flipped panel overrides the flip: merge
    or delete it first.

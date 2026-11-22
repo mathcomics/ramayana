@@ -76,7 +76,6 @@ const bary = (X, [A, B, C]) => {
   const b = (v2[0] * v1[1] - v1[0] * v2[1]) / d, c = (v0[0] * v2[1] - v2[0] * v0[1]) / d;
   return [1 - b - c, b, c];
 };
-const fromBary = (w, [A, B, C]) => add(add(mul(A, w[0]), mul(B, w[1])), mul(C, w[2]));
 const pack = (segs) => segs.map((s) => s.map((p) => [r4(p[0]), r4(p[1])]));
 
 // Torso nodes, in order round the outline (as on the front torso):
