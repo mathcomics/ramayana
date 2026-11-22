@@ -5,7 +5,7 @@
   "figures": [
     {
       "character": "surpanakha",
-      "pose": "stand-armsout",
+      "pose": "leanfront-armsout",
       "facing": "right",
       "at": 0.4,
       "depth": "closeup",
@@ -13,10 +13,9 @@
     },
     {
       "character": "ravana",
-      "pose": "step-handslow",
+      "pose": "step-armsup",
       "facing": "left",
       "at": 0.8,
-      "mouth": 3,
       "depth": "closeup"
     }
   ]

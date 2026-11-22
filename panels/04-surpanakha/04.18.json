@@ -6,7 +6,7 @@
     {
       "id": "r2",
       "character": "raxas_m1",
-      "pose": "fallback-flung",
+      "pose": "fallback-armsup",
       "facing": "right",
       "at": 0.32,
       "depth": 0.1351,

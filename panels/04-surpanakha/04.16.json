@@ -13,7 +13,7 @@
       "cloth": "red-check"
     },
     {
-      "character": "raxas_m4",
+      "character": "raxas_m3",
       "id": "r2",
       "pose": "fallback-flung",
       "facing": "right",
@@ -54,7 +54,7 @@
     {
       "character": "raxas_m4",
       "id": "r4",
-      "pose": "fallback-flung",
+      "pose": "fallback-swing",
       "facing": "right",
       "at": 0.9,
       "cloth": "red-stripe"

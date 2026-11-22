@@ -1,24 +1,33 @@
 {
-  "scene": "Rama reaches down to raise the kneeling Vibhishana",
-  "tall": 0.6,
+  "scene": "The pact, by night: Rama and Sugriva clasp hands over a fire",
+  "tall": 1,
   "ground": "sand",
   "sky": "sky",
   "figures": [
     {
-      "character": "vibhishana",
-      "pose": "kneel-palms",
+      "character": "rama",
+      "pose": "step-hang",
       "facing": "right",
-      "at": 0.35,
+      "at": 0.34,
       "adjust": {
-        "spine.head": -14
-      }
+        "right.arm.elbow": 15,
+        "right.arm.hand": "out",
+        "right.arm.shoulder": 80
+      },
+      "mouth": 2
     },
     {
-      "character": "rama",
-      "pose": "bend-reach",
+      "character": "vibhishana",
+      "pose": "step-hang",
       "facing": "left",
-      "at": 0.62,
-      "mouth": 2
+      "at": 0.64,
+      "mouth": 2,
+      "adjust": {
+        "right.arm.elbow": 10,
+        "right.arm.hand": "out",
+        "right.arm.shoulder": 85
+      }
     }
-  ]
+  ],
+  "horizon": 0.1
 }
