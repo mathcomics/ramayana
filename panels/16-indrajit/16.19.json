@@ -55,7 +55,7 @@
       "facing": "left",
       "at": 0.84,
       "rotate": 20,
-      "cloth": "red-stripe",
+      "cloth": "red",
       "nudge": [
         0,
         3

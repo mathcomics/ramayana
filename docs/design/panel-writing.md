@@ -322,6 +322,13 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 
 ## Story and cast directions (from the artist)
 
+- **Cloth tells the sides apart** (artist, 2026-11-21): a rakshasa
+  (Ravana, Indrajit, Vibhishana, Surpanakha, every `raxas_*`) always wears
+  a red pattern, `red-check`, `red-stripe` or `red-diamond`, never plain
+  red or another colour; a monkey never wears a pattern (plain `red`,
+  `orange`, `yellow`). Rakshasas in a crowd differ by pattern, monkeys by
+  colour. `npm test` checks every panel. Use `raxas_m4` too: a crowd of
+  rakshasas should not repeat `raxas_m1`.
 - **Surpanakha** stays a rakshasi throughout: no fair form, no
   transformation. Always the `surpanakha` character, cloth `red-check`.
   She first watches the three from behind a tree (04.02).

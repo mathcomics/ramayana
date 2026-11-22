@@ -18,7 +18,7 @@
       "pose": "fallback-flung",
       "facing": "right",
       "at": 0.32,
-      "cloth": "red",
+      "cloth": "red-check",
       "depth": 0.2703,
       "scale": 1.2608
     },

@@ -48,7 +48,7 @@
       "facing": "left",
       "on": "m1#shoulder",
       "scale": 0.4,
-      "cloth": "red-check",
+      "cloth": "red",
       "id": "m2",
       "nudge": [
         0,
@@ -66,14 +66,14 @@
         1.3
       ],
       "scale": 0.4,
-      "cloth": "red-diamond"
+      "cloth": "red"
     },
     {
       "character": "monkey1",
       "pose": "bend-reach",
       "facing": "left",
       "scale": 0.4,
-      "cloth": "red-diamond",
+      "cloth": "red",
       "id": "m4",
       "nudge": [
         0.4,
@@ -92,7 +92,7 @@
         1.9
       ],
       "scale": 0.4,
-      "cloth": "red-diamond"
+      "cloth": "red"
     }
   ]
 }

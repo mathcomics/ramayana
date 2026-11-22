@@ -447,3 +447,23 @@ test('show: head-alone is the head-alone prop with the figure on its face (rotat
   assert.ok(headless.svg.length < whole.length - 500, 'the head and hair are gone');
   assert.equal(renderPanel({ tall: 1, figures: [{ character: 'rama', pose: 'step-hang', show: 'arms' }] }, assets).issues.length, 1);
 });
+
+test('cloth: rakshasas always wear a red pattern, monkeys never a pattern (artist, 2026-11-21)', () => {
+  const RAX = new Set(['ravana', 'indrajit', 'vibhishana', 'surpanakha', 'raxas_m1', 'raxas_m2', 'raxas_m3', 'raxas_m4', 'raxas_f1', 'raxas_f2', 'raxas_f3']);
+  const MON = new Set(['hanuman', 'sugriva', 'monkey1', 'monkey2']);
+  const OK = new Set(['red-check', 'red-stripe', 'red-diamond']);
+  const chars = assets.characters.characters;
+  for (const c of chars) {
+    const cloth = c.cloth ?? c.outfit?.cloth;
+    if (RAX.has(c.id)) assert.ok(OK.has(cloth), `${c.id}: default cloth ${cloth}`);
+    if (MON.has(c.id)) assert.ok(!/-(check|stripe|diamond)$/.test(cloth), `${c.id}: default cloth ${cloth}`);
+  }
+  const bad = [];
+  for (const sec of loadSections()) for (const { id, def } of sec.panels) for (const e of def.figures || []) {
+    const c = e.character ?? e.who;
+    if (e.cloth == null) continue;
+    if (RAX.has(c) && !OK.has(e.cloth)) bad.push(`${id} ${c}: ${e.cloth}`);
+    if (MON.has(c) && /-(check|stripe|diamond)$/.test(e.cloth)) bad.push(`${id} ${c}: ${e.cloth}`);
+  }
+  assert.deepEqual(bad, []);
+});

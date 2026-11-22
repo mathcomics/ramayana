@@ -9,7 +9,7 @@
       "pose": "run-longpoint",
       "facing": "right",
       "at": 0.05,
-      "cloth": "red",
+      "cloth": "red-check",
       "adjust": {
         "right.arm.prop.kind": "sword"
       }

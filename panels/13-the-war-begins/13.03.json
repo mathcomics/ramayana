@@ -27,7 +27,7 @@
           "kind": "club"
         }
       },
-      "cloth": "red-check",
+      "cloth": "red",
       "id": "r2"
     },
     {
@@ -37,7 +37,7 @@
       "facing": "right",
       "at": 0.44,
       "on": "foreground",
-      "cloth": "red-diamond",
+      "cloth": "red",
       "adjust": {
         "right.arm.prop": {
           "angle": 30,
@@ -52,7 +52,7 @@
       "facing": "right",
       "at": 0.66,
       "on": "foreground",
-      "cloth": "red-stripe",
+      "cloth": "red",
       "adjust": {
         "right.arm.prop": {
           "angle": -30,

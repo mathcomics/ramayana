@@ -72,7 +72,7 @@
       "facing": "lef",
       "at": 0.29,
       "scale": 0.4,
-      "cloth": "red",
+      "cloth": "red-check",
       "depth": "floor",
       "nudge": [
         0,
@@ -102,7 +102,7 @@
         3
       ],
       "scale": 0.4,
-      "cloth": "red",
+      "cloth": "red-stripe",
       "rotate": 190
     },
     {
@@ -116,7 +116,7 @@
         0
       ],
       "scale": 0.4,
-      "cloth": "red"
+      "cloth": "red-check"
     }
   ]
 }

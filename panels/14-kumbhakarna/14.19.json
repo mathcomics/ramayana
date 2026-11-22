@@ -8,14 +8,14 @@
       "pose": "run-pump",
       "facing": "left",
       "at": 0.42,
-      "cloth": "red-diamond"
+      "cloth": "red"
     },
     {
       "character": "monkey1",
       "pose": "runlow-pumplow",
       "facing": "left",
       "at": 0.2,
-      "cloth": "red-check"
+      "cloth": "red"
     },
     {
       "character": "rama",

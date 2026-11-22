@@ -61,7 +61,7 @@
         -2.5,
         0
       ],
-      "cloth": "red-stripe",
+      "cloth": "red",
       "adjust": {
         "right.arm.prop.kind": "sword-broad"
       }

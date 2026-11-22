@@ -35,7 +35,7 @@
       "pose": "leap-reach",
       "facing": "left",
       "at": 0.26,
-      "cloth": "red",
+      "cloth": "red-check",
       "nudge": [
         0,
         1.153
