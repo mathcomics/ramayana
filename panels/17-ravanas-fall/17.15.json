@@ -4,8 +4,9 @@
   "ground": "off-white",
   "figures": [
     {
-      "prop": "head-alone",
-      "id": "g1",
+      "character": "ravana",
+      "show": "head-alone",
+      "view": "front",
       "at": 0.2,
       "scale": 0.9,
       "nudge": [
@@ -15,13 +16,9 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "g1#face",
-      "view": "front"
-    },
-    {
-      "prop": "head-alone",
-      "id": "g2",
+      "show": "head-alone",
+      "view": "front",
+      "mouth": 2,
       "at": 0.5,
       "scale": 1.8,
       "nudge": [
@@ -31,27 +28,15 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "g2#face",
+      "show": "head-alone",
       "view": "front",
-      "mouth": 2
-    },
-    {
-      "prop": "head-alone",
-      "id": "g3",
+      "mouth": 3,
       "at": 0.8,
       "scale": 2.7,
       "nudge": [
         0,
         0.558
       ]
-    },
-    {
-      "character": "ravana",
-      "pose": "stand-hang",
-      "on": "g3#face",
-      "view": "front",
-      "mouth": 3
     }
   ]
 }

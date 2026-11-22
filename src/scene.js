@@ -142,6 +142,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   const lib = assets.props?.props || {};
   const legacy = (panel.props || []).map(({ layer, ...p }) => ({ p, front: layer === 'front' }));
   const repeatSeen = {};
+  let showSeen = 0;
   const seeded = (str) => {                                   // mulberry32 on a string hash
     let h = 2166136261;
     for (const c of str) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
@@ -151,7 +152,26 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     ...legacy.filter((e) => !e.front).map((e) => e.p),
     ...(panel.figures || []),
     ...legacy.filter((e) => e.front).map((e) => e.p),
-  ].flatMap((e) => (e && e.repeat != null ? repeatProp(e) : [e]));
+  ].flatMap((e) => (e && e.show != null ? showPart(e) : [e]))
+    .flatMap((e) => (e && e.repeat != null ? repeatProp(e) : [e]));
+
+  // "show" on a figure: part of it only. "head-alone" is the head without
+  // its body, placed like a prop (at, depth, scale, rotate, nudge, on): the
+  // entry stands for an empty `head-alone` prop and the figure on its
+  // `face` anchor — a cut-off head, a head growing back. "without-head" is
+  // the body with no head (figure.js `headless`).
+  function showPart(e) {
+    const name = e.id || e.character || e.who || e.prop;
+    if (!(e.character || e.who)) { issues.push(`${name}: "show" is for figures`); const { show, ...rest } = e; return [rest]; }
+    if (e.show === 'without-head') return [e];
+    if (e.show !== 'head-alone') { issues.push(`${name}: "show" is "head-alone" or "without-head" ("${e.show}")`); const { show, ...rest } = e; return [rest]; }
+    const { show, at, depth, scale, rotate, nudge, on, ...fig } = e;
+    if (on && /#face$/.test(on)) { const { show: _, ...rest } = e; return [rest]; }   // already a head on a face anchor
+    const id = `${name}~head${++showSeen}`;
+    const prop = { prop: 'head-alone', id };
+    for (const [k, v] of Object.entries({ at, depth, scale, rotate, nudge, on })) if (v != null) prop[k] = v;
+    return [prop, { pose: 'stand-hang', ...fig, on: `${id}#face` }];   // the pose only tilts the head
+  }
 
   // "repeat": a prop drawn several times in a row — a cluster of rocks, a
   // clump of lotuses. The entry as written is the middle copy; the others
@@ -623,7 +643,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     if (o.b) { flush(); s += negative ? `<path d="M0 ${H}L0 ${+lineY(o, 0).toFixed(2)}L${W} ${+lineY(o, W).toFixed(2)}L${W} ${H}Z" fill="#000"/>` : drawBand(o, k); return; }
     body += o.p ? drawProp(o)
       : turn(o, renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
-        view: o.view, headOnly: o.headOnly, built: o.built, id: `${pre}-f${o.fi}` }).svg);
+        view: o.view, headOnly: o.headOnly, headless: o.f?.show === 'without-head', built: o.built, id: `${pre}-f${o.fi}` }).svg);
   });
   flush();
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-panel="${esc(id)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" overflow="hidden">${s}</svg>`;
@@ -650,7 +670,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
         const t = turnOf(o);
         return rotate(p, [t.px, t.py], t.dy);
       };
-      return { ...base, kind: 'figure', character: e.character ?? e.who, pose: e.pose, view: o.view, headOnly: !!o.headOnly, built: o.built, species: o.S, toPanel };
+      return { ...base, kind: 'figure', character: e.character ?? e.who, pose: e.pose, view: o.view, headOnly: !!o.headOnly, headless: e.show === 'without-head', built: o.built, species: o.S, toPanel };
     }
     const toPanel = (q) => {
       if (o.rot && !o.pivot) {

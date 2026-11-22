@@ -11,19 +11,14 @@
       "at": 0.45
     },
     {
-      "prop": "head-alone",
-      "id": "h1",
+      "character": "ravana",
+      "show": "head-alone",
+      "facing": "left",
+      "mouth": 2,
       "at": 0.72,
       "depth": 0.0541,
-      "rotate": 100,
-      "scale": 0.9726
-    },
-    {
-      "character": "ravana",
-      "pose": "stand-hang",
-      "on": "h1#face",
-      "facing": "left",
-      "mouth": 2
+      "scale": 0.9726,
+      "rotate": 100
     }
   ]
 }

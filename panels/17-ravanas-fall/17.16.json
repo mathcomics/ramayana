@@ -11,8 +11,9 @@
       "depth": "closeup"
     },
     {
-      "prop": "head-alone",
-      "id": "l1",
+      "character": "ravana",
+      "show": "head-alone",
+      "view": "front",
       "at": 0.3,
       "scale": 1.7,
       "nudge": [
@@ -22,25 +23,14 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "l1#face",
-      "view": "front"
-    },
-    {
-      "prop": "head-alone",
-      "id": "r1",
+      "show": "head-alone",
+      "view": "front",
       "at": 0.7,
       "scale": 1.7,
       "nudge": [
         0,
         2.706
       ]
-    },
-    {
-      "character": "ravana",
-      "pose": "stand-hang",
-      "on": "r1#face",
-      "view": "front"
     }
   ]
 }

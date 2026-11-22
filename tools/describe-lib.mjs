@@ -98,7 +98,7 @@ function faceSamples(poly) {
 // ---- an entry's drawn shapes in the panel -----------------------------------
 function shapesOf(L) {
   if (L.kind === 'figure') {
-    const shapes = L.built.shapes.filter((s) => s.pts?.length > 2 && s.role !== 'prop' && !s.hairBody && (!L.headOnly || s.headPart));
+    const shapes = L.built.shapes.filter((s) => s.pts?.length > 2 && s.role !== 'prop' && !s.hairBody && (!L.headOnly || s.headPart) && !(L.headless && s.headPart));
     return shapes.map((s) => ({ part: s.headPart ? 'head' : s.part, role: s.role, pts: s.pts.map(L.toPanel) }));
   }
   if (L.kind === 'prop') {
@@ -185,7 +185,8 @@ export function describePanel(id, def, assets, data) {
       const [w, h] = l.size;
       lines.push(`  ${l.k + 1} ${l.label}${l.label !== e.prop ? ` (${e.prop})` : ''} · prop ${f1(w * (e.scale ?? 1))}×${f1(h * (e.scale ?? 1))} hu${l.def ? '' : ', placeholder box'}${e.facing === 'left' ? ', mirrored' : ''} · ${where} · ${place}${extra ? ' · ' + extra : ''}${l.copy ? ' · repeat copy' : ''}`);
       const cut = edgesCut(b);
-      if (out(b)) notes.push('! outside the panel: not drawn');
+      if (!Number.isFinite(b.x0)) {}   // draws nothing (head-alone: only its anchor)
+      else if (out(b)) notes.push('! outside the panel: not drawn');
       else if (cut.length) notes.push(`· cut by the ${cut.join(', ')} edge${cut.length > 1 ? 's' : ''}`);
       if (!e.on && dep !== 'top' && dep !== 'floor' && dep !== 'closeup' && !l.rot && !out(b)) {
         const s = surfaceUnder(l, [(b.x0 + b.x1) / 2, b.y1]);
@@ -195,7 +196,7 @@ export function describePanel(id, def, assets, data) {
       const sp = l.species, bs = (l.pose || '').split('-'), base = data.bases[bs[0]], ges = data.gestures[bs.slice(1).join('-')];
       const tall = MAN * l.unit;
       const what = [base?.desc, ges?.desc].filter(Boolean).join('; ');
-      const view = l.headOnly ? 'head alone' : `${l.view} view`;
+      const view = l.headOnly ? 'head alone' : `${l.view} view${l.headless ? ', without head' : ''}`;
       const look = [];
       const turn = e.turn;
       if (typeof turn === 'number') look.push(Math.abs(turn) >= 135 ? 'head turned to look back' : Math.abs(turn) >= 45 ? 'head turned to the reader' : `head turned ${turn}°`);

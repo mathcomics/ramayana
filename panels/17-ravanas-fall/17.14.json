@@ -5,32 +5,22 @@
   "sky": "sky",
   "figures": [
     {
-      "prop": "head-alone",
-      "id": "h1",
+      "character": "ravana",
+      "show": "head-alone",
+      "facing": "right",
       "at": 0.22,
       "depth": 0.027,
-      "rotate": -90,
-      "scale": 0.9455
+      "scale": 0.9455,
+      "rotate": -90
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "h1#face",
-      "facing": "right"
-    },
-    {
-      "prop": "head-alone",
-      "id": "h2",
+      "show": "head-alone",
+      "facing": "left",
       "at": 0.3,
       "depth": 0.0811,
-      "rotate": 160,
-      "scale": 1.0012
-    },
-    {
-      "character": "ravana",
-      "pose": "stand-hang",
-      "on": "h2#face",
-      "facing": "left"
+      "scale": 1.0012,
+      "rotate": 160
     },
     {
       "character": "ravana",
@@ -43,19 +33,14 @@
       }
     },
     {
-      "prop": "head-alone",
-      "id": "h3",
+      "character": "ravana",
+      "show": "head-alone",
+      "facing": "left",
+      "mouth": 2,
       "at": 0.74,
       "depth": 0.027,
-      "rotate": 90,
-      "scale": 0.9455
-    },
-    {
-      "character": "ravana",
-      "pose": "stand-hang",
-      "on": "h3#face",
-      "facing": "left",
-      "mouth": 2
+      "scale": 0.9455,
+      "rotate": 90
     }
   ]
 }

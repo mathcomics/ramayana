@@ -22,7 +22,7 @@ if (!dir) { console.error('usage: node tools/merge-panel-drafts.mjs <dir of draf
 const dry = flag === '--dry';
 
 const TOP = ['scene', 'tall', 'ground', 'sky', 'horizon', 'camera', 'mode', 'figures', 'needs', 'tags'];
-const FIG = ['id', 'character', 'prop', 'foreground', 'color', 'pose', 'view', 'facing', 'at', 'depth', 'on', 'nudge', 'scale', 'mouth', 'cloth', 'turn', 'hands', 'adjust'];
+const FIG = ['id', 'character', 'show', 'prop', 'foreground', 'color', 'pose', 'view', 'facing', 'at', 'depth', 'on', 'nudge', 'scale', 'mouth', 'cloth', 'turn', 'hands', 'adjust'];
 const sortBy = (order) => (a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99);
 const sortKeys = (o, order) => Object.fromEntries(Object.keys(o).sort(sortBy(order)).map((k) => [k, o[k]]));
 const canon = (x) => Array.isArray(x) ? x.map(canon)

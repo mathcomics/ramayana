@@ -155,7 +155,7 @@ export function drawnView(face, view, mouth = 2, color = DEFAULT_COLORS.body) {
 
 let clipSeq = 0;
 export function renderFigure(species, pose, opts = {}) {
-  const { x = 0, y = 0, scale = 20, facing = 1, headOnly = false } = opts;
+  const { x = 0, y = 0, scale = 20, facing = 1, headOnly = false, headless = false } = opts;
   const colors = { ...DEFAULT_COLORS, ...(opts.colors || {}) };
   // a sideOnly character (data/characters.json) is always drawn in side
   // view, with its side face as drawn (it has no front face, no turn data)
@@ -199,7 +199,9 @@ export function renderFigure(species, pose, opts = {}) {
   const clipId = opts.id ?? `face${++clipSeq}`;
   let inBody = false;
   if (drawn?.defs) svg += `<defs>${drawn.defs}</defs>`;
-  if (drawn?.back) svg += place(drawn.back);          // behind the whole body
+  // headless (a panel figure's "show": "without-head"): the body with
+  // the neck as its stump; no head, no hair behind it, no body hair
+  if (drawn?.back && !headless) svg += place(drawn.back);          // behind the whole body
   // worn props (a panel figure's `wear`, a garland flying back): behind
   // the whole body, their `neck` anchor on the neck base, not turned with
   // the body (the motion carries them back), mirrored with the figure
@@ -210,6 +212,7 @@ export function renderFigure(species, pose, opts = {}) {
   // the far leg and the torso (skin or cloth) a shade darker than the rest
   const fill = (s, c) => (SHADED.test(s.part || '') ? shade(c, SHADE) : c);
   for (const s of shapes) {
+    if (headless && (s.hairBody || s.headPart)) continue;
     if (s.hairBody) {                                   // the face's body hair, moved with the upper body
       if (bodyFace?.hairBody && hairAnchor) {
         if (inBody) { svg += '</g>'; inBody = false; }

@@ -5,7 +5,9 @@
      (r="50" is a whole head), centred on the anchor: a severed head
      flying or lying on the ground, or a second head growing beside
      the first (chapter 17). Place it with at / row / scale / rotate
-     like any prop; the figure's view, facing and mouth still apply. -->
+     like any prop; the figure's view, facing and mouth still apply.
+     A figure entry with "show": "head-alone" makes one of these for
+     itself (scene.js showPart): one entry instead of two. -->
 <svg
    viewBox="0 0 100 100"
    width="100"

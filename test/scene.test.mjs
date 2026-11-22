@@ -432,3 +432,18 @@ test('a prop "on" an "inside" anchor is centred on it and fitted to its circle',
   assert.ok(Math.abs(hs[1] + heart.size[1] * hs[2] / 2 - (by + ins[1] * bs)) < 0.01);
   assert.match(renderPanel({ figures: [{ prop: 'bubble-thought' }, { character: 'sita', on: 'bubble-thought#inside' }] }, assets).issues.join(), /takes a prop/);
 });
+
+test('show: head-alone is the head-alone prop with the figure on its face; without-head drops the head', () => {
+  const one = { tall: 1, figures: [{ character: 'ravana', show: 'head-alone', facing: 'right', at: 0.4, scale: 1.5, rotate: 30, nudge: [0, 1], mouth: 3 }] };
+  const two = { tall: 1, figures: [
+    { prop: 'head-alone', id: 'h', at: 0.4, scale: 1.5, rotate: 30, nudge: [0, 1] },
+    { character: 'ravana', pose: 'stand-hang', on: 'h#face', facing: 'right', mouth: 3 }] };
+  const a = renderPanel(one, assets), b = renderPanel(two, assets);
+  assert.deepEqual(a.issues, []);
+  assert.equal(a.svg, b.svg);
+  const whole = renderPanel({ tall: 1, figures: [{ character: 'rama', pose: 'step-hang', at: 0.5 }] }, assets).svg;
+  const headless = renderPanel({ tall: 1, figures: [{ character: 'rama', pose: 'step-hang', at: 0.5, show: 'without-head' }] }, assets);
+  assert.deepEqual(headless.issues, []);
+  assert.ok(headless.svg.length < whole.length - 500, 'the head and hair are gone');
+  assert.equal(renderPanel({ tall: 1, figures: [{ character: 'rama', pose: 'step-hang', show: 'arms' }] }, assets).issues.length, 1);
+});

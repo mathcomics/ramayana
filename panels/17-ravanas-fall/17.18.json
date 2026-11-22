@@ -15,8 +15,10 @@
       }
     },
     {
-      "prop": "head-alone",
-      "id": "s0",
+      "character": "ravana",
+      "show": "head-alone",
+      "facing": "right",
+      "mouth": 2,
       "at": 0.37,
       "scale": 0.8,
       "nudge": [
@@ -26,14 +28,9 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "s0#face",
+      "show": "head-alone",
       "facing": "right",
-      "mouth": 2
-    },
-    {
-      "prop": "head-alone",
-      "id": "s1",
+      "mouth": 3,
       "at": 0.43,
       "scale": 0.8,
       "nudge": [
@@ -43,14 +40,9 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "s1#face",
+      "show": "head-alone",
       "facing": "right",
-      "mouth": 3
-    },
-    {
-      "prop": "head-alone",
-      "id": "s2",
+      "mouth": 2,
       "at": 0.34,
       "scale": 0.8,
       "nudge": [
@@ -60,14 +52,9 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "s2#face",
+      "show": "head-alone",
       "facing": "right",
-      "mouth": 2
-    },
-    {
-      "prop": "head-alone",
-      "id": "s3",
+      "mouth": 3,
       "at": 0.4,
       "scale": 0.8,
       "nudge": [
@@ -77,14 +64,9 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "s3#face",
+      "show": "head-alone",
       "facing": "right",
-      "mouth": 3
-    },
-    {
-      "prop": "head-alone",
-      "id": "s4",
+      "mouth": 2,
       "at": 0.46,
       "scale": 0.8,
       "nudge": [
@@ -94,14 +76,9 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "s4#face",
+      "show": "head-alone",
       "facing": "right",
-      "mouth": 2
-    },
-    {
-      "prop": "head-alone",
-      "id": "s5",
+      "mouth": 3,
       "at": 0.37,
       "scale": 0.8,
       "nudge": [
@@ -111,27 +88,15 @@
     },
     {
       "character": "ravana",
-      "pose": "stand-hang",
-      "on": "s5#face",
+      "show": "head-alone",
       "facing": "right",
-      "mouth": 3
-    },
-    {
-      "prop": "head-alone",
-      "id": "s6",
+      "mouth": 2,
       "at": 0.43,
       "scale": 0.8,
       "nudge": [
         0,
         7.187
       ]
-    },
-    {
-      "character": "ravana",
-      "pose": "stand-hang",
-      "on": "s6#face",
-      "facing": "right",
-      "mouth": 2
     },
     {
       "prop": "arrow-stuck",

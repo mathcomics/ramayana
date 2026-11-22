@@ -12,22 +12,17 @@
       "scale": 1.4034
     },
     {
-      "prop": "head-alone",
-      "id": "h1",
+      "character": "ravana",
+      "show": "head-alone",
+      "facing": "right",
+      "mouth": 3,
       "at": 0.72,
-      "rotate": 120,
       "scale": 2.6,
+      "rotate": 120,
       "nudge": [
         0,
         0.919
       ]
-    },
-    {
-      "character": "ravana",
-      "pose": "stand-hang",
-      "on": "h1#face",
-      "facing": "right",
-      "mouth": 3
     },
     {
       "prop": "arrow-stuck",

@@ -267,14 +267,14 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   depth, so it shrinks with it; a narrow stance (`step`) keeps the feet
   on the stone's visible top; listed far to near. A new line is one
   entry: `repeat` with `to` (`panels.md`, Props).
-- **A head alone is `head-alone`** (2026-11-19): an empty prop with one
-  full-size `face` anchor — `{ "prop": "head-alone", "id": "h1", … }`
-  then `{ "character": "ravana", "pose": "stand-hang", "on": "h1#face" }`;
-  place it with `at`/`depth`/`scale`/`rotate`. A cut-off head flying or
-  on the ground, a head growing back, more heads (17.11–17.18). The body
-  can't lose its own head: frame it out instead — the figure scaled up
-  until the top edge cuts it at the shoulders (17.12: `scale` 2.35,
-  pushed down below the bottom edge in a 0.6 strip). A `nudge` does not do it.
+- **A head alone is one entry** (2026-11-21, was a `head-alone` prop plus
+  a figure on its `face` anchor): `{ "character": "ravana", "show":
+  "head-alone", "at": 0.3, "scale": 1.7, "rotate": 120 }`, placed with
+  `at`/`depth`/`scale`/`rotate`/`nudge`. A cut-off head flying or on the
+  ground, a head growing back, more heads (17.11–17.18). The body without
+  its head is `"show": "without-head"`; framing the head out (17.12: the
+  figure scaled up until the top edge cuts it at the shoulders) still
+  works where the head should be off-frame rather than gone.
 - **A body lying dead**: `liefront-armsdown` with the legs straightened
   (`adjust` `right.leg.hip`, `knee`, `left.leg.hip`, `knee` all 0) and
   `rotate` −15 facing right to lie level (17.02); the base alone
