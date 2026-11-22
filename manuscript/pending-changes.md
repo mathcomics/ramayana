@@ -101,9 +101,12 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
 - **Chapter 17, 2026-11-21**: 17.11–17.13 deleted (the head cut off and
   growing back: 17.14–17.18 carry it). Added at the end: the white
   chariot comes down from the sky while Rama and the monkeys look up
-  (17.19, 17.19a), Rama leaps into it (17.20) and fights from it (17.21,
+  (17.19a; 17.19 deleted), Rama leaps into it (17.20) and fights from it (17.21,
   17.21a), draws the last arrow, a glow at its tip (17.22), and Ravana is
-  struck in the chest (17.23, variations 17.23a, 17.23b). Indra's chariot
+  struck in the chest (17.23; its variations 17.23a, 17.23b deleted).
+  Chapter 16: the close-up of Indrajit at the fire (was 16.04) and
+  Vibhishana leading Lakshman and the monkeys through the streets (was
+  16.06) moved before 16.02b, now 16.02aa and 16.02ab. Indra's chariot
   is new to the brief.
 
 ## For the panels (manuscript v1.0, 2026-11-18)
