@@ -1,13 +1,59 @@
 {
-  "scene": "Ravana draws his bow at Rama",
+  "scene": "The monkeys charge up the dark slope to the wall, weapons raised",
   "tall": 0.6,
-  "ground": "dry-grass",
+  "ground": "sand",
   "figures": [
     {
-      "character": "ravana",
-      "pose": "stepwide-bowdraw",
+      "character": "raxas_m1",
+      "pose": "run-longpoint",
       "facing": "right",
-      "at": 0.38
+      "at": 0.05,
+      "on": "foreground",
+      "scale": 0.8
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "at": 0.28,
+      "on": "foreground",
+      "scale": 0.8,
+      "cloth": "red-check"
+    },
+    {
+      "character": "raxas_m3",
+      "pose": "run-pump",
+      "facing": "right",
+      "at": 0.46,
+      "on": "foreground",
+      "scale": 0.8,
+      "cloth": "red-diamond",
+      "adjust": {
+        "right.arm.prop": {
+          "kind": "club-spike-long"
+        }
+      }
+    },
+    {
+      "character": "ravana",
+      "pose": "leanfront-bowdraw",
+      "facing": "right",
+      "on": "chariot#stand",
+      "scale": 0.8
+    },
+    {
+      "prop": "chariot",
+      "at": 0.92,
+      "on": "foreground",
+      "scale": 2
+    },
+    {
+      "foreground": [
+        0.5,
+        0.1
+      ],
+      "color": "#222222"
     }
-  ]
+  ],
+  "tags": ["frieze"]
 }
