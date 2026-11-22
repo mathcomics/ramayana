@@ -93,7 +93,7 @@
     },
     {
       "id": "down",
-      "character": "raxas_m1",
+      "character": "raxas_m4",
       "pose": "liefront-dive",
       "at": 0.95,
       "depth": "floor",
