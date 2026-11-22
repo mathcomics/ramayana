@@ -1,36 +1,32 @@
 {
   "scene": "Variation, more heads: close, Ravana facing us, two small new heads budding beside his own",
-  "tall": 0.6,
+  "tall": 1,
   "ground": "off-white",
   "figures": [
     {
       "character": "ravana",
-      "pose": "step-fists",
-      "view": "front",
-      "at": 0.5,
-      "depth": "closeup"
-    },
-    {
-      "character": "ravana",
       "show": "head-alone",
-      "view": "front",
       "at": 0.3,
-      "scale": 1.7,
       "nudge": [
-        0,
-        2.706
-      ]
+        0.4,
+        5.6
+      ],
+      "rotate": 180
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "at": 0.7,
-      "scale": 1.7,
+      "at": 0.3,
       "nudge": [
-        0,
-        2.706
-      ]
+        0.1,
+        4.9
+      ],
+      "rotate": 180
+    },
+    {
+      "character": "ravana",
+      "pose": "leanfront-straight",
+      "at": 0.2
     }
   ]
 }
