@@ -1,110 +1,121 @@
 {
-  "scene": "Variation, more heads: Ravana facing us, a row of heads grown out on either side of his own, smaller toward the ends",
-  "tall": 1,
-  "ground": "dry-grass",
-  "sky": "sky",
+  "scene": "Variation, more heads: close, Ravana facing us, two small new heads budding beside his own",
+  "tall": 1.5,
+  "ground": "off-white",
   "figures": [
     {
       "character": "ravana",
-      "pose": "stepwide-armsup",
-      "view": "front",
-      "at": 0.5
+      "show": "head-alone",
+      "at": 0.3,
+      "nudge": [
+        5.8,
+        6.8
+      ],
+      "depth": 0.4,
+      "rotate": 90
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "mouth": 3,
-      "at": 0.415,
-      "scale": 0.87,
+      "at": 0.3,
       "nudge": [
-        0,
-        5.674
-      ]
+        5.1,
+        7.2
+      ],
+      "depth": 0.4,
+      "rotate": 80
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "mouth": 2,
-      "at": 0.585,
-      "scale": 0.87,
+      "at": 0.3,
       "nudge": [
-        0,
-        5.674
-      ]
+        4.3,
+        7.2
+      ],
+      "depth": 0.4,
+      "rotate": 50
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "mouth": 2,
-      "at": 0.32999999999999996,
-      "scale": 0.74,
+      "at": 0.3,
       "nudge": [
-        0,
-        6.528
-      ]
+        3.3,
+        7.2
+      ],
+      "depth": 0.4,
+      "rotate": 70
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "mouth": 3,
-      "at": 0.67,
-      "scale": 0.74,
+      "at": 0.3,
       "nudge": [
-        0,
-        6.528
-      ]
+        2.5,
+        7.6
+      ],
+      "depth": 0.4,
+      "rotate": 20
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "mouth": 3,
-      "at": 0.245,
-      "scale": 0.61,
+      "at": 0.3,
       "nudge": [
-        0,
-        7.745
-      ]
+        1.9,
+        7
+      ],
+      "depth": 0.4,
+      "rotate": 50
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "mouth": 2,
-      "at": 0.755,
-      "scale": 0.61,
+      "at": 0.3,
       "nudge": [
-        0,
-        7.745
-      ]
+        1.2,
+        6.4
+      ],
+      "depth": 0.4,
+      "rotate": 30
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "mouth": 2,
-      "at": 0.15999999999999998,
-      "scale": 0.48,
+      "at": 0.3,
       "nudge": [
-        0,
-        9.621
-      ]
+        0.6,
+        5.6
+      ],
+      "depth": 0.4,
+      "rotate": 30
     },
     {
       "character": "ravana",
       "show": "head-alone",
-      "view": "front",
-      "mouth": 3,
-      "at": 0.8400000000000001,
-      "scale": 0.48,
+      "at": 0.3,
+      "depth": 0.4,
       "nudge": [
-        0,
-        9.621
-      ]
+        0.1,
+        5.1
+      ],
+      "rotate": 20
+    },
+    {
+      "character": "ravana",
+      "pose": "leanfront-bowhold",
+      "at": 0.2,
+      "depth": 0.4,
+      "mouth": 3
+    },
+    {
+      "character": "rama",
+      "pose": "arch-swing",
+      "facing": "left",
+      "at": 0.76,
+      "depth": 0.4,
+      "rotate": 10
     }
   ]
 }

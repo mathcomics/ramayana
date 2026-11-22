@@ -1,42 +1,13 @@
 {
-  "scene": "Variation, the head grows back in steps: a small head, a bigger one, the head full size again, side by side",
-  "tall": 0.6,
+  "scene": "Variation, more heads: close, Ravana facing us, two small new heads budding beside his own",
+  "tall": 1,
   "ground": "off-white",
   "figures": [
     {
       "character": "ravana",
-      "show": "head-alone",
-      "view": "front",
+      "show": "without-head",
       "at": 0.2,
-      "scale": 0.9,
-      "nudge": [
-        0,
-        1.674
-      ]
-    },
-    {
-      "character": "ravana",
-      "show": "head-alone",
-      "view": "front",
-      "mouth": 2,
-      "at": 0.5,
-      "scale": 1.8,
-      "nudge": [
-        0,
-        0.837
-      ]
-    },
-    {
-      "character": "ravana",
-      "show": "head-alone",
-      "view": "front",
-      "mouth": 3,
-      "at": 0.8,
-      "scale": 2.7,
-      "nudge": [
-        0,
-        0.558
-      ]
+      "pose": "bend-bowhold"
     }
   ]
 }

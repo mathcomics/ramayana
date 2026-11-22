@@ -5,30 +5,24 @@
   "figures": [
     {
       "prop": "throne-lanka",
-      "at": 0.62,
+      "at": 0.6,
       "depth": "mid"
     },
     {
       "character": "indrajit",
       "id": "indrajit",
-      "pose": "liefront-armsdown",
+      "pose": "liefront-armrest",
       "facing": "right",
-      "at": 0.3,
-      "depth": -0.1622,
-      "adjust": {
-        "right.leg.hip": 0,
-        "right.leg.knee": 0,
-        "left.leg.hip": 0,
-        "left.leg.knee": 0
-      },
-      "rotate": -15,
-      "scale": 0.7916
+      "at": 0.2,
+      "depth": 0.2,
+      "rotate": 185
     },
     {
       "character": "ravana",
       "pose": "bend-reach",
       "facing": "left",
-      "at": 0.78
+      "at": 0.78,
+      "depth": 0.2
     }
   ]
 }

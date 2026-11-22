@@ -8,10 +8,10 @@
       "show": "head-alone",
       "at": 0.3,
       "nudge": [
-        0.4,
+        0.6,
         5.6
       ],
-      "rotate": 180
+      "rotate": 30
     },
     {
       "character": "ravana",
@@ -21,12 +21,13 @@
         0.1,
         4.9
       ],
-      "rotate": 180
+      "rotate": 20
     },
     {
       "character": "ravana",
-      "pose": "leanfront-straight",
-      "at": 0.2
+      "pose": "leanfront-bowhold",
+      "at": 0.2,
+      "mouth": 3
     }
   ]
 }

@@ -1,46 +1,33 @@
 {
-  "scene": "Variation, the heads pile up: three cut-off heads on the ground around his feet; Ravana whole, sword raised",
+  "scene": "Variation, more heads: close, Ravana facing us, two small new heads budding beside his own",
   "tall": 1,
-  "ground": "dry-grass",
-  "sky": "sky",
+  "ground": "off-white",
   "figures": [
     {
       "character": "ravana",
       "show": "head-alone",
-      "facing": "right",
-      "at": 0.22,
-      "depth": 0.027,
-      "scale": 0.9455,
-      "rotate": -90
-    },
-    {
-      "character": "ravana",
-      "show": "head-alone",
-      "facing": "left",
       "at": 0.3,
-      "depth": 0.0811,
-      "scale": 1.0012,
-      "rotate": 160
+      "rotate": -50,
+      "nudge": [
+        -1.9,
+        5
+      ]
     },
     {
       "character": "ravana",
-      "pose": "stepwide-watch",
-      "facing": "right",
-      "at": 0.5,
-      "mouth": 3,
-      "adjust": {
-        "right.arm.prop.kind": "sword-broad"
-      }
+      "show": "without-head",
+      "at": 0.2,
+      "pose": "arch-swing"
     },
     {
-      "character": "ravana",
-      "show": "head-alone",
+      "prop": "arrow-stuck",
       "facing": "left",
-      "mouth": 2,
-      "at": 0.74,
-      "depth": 0.027,
-      "scale": 0.9455,
-      "rotate": 90
+      "at": 0.18,
+      "nudge": [
+        -0.5,
+        3.7
+      ],
+      "rotate": 170
     }
   ]
 }
