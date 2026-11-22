@@ -1,20 +1,18 @@
 {
-  "scene": "The night flight: Hanuman flies back, the mountain on one palm, the sea far below and Lanka ahead",
-  "tall": 1.5,
-  "ground": "night",
-  "sky": "night-blue",
-  "horizon": 0.14,
+  "scene": "Variation: the night flight against the moon, small and far",
+  "tall": 1,
+  "ground": "night-blue",
   "figures": [
     {
-      "prop": "lanka-island",
-      "at": 0.85,
-      "depth": "horizon",
-      "scale": 0.4
-    },
-    {
-      "prop": "palace-lanka",
-      "on": "lanka-island#stand",
-      "scale": 0.4
+      "prop": "rock-circle",
+      "id": "moon",
+      "at": 0.56,
+      "scale": 3.4,
+      "body": "#f3efd6",
+      "nudge": [
+        0,
+        0.703
+      ]
     },
     {
       "prop": "rock-triangle",
