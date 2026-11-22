@@ -1,0 +1,41 @@
+{
+  "scene": "The arrow strikes Ravana in the chest; he falls back (negative)",
+  "tall": 1,
+  "ground": "white",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "liefront-armrest",
+      "facing": "right",
+      "at": 0.45,
+      "depth": "mid",
+      "rotate": 180
+    },
+    {
+      "prop": "arrow-stuck",
+      "facing": "right",
+      "on": "ravana#chest",
+      "rotate": -55
+    },
+    {
+      "character": "rama",
+      "pose": "kneel-swing",
+      "facing": "left",
+      "at": 0.66,
+      "depth": "mid",
+      "adjust": {
+        "spine.head": 25
+      }
+    },
+    {
+      "character": "lakshman",
+      "pose": "pass-bowhold",
+      "facing": "left",
+      "at": 0.86,
+      "depth": "mid",
+      "adjust": {
+        "spine.head": 25
+      }
+    }
+  ]
+}

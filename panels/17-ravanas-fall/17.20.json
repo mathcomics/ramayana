@@ -1,7 +1,7 @@
 {
   "scene": "Rama leaps up into the white chariot",
   "tall": 0.6,
-  "ground": "dry-grass",
+  "ground": "stone-grey",
   "figures": [
     {
       "character": "rama",

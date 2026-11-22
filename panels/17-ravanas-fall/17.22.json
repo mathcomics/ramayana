@@ -1,7 +1,7 @@
 {
   "scene": "Close: Rama draws the last arrow; a circle of light glows at its tip",
   "tall": 0.6,
-  "ground": "dry-grass",
+  "ground": "stone-grey",
   "figures": [
     {
       "prop": "rock-circle",

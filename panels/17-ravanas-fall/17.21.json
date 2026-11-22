@@ -1,7 +1,7 @@
 {
   "scene": "Rama fights from the white chariot, bow drawn at Ravana",
   "tall": 0.6,
-  "ground": "dry-grass",
+  "ground": "stone-grey",
   "figures": [
     {
       "character": "rama",

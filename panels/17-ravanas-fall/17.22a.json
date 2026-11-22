@@ -1,7 +1,7 @@
 {
   "scene": "Variation: close, Rama draws the last arrow; the glow at its tip in two circles",
   "tall": 0.6,
-  "ground": "dry-grass",
+  "ground": "stone-grey",
   "figures": [
     {
       "id": "glow",
