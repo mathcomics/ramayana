@@ -46,6 +46,8 @@ main.chapter { padding-top: 8px; padding-bottom: calc(96px + env(safe-area-inset
 .pager a:active { transform: scale(.95); }
 .pager .none { pointer-events: none; width: 56px; height: 56px; border-radius: 18px; background: rgba(255,255,255,.5); opacity: .3; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .pager svg { width: 26px; height: 26px; }
+footer.links { display: flex; justify-content: space-between; padding: 0 12px calc(24px + env(safe-area-inset-bottom)); font-size: 14px; }
+footer.links a { color: var(--muted); text-decoration: none; padding: 8px 4px; }
 `;
 const page = (title, body, cls) => `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
@@ -161,5 +163,6 @@ const tiles = chapters.map((c, i) => {
     ? `<li style="z-index:${chapters.length - i}"><a class="tile" href="${file(c)}" style="${style}" aria-label="${c.n}. ${esc(c.title)}">${art}</a></li>`
     : `<li style="z-index:${chapters.length - i}"><span class="tile soon" style="${style}" aria-label="${c.n}. ${esc(c.title)} (to come)">${art}</span></li>`;
 });
-writeFileSync(join(out, 'index.html'), page('Ramayana', `<ol class="tiles">${tiles.join('')}</ol>`));
+writeFileSync(join(out, 'index.html'), page('Ramayana', `<ol class="tiles">${tiles.join('')}</ol>` +
+  '<footer class="links"><a href="https://github.com/mathcomics/ramayana">GitHub</a><a href="https://lilboox.com">lilboox.com</a></footer>'));
 console.log(`_site/: ${ready.length} of ${chapters.length} chapter(s) with panels`);
