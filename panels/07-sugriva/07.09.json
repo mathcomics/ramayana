@@ -1,7 +1,7 @@
 {
   "scene": "Rama grieves on the rock; Lakshman, Hanuman and Sugriva stand by",
   "tall": 1,
-  "ground": "dry-grass",
+  "ground": "white",
   "figures": [
     {
       "prop": "palace-kishkindha",
@@ -49,6 +49,5 @@
       "scale": 0.4
     }
   ],
-  "horizon": 0,
-  "sky": "sky"
+  "horizon": 0
 }

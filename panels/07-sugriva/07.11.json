@@ -1,7 +1,6 @@
 {
   "scene": "Sugriva bows his head, a hand to his face; Rama stands by him",
   "tall": 0.6,
-  "ground": "dry-grass",
   "figures": [
     {
       "character": "rama",
@@ -16,5 +15,5 @@
     }
   ],
   "horizon": 0,
-  "sky": "sky"
+  "sky": "white"
 }
