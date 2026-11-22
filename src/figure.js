@@ -200,7 +200,7 @@ export function renderFigure(species, pose, opts = {}) {
   let inBody = false;
   if (drawn?.defs) svg += `<defs>${drawn.defs}</defs>`;
   // headless (a panel figure's "show": "without-head"): the body with
-  // the neck as its stump; no head, no hair behind it, no body hair
+  // no head, no neck, no hair behind it, no body hair
   if (drawn?.back && !headless) svg += place(drawn.back);          // behind the whole body
   // worn props (a panel figure's `wear`, a garland flying back): behind
   // the whole body, their `neck` anchor on the neck base, not turned with
@@ -212,7 +212,7 @@ export function renderFigure(species, pose, opts = {}) {
   // the far leg and the torso (skin or cloth) a shade darker than the rest
   const fill = (s, c) => (SHADED.test(s.part || '') ? shade(c, SHADE) : c);
   for (const s of shapes) {
-    if (headless && (s.hairBody || s.headPart)) continue;
+    if (headless && (s.hairBody || s.headPart || s.part === 'neck')) continue;
     if (s.hairBody) {                                   // the face's body hair, moved with the upper body
       if (bodyFace?.hairBody && hairAnchor) {
         if (inBody) { svg += '</g>'; inBody = false; }

@@ -98,7 +98,7 @@ function faceSamples(poly) {
 // ---- an entry's drawn shapes in the panel -----------------------------------
 function shapesOf(L) {
   if (L.kind === 'figure') {
-    const shapes = L.built.shapes.filter((s) => s.pts?.length > 2 && s.role !== 'prop' && !s.hairBody && (!L.headOnly || s.headPart) && !(L.headless && s.headPart));
+    const shapes = L.built.shapes.filter((s) => s.pts?.length > 2 && s.role !== 'prop' && !s.hairBody && (!L.headOnly || s.headPart) && !(L.headless && (s.headPart || s.part === 'neck')));
     return shapes.map((s) => ({ part: s.headPart ? 'head' : s.part, role: s.role, pts: s.pts.map(L.toPanel) }));
   }
   if (L.kind === 'prop') {
