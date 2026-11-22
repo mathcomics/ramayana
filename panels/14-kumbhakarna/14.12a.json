@@ -1,0 +1,21 @@
+{
+  "scene": "His eye opens; the musicians run from his face, the drum tumbling",
+  "tall": 0.6,
+  "ground": "light-grey",
+  "figures": [
+    {
+      "id": "face",
+      "prop": "giant-face-side-awake",
+      "at": 0.2,
+      "depth": "closeup",
+      "rotate": -20
+    },
+    {
+      "character": "ravana",
+      "pose": "stand-point",
+      "facing": "left",
+      "at": 0.9,
+      "depth": "floor"
+    }
+  ]
+}

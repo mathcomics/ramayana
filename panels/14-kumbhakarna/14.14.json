@@ -15,7 +15,7 @@
     {
       "character": "monkey1",
       "id": "flee1",
-      "pose": "step-armsup",
+      "pose": "leanback-armface",
       "facing": "right",
       "at": 0.27
     },

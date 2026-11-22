@@ -13,16 +13,17 @@
     },
     {
       "id": "player1",
-      "character": "raxas_m1",
+      "character": "raxas_m4",
       "pose": "stepback-wrath",
-      "facing": "left",
-      "at": 0.7
+      "facing": "right",
+      "at": 0.8
     },
     {
       "prop": "rock-circle",
-      "at": 0.7,
+      "at": 0.95,
       "depth": "top",
-      "body": "orange"
+      "body": "yellow",
+      "scale": 2
     },
     {
       "prop": "drum",

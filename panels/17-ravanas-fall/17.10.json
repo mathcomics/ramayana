@@ -11,13 +11,13 @@
     },
     {
       "prop": "arrow-stuck",
-      "at": 0.18,
-      "scale": 1.4,
+      "at": 0.08,
       "facing": "left",
       "nudge": [
         0,
-        1.834
-      ]
+        4
+      ],
+      "rotate": -200
     }
   ]
 }
