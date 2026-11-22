@@ -12,8 +12,8 @@
       "scale": 0.8
     },
     {
-      "character": "raxas_m2",
-      "pose": "runlow-pumplow",
+      "character": "raxas_m4",
+      "pose": "run-roof",
       "facing": "right",
       "at": 0.28,
       "on": "foreground",

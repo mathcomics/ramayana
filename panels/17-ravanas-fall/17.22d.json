@@ -1,0 +1,18 @@
+{
+  "scene": "Close: Rama draws the last arrow; a circle of light glows at its tip",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "leanback-bowloose",
+      "facing": "left",
+      "at": 0.62,
+      "depth": "closeup",
+      "nudge": [
+        0,
+        1.2
+      ]
+    }
+  ]
+}

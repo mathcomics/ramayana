@@ -1,7 +1,7 @@
 {
   "scene": "The Ashoka grove by day: Rama runs to Sita; she rises from her rock, arms out to him",
   "tall": 1,
-  "ground": "sunrise",
+  "ground": "white",
   "figures": [
     {
       "prop": "rock-square",
@@ -9,15 +9,20 @@
       "scale": 0.67
     },
     {
+      "prop": "trees-side",
+      "at": 0.8,
+      "depth": 0.5
+    },
+    {
       "character": "sita",
-      "pose": "step-reach",
+      "pose": "leanfront-reach",
       "facing": "left",
-      "at": 0.66,
+      "at": 0.86,
       "mouth": 2
     },
     {
       "character": "rama",
-      "pose": "run-reach",
+      "pose": "stepwide-armsup",
       "facing": "right",
       "at": 0.28,
       "mouth": 2

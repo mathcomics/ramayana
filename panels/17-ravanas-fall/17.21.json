@@ -12,9 +12,24 @@
     {
       "prop": "chariot",
       "facing": "left",
-      "at": 0.85,
+      "at": 0.15,
       "scale": 3.5,
       "body": "#f4f1ea"
+    },
+    {
+      "character": "monkey1",
+      "pose": "run-longpoint",
+      "facing": "left",
+      "at": 0.95,
+      "scale": 0.8,
+      "cloth": "yellow"
+    },
+    {
+      "character": "monkey2",
+      "pose": "run-roof",
+      "facing": "left",
+      "at": 0.72,
+      "scale": 0.8
     }
   ]
 }

@@ -5,24 +5,23 @@
   "figures": [
     {
       "prop": "rock-circle",
-      "id": "glow",
       "on": "rama#hand-left",
       "body": "#fff4b8",
-      "scale": 0.5,
+      "scale": 0.25,
       "nudge": [
-        -1.2,
+        -2,
         -1
       ]
     },
     {
       "prop": "rock-circle",
       "on": "rama#hand-left",
-      "body": "#ffd84a",
-      "scale": 0.25,
       "nudge": [
-        -2.4,
+        -5,
         -1
-      ]
+      ],
+      "scale": 0.1,
+      "body": "#ffd84a"
     },
     {
       "character": "rama",

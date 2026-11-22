@@ -28,9 +28,18 @@
       "character": "lakshman",
       "pose": "step-hang",
       "facing": "left",
-      "at": 0.9,
+      "at": 0.97,
       "depth": "mid",
       "mouth": 2
+    },
+    {
+      "character": "sita",
+      "pose": "step-hang",
+      "facing": "left",
+      "at": 0.9,
+      "depth": "mid",
+      "mouth": 2,
+      "id": "angad"
     },
     {
       "character": "hanuman",

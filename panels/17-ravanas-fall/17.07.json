@@ -14,30 +14,23 @@
     },
     {
       "character": "monkey2",
-      "pose": "runlow-pumplow",
+      "pose": "run-roof",
       "facing": "left",
       "at": 0.72,
       "on": "foreground",
-      "scale": 0.8,
-      "cloth": "red-check"
+      "scale": 0.8
     },
     {
       "character": "hanuman",
-      "pose": "run-pump",
+      "pose": "run-wrath",
       "facing": "left",
       "at": 0.54,
       "on": "foreground",
-      "scale": 0.8,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "club",
-          "angle": 60
-        }
-      }
+      "scale": 0.8
     },
     {
       "character": "rama",
-      "pose": "leanfront-bowdraw",
+      "pose": "leanfront-bowhigh",
       "facing": "left",
       "on": "chariot#stand",
       "scale": 0.8
@@ -51,8 +44,8 @@
     },
     {
       "foreground": [
-        0.1,
-        0.5
+        0.3,
+        0
       ],
       "color": "#222222"
     }

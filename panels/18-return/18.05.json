@@ -5,61 +5,127 @@
   "figures": [
     {
       "prop": "cloud-small",
-      "at": 0.47,
+      "at": 0.1,
       "scale": 0.5,
       "nudge": [
         0,
-        -0.9
+        6
       ],
       "depth": "mid"
     },
     {
       "character": "hanuman",
-      "pose": "pass-hang",
-      "facing": "left",
+      "pose": "pass-palms",
+      "facing": "right",
       "on": "chariot#stand-left",
       "nudge": [
-        0.55,
+        0.1,
         0
-      ]
+      ],
+      "adjust": {
+        "spine.head": 35
+      }
     },
     {
       "character": "lakshman",
-      "pose": "step-hang",
-      "facing": "left",
-      "on": "chariot#stand-left",
-      "nudge": [
-        0.25,
-        0
-      ]
-    },
-    {
-      "character": "sita",
-      "pose": "pass-swing",
-      "facing": "left",
+      "pose": "pass-armsout",
+      "facing": "right",
       "on": "chariot#stand-left",
       "nudge": [
         -0.1,
         0
-      ]
+      ],
+      "adjust": {
+        "spine.head": 25
+      }
+    },
+    {
+      "character": "sita",
+      "pose": "pass-swing",
+      "facing": "right",
+      "on": "chariot#stand",
+      "nudge": [
+        0.5,
+        0
+      ],
+      "adjust": {
+        "spine.head": 25
+      }
     },
     {
       "character": "rama",
       "pose": "step-hang",
-      "facing": "left",
-      "on": "chariot#stand"
+      "facing": "right",
+      "on": "chariot#stand",
+      "adjust": {
+        "spine.head": 25
+      },
+      "nudge": [
+        -0.2,
+        0
+      ]
     },
     {
       "prop": "chariot",
       "facing": "left",
-      "at": 0.45,
+      "at": 0.37,
       "scale": 3.5,
       "body": "#f4f1ea",
       "nudge": [
         0,
-        0.15
+        0.6
       ],
       "depth": "mid"
+    },
+    {
+      "character": "sugriva",
+      "pose": "pass-onarms",
+      "facing": "left",
+      "at": 0.8,
+      "nudge": [
+        0.1,
+        -2
+      ],
+      "scale": 0.8,
+      "adjust": {
+        "spine.head": -25
+      }
+    },
+    {
+      "character": "vibhishana",
+      "pose": "pass-armsup",
+      "facing": "left",
+      "at": 0.9,
+      "nudge": [
+        0.1,
+        -2
+      ],
+      "scale": 0.8,
+      "adjust": {
+        "spine.head": -25
+      }
+    },
+    {
+      "character": "hanuman",
+      "pose": "pass-palms",
+      "facing": "right",
+      "on": "chariot#stand-left",
+      "nudge": [
+        0.1,
+        0
+      ],
+      "adjust": {
+        "spine.head": 35
+      }
+    },
+    {
+      "prop": "streak",
+      "at": 0.3,
+      "nudge": [
+        0,
+        0.2
+      ],
+      "rotate": 180
     }
   ]
 }

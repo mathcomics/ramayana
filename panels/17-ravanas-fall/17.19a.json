@@ -7,48 +7,57 @@
   "figures": [
     {
       "prop": "cloud-small",
-      "at": 0.6,
+      "at": 0.8,
       "scale": 0.25,
       "nudge": [
         0,
-        22
+        25
       ]
+    },
+    {
+      "prop": "streak",
+      "at": 0.65,
+      "nudge": [
+        0,
+        0
+      ],
+      "depth": "top"
     },
     {
       "prop": "chariot",
       "facing": "left",
-      "at": 0.6,
-      "scale": 1.4,
-      "body": "#f4f1ea",
-      "rotate": -12,
+      "at": 0.65,
       "nudge": [
         0,
-        4.2
-      ]
+        3.6
+      ],
+      "scale": 1.4,
+      "body": "#f4f1ea",
+      "rotate": -12
     },
     {
       "character": "monkey1",
       "pose": "step-pointup",
       "facing": "right",
-      "at": 0.3,
-      "depth": "horizon"
+      "at": 0.1,
+      "depth": "mid"
     },
     {
       "character": "rama",
       "pose": "step-hang",
       "facing": "right",
-      "at": 0.36,
-      "depth": "horizon",
+      "at": 0.16,
+      "depth": "mid",
       "adjust": {
         "spine.head": -35
       }
     },
     {
-      "character": "monkey2",
+      "character": "hanuman",
       "pose": "stand-armsup",
       "facing": "right",
-      "at": 0.42,
-      "depth": "horizon",
+      "at": 0.32,
+      "depth": "mid",
       "cloth": "orange"
     }
   ]
