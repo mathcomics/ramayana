@@ -146,7 +146,7 @@ and Sita in the swan chariot **waving back at the reader**.
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
 Every drawn chapter's folder number matches its brief number.
-The approved reference panels (every panel with `tags`; 31 since the frieze 13.02 was deleted
+The approved reference panels (every panel with `tags`; 34 on 2026-11-21, with 18.00b `opening` and 17.06 `frieze`; the frieze 13.02 was deleted
 2026-11-19) are the models other panels are
 judged against and are locked; the tags and what each kind of scene
 looks like: `panels/layouts.md`.
