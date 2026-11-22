@@ -1,0 +1,32 @@
+{
+  "scene": "Variation: chariot against chariot: Ravana in his gold one and Rama in the white, each drawing his bow at the other",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "stepwide-bowdraw",
+      "facing": "right",
+      "on": "rchariot#stand"
+    },
+    {
+      "prop": "chariot",
+      "id": "rchariot",
+      "at": 0.15,
+      "scale": 3.5
+    },
+    {
+      "character": "rama",
+      "pose": "stepwide-bowdraw",
+      "facing": "left",
+      "on": "chariot#stand"
+    },
+    {
+      "prop": "chariot",
+      "facing": "left",
+      "at": 0.85,
+      "scale": 3.5,
+      "body": "#f4f1ea"
+    }
+  ]
+}

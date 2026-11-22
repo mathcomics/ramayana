@@ -1,0 +1,55 @@
+{
+  "scene": "A white chariot comes down out of the sky; Rama and the monkeys look up at it",
+  "tall": 1.5,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "figures": [
+    {
+      "prop": "cloud-small",
+      "at": 0.68,
+      "depth": "top",
+      "scale": 0.3,
+      "nudge": [
+        0,
+        -1.5
+      ]
+    },
+    {
+      "prop": "chariot",
+      "facing": "left",
+      "at": 0.66,
+      "depth": "top",
+      "scale": 1.8,
+      "body": "#f4f1ea",
+      "rotate": -12,
+      "nudge": [
+        0,
+        -0.6
+      ]
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-pointup",
+      "facing": "right",
+      "at": 0.12,
+      "depth": "mid"
+    },
+    {
+      "character": "monkey2",
+      "pose": "stand-armsup",
+      "facing": "right",
+      "at": 0.82,
+      "depth": "mid",
+      "cloth": "orange"
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.3,
+      "adjust": {
+        "spine.head": -35
+      }
+    }
+  ]
+}

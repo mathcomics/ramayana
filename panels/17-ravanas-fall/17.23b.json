@@ -1,0 +1,19 @@
+{
+  "scene": "Variation: struck, Ravana drops to his knees, the arrow in his chest (negative)",
+  "tall": 1,
+  "ground": "dry-grass",
+  "mode": "negative",
+  "figures": [
+    {
+      "character": "ravana",
+      "pose": "kneel-flung",
+      "facing": "right",
+      "at": 0.45
+    },
+    {
+      "prop": "arrow-stuck",
+      "on": "ravana#chest",
+      "facing": "right"
+    }
+  ]
+}

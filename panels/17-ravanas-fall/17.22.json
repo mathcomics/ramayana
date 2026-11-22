@@ -1,0 +1,39 @@
+{
+  "scene": "Close: Rama draws the last arrow; a circle of light glows at its tip",
+  "tall": 0.6,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "prop": "rock-circle",
+      "id": "glow",
+      "on": "rama#hand-left",
+      "body": "#fff4b8",
+      "scale": 0.5,
+      "nudge": [
+        -1.2,
+        -1
+      ]
+    },
+    {
+      "prop": "rock-circle",
+      "on": "rama#hand-left",
+      "body": "#ffd84a",
+      "scale": 0.25,
+      "nudge": [
+        -2.4,
+        -1
+      ]
+    },
+    {
+      "character": "rama",
+      "pose": "leanfront-bowdraw",
+      "facing": "left",
+      "at": 0.62,
+      "depth": "closeup",
+      "nudge": [
+        0,
+        1.2
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "scene": "Variation, far: the white chariot small high in the sky on its cloud; Rama and the monkeys small on the plain below, looking up",
+  "tall": 1,
+  "ground": "dry-grass",
+  "sky": "sky",
+  "horizon": 0.25,
+  "figures": [
+    {
+      "prop": "cloud-small",
+      "at": 0.6,
+      "scale": 0.25,
+      "nudge": [
+        0,
+        22
+      ]
+    },
+    {
+      "prop": "chariot",
+      "facing": "left",
+      "at": 0.6,
+      "scale": 1.4,
+      "body": "#f4f1ea",
+      "rotate": -12,
+      "nudge": [
+        0,
+        4.2
+      ]
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-pointup",
+      "facing": "right",
+      "at": 0.3,
+      "depth": "horizon"
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "right",
+      "at": 0.36,
+      "depth": "horizon",
+      "adjust": {
+        "spine.head": -35
+      }
+    },
+    {
+      "character": "monkey2",
+      "pose": "stand-armsup",
+      "facing": "right",
+      "at": 0.42,
+      "depth": "horizon",
+      "cloth": "orange"
+    }
+  ]
+}

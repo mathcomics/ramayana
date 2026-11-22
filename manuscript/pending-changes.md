@@ -98,6 +98,13 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
 - **17.07, 2026-11-21**: the monkeys charge up the slope behind Rama,
   who shoots from his chariot (the artist's frieze, 17.06 mirrored with
   the sides swapped).
+- **Chapter 17, 2026-11-21**: 17.11–17.13 deleted (the head cut off and
+  growing back: 17.14–17.18 carry it). Added at the end: the white
+  chariot comes down from the sky while Rama and the monkeys look up
+  (17.19, 17.19a), Rama leaps into it (17.20) and fights from it (17.21,
+  17.21a), draws the last arrow, a glow at its tip (17.22), and Ravana is
+  struck in the chest (17.23, variations 17.23a, 17.23b). Indra's chariot
+  is new to the brief.
 
 ## For the panels (manuscript v1.0, 2026-11-18)
 

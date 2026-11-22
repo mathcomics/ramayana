@@ -1,0 +1,20 @@
+{
+  "scene": "Rama leaps up into the white chariot",
+  "tall": 1,
+  "ground": "dry-grass",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "leap-reach",
+      "facing": "right",
+      "at": 0.45,
+      "nudge": [0, 3]
+    },
+    {
+      "prop": "chariot",
+      "at": 0.86,
+      "scale": 3.5,
+      "body": "#f4f1ea"
+    }
+  ]
+}
