@@ -177,7 +177,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
 - **Poses: any base with any gesture**, named `<base>-<gesture>`, all
   side view (the front view is derived by the renderer). **28 bases**
   (`data/bases.json`: legs, lean, tail; `ground` and story moments
-  `use`) and **61 gestures** (`data/gestures.json`: arms, chest, head,
+  `use`) and **62 gestures** (`data/gestures.json`: arms, chest, head,
   mouth; `hold` and `use`); `src/compose.js` composes a pair when a panel
   names it, so retuning a base or gesture changes every pose using it.
   There is no list of poses (dropped 2026-11-14: the finding fields moved

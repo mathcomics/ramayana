@@ -612,6 +612,43 @@
         }
       }
     },
+    "bowhold": {
+      "chest": -4,
+      "desc": "bow held out low before him, not drawn; the right arm loose at the side, hand open",
+      "head": -6,
+      "hold": [
+        "left"
+      ],
+      "left": {
+        "elbow": 0,
+        "elbowOut": 0,
+        "hand": "fist",
+        "out": 6,
+        "prop": {
+          "angle": 0,
+          "kind": "bow",
+          "out": 0
+        },
+        "shoulder": 65.1,
+        "twist": 0,
+        "wrist": 0
+      },
+      "mouth": 2,
+      "neck": 15.8,
+      "right": {
+        "elbow": 32.9,
+        "elbowOut": -20,
+        "hand": "out",
+        "out": 20,
+        "shoulder": -45.9,
+        "twist": 0,
+        "wrist": 31.8
+      },
+      "use": [
+        "shoot",
+        "stand"
+      ]
+    },
     "bowloose": {
       "desc": "bow tipped level forward, right hand flung open past the ear",
       "hold": [
