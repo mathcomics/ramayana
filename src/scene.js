@@ -156,7 +156,8 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     .flatMap((e) => (e && e.repeat != null ? repeatProp(e) : [e]));
 
   // "show" on a figure: part of it only. "head-alone" is the head without
-  // its body, placed like a prop (at, depth, scale, rotate, nudge, on): the
+  // its body, placed like a prop (at, depth, scale, nudge, on) and turned by
+  // its own rotate about its centre: the
   // entry stands for an empty `head-alone` prop and the figure on its
   // `face` anchor — a cut-off head, a head growing back. "without-head" is
   // the body with no head (figure.js `headless`).
@@ -165,11 +166,11 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     if (!(e.character || e.who)) { issues.push(`${name}: "show" is for figures`); const { show, ...rest } = e; return [rest]; }
     if (e.show === 'without-head') return [e];
     if (e.show !== 'head-alone') { issues.push(`${name}: "show" is "head-alone" or "without-head" ("${e.show}")`); const { show, ...rest } = e; return [rest]; }
-    const { show, at, depth, scale, rotate, nudge, on, ...fig } = e;
+    const { show, at, depth, scale, nudge, on, ...fig } = e;   // rotate stays on the head: it turns about its centre
     if (on && /#face$/.test(on)) { const { show: _, ...rest } = e; return [rest]; }   // already a head on a face anchor
     const id = `${name}~head${++showSeen}`;
     const prop = { prop: 'head-alone', id };
-    for (const [k, v] of Object.entries({ at, depth, scale, rotate, nudge, on })) if (v != null) prop[k] = v;
+    for (const [k, v] of Object.entries({ at, depth, scale, nudge, on })) if (v != null) prop[k] = v;
     return [prop, { pose: 'stand-hang', ...fig, on: `${id}#face` }];   // the pose only tilts the head
   }
 

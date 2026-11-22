@@ -433,11 +433,11 @@ test('a prop "on" an "inside" anchor is centred on it and fitted to its circle',
   assert.match(renderPanel({ figures: [{ prop: 'bubble-thought' }, { character: 'sita', on: 'bubble-thought#inside' }] }, assets).issues.join(), /takes a prop/);
 });
 
-test('show: head-alone is the head-alone prop with the figure on its face; without-head drops the head', () => {
+test('show: head-alone is the head-alone prop with the figure on its face (rotate turns the head); without-head drops the head', () => {
   const one = { tall: 1, figures: [{ character: 'ravana', show: 'head-alone', facing: 'right', at: 0.4, scale: 1.5, rotate: 30, nudge: [0, 1], mouth: 3 }] };
   const two = { tall: 1, figures: [
-    { prop: 'head-alone', id: 'h', at: 0.4, scale: 1.5, rotate: 30, nudge: [0, 1] },
-    { character: 'ravana', pose: 'stand-hang', on: 'h#face', facing: 'right', mouth: 3 }] };
+    { prop: 'head-alone', id: 'h', at: 0.4, scale: 1.5, nudge: [0, 1] },
+    { character: 'ravana', pose: 'stand-hang', on: 'h#face', facing: 'right', mouth: 3, rotate: 30 }] };
   const a = renderPanel(one, assets), b = renderPanel(two, assets);
   assert.deepEqual(a.issues, []);
   assert.equal(a.svg, b.svg);
