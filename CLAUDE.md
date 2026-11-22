@@ -94,6 +94,7 @@ overrides the repo entry in the lab.
     node tools/build-site.mjs                      # _site/ (Cloudflare Pages runs this)
     node tools/build-panellab.mjs                  # out/panellab.html (published artifact)
     node tools/renumber-panels.mjs 05 --dry        # settled chapter -> consecutive ids (inserts are 05.01a)
+    node tools/flip-panel.mjs 18.07                # mirror a panel left to right (flip-panel skill)
 
 Panel lab (published artifact, drafts in its database, collection
 `panels`): https://claude.ai/artifact/RrHEPbeEDjq9T5WGRJKhDG
@@ -125,7 +126,7 @@ and Sita in the swan chariot **waving back at the reader**.
 
 | Chapter | Panels | State |
 |---|---|---|
-| `01-intro` | 9 | the opener, and the artist's drafts of the court (2026-11-14); the procession (01.04) in two chariots, as 18.01 (2026-11-21) |
+| `01-intro` | 9 | the opener, and the artist's drafts of the court (2026-11-14); the procession (01.04) in two chariots, as 18.07 (2026-11-21) |
 | `02-the-throne` | 16 | written against the brief |
 | `03-the-forest` | 12 | predates the briefs — to revisit (03.02 is approved and locked) |
 | `04-surpanakha` | 18 | predates the briefs — to revisit |
@@ -142,11 +143,11 @@ and Sita in the swan chariot **waving back at the reader**.
 | `15-the-mountain-of-herbs` | 32 | opens on Ravana and Indrajit grieving on the shore before the sinking head (15.00a, from 14.24) and Ravana sending Indrajit (15.00b) (2026-11-21); first draft against the brief, with variations to choose from (2026-11-17); moved from 16 to 15 with the popular order (2026-11-18), Indrajit for Ravana, throwing from his cloud (in 15.02a the javelin leaves `cloud-big`; 15.02, from `cloud-small`, deleted 2026-11-20); ten panels inserted around the first and third beats (15.01a–15.16a, 2026-11-18); the healer is monkey2; the javelin and the herbs are stand-ins |
 | `16-indrajit` | 16 | first draft against the brief (2026-11-18; 16.01–16.03, 16.05, 16.07–16.10 and 16.12 deleted 2026-11-21, so the chapter opens on the shrine's steps, 16.02a), with variations of the shrine (2026-11-21: Lakshman below shooting a guard on the steps, 16.02b; Indrajit running down the steps with a spiked club, 16.02c) and Indrajit chasing Vibhishana with it (16.10a); leaping into his chariot and drawing his bow from it (16.11a, 16.11b): the fire rite (Lanka's roofs by night with the glow, the shrine — the fire alone, or on the top of its steps (16.02a) — Indrajit and the rakshasas at the fire, black smoke rising over the roofs; 16.01–16.05), Vibhishana leading Lakshman and the monkeys through the streets and the watch from a wall's corner (16.06–16.08), Indrajit caught and leaping from the fire, the fire left burning low (16.09–16.11), the duel one side per strip (16.12–16.17), the head struck off in negative (16.18) and the end (16.19); the fire altar, the smoke (a black vine), the broken bow and the head alone are stand-ins |
 | `17-ravanas-fall` | 14 | first draft (2026-11-19), on the artist's directions: Ravana's lament before his throne over Indrajit's body (17.02, 17.04), the duel with Rama one side per strip (17.06, 17.07, 17.09, 17.10; 17.01, 17.03, 17.05 and 17.08 deleted 2026-11-21), and variations to choose from: the head cut off (17.11, 17.12), the head growing back (17.13–17.15) and more heads growing (17.16–17.18), the heads drawn on `head-alone`; the great arrow, the fall and the pyre still to write |
-| `18-return` | 3 | two artist drafts of the openers (18.00a Vibhishana on Lanka's throne with Rama, Lakshman, Hanuman and Sugriva; 18.00b Ayodhya's palace by night with rows of lamps, 2026-11-21), and the closing procession by night (18.01, from 01.04): Rama and Sita standing in the chariot, Lakshman and Hanuman in a second one just behind, a row of clay lamps (half-circles and yellow circles, stand-ins) |
+| `18-return` | 7 | renumbered 2026-11-21 (18.00a, 18.00b, 18.01 became 18.03, 18.06, 18.07): Rama running to Sita in the Ashoka grove (18.01), Vibhishana in procession with rakshasa musicians and leaping monkeys behind him (18.02, as 08.18), Vibhishana on Lanka's throne with Rama, Lakshman, Hanuman and Sugriva (18.03), Hanuman bowing to Rama (18.04), the four in the white chariot on a small cloud, flying home (18.05), Ayodhya's palace by night with rows of lamps (18.06), and the closing procession by night (18.07, from 01.04, flipped to face left): Rama and Sita standing in the chariot, Lakshman and Hanuman in a second one just behind, a row of clay lamps (half-circles and yellow circles, stand-ins) |
 | `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
 
 Every drawn chapter's folder number matches its brief number.
-The approved reference panels (every panel with `tags`; 34 on 2026-11-21, with 18.00b `opening` and 17.06 `frieze`; the frieze 13.02 was deleted
+The approved reference panels (every panel with `tags`; 35 on 2026-11-21, with 18.06 `opening` and 17.06, 17.07 `frieze`; the frieze 13.02 was deleted
 2026-11-19) are the models other panels are
 judged against and are locked; the tags and what each kind of scene
 looks like: `panels/layouts.md`.

@@ -87,6 +87,17 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
   kneeling close-up), Ravana no longer strides out, and the arrows
   crossing in the empty sky are gone. 13.16 is now Rama's arrow flinging
   four rakshasas, not a duel. Nothing renumbered.
+- **Chapter 18, 2026-11-21: renumbered and four panels added** (the
+  artist). 18.01 Rama runs to Sita in the Ashoka grove; 18.02 Vibhishana
+  in procession, rakshasa musicians and leaping monkeys behind him; 18.03
+  Vibhishana on Lanka's throne (was 18.00a); 18.04 Hanuman bows to Rama;
+  18.05 Rama, Sita, Lakshman and Hanuman fly home in a white chariot on a
+  small cloud; 18.06 Ayodhya's palace by night with lamps (was 18.00b);
+  18.07 the closing procession (was 18.01), now facing left. The reunion,
+  Vibhishana's crowning and the flight home are new to the brief.
+- **17.07, 2026-11-21**: the monkeys charge up the slope behind Rama,
+  who shoots from his chariot (the artist's frieze, 17.06 mirrored with
+  the sides swapped).
 
 ## For the panels (manuscript v1.0, 2026-11-18)
 

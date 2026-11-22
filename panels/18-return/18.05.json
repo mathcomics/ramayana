@@ -1,0 +1,65 @@
+{
+  "scene": "Home through the sky: Rama, Sita, Lakshman and Hanuman stand in the white chariot, riding a small cloud",
+  "tall": 1,
+  "ground": "sky",
+  "figures": [
+    {
+      "prop": "cloud-small",
+      "at": 0.47,
+      "scale": 0.5,
+      "nudge": [
+        0,
+        -0.9
+      ],
+      "depth": "mid"
+    },
+    {
+      "character": "hanuman",
+      "pose": "pass-hang",
+      "facing": "left",
+      "on": "chariot#stand-left",
+      "nudge": [
+        0.55,
+        0
+      ]
+    },
+    {
+      "character": "lakshman",
+      "pose": "step-hang",
+      "facing": "left",
+      "on": "chariot#stand-left",
+      "nudge": [
+        0.25,
+        0
+      ]
+    },
+    {
+      "character": "sita",
+      "pose": "pass-swing",
+      "facing": "left",
+      "on": "chariot#stand-left",
+      "nudge": [
+        -0.1,
+        0
+      ]
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "on": "chariot#stand"
+    },
+    {
+      "prop": "chariot",
+      "facing": "left",
+      "at": 0.45,
+      "scale": 3.5,
+      "body": "#f4f1ea",
+      "nudge": [
+        0,
+        0.15
+      ],
+      "depth": "mid"
+    }
+  ]
+}

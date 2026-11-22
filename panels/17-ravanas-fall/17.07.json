@@ -1,56 +1,58 @@
 {
-  "scene": "The monkeys charge up the dark slope to the wall, weapons raised",
+  "scene": "The monkeys charge up the dark slope behind Rama, who shoots from his chariot",
   "tall": 0.6,
   "ground": "sand",
   "figures": [
     {
-      "character": "raxas_m1",
+      "character": "monkey1",
       "pose": "run-longpoint",
-      "facing": "right",
-      "at": 0.05,
+      "facing": "left",
+      "at": 0.95,
       "on": "foreground",
-      "scale": 0.8
+      "scale": 0.8,
+      "cloth": "yellow"
     },
     {
-      "character": "raxas_m2",
+      "character": "monkey2",
       "pose": "runlow-pumplow",
-      "facing": "right",
-      "at": 0.28,
+      "facing": "left",
+      "at": 0.72,
       "on": "foreground",
       "scale": 0.8,
       "cloth": "red-check"
     },
     {
-      "character": "raxas_m3",
+      "character": "hanuman",
       "pose": "run-pump",
-      "facing": "right",
-      "at": 0.46,
+      "facing": "left",
+      "at": 0.54,
       "on": "foreground",
       "scale": 0.8,
-      "cloth": "red-diamond",
       "adjust": {
         "right.arm.prop": {
-          "kind": "club-spike-long"
+          "kind": "club",
+          "angle": 60
         }
       }
     },
     {
-      "character": "ravana",
+      "character": "rama",
       "pose": "leanfront-bowdraw",
-      "facing": "right",
+      "facing": "left",
       "on": "chariot#stand",
       "scale": 0.8
     },
     {
       "prop": "chariot",
-      "at": 0.92,
+      "facing": "left",
+      "at": 0.08,
       "on": "foreground",
       "scale": 2
     },
     {
       "foreground": [
-        0.5,
-        0.1
+        0.1,
+        0.5
       ],
       "color": "#222222"
     }

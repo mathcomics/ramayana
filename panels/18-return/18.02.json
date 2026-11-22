@@ -1,0 +1,57 @@
+{
+  "scene": "Celebration: Vibhishana walks in procession, rakshasa musicians and leaping monkeys behind him",
+  "tall": 0.6,
+  "ground": "off-white",
+  "figures": [
+    {
+      "character": "monkey1",
+      "pose": "kneeup-reach",
+      "facing": "right",
+      "at": 0.08,
+      "depth": 0.2162,
+      "scale": 1.1738
+    },
+    {
+      "character": "monkey2",
+      "pose": "leapup-reachup",
+      "facing": "right",
+      "at": 0.25,
+      "cloth": "red",
+      "nudge": [
+        0,
+        1.064
+      ]
+    },
+    {
+      "prop": "drum",
+      "on": "drummer#hand-right"
+    },
+    {
+      "id": "drummer",
+      "character": "raxas_m2",
+      "pose": "kneeup-armsout",
+      "facing": "right",
+      "at": 0.45,
+      "cloth": "red-check"
+    },
+    {
+      "prop": "trumpet",
+      "on": "horn#hand-left"
+    },
+    {
+      "id": "horn",
+      "character": "raxas_m1",
+      "pose": "walk-fists",
+      "facing": "right",
+      "at": 0.68,
+      "cloth": "red-stripe"
+    },
+    {
+      "character": "vibhishana",
+      "pose": "walk-swing",
+      "facing": "right",
+      "at": 0.88,
+      "mouth": 2
+    }
+  ]
+}

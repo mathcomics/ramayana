@@ -1,0 +1,102 @@
+{
+  "scene": "Home in Ayodhya by night: Rama and Sita stand in the chariot; Lakshman and Hanuman ride in a second chariot just behind; a horn player and a drummer follow; a row of clay lamps burns along the ground in front",
+  "tall": 0.6,
+  "ground": "night",
+  "figures": [
+    {
+      "prop": "trumpet",
+      "facing": "left",
+      "on": "player1#hand-left"
+    },
+    {
+      "id": "player1",
+      "character": "male1",
+      "pose": "arch-fists",
+      "facing": "left",
+      "at": 0.75,
+      "depth": 0.2
+    },
+    {
+      "prop": "drum",
+      "facing": "left",
+      "on": "player2#hand-right"
+    },
+    {
+      "id": "player2",
+      "character": "male1",
+      "pose": "kneeup-armsout",
+      "facing": "left",
+      "at": 0.91,
+      "depth": 0.2
+    },
+    {
+      "character": "hanuman",
+      "pose": "pass-hang",
+      "facing": "left",
+      "on": "chariot2#stand-left"
+    },
+    {
+      "character": "lakshman",
+      "pose": "step-hang",
+      "facing": "left",
+      "on": "chariot2#stand"
+    },
+    {
+      "prop": "chariot",
+      "facing": "left",
+      "id": "chariot2",
+      "at": 0.38,
+      "depth": 0.3,
+      "scale": 3.5,
+      "body": "#b8920a"
+    },
+    {
+      "character": "sita",
+      "pose": "pass-swing",
+      "facing": "left",
+      "on": "chariot#stand-left"
+    },
+    {
+      "character": "rama",
+      "pose": "step-hang",
+      "facing": "left",
+      "on": "chariot#stand"
+    },
+    {
+      "prop": "chariot",
+      "facing": "left",
+      "at": 0.14,
+      "scale": 3.5
+    },
+    {
+      "prop": "half-circle",
+      "facing": "left",
+      "at": 0.4375,
+      "body": "#8a4a2a",
+      "scale": 1.6,
+      "repeat": {
+        "n": 8,
+        "gap": 0.451,
+        "scale": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "prop": "rock-circle",
+      "facing": "left",
+      "at": 0.4375,
+      "body": "#f4c430",
+      "scale": 0.24,
+      "nudge": [
+        0,
+        2.2
+      ],
+      "repeat": {
+        "n": 8,
+        "gap": 5.685
+      }
+    }
+  ]
+}

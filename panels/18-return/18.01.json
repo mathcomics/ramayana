@@ -1,96 +1,26 @@
 {
-  "scene": "Home in Ayodhya by night: Rama and Sita stand in the chariot; Lakshman and Hanuman ride in a second chariot just behind; a horn player and a drummer follow; a row of clay lamps burns along the ground in front",
-  "tall": 0.6,
-  "ground": "night",
+  "scene": "The Ashoka grove by day: Rama runs to Sita; she rises from her rock, arms out to him",
+  "tall": 1,
+  "ground": "sunrise",
   "figures": [
     {
-      "prop": "trumpet",
-      "on": "player1#hand-left"
-    },
-    {
-      "id": "player1",
-      "character": "male1",
-      "pose": "arch-fists",
-      "facing": "right",
-      "at": 0.25,
-      "depth": 0.2
-    },
-    {
-      "prop": "drum",
-      "on": "player2#hand-right"
-    },
-    {
-      "id": "player2",
-      "character": "male1",
-      "pose": "kneeup-armsout",
-      "facing": "right",
-      "at": 0.09,
-      "depth": 0.2
-    },
-    {
-      "character": "hanuman",
-      "pose": "pass-hang",
-      "facing": "right",
-      "on": "chariot2#stand-left"
-    },
-    {
-      "character": "lakshman",
-      "pose": "step-hang",
-      "facing": "right",
-      "on": "chariot2#stand"
-    },
-    {
-      "prop": "chariot",
-      "id": "chariot2",
-      "at": 0.62,
-      "depth": 0.3,
-      "scale": 3.5,
-      "body": "#b8920a"
+      "prop": "rock-square",
+      "at": 0.8,
+      "scale": 0.67
     },
     {
       "character": "sita",
-      "pose": "pass-swing",
-      "facing": "right",
-      "on": "chariot#stand-left"
+      "pose": "step-reach",
+      "facing": "left",
+      "at": 0.66,
+      "mouth": 2
     },
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "run-reach",
       "facing": "right",
-      "on": "chariot#stand"
-    },
-    {
-      "prop": "chariot",
-      "at": 0.86,
-      "scale": 3.5
-    },
-    {
-      "prop": "half-circle",
-      "at": 0.4375,
-      "body": "#8a4a2a",
-      "scale": 1.6,
-      "repeat": {
-        "n": 8,
-        "gap": 0.451,
-        "scale": [
-          1,
-          1
-        ]
-      }
-    },
-    {
-      "prop": "rock-circle",
-      "at": 0.4375,
-      "body": "#f4c430",
-      "scale": 0.24,
-      "nudge": [
-        0,
-        2.2
-      ],
-      "repeat": {
-        "n": 8,
-        "gap": 5.685
-      }
+      "at": 0.28,
+      "mouth": 2
     }
   ]
 }
