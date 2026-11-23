@@ -1,26 +1,45 @@
 # Ramayana
 
-The Ramayana, told as wordless illustrated panels in one artist's style:
-flat figures with filled silhouettes, thick tapered limbs, and gestures
-that carry the story. It is made to be read on a phone, held upright,
-scrolling down one chapter at a time.
+The Ramayana, told as **wordless** illustrated panels, easy to read on a
+phone, scrolling down one chapter at a time.
 
 **Read it:** https://ramayana.lilboox.com
 
-The art is not drawn panel by panel. The artist draws the parts
-(faces, bodies, hands, weapons, props) and the poses, and a small
-deterministic renderer assembles every panel from a short description of
-the scene.
+## The idea
 
-## Status
+This is a work of art made by a human and an AI together. The book is
+one goal; the other is to find out, by making it, what the AI is good
+at, where it struggles, and how the two can complement each other and
+help each other work.
 
-Work in progress. All 18 chapters have panels, from Ayodhya's court to
-the flight home. Chapter 5, *The Golden Deer*, is the one the artist
-has reviewed in full, and it is the model for the rest. The other
-chapters are drafts, and some still offer several versions of a scene
-to choose from.
+The AI takes on three roles:
+
+- **Manuscript writer.** Chooses which episodes of the epic are told,
+  divides them into chapters and story beats, keeps the cast and the
+  canon consistent, and checks that every moment can be told without
+  words.
+- **Panel writer.** Turns each chapter into a sequence of panels: who
+  is in each one, what they are doing, which way they face, how near
+  they stand. It follows the compositions the artist has approved and
+  learns from each correction.
+- **Data editor.** Looks after the poses and puts the drawings in
+  place so they can be used in any panel. It never alters the artist's
+  drawings; it reports what needs fixing for the artist.
+
+Alongside these it builds the tools: the renderer that draws the
+panels, the pages where the artist edits poses and panels, and the
+catalogues and read-backs it uses to check its own work.
+
+The artist refines the parts and the panels. Some faces, bodies and
+poses were first attempted by the AI; the artist redraws and adjusts
+them, and reviews the panels. Corrections become
+written lessons that later panels are held to.
 
 ## How it works
+
+The art is not drawn panel by panel. The parts (faces, bodies, hands,
+weapons, props) and the poses are made once, and a small deterministic
+renderer assembles every panel from a short description of the scene.
 
 ```
 panel (JSON) → layout → figure geometry → SVG
@@ -47,7 +66,7 @@ It never holds coordinates. This is panel 05.04, Ravana on his throne:
 (`armrest`). The full panel language is in
 [docs/design/panels.md](docs/design/panels.md).
 
-- **Figures** come from the artist's drawings: body parts (`data/parts/`),
+- **Figures** are built from drawings: body parts (`data/parts/`),
   each character's drawn face, up to six views of the head (`data/faces/`), and held
   weapons (`data/props/held/`).
 - **Poses** are any lower body (a *base*: legs, lean, tail) with any upper
@@ -98,14 +117,15 @@ Open `_site/index.html` in a browser to read the story locally.
 - [manuscript/scenes.md](manuscript/scenes.md): the story, chapter by
   chapter
 
-## How the project is worked on
+## How the sessions are set up
 
-The artist draws, and reviews panels on the phone. The code and the
-panel drafts are written with AI assistance
-([Claude Code](https://claude.com/claude-code)). `CLAUDE.md` files and
-`.claude/skills/` hold the instructions those sessions follow, and
-`CLAUDE.md` at the top is also the most current picture of where the
-work stands. The pose lab and panel lab mentioned there are private
+The code and the panel drafts are written with
+[Claude Code](https://claude.com/claude-code). Each of the three roles
+has its own `CLAUDE.md`, in [manuscript/](manuscript/CLAUDE.md),
+[panels/](panels/CLAUDE.md) and [data/](data/CLAUDE.md), saying what it
+owns and what it must read first; `.claude/skills/` holds the repeated
+procedures. The top `CLAUDE.md` is the most current picture of where
+the work stands. The pose lab and panel lab mentioned there are private
 editing pages for the artist.
 
 Two rules hold for every change:

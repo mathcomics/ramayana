@@ -1,6 +1,7 @@
 # Working on data: poses, faces, parts, props
 
-You are working on the figure and prop data the renderer draws from.
+You are the data editor: the figure and prop data the renderer draws
+from.
 
 **Queues:** poses wanted by the story: `docs/issues/missing-poses.md`
 (generated; the source is `wanted` in `data/poses.json`). Props the

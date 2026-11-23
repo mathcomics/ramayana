@@ -3,6 +3,24 @@
 Ramayana story art in the artist's own style, rendered as SVG
 for a smartphone (portrait) webapp.
 
+## Roles
+
+A session works in one of three roles, set by the folder its task is in.
+Each folder's `CLAUDE.md` is the contract for that role (what it owns,
+what to read first, where to log) and loads automatically when files
+there are touched; read it before starting.
+
+| Role | Folder | Owns | Hands off through |
+|---|---|---|---|
+| **Manuscript writer** | `manuscript/` | the story: which episodes are told, chapter contents and beats, canon, who is named | — (applies `pending-changes.md`) |
+| **Panel writer** | `panels/` | panel ids, heights, shots, order and composition | `manuscript/pending-changes.md` for the story; `needs` + `wanted` in `data/poses.json` for missing poses and props |
+| **Data editor** | `data/` | poses (bases, gestures), placing faces, parts and props from the artist's drawings | the tools' reports, for the artist to fix in the drawings |
+
+A role never edits what another owns: a panel writer does not touch
+`scenes.md`, a manuscript writer does not renumber panels, no one edits
+the artist's curves or colours. Work on the renderer and tools (`src/`,
+`tools/`, `test/`) follows this file alone.
+
 ## Architecture (planned)
 
 scene spec (JSON) → layout → figure geometry → SVG
@@ -18,11 +36,6 @@ scene spec (JSON) → layout → figure geometry → SVG
 - `README.md` — the overview for visitors; `docs/design/engine.md` — layout,
   commands, tests, figure model, pose lab. `LICENSE`: code MIT, art and story
   CC BY-NC-SA 4.0 (`LICENSE-ART.md`).
-- `panels/CLAUDE.md`, `manuscript/CLAUDE.md`, `data/CLAUDE.md` — the role
-  contract for sessions working in that folder (what it owns, what to
-  read first, where to log); they load automatically when files there are
-  touched.
-
 - `docs/README.md` — how the docs are organised: `docs/design/` (how things
   work now, no history), `docs/proposals/` (dated, status at the top),
   `docs/issues/` (`rules-to-migrate.md`, `problem-poses.md`). Log every
@@ -58,6 +71,9 @@ scene spec (JSON) → layout → figure geometry → SVG
 - Measurements in head-units; panels use an SVG viewBox.
 - Test renders at real phone size (figures ~60–150 px tall).
 - After any renderer change, regenerate the contact sheet and look at it.
+- Pushing to `main` publishes the reader site
+  (https://ramayana.lilboox.com; Cloudflare Pages builds it on every
+  push, `docs/design/panels.md`, Publishing).
 - Run `npm test` before every commit. A refactor must keep the render
   snapshot unchanged; an intended visual change is accepted with
   `UPDATE_SNAPSHOT=1 npm test` after looking at the render.
@@ -109,59 +125,50 @@ renderer or panel changes.
 
 ### Story
 
-`manuscript/scenes.md` is **18 chapter briefs**: per chapter the arc, its
-2–3 beats (a beat = one story movement, one action per bullet), *Must
-show* and *Not shown*, and at the top a continuity-and-motifs list
-(returning places, travelling objects, mirrored compositions) that a panel
-session reads before writing a chapter. No scene lines and no panel ids —
-the panel side owns those. **Chapter 5 is the only artist-reviewed
-chapter** and the model for the rest: more, simpler panels, with context
-carried between them (sequential art, not single paintings).
-
-Canon that shapes the drawing: Ravana is single-headed throughout (the
-regrowing head carries the myth); a coronation is carried by the crown and
-the throne alone — nothing poured, no umbrella; chapter 3's thirteen years
-are not shown (the season icons were dropped 2026-11-18); the story closes in chapter 18 with Rama
-and Sita in the swan chariot **waving back at the reader**.
+`manuscript/scenes.md` is **18 chapter briefs** (arc, 2–3 beats, *Must
+show*, *Not shown*), with the canon and the continuity-and-motifs list
+at the top; a panel session reads them before writing a chapter.
+**Chapter 5 is the only artist-reviewed chapter** and the model for the
+rest: more, simpler panels, with context carried between them
+(sequential art, not single paintings).
 
 ### Panels
 
+`panels/` is the source of truth for ids and order; what changed there
+and is not yet in the briefs is in `manuscript/pending-changes.md`, and
+the history is in git. Here only the state of each chapter:
+
 | Chapter | Panels | State |
 |---|---|---|
-| `01-intro` | 9 | the opener, and the artist's drafts of the court (2026-11-14); the procession (01.04) in two chariots, as 18.07 (2026-11-21) |
-| `02-the-throne` | 16 | written against the brief |
-| `03-the-forest` | 12 | predates the briefs — to revisit (03.02 is approved and locked) |
+| `01-intro` | 9 | the artist's drafts of the court |
+| `02-the-throne` | 16 | against the brief |
+| `03-the-forest` | 12 | predates the briefs — to revisit |
 | `04-surpanakha` | 18 | predates the briefs — to revisit |
-| `05-the-golden-deer` | 29 | artist-reviewed; the model chapter (05.12 tagged) |
-| `06-jatayu` | 23 | written against the brief |
-| `07-sugriva` | 15 | written against the brief |
-| `08-bali` | 21 | written against the brief |
-| `09-the-leap` | 14 | written against the brief (09.11 approved and locked) |
-| `10-the-ring` | 29 | written against the brief; variations to choose from (10.04–10.06, 10.09 and 10.10 the night search (10.11, 10.12 deleted 2026-11-19), 10.19–10.27 Sita's visitors, 10.28–10.33 the grove by day) |
-| `11-lanka-burns` | 25 | two city variations of the panic to choose from (11.25c, 11.25d: a burning tower, the palace steps; 11.25b and 11.24 deleted 2026-11-19); first draft (2026-11-17, cut 2026-11-18): the opener on the ledge, the turn back and the run in (11.01–11.03), the havoc (11.04–11.06), the news and Ravana sending Indrajit (11.11–11.13), Indrajit running out (11.14), Hanuman on a vine with Indrajit aiming up (11.15), the binding (11.17, 11.18), Ravana's throne (11.19, 11.20), the burning tail and the burning palace (11.21–11.23) and the sea (11.27), around the approved reference panel 11.25; the homecoming still to write |
-| `12-the-bridge` | 30 | first draft against the brief, with variations to choose from (2026-11-15); 12.18, 12.19, 12.21, 12.22 and 12.25 deleted, the monkeys with a weapon on each stone now in 12.26 (2026-11-19); variations of the shore (12.13b, 12.17a–c); the Ocean is a stand-in (male2) |
-| `13-the-war-begins` | 13 | Hanuman's duel with a rakshasa (13.15, 2026-11-21, both in two-handed guards) and Rama's arrow flinging four rakshasas, in negative (13.16; Sugriva's duels 13.13, 13.14 deleted 2026-11-21); one siege variation to choose from (13.08b; 13.02, 13.06, 13.07a, 13.08c, 13.09, 13.09a, 13.10 and 13.10a deleted 2026-11-19, 13.04a, 13.08a and 13.11 on 2026-11-18); the opener (Lanka across the sea, 13.01), the rakshasas alarmed on 11.01's ledge (13.01a) and the monkeys arriving on it (13.01b), the wall manned with spears (13.02a) and battle scenes (ladders carried and raised against the wall (13.04, 13.05), trunks carried below the hurling wall (13.07), the ladders climbed (13.08), the breach (13.08b), the ram at the wall's foot (13.12)) |
-| `14-kumbhakarna` | 28 | Ravana at his throne sending the drummer (14.01b, overwritten by the 2026-11-20 merge, restored 2026-11-21); variations (14.19a, 14.20a, 14.21ba inserted and many reworked by the artist 2026-11-20) — fourteen variations of the fight and the death to choose from (14.15–14.24, 2026-11-17: the face over the wall, the foot, the peak thrown and broken, Rama's arrows, the fallen arm, the hand, fist and foot cut off in negative (14.21a–c, 2026-11-18), the face crying out under the arrows (14.21d, `giant-face-side-cry`), the head in negative, in the sea, on the shore); 9 exploratory drafts of the waking (14.01–14.13, cut from 13 on 2026-11-18 — 14.05–14.08 and 14.10 deleted — toward 5–6; the steaming bowl now 14.09 alone) and the approved reference panel 14.14 |
-| `15-the-mountain-of-herbs` | 32 | opens on Ravana and Indrajit grieving on the shore before the sinking head (15.00a, from 14.24) and Ravana sending Indrajit (15.00b) (2026-11-21); first draft against the brief, with variations to choose from (2026-11-17); moved from 16 to 15 with the popular order (2026-11-18), Indrajit for Ravana, throwing from his cloud (in 15.02a the javelin leaves `cloud-big`; 15.02, from `cloud-small`, deleted 2026-11-20); ten panels inserted around the first and third beats (15.01a–15.16a, 2026-11-18); the healer is monkey2; the javelin and the herbs are stand-ins |
-| `16-indrajit` | 16 | first draft against the brief (2026-11-18; 16.01–16.03, 16.05, 16.07–16.10 and 16.12 deleted 2026-11-21, so the chapter opens on the shrine's steps, 16.02a; the close-up at the fire and Vibhishana leading the band, 16.04 and 16.06, moved after it as 16.02aa, 16.02ab), with variations of the shrine (2026-11-21: Lakshman below shooting a guard on the steps, 16.02b; Indrajit running down the steps with a spiked club, 16.02c) and Indrajit chasing Vibhishana with it (16.10a); leaping into his chariot and drawing his bow from it (16.11a, 16.11b): the fire rite (Lanka's roofs by night with the glow, the shrine — the fire alone, or on the top of its steps (16.02a) — Indrajit and the rakshasas at the fire, black smoke rising over the roofs; 16.01–16.05), Vibhishana leading Lakshman and the monkeys through the streets and the watch from a wall's corner (16.06–16.08), Indrajit caught and leaping from the fire, the fire left burning low (16.09–16.11), the duel one side per strip (16.12–16.17), the head struck off in negative (16.18) and the end (16.19); the fire altar, the smoke (a black vine), the broken bow and the head alone are stand-ins |
-| `17-ravanas-fall` | 20 | first draft (2026-11-19), on the artist's directions, reworked by the artist 2026-11-21: Ravana's lament over Indrajit's body (17.02, 17.04), the armies charging behind the two chariots (17.06 rakshasas and Ravana, 17.07 monkeys and Rama; both `frieze`), the duel (17.09, 17.10), variations of the head cut off (17.14, 17.15, `show`) and of more heads growing (17.16–17.18); then (2026-11-21) Hanuman pointing up at the sky (17.18), the white chariot coming down as Rama and the monkeys look up (17.19a), Rama leaping into it (17.20) and fighting from it (17.21; chariot against chariot 17.21a), the last arrow drawn with a glow at its tip (17.22, the glow two circles, a stand-in) and Ravana struck in the chest, in negative (17.23); 17.11–17.13, 17.19, 17.23a and 17.23b deleted 2026-11-21; the fall and the pyre still to write |
-| `18-return` | 7 | renumbered 2026-11-21 (18.00a, 18.00b, 18.01 became 18.03, 18.06, 18.07): Rama running to Sita in the Ashoka grove (18.01), Vibhishana in procession with rakshasa musicians and leaping monkeys behind him (18.02, as 08.18), Vibhishana on Lanka's throne with Rama, Lakshman, Hanuman and Sugriva (18.03), Hanuman bowing to Rama (18.04), the four in the white chariot on a small cloud, flying home (18.05), Ayodhya's palace by night with rows of lamps (18.06), and the closing procession by night (18.07, from 01.04, flipped to face left): Rama and Sita standing in the chariot, Lakshman and Hanuman in a second one just behind, a row of clay lamps (half-circles and yellow circles, stand-ins) |
-| `reference` | 7 | reference drawings, panel lab only (not on the site): `repeat` on rocks, lotuses, flowers, ladders (ref.01–ref.06); arrows struck in the chest (ref.07) |
+| `05-the-golden-deer` | 29 | artist-reviewed; the model chapter |
+| `06-jatayu` | 23 | against the brief |
+| `07-sugriva` | 15 | against the brief |
+| `08-bali` | 21 | against the brief |
+| `09-the-leap` | 14 | against the brief |
+| `10-the-ring` | 29 | against the brief; variations to choose from (the night search, Sita's visitors, the grove by day) |
+| `11-lanka-burns` | 25 | first draft; variations of the city's panic to choose from; the homecoming still to write |
+| `12-the-bridge` | 30 | first draft; variations of the shore to choose from |
+| `13-the-war-begins` | 13 | first draft; variations of the siege to choose from |
+| `14-kumbhakarna` | 29 | variations of the fight and the death to choose from; the waking still exploratory (toward 5–6 panels) |
+| `15-the-mountain-of-herbs` | 32 | first draft, with variations to choose from |
+| `16-indrajit` | 16 | first draft, with variations of the shrine to choose from |
+| `17-ravanas-fall` | 21 | first draft, reworked by the artist; variations of the head and the last arrow; the pyre still to write |
+| `18-return` | 7 | first draft |
+| `reference` | 7 | reference drawings, panel lab only (not on the site) |
 
-Every drawn chapter's folder number matches its brief number.
-The approved reference panels (every panel with `tags`; 35 on 2026-11-21, with 18.06 `opening` and 17.06, 17.07 `frieze`; the frieze 13.02 was deleted
-2026-11-19) are the models other panels are
-judged against and are locked; the tags and what each kind of scene
-looks like: `panels/layouts.md`.
+Every drawn chapter's folder number matches its brief number. The
+approved reference panels (every panel with `tags`, 35) are the models
+other panels are judged against and are locked; the tags and what each
+kind of scene looks like: `panels/layouts.md`.
 
-On the chapters that predate the briefs: they are too complex (the
-artist), and each is reworked against its brief when it comes up —
-splitting single paintings into more, simpler panels, dropping what the
-brief does not show, and swapping the `adjust` stand-ins for the real
-poses now that they exist. Chapter 6 has been through that pass: the sea
-crossing, the arrival in the grove and the funeral pyre are gone, the
-chariot with them. Chapter 5 has lost the chariot too (05.26 on 2026-11-14,
-the last chariot panel deleted 2026-11-16).
+The chapters that predate the briefs are too complex (the artist); each
+is reworked against its brief when it comes up — splitting single
+paintings into more, simpler panels, dropping what the brief does not
+show, and swapping the `adjust` stand-ins for the real poses.
 
 ### Figures
 
@@ -183,8 +190,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
   `use`) and **62 gestures** (`data/gestures.json`: arms, chest, head,
   mouth; `hold` and `use`); `src/compose.js` composes a pair when a panel
   names it, so retuning a base or gesture changes every pose using it.
-  There is no list of poses (dropped 2026-11-14: the finding fields moved
-  onto the halves); the panels use 52 pairs today
+  There is no list of poses: the finding fields are on the halves
   (`docs/design/pose-picking.md`).
 - A head is always one of six drawn views, shown as drawn: front,
   three-quarter, side, back, down 40°, top (mirrored for the other side;
@@ -207,28 +213,6 @@ the drawing's root: `data-recolor-body`, `data-recolor-cloth`). The queue: `docs
 - **16 wanted poses** in `data/poses.json` (`wanted`), each with the
   stand-in to use meanwhile; `docs/issues/missing-poses.md` is the
   generated queue.
-- **Sword postures are unreviewed.** They are the 14 two-handed
-  longsword guards (`roof`, `ox`, `plow`, `fool`, `key`, `crown`,
-  `wrath`, `longpoint`, `unicorn`, `hanging`, `middle`, `flank`,
-  `change`, `barrier`; each desc names its guard) — the old `sword…`
-  gestures were deleted 2026-11-10, unused by any panel. The one-handed
-  sword gestures are `swordcarry` and the 10 sabre guards from the
-  artist's sheet (`watch`, `straight`, `lance`, `bastion`, `swap`, `arc`,
-  `bull`, `shoulder`, `waist`, `boar`; added 2026-11-18, each desc names
-  its guard).
-- Panel-lab drafts still sitting in its database carry pose names from
-  before the composite renaming, and the old `size` field (now `tall`:
-  0.75 → 1.5, 0.5 → 1, 0.3 → 0.6) and the retired `shot` / `zoom` / `lift`
-  (now `nudge: [0, n]`) (`docs/design/panels.md`, Depth) — fix them when a draft is merged.
-  `row` is retired too (2026-11-20, now `depth`: how far, which sets the
-  size, with `nudge` to lift): such drafts still draw as before, flagged,
-  and `merge-panel-drafts.mjs` converts them on merge.
-- The reader site is Cloudflare Pages project `ramayana`
-  (public: `https://ramayana.lilboox.com`, which redirects to
-  `https://ramayana-7fw.pages.dev`).
-  Cloudflare's GitHub integration builds and publishes it on every push
-  to `main` on origin: pushing **is** publishing, there is no other step
-  (the manual workflow and its deploy hook are gone, 2026-11-16).
 - Head views: body hair (`hair-body`) per head view, and the rakshasa
   men's props in their extra views (copied from Rama) —
   `docs/proposals/2026-11-12-head-rendering-survey.md`, Open.
