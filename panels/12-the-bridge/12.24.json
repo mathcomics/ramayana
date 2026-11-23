@@ -1,51 +1,54 @@
 {
-  "scene": "A monkey leaps from stone to stone over the sea",
+  "scene": "The army walks over the stone, Sugriva among them, the sea behind",
   "tall": 0.6,
   "ground": "sea",
-  "sky": "mist",
+  "sky": "sky",
   "horizon": 0.25,
   "figures": [
     {
-      "prop": "rock-rectangle",
-      "on": "monkey1#hands",
-      "scale": 2
+      "foreground": -0.05,
+      "color": "stone-grey"
     },
     {
       "character": "monkey1",
-      "pose": "runwide-dive",
-      "on": "rock-square#stand-left",
-      "scale": 2
-    },
-    {
-      "id": "rock2",
-      "prop": "rock-square",
-      "at": 0.95,
-      "scale": 0.7,
-      "rotate": 45,
-      "nudge": [
-        0,
-        4.168
-      ]
+      "pose": "step-bastion",
+      "on": "foreground",
+      "at": 0.1,
+      "facing": "right"
     },
     {
       "character": "monkey2",
-      "pose": "leanfront-armsout",
-      "on": "rock-square#stand",
-      "nudge": [
-        9,
-        0
-      ],
-      "scale": 2
+      "pose": "walk-roof",
+      "facing": "right",
+      "at": 0.27,
+      "on": "foreground",
+      "cloth": "red"
     },
     {
-      "prop": "rock-square",
-      "at": 0.4,
-      "depth": "back",
-      "scale": 3,
-      "repeat": {
-        "gap": 0,
-        "n": 9
+      "character": "sugriva",
+      "pose": "stepwide-boar",
+      "on": "foreground",
+      "at": 0.45,
+      "facing": "right"
+    },
+    {
+      "character": "monkey1",
+      "pose": "kneeup-shoulder",
+      "facing": "right",
+      "at": 0.67,
+      "on": "foreground",
+      "cloth": "orange",
+      "adjust": {
+        "right.arm.prop.kind": "spear"
       }
+    },
+    {
+      "character": "monkey1",
+      "pose": "leap-unicorn",
+      "facing": "right",
+      "at": 0.82,
+      "on": "foreground",
+      "cloth": "red"
     }
   ]
 }

@@ -17,7 +17,7 @@
     },
     {
       "character": "rama",
-      "pose": "walk-swing",
+      "pose": "walk-armknee",
       "facing": "left",
       "at": 0.27
     }

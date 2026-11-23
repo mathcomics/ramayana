@@ -24,7 +24,7 @@
     },
     {
       "character": "rama",
-      "pose": "walk-swing",
+      "pose": "walk-armknee",
       "at": 0.88,
       "on": "foreground"
     },

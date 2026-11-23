@@ -35,7 +35,7 @@
       "facing": "left",
       "scale": 0.4,
       "on": "rock#stand",
-      "turn": 90,
+      "turn": 30,
       "wear": "garland"
     }
   ],

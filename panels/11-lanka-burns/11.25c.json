@@ -1,7 +1,7 @@
 {
   "scene": "Variation: a tower burns: one rakshasa hangs from a window, the others run from its foot",
   "tall": 1.5,
-  "ground": "#cc3333",
+  "ground": "#660000",
   "figures": [
     {
       "prop": "city-side",

@@ -32,15 +32,9 @@
       "character": "rama",
       "pose": "leanfront-bowhigh",
       "facing": "left",
-      "on": "chariot#stand",
-      "scale": 0.8
-    },
-    {
-      "prop": "chariot",
-      "facing": "left",
-      "at": 0.08,
       "on": "foreground",
-      "scale": 2
+      "scale": 0.8,
+      "at": 0.34
     },
     {
       "foreground": [

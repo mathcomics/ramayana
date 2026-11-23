@@ -1,71 +1,81 @@
 {
-  "scene": "From above: the army at the water's edge, the sea below — as in 09.11, everyone this time",
-  "tall": 1.5,
-  "ground": "sand",
-  "camera": "top",
+  "scene": "A monkey leaps from stone to stone over the sea",
+  "tall": 0.6,
+  "ground": "sea",
   "figures": [
     {
-      "prop": "monkey-top",
       "character": "monkey1",
+      "pose": "step-bastion",
+      "at": 0.2,
+      "depth": 0.3,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-armknee",
       "at": 0.15,
-      "depth": 0.55
+      "depth": 0.2,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
-      "prop": "monkey-top",
       "character": "monkey1",
-      "cloth": "red",
-      "at": 0.27,
-      "depth": 0.7
+      "pose": "step-hang",
+      "at": 0.1,
+      "depth": 0.1,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
-      "prop": "monkey-top",
+      "foreground": [
+        0.2,
+        -0.4
+      ],
+      "color": "sand"
+    },
+    {
       "character": "monkey1",
-      "cloth": "orange",
-      "at": 0.38,
-      "depth": 0.6
+      "pose": "step-swap",
+      "at": 0.05,
+      "depth": 0,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.3
+      ]
     },
     {
-      "prop": "monkey-top",
       "character": "sugriva",
-      "at": 0.5,
-      "depth": 0.5
+      "pose": "stand-holdhead",
+      "at": 0.25,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "cloth": "red",
-      "at": 0.62,
-      "depth": 0.72
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "at": 0.75,
-      "depth": 0.62
-    },
-    {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "cloth": "red",
-      "at": 0.88,
-      "depth": 0.7
-    },
-    {
-      "prop": "monkey-top",
-      "character": "hanuman",
-      "at": 0.68,
-      "depth": 0.42
-    },
-    {
-      "prop": "male-top",
       "character": "rama",
-      "at": 0.36,
-      "depth": 0.4
-    },
-    {
-      "prop": "wave-top",
-      "at": 0.5,
-      "depth": "floor"
+      "pose": "stand-akimbo",
+      "at": 0.4,
+      "depth": 0.08,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     }
-  ]
+  ],
+  "horizon": 0.1,
+  "sky": "mist"
 }

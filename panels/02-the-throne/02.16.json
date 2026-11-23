@@ -10,7 +10,7 @@
     },
     {
       "character": "lakshman",
-      "pose": "walk-swing",
+      "pose": "walk-armrest",
       "facing": "right",
       "at": 0.2,
       "depth": "back"

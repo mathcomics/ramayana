@@ -12,7 +12,7 @@
     },
     {
       "character": "kaikeyi",
-      "pose": "step-pointup",
+      "pose": "step-flung",
       "facing": "right",
       "at": 0.3,
       "depth": "closeup"

@@ -17,7 +17,7 @@
     },
     {
       "character": "rama",
-      "pose": "step-hang",
+      "pose": "step-swing",
       "facing": "left",
       "at": 0.72,
       "depth": "mid"

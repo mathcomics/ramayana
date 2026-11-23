@@ -27,7 +27,7 @@
     },
     {
       "character": "lakshman",
-      "pose": "step-hang",
+      "pose": "stand-handslow",
       "facing": "right",
       "on": "chariot2#stand"
     },

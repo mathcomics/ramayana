@@ -5,10 +5,9 @@
   "figures": [
     {
       "character": "kaikeyi",
-      "pose": "liefront-onarms",
-      "facing": "left",
-      "at": 0.38,
-      "mouth": 3
+      "pose": "leanfront-pointup",
+      "facing": "right",
+      "at": 0.38
     },
     {
       "character": "dasharatha",

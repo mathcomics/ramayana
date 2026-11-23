@@ -12,14 +12,14 @@
     },
     {
       "character": "sita",
-      "pose": "pass-swing",
+      "pose": "pass-armrest",
       "facing": "left",
       "at": 0.5,
       "depth": "mid"
     },
     {
       "character": "rama",
-      "pose": "walk-swing",
+      "pose": "walk-beckon",
       "facing": "left",
       "at": 0.27,
       "depth": "mid"

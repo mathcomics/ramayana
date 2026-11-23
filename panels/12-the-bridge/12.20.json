@@ -13,7 +13,19 @@
       ]
     },
     {
+      "prop": "rock-rectangle",
+      "on": "m0#hands",
+      "scale": 1
+    },
+    {
+      "id": "m0",
       "character": "monkey1",
+      "pose": "runlow-armsup",
+      "facing": "right",
+      "at": 0.5
+    },
+    {
+      "character": "monkey2",
       "id": "m1",
       "pose": "run-reachup",
       "facing": "right",
