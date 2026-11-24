@@ -450,7 +450,7 @@ test('show: head-alone is the head-alone prop with the figure on its face (rotat
 
 test('cloth: rakshasas always wear a red pattern, monkeys never a pattern (artist, 2026-11-21)', () => {
   const RAX = new Set(['ravana', 'indrajit', 'vibhishana', 'surpanakha', 'raxas_m1', 'raxas_m2', 'raxas_m3', 'raxas_m4', 'raxas_f1', 'raxas_f2', 'raxas_f3']);
-  const MON = new Set(['hanuman', 'sugriva', 'monkey1', 'monkey2']);
+  const MON = new Set(['hanuman', 'sugriva', 'monkey1', 'monkey2', 'monkey3']);
   const OK = new Set(['red-check', 'red-stripe', 'red-diamond']);
   const chars = assets.characters.characters;
   for (const c of chars) {

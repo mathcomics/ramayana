@@ -19,6 +19,8 @@ characters (`sideOnly` in `data/characters.json`) have the side view only.
 | hanuman | drawn | drawn | drawn | drawn | drawn | drawn |
 | sugriva | drawn | drawn | drawn | drawn | drawn | drawn |
 | monkey1 | drawn | drawn | drawn | drawn | drawn | drawn |
+| monkey2 | drawn | drawn | drawn | drawn | drawn | drawn |
+| monkey3 | drawn | drawn | drawn | drawn | drawn | drawn |
 | ravana | drawn | drawn | drawn | drawn | drawn | drawn |
 | indrajit | drawn | drawn | drawn | drawn | drawn | drawn |
 | vibhishana | drawn | drawn | drawn | drawn | drawn | drawn |

@@ -114,6 +114,17 @@
       "scale": 0.8
     },
     {
+      "id": "monkey3",
+      "weapon": "club",
+      "name": "monkey3",
+      "species": "monkey",
+      "body": "skin-dark-brown",
+      "top": "bare",
+      "bottom": "briefs",
+      "cloth": "yellow",
+      "scale": 0.8
+    },
+    {
       "id": "ravana",
       "name": "Ravana",
       "species": "male",
