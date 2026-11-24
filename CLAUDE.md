@@ -177,7 +177,7 @@ Bodies, faces and poses all come from the artist's drawings
 code still decides by a rule instead: `docs/issues/rules-to-migrate.md`;
 what looks wrong: `docs/issues/problem-poses.md`.
 
-- **25 characters** in `data/characters.json` (monkey3, with a white beard, added 2026-11-24; monkey2, a bearded monkey, added 2026-11-18; raxas_m4, bald, added 2026-11-16; Kausalya, the sage and the
+- **25 characters** in `data/characters.json` (monkey3, with a grey beard, added 2026-11-24; monkey2, a bearded monkey, added 2026-11-18; raxas_m4, bald, added 2026-11-16; Kausalya, the sage and the
   generic men male1, male2 added 2026-11-14).
   More generic monkeys and rakshasas come from cloth colour and a cloth
   pattern, never from new characters. Every character has a front and a

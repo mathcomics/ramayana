@@ -378,7 +378,8 @@ alphabetically.
     grip to the point), a short red crossguard and a red hilt behind the
     grip;
   - club: a thin handle and a round heavy head (about 2.1 head-units from
-    the grip to the end of the head), dark brown;
+    the grip to the end of the head), dark brown; never foreshortened in
+    the front view, where its round head would flatten;
   - bow: a plain arch (about 5.8 head-units tip to tip, taller than the
     figure's head-to-knee) through the grip, its belly away from the
     body, with a thin straight string; when drawn (`draw`), the string

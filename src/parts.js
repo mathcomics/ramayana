@@ -515,8 +515,9 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
   // direction is the hand's side-view angle + 90 + prop.angle (0 = across
   // the fist), out of the paper
   // by the arm's out + prop.out; each view is its projection (lengths
-  // shorten, widths stay). A bow's belly faces away from the hip; in the
-  // front view the bow is seen nearly edge-on. A drawn bow (prop.draw) has
+  // shorten, widths stay) — except a club in the front view, drawn at its
+  // full length so its round head is not flattened. A bow's belly faces
+  // away from the hip; in the front view the bow is seen nearly edge-on. A drawn bow (prop.draw) has
   // its string pulled to the other hand, with an arrow.
   const HELD = S.held;
   for (const s of ['near', 'far']) {
@@ -529,7 +530,8 @@ export function buildParts(M0, S, pose, outfit = {}, view = 'side', bodyScale = 
     let v = [-u[1], u[0]];
     if (bow && (g[0] - limbs[s].joints.hp[0]) * v[0] + (g[1] - limbs[s].joints.hp[1]) * v[1] < 0) v = mul(v, -1);
     const ky = bow && front ? 0.15 : 1;
-    const Mx = [u[0] * pr.f, u[1] * pr.f, v[0] * ky, v[1] * ky, g[0], g[1]];
+    const kx = front && P.kind.split('-')[0] === 'club' ? 1 : pr.f;   // a club keeps its drawn shape
+    const Mx = [u[0] * kx, u[1] * kx, v[0] * ky, v[1] * ky, g[0], g[1]];
     const at = (q) => [Mx[0] * q[0] + Mx[2] * q[1] + Mx[4], Mx[1] * q[0] + Mx[3] * q[1] + Mx[5]];
     limbs[s].arm.push(['prop', { markup: W.svg, mx: Mx, pts: W.pts.map(at) }, H.d3]);
     if (bow) {

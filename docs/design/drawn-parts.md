@@ -146,7 +146,8 @@ move the legs.
     the thumb side, at right angles to it (how a fist holds a hilt), and
     ±90 lies it along the hand; with the arm's
     `out` + `out`; each view is its projection (lengths shorten, widths
-    stay). The drawing is laid along it by one affine transform and drawn
+    stay), except a club in the front view, which keeps its full length
+    so its round head is not flattened. The drawing is laid along it by one affine transform and drawn
     with its arm, at the hand's depth. A bow's belly faces away from the
     hip; in the front view it is seen nearly edge-on (its width × 0.15).
     The string (tip to tip, or through the other hand's grip when
