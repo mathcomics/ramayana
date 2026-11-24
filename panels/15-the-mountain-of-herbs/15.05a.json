@@ -4,7 +4,7 @@
   "ground": "sky-blue",
   "figures": [
     {
-      "character": "monkey2",
+      "character": "monkey3",
       "pose": "step-pointup",
       "facing": "right",
       "at": 0.2,

@@ -5,34 +5,24 @@
   "figures": [
     {
       "character": "monkey1",
-      "pose": "run-longpoint",
+      "pose": "run-roof",
       "facing": "right",
       "on": "foreground",
       "at": 0.05,
-      "cloth": "red",
-      "id": "r1",
-      "adjust": {
-        "right.arm.prop.kind": "sword"
-      }
+      "cloth": "red"
     },
     {
       "character": "monkey1",
-      "pose": "runlow-pumplow",
+      "pose": "runlow-watch",
       "facing": "right",
       "at": 0.24,
       "on": "foreground",
-      "adjust": {
-        "right.arm.prop": {
-          "angle": -30,
-          "kind": "club"
-        }
-      },
       "cloth": "red",
       "id": "r2"
     },
     {
       "id": "r3",
-      "character": "monkey1",
+      "character": "monkey2",
       "pose": "leap-reach",
       "facing": "right",
       "at": 0.44,
@@ -40,7 +30,6 @@
       "cloth": "red",
       "adjust": {
         "right.arm.prop": {
-          "angle": 30,
           "kind": "sword"
         }
       }
@@ -62,16 +51,10 @@
     },
     {
       "character": "monkey1",
-      "pose": "run-pump",
+      "pose": "run-wrath",
       "facing": "right",
       "at": 0.88,
       "on": "foreground",
-      "adjust": {
-        "right.arm.prop": {
-          "angle": -30,
-          "kind": "sword"
-        }
-      },
       "id": "r5"
     },
     {

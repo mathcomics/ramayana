@@ -4,7 +4,7 @@
   "ground": "night",
   "figures": [
     {
-      "character": "monkey1",
+      "character": "monkey2",
       "pose": "leapup-armsup",
       "facing": "right",
       "at": 0.12,
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "character": "monkey2",
+      "character": "monkey3",
       "id": "healer",
       "cloth": "stone",
       "pose": "step-palms",

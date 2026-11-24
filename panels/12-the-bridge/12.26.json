@@ -87,10 +87,7 @@
       "on": "stone5#stand",
       "nudge": 1.2,
       "scale": 0.644,
-      "turn": -90,
-      "adjust": {
-        "right.arm.prop.kind": "spear"
-      }
+      "turn": -90
     },
     {
       "character": "monkey1",
@@ -124,9 +121,6 @@
       "scale": 0.5175,
       "cloth": "yellow",
       "turn": -90,
-      "adjust": {
-        "right.arm.prop.kind": "sword-broad"
-      },
       "facing": "right",
       "nudge": [
         0,

@@ -7,14 +7,11 @@
       "character": "monkey2",
       "pose": "stepwide-bull",
       "facing": "right",
-      "at": 0.1,
-      "adjust": {
-        "right.arm.prop.kind": "spear"
-      }
+      "at": 0.1
     },
     {
       "character": "monkey1",
-      "pose": "leanfront-shoulder",
+      "pose": "leanfront-roof",
       "facing": "right",
       "at": 0.27,
       "cloth": "red"

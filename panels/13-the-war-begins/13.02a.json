@@ -5,7 +5,7 @@
   "figures": [
     {
       "character": "raxas_m1",
-      "pose": "stand-swordcarry",
+      "pose": "stand-watch",
       "view": "front",
       "facing": "left",
       "at": 0.06,
@@ -14,13 +14,7 @@
         0,
         -3
       ],
-      "scale": 0.5,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "spear",
-          "angle": -80
-        }
-      }
+      "scale": 0.5
     },
     {
       "character": "raxas_m2",
