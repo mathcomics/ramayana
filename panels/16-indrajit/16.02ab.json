@@ -17,10 +17,7 @@
       "pose": "leanfront-shoulder",
       "facing": "right",
       "at": 0.27,
-      "cloth": "red",
-      "adjust": {
-        "right.arm.prop.kind": "club"
-      }
+      "cloth": "red"
     },
     {
       "character": "lakshman",

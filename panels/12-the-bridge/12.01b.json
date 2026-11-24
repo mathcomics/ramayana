@@ -24,9 +24,6 @@
       "at": 0.05,
       "depth": -0.4286,
       "turn": 180,
-      "adjust": {
-        "right.arm.prop.kind": "club"
-      },
       "scale": 0.644
     },
     {
@@ -88,9 +85,6 @@
       "at": 0.86,
       "depth": -0.4286,
       "turn": 180,
-      "adjust": {
-        "right.arm.prop.kind": "club"
-      },
       "scale": 0.644
     }
   ]

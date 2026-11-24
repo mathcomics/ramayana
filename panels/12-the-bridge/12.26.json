@@ -77,9 +77,6 @@
       "scale": 0.644,
       "cloth": "red",
       "turn": -90,
-      "adjust": {
-        "right.arm.prop.kind": "club"
-      },
       "facing": "right",
       "nudge": 1.2
     },

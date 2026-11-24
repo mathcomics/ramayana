@@ -15,10 +15,7 @@
       "pose": "run-bull",
       "facing": "right",
       "at": 0.14,
-      "on": "foreground",
-      "adjust": {
-        "right.arm.prop.kind": "club"
-      }
+      "on": "foreground"
     },
     {
       "character": "monkey1",

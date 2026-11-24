@@ -22,9 +22,6 @@
       "facing": "right",
       "at": 0.14,
       "on": "foreground",
-      "adjust": {
-        "right.arm.prop.kind": "club"
-      },
       "depth": 0.264
     },
     {
