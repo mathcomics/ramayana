@@ -4,54 +4,70 @@
   "ground": "sky-blue",
   "figures": [
     {
-      "character": "ravana",
-      "pose": "stepwide-swordcarry",
-      "view": "front",
-      "at": 0.56,
-      "scale": 0.65,
-      "mouth": 2,
-      "adjust": {
-        "spine.head": 14
-      },
-      "rotate": 20,
-      "turn": 90,
-      "nudge": [
-        0,
-        3.27
-      ]
-    },
-    {
       "character": "sita",
       "pose": "crawl-onhands",
       "facing": "right",
-      "at": 0.7,
+      "at": 0.6,
       "scale": 0.65,
       "mouth": 3,
       "turn": 90,
       "nudge": [
         0,
-        5.174
+        4
       ]
+    },
+    {
+      "character": "ravana",
+      "pose": "crawl-lance",
+      "at": 0.56,
+      "nudge": [
+        0,
+        3.27
+      ],
+      "scale": 0.65,
+      "mouth": 2,
+      "turn": 90,
+      "adjust": {
+        "left.arm.shoulder": 10
+      },
+      "rotate": -10
     },
     {
       "prop": "vulture-wing",
       "at": 0.34,
-      "scale": 0.9949,
-      "depth": 0.6486
+      "depth": 0.65,
+      "nudge": [
+        0,
+        -4
+      ]
+    },
+    {
+      "prop": "rock-circle",
+      "at": 0.2,
+      "scale": 0.07,
+      "nudge": [
+        0,
+        50
+      ],
+      "body": "#ff2222",
+      "repeat": {
+        "gap": 2,
+        "n": 4
+      }
     },
     {
       "prop": "vulture-swoop",
       "at": 0.1,
-      "scale": 0.55,
-      "rotate": -30,
       "nudge": [
         0,
-        7.561
-      ]
+        7.5
+      ],
+      "scale": 0.55,
+      "rotate": -30
     }
   ],
   "needs": [
     "prop: vulture-clipped (falling with one wing gone): vulture-fall with the cut vulture-wing beside it for now",
-    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): stepwide-swordcarry in front view, rotated 20, for now"
+    "pose: stand-carry-arm (flying, legs closed, one arm clamped round the carried figure): crawl-lance in side view, rotated -10, for now"
   ]
 }
