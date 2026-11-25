@@ -1,7 +1,7 @@
 {
   "scene": "Lakshman points back to Rama, Rama to Lakshman; she stands between them",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "ocean",
   "figures": [
     {
       "character": "lakshman",

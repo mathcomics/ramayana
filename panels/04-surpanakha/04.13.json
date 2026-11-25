@@ -1,7 +1,7 @@
 {
   "scene": "Five rakshasas run to the right with swords and clubs",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "ocean",
   "figures": [
     {
       "character": "raxas_m1",

@@ -1,7 +1,7 @@
 {
   "scene": "Rama and Lakshman, to the right, see them coming; Lakshman points back to the left",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "ocean",
   "figures": [
     {
       "character": "lakshman",

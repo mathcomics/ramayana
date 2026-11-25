@@ -1,7 +1,7 @@
 {
   "scene": "Close on Surpanakha, front view, arms up, screaming",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "ocean",
   "figures": [
     {
       "character": "surpanakha",
