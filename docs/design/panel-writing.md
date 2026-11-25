@@ -48,11 +48,16 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   the depth of the ground under it and is lifted with `nudge`; a top view
   is `"camera": "top"` with numeric depths up the ground (`panels.md`,
   Depth).
-- **Backgrounds are light** (artist, 2026-11-08): `sand`. Green grounds
-  only for top views (03.01) and the land strip under a `blue-sky` horizon
-  (05.12's `grass`); `bloom` never. Panels still on bloom or grass swap in
-  the revisit pass. (Names of the 12-colour palette on trial, 2026-11-25;
-  the artist is reassigning them, so this rule may change.)
+- **Grounds are the 12 palette colours** (artist, 2026-11-25;
+  `data/grounds.json`), no hex. They replace the old rule that
+  backgrounds are light. A colour carries a place or a stretch of the
+  story: chapter 4 is `ocean`, chapter 2 goes `lake`, `summertime`,
+  `blue-sky`; in chapter 11 the grove is `sunshine`, Ravana's court
+  `heat-wave`, the fire `watermelon`. Keep the chapter's colours and
+  change them where the scene changes. Check that the figures stand off
+  the ground: Sita's skin vanished on `heat-wave` and went back to `bloom`
+  (10.27–10.33); dark figures sink on `lake` and `watermelon`. A slope or
+  a sky needs another colour than the ground it meets.
 - **Poses**: legs first, arms from the verb; head direction (`turn`) and
   mouth are not poses; no silent `step-hang` (pose-picking rules). A missing
   pose goes in `needs` as `pose: <wanted name> (...): <stand-in> for now`.
