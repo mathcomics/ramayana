@@ -141,6 +141,12 @@ Collaboration guidelines are coming soon. Until then, issues are
 welcome. Please open one before a pull request. See
 [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Credits
+
+The ground colours are adapted from the
+[Summer Swatches](https://www.kerribradford.com/product/summer-swatches/)
+palette by Kerri Bradford Studio.
+
 ## License
 
 - **Code** (`src/`, `tools/`, `test/`): [MIT](LICENSE).

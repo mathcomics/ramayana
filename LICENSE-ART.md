@@ -18,6 +18,11 @@ license.
 - Summary: https://creativecommons.org/licenses/by-nc-sa/4.0/
 - Legal code: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 
+The ground colours (`data/grounds.json`) are adapted from the Summer
+Swatches palette by Kerri Bradford Studio
+(https://www.kerribradford.com/product/summer-swatches/). The palette is
+theirs and is not covered by this license.
+
 The Ramayana itself is an ancient, public-domain epic; this license
 covers only this project's own telling and artwork. The code that renders
 the art is under the MIT License (`LICENSE`).
