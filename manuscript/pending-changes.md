@@ -109,6 +109,25 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
   Vibhishana leading Lakshman and the monkeys through the streets (was
   16.06) moved before 16.02b, now 16.02aa and 16.02ab. Indra's chariot
   is new to the brief.
+- **Chapter 15, 2026-11-25: it now tells Valmiki's first trip for the
+  herbs, where both brothers are hurt** (the artist), no longer the
+  second, where Lakshman alone falls. This replaces the 2026-11-18 entry
+  above where they differ. As drawn: Indrajit, unseen on his cloud, shoots
+  **arrows**, not a javelin (15.01, 15.02a); they strike monkeys (15.01a)
+  and **Rama, Lakshman** and a monkey together (15.03); both brothers lie
+  back against a rock, the healer crouched by them and Hanuman hiding his
+  face (15.04) — Rama does not kneel over Lakshman; the healer points the
+  way (15.05, 15.05a) and tells of the herb (15.06). At the end the healer
+  holds the herb to both (15.15), and Rama is up beside Lakshman in
+  15.15b. For the manuscript: the brief's arc line, its first and third
+  beats and the *Not shown* line about Rama holding Lakshman; every
+  mention of Indrajit's javelin (the v1.0 note, 17's *Not shown*, and the
+  closing list of what is left out); and the two "Outside Dutt" entries,
+  on the herbs and on the order of 15 and 16 — the order stays, and now
+  is Valmiki's own (the herbs revive them, then Indrajit dies at
+  Nikumbhila). Open for the manuscript: in Valmiki's first trip it is
+  the old, wounded Jambavan who sends Hanuman; the panels draw
+  an old monkey (`monkey3`), unnamed.
 
 ## For the panels (manuscript v1.0, 2026-11-18)
 
@@ -119,7 +138,8 @@ v1.0, which brought briefs 1–14 in line with the drawn panels.)*
 thrower is Indrajit.)*
 
 - 15.02 and 15.03 are tentative (the artist). Lakshman alone is
-  struck; Rama is not. *(Done 2026-11-18: Indrajit throws from his
+  struck; Rama is not. *(Superseded 2026-11-25: both are struck, see "From
+  the panels".)* *(Done 2026-11-18: Indrajit throws from his
   cloud in 15.02, `cloud-small`; 15.02a shows the javelin leaving the
   cloud, `cloud-big`.)*
 - The rest of the drafts follow the brief (15.01 the opener by night, Rama

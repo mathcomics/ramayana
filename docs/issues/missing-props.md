@@ -25,7 +25,6 @@ docs/design/panel-writing.md, Lessons).
 | prop: bow in hand while running | 05.12 |
 | prop: flames (figure-high frieze tongues; the small drawn fire scaled up for now) | 11.25 |
 | prop: herb-glow (a low glowing plant, to stand in clumps on the mountain): the flowers for now | 15.09, 15.09a |
-| prop: javelin (a heavy spear, held and thrown): a big arrow for now | 15.03 |
 | prop: mountain | 09.12, 09.13 |
 | prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now | 11.17, 11.18, 11.20, 11.21 |
 | prop: staff (held) | 05.21, 05.22 |

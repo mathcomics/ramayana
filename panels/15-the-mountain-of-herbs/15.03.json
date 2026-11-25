@@ -1,5 +1,5 @@
 {
-  "scene": "The javelin strikes Lakshman down",
+  "scene": "The arrows strike Rama, Lakshman and a monkey down",
   "tall": 0.6,
   "ground": "blue-sky",
   "figures": [
@@ -42,8 +42,5 @@
       "scale": 1,
       "rotate": 85
     }
-  ],
-  "needs": [
-    "prop: javelin (a heavy spear, held and thrown): a big arrow for now"
   ]
 }
