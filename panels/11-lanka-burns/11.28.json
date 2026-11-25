@@ -1,7 +1,7 @@
 {
   "scene": "Lanka burns on its island under a red sky, smoke rising; a streak falls to the sea: Hanuman diving to put out his tail",
   "tall": 0.6,
-  "ground": "#bb0000",
+  "ground": "watermelon",
   "figures": [
     {
       "prop": "vine",
