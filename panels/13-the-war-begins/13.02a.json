@@ -1,7 +1,7 @@
 {
   "scene": "Rakshasas line the sloping wall above, front view, with clubs, swords and a spear, against the coming army",
   "tall": 1,
-  "ground": "sand",
+  "ground": "heat-wave",
   "figures": [
     {
       "character": "raxas_m1",

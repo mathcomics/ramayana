@@ -1,7 +1,7 @@
 {
   "scene": "The monkeys charge up the dark slope to the wall, weapons raised",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "heat-wave",
   "figures": [
     {
       "character": "monkey1",

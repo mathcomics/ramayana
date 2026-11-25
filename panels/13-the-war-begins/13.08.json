@@ -1,7 +1,7 @@
 {
   "scene": "Ladders against the wall: monkeys climb and fall, rakshasas strike down at them from the top",
   "tall": 1.5,
-  "ground": "sand",
+  "ground": "heat-wave",
   "figures": [
     {
       "character": "raxas_m1",
