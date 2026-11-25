@@ -1,7 +1,7 @@
 {
   "scene": "Variation: Hanuman bound on the ground; Indrajit points, one rakshasa crouches over him, another bends to seize him",
   "tall": 0.6,
-  "ground": "bloom",
+  "ground": "sunshine",
   "figures": [
     {
       "character": "hanuman",

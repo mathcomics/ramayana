@@ -1,14 +1,15 @@
 {
   "scene": "Indrajit's arrow strikes Hanuman in the shoulder; he falls back",
   "tall": 0.6,
-  "ground": "bloom",
+  "ground": "sunshine",
   "figures": [
     {
       "character": "hanuman",
       "pose": "fallback-armsback",
       "facing": "right",
       "at": 0.5,
-      "scale": 1.6
+      "scale": 1.6,
+      "rotate": 220
     },
     {
       "prop": "arrow-stuck",
