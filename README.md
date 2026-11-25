@@ -132,8 +132,9 @@ Two rules hold for every change:
 
 - A visual change needs a render someone has looked at at real phone
   size, and a matching rule in the style bible.
-- Nothing is traced or copied from third-party artwork. Everything comes
-  from the style bible and the artist's own drawings.
+- Any use of third-party artwork is disclosed (see [Credits](#credits)).
+  Everything else comes from the style bible and the artist's own
+  drawings.
 
 ## Contributing
 
