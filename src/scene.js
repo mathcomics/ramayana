@@ -600,18 +600,21 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   const pre = String(id).replace(/\W/g, '_');
   // a grounds.json colour is a hex; [top, bottom] (or { "vertical": [..] }),
   // a vertical gradient; { "horizontal": [left, right] }, a horizontal one —
-  // over the rect it fills
+  // over the rect it fills. Under a sky the ground's vertical gradient starts
+  // at the horizon ("top"), so the land or sea shows all of it
   let defs = '';
-  const fill = (g, key) => {
+  const fill = (g, key, top = null) => {
     const horiz = Array.isArray(g?.horizontal);
     const c = Array.isArray(g) ? g : horiz ? g.horizontal : g?.vertical;
     if (!Array.isArray(c)) return esc(g);
     const gid = `${pre}-${key}`;
-    defs += `<linearGradient id="${gid}" x1="0" y1="0" x2="${horiz ? 1 : 0}" y2="${horiz ? 0 : 1}">` +
+    const span = top != null && !horiz ? `gradientUnits="userSpaceOnUse" x1="0" y1="${+top.toFixed(2)}" x2="0" y2="${H}"`
+      : `x1="0" y1="0" x2="${horiz ? 1 : 0}" y2="${horiz ? 0 : 1}"`;
+    defs += `<linearGradient id="${gid}" ${span}>` +
       c.map((col, i) => `<stop offset="${c.length > 1 ? i / (c.length - 1) : 0}" stop-color="${esc(col)}"/>`).join('') + `</linearGradient>`;
     return `url(#${gid})`;
   };
-  let s = negative ? `<rect width="${W}" height="${H}" fill="#000"/>` : `<rect width="${W}" height="${H}" fill="${fill(ground, 'ground')}"/>`;
+  let s = negative ? `<rect width="${W}" height="${H}" fill="#000"/>` : `<rect width="${W}" height="${H}" fill="${fill(ground, 'ground', sky ? horizonY : null)}"/>`;
   if (sky && !negative) s += `<rect width="${W}" height="${Math.max(0, horizonY)}" fill="${fill(sky, 'sky')}"/>`;
   if (defs) s = `<defs>${defs}</defs>` + s;
   const drawProp = (o) => {

@@ -84,6 +84,9 @@ test('sky: a colour above the horizon; depth "horizon" stands things on it', () 
   const r = renderPanel({ tall: 1, sky: 'blue-sky', horizon: 0.25, figures: [{ prop: 'stag-run', depth: 'horizon' }] }, assets);
   assert.match(r.svg, /<rect width="360" height="270" fill="url\(#panel-sky\)"\/>/);
   assert.ok(r.svg.includes(`<stop offset="0" stop-color="${assets.grounds.grounds['blue-sky'][0]}"/>`), 'sky gradient from grounds.json');
+  // the ground's vertical gradient starts at the horizon; without a sky it spans the panel
+  assert.match(renderPanel({ tall: 1, ground: 'grass', sky: 'blue-sky', horizon: 0.25 }, assets).svg, /id="panel-ground" gradientUnits="userSpaceOnUse" x1="0" y1="270" x2="0" y2="360"/);
+  assert.match(renderPanel({ tall: 1, ground: 'grass' }, assets).svg, /id="panel-ground" x1="0" y1="0" x2="0" y2="1"/);
   // a hex sky (or ground) is a flat fill; a hex ground draws no gradient
   const flat = renderPanel({ ground: '#123456', sky: '#abcdef' }, assets).svg;
   assert.match(flat, /<rect width="360" height="\d+(\.\d+)?" fill="#123456"\/><rect width="360" height="[\d.]+" fill="#abcdef"\/>/);

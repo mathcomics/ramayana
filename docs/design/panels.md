@@ -65,7 +65,7 @@ repeated inside the JSON.
 |---|---|---|
 | `scene` | text | The scene line it draws, for reference only. |
 | `tall` | `1.5` · `1` · `0.6` | Height as a multiple of the width (360). Default 1.5. Anything else is an issue, and so is the old `size` field. |
-| `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`twilight`), or `{ "horizontal": [left, right] }` (`summertime`) — set there, never in the panel. |
+| `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`twilight`), or `{ "horizontal": [left, right] }` (`summertime`) — set there, never in the panel. Under a `sky` the vertical gradient starts at the horizon; the sky and each foreground band have their own over the area they fill. |
 | `sky` | name from `data/grounds.json` (`blue-sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Depth `horizon` stands things on it; every depth's ground line and size are built on it (Depth). |
 | `camera` | `top` | A top view: no perspective. A numeric `depth` is then the share of the panel height up the ground (0 the bottom, 1 the top) at front size — the height is the distance (`topview`). Named depths keep their sizes. Any other value is an issue. |
