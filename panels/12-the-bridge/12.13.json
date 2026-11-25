@@ -1,5 +1,5 @@
 {
-  "scene": "The Ocean rises from the waves before the drawn bow, palms raised",
+  "scene": "Rama alone on the shore at sunset, palms joined to the sea, waiting",
   "tall": 0.6,
   "ground": "heat-wave",
   "horizon": 0.55,
@@ -19,8 +19,5 @@
       "foreground": 0.1,
       "color": "lake"
     }
-  ],
-  "needs": [
-    "character: the Ocean (a man risen from the waves, crowned with water, blue) — male2, huge, leaning in from the right edge, for now"
   ]
 }
