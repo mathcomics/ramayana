@@ -1,7 +1,7 @@
 {
   "scene": "Ravana, close, rises in rage at the news",
   "tall": 0.6,
-  "ground": "#111111",
+  "ground": "twilight",
   "figures": [
     {
       "character": "ravana",
