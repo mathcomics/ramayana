@@ -19,7 +19,7 @@
       "id": "mountain",
       "on": "hanuman#hand-right",
       "scale": 2,
-      "color": "#20264a"
+      "color": "twilight"
     },
     {
       "character": "hanuman",

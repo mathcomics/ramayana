@@ -21,7 +21,7 @@
         1.1
       ],
       "scale": 2,
-      "color": "#5a5f7a",
+      "color": "twilight",
       "rotate": 150
     },
     {
@@ -29,7 +29,7 @@
       "at": 0.4,
       "depth": "front",
       "scale": 0.15,
-      "color": "#5a5f7a",
+      "color": "twilight",
       "repeat": {
         "gap": 1,
         "n": 2
@@ -41,7 +41,7 @@
       "at": 0.45,
       "depth": "floor",
       "scale": 0.1,
-      "color": "#5a5f7a",
+      "color": "twilight",
       "repeat": {
         "gap": 1,
         "n": 2

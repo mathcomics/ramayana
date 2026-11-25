@@ -33,13 +33,13 @@
         0.8
       ],
       "scale": 2,
-      "color": "#5a5f7a",
+      "color": "twilight",
       "rotate": 150
     },
     {
       "prop": "flower-white",
       "at": 0.76,
-      "depth": 0.1081,
+      "depth": 0.1,
       "nudge": [
         -4,
         2

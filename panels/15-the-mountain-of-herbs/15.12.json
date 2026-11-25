@@ -16,7 +16,7 @@
       "prop": "rock-triangle",
       "on": "hanuman#hand-right",
       "scale": 2,
-      "color": "#20264a",
+      "color": "twilight",
       "id": "mountain"
     },
     {
