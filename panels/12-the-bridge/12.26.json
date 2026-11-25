@@ -142,7 +142,6 @@
       "pose": "pass-bowloose",
       "on": "stone1#stand",
       "scale": 0.644,
-      "cloth": "red",
       "turn": -90
     }
   ]
