@@ -1,8 +1,8 @@
 {
   "_doc": "The reader site's index: one square tile per chapter (by number), no words, on the chapter's typical ground (the most common panel ground that is not sand) unless \"ground\" names one (data/grounds.json). An icon is { \"panel\": {...}, \"crop\": [x, y, size] } (a square panel, cropped; panel units, 360 across), { \"layers\": [...] } (heads { character, view, facing, x, y, size }, whole figures { character, pose, facing, x, y (the feet), size (the head) } and props { prop, x, y, size, rotate, facing, body } in tile units, 100 across, clipped at the edges), or a single { character } / { prop } centred. Chapters with no panels yet show dimmed and are not links. Built by tools/build-site.mjs (its comment has the details).",
   "icons": {
-    "1": { "prop": "palace-ayodhya", "size": 88, "ground": "sand" },
-    "2": { "prop": "throne-ayodhya", "size": 84, "ground": "sand" },
+    "1": { "prop": "palace-ayodhya", "size": 88, "ground": "bloom" },
+    "2": { "prop": "throne-ayodhya", "size": 84, "ground": "lake" },
     "3": { "prop": "lotus-full", "size": 84 },
     "4": { "crop": [128, 95, 170], "panel": { "figures": [
       { "character": "surpanakha", "pose": "oneleg-propback", "facing": "right", "at": 0.5, "depth": 0.1081, "scale": 1.0315 }
@@ -17,14 +17,14 @@
       { "character": "sugriva", "pose": "leap-reach", "facing": "right", "at": 0.3, "rotate": 15, "nudge": [0, 1.948] },
       { "character": "sugriva", "id": "bali", "cloth": "orange", "pose": "leap-fists", "facing": "left", "at": 0.7, "rotate": -15, "nudge": [0, 2.39] }
     ] } },
-    "9": { "crop": [40, 50, 290], "panel": { "ground": "sand", "figures": [
+    "9": { "crop": [40, 50, 290], "panel": { "ground": "blue-sky", "figures": [
       { "character": "hanuman", "pose": "liefront-dive", "facing": "right", "at": 0.5, "rotate": -20, "nudge": [0, 2.833] }
     ] } },
     "10": { "crop": [118, 118, 130], "panel": { "figures": [
       { "character": "sita", "pose": "stand-grief", "facing": "right", "at": 0.5, "depth": 0.1081, "scale": 1.0315 }
     ] } },
     "11": { "prop": "fire", "ground": "watermelon" },
-    "12": { "crop": [20, 50, 310], "panel": { "ground": "summertime", "sky": "blue-sky", "horizon": 0.15, "figures": [
+    "12": { "crop": [20, 50, 310], "panel": { "ground": "lake", "sky": "ocean", "horizon": 0.15, "figures": [
       { "prop": "rock-square", "at": 0.86, "scale": 0.9, "rotate": 40, "nudge": [0, 4.2] },
       { "prop": "rock-square", "id": "stone", "at": 0.5, "scale": 1.3, "repeat": { "n": 3, "gap": 0.15, "scale": [0.7, 1], "rotate": [-6, 6], "seed": 2 } },
       { "character": "monkey1", "pose": "leanfront-reach", "facing": "right", "on": "stone#stand", "scale": 0.8 }
@@ -33,7 +33,7 @@
       { "prop": "ladder", "at": 0.9, "depth": -0.6757, "scale": 0.549 },
       { "character": "monkey1", "pose": "fallback-flung", "facing": "right", "at": 0.42, "rotate": 30, "nudge": [0, 2.39] }
     ] } },
-    "14": { "crop": [162, 0, 150], "ground": "sand", "panel": { "tall": 0.6, "figures": [
+    "14": { "crop": [162, 0, 150], "ground": "summertime", "panel": { "tall": 0.6, "figures": [
       { "character": "monkey1", "pose": "fallback-flung", "facing": "left", "at": 0.7, "nudge": [0, 3.805] },
       { "prop": "giant-grab", "facing": "left", "at": 0.57, "nudge": [0, 4.159] }
     ] } },
