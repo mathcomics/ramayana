@@ -1,7 +1,7 @@
 {
   "scene": "Close: the ascetic raises his begging bowl, calling out",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "grass",
   "figures": [
     {
       "character": "sage",

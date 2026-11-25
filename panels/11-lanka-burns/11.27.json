@@ -27,16 +27,12 @@
     },
     {
       "prop": "fire",
-      "at": 0.25,
       "repeat": {
         "gap": 0.75,
         "n": 3
       },
       "scale": 2,
-      "nudge": [
-        0,
-        0.753
-      ]
+      "on": "lanka-island#stand"
     },
     {
       "character": "hanuman",

@@ -1,0 +1,20 @@
+{
+  "scene": "Opening: Lanka far across the sea; Rama and the armed monkeys, seen from behind, look out at it",
+  "tall": 1,
+  "ground": "lake",
+  "sky": "ocean",
+  "horizon": 0.7,
+  "figures": [
+    {
+      "prop": "lanka-island",
+      "at": 0.7,
+      "depth": "horizon",
+      "scale": 0.5
+    },
+    {
+      "prop": "palace-lanka",
+      "on": "lanka-island#stand",
+      "scale": 0.5
+    }
+  ]
+}

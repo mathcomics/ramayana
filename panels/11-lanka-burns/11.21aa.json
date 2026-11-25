@@ -1,0 +1,18 @@
+{
+  "scene": "Variation: the bonds burst; Hanuman lunges free, tail ablaze; the rakshasas fall back",
+  "tall": 0.6,
+  "ground": "heat-wave",
+  "figures": [
+    {
+      "character": "hanuman",
+      "pose": "step-cross",
+      "facing": "left",
+      "at": 0.97,
+      "depth": "closeup",
+      "mouth": 3,
+      "adjust": {
+        "spine.head": -50
+      }
+    }
+  ]
+}

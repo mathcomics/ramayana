@@ -1,8 +1,8 @@
 {
   "scene": "The ascetic stands at a distance from the hut",
   "tall": 0.6,
-  "ground": "grass",
-  "sky": "blue-sky",
+  "ground": "forest",
+  "sky": "summertime",
   "figures": [
     {
       "id": "hut",

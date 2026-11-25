@@ -1,7 +1,7 @@
 {
   "scene": "The bundle lands on the rocks among the monkeys; Hanuman bends to reach for it, one monkey points at it, another points up at the sky",
   "tall": 1.5,
-  "ground": "sand",
+  "ground": "blue-sky",
   "figures": [
     {
       "prop": "streak",

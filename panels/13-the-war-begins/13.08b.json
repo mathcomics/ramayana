@@ -1,7 +1,7 @@
 {
   "scene": "Variation: a rock smashes a hole in the wall; a rakshasa tumbles into the breach, others on the wall top above",
   "tall": 1,
-  "ground": "#eeeeee",
+  "ground": "heat-wave",
   "figures": [
     {
       "character": "raxas_m2",
@@ -54,7 +54,7 @@
     {
       "prop": "rock-circle",
       "scale": 1.9,
-      "body": "#eeeeee",
+      "body": "#ed8838",
       "nudge": [
         0,
         1.723

@@ -1,7 +1,7 @@
 {
   "scene": "Rama's cry reaches the hut: Sita stands still, Lakshman runs off toward it; the ascetic watches from behind, close",
   "tall": 0.6,
-  "ground": "grass",
+  "ground": "forest",
   "figures": [
     {
       "prop": "hut-side",
@@ -41,5 +41,5 @@
       "turn": 180
     }
   ],
-  "sky": "blue-sky"
+  "sky": "summertime"
 }

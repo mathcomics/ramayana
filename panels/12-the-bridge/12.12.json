@@ -45,14 +45,25 @@
     },
     {
       "character": "monkey1",
-      "pose": "step-swap",
-      "at": 0.05,
+      "pose": "sit-swap",
+      "at": 0.1,
       "depth": 0,
       "on": "foreground",
       "nudge": [
         0,
-        -0.3
+        -0.7
       ]
+    },
+    {
+      "character": "vibhishana",
+      "pose": "stand-swing",
+      "at": 0.2,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ],
+      "depth": 0.08
     },
     {
       "character": "sugriva",

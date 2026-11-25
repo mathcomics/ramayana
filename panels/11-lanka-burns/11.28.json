@@ -19,7 +19,8 @@
     },
     {
       "prop": "lanka-island",
-      "at": 0.25
+      "at": 0.25,
+      "depth": 0.5
     },
     {
       "prop": "palace-lanka",
@@ -27,16 +28,12 @@
     },
     {
       "prop": "fire",
-      "at": 0.25,
-      "nudge": [
-        0,
-        0.753
-      ],
       "scale": 2,
       "repeat": {
         "gap": 0.75,
         "n": 3
-      }
+      },
+      "on": "lanka-island#stand"
     },
     {
       "prop": "streak",
@@ -48,8 +45,8 @@
     },
     {
       "foreground": [
-        0.1,
-        0.1
+        0.2,
+        0.2
       ],
       "color": "twilight"
     }

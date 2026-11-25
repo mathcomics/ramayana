@@ -1,7 +1,7 @@
 {
   "scene": "Close: Ravana carries Sita off through the sky, sword swung back; far behind, Jatayu rises toward them",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "blue-sky",
   "figures": [
     {
       "prop": "vulture-fly",

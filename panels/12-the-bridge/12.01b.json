@@ -1,91 +1,92 @@
 {
-  "scene": "Opening: Lanka far across the sea; Rama and the armed monkeys, seen from behind, look out at it",
-  "tall": 1,
+  "scene": "The army stops at the water's edge: Rama, hands on hips, before the sea; Sugriva and the monkeys behind him",
+  "tall": 0.6,
   "ground": "lake",
   "sky": "ocean",
-  "horizon": 0.7,
+  "horizon": 0.1,
   "figures": [
     {
-      "prop": "lanka-island",
-      "at": 0.7,
-      "depth": "horizon",
-      "scale": 0.5
-    },
-    {
-      "prop": "palace-lanka",
-      "on": "lanka-island#stand",
-      "scale": 0.5
-    },
-    {
-      "character": "monkey2",
-      "pose": "walk-bull",
-      "view": "front",
-      "facing": "right",
-      "at": 0.05,
-      "depth": -0.4286,
-      "turn": 180,
-      "scale": 0.644
+      "character": "monkey1",
+      "pose": "step-bastion",
+      "at": 0.2,
+      "depth": 0.3,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
       "character": "monkey1",
-      "pose": "walk-unicorn",
-      "view": "front",
+      "pose": "step-armknee",
       "at": 0.15,
-      "depth": -0.2857,
-      "turn": 180,
-      "adjust": {
-        "right.arm.prop.kind": "spear"
-      },
-      "scale": 0.7156
+      "depth": 0.2,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
       "character": "monkey1",
-      "pose": "walk-bull",
-      "view": "front",
+      "pose": "step-hang",
+      "at": 0.1,
+      "depth": 0.1,
+      "nudge": [
+        0,
+        -0.4
+      ],
+      "on": "foreground"
+    },
+    {
+      "foreground": [
+        0.2,
+        -0.4
+      ],
+      "color": "sand"
+    },
+    {
+      "character": "monkey1",
+      "pose": "step-swap",
+      "at": 0.05,
+      "depth": 0,
+      "nudge": [
+        0,
+        -0.3
+      ],
+      "on": "foreground"
+    },
+    {
+      "character": "lakshman",
+      "pose": "stand-akimbo",
+      "at": 0.3,
+      "depth": 0.1,
+      "nudge": [
+        0,
+        -0.4
+      ],
+      "on": "foreground"
+    },
+    {
+      "character": "sugriva",
+      "pose": "stand-bastion",
       "at": 0.25,
-      "depth": -0.4286,
-      "turn": 180,
-      "scale": 0.644
-    },
-    {
-      "character": "monkey2",
-      "pose": "walk-bull",
-      "view": "front",
-      "facing": "right",
-      "at": 0.35,
-      "depth": -0.2857,
-      "turn": 180,
-      "adjust": {
-        "right.arm.prop.kind": "sword-broad"
-      },
-      "scale": 0.7156
-    },
-    {
-      "character": "monkey1",
-      "pose": "walk-armrest",
-      "view": "front",
-      "at": 0.45,
-      "depth": -0.4286,
-      "turn": 180,
-      "scale": 0.644
+      "nudge": [
+        0,
+        -0.4
+      ],
+      "on": "foreground"
     },
     {
       "character": "rama",
-      "pose": "walk-akimbo",
-      "view": "front",
-      "at": 0.96,
-      "depth": -0.4286,
-      "turn": 180,
-      "scale": 0.644
-    },
-    {
-      "character": "hanuman",
-      "pose": "walk-waist",
-      "view": "front",
-      "at": 0.86,
-      "depth": -0.4286,
-      "turn": 180,
-      "scale": 0.644
+      "pose": "stand-akimbo",
+      "at": 0.4,
+      "depth": 0.08,
+      "nudge": [
+        0,
+        -0.4
+      ],
+      "on": "foreground"
     }
   ]
 }

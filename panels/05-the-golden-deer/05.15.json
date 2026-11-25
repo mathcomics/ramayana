@@ -1,7 +1,7 @@
 {
   "scene": "The golden deer sinks, head down; a cry goes up with Rama's shouting face",
   "tall": 1,
-  "ground": "grass",
+  "ground": "forest",
   "figures": [
     {
       "prop": "stag-lie",
@@ -40,5 +40,5 @@
       "view": "front"
     }
   ],
-  "sky": "blue-sky"
+  "sky": "summertime"
 }

@@ -144,14 +144,14 @@ the history is in git. Here only the state of each chapter:
 | `02-the-throne` | 16 | against the brief |
 | `03-the-forest` | 12 | predates the briefs — to revisit |
 | `04-surpanakha` | 18 | predates the briefs — to revisit |
-| `05-the-golden-deer` | 29 | artist-reviewed; the model chapter |
+| `05-the-golden-deer` | 30 | artist-reviewed; the model chapter |
 | `06-jatayu` | 23 | against the brief |
 | `07-sugriva` | 15 | against the brief |
 | `08-bali` | 21 | against the brief |
 | `09-the-leap` | 14 | against the brief |
 | `10-the-ring` | 29 | against the brief; variations to choose from (the night search, Sita's visitors, the grove by day) |
-| `11-lanka-burns` | 25 | first draft; variations of the city's panic to choose from; the homecoming still to write |
-| `12-the-bridge` | 30 | first draft; variations of the shore to choose from |
+| `11-lanka-burns` | 27 | first draft; variations of the city's panic to choose from; the homecoming still to write |
+| `12-the-bridge` | 31 | first draft; variations of the shore to choose from |
 | `13-the-war-begins` | 13 | first draft; variations of the siege to choose from |
 | `14-kumbhakarna` | 29 | variations of the fight and the death to choose from; the waking still exploratory (toward 5–6 panels) |
 | `15-the-mountain-of-herbs` | 32 | first draft, with variations to choose from |

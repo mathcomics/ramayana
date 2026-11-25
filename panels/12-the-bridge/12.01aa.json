@@ -19,7 +19,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "stepwide-shoulder",
+      "pose": "stepwide-bastion",
       "facing": "right",
       "at": 0.29,
       "on": "foreground",
@@ -39,7 +39,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "arch-arc",
+      "pose": "leanfront-arc",
       "facing": "right",
       "at": 0.55,
       "on": "foreground",

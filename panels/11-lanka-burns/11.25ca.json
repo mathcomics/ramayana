@@ -1,0 +1,37 @@
+{
+  "scene": "Hanuman scurries along a rooftop above a row of lit windows",
+  "tall": 0.6,
+  "ground": "#222222",
+  "figures": [
+    {
+      "prop": "city-roof",
+      "at": 0.5,
+      "nudge": [
+        0,
+        -0.431
+      ],
+      "scale": 8
+    },
+    {
+      "character": "hanuman",
+      "pose": "runlow-pumplow",
+      "facing": "right",
+      "on": "city-roof#stand",
+      "scale": 0.48,
+      "mouth": 1
+    },
+    {
+      "prop": "fire",
+      "on": "hanuman#tail",
+      "nudge": [
+        -0.118,
+        0.047
+      ],
+      "rotate": 40
+    },
+    {
+      "prop": "fire",
+      "on": "city-roof#stand-left"
+    }
+  ]
+}

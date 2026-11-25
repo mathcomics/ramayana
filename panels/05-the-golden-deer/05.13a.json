@@ -1,0 +1,15 @@
+{
+  "scene": "Rama draws his bow",
+  "tall": 0.6,
+  "ground": "summertime",
+  "figures": [
+    {
+      "character": "rama",
+      "pose": "leanfront-bowloose",
+      "facing": "right",
+      "at": 0.42,
+      "depth": "closeup",
+      "mouth": 1
+    }
+  ]
+}

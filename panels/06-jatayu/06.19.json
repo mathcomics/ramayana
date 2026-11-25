@@ -33,13 +33,6 @@
       "depth": "back"
     },
     {
-      "foreground": [
-        0.12,
-        0.12
-      ],
-      "color": "forest"
-    },
-    {
       "prop": "tree-trunk",
       "at": 0,
       "depth": "closeup",
