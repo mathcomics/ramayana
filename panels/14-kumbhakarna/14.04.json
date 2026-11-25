@@ -22,7 +22,7 @@
       "prop": "rock-circle",
       "at": 0.95,
       "depth": "top",
-      "body": "yellow",
+      "color": "yellow",
       "scale": 2
     },
     {

@@ -11,7 +11,8 @@
 // artist changed; `tags` is carried over (the lab drops it, and the
 // tagged reference panels are locked: docs/design/panels.md). A draft
 // still using the retired `row` is converted to `depth` first, drawing
-// exactly as it did (tools/migrate-depth.mjs).
+// exactly as it did (tools/migrate-depth.mjs); a prop's retired `body`
+// becomes `color`.
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, loadAssets } from './lib.mjs';
@@ -73,6 +74,12 @@ for (const f of readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
     const res = convertDef(panel, assets ??= loadAssets());
     panel = res.def;
     converted = `  (row → depth: ${res.changed.length} entries${res.worst.px > 0.25 ? `, ! off by ${res.worst.px.toFixed(2)} px` : ''})`;
+  }
+  const usesBody = (g) => g?.prop && g.body != null;
+  if (panel.figures?.some(usesBody)) {
+    panel.figures = panel.figures.map((g) => (!usesBody(g) ? g
+      : Object.fromEntries(Object.entries(g).filter(([k]) => k !== 'color').map(([k, v]) => [k === 'body' ? 'color' : k, v]))));
+    converted += '  (body → color)';
   }
   const old = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null;
   if (old?.tags && !panel.tags) panel.tags = old.tags;

@@ -5,7 +5,7 @@
   "figures": [
     {
       "prop": "stag-lie",
-      "body": "gold",
+      "color": "gold",
       "at": 0.82,
       "rotate": 20,
       "nudge": [

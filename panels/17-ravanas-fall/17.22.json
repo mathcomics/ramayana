@@ -6,7 +6,7 @@
     {
       "prop": "rock-circle",
       "on": "rama#hand-left",
-      "body": "#fff4b8",
+      "color": "#fff4b8",
       "scale": 0.25,
       "nudge": [
         -2,
@@ -21,7 +21,7 @@
         -1
       ],
       "scale": 0.1,
-      "body": "#ffd84a"
+      "color": "#ffd84a"
     },
     {
       "character": "rama",

@@ -48,7 +48,7 @@
       "at": 0.38,
       "depth": 0.3,
       "scale": 3.5,
-      "body": "#b8920a"
+      "color": "#b8920a"
     },
     {
       "character": "sita",
@@ -72,7 +72,7 @@
       "prop": "half-circle",
       "facing": "left",
       "at": 0.4375,
-      "body": "#8a4a2a",
+      "color": "#8a4a2a",
       "scale": 1.6,
       "repeat": {
         "n": 8,
@@ -87,7 +87,7 @@
       "prop": "rock-circle",
       "facing": "left",
       "at": 0.4375,
-      "body": "#f4c430",
+      "color": "#f4c430",
       "scale": 0.24,
       "nudge": [
         0,

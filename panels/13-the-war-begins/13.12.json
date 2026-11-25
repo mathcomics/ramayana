@@ -76,7 +76,7 @@
     {
       "prop": "rock-square",
       "at": 0.8,
-      "body": "#666666",
+      "color": "#666666",
       "rotate": -20,
       "nudge": [
         0,

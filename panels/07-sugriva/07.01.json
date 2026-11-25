@@ -7,7 +7,7 @@
       "prop": "rock-square",
       "at": 0.5,
       "depth": "closeup",
-      "body": "#555555",
+      "color": "#555555",
       "nudge": [
         0.1,
         0.5

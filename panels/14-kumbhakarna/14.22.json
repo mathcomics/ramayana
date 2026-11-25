@@ -10,7 +10,7 @@
       "facing": "left",
       "at": 0.75,
       "rotate": 30,
-      "body": "#9a7a7a",
+      "color": "#9a7a7a",
       "nudge": [
         0,
         1.506

@@ -78,7 +78,7 @@ action. The same opener can return when the story comes back to a place.
   shoulders, arms, feet), `male-top-back` (the same man seen from
   behind, facing away) and `female-top` (the woman, her hair showing).
   One drawing serves everyone: recolour an
-  instance with `character` (a character id) or `body` / `cloth`
+  instance with `character` (a character id) or `color` / `cloth`
   (docs/design/panels.md, Recolouring). Held things (bow, begging bowl)
   will be separate top-view props placed beside it — not drawn yet.
 
@@ -129,4 +129,4 @@ action. The same opener can return when the story comes back to a place.
   `"<prop>"` means the seat, `"<prop>#<anchor>"` names another). They
   are not drawn.
 - A prop whose drawing names `data-recolor-*` roles takes a character's colours (`character`) or
-  explicit `body` / `cloth` per instance (docs/design/panels.md).
+  explicit `color` / `cloth` per instance (docs/design/panels.md).

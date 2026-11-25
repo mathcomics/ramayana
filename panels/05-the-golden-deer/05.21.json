@@ -22,7 +22,7 @@
       "id": "fruit",
       "on": "sita#hand-right",
       "scale": 0.15,
-      "body": "red"
+      "color": "red"
     },
     {
       "prop": "half-circle",

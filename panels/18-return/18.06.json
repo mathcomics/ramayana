@@ -14,7 +14,7 @@
       "at": 0.3,
       "depth": "horizon",
       "scale": 0.24,
-      "body": "#f4c430",
+      "color": "#f4c430",
       "repeat": {
         "gap": 1,
         "n": 9
@@ -25,7 +25,7 @@
       "at": 0.1,
       "depth": "horizon",
       "scale": 0.24,
-      "body": "#f4c430",
+      "color": "#f4c430",
       "repeat": {
         "gap": 1,
         "n": 9
@@ -36,7 +36,7 @@
       "at": 0.8,
       "depth": "horizon",
       "scale": 0.24,
-      "body": "#f4c430",
+      "color": "#f4c430",
       "repeat": {
         "gap": 1,
         "n": 9

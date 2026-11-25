@@ -8,7 +8,7 @@
       "id": "wall",
       "at": 0.6,
       "scale": 5.5,
-      "body": "#9a9a9a",
+      "color": "#9a9a9a",
       "cloth": "#2e2424"
     },
     {

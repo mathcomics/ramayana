@@ -18,7 +18,7 @@
       "prop": "rock-square",
       "at": 0.15,
       "scale": 2.5,
-      "body": "#555555"
+      "color": "#555555"
     },
     {
       "character": "rama",

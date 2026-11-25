@@ -20,11 +20,11 @@
       "at": 0.35,
       "depth": "front",
       "scale": 2.5,
-      "body": "#222222"
+      "color": "#222222"
     },
     {
       "prop": "steps",
-      "body": "#ac9393",
+      "color": "#ac9393",
       "scale": 0.9,
       "at": 0.55,
       "id": "steps",
@@ -38,7 +38,7 @@
         1.7
       ],
       "scale": 1.8,
-      "body": "#000000",
+      "color": "#000000",
       "rotate": 180
     },
     {

@@ -19,7 +19,7 @@
       "at": 0.58,
       "depth": 0.9,
       "scale": 0.92,
-      "body": "stone",
+      "color": "stone",
       "id": "stone7"
     },
     {
@@ -27,7 +27,7 @@
       "at": 0.55,
       "depth": 0.8,
       "scale": 0.736,
-      "body": "#666666",
+      "color": "#666666",
       "id": "stone6"
     },
     {
@@ -42,7 +42,7 @@
       "at": 0.45,
       "depth": 0.5,
       "scale": 0.6624,
-      "body": "#998888",
+      "color": "#998888",
       "id": "stone4"
     },
     {
@@ -51,7 +51,7 @@
       "at": 0.35,
       "depth": 0.2,
       "scale": 0.598,
-      "body": "stone"
+      "color": "stone"
     },
     {
       "id": "stone2",
@@ -59,7 +59,7 @@
       "at": 0.2,
       "depth": 0,
       "scale": 0.736,
-      "body": "#998888"
+      "color": "#998888"
     },
     {
       "id": "stone1",
@@ -67,7 +67,7 @@
       "at": 0,
       "depth": -0.5,
       "scale": 0.736,
-      "body": "#666666",
+      "color": "#666666",
       "rotate": 180
     },
     {

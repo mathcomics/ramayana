@@ -8,7 +8,7 @@
       "id": "moon",
       "at": 0.56,
       "scale": 3.4,
-      "body": "#f3efd6",
+      "color": "#f3efd6",
       "nudge": [
         0,
         0.703
@@ -19,7 +19,7 @@
       "id": "mountain",
       "on": "hanuman#hand-right",
       "scale": 2,
-      "body": "#20264a"
+      "color": "#20264a"
     },
     {
       "character": "hanuman",

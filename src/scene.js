@@ -5,7 +5,7 @@
 // Delivery is a vertical scroll of panels. Every panel is the full width
 // (360 units) and `tall` × its width high.
 
-import { renderFigure, buildShapes, characterLook, parseColor, DEFAULT_OUTFIT } from './figure.js';
+import { renderFigure, buildShapes, characterLook, parseColor, panelColors, DEFAULT_OUTFIT } from './figure.js';
 import { headView, INTENDED_VIEWS } from './headturn.js';
 import { poseComposer, splitPoseName } from './compose.js';
 
@@ -259,6 +259,8 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     return [...back, mid];
   }
 
+  // the colour names of a prop's "color" and of "cloth"
+  const palette = panelColors(assets.characters.colors, grounds);
   let nFig = 0;
   const makeFig = (f) => {
     const i = ++nFig, who = f.character ?? f.who;
@@ -276,7 +278,8 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     if (c.weapon) for (const s of ['right', 'left']) if (pose[s]?.arm?.prop?.kind === 'sword') pose[s].arm.prop.kind = c.weapon;
     if (f.hands) for (const [h, v] of Object.entries(f.hands)) setPath(pose, side(`${h}.arm.hand`), v);
     for (const [k, v] of Object.entries(f.adjust || {})) setPath(pose, side(k), v);
-    const look = characterLook(c, assets.characters.colors, assets.faces, f.cloth);
+    const look = characterLook(c, palette, assets.faces, f.cloth);
+    for (const k of ['color', 'body']) if (f[k] != null) issues.push(`figure ${i} (${who}): "${k}" does nothing on a figure — its cloth takes "cloth"`);
     if (f.cloth && !look.colors.cloth) issues.push(`figure ${i} (${who}): unknown cloth "${f.cloth}"`);
     // props worn at the neck (a garland): drawn by the figure, hung at its
     // nape by the prop's `neck` anchor (else its top centre)
@@ -330,22 +333,27 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     const rot = p.rotate ?? 0, rr = rot * Math.PI / 180;
     const [w, h] = rot ? [Math.abs(w0 * Math.cos(rr)) + Math.abs(h0 * Math.sin(rr)), Math.abs(w0 * Math.sin(rr)) + Math.abs(h0 * Math.cos(rr))] : [w0, h0];
     // recolor: def.recolor names the drawing's role colours ({ body, cloth }).
-    // "character" takes a character's colours; "body" / "cloth" override (a
-    // name from data/characters.json "colors", or a hex; a pattern suffix
-    // keeps the base colour).
+    // "character" takes a character's colours; "color" (the body role) and
+    // "cloth" override (a name from data/characters.json "colors", a ground's
+    // name — its first colour — or a hex; a pattern suffix keeps the base
+    // colour). "body" is the retired name of "color".
     const cid = p.character ?? p.who;
     let svg = def?.svg;
-    if (svg && !def.recolor && (p.body || p.cloth)) issues.push(`prop "${p.prop}": "${p.body ? 'body' : 'cloth'}" does nothing — the drawing names no recolour colours (data-recolor-body / -cloth)`);
-    if (svg && def.recolor && (cid || p.body || p.cloth)) {
+    if (p.body != null) issues.push(`prop "${p.prop}": "body" is retired — use "color"`);
+    const main = p.color ?? p.body;
+    for (const [field, v, role] of [['color', main, 'body'], ['cloth', p.cloth, 'cloth']]) {
+      if (svg && v != null && !def.recolor?.[role]) issues.push(`prop "${p.prop}": "${field}" does nothing — the drawing names no data-recolor-${role}`);
+    }
+    if (svg && def.recolor && (cid || main || p.cloth)) {
       const c = cid ? chars.find((x) => x.id === cid) : null;
       if (cid && !c) issues.push(`prop "${p.prop}": unknown character "${cid}"`);
-      const colour = (role, name) => {
+      const colour = (field, name) => {
         if (!name) return undefined;
-        const col = parseColor(name, assets.characters.colors).color;
-        if (!col) issues.push(`prop "${p.prop}": ${role} "${name}" is not in the colours (data/characters.json) or a hex`);
+        const col = parseColor(name, palette).color;
+        if (!col) issues.push(`prop "${p.prop}": ${field} "${name}" is not a colour (data/characters.json), a ground (data/grounds.json) or a hex`);
         return col;
       };
-      const want = { body: colour('body', p.body ?? c?.body), cloth: colour('cloth', p.cloth ?? c?.cloth) };
+      const want = { body: colour('color', main ?? c?.body), cloth: colour('cloth', p.cloth ?? c?.cloth) };
       for (const [role, from] of Object.entries(def.recolor)) {
         if (want[role]) svg = svg.replaceAll(`fill:${from}`, `fill:${want[role]}`);
       }
@@ -374,6 +382,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
     const col = grounds[b.color] || b.color;
     if (!b.color) issues.push(`${name}: a foreground needs a "color" (data/grounds.json or a hex)`);
     else if (!grounds[b.color] && !/^#/.test(b.color)) issues.push(`${name}: color "${b.color}" not in data/grounds.json`);
+    for (const k of ['body', 'cloth']) if (b[k] != null) issues.push(`${name}: "${k}" does nothing on a foreground — its colour is "color"`);
     for (const k of ['at', 'depth', 'row', 'scale', 'nudge', 'on']) if (b[k] != null) issues.push(`${name}: "${k}" does nothing on a foreground — "foreground" sets its line`);
     return { b, name, line: v, color: col || '#7a8f6a', x: W / 2, halfW: W / 2, unit: 1, groundY: H, facing: 1 };
   };

@@ -7,7 +7,7 @@
   "figures": [
     {
       "prop": "stag-run",
-      "body": "gold",
+      "color": "gold",
       "at": 0.86,
       "depth": "horizon"
     },

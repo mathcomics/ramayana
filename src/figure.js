@@ -115,6 +115,13 @@ export function parseColor(name, colors = {}) {
   if (m && known(m[1])) return { color: known(m[1]), pattern: m[2] };
   return { color: known(s), pattern: null };
 }
+// The colours a panel's "color" (on a prop) and "cloth" may name: those of
+// data/characters.json, and the grounds (data/grounds.json) by their first
+// colour only, never the gradient.
+export function panelColors(colors = {}, grounds = {}) {
+  const first = (g) => (Array.isArray(g) ? g[0] : g?.horizontal ? g.horizontal[0] : g);
+  return { ...Object.fromEntries(Object.entries(grounds).map(([k, g]) => [k, first(g)])), ...colors };
+}
 function patternDef(id, kind, ink) {
   const t = 0.54;                                   // tile, head-units
   const body = {

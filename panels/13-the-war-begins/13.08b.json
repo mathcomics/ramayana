@@ -54,7 +54,7 @@
     {
       "prop": "rock-circle",
       "scale": 1.9,
-      "body": "#ed8838",
+      "color": "#ed8838",
       "nudge": [
         0,
         1.723
@@ -64,7 +64,7 @@
       "prop": "rock-circle",
       "at": 0.4,
       "scale": 0.35,
-      "body": "#444444",
+      "color": "#444444",
       "repeat": {
         "gap": 1,
         "n": 2

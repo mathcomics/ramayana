@@ -64,7 +64,7 @@
       ],
       "rotate": 150,
       "depth": "closeup",
-      "body": "#5a5f7a"
+      "color": "#5a5f7a"
     },
     {
       "prop": "flower-white",

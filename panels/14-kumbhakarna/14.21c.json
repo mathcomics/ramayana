@@ -9,7 +9,7 @@
       "id": "foot",
       "at": 0.75,
       "rotate": -80,
-      "body": "#9a7a7a",
+      "color": "#9a7a7a",
       "nudge": [
         0,
         1.064

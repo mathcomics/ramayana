@@ -6,7 +6,7 @@ import { writeFileSync, readFileSync, mkdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, loadAssets, loadSections, loadChapters, escXml as esc } from './lib.mjs';
 import { renderPanel, findPose } from '../src/scene.js';
-import { renderFigure, characterLook, parseColor } from '../src/figure.js';
+import { renderFigure, characterLook, parseColor, panelColors } from '../src/figure.js';
 
 const out = join(root, '_site');
 rmSync(out, { recursive: true, force: true });
@@ -110,9 +110,9 @@ const cssGround = (g) => {
 //     { "character", "view": "front" | "side", "facing", "x", "y", "size" }
 //     (a head alone, size its height; with "pose", the whole figure, its
 //     feet on (x, y), size its head height) or { "prop", "x", "y", "size",
-//     "rotate", "facing", "body" } (fitted in a size × size box, turned
+//     "rotate", "facing", "color" } (fitted in a size × size box, turned
 //     degrees clockwise, recoloured);
-//   { "character" } or { "prop", "rotate", "body" }: one such layer, centred.
+//   { "character" } or { "prop", "rotate", "color" }: one such layer, centred.
 let iconSeq = 0;
 const iconFail = (m) => { throw new Error(`panels/icons.json: ${m}`); };
 const headLayer = (L) => {
@@ -133,8 +133,9 @@ const propLayer = (L) => {
   const def = assets.props.props[L.prop];
   if (!def?.svg) iconFail(`no drawing for prop "${L.prop}"`);
   let svg = def.svg;
-  if (L.body) {
-    const col = parseColor(L.body, assets.characters.colors).color || iconFail(`unknown colour "${L.body}"`);
+  if (L.body) iconFail(`prop "${L.prop}": "body" is retired — use "color"`);
+  if (L.color) {
+    const col = parseColor(L.color, panelColors(assets.characters.colors, GROUNDS)).color || iconFail(`unknown colour "${L.color}"`);
     if (!def.recolor?.body) iconFail(`prop "${L.prop}" names no body colour to recolour`);
     svg = svg.replaceAll(`fill:${def.recolor.body}`, `fill:${col}`);
   }

@@ -17,7 +17,7 @@
       "prop": "chariot",
       "at": 0.86,
       "scale": 3.5,
-      "body": "#f4f1ea"
+      "color": "#f4f1ea"
     }
   ]
 }

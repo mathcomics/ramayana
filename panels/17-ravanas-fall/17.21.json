@@ -14,7 +14,7 @@
       "facing": "left",
       "at": 0.15,
       "scale": 3.5,
-      "body": "#f4f1ea"
+      "color": "#f4f1ea"
     },
     {
       "character": "monkey1",

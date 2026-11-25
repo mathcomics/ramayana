@@ -475,3 +475,29 @@ test('cloth: rakshasas always wear a red pattern, monkeys never a pattern (artis
   }
   assert.deepEqual(bad, []);
 });
+
+test('color and cloth: a colour, a ground (first colour, no gradient) or a hex; flagged where they do nothing', () => {
+  const draw = (e) => renderPanel({ ground: 'sand', figures: [e] }, assets);
+  const rock = (extra) => draw({ prop: 'rock-square', ...extra });
+  const g = assets.grounds.grounds;
+  // a vertical and a horizontal gradient give their first colour
+  for (const [name, hex] of [['heat-wave', g['heat-wave'][0]], ['watermelon', g.watermelon.horizontal[0]], ['gold', assets.characters.colors.gold], ['#123456', '#123456']]) {
+    const r = rock({ color: name });
+    assert.deepEqual(r.issues, [], name);
+    assert.ok(r.svg.includes(`fill:${hex}`), name);
+  }
+  assert.equal(rock({ color: 'heat-wave' }).svg.includes(g['heat-wave'][1]), false, 'no gradient');
+  const fig = draw({ character: 'raxas_m1', pose: 'step-hang', cloth: 'forest-stripe' });
+  assert.deepEqual(fig.issues, []);
+  assert.ok(fig.svg.includes(g.forest[0]));
+  // the two lists share no name, so a name means one colour
+  for (const k of Object.keys(g)) assert.ok(!(k in assets.characters.colors), k);
+  // "body" still draws, flagged
+  assert.equal(rock({ body: 'gold' }).svg, rock({ color: 'gold' }).svg);
+  assert.match(rock({ body: 'gold' }).issues.join(' '), /"body" is retired/);
+  assert.match(rock({ color: 'mauve' }).issues.join(' '), /color "mauve" is not a colour/);
+  assert.match(rock({ cloth: 'red' }).issues.join(' '), /"cloth" does nothing/);
+  assert.match(draw({ prop: 'hut-top', color: 'red' }).issues.join(' '), /"color" does nothing/);
+  assert.match(draw({ character: 'rama', pose: 'step-hang', color: 'red' }).issues.join(' '), /"color" does nothing on a figure/);
+  assert.match(draw({ foreground: 0.2, color: 'sand', cloth: 'red' }).issues.join(' '), /"cloth" does nothing on a foreground/);
+});

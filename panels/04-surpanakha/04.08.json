@@ -29,7 +29,7 @@
       "prop": "rock-circle",
       "at": 0.9,
       "scale": 0.05,
-      "body": "#ff2222",
+      "color": "#ff2222",
       "repeat": {
         "gap": 1,
         "n": 3

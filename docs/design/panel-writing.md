@@ -356,7 +356,7 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   and rejected. He is only ever his hand-drawn parts — `giant-face-side`,
   `giant-face-front`, `giant-feet`, `giant-fist`, `giant-grab`,
   `giant-lie-waist` — each cut off at the frame edge it enters from,
-  all at one skin (`body: "#9a7a7a"`, the waist's own). Lying on his
+  all at one skin (`color: "#9a7a7a"`, the waist's own). Lying on his
   back, face up: `giant-face-side` `facing: "left"`, `rotate: 90`, the
   neck leaving the left edge.
 - **The giant's parts carry their true size; panels never `scale` them**

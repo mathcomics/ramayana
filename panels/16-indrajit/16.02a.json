@@ -40,13 +40,13 @@
       "prop": "half-circle",
       "id": "bowl",
       "scale": 0.7,
-      "body": "#222222",
+      "color": "#222222",
       "on": "raxas_m2#hands",
       "rotate": -30
     },
     {
       "prop": "rock-rectangle",
-      "body": "#222222",
+      "color": "#222222",
       "scale": 2.5,
       "at": 0.35,
       "id": "rock",
@@ -55,7 +55,7 @@
     {
       "prop": "steps",
       "scale": 0.9,
-      "body": "#ac9393",
+      "color": "#ac9393",
       "at": 0.55,
       "depth": "front",
       "id": "steps"
@@ -63,7 +63,7 @@
     {
       "prop": "vine",
       "on": "rock#stand",
-      "body": "#000000",
+      "color": "#000000",
       "nudge": [
         -0.1,
         1.7

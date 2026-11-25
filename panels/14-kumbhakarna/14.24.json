@@ -39,7 +39,7 @@
       "id": "face",
       "rotate": 115,
       "at": 0.42,
-      "body": "#9a7a7a",
+      "color": "#9a7a7a",
       "depth": -0.6757,
       "scale": 0.7686
     },

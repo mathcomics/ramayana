@@ -6,7 +6,7 @@
     {
       "prop": "vine",
       "at": 0.2,
-      "body": "#555555",
+      "color": "#555555",
       "rotate": -160,
       "scale": 4,
       "repeat": {

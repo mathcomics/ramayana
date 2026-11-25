@@ -7,7 +7,7 @@
       "prop": "giant-feet",
       "facing": "right",
       "at": 0.9,
-      "body": "#9a7a7a"
+      "color": "#9a7a7a"
     },
     {
       "prop": "trumpet",

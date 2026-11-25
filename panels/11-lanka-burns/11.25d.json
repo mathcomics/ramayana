@@ -18,7 +18,7 @@
       "at": 0.5,
       "depth": "mid",
       "scale": 1.6,
-      "body": "#222222"
+      "color": "#222222"
     },
     {
       "character": "raxas_m1",
@@ -56,7 +56,7 @@
       "prop": "vine",
       "at": 0.2,
       "scale": 4,
-      "body": "#555555",
+      "color": "#555555",
       "repeat": {
         "n": 3
       },

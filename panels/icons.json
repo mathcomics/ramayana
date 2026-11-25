@@ -7,7 +7,7 @@
     "4": { "crop": [128, 95, 170], "panel": { "figures": [
       { "character": "surpanakha", "pose": "oneleg-propback", "facing": "right", "at": 0.5, "depth": 0.1081, "scale": 1.0315 }
     ] } },
-    "5": { "prop": "deer-stand", "body": "gold", "size": 80, "ground": "forest" },
+    "5": { "prop": "deer-stand", "color": "gold", "size": 80, "ground": "forest" },
     "6": { "prop": "vulture-fly", "ground": "sand", "size": 84 },
     "7": { "crop": [70, 110, 220], "ground": "sand", "panel": { "figures": [
       { "character": "sugriva", "pose": "step-hang", "view": "front", "at": 0.36, "depth": 0, "scale": 0.92 },
@@ -38,12 +38,12 @@
       { "prop": "giant-grab", "facing": "left", "at": 0.57, "nudge": [0, 4.159] }
     ] } },
     "15": { "crop": [68, 42, 190], "panel": { "ground": "twilight", "figures": [
-      { "prop": "rock-circle", "at": 0.56, "scale": 3.4, "body": "#f3efd6", "nudge": [0, 0.703] },
-      { "prop": "rock-triangle", "on": "hanuman#hand-right", "scale": 2, "body": "#20264a" },
+      { "prop": "rock-circle", "at": 0.56, "scale": 3.4, "color": "#f3efd6", "nudge": [0, 0.703] },
+      { "prop": "rock-triangle", "on": "hanuman#hand-right", "scale": 2, "color": "#20264a" },
       { "character": "hanuman", "pose": "fallfront-dive", "facing": "right", "at": 0.4, "scale": 0.22, "nudge": [0, 14.884] }
     ] } },
     "16": { "crop": [60, 130, 185], "ground": "twilight", "panel": { "figures": [
-      { "prop": "vine", "at": 0.6, "nudge": [0, -0.45], "scale": 4, "body": "#000000", "rotate": 180 },
+      { "prop": "vine", "at": 0.6, "nudge": [0, -0.45], "scale": 4, "color": "#000000", "rotate": 180 },
       { "character": "indrajit", "pose": "kneel-palms", "facing": "right", "at": 0.32 },
       { "prop": "fire", "at": 0.6, "scale": 2.4 }
     ] } },
@@ -53,14 +53,14 @@
       { "character": "ravana", "x": 50, "y": 56, "size": 52 }
     ] },
     "18": { "ground": "twilight", "layers": [
-      { "prop": "half-circle", "x": 14, "y": 68, "size": 22, "body": "#8a4a2a" },
-      { "prop": "rock-circle", "x": 14, "y": 59, "size": 9, "body": "#f4c430" },
-      { "prop": "half-circle", "x": 38, "y": 68, "size": 22, "body": "#8a4a2a" },
-      { "prop": "rock-circle", "x": 38, "y": 59, "size": 9, "body": "#f4c430" },
-      { "prop": "half-circle", "x": 62, "y": 68, "size": 22, "body": "#8a4a2a" },
-      { "prop": "rock-circle", "x": 62, "y": 59, "size": 9, "body": "#f4c430" },
-      { "prop": "half-circle", "x": 86, "y": 68, "size": 22, "body": "#8a4a2a" },
-      { "prop": "rock-circle", "x": 86, "y": 59, "size": 9, "body": "#f4c430" }
+      { "prop": "half-circle", "x": 14, "y": 68, "size": 22, "color": "#8a4a2a" },
+      { "prop": "rock-circle", "x": 14, "y": 59, "size": 9, "color": "#f4c430" },
+      { "prop": "half-circle", "x": 38, "y": 68, "size": 22, "color": "#8a4a2a" },
+      { "prop": "rock-circle", "x": 38, "y": 59, "size": 9, "color": "#f4c430" },
+      { "prop": "half-circle", "x": 62, "y": 68, "size": 22, "color": "#8a4a2a" },
+      { "prop": "rock-circle", "x": 62, "y": 59, "size": 9, "color": "#f4c430" },
+      { "prop": "half-circle", "x": 86, "y": 68, "size": 22, "color": "#8a4a2a" },
+      { "prop": "rock-circle", "x": 86, "y": 59, "size": 9, "color": "#f4c430" }
     ] }
   }
 }

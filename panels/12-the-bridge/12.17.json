@@ -35,7 +35,7 @@
       "at": 0.35,
       "depth": 0.9,
       "scale": 0.92,
-      "body": "#eeeeee",
+      "color": "#eeeeee",
       "repeat": {
         "gap": 1,
         "n": 2

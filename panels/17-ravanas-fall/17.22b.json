@@ -12,7 +12,7 @@
         -1
       ],
       "scale": 0.75,
-      "body": "#fff4b8"
+      "color": "#fff4b8"
     },
     {
       "prop": "rock-circle",
@@ -22,7 +22,7 @@
         -1
       ],
       "scale": 0.5,
-      "body": "#ffd84a"
+      "color": "#ffd84a"
     },
     {
       "prop": "rock-circle",
@@ -32,7 +32,7 @@
         -1
       ],
       "scale": 0.25,
-      "body": "#ffb84a"
+      "color": "#ffb84a"
     },
     {
       "character": "rama",
