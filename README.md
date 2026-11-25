@@ -53,7 +53,7 @@ It never holds coordinates. This is panel 05.04, Ravana on his throne:
 {
   "scene": "Lanka: Ravana on his throne, from the front, far",
   "tall": 1,
-  "ground": "yellow",
+  "ground": "sunshine",
   "figures": [
     { "prop": "throne-lanka", "at": 0.5, "depth": "mid" },
     { "character": "ravana", "pose": "chair-armrest", "view": "front",
