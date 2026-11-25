@@ -417,6 +417,11 @@ test('"#chest": a carried prop lands on the front of the chest; with "rotate" it
   assert.deepEqual(t.issues, []);
   const [, px, py] = t.svg.match(/rotate\(40 ([-\d.]+) ([-\d.]+)\)/).map(Number);
   assert.ok(Math.abs(px - feet[0]) < 0.01 && Math.abs(py - feet[1]) < 0.01, `turns about where it goes in (${px}, ${py}) vs (${feet})`);
+  // on a turned figure it turns with it, its own rotate on top
+  for (const [own, total] of [[undefined, 220], [40, 260]]) {
+    const b = renderPanel({ figures: [{ character: 'rama', pose: 'step-hang', at: 0.5, rotate: 220 }, { prop: 'arrow-stuck', on: 'rama#chest', rotate: own }] }, assets);
+    assert.equal(b.layout.at(-1).rot, total);
+  }
   // front view: the middle of the chest
   assert.deepEqual(renderPanel({ figures: [{ character: 'rama', pose: 'step-hang', view: 'front' }, { prop: 'arrow-stuck', on: 'rama#chest' }] }, assets).issues, []);
 });

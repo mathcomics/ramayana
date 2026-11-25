@@ -15,7 +15,7 @@
       "prop": "arrow-stuck",
       "facing": "right",
       "on": "ravana#chest",
-      "rotate": -55
+      "rotate": 125
     },
     {
       "character": "rama",

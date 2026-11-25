@@ -498,6 +498,8 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
         c = on && !onBand(ent(c)) ? all.find((x) => x !== c && x.name === String(on).split('#')[0]) : null;
       }
       if (carrier.x == null) return;
+      // a prop on a figure turns with it (an arrow in a body), its own rotate on top
+      if (!o.f) o.rot = (e.rotate ?? 0) + carrier.rot;
       return placeOn(o, e, carrier, ...figPoint(carrier, pt), aname.startsWith('hand') ? 'carry-hand' : 'carry');
     }
     const t = props.find((x) => x !== o && x.name === tname);

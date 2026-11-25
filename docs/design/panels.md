@@ -119,7 +119,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   box** of a fixed 2 × 2 head-units (`PLACEHOLDER` in `src/scene.js`).
 - `at`, `depth`, `scale`, `nudge`, `on`, `id` as for figures.
 - `facing`: drawings face right; `left` mirrors the prop (and its anchors).
-- `rotate`: degrees clockwise about the drawing's centre, after `facing`; the prop stands on the bottom of its turned box (`"rotate": -90` lays the upright `fire` on its side, the burning street of 11.25). With `on` it turns about the point it lands on instead (an arrow in a chest about where it goes in: `"on": "ravana#chest", "rotate": 55`). Its own anchors are not turned, so whatever stands on a turned prop does not tilt with it.
+- `rotate`: degrees clockwise about the drawing's centre, after `facing`; the prop stands on the bottom of its turned box (`"rotate": -90` lays the upright `fire` on its side, the burning street of 11.25). With `on` it turns about the point it lands on instead (an arrow in a chest about where it goes in: `"on": "ravana#chest", "rotate": 55`). On a figure's anchor it also turns with the figure: its `rotate` is added to the figure's (11.17's arrow). Its own anchors are not turned, so whatever stands on a turned prop does not tilt with it.
 - `repeat`: the prop drawn several times in a row — a cluster of rocks, a
   clump of lotuses or flowers, ladders against a wall. `"repeat": 3`, or
   `{ "n": 3, "gap": 0.3, "scale": [0.6, 1.05], "rotate": [-12, 12], "seed": 1 }`. The

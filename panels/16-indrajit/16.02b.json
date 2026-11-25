@@ -58,7 +58,7 @@
       "prop": "arrow-stuck",
       "facing": "right",
       "on": "guard#chest",
-      "rotate": 35,
+      "rotate": 55,
       "scale": 0.35
     },
     {
