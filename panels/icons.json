@@ -7,9 +7,9 @@
     "4": { "crop": [128, 95, 170], "panel": { "figures": [
       { "character": "surpanakha", "pose": "oneleg-propback", "facing": "right", "at": 0.5, "depth": 0.1081, "scale": 1.0315 }
     ] } },
-    "5": { "prop": "deer-stand", "body": "gold", "size": 80, "ground": "sand" },
+    "5": { "prop": "deer-stand", "body": "gold", "size": 80, "ground": "forest" },
     "6": { "prop": "vulture-fly", "ground": "sand", "size": 84 },
-    "7": { "crop": [70, 110, 220], "panel": { "figures": [
+    "7": { "crop": [70, 110, 220], "ground": "sand", "panel": { "figures": [
       { "character": "sugriva", "pose": "step-hang", "view": "front", "at": 0.36, "depth": 0, "scale": 0.92 },
       { "character": "hanuman", "pose": "step-hang", "view": "front", "at": 0.64, "depth": 0, "scale": 0.92 }
     ] } },
