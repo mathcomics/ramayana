@@ -1,7 +1,7 @@
 {
   "scene": "Rama, close, facing us, fists raised in anger at the silent sea",
   "tall": 0.6,
-  "ground": "blue-sky",
+  "ground": "ocean",
   "figures": [
     {
       "character": "rama",

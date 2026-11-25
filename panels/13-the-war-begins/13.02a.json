@@ -5,7 +5,7 @@
   "figures": [
     {
       "character": "raxas_m1",
-      "pose": "stand-watch",
+      "pose": "stepwide-watch",
       "view": "front",
       "facing": "left",
       "at": 0.06,
@@ -18,7 +18,7 @@
     },
     {
       "character": "raxas_m2",
-      "pose": "stand-swordcarry",
+      "pose": "pass-swordcarry",
       "view": "front",
       "facing": "left",
       "at": 0.2,
@@ -27,17 +27,11 @@
         0,
         -3.2
       ],
-      "scale": 0.5,
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "sword",
-          "angle": -60
-        }
-      }
+      "scale": 0.5
     },
     {
       "character": "raxas_m2",
-      "pose": "stand-swordcarry",
+      "pose": "stand-straight",
       "view": "front",
       "facing": "left",
       "at": 0.37,
@@ -47,13 +41,7 @@
         -2.4
       ],
       "scale": 0.5,
-      "cloth": "red-check",
-      "adjust": {
-        "right.arm.prop": {
-          "kind": "spear",
-          "angle": -80
-        }
-      }
+      "cloth": "red-check"
     },
     {
       "character": "raxas_m3",

@@ -1,8 +1,8 @@
 {
   "scene": "Lanka small on the horizon behind him; Vibhishana flies off over the water",
   "tall": 0.6,
-  "ground": "summertime",
-  "sky": "blue-sky",
+  "ground": "lake",
+  "sky": "ocean",
   "horizon": 0.3,
   "figures": [
     {

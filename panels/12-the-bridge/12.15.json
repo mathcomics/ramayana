@@ -1,8 +1,8 @@
 {
   "scene": "Rama on the shore draws his bow at the ocean",
   "tall": 1,
-  "ground": "summertime",
-  "sky": "blue-sky",
+  "ground": "lake",
+  "sky": "ocean",
   "horizon": 0.5,
   "figures": [
     {

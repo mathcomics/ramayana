@@ -2,7 +2,7 @@
   "scene": "On Rama's shore Vibhishana kneels, palms joined; Rama stands before him",
   "tall": 1,
   "ground": "sand",
-  "sky": "summertime",
+  "sky": "ocean",
   "figures": [
     {
       "character": "rama",
@@ -23,5 +23,5 @@
       }
     }
   ],
-  "horizon": 0.2
+  "horizon": 0.1
 }
