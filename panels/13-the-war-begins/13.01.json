@@ -2,7 +2,7 @@
   "scene": "Opening: Lanka on its island across the sea, under a golden sky",
   "tall": 1,
   "ground": "twilight",
-  "sky": "#ffa500",
+  "sky": "heat-wave",
   "figures": [
     {
       "prop": "lanka-island",

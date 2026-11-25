@@ -1,8 +1,7 @@
 {
   "scene": "Opening: Kishkindha on its hill again",
   "tall": 1,
-  "ground": "grass",
-  "sky": "sand",
+  "ground": "heat-wave",
   "horizon": 0,
   "figures": [
     {

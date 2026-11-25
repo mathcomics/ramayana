@@ -1,7 +1,7 @@
 {
   "scene": "The search: three monkeys push through the ferns",
   "tall": 0.6,
-  "ground": "sand",
+  "ground": "grass",
   "figures": [
     {
       "prop": "leaf-fern",
