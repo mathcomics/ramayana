@@ -1,7 +1,7 @@
 {
   "scene": "Opening: the throne of Ayodhya, empty",
   "tall": 1,
-  "ground": "sand",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "throne-ayodhya",
