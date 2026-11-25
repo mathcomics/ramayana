@@ -1,7 +1,7 @@
 {
   "scene": "Celebration: Vibhishana walks in procession, rakshasa musicians and leaping monkeys behind him",
   "tall": 0.6,
-  "ground": "off-white",
+  "ground": "sand",
   "figures": [
     {
       "character": "monkey1",

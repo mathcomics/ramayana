@@ -1,7 +1,7 @@
 {
   "scene": "Opening: Lanka's palace close; a rakshasa looks out of a window, and below rakshasas flee, one fallen",
   "tall": 1,
-  "ground": "stone-grey",
+  "ground": "sand",
   "figures": [
     {
       "prop": "palace-lanka",

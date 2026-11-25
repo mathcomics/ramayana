@@ -1,7 +1,7 @@
 {
   "scene": "From the sky Indrajit shoots down",
   "tall": 0.6,
-  "ground": "night-blue",
+  "ground": "twilight",
   "figures": [
     {
       "character": "indrajit",

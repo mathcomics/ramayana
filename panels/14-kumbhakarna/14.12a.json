@@ -1,7 +1,7 @@
 {
   "scene": "Kumbhakarna's eye opens, the giant face tilted; Ravana, small, points at it",
   "tall": 0.6,
-  "ground": "light-grey",
+  "ground": "sand",
   "figures": [
     {
       "id": "face",

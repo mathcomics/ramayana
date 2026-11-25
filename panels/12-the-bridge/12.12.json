@@ -1,7 +1,7 @@
 {
   "scene": "A monkey leaps from stone to stone over the sea",
   "tall": 0.6,
-  "ground": "sea",
+  "ground": "summertime",
   "figures": [
     {
       "character": "monkey1",
@@ -77,5 +77,5 @@
     }
   ],
   "horizon": 0.1,
-  "sky": "mist"
+  "sky": "blue-sky"
 }

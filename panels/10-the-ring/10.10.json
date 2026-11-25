@@ -1,7 +1,7 @@
 {
   "scene": "A skyline of roofs stepping back into the dark; far off on the last one, Hanuman looks out",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "city-roof",

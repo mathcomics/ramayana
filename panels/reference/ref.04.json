@@ -1,7 +1,7 @@
 {
   "scene": "Repeat: flowers: five white (gap 0.2, gentle turn), three pink, three yellow with a steeper lean",
   "tall": 1,
-  "ground": "green",
+  "ground": "grass",
   "figures": [
     { "prop": "flower-white", "at": 0.5, "depth": "back", "scale": 2.2, "repeat": { "n": 5, "gap": 0.2, "scale": [0.9, 0.85], "rotate": [-5, 4] } },
     { "prop": "flower-pink", "at": 0.22, "depth": "front", "scale": 1.8, "repeat": 3 },

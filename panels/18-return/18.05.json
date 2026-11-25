@@ -1,7 +1,7 @@
 {
   "scene": "Home through the sky: Rama, Sita, Lakshman and Hanuman rise in the white chariot from its cloud; the monkeys and Vibhishana wave from below",
   "tall": 1,
-  "ground": "sky",
+  "ground": "blue-sky",
   "figures": [
     {
       "prop": "cloud-small",

@@ -48,11 +48,11 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   the depth of the ground under it and is lifted with `nudge`; a top view
   is `"camera": "top"` with numeric depths up the ground (`panels.md`,
   Depth).
-- **Backgrounds are light** (artist, 2026-11-08): `off-white` (light
-  beige), `light-grey`, even `white`. Green grounds only for top views
-  (03.01) and the land strip under a `sky` horizon (05.12's dry-grass);
-  `dusty-pink` never. Panels still on dusty-pink or green swap in the
-  revisit pass.
+- **Backgrounds are light** (artist, 2026-11-08): `sand`. Green grounds
+  only for top views (03.01) and the land strip under a `blue-sky` horizon
+  (05.12's `grass`); `bloom` never. Panels still on bloom or grass swap in
+  the revisit pass. (Names of the 12-colour palette on trial, 2026-11-25;
+  the artist is reassigning them, so this rule may change.)
 - **Poses**: legs first, arms from the verb; head direction (`turn`) and
   mouth are not poses; no silent `step-hang` (pose-picking rules). A missing
   pose goes in `needs` as `pose: <wanted name> (...): <stand-in> for now`.

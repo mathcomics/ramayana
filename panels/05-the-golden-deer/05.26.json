@@ -1,7 +1,7 @@
 {
   "scene": "Ravana rises into the sky with Sita, sword in hand; she reaches out and down",
   "tall": 1.5,
-  "ground": "sky-blue",
+  "ground": "blue-sky",
   "figures": [
     {
       "prop": "streak",

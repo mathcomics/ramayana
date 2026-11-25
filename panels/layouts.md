@@ -32,7 +32,7 @@ tag goes in this table in the same commit as the review that adds it
 | Tag | Kind of scene | How it is built |
 |---|---|---|
 | `opening` | a chapter opener: the place before anyone is in it | no figures — the chapter's place prop alone, centred: a palace at depth `horizon` over open ground, or an empty throne at depth `mid` in a flat-coloured hall. Which chapter opens on what: `composition.md`, Chapter openers |
-| `throne` | a king on his throne | the throne centred at depth `mid`, the king seated `on` it in `view: front`; the hall a flat ground colour (`dusty-pink`, `geru`), no sky. It follows an `opening` of the empty throne |
+| `throne` | a king on his throne | the throne centred at depth `mid`, the king seated `on` it in `view: front`; the hall a flat ground colour (`bloom`, `watermelon`), no sky. It follows an `opening` of the empty throne |
 | `closeup` | one figure close, reacting | a 0.6 strip, one figure at depth `closeup`, cut at the chest by the bottom edge: head and shoulders only, against the flat colour of the place |
 | `forest` | travelling through the forest, side on | the walkers small at depth `horizon`, all facing one way; `trees-side` on the horizon at the far side; a `tree-trunk` at depth `closeup` cut by the near edge frames the panel |
 | `spy` | someone watched from hiding | the `forest` layout with the watched at the back at depth `horizon`, and the watcher big in front at depth `closeup` behind the near trunk, seen from behind (`turn` −90): the reader looks over their shoulder |
@@ -46,9 +46,9 @@ tag goes in this table in the same commit as the review that adds it
 | `horizon` | the action far off, on the horizon | sky over plain ground and nothing in between: the figures small at depth `horizon`. The horizon and the size do all the work |
 | `topview` | a crowd or place seen from above | no sky; `"camera": "top"`; top-view props (`monkey-top`, `male-top`) at numeric depths up the ground as distance, the leader nearest the bottom edge; water as `wave-top` at depth `floor` |
 | `mountain` | a figure on a summit | a tall panel; a big rock (`rock-square` at scale 2) at depth `closeup` fills the lower half, cut by the edges, the figure small on its top against the sky |
-| `fly` | a figure flying across a great space | sky over `sea` with a low `horizon`; the figure tiny, high in the panel, in a diving pose — the empty space is the subject |
+| `fly` | a figure flying across a great space | sky over `summertime` with a low `horizon`; the figure tiny, high in the panel, in a diving pose — the empty space is the subject |
 | `celebration` | the victors rejoicing around the hero | the hero big and still at the centre, standing side on, his weapon lowered; the monkeys smaller (a further depth, `0.5`), leaping around him on both sides at different heights (`nudge`, `rotate`), faces to the reader, `mouth` 3 |
-| `city` | moving over a city at night | a 0.6 strip, ground `night`; the rooftops (`city-gap`) big and cut by the edges at the bottom, lit windows, the figure small leaping between them `on` the gap's `stand` anchor |
+| `city` | moving over a city at night | a 0.6 strip, ground `twilight`; the rooftops (`city-gap`) big and cut by the edges at the bottom, lit windows, the figure small leaping between them `on` the gap's `stand` anchor |
 
 ## Setting the depths
 

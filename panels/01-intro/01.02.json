@@ -1,7 +1,7 @@
 {
   "scene": "Dasharatha on his throne, from the front, far",
   "tall": 0.6,
-  "ground": "dusty-pink",
+  "ground": "bloom",
   "figures": [
     {
       "prop": "throne-ayodhya",

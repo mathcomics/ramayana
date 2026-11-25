@@ -1,7 +1,7 @@
 {
   "scene": "Lanka by night: the golden palace on its island",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "lanka-island",
@@ -15,5 +15,5 @@
       "scale": 4
     }
   ],
-  "sky": "night"
+  "sky": "twilight"
 }

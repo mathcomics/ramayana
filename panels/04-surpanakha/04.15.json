@@ -1,7 +1,7 @@
 {
   "scene": "Rama and Lakshman shoot to the left",
   "tall": 0.6,
-  "ground": "dark-green",
+  "ground": "forest",
   "figures": [
     {
       "character": "rama",

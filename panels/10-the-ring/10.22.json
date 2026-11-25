@@ -1,7 +1,7 @@
 {
   "scene": "The rakshasis close in, shouting, fists up; Sita throws out her arms",
   "tall": 1,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "rock-square",

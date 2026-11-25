@@ -1,7 +1,7 @@
 {
   "scene": "Sugriva points the army on; the monkeys march out, swords raised",
   "tall": 0.6,
-  "ground": "off-white",
+  "ground": "sand",
   "figures": [
     {
       "prop": "palace-kishkindha",
@@ -62,7 +62,7 @@
         0.2,
         0.1
       ],
-      "color": "dark-green"
+      "color": "forest"
     },
     {
       "character": "sugriva",

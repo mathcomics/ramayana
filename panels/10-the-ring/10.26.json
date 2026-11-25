@@ -1,7 +1,7 @@
 {
   "scene": "Sita alone on her rock in the night grove, head bowed in grief",
   "tall": 1,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "rock-square",

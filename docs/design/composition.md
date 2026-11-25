@@ -30,7 +30,7 @@ action. The same opener can return when the story comes back to a place.
 ## Sky and distance
 
 - An outdoor panel can have a band of sky: panel field `sky` (a colour
-  name from `data/grounds.json`, e.g. `sky`) above the horizon. The
+  name from `data/grounds.json`, e.g. `blue-sky`) above the horizon. The
   horizon sits a little above a third of the way up (`horizon`, default
   0.37 of the panel height above the bottom edge). (05.10, 05.12)
 - Something far away stands on the horizon and is small: `depth: "horizon"`

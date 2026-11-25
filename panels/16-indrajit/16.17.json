@@ -1,7 +1,7 @@
 {
   "scene": "Close: Lakshman draws the last arrow",
   "tall": 0.6,
-  "ground": "night-blue",
+  "ground": "twilight",
   "figures": [
     {
       "character": "lakshman",

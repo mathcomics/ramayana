@@ -1,8 +1,8 @@
 {
   "scene": "On Lanka's ledge over the sea, rakshasas see the army coming: they point out to sea, alarmed (the monkeys off-panel)",
   "tall": 1,
-  "ground": "sea",
-  "sky": "white",
+  "ground": "summertime",
+  "sky": "sand",
   "figures": [
     {
       "id": "ledge",

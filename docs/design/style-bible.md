@@ -23,11 +23,10 @@ from its silhouette alone.
 
 ## 3. Surface
 
-- Grounds: flat paper colours (off-white, dusty pink, sky blue; geru
-  red-brown as an optional traditional theme; green, dry grass, dark
-  green, stone grey). Ground colour is a scene parameter. Every name is
-  in `data/grounds.json`; two too close to tell apart on a phone are one
-  too many (sage and forest were dropped for dry grass and dark green).
+- Grounds: the 12 colours of the summer palette (`data/grounds.json`:
+  sunshine, heat-wave, bloom, watermelon, grass, forest, ocean,
+  summertime, blue-sky, lake, twilight, sand), each shading slightly
+  darker. Ground colour is a scene parameter.
 - Sky: an outdoor panel may have a flat band of sky (`sky`, a saturated
   blue) above a straight horizon a little above a third of the way up.
   Things far away are small and stand on the horizon. Arranging panels:

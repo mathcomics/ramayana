@@ -1,7 +1,7 @@
 {
   "scene": "Ravana points from his throne; Indrajit, his son, bows before him, bow in hand",
   "tall": 1,
-  "ground": "stone-grey",
+  "ground": "sand",
   "figures": [
     {
       "prop": "throne-lanka",

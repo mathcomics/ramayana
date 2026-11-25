@@ -81,9 +81,9 @@ test('one list: later entries draw over earlier; legacy props/who/layer still re
 });
 
 test('sky: a colour above the horizon; depth "horizon" stands things on it', () => {
-  const r = renderPanel({ tall: 1, sky: 'sky', horizon: 0.25, figures: [{ prop: 'stag-run', depth: 'horizon' }] }, assets);
+  const r = renderPanel({ tall: 1, sky: 'blue-sky', horizon: 0.25, figures: [{ prop: 'stag-run', depth: 'horizon' }] }, assets);
   assert.match(r.svg, /<rect width="360" height="270" fill="url\(#panel-sky\)"\/>/);
-  assert.ok(r.svg.includes(`<stop offset="0" stop-color="${assets.grounds.grounds.sky[0]}"/>`), 'sky gradient from grounds.json');
+  assert.ok(r.svg.includes(`<stop offset="0" stop-color="${assets.grounds.grounds['blue-sky'][0]}"/>`), 'sky gradient from grounds.json');
   // a hex sky (or ground) is a flat fill; a hex ground draws no gradient
   const flat = renderPanel({ ground: '#123456', sky: '#abcdef' }, assets).svg;
   assert.match(flat, /<rect width="360" height="\d+(\.\d+)?" fill="#123456"\/><rect width="360" height="[\d.]+" fill="#abcdef"\/>/);

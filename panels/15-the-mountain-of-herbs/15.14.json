@@ -1,8 +1,8 @@
 {
   "scene": "The night flight: Hanuman flies back, the mountain on one palm, the sea far below and Lanka ahead",
   "tall": 1.5,
-  "ground": "night",
-  "sky": "night-blue",
+  "ground": "twilight",
+  "sky": "twilight",
   "horizon": 0.14,
   "figures": [
     {

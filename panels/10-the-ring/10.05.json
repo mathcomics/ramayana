@@ -1,7 +1,7 @@
 {
   "scene": "Hanuman clings to a tall palace wall, peering into its lit windows",
   "tall": 1.5,
-  "ground": "night-blue",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "city-side",

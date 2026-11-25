@@ -1,8 +1,8 @@
 {
   "scene": "The leap, close: Hanuman dives through the sky, the sea below",
   "tall": 1,
-  "ground": "sea",
-  "sky": "sky",
+  "ground": "summertime",
+  "sky": "blue-sky",
   "horizon": 0.25,
   "figures": [
     {

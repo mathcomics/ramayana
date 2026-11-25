@@ -1,7 +1,7 @@
 {
   "scene": "The monkeys leap and cheer, the healer among them",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "character": "monkey2",

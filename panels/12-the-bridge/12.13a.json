@@ -1,7 +1,7 @@
 {
   "scene": "Rama alone on the shore by night, palms raised to the sea, waiting",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "horizon": 0.55,
   "figures": [
     {
@@ -17,7 +17,7 @@
     },
     {
       "foreground": 0.1,
-      "color": "sea"
+      "color": "summertime"
     }
   ]
 }

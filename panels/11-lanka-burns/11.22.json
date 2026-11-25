@@ -1,7 +1,7 @@
 {
   "scene": "Over the roofs by night, tail aflame, the roofs catching behind him",
   "tall": 0.6,
-  "ground": "night-blue",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "city-gap",

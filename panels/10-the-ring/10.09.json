@@ -1,7 +1,7 @@
 {
   "scene": "Hanuman leans out from the end of a roof, hand at his brow, peering over the city",
   "tall": 0.6,
-  "ground": "night-blue",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "city-roof",

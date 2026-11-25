@@ -1,8 +1,8 @@
 {
   "scene": "Back at the hut: Lakshman and Rama search, each a different way",
   "tall": 0.6,
-  "ground": "green",
-  "sky": "sky",
+  "ground": "grass",
+  "sky": "blue-sky",
   "figures": [
     {
       "prop": "hut-side",

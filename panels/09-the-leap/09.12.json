@@ -1,7 +1,7 @@
 {
   "scene": "Hanuman stands on the summit over the sea; a monkey below points up at him",
   "tall": 1,
-  "ground": "sea",
+  "ground": "summertime",
   "figures": [
     {
       "character": "hanuman",
@@ -40,6 +40,6 @@
   "needs": [
     "prop: mountain"
   ],
-  "sky": "off-white",
+  "sky": "sand",
   "tags": ["mountain"]
 }

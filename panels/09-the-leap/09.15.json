@@ -1,8 +1,8 @@
 {
   "scene": "The leap: across the whole sky, the ocean far below",
   "tall": 1,
-  "ground": "sea",
-  "sky": "sky",
+  "ground": "summertime",
+  "sky": "blue-sky",
   "horizon": 0.25,
   "figures": [
     {

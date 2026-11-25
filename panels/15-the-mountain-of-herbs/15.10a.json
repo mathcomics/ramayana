@@ -1,7 +1,7 @@
 {
   "scene": "The old healer kneels at Lakshman's side, a hand on his chest",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "character": "hanuman",

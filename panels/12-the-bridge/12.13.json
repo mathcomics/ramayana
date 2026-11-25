@@ -1,7 +1,7 @@
 {
   "scene": "The Ocean rises from the waves before the drawn bow, palms raised",
   "tall": 0.6,
-  "ground": "white",
+  "ground": "sand",
   "horizon": 0.55,
   "figures": [
     {
@@ -17,7 +17,7 @@
     },
     {
       "foreground": 0.1,
-      "color": "sea"
+      "color": "summertime"
     }
   ],
   "needs": [

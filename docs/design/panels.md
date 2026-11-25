@@ -47,7 +47,7 @@ repeated inside the JSON.
 {
   "scene": "Kaikeyi points Rama away; the king slumps",
   "tall": 1.5,
-  "ground": "dusty-pink",
+  "ground": "bloom",
   "figures": [
     { "prop": "throne", "at": 0.88 },
     { "character": "dasharatha", "pose": "stand", "facing": "left", "at": 0.74,
@@ -65,8 +65,8 @@ repeated inside the JSON.
 |---|---|---|
 | `scene` | text | The scene line it draws, for reference only. |
 | `tall` | `1.5` · `1` · `0.6` | Height as a multiple of the width (360). Default 1.5. Anything else is an issue, and so is the old `size` field. |
-| `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`night`), or `{ "horizontal": [left, right] }` (`sky-blue`) — set there, never in the panel. |
-| `sky` | name from `data/grounds.json` (`sky`), or a hex | A colour above the horizon (outdoor panels). |
+| `ground` | name from `data/grounds.json`, or a hex | Background colour. A grounds.json entry may be `[top, bottom]`, a vertical gradient (`twilight`), or `{ "horizontal": [left, right] }` (`summertime`) — set there, never in the panel. |
+| `sky` | name from `data/grounds.json` (`blue-sky`), or a hex | A colour above the horizon (outdoor panels). |
 | `horizon` | 0–1 | Height of the horizon above the bottom edge, as a share of the panel. Default 0.37. Depth `horizon` stands things on it; every depth's ground line and size are built on it (Depth). |
 | `camera` | `top` | A top view: no perspective. A numeric `depth` is then the share of the panel height up the ground (0 the bottom, 1 the top) at front size — the height is the distance (`topview`). Named depths keep their sizes. Any other value is an issue. |
 | `mode` | `negative` | The dramatic beat: the background turns black and every figure and prop is a white silhouette (merged where they overlap). Ground, sky and foreground bands all go black. For a transformation (05.23, the ascetic becoming Ravana) and for the death of a major character (artist, 2026-11-15). Any other value is an issue. |
@@ -243,7 +243,7 @@ behind them, after = in front; the retired `layer` field is an issue).
 
 ### Foregrounds
 
-`{ "foreground": [0.11, 0.22], "color": "dark-green" }` — a band of ground,
+`{ "foreground": [0.11, 0.22], "color": "forest" }` — a band of ground,
 an entry of the same `figures` list, drawn from the panel's bottom edge
 up to a straight line. The two numbers are the line's height at the left
 and right edges, as shares of the panel height (one number: level). Its

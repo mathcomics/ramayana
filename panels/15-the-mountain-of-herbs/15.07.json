@@ -1,7 +1,7 @@
 {
   "scene": "Hanuman leaps north over the sea at dusk",
   "tall": 1,
-  "ground": "sea",
+  "ground": "summertime",
   "sky": "#ffa500",
   "horizon": 0.25,
   "figures": [

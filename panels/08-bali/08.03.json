@@ -1,7 +1,7 @@
 {
   "scene": "Sugriva on the steps shouts up at the palace; Bali comes out at its door",
   "tall": 1,
-  "sky": "white",
+  "sky": "sand",
   "figures": [
     {
       "prop": "palace-kishkindha",
@@ -30,7 +30,7 @@
         0.48,
         0.48
       ],
-      "color": "green"
+      "color": "grass"
     },
     {
       "prop": "steps",

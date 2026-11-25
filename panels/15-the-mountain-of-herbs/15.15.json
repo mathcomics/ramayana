@@ -1,7 +1,7 @@
 {
   "scene": "By night the healer holds the herb to Lakshman and Rama, who lie back; Hanuman watches",
   "tall": 1,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "id": "moon",

@@ -1,7 +1,7 @@
 {
   "scene": "Rama draws his bow",
   "tall": 0.6,
-  "ground": "mist",
+  "ground": "blue-sky",
   "figures": [
     {
       "character": "rama",

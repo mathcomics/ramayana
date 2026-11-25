@@ -1,13 +1,13 @@
 {
   "scene": "The army walks over the stone, Sugriva among them, the sea behind",
   "tall": 0.6,
-  "ground": "sea",
-  "sky": "sky",
+  "ground": "summertime",
+  "sky": "blue-sky",
   "horizon": 0.25,
   "figures": [
     {
       "foreground": -0.05,
-      "color": "stone-grey"
+      "color": "sand"
     },
     {
       "character": "monkey1",

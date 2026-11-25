@@ -1,7 +1,7 @@
 {
   "scene": "Ravana on his throne turns his head: a guard runs in from the grove, pointing back the way he came",
   "tall": 0.6,
-  "ground": "yellow",
+  "ground": "sunshine",
   "figures": [
     {
       "prop": "throne-lanka",

@@ -1,7 +1,7 @@
 {
   "scene": "Variation: the bonds burst; Hanuman lunges free, tail ablaze; the rakshasas fall back",
   "tall": 0.6,
-  "ground": "stone-grey",
+  "ground": "sand",
   "figures": [
     {
       "character": "raxas_m1",

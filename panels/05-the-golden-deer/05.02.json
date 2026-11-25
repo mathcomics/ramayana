@@ -1,8 +1,8 @@
 {
   "scene": "Lanka, closer: the golden palace on its island",
   "tall": 0.6,
-  "ground": "sea",
-  "sky": "white",
+  "ground": "summertime",
+  "sky": "sand",
   "figures": [
     {
       "prop": "lanka-island",

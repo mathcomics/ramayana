@@ -1,7 +1,7 @@
 {
   "scene": "Hanuman drops down among the golden arches of the palace",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "palace-lanka",
@@ -36,5 +36,5 @@
       "mouth": 1
     }
   ],
-  "sky": "night"
+  "sky": "twilight"
 }

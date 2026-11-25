@@ -8,7 +8,7 @@ import { json } from './helpers.mjs';
 
 const assets = loadAssets();
 const data = { bases: json('data/bases.json').bases, gestures: json('data/gestures.json').gestures };
-const say = (def) => describePanel('t', { tall: 1, ground: 'off-white', ...def }, assets, data);
+const say = (def) => describePanel('t', { tall: 1, ground: 'sand', ...def }, assets, data);
 const has = (lines, re) => lines.some((l) => re.test(l));
 
 test('every panel can be read back', () => {

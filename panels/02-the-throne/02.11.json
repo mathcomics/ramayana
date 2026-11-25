@@ -1,7 +1,7 @@
 {
   "scene": "Rama turns and walks away alone, head low",
   "tall": 0.6,
-  "ground": "light-grey",
+  "ground": "sand",
   "figures": [
     {
       "character": "rama",

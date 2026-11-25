@@ -1,7 +1,7 @@
 {
   "scene": "Repeat: a lotus pond: three full lotuses, three buds behind",
   "tall": 1,
-  "ground": "sky",
+  "ground": "blue-sky",
   "figures": [
     { "prop": "lotus-bud", "at": 0.28, "depth": "mid", "scale": 2.2, "repeat": { "n": 3, "gap": 0.3, "scale": [0.85, 0.75], "rotate": [-12, 10] } },
     { "prop": "lotus-full", "at": 0.58, "depth": "front", "scale": 1.8, "repeat": 3 }

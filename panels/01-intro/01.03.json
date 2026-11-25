@@ -1,7 +1,7 @@
 {
   "scene": "Dasharatha on his throne turns his head; a man strides past, pointing on ahead",
   "tall": 0.6,
-  "ground": "dusty-pink",
+  "ground": "bloom",
   "figures": [
     {
       "prop": "throne-ayodhya",

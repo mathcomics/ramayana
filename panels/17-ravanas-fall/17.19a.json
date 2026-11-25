@@ -1,8 +1,8 @@
 {
   "scene": "Variation, far: the white chariot small high in the sky on its cloud; Rama and the monkeys small on the plain below, looking up",
   "tall": 1,
-  "ground": "white",
-  "sky": "stone-grey",
+  "ground": "sand",
+  "sky": "sand",
   "horizon": 0.25,
   "figures": [
     {

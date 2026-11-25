@@ -1,7 +1,7 @@
 {
   "scene": "Two rakshasas climb over the giant's waist, one with a drum; his hand lies below",
   "tall": 0.6,
-  "ground": "light-grey",
+  "ground": "sand",
   "figures": [
     {
       "id": "player1",

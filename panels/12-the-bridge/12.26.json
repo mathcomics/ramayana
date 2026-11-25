@@ -1,8 +1,8 @@
 {
   "scene": "The line of stone runs out over the water toward Lanka on the horizon; a monkey with a weapon on each stone, smaller the farther the stone: the near one raises his sword, one turns back waving his club",
   "tall": 1,
-  "ground": "sea",
-  "sky": "mist",
+  "ground": "summertime",
+  "sky": "blue-sky",
   "horizon": 0.1,
   "figures": [
     {

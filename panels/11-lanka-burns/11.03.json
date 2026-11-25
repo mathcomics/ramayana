@@ -1,8 +1,8 @@
 {
   "scene": "He runs back into Lanka, toward the grove",
   "tall": 1,
-  "ground": "sea",
-  "sky": "white",
+  "ground": "summertime",
+  "sky": "sand",
   "figures": [
     {
       "id": "ledge",

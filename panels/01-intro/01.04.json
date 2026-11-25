@@ -1,7 +1,7 @@
 {
   "scene": "Rama and Sita ride in a chariot, Lakshman in a second just behind; a horn player and a drummer follow",
   "tall": 0.6,
-  "ground": "off-white",
+  "ground": "sand",
   "figures": [
     {
       "prop": "trumpet",

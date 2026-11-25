@@ -1,8 +1,8 @@
 {
   "scene": "Vibhishana flies alone across the sea, away from Lanka",
   "tall": 1,
-  "ground": "sea",
-  "sky": "sky",
+  "ground": "summertime",
+  "sky": "blue-sky",
   "horizon": 0.25,
   "figures": [
     {

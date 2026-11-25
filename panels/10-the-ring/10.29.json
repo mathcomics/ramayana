@@ -1,7 +1,7 @@
 {
   "scene": "By day, closer: Hanuman kneels and reaches up to Sita",
   "tall": 0.6,
-  "ground": "stone-grey",
+  "ground": "sand",
   "figures": [
     {
       "prop": "rock-square",

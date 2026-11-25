@@ -1,7 +1,7 @@
 {
   "scene": "Home in Ayodhya by night: Rama and Sita stand in the chariot; Lakshman and Hanuman ride in a second chariot just behind; a horn player and a drummer follow; a row of clay lamps burns along the ground in front",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "trumpet",

@@ -1,7 +1,7 @@
 {
   "scene": "The search: monkeys leap up out of the ferns under a hanging vine",
   "tall": 1.5,
-  "ground": "white",
+  "ground": "sand",
   "figures": [
     {
       "prop": "vine",

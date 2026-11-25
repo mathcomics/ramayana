@@ -1,7 +1,7 @@
 {
   "scene": "Hanuman leads Rama and Lakshman over the hill",
   "tall": 1,
-  "ground": "white",
+  "ground": "sand",
   "figures": [
     {
       "character": "lakshman",

@@ -1,8 +1,8 @@
 {
   "scene": "The same ledge: the monkeys arrive, leaping up out of the sea onto Lanka and running in",
   "tall": 1,
-  "ground": "sea",
-  "sky": "white",
+  "ground": "summertime",
+  "sky": "sand",
   "figures": [
     {
       "id": "ledge",

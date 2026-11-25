@@ -2,7 +2,7 @@
   "scene": "Variation: the foot, cut off at the leg, falls (negative)",
   "tall": 0.6,
   "mode": "negative",
-  "ground": "off-white",
+  "ground": "sand",
   "figures": [
     {
       "prop": "giant-feet",

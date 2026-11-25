@@ -1,8 +1,8 @@
 {
   "scene": "On the ledge Hanuman turns back toward the city, a thought rising: he will wreck it before he goes",
   "tall": 1,
-  "ground": "sea",
-  "sky": "stone-grey",
+  "ground": "summertime",
+  "sky": "sand",
   "figures": [
     {
       "id": "ledge",

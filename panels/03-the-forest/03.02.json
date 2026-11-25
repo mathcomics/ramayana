@@ -2,7 +2,7 @@
   "scene": "The three on a rising fold of ground: Sita bends to a drooping flower; Lakshman and Rama walk on ahead",
   "tags": ["travel"],
   "tall": 1,
-  "ground": "sky-blue",
+  "ground": "blue-sky",
   "figures": [
     {
       "character": "lakshman",
@@ -33,7 +33,7 @@
         0.11,
         0.22
       ],
-      "color": "green"
+      "color": "grass"
     },
     {
       "prop": "flower-droop",

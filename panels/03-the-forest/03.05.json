@@ -1,7 +1,7 @@
 {
   "scene": "Sita points at a stag and two does; Rama stands beside her, hand on hip",
   "tall": 1,
-  "ground": "white",
+  "ground": "sand",
   "figures": [
     {
       "prop": "stag-stand",

@@ -1,7 +1,7 @@
 {
   "scene": "Lakshman lowers his bow; the monkeys leap and tumble round him in joy under a clear sky",
   "tall": 1,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "character": "monkey1",

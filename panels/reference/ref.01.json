@@ -1,7 +1,7 @@
 {
   "scene": "Repeat: three rocks, the defaults (left 0.8 and turned -8°, right 0.9 and turned 6°); Hanuman stands on the middle one",
   "tall": 1,
-  "ground": "off-white",
+  "ground": "sand",
   "figures": [
     { "prop": "rock-circle", "at": 0.5, "depth": "front", "scale": 1.2, "repeat": 3 },
     { "character": "hanuman", "pose": "stand-point", "facing": "right", "on": "rock-circle#stand" }

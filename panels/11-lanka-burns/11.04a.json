@@ -1,7 +1,7 @@
 {
   "scene": "Havoc: Hanuman leaps up along the felled tree through the grove",
   "tall": 1,
-  "ground": "white",
+  "ground": "sand",
   "figures": [
     {
       "prop": "trees-side",

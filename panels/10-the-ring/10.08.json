@@ -1,7 +1,7 @@
 {
   "scene": "Hanuman scurries along a rooftop above a row of lit windows",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "city-roof",

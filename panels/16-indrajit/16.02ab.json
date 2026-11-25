@@ -1,7 +1,7 @@
 {
   "scene": "Vibhishana leads the way, pointing; Lakshman with his bow and the monkeys follow",
   "tall": 0.6,
-  "ground": "night",
+  "ground": "twilight",
   "figures": [
     {
       "character": "monkey2",

@@ -1,7 +1,7 @@
 {
   "scene": "Both brothers in mid-air, flying at each other",
   "tall": 1,
-  "sky": "off-white",
+  "sky": "sand",
   "horizon": 0.18,
   "figures": [
     {
@@ -9,7 +9,7 @@
         0.2,
         0.4
       ],
-      "color": "green"
+      "color": "grass"
     },
     {
       "character": "sugriva",

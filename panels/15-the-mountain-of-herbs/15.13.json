@@ -1,7 +1,7 @@
 {
   "scene": "Variation: the night flight against the moon, small and far",
   "tall": 1,
-  "ground": "night-blue",
+  "ground": "twilight",
   "figures": [
     {
       "prop": "rock-circle",

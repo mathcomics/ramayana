@@ -1,7 +1,7 @@
 {
   "scene": "Kaikeyi, close to the viewer, looks to the left",
   "tall": 0.6,
-  "ground": "light-grey",
+  "ground": "sand",
   "figures": [
     {
       "character": "kaikeyi",

@@ -1,7 +1,7 @@
 {
   "scene": "Through the trees: Rama and Lakshman run apart, each a different way",
   "tall": 1,
-  "ground": "dark-green",
+  "ground": "forest",
   "sky": "sand",
   "figures": [
     {
@@ -37,7 +37,7 @@
         0.12,
         0.12
       ],
-      "color": "dark-green"
+      "color": "forest"
     },
     {
       "prop": "tree-trunk",

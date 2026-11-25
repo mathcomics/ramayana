@@ -86,7 +86,7 @@ ready.forEach((c, i) => {
 // only for screen readers.
 const ICONS = JSON.parse(readFileSync(join(root, 'panels/icons.json'), 'utf8')).icons;
 const GROUNDS = assets.grounds.grounds;
-const NEUTRAL = new Set(['off-white', 'white']);
+const NEUTRAL = new Set(['sand']);
 const typicalGround = (sec) => {
   const n = {};
   for (const { def } of sec?.panels || []) { const g = def.ground || assets.grounds.default; n[g] = (n[g] || 0) + 1; }

@@ -1,7 +1,7 @@
 {
   "scene": "Ravana points; a guard reaches the flame on his spear to Hanuman's tail; Hanuman, bound, stands unafraid",
   "tall": 0.6,
-  "ground": "stone-grey",
+  "ground": "sand",
   "figures": [
     {
       "character": "ravana",
