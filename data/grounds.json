@@ -1,17 +1,17 @@
 {
-  "_doc": "Ground colours for panels (style bible §3): the artist's 12-colour summer palette (TRIAL, 2026-11-25, branch summer-grounds), and no others. A panel's \"ground\" is one of these names, or a hex; a panel's \"sky\" (above the horizon) and a foreground's \"color\" take the same names. A colour is a hex; [top, bottom], a vertical gradient; or { \"horizontal\": [left, right] }. Each is the swatch shading to 88% of it; sand and heat-wave go lighter instead (70% and 40% of the way to white); twilight is darker at the top, and by more (62%), so a horizon between two twilights shows. Until 2026-11-25 (renamed in the panels): off-white, light-grey, white, sand, stone-grey -> sand; sky, sky-blue, mist -> blue-sky; sea -> summertime; green, dry-grass -> grass; dark-green -> forest; dusty-pink, sunrise -> bloom; yellow -> sunshine; geru -> watermelon; night, night-blue -> twilight. heat-wave, ocean and lake are new.",
+  "_doc": "Ground colours for panels (style bible §3): the artist's 12-colour summer palette (TRIAL, 2026-11-25, branch summer-grounds), and no others. A panel's \"ground\" is one of these names, or a hex; a panel's \"sky\" (above the horizon) and a foreground's \"color\" take the same names. A colour is a hex; [top, bottom], a vertical gradient; or { \"horizontal\": [left, right] }. Each starts at the swatch. Lighter (40% of the way to white): sunshine, heat-wave, bloom, grass, summertime, blue-sky; sand 70%. Darker: watermelon and lake (70% of it), forest and ocean (88%). Twilight is darker at the top (62%), so a horizon between two twilights shows. Until 2026-11-25 (renamed in the panels): off-white, light-grey, white, sand, stone-grey -> sand; sky, sky-blue, mist -> blue-sky; sea -> summertime; green, dry-grass -> grass; dark-green -> forest; dusty-pink, sunrise -> bloom; yellow -> sunshine; geru -> watermelon; night, night-blue -> twilight. heat-wave, ocean and lake are new.",
   "default": "sand",
   "grounds": {
-    "sunshine": ["#f4d552", "#d7bb48"],
+    "sunshine": ["#f4d552", "#f8e697"],
     "heat-wave": ["#ed8838", "#f4b888"],
-    "bloom": ["#ffd6c2", "#e0bcab"],
-    "watermelon": { "horizontal": ["#d32d3d", "#ba2836"] },
-    "grass": ["#698e55", "#5c7d4b"],
+    "bloom": ["#ffd6c2", "#ffe6da"],
+    "watermelon": { "horizontal": ["#d32d3d", "#941f2b"] },
+    "grass": ["#698e55", "#a5bb99"],
     "forest": ["#3d5120", "#36471c"],
     "ocean": ["#b1ddcb", "#9cc2b3"],
-    "summertime": { "horizontal": ["#6ba6b4", "#5e929e"] },
-    "blue-sky": ["#acd8e4", "#97bec9"],
-    "lake": ["#507380", "#466571"],
+    "summertime": { "horizontal": ["#6ba6b4", "#a6cad2"] },
+    "blue-sky": ["#acd8e4", "#cde8ef"],
+    "lake": ["#507380", "#38505a"],
     "twilight": ["#0b232d", "#123849"],
     "sand": ["#c6c6b9", "#eeeeea"]
   }

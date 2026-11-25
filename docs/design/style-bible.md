@@ -25,8 +25,8 @@ from its silhouette alone.
 
 - Grounds: the 12 colours of the summer palette (`data/grounds.json`:
   sunshine, heat-wave, bloom, watermelon, grass, forest, ocean,
-  summertime, blue-sky, lake, twilight, sand), each shading slightly
-  darker (sand and heat-wave lighter). Ground colour is a scene parameter.
+  summertime, blue-sky, lake, twilight, sand), each a gradient
+  from the swatch, lighter or darker. Ground colour is a scene parameter.
 - Sky: an outdoor panel may have a flat band of sky (`sky`, a saturated
   blue) above a straight horizon a little above a third of the way up.
   Things far away are small and stand on the horizon. Arranging panels:
