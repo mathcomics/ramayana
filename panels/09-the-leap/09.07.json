@@ -22,7 +22,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "pass-swing",
+      "pose": "pass-flung",
       "facing": "left",
       "at": 0.2,
       "depth": "back",
@@ -30,7 +30,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "walk-swing",
+      "pose": "walk-handslow",
       "facing": "left",
       "at": 0.36,
       "depth": "back",

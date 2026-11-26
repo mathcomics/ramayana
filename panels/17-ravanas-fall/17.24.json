@@ -4,18 +4,22 @@
   "ground": "sand",
   "figures": [
     {
+      "prop": "arrow-stuck",
+      "facing": "right",
+      "on": "ravana#chest",
+      "rotate": 125,
+      "nudge": [
+        1,
+        -0.6
+      ]
+    },
+    {
       "character": "ravana",
       "pose": "liefront-armrest",
       "facing": "right",
       "at": 0.45,
       "depth": "mid",
       "rotate": 180
-    },
-    {
-      "prop": "arrow-stuck",
-      "facing": "right",
-      "on": "ravana#chest",
-      "rotate": 125
     },
     {
       "character": "rama",
@@ -35,7 +39,8 @@
       "depth": "mid",
       "adjust": {
         "spine.head": 25
-      }
+      },
+      "mouth": 1
     }
   ]
 }

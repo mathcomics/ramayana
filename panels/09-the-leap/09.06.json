@@ -22,7 +22,7 @@
     },
     {
       "character": "monkey1",
-      "pose": "pass-swing",
+      "pose": "pass-handslow",
       "facing": "right",
       "at": 0.5,
       "cloth": "red",

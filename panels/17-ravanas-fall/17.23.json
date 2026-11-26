@@ -14,7 +14,11 @@
       "prop": "arrow-stuck",
       "on": "ravana#chest",
       "facing": "right",
-      "rotate": -55
+      "rotate": -55,
+      "nudge": [
+        1,
+        -0.6
+      ]
     }
   ]
 }

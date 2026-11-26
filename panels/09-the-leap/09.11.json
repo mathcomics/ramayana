@@ -1,44 +1,61 @@
 {
-  "scene": "From above: the land runs out — monkeys at the water's edge, the sea below",
+  "scene": "The army stops at the water's edge: Rama and Lakshman, hands on hips, before the sea; Sugriva and the monkeys behind them",
   "tags": ["topview"],
-  "tall": 1.5,
-  "ground": "sunshine",
-  "camera": "top",
+  "tall": 0.6,
+  "ground": "lake",
   "figures": [
     {
-      "prop": "monkey-top",
       "character": "monkey1",
-      "at": 0.3,
-      "depth": 0.67,
-      "scale": 0.5
+      "pose": "step-armknee",
+      "at": 0.15,
+      "depth": 0.2,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
-      "prop": "monkey-top",
       "character": "monkey1",
-      "at": 0.4,
-      "depth": 0.7,
-      "scale": 0.5
+      "pose": "step-hang",
+      "at": 0.1,
+      "depth": 0.1,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     },
     {
-      "prop": "monkey-top",
-      "character": "monkey1",
-      "cloth": "red",
-      "at": 0.5,
-      "depth": 0.66,
-      "scale": 0.5
+      "foreground": [
+        0.2,
+        -0.4
+      ],
+      "color": "sand"
     },
     {
-      "prop": "monkey-top",
+      "character": "monkey1",
+      "pose": "step-swing",
+      "at": 0.05,
+      "depth": 0,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.3
+      ]
+    },
+    {
       "character": "hanuman",
-      "at": 0.8,
-      "depth": 0.4,
-      "scale": 0.5
-    },
-    {
-      "prop": "wave-top",
-      "at": 0.5,
-      "depth": "floor",
-      "scale": 0.5
+      "pose": "stand-akimbo",
+      "at": 0.4,
+      "depth": 0.08,
+      "on": "foreground",
+      "nudge": [
+        0,
+        -0.4
+      ]
     }
-  ]
+  ],
+  "horizon": 0.1,
+  "sky": "ocean"
 }

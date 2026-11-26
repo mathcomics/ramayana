@@ -1,0 +1,61 @@
+{
+  "scene": "Hanuman crouches on the near slope, ready; beyond, Lakshman searches the hills",
+  "tall": 1,
+  "ground": "sunshine",
+  "figures": [
+    {
+      "prop": "rock-square",
+      "color": "heat-wave",
+      "at": 0.5,
+      "depth": "closeup",
+      "nudge": [
+        0.1,
+        0.5
+      ],
+      "scale": 2.1,
+      "rotate": 150
+    },
+    {
+      "character": "monkey1",
+      "pose": "walk-search",
+      "facing": "right",
+      "scale": 0.5
+    },
+    {
+      "character": "monkey1",
+      "pose": "stepwide-swing",
+      "facing": "right",
+      "on": "rock#stand-left",
+      "nudge": [
+        4,
+        -1.5
+      ],
+      "scale": 0.2
+    },
+    {
+      "character": "monkey3",
+      "pose": "leanfront-handslow",
+      "facing": "right",
+      "on": "rock#stand-left",
+      "nudge": [
+        6,
+        -2.5
+      ],
+      "scale": 0.2
+    },
+    {
+      "id": "rock",
+      "prop": "rock-square",
+      "color": "sunshine",
+      "at": 0.4,
+      "depth": "closeup",
+      "nudge": [
+        0,
+        0
+      ],
+      "scale": 2,
+      "rotate": 110
+    }
+  ],
+  "tags": ["desert"]
+}
