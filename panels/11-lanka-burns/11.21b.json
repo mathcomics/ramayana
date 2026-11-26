@@ -1,0 +1,52 @@
+{
+  "scene": "Variation: the bonds burst; Hanuman lunges free, tail ablaze; the rakshasas fall back",
+  "tall": 0.6,
+  "ground": "heat-wave",
+  "figures": [
+    {
+      "character": "raxas_m1",
+      "pose": "stepback-armsup",
+      "facing": "left",
+      "at": 0.85,
+      "mouth": 1
+    },
+    {
+      "character": "hanuman",
+      "pose": "lunge-flung",
+      "facing": "left",
+      "at": 0.15,
+      "adjust": {
+        "spine.head": -20
+      }
+    },
+    {
+      "prop": "vine",
+      "at": 0.3,
+      "rotate": -70,
+      "nudge": [
+        0,
+        6.811
+      ]
+    },
+    {
+      "prop": "fire",
+      "on": "hanuman#tail",
+      "scale": 0.8,
+      "nudge": [
+        0.265,
+        -0.5
+      ]
+    },
+    {
+      "character": "raxas_m2",
+      "pose": "leanfront-reach",
+      "facing": "left",
+      "at": 0.55,
+      "mouth": 1,
+      "cloth": "red-stripe"
+    }
+  ],
+  "needs": [
+    "prop: rope-bind (Indrajit's arrow-ropes coiled round a body, arms pinned): placeholder for now"
+  ]
+}
