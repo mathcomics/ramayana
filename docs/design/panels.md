@@ -158,7 +158,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   name from `colors` in `data/characters.json`, a ground's name
   (`data/grounds.json`: its first colour only, never the gradient) or a
   hex — not a CSS name; a pattern suffix keeps the base colour. So one drawing serves many characters:
-  `{ "prop": "male-top", "character": "rama" }`. The rocks recolour
+  `{ "prop": "deer-stand", "color": "gold" }`. The rocks recolour
   too (`{ "prop": "rock-square", "color": "skin-dark-brown" }`). `color` or
   `cloth` where the drawing names no such role is flagged, and so is
   `body`, the retired name of `color` (drawn the same; converted on merge).
@@ -213,7 +213,7 @@ behind them, after = in front; the retired `layer` field is an issue).
 - Drawn so far: `palace-ayodhya`, `palace-lanka` (the golden rework,
   Lanka's palaces; also small on `lanka-island`'s `stand` anchor),
   `stag-stand`, `stag-run`, `stag-lie`, `deer-stand` (brown; the golden deer is `"color": "gold"`),
-  `hut-top`, `hut-side` (the same thatched hut at eye level), `trees-top`, `tree-top`, `trees-side` (a clump of three
+  `hut-top`, `hut-side` (the same thatched hut at eye level), `trees-top`, `trees-side` (a clump of three
   trees seen side on; `scale` ~2 at depth `back`), `tree-trunk` (a near
   trunk cut straight at both ends: on `closeup` it runs off the top and
   bottom edges, framing a panel — 06.19), `lanka-island` (the bare island —
@@ -240,8 +240,7 @@ behind them, after = in front; the retired `layer` field is an issue).
   share one skin in a panel; the placeholder `giant-fingers` in the
   locked 14.14 stays until the artist swaps it,
   the flowers `flower-droop`, `-white`, `-pink`, `-yellow`, `-orange`,
-  `lotus-bud`, `lotus-full`, `fire`, `vine`, and the top-view people
-  `male-top`, `male-top-back`, `female-top` (recolour, see above). How to
+  `lotus-bud`, `lotus-full`, `fire`, `vine`. How to
   arrange them: `docs/design/composition.md`.
 
 ### Foregrounds

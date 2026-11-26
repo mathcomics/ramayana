@@ -202,7 +202,7 @@ what looks wrong: `docs/issues/problem-poses.md`.
 
 ### Props
 
-Every `data/props/<id>.svg` is a prop (78; the chariot added 2026-11-21, usually in the bottom right corner, cut by the edges); there is no registry.
+Every `data/props/<id>.svg` is a prop (72; the top-view people, surf and single tree deleted 2026-11-26; the chariot added 2026-11-21, usually in the bottom right corner, cut by the edges); there is no registry.
 A prop id with no drawing renders as a fixed 2 × 2 head-unit labelled
 box. A prop can carry anchors a figure stands or sits on
 (`on: "<prop>#<anchor>"`) and can be recoloured per use (roles named on

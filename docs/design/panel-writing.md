@@ -46,8 +46,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   `mid`, `back` or a number between for distance; `closeup` for close (a
   standing figure from about the waist up). Anything in the air stands at
   the depth of the ground under it and is lifted with `nudge`; a top view
-  is `"camera": "top"` with numeric depths up the ground (`panels.md`,
-  Depth).
+  (the hut and trees only, never people) is `"camera": "top"` with
+  numeric depths up the ground (`panels.md`, Depth).
 - **Grounds are the 12 palette colours** (artist, 2026-11-25;
   `data/grounds.json`), no hex. They replace the old rule that
   backgrounds are light. A colour carries a place or a stretch of the
@@ -250,11 +250,8 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
 - **Whatever stands on something touches it** (artist, 2026-11-17,
   12.19–12.22): the commonest reason a panel of chapters 11–14 failed
   was not the idea but a thing beside, under or behind what it should be
-  on. From above, a monkey on a stone has the stone's `at` and a `depth`
-  just over the stone's, and the stone is bigger than the monkey
-  (`scale` 0.8); a line of stones runs on **off the far edge**, not to
-  a stop in mid-water; the surf (`wave-top`) breaks in a **gap between
-  two stones**, never under one (12.22). After rendering, check each
+  on. A line of stones runs on **off the far edge**, not to a stop in
+  mid-water (12.22). After rendering, check each
   `on` and each "stands on / holds / sits in" of the scene line against
   the picture.
 - **A carried rock needs raised arms** (12.20): on a pumping run
@@ -312,7 +309,10 @@ it). The language itself: `panels.md`; arranging: `composition.md`; poses:
   a tree, 0.6–0.8 in the air beside a flying figure.
 - **Colour clashes**: a gold crown vanishes against the gold throne back;
   check heads against what's behind them.
-- **Top views** are `"camera": "top"`, props placed with a numeric
+- **Top views are only for places** (artist, 2026-11-26): the hut and the
+  trees from above (`hut-top`, `trees-top`); people, crowds, the army at
+  the shore and the sea are side on (09.11 was redrawn that way). They are
+  `"camera": "top"`, props placed with a numeric
   `depth` (named depths mean little from above): the height on the
   ground is the distance, and nothing shrinks.
 - **Read back, then render and look**: `node tools/describe-panel.mjs NN

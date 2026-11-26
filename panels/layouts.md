@@ -44,7 +44,7 @@ tag goes in this table in the same commit as the review that adds it
 | `grapple` | two fighters locked | the two alone at the centre of an empty panel, side on, facing each other, chests together and arms over each other's shoulders, a long braced leg behind each, `mouth` 3 |
 | `chase` | one figure pursuing another | both facing the same way, the fleeing one ahead at the far edge, the chaser behind |
 | `horizon` | the action far off, on the horizon | sky over plain ground and nothing in between: the figures small at depth `horizon`. The horizon and the size do all the work |
-| `topview` | a crowd or place seen from above | no sky; `"camera": "top"`; top-view props (`monkey-top`, `male-top`) at numeric depths up the ground as distance, the leader nearest the bottom edge; water as `wave-top` at depth `floor` |
+| `topview` | the forest hut from above (the only top view) | no sky, no figures; `"camera": "top"`; `hut-top` small in the middle, `trees-top` clumps in two opposite corners, at numeric depths up the ground (03.07, 05.09, 06.14) |
 | `mountain` | a figure on a summit | a tall panel; a big rock (`rock-square` at scale 2) at depth `closeup` fills the lower half, cut by the edges, the figure small on its top against the sky |
 | `fly` | a figure flying across a great space | sky over `summertime` with a low `horizon`; the figure tiny, high in the panel, in a diving pose — the empty space is the subject |
 | `celebration` | the victors rejoicing around the hero | the hero big and still at the centre, standing side on, his weapon lowered; the monkeys smaller (a further depth, `0.5`), leaping around him on both sides at different heights (`nudge`, `rotate`), faces to the reader, `mouth` 3 |

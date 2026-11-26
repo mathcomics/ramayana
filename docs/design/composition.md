@@ -74,13 +74,9 @@ action. The same opener can return when the story comes back to a place.
   its trunk); the panel is `"camera": "top"` and they are placed with a
   numeric `depth`, the height up the ground (the named depths mean little
   from above).
-- People from above: `male-top` (the artist's standing man — head,
-  shoulders, arms, feet), `male-top-back` (the same man seen from
-  behind, facing away) and `female-top` (the woman, her hair showing).
-  One drawing serves everyone: recolour an
-  instance with `character` (a character id) or `color` / `cloth`
-  (docs/design/panels.md, Recolouring). Held things (bow, begging bowl)
-  will be separate top-view props placed beside it — not drawn yet.
+- Only places are seen from above: the hut and the trees (`hut-top`,
+  `trees-top`). People, crowds and water are never drawn from above
+  (artist, 2026-11-26); the people and surf top-view props were deleted.
 
 ## Kishkindha and rocks
 

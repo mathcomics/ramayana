@@ -36,7 +36,7 @@ wrong: `docs/issues/problem-poses.md`.
   point (its circle is just a marker); a part anchor is drawn to size,
   the circle's diameter being the head height (100 px = 1 head-unit, so
   `r="50"` is a full-size head). A prop that should
-  recolour per use (e.g. `male-top`) names its role colours on its root
+  recolour per use (e.g. `deer-stand`) names its role colours on its root
   element: `<svg data-recolor-body="#…" data-recolor-cloth="#…" …>`
   (each must be a fill in the drawing — `npm test`). A prop id with no
   drawing is a fixed-size placeholder box; there is no prop registry.
