@@ -1243,6 +1243,39 @@
         "strike"
       ]
     },
+    "lean": {
+      "chest": -18,
+      "desc": "leans back, chin up: the near forearm raised, the far hand low — at ease, proud",
+      "head": -25,
+      "hold": [
+        "right",
+        "left"
+      ],
+      "lean": 4.4,
+      "left": {
+        "elbow": 27,
+        "elbowOut": -7.3,
+        "hand": "out",
+        "out": 11.3,
+        "shoulder": -6.9,
+        "twist": 0,
+        "wrist": 2
+      },
+      "mouth": 1,
+      "neck": 43.2,
+      "right": {
+        "elbow": 132,
+        "elbowOut": -16.8,
+        "hand": "in",
+        "out": 13.8,
+        "shoulder": 12.5,
+        "twist": 0,
+        "wrist": -28.9
+      },
+      "use": [
+        "proud"
+      ]
+    },
     "longpoint": {
       "desc": "both arms straight forward, the sword level at the opponent (longsword guard: Langort)",
       "hold": [
