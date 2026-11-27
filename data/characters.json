@@ -1,17 +1,19 @@
 {
   "_doc": "Characters inherit a species and fix body colour (a name from colors below; it must match the skin in the character's drawn face), outfit (top: bare|full, bottom: briefs|dhoti) and cloth colour (a name from colors below, optionally with a pattern for rakshasas: red-check, red-diamond, red-stripe). Ids ending in a number (monkey1, raxas_m1) are generic types for unnamed figures. Defining features (necklaces, crowns, buns...) come later. scale (optional, default 1): body scale, torso and legs only (head, neck and arms keep their size); e.g. 0.8 for a small generic monkey. eyes (optional): eye colour (a name from colors or a hex), painting the base face's eyes; a character with eyes draws none of its own. sideOnly (optional): the character is only ever drawn in side view — its face file has a side drawing only (the front layer is ignored), there is no head-turn data, and a panel asking for the front view gets the side view. weapon (optional): the held kind (data/held.json: club, club-spike, sword-broad …) this character holds in a pose whose gesture holds a plain sword; a panel adjust (\"right.arm.prop.kind\") still overrides it.",
   "colors": {
-    "orange": "#f5b56e",
+    "orange": "#eda85f",
     "yellow": "#f0d23a",
     "red": "#d21d20",
     "skin-brown": "#c87137",
     "skin-deep-brown": "#9f582a",
+    "skin-mid-brown": "#b46530",
     "skin-red": "#c8504a",
     "skin-dark-brown": "#5a2a12",
     "skin-dark-red": "#7c1d1d",
     "skin-rama": "#916f6f",
     "stone": "#ac9393",
     "gold": "#ffd42a",
+    "light-grey": "#c9c6c2",
     "eye-white": "#e3dedb"
   },
   "characters": [
@@ -37,7 +39,7 @@
       "id": "lakshman",
       "name": "Lakshman",
       "species": "male",
-      "body": "skin-brown",
+      "body": "skin-mid-brown",
       "top": "bare",
       "bottom": "dhoti",
       "cloth": "orange"
@@ -248,7 +250,7 @@
       "body": "skin-brown",
       "top": "bare",
       "bottom": "dhoti",
-      "cloth": "yellow"
+      "cloth": "light-grey"
     },
     {
       "id": "male2",
@@ -257,7 +259,7 @@
       "body": "skin-deep-brown",
       "top": "bare",
       "bottom": "dhoti",
-      "cloth": "orange"
+      "cloth": "light-grey"
     }
   ]
 }

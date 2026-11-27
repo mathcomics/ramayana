@@ -161,13 +161,13 @@ the pose.
 - **One named colour list** (`colors` in `data/characters.json`) for
   skin, cloth and props alike, named by how the colour looks, not who
   wears it, so a skin is shared across humans, rakshasas and monkeys:
-  `skin-brown`, `skin-deep-brown`, `skin-red`, `skin-dark-brown`,
+  `skin-brown`, `skin-mid-brown` (Lakshman), `skin-deep-brown`, `skin-red`, `skin-dark-brown`,
   `skin-dark-red`;
   `skin-rama` is Rama's alone. Grounds are a separate list
   (`data/grounds.json`).
 - Body colour: a name from that list per character; it also paints the
   skin of the base face.
-- Cloth colours: orange (light, #f5b56e; was white until 2026-11-10), yellow, red (saturated, #d21d20).
+- Cloth colours: orange (light, #eda85f; #f5b56e until 2026-11-27, white until 2026-11-10), light-grey (#c9c6c2: the generic men male1, male2), yellow, red (saturated, #d21d20).
 - Prop colours: `stone` (the rocks), `gold` (the golden deer).
 - **Cloth patterns** (for rakshasas only): a cloth name can add a pattern
   to the colour: `red-check`, `red-diamond`, `red-stripe` (any colour
