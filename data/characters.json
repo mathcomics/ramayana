@@ -42,7 +42,8 @@
       "body": "skin-mid-brown",
       "top": "bare",
       "bottom": "dhoti",
-      "cloth": "orange"
+      "cloth": "orange",
+      "scale": 0.9
     },
     {
       "id": "dasharatha",
