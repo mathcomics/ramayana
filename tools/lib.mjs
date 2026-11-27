@@ -76,6 +76,9 @@ export function loadProps() {
     // Recolouring roles on the root element: data-recolor-body="#a05a2c",
     // data-recolor-cloth="#c8ab37" name the drawing's colours a use may swap.
     for (const [, role, c] of svgTag.matchAll(/\bdata-recolor-(\w+)="([^"]+)"/g)) (def.recolor ??= {})[role] = c;
+    // data-cut on the root: a cutter, not drawn — its shape cuts a hole in
+    // the prop it is "on" (break: a wall broken through).
+    if (/\bdata-cut\b/.test(svgTag)) def.cut = true;
     // A group id="anchors" holds named points (circles), e.g. seat; not drawn.
     // [x, y, d]: d is the circle's diameter in head-units. An anchor that
     // places a whole figure (seat, stand) is a point and ignores d — its

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- A break: a jagged hole, the artist's drawing. data-cut on the root
+     makes it a cutter: it is not drawn, its shape cuts a hole in the prop
+     it is "on" (centred on that prop's middle, or on a named anchor:
+     "on": "city-side" or "city-side#<anchor>"), so whatever is drawn
+     before that prop shows through. Sized like any prop ("scale"), moved
+     with "nudge", turned with "rotate". The fill colour only marks the
+     shape. 100 px = 1 head-unit. -->
+
+<svg
+   data-cut="true"
+   viewBox="0 0 207.78111 203.7052"
+   width="207.78111"
+   height="203.7052"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="break.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0471334"
+     inkscape:cx="185.86967"
+     inkscape:cy="86.706611"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="3829"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4" />
+  <g
+     transform="matrix(6.501951,0,0,6.501951,309.85291,-405.22203)"
+     id="g4">
+    <path
+       sodipodi:type="star"
+       style="fill:#ffe680;stroke:none;stroke-width:0.6152"
+       id="path351"
+       inkscape:flatsided="false"
+       sodipodi:sides="7"
+       sodipodi:cx="-339.49911"
+       sodipodi:cy="176.34415"
+       sodipodi:r1="104.59233"
+       sodipodi:r2="52.296165"
+       sodipodi:arg1="0.67619973"
+       sodipodi:arg2="1.1249987"
+       inkscape:rounded="0"
+       inkscape:randomized="0.2"
+       d="m -246.03178,244.46941 -65.69702,-19.90932 -17.68811,58.22928 -41.1184,-49.66803 -54.74079,18.14679 30.57882,-75.81513 -58.91377,-37.08108 72.81489,-1.36174 15.42004,-57.926011 38.81129,53.808521 34.71075,-39.139694 8.96978,62.417884 37.05437,-21.10751 -50.14479,64.07411 z"
+       transform="matrix(0.15379999,0,0,0.15379999,22.11,50.16)" />
+  </g>
+  <g
+     id="anchors"
+     transform="translate(7.6886821,-12.057061)">
+    <circle
+       id="face"
+       cx="113.44"
+       cy="111"
+       r="40"
+       fill="none" />
+  </g>
+</svg>

@@ -102,6 +102,7 @@ function shapesOf(L) {
     return shapes.map((s) => ({ part: s.headPart ? 'head' : s.part, role: s.role, pts: s.pts.map(L.toPanel) }));
   }
   if (L.kind === 'prop') {
+    if (L.def?.cut) return [];          // a cutter draws nothing: a hole in another prop
     const o = propOutline(L.def);
     const [w, h] = L.size;
     const local = L.def ? o || [] : [[[0, 0], [w, 0], [w, h], [0, h]]];   // a placeholder is its box
@@ -176,7 +177,7 @@ export function describePanel(id, def, assets, data) {
       continue;
     }
     const b = l.box;
-    const where = `x ${shareX(b.x0)}–${shareX(b.x1)}, y ${shareY(b.y1)}–${shareY(b.y0)}`;
+    const where = l.cuts ? 'a hole' : `x ${shareX(b.x0)}–${shareX(b.x1)}, y ${shareY(b.y1)}–${shareY(b.y0)}`;
     const dep = e.depth ?? e.row ?? 'front';
     const place = e.on ? `on ${e.on}${e.depth != null ? `, depth ${e.depth}` : ''}` : `depth ${dep}`;
     const extra = [e.scale != null && `scale ${e.scale}`, l.rot && `rotate ${l.rot}`, e.nudge != null && `nudge ${JSON.stringify(e.nudge)}`].filter(Boolean).join(', ');
@@ -185,7 +186,8 @@ export function describePanel(id, def, assets, data) {
       const [w, h] = l.size;
       lines.push(`  ${l.k + 1} ${l.label}${l.label !== e.prop ? ` (${e.prop})` : ''} · prop ${f1(w * (e.scale ?? 1))}×${f1(h * (e.scale ?? 1))} hu${l.def ? '' : ', placeholder box'}${e.facing === 'left' ? ', mirrored' : ''} · ${where} · ${place}${extra ? ' · ' + extra : ''}${l.copy ? ' · repeat copy' : ''}`);
       const cut = edgesCut(b);
-      if (!Number.isFinite(b.x0)) {}   // draws nothing (head-alone: only its anchor)
+      if (l.cuts) notes.push(`· a hole in ${l.cuts}: not drawn, what is behind ${l.cuts} shows through`);
+      else if (!Number.isFinite(b.x0)) {}   // draws nothing (head-alone: only its anchor)
       else if (out(b)) notes.push('! outside the panel: not drawn');
       else if (cut.length) notes.push(`· cut by the ${cut.join(', ')} edge${cut.length > 1 ? 's' : ''}`);
       if (!e.on && dep !== 'top' && dep !== 'floor' && dep !== 'closeup' && !l.rot && !out(b)) {

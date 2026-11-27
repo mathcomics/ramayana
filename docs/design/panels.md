@@ -176,6 +176,16 @@ behind them, after = in front; the retired `layer` field is an issue).
   its own `scale` (`palace-lanka` at 4 on `"lanka-island#stand"`), or its own `feet` anchor
   when it has one: a creature whose wing or tail pulls its box off its
   feet (`vulture-stand`, `vulture-lookback` on `"rock-circle#stand"`).
+- **A cutter** (`data-cut` on the drawing's root: `break`) is not drawn:
+  its shape cuts a hole in the prop it is `on`, so whatever is drawn
+  before that prop shows through — a wall broken through
+  (`{ "prop": "break", "on": "city-side", "scale": 2.5, "nudge": [0.5, 0], "rotate": 20 }`,
+  with the figure listed before `city-side`). Centred on the prop's
+  middle, or on an anchor when one is named (`"city-side#<anchor>"`); sized
+  at the prop's depth × its own `scale`, moved by `nudge`, turned about its
+  centre by `rotate`. Several cutters on one prop all cut it. It needs a
+  prop, not a figure. The read-back still counts the cut prop as whole when
+  it checks covered faces.
 - **Naming an anchor**: after *what of the figure lands on it*, never
   after where it sits in the drawing — `seat` (hips), `stand` (feet),
   `hand` (the figure hangs from it by one hand: its higher hand, or the

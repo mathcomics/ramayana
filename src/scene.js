@@ -512,6 +512,26 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
       return placeOn(o, e, carrier, ...figPoint(carrier, pt), aname.startsWith('hand') ? 'carry-hand' : 'carry');
     }
     const t = props.find((x) => x !== o && x.name === tname);
+    // a cutter (a drawing marked data-cut: break) is not drawn: its shape cuts
+    // a hole in the prop it is on, so what is drawn before that prop shows
+    // through. Centred on the named anchor, else on the prop's middle; at the
+    // prop's depth and its own scale, then nudged and turned about its centre
+    if (o.def?.cut) {
+      if (!t) { issues.push(`${o.name}: a cutter ("${o.p.prop}") goes "on" a prop in the panel ("${e.on}")`); o.p = { ...o.p, on: undefined }; return; }
+      const named = String(e.on).includes('#'), a = named ? t.def?.anchors?.[aname] : null;
+      if (named && !a) { issues.push(`${o.name}: "on" needs a prop with a "${aname}" anchor in the panel ("${e.on}")`); o.p = { ...o.p, on: undefined }; return; }
+      if (t.x == null) return;
+      const cx = a ? t.x + t.facing * (a[0] * t.unit - t.halfW) : t.x, cy = a ? t.groundY - t.h + a[1] * t.unit : t.groundY - t.h / 2;
+      o.rowUnit = t.rowUnit;
+      o.unit = o.rowUnit * (e.scale ?? 1);
+      [o.w, o.h] = o.def.size.map((v) => v * o.unit);
+      o.halfW = o.w / 2;
+      o.x = cx + o.dx * o.unit;
+      o.groundY = cy - o.dy * o.unit + o.h / 2;
+      o.pivot = [o.x, o.groundY - o.h / 2];
+      o.cuts = t;
+      return;
+    }
     const seat = t?.def?.anchors?.[aname];
     if (!seat) { issues.push(`${o.name}: "on" needs a prop with a "${aname}" anchor in the panel ("${e.on}")`); if (o.f) o.f = { ...o.f, on: undefined }; else o.p = { ...o.p, on: undefined }; return; }
     if (t.x == null) return;
@@ -652,11 +672,24 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
   const neg = `${pre}-negative`;
   if (negative) s += `<defs><filter id="${neg}" x="0" y="0" width="${W}" height="${H}" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">` +
     `<feFlood flood-color="#fff"/><feComposite in2="SourceAlpha" operator="in"/></filter></defs>`;
+  // cutters: each prop's holes, drawn black into a mask over the whole panel
+  const cutters = new Map();
+  for (const o of all) if (o.cuts && o.x != null) cutters.set(o.cuts, [...(cutters.get(o.cuts) || []), o]);
+  if (cutters.size) s += `<defs><filter id="${pre}-cut" x="0" y="0" width="${W}" height="${H}" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">` +
+    `<feFlood flood-color="#000"/><feComposite in2="SourceAlpha" operator="in"/></filter></defs>`;
+  const withHoles = (o, k, g) => {
+    const cs = cutters.get(o);
+    if (!cs) return g;
+    const mid = `${pre}-holes${k}`;
+    return `<mask id="${mid}" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#fff"/>` +
+      `<g filter="url(#${pre}-cut)">${cs.map(drawProp).join('')}</g></mask><g mask="url(#${mid})">${g}</g>`;
+  };
   let body = '';
   const flush = () => { s += negative && body ? `<g filter="url(#${neg})">${body}</g>` : body; body = ''; };
   all.forEach((o, k) => {
     if (o.b) { flush(); s += negative ? `<path d="M0 ${H}L0 ${+lineY(o, 0).toFixed(2)}L${W} ${+lineY(o, W).toFixed(2)}L${W} ${H}Z" fill="#000"/>` : drawBand(o, k); return; }
-    body += o.p ? drawProp(o)
+    if (o.def?.cut) return;                     // a hole, drawn into its prop's mask
+    body += o.p ? withHoles(o, k, drawProp(o))
       : turn(o, renderFigure(o.S, o.pose, { ...o.look, x: o.x, y: o.groundY, scale: o.unit, facing: o.facing,
         view: o.view, headOnly: o.headOnly, headless: o.f?.show === 'without-head', built: o.built, id: `${pre}-f${o.fi}` }).svg);
   });
@@ -696,7 +729,7 @@ export function renderPanel(panel, assets, { id = 'panel' } = {}) {
       const p = [(o.facing < 0 ? o.x + o.halfW : o.x - o.halfW) + o.facing * o.unit * q[0], o.groundY - o.h + o.unit * q[1]];
       return o.rot ? rotate(p, o.pivot) : p;
     };
-    return { ...base, kind: 'prop', prop: e.prop, def: o.def, size: o.def?.size || PLACEHOLDER, toPanel };
+    return { ...base, kind: 'prop', prop: e.prop, def: o.def, cuts: o.cuts?.name, size: o.def?.size || PLACEHOLDER, toPanel };
   }
 }
 
