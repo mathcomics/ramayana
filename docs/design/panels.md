@@ -312,6 +312,18 @@ looks the same in a panel of any height.
 | `horizon` | on the horizon line | far away: 16 px per head-unit in a 1.5 panel (true perspective would shrink it to nothing) |
 | negative | below the bottom edge | bigger than `front`: nearer than the frame, cropped |
 
+![A standing man's feet and head in the panel against depth, tall 1](depth-chart-1.svg)
+
+The chart (`node tools/depth-chart.mjs`, from the constants in
+`src/scene.js`) plots a standing man's feet and head against `t`, with
+the named depths on it. The shares are the same at every `tall`
+(`horizon`'s size too: it scales with the panel); the pixels differ, and
+each height has its chart: [tall 0.6](depth-chart-0.6.svg),
+[tall 1](depth-chart-1.svg), [tall 1.5](depth-chart-1.5.svg).
+`closeup` is not on the lines: a man that big at a depth (`t` = −1.33)
+would have his feet at −49 % and his head off the top; the closeup camera
+drops the feet a whole panel instead (−100 %) and keeps the head at 75 %.
+
 One-point perspective with the horizon as eye level: at depth `t` the
 ground line is at `t × horizon` and a man's head at
 `0.75 − t × (0.75 − horizon)`, so feet and heads converge on the horizon,
